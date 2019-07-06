@@ -1,0 +1,3 @@
+ReWriteEngine On
+
+RewriteRule ^Home /index.html
