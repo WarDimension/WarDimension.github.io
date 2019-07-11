@@ -1,3 +1,6 @@
+*{
+  font-family:Sans-serif;
+}
 body{
   margin: 0;
 }
@@ -9,6 +12,17 @@ body{
 }
 .wd-logo{
   width: 15%;
+}
+.menu-container{
+  position: absolute;
+  top: 10px;
+  right: 20px;
+}
+.menu-button{
+  color: #fff;
+  text-decoration: none;
+  padding: 10px;
+  cursor: pointer;
 }
 .content{
   margin: 7% 6%;
