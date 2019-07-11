@@ -26,11 +26,11 @@ body{
   height: 100%;
 }
 @media only screen and (max-width: 700px) {
-  /*.content{
+  .content{
     padding: 100px 0px;
     margin: 0px 20px;
   }
-  .content iframe, .content object, .content embed{
+  /*.content iframe, .content object, .content embed{
     width: 100%;
   }*/
 }
