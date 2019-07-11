@@ -5,6 +5,7 @@ body{
   background: #000;
   width: 100%;
   padding: 10px;
+  box-sizing: border-box;
 }
 .wd-logo{
   height: 60px;
