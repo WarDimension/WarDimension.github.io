@@ -11,11 +11,11 @@ body{
   height: 75px;
 }
 .content{
-  padding: 70px;
+  padding: 100px 70px;
 }
 @media only screen and (max-width: 700px) {
   .content{
-    padding: 0;
+    padding: 100px 0px;
   }
   .videos{
     width="95%";
