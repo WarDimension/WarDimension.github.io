@@ -54,7 +54,8 @@ body{
   }
   .menu-container{
     position: static;
-    margin: auto;
+    margin-top: 20px;
+    padding: 0 100%;
   }
   .menu-button{
     color: #000;
