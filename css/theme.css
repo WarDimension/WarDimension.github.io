@@ -1,5 +1,6 @@
 *{
   font-family:Sans-serif;
+  box-sizing: border-box;
 }
 body{
   margin: 0;
@@ -8,7 +9,6 @@ body{
   background: #000;
   width: 100%;
   padding: 10px 25px;
-  box-sizing: border-box;
 }
 .wd-logo{
   width: 200px;
