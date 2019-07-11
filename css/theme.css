@@ -26,7 +26,7 @@ body{
   padding: 10px 20px;
   cursor: pointer;
 }
-.menu-button:hover{
+.menu-button:hover, .active{
   background: #fff;
   color: #000;
 }
