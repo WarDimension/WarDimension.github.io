@@ -30,6 +30,7 @@ body{
     margin: 100px 20px;
   }
   .embed-container{
+    padding-bottom: 56.25%;
     max-width: 100%;
   }
 }
