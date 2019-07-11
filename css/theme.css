@@ -24,6 +24,5 @@ body{
   }
   .content iframe, .content object, .content embed{
     width: 100%;
-    height: 100%;
   }
 }
