@@ -21,8 +21,12 @@ body{
 .menu-button{
   color: #fff;
   text-decoration: none;
-  padding: 20px;
+  padding: 10px 20px;
   cursor: pointer;
+}
+.menu-button:hover{
+  background: #fff;
+  color: #000;
 }
 .content{
   margin: 7% 6%;
