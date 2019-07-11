@@ -1,5 +1,4 @@
 body{
   background: url("/images/666.gif");
-  /*background-repeat: no-repeat;
-  background-position: 90% 65%;*/
+  background-size: 100%;
 }
