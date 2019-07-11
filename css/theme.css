@@ -14,7 +14,7 @@ body{
   width: 15%;
 }
 .menu-container{
-  position: relative;
+  position: absolute;
   top: 8%;
   right: 5%;
 }
@@ -25,6 +25,7 @@ body{
   cursor: pointer;
 }
 .menu-button:hover{
+  font-size: 4%;
   background: #fff;
   color: #000;
 }
