@@ -11,7 +11,7 @@ body{
   width: 15%;
 }
 .content{
-  margin: 10% 70px;
+  margin: 5% 70px;
 }
 .embed-container{
   position: relative;
@@ -34,7 +34,7 @@ body{
     width: 100%;
   }
   .content{
-    margin: 5% 20px;
+    margin: 10% 20px;
   }
   .embed-container{
     padding-bottom: 56.25%;
