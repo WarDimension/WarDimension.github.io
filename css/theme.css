@@ -15,7 +15,6 @@ body{
 }
 .menu-container{
   position: absolute;
-  align: right;
   top: 50px;
   right: 25px;
 }
@@ -52,6 +51,17 @@ body{
   }
   .wd-logo{
     width: 100%;
+  }
+  .menu-container{
+    position: static;
+    margin: 20px auto;
+  }
+  .menu-button{
+    color: #000;
+  }
+  .menu-button:hover, .active{
+    background: #666;
+    color: #000;
   }
   .content{
     margin: 10% 20px;
