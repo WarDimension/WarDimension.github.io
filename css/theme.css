@@ -15,13 +15,14 @@ body{
 }
 .menu-container{
   position: absolute;
+  width: 8%;
   top: 8%;
   right: 5%;
 }
 .menu-button{
   color: #fff;
   text-decoration: none;
-  padding: 2% 4%;
+  padding: 10px 20px;
   cursor: pointer;
 }
 .menu-button:hover{
