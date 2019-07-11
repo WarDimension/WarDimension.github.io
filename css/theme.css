@@ -13,3 +13,11 @@ body{
 .content{
   padding: 70px;
 }
+@media only screen and (max-width: 700px) {
+  .content{
+    padding: 0;
+  }
+  .videos{
+    width="95%";
+  }
+}
