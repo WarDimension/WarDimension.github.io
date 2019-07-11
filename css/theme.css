@@ -7,7 +7,7 @@ body{
 .header{
   background: #000;
   width: 100%;
-  padding: 2% 5%;
+  padding: 2% 4%;
   box-sizing: border-box;
 }
 .wd-logo{
@@ -25,7 +25,6 @@ body{
   cursor: pointer;
 }
 .menu-button:hover{
-  font-size: 4%;
   background: #fff;
   color: #000;
 }
