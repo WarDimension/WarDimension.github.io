@@ -13,7 +13,7 @@ body{
 .content{
   padding: 100px 70px;
 }
-.videos{
+.content iframe, .content object, .content embed{
   width: 560px;
   height: 315px;
 }
