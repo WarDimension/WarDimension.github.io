@@ -17,7 +17,7 @@ body{
   .content{
     padding: 100px 0px;
   }
-  .videos{
+  iframe.videos{
     width="95%";
   }
 }
