@@ -4,4 +4,5 @@ body{
 .666{
   background: url("/images/666.png");
   background-size: 150%;
+  color: #000;
 }
