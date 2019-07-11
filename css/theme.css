@@ -53,9 +53,10 @@ body{
     width: 100%;
   }
   .menu-container{
-    position: static;
     margin-top: 20px;
-    padding: 0 100%;
+    position: relative;
+    left: 50%;
+    right: 50%;
   }
   .menu-button{
     color: #000;
