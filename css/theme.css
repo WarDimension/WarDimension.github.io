@@ -26,6 +26,10 @@ body{
   height: 100%;
 }
 @media only screen and (max-width: 700px) {
+  .header{
+    padding: 10px 10%;
+    box-sizing: border-box;
+  }
   .wd-logo{
     width: 100%;
   }
