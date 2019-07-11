@@ -11,13 +11,13 @@ body{
   height: 75px;
 }
 .content{
-  padding: 100px 70px;
+  margin: 100px 70px;
 }
 .embed-container{
   position: relative;
   padding-bottom: 56.25%;
   height: 0; overflow: hidden;
-  max-width: 100%;
+  max-width: 20%;
 }
 .embed-container iframe, .embed-container object, .embed-container embed{
   position: absolute;
@@ -27,10 +27,9 @@ body{
 }
 @media only screen and (max-width: 700px) {
   .content{
-    padding: 100px 0px;
-    margin: 0px 20px;
+    margin: 100px 20px;
   }
-  /*.content iframe, .content object, .content embed{
-    width: 100%;
-  }*/
+  .embed-container{
+    max-width: 100%;
+  }
 }
