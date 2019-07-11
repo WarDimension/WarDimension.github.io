@@ -15,6 +15,7 @@ body{
 }
 .menu-container{
   position: absolute;
+  align: right;
   width: 8%;
   top: 8%;
   right: 5%;
