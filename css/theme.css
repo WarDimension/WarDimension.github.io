@@ -60,7 +60,7 @@ body{
     color: #000;
   }
   .menu-button:hover, .active{
-    background: #666;
+    background: #eeeeee;
     color: #000;
   }
   .content{
