@@ -102,10 +102,6 @@ h3{
   .menu-button{
     color: #000;
   }
-  .menu-button:hover, .active{
-    background: #abb2b9;
-    color: #fff;
-  }
   .content{
     margin: 10% 20px;
   }
