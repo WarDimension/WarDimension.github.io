@@ -79,7 +79,7 @@ h3{
   -webkit-filter: brightness(90%);
   filter: brightness(90%);
 }
-@media only screen and (orientation: portrait) and (max-width: 1024px) {
+@media only screen and (orientation: portrait), only screen and (max-width: 1024px) {
   .header{
     padding: 20px 20%;
     box-sizing: border-box;
