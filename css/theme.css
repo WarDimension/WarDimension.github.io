@@ -4,6 +4,7 @@
 }
 body{
   margin: 0;
+  background: #eeeeee;
 }
 h3{
   margin-top: 30px;
@@ -39,6 +40,12 @@ h3{
 }
 .content{
   margin: 7% 8%;
+  background: #fff;
+}
+.header, .content{
+  -webkit-box-shadow:0 8px 6px -6px black;
+  -moz-box-shadow:0 8px 6px -6px black;
+  -box-shadow:0 8px 6px -6px black;
 }
 .embed-container{
   position: relative;
