@@ -68,7 +68,7 @@ h3{
   vertical-align: top;
   text-align: center;
   font-size: 18px;
-  padding: 0 2% 2% 2%;
+  padding: 2%;
 }
 .platform-img{
   width: 25px;
@@ -116,7 +116,7 @@ h3{
   .platform-container{
     position: static;
     width: 100%;
-    padding-left: 0;
+    padding: 0 0 4% 0;
   }
 }
 @media only screen and (max-width: 1701px){
