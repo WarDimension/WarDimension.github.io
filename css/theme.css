@@ -47,8 +47,8 @@ h3{
 }
 .embed-container{
   position: relative;
-  padding-bottom: 28.125%;
-  height: 0;
+  //padding-bottom: 28.125%;
+  height: 100%;
   overflow: hidden;
   width: 50%;
   display: inline-block;
