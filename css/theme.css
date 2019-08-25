@@ -28,6 +28,7 @@ h3{
   font-size: 20px;
   padding: 6px 18px;
   cursor: pointer;
+  display: inline-block;
 }
 .menu-button:hover, .active{
   background: #fff;
