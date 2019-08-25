@@ -60,12 +60,15 @@ h3{
   height: 100%;
 }
 .platform-container{
-  width: 49%;
+  background: #fff;
+  position: absolute;
+  right: 8%;
+  width: 42%;
   display: inline-block;
   vertical-align: top;
   text-align: center;
   font-size: 18px;
-  padding-left: 0 5% 0 5%;
+  padding: 0 2% 2% 2%;
 }
 .platform-img{
   width: 25px;
@@ -84,7 +87,7 @@ h3{
   -webkit-filter: brightness(90%);
   filter: brightness(90%);
 }
-@media only screen and (orientation: portrait), only screen and (max-width: 1024px) {
+@media only screen and (orientation: portrait), only screen and (max-width: 1024px){
   .header{
     padding: 20px 20%;
     box-sizing: border-box;
@@ -111,7 +114,15 @@ h3{
     width: 100%;
   }
   .platform-container{
+    position: static;
     width: 100%;
     padding-left: 0;
+  }
+}
+@media only screen and (max-width: 1701px){
+  .platform-container{
+    -webkit-box-shadow:0 8px 6px -6px black;
+    -moz-box-shadow:0 8px 6px -6px black;
+    -box-shadow:0 8px 6px -6px black;
   }
 }
