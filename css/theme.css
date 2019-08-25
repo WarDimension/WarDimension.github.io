@@ -35,9 +35,9 @@ body{
 .embed-container{
   position: relative;
   padding-bottom: 28.125%;
+  height: 0;
   overflow: hidden;
   max-width: 50%;
-  display:inline-block;
 }
 .embed-container iframe, .embed-container object, .embed-container embed{
   position: absolute;
