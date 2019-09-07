@@ -7,8 +7,8 @@ body{
   background: #eeeeee;
 }
 h3{
-  margin-top: 1.5vw;
-  margin-bottom: 0.5vw;
+  margin-top: 30px;
+  margin-bottom: 8px;
 }
 .header{
   background: #000;
@@ -60,24 +60,25 @@ h3{
   height: 100%;
 }
 .platform-container{
+  background: #fff;
   position: absolute;
   right: 8%;
   width: 42%;
   display: inline-block;
   vertical-align: top;
   text-align: center;
-  font-size: 0.95vw;
+  font-size: 18px;
   padding: 2%;
 }
 .platform-img{
-  width: 1.2vw;
-  margin-right: 0.1vw;
+  width: 25px;
+  margin-right: 5px;
   vertical-align: middle;
 }
 .platform-url{
   text-decoration:none;
   color: #000;
-  padding: 0.31vw;
+  padding: 6px;
   background: #fff;
   cursor: pointer;
   display:inline-block;
@@ -112,26 +113,16 @@ h3{
     padding-bottom: 56.25%;
     width: 100%;
   }
-  h3{
-    margin-top: 3vw;
-    margin-bottom: 1.5vw;
-  }
   .platform-container{
     position: static;
     width: 100%;
     padding: 0 0 4% 0;
-    font-size: 1.8vw;
-  }
-  .platform-img{
-    width: 2.4vw;
-    margin-right: 0.1vw;
-    vertical-align: middle;
   }
 }
-/*@media only screen and (max-width: 1701px){
+@media only screen and (max-width: 1701px){
   .platform-container{
     -webkit-box-shadow:0 8px 6px -6px black;
     -moz-box-shadow:0 8px 6px -6px black;
     -box-shadow:0 8px 6px -6px black;
   }
-}*/
+}
