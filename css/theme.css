@@ -7,8 +7,8 @@ body{
   background: #eeeeee;
 }
 h3{
-  margin-top: 30px;
-  margin-bottom: 8px;
+  margin-top: 3.5%;
+  margin-bottom: 0.5%;
 }
 .header{
   background: #000;
@@ -60,7 +60,6 @@ h3{
   height: 100%;
 }
 .platform-container{
-  background: #fff;
   position: absolute;
   right: 8%;
   width: 42%;
@@ -87,7 +86,7 @@ h3{
   -webkit-filter: brightness(90%);
   filter: brightness(90%);
 }
-@media only screen and (orientation: portrait), only screen and (max-width: 1024px){
+@media only screen and (orientation: portrait), only screen and (max-width: 1720px){
   .header{
     padding: 20px 20%;
     box-sizing: border-box;
@@ -117,12 +116,5 @@ h3{
     position: static;
     width: 100%;
     padding: 0 0 4% 0;
-  }
-}
-@media only screen and (max-width: 1701px){
-  .platform-container{
-    -webkit-box-shadow:0 8px 6px -6px black;
-    -moz-box-shadow:0 8px 6px -6px black;
-    -box-shadow:0 8px 6px -6px black;
   }
 }
