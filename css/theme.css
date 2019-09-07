@@ -106,7 +106,7 @@ h3{
     color: #fff;
   }
   .content{
-    margin: 10% 20px;
+    margin: 10% 200px;
   }
   .embed-container{
     padding-bottom: 56.25%;
@@ -116,5 +116,10 @@ h3{
     position: static;
     width: 100%;
     padding: 0 0 4% 0;
+  }
+}
+@media only screen and (max-width: 1024px){
+  .content{
+    margin: 10% 20px;
   }
 }
