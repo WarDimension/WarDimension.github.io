@@ -120,6 +120,11 @@ h3{
 }
 @media only screen and (max-width: 1024px){
   .content{
+    margin: 10% 50px;
+  }
+}
+@media only screen and (max-width: 800px){
+  .content{
     margin: 10% 20px;
   }
 }
