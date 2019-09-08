@@ -1,5 +1,8 @@
+#content-container{
+  padding: 2% 0 2% 0;
+}
 .content{
-  margin: 7% 15%;
+  margin: 5% 15%;
 }
 .platform-container{
   margin-top: 2.5%;
