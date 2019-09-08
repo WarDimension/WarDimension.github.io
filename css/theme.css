@@ -92,7 +92,8 @@ h3{
     box-sizing: border-box;
   }
   .wd-logo{
-    width: 100%;
+    width: 50%;
+    margin-left: 25%;
   }
   .menu-container{
     position: static;
@@ -122,8 +123,16 @@ h3{
   .content{
     margin: 10% 80px;
   }
+  .wd-logo{
+    width: 70%;
+    margin-left: 15%;
+  }
 }
 @media only screen and (max-width: 800px){
+  .wd-logo{
+    width: 100%;
+    margin-left: 0;
+  }
   .content{
     margin: 10% 20px;
   }
