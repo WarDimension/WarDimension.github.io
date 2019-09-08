@@ -13,6 +13,9 @@ body{
     margin-top: 5%;
     width: 60%;
   }
+  .menu-button:hover, .active{
+    background: #470000;
+  }
 }
 @media only screen and (max-width: 800px){
   .sixsixsix{
