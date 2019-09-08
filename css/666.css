@@ -1,6 +1,21 @@
 body{
   background: url("../images/666.gif");
 }
-.header{
+.header, .content{
   background: #470000;
+}
+.sixsixsix{
+  width: 52%;
+  filter: grayscale(100%) invert(100%) brightness(120%);
+}
+@media only screen and (orientation: portrait), only screen and (max-width: 1720px){
+  .sixsixsix{
+    margin-top: 5%;
+    width: 60%;
+  }
+}
+@media only screen and (max-width: 800px){
+  .sixsixsix{
+    width: 75%;
+  }
 }
