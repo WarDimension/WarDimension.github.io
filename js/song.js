@@ -36,15 +36,132 @@ const songsData = [
     }]
   },
   {
-    "title": "",
-    "img": "",
+    "title": "FruityDimension",
+    "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/intermediary/f/db9b0a59-1832-436d-be35-c4da781cf1c8/dd0nvsc-ca29a2d3-0f02-4a12-b5e1-1a389004ce99.png",
     "url": [{
-      "itunes": "",
-      "deezer": "",
-      "googlePlay": "",
-      "spotify": "",
-      "youtubeMusic": "",
-      "amazon": ""
+      "itunes": "https://itunes.apple.com/us/album/fruity-dimension-ep/1402708218?uo=4",
+      "deezer": "https://www.deezer.com/album/68426701",
+      "googlePlay": "http://play.google.com/store/music/album?id=B5m6iaph56ok5ubw66ytjuarfxm",
+      "spotify": "https://play.spotify.com/album/4jMZzRKQIQUSKmb36r8bdi",
+      "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_ngbTWfAhv0pPJyAkV1yCMy4RSPqoAVIq8",
+      "amazon": "https://www.amazon.com/dp/B07DY5LJ4H"
+    }]
+  },
+  {
+    "title": "&#2384;",
+    "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/intermediary/f/db9b0a59-1832-436d-be35-c4da781cf1c8/dd0nw5r-26508513-69a1-40ce-843e-a8544b6a614a.png",
+    "url": [{
+      "itunes": "https://itunes.apple.com/us/album/%E0%A5%90-ep/1411653135?uo=4",
+      "deezer": "https://www.deezer.com/album/68198331",
+      "googlePlay": "https://play.google.com/store/music/album?id=Bbzuzvn6qokux5xvogiljt6pw6a",
+      "spotify": "https://play.spotify.com/album/1tqkRMhkZryFa1rZbFdrV4",
+      "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_nLp99MftlDnTU0g-8i5WX1acavz-kbsMw",
+      "amazon": "https://www.amazon.com/dp/B07FK8WN57"
+    }]
+  },
+  {
+    "title": "NoHope_",
+    "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/intermediary/f/db9b0a59-1832-436d-be35-c4da781cf1c8/dd0nweg-838ec8bb-2e88-444f-83f6-164f222f453e.png",
+    "url": [{
+      "itunes": "https://itunes.apple.com/us/album/no-hope-single/1436219355?uo=4",
+      "deezer": "https://www.deezer.com/album/73130572",
+      "googlePlay": "https://play.google.com/store/music/album?id=B6fokvgicwiabwbmrbrkjdynzla",
+      "spotify": "https://play.spotify.com/album/0PBOg2kVA8XWCN1SiH0u69",
+      "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_kd8QzOX73fXWIlrDffjkdDlJEKEpTzLM0",
+      "amazon": "https://www.amazon.com/dp/B07HBCH7BM"
+    }]
+  },
+  {
+    "title": "Hyouka",
+    "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/intermediary/f/db9b0a59-1832-436d-be35-c4da781cf1c8/dd0nwok-ae360c0a-8d01-4673-8f2a-a32505f1dd59.png",
+    "url": [{
+      "itunes": "https://itunes.apple.com/us/album/hyouka-single/1436060545?uo=4",
+      "deezer": "https://www.deezer.com/album/73005342",
+      "googlePlay": "https://play.google.com/store/music/album?id=Blkjf3nbm5bessmmwrba4ef37m4",
+      "spotify": "https://play.spotify.com/album/6ZWMwloBk5ke2Jyfsm7Ix4",
+      "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_mPLcT60QoFNTP6RFsNmCMT-SDqr5uJCoQ",
+      "amazon": "https://www.amazon.com/dp/B07H9GB6MR"
+    }]
+  },
+  {
+    "title": "Vboo",
+    "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/intermediary/f/db9b0a59-1832-436d-be35-c4da781cf1c8/dd0nwtg-ff4e6837-4b0e-4b9d-89fa-7fca63a1aa65.png",
+    "url": [{
+      "itunes": "https://itunes.apple.com/us/album/vboo/1450558969?uo=4",
+      "deezer": "https://www.deezer.com/album/86688942",
+      "googlePlay": "https://play.google.com/store/music/album?id=Blhtd2yeecbc57q4zz64rzqccte",
+      "spotify": "https://play.spotify.com/album/4RFOcMBbcXLdIBXY5MpkDJ",
+      "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_l3m8d3HT5Ai49qhDTLKYAu0Jxl26O9jMk",
+      "amazon": "https://www.amazon.com/dp/B07N359FPM"
+    }]
+  },
+  {
+    "title": "Neko da",
+    "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/intermediary/f/db9b0a59-1832-436d-be35-c4da781cf1c8/dd0nx3e-cabbf13b-741b-4932-94b5-af77fbe6889b.png",
+    "url": [{
+      "itunes": "https://itunes.apple.com/us/album/neko-da-ep/1454056720?uo=4",
+      "deezer": "https://www.deezer.com/album/88337072",
+      "googlePlay": "https://play.google.com/store/music/album?id=Byxjdogbce3ykshrr46s6cf6gha",
+      "spotify": "https://play.spotify.com/album/6Mj29kVSrR5cUwgGF0HThQ",
+      "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_kiuXgQTZcTi0c9gC34_Ec3Lye6MwZ_FFw",
+      "amazon": "https://www.amazon.com/dp/B07NZ92B4G"
     }]
   }
 ];
+
+function platformTemplate(song){
+  return `
+    ${song.url[0].itunes != undefined ?
+      `<a class="platform-url" href="${song.url[0].itunes}"  target="aboutblank">
+        <img class="platform-img" src="./images/iTunes.png"/>iTunes/Apple Music
+      </a>` : ``
+    }
+    ${song.url[0].deezer != undefined ?
+      `<a class="platform-url" href="${song.url[0].deezer}"  target="aboutblank">
+        <img class="platform-img" src="./images/Deezer.ico.png"/>Deezer
+      </a>` : ``
+    }
+    ${song.url[0].googlePlay != undefined ?
+      `<a class="platform-url" href="${song.url[0].googlePlay}"  target="aboutblank">
+        <img class="platform-img" src="./images/Google Play.png"/>Google Play
+      </a>` : ``
+    }
+    ${song.url[0].spotify != undefined ?
+      `<a class="platform-url" href="${song.url[0].spotify}"  target="aboutblank">
+        <img class="platform-img" src="./images/Spotify.png"/>Spotify
+      </a>` : ``
+    }
+    ${song.url[0].youtubeMusic != undefined ?
+      `<a class="platform-url" href="${song.url[0].youtubeMusic}"  target="aboutblank">
+        <img class="platform-img" src="./images/YouTube Music.png"/>YouTube Music
+      </a>` : ``
+    }
+    ${song.url[0].amazon != undefined ?
+      `<a class="platform-url" href="${song.url[0].amazon}"  target="aboutblank">
+        <img class="platform-img" src="./images/Amazon.png"/>Amazon Music
+      </a>` : ``
+    }
+    ${song.url[0].bandLab != undefined ?
+      `<a class="platform-url" href="${song.url[0].bandLab}"  target="aboutblank">
+        <img class="platform-img" src="./images/BandLab.png"/>BandLab
+      </a>` : ``
+    }
+  `;
+}
+
+function songTemplate(song){
+  return `
+    <div class="content">
+      <div class="album-container">
+        <img class="song-img" src="${song.img}"/><!--
+        --><b class="song-title-disk"><p class="song-title">${song.title}</p></b>
+      </div>
+      <div class="platform-container">
+        <h3>Available on</h3>
+        ${platformTemplate(song)}
+      </div>
+    </div>
+  `;
+}
+
+document.getElementById("content-container").innerHTML = `${songsData.map(songTemplate).join("")}`;
