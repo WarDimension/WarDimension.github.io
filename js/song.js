@@ -92,7 +92,8 @@ const songsData = [
       "googlePlay": "https://play.google.com/store/music/album?id=Blhtd2yeecbc57q4zz64rzqccte",
       "spotify": "https://play.spotify.com/album/4RFOcMBbcXLdIBXY5MpkDJ",
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_l3m8d3HT5Ai49qhDTLKYAu0Jxl26O9jMk",
-      "amazon": "https://www.amazon.com/dp/B07N359FPM"
+      "amazon": "https://www.amazon.com/dp/B07N359FPM",
+      "rocksmith": "http://ignition.customsforge.com/search/browse?filters=%7B%22artist%22%3A%22WarDimension%22%2C%22album%22%3A%22Vboo%22%7D"
     }]
   },
   {
@@ -144,6 +145,11 @@ function platformTemplate(song){
     ${song.url[0].bandLab != undefined ?
       `<a class="platform-url" href="${song.url[0].bandLab}"  target="aboutblank">
         <img class="platform-img" src="./images/BandLab.png"/>BandLab
+      </a>` : ``
+    }
+    ${song.url[0].rocksmith != undefined ?
+      `<a class="platform-url" href="${song.url[0].rocksmith}"  target="aboutblank">
+        <img class="platform-img" src="./images/Rocksmith.png"/>Rocksmith
       </a>` : ``
     }
   `;
