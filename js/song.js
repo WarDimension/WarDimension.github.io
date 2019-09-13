@@ -172,7 +172,7 @@ function songTemplate(song){
   return `
     <div class="content">
       <div class="album-container">
-        <img class="song-img" src="${song.img}"/><!--
+        <img class="song-img" src="${song.img}" alt="${song.title} Album Art"/><!--
         --><b class="song-title-disk"><p class="song-title">${song.title}</p></b>
       </div>
       <div class="platform-container">
