@@ -107,6 +107,19 @@ const songsData = [
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_kiuXgQTZcTi0c9gC34_Ec3Lye6MwZ_FFw",
       "amazon": "https://www.amazon.com/dp/B07NZ92B4G"
     }]
+  },
+  {
+    "title": "BandLab",
+    "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/db9b0a59-1832-436d-be35-c4da781cf1c8/ddg3q36-5b8b1f0b-5760-4bcf-a309-716e083d8693.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2RiOWIwYTU5LTE4MzItNDM2ZC1iZTM1LWM0ZGE3ODFjZjFjOFwvZGRnM3EzNi01YjhiMWYwYi01NzYwLTRiY2YtYTMwOS03MTZlMDgzZDg2OTMucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.bXGCm9UE07L0ArUZNsTWeZhh9o1hoW5sg2EII4V985k",
+    "url": [{
+      "itunes": "https://music.apple.com/us/album/band-lab/1469635289?uo=4",
+      "deezer": "https://www.deezer.com/us/album/106191142",
+      "googlePlay": "https://play.google.com/store/music/album?id=Bnt6efpi42stsd3pkjzqt2jm4ra",
+      "spotify": "https://play.spotify.com/album/7cYdhAfrl5z92fa9ddGMpW",
+      "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_nsRJ9w9SFCy3fZr5wXzOuaZrT9tzxLveA",
+      "amazon": "https://www.amazon.com/dp/B07THS4L2B",
+      "bandLab": "https://www.bandlab.com/wardimension/collections/54611ac3-28d6-e911-b5e9-28187831ee7a"
+    }]
   }
 ];
 
