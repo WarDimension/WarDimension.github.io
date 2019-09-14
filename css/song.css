@@ -37,6 +37,27 @@
   color: #fff;
   display: inline-block;
 }
+.song-menu-container{
+  position: absolute;
+  margin-top: 5%;
+  margin-left: 15%;
+  border-bottom: 2.5px solid #000;
+  -webkit-box-shadow:0 8px 6px -6px black;
+  -moz-box-shadow:0 8px 6px -6px black;
+  -box-shadow:0 8px 6px -6px black;
+}
+.song-button{
+  background: #fff;
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+  font-size:18px;
+  padding: 0 6px;
+}
+.song-button:hover, .song-button.active{
+  background: #000;
+  color: #fff;
+}
 @media only screen and (orientation: portrait), only screen and (max-width: 1720px){
   .album-container{
     width: 60%;
@@ -53,6 +74,13 @@
     width: 100%;
     margin-top: 1%;
   }
+  #content-container{
+    padding: 3.4% 0 2% 0;
+  }
+  .song-menu-container{
+    margin-top: 4.5%;
+    margin-left: 15%;
+  }
 }
 @media only screen and (max-width: 1024px){
   .album-container{
@@ -61,6 +89,14 @@
   }
   .song-title{
     font-size: 2.2vw;
+    max-width: 50%;
+  }
+  #content-container{
+    padding: 3.8% 0 2% 0;
+  }
+  .song-menu-container{
+    margin-top: 4%;
+    margin-left: 15%;
   }
 }
 @media only screen and (max-width: 800px){
@@ -72,7 +108,14 @@
     font-size: 3.2vw;
   }
   .content{
-    padding-top: 6%;
+    padding-top: 6.5%;
     margin: 10% 20px;
+  }
+  #content-container{
+    padding: 4% 0 2% 0;
+  }
+  .song-menu-container{
+    margin-top: 6%;
+    margin-left: 20px;
   }
 }

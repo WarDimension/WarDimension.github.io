@@ -5,18 +5,25 @@
     <link rel="stylesheet" type="text/css" href="./css/song.css" />
     <link rel="shortcut icon" type="image/x-icon" href="./images/wd.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8" />
     <link href="https://wardimension.github.io/" rel="canonical"/>
   </head>
   <body>
     <div class="header">
-      <img class="wd-logo" src="./images/WarDimension_White.png" alt="WarDimension Logo" />
+      <img class="wd-logo" src="./images/WarDimension_White.png" alt="WarDimension Logo"/>
     </div>
     <center><div class="menu-container">
       <a class="menu-button" href="https://wardimension.github.io">HOME</a>
       <a class="menu-button active">MUSIC</a>
       <a class="menu-button" href="experimental">EXPERIMENTAL</a>
     </div></center>
+    <center><div class="song-menu-container">
+      <a id="original" class="song-button active" href="#" onclick="originalSong();">ORIGINAL</a>
+      <a id="cover" class="song-button" href="#" onclick="coverSong();">COVER</a>
+    </div></center>
     <div id="content-container"></div>
   </body>
 </html>
+<script type="text/javascript" src="./js/original.js"></script>
+<script type="text/javascript" src="./js/cover.js"></script>
 <script type="text/javascript" src="./js/song.js"></script>
