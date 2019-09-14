@@ -7,6 +7,7 @@ const songsData = [
       "deezer": "https://www.deezer.com/us/album/55904362",
       "googlePlay": "https://play.google.com/store/music/album?id=Bx2khbzglch2k53gaph2a5txe2i",
       "spotify": "https://play.spotify.com/album/3WAX7N3BOU42zPZeqw6DR3",
+      "youtube": "https://www.youtube.com/watch?v=PB9NKVEYVGk",
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_lXgyWybrogtK35zeAvapBoYzlSEhpQRLE",
       "amazon": "https://www.amazon.com/dp/B079CW27VN"
     }]
@@ -19,6 +20,7 @@ const songsData = [
       "deezer": "https://www.deezer.com/us/album/59088612",
       "googlePlay": "https://play.google.com/store/music/album?id=Bsrds6nhmjjtjfgt4fnhfzhywfm",
       "spotify": "https://play.spotify.com/album/41rRnGetiwSJqA2DvPigvc",
+      "youtube": "https://www.youtube.com/watch?v=9_5evlRwc5A",
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_nWYcbbuKkXWcjx507xQM9VJln5jtT3znQ",
       "amazon": "https://www.amazon.com/dp/B07BHF8JWG"
     }]
