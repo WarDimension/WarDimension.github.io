@@ -59,6 +59,7 @@ const songsData = [
       "spotify": "https://play.spotify.com/album/1tqkRMhkZryFa1rZbFdrV4",
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_nLp99MftlDnTU0g-8i5WX1acavz-kbsMw",
       "amazon": "https://www.amazon.com/dp/B07FK8WN57"
+      "rocksmith": "http://ignition.customsforge.com/search/browse?filters=%7B%22artist%22%3A%22WarDimension%22%2C%22album%22%3A%22Om%22%7D"
     }]
   },
   {
