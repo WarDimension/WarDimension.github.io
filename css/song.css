@@ -36,6 +36,7 @@
   text-shadow: -1px 0 black, 0 1px black, 2px 0 black, 0 -1px black;
   color: #fff;
   display: inline-block;
+  white-space: nowrap;
 }
 .song-menu-container{
   position: absolute;
@@ -69,6 +70,7 @@
   }
   .song-title{
     font-size: 1.6vw;
+    white-space: normal;
   }
   .platform-container{
     width: 100%;
