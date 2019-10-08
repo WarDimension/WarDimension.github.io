@@ -64,18 +64,42 @@ function songTemplate(song){
 }
 
 var original = true;
+var sortNewest = true;
 var content = document.getElementById("content-container");
 var originalButton = document.getElementById("original");
 var coverButton = document.getElementById("cover");
+var sortButton = document.getElementById("cover-button");
 songDisplay();
 
 function songDisplay(){
   if(original){
-    content.innerHTML = `${songsData.map(songTemplate).join("")}`;
+    if(sortNewest){
+      content.innerHTML = `${songsData.slice(0).reverse().map(songTemplate).join("")}`;
+    }
+    else{
+      content.innerHTML = `${songsData.map(songTemplate).join("")}`;
+    }
   }
   else{
-    content.innerHTML = `${coversData.map(songTemplate).join("")}`;
+    if(sortNewest){
+      content.innerHTML = `${coversData.slice(0).reverse().map(songTemplate).join("")}`;
+    }
+    else{
+      content.innerHTML = `${coversData.map(songTemplate).join("")}`;
+    }
   }
+}
+
+function songSort(){
+  if(sortNewest){
+    sortNewest = false;
+    sortButton.innerHTML = "▲";
+  }
+  else{
+    sortNewest = true;
+    sortButton.innerHTML = "▼";
+  }
+  songDisplay();
 }
 
 function originalSong(){
