@@ -55,6 +55,7 @@
   font-size:18px;
   padding: 0 6px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  display: inline-block;
 }
 .song-button.active{
   background: #000;
@@ -68,6 +69,7 @@
   color: #000;
   text-decoration: none;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  display: inline-block;
 }
 .song-sort-button:hover, .song-menu-container:hover{
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
