@@ -1,50 +1,25 @@
+function platform(url, img, name){
+  return `
+    ${url != undefined ?
+      `<a class="platform-url" href="${url}"  target="aboutblank">
+        <img class="platform-img" src="./images/${img}"/>${name}
+      </a>` : ``
+    }
+  `
+}
+
 function platformTemplate(song){
   return `
-    ${song.url[0].itunes != undefined ?
-      `<a class="platform-url" href="${song.url[0].itunes}"  target="aboutblank">
-        <img class="platform-img" src="./images/iTunes.png"/>iTunes/Apple Music
-      </a>` : ``
-    }
-    ${song.url[0].deezer != undefined ?
-      `<a class="platform-url" href="${song.url[0].deezer}"  target="aboutblank">
-        <img class="platform-img" src="./images/Deezer.ico.png"/>Deezer
-      </a>` : ``
-    }
-    ${song.url[0].googlePlay != undefined ?
-      `<a class="platform-url" href="${song.url[0].googlePlay}"  target="aboutblank">
-        <img class="platform-img" src="./images/Google Play.png"/>Google Play
-      </a>` : ``
-    }
-    ${song.url[0].spotify != undefined ?
-      `<a class="platform-url" href="${song.url[0].spotify}"  target="aboutblank">
-        <img class="platform-img" src="./images/Spotify.png"/>Spotify
-      </a>` : ``
-    }
-    ${song.url[0].youtube != undefined ?
-      `<a class="platform-url" href="${song.url[0].youtube}"  target="aboutblank">
-        <img class="platform-img" src="./images/YouTube.png"/>YouTube
-      </a>` : ``
-    }
-    ${song.url[0].youtubeMusic != undefined ?
-      `<a class="platform-url" href="${song.url[0].youtubeMusic}"  target="aboutblank">
-        <img class="platform-img" src="./images/YouTube Music.png"/>YouTube Music
-      </a>` : ``
-    }
-    ${song.url[0].amazon != undefined ?
-      `<a class="platform-url" href="${song.url[0].amazon}"  target="aboutblank">
-        <img class="platform-img" src="./images/Amazon.png"/>Amazon Music
-      </a>` : ``
-    }
-    ${song.url[0].bandLab != undefined ?
-      `<a class="platform-url" href="${song.url[0].bandLab}"  target="aboutblank">
-        <img class="platform-img" src="./images/BandLab.png"/>BandLab
-      </a>` : ``
-    }
-    ${song.url[0].rocksmith != undefined ?
-      `<a class="platform-url" href="${song.url[0].rocksmith}"  target="aboutblank">
-        <img class="platform-img" src="./images/Rocksmith.png"/>Rocksmith
-      </a>` : ``
-    }
+    ${platform(song.url[0].itunes, "iTunes.png", "iTunes/Apple Music")}
+    ${platform(song.url[0].deezer, "Deezer.ico.png", "Deezer")}
+    ${platform(song.url[0].googlePlay, "Google Play.png", "Google Play")}
+    ${platform(song.url[0].spotify, "Spotify.png", "Spotify")}
+    ${platform(song.url[0].youtube, "YouTube.png", "YouTube")}
+    ${platform(song.url[0].youtubeMusic, "YouTube Music.png", "YouTube Music")}
+    ${platform(song.url[0].amazon, "Amazon.png", "Amazon Music")}
+    ${platform(song.url[0].bandLab, "BandLab.png", "BandLab")}
+    ${platform(song.url[0].soundCloud, "icon-soundcloud.png", "SoundCloud")}
+    ${platform(song.url[0].rocksmith, "Rocksmith.png", "Rocksmith")}
   `;
 }
 

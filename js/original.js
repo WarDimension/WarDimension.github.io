@@ -9,7 +9,8 @@ const songsData = [
       "spotify": "https://play.spotify.com/album/3WAX7N3BOU42zPZeqw6DR3",
       "youtube": "https://www.youtube.com/watch?v=PB9NKVEYVGk",
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_lXgyWybrogtK35zeAvapBoYzlSEhpQRLE",
-      "amazon": "https://www.amazon.com/dp/B079CW27VN"
+      "amazon": "https://www.amazon.com/dp/B079CW27VN",
+      "soundCloud": "https://soundcloud.com/wardimension/sets/nightmare"
     }]
   },
   {
@@ -22,7 +23,8 @@ const songsData = [
       "spotify": "https://play.spotify.com/album/41rRnGetiwSJqA2DvPigvc",
       "youtube": "https://www.youtube.com/watch?v=9_5evlRwc5A",
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_nWYcbbuKkXWcjx507xQM9VJln5jtT3znQ",
-      "amazon": "https://www.amazon.com/dp/B07BHF8JWG"
+      "amazon": "https://www.amazon.com/dp/B07BHF8JWG",
+      "soundCloud": "https://soundcloud.com/wardimension/abandoned"
     }]
   },
   {
@@ -34,7 +36,8 @@ const songsData = [
       "googlePlay": "https://play.google.com/store/music/album?id=Bxo7szbrrae5uk6wgyzhy5gtzi4",
       "spotify": "https://play.spotify.com/album/0svQYsVqzHe2aRXmlnH2KE",
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_nqIQrGsNxxU6KTEpu0rQVRogIFGnwtY7o",
-      "amazon": "https://www.amazon.com/dp/B07BHKP9YT"
+      "amazon": "https://www.amazon.com/dp/B07BHKP9YT",
+      "soundCloud": "https://soundcloud.com/wardimension/lets-do-it"
     }]
   },
   {
@@ -46,7 +49,8 @@ const songsData = [
       "googlePlay": "http://play.google.com/store/music/album?id=B5m6iaph56ok5ubw66ytjuarfxm",
       "spotify": "https://play.spotify.com/album/4jMZzRKQIQUSKmb36r8bdi",
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_ngbTWfAhv0pPJyAkV1yCMy4RSPqoAVIq8",
-      "amazon": "https://www.amazon.com/dp/B07DY5LJ4H"
+      "amazon": "https://www.amazon.com/dp/B07DY5LJ4H",
+      "soundCloud": "https://soundcloud.com/wardimension/sets/fruitydimension"
     }]
   },
   {
@@ -59,6 +63,7 @@ const songsData = [
       "spotify": "https://play.spotify.com/album/1tqkRMhkZryFa1rZbFdrV4",
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_nLp99MftlDnTU0g-8i5WX1acavz-kbsMw",
       "amazon": "https://www.amazon.com/dp/B07FK8WN57",
+      "soundCloud": "https://soundcloud.com/wardimension/sets/cxlclm2wunur",
       "rocksmith": "http://ignition.customsforge.com/search/browse?filters=%7B%22artist%22%3A%22WarDimension%22%2C%22album%22%3A%22Om%22%7D"
     }]
   },
@@ -71,7 +76,8 @@ const songsData = [
       "googlePlay": "https://play.google.com/store/music/album?id=B6fokvgicwiabwbmrbrkjdynzla",
       "spotify": "https://play.spotify.com/album/0PBOg2kVA8XWCN1SiH0u69",
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_kd8QzOX73fXWIlrDffjkdDlJEKEpTzLM0",
-      "amazon": "https://www.amazon.com/dp/B07HBCH7BM"
+      "amazon": "https://www.amazon.com/dp/B07HBCH7BM",
+      "soundCloud": "https://soundcloud.com/wardimension/nohope"
     }]
   },
   {
@@ -83,7 +89,8 @@ const songsData = [
       "googlePlay": "https://play.google.com/store/music/album?id=Blkjf3nbm5bessmmwrba4ef37m4",
       "spotify": "https://play.spotify.com/album/6ZWMwloBk5ke2Jyfsm7Ix4",
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_mPLcT60QoFNTP6RFsNmCMT-SDqr5uJCoQ",
-      "amazon": "https://www.amazon.com/dp/B07H9GB6MR"
+      "amazon": "https://www.amazon.com/dp/B07H9GB6MR",
+      "soundCloud": "https://soundcloud.com/wardimension/sets/hyouka"
     }]
   },
   {
@@ -96,6 +103,7 @@ const songsData = [
       "spotify": "https://play.spotify.com/album/4RFOcMBbcXLdIBXY5MpkDJ",
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_l3m8d3HT5Ai49qhDTLKYAu0Jxl26O9jMk",
       "amazon": "https://www.amazon.com/dp/B07N359FPM",
+      "soundCloud": "https://soundcloud.com/wardimension/sets/vboo",
       "rocksmith": "http://ignition.customsforge.com/search/browse?filters=%7B%22artist%22%3A%22WarDimension%22%2C%22album%22%3A%22Vboo%22%7D"
     }]
   },
