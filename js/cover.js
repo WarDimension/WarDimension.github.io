@@ -4,6 +4,7 @@ const coversData = [
     "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/db9b0a59-1832-436d-be35-c4da781cf1c8/ddg5rg0-49e8fca6-8140-4851-858c-60240653bd63.png/v1/fill/w_600,h_600,q_80,strp/virtual_boy_ft__hatsune_miku__nano_ripe_cover__by_wardimension_ddg5rg0-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjAwIiwicGF0aCI6IlwvZlwvZGI5YjBhNTktMTgzMi00MzZkLWJlMzUtYzRkYTc4MWNmMWM4XC9kZGc1cmcwLTQ5ZThmY2E2LTgxNDAtNDg1MS04NThjLTYwMjQwNjUzYmQ2My5wbmciLCJ3aWR0aCI6Ijw9NjAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.QnH9RppF9FwOd4p4CF7PaZ3IwuV4GlOExCCRHsWrVBc",
     "url": [{
       "youtube": "https://www.youtube.com/playlist?list=PLjU3ePCiIkWnmvop0AXGm4KcyuPAF6GGT"
+      "rocksmith": "http://ignition.customsforge.com/search/browse?filters=%7B%22artist%22%3A%22WarDimension%22%2C%22album%22%3A%22Virtual%20Boy%22%7D"
     }]
   },
   {
