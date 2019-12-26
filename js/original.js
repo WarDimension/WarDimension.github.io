@@ -10,7 +10,8 @@ const songsData = [
       "youtube": "https://www.youtube.com/watch?v=PB9NKVEYVGk",
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_lXgyWybrogtK35zeAvapBoYzlSEhpQRLE",
       "amazon": "https://www.amazon.com/dp/B079CW27VN",
-      "soundCloud": "https://soundcloud.com/wardimension/sets/nightmare"
+      "soundCloud": "https://soundcloud.com/wardimension/sets/nightmare",
+      "rocksmith": "http://ignition.customsforge.com/search/browse?filters=%7B%22artist%22%3A%22WarDimension%22%2C%22album%22%3A%22Nightmare%22%7D"
     }]
   },
   {
