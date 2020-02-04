@@ -14,7 +14,7 @@ const coversData = [
     "url": [{
       "youtube": "https://www.youtube.com/playlist?list=PLjU3ePCiIkWlSWJ2OCrd8xNypfuWzuXzi",
       "bandLab": "https://www.bandlab.com/wardimension/collections/e3355859-cdd6-e911-b5e9-28187831ee7a",
-      "rocksmith": "http://ignition.customsforge.com/search/browse?filters=%7B%22artist%22%3A%22WarDimension%22%2C%22album%22%3A%22Basket%20Case%22%7D"
+      "rocksmith": "https://drive.google.com/open?id=1QistHRD9xGV3J-UuZ1ofiBeWuT6lbqQl"
     }]
   }
 ];
