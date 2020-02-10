@@ -1,9 +1,17 @@
 ReWriteEngine On
 
+# rewrite .html
+
 RewriteCond %{REQUEST_FILENAME} !-d
 
 RewriteCond %{REQUEST_FILENAME}\.html -f
 
 RewriteRule ^(.*)$ $1.html [NC,L]
 
-RewriteRule ^(.*)$ $1# [NC,L]
+# home to index
+
+RewriteRule ^home index.html [NC,L]
+
+# rewrite blog
+
+RewriteRule ^blog/([0-9a-zA-Z_-]+)/([0-9a-zA-Z_-]+)$ blog.html?b=$1&p=$2 [NC,L]
