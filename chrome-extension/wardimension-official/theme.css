@@ -1,0 +1,114 @@
+*{
+    transition: all 0.15s cubic-bezier(.25,.8,.25,1);
+    white-space: nowrap;
+    box-sizing: border-box;
+}
+body{
+    min-width: 400px;
+    min-height: 400px;
+    margin: 0;
+}
+#main-content{
+    padding: 10px 25px;
+    padding-bottom: 20px;
+}
+#header{
+    position: relative;
+    top: 0;
+    left: 0;
+    background: black;
+}
+#header img{
+    height: 150px;
+}
+h3{
+    cursor: default;
+}
+#music-platform a{
+    padding: 0px;
+    padding-right: 5px;
+}
+#music-platform img{
+    width: 20px;
+    vertical-align: middle;
+    margin: 0px;
+}
+.platform{
+    margin-top: 28px;
+}
+a{
+    color: lightslategray;
+    text-decoration: none;
+    display: inline-block;
+}
+a:hover, .page a:hover, #home-default:hover + #home a, #youtube:hover + #official a{
+    color: cornflowerblue;
+}
+.page{
+    display: inline-block;
+}
+.page a{
+    color: black;
+    background: white;
+    border: 1px solid lightgray;
+    padding: 1px 5px;
+}
+.page a:hover, #home-default:hover + #home a, #youtube:hover + #official a{
+    border: 1px solid cornflowerblue;
+}
+.content{
+    display: none;
+    position: absolute;
+    white-space: normal;
+    z-index: 1;
+}
+#blog:hover ~ #official, #blog:hover ~ #gaming, #blog:hover ~ #rhythm, #music:hover ~ #official, #music:hover ~ #gaming, #music:hover ~ #rhythm{
+    opacity: 0.3;
+}
+.content a{
+    margin-top: 5px;
+    display: table;
+}
+#music .content{
+    max-width: 190px;
+}
+#music .content a{
+    margin-top: 5px;
+    display: inline-block;
+}
+.page:hover .content{
+    display: block;
+}
+.social{
+    color: white;
+}
+.social{
+    display: inline-block;
+    padding: 10px;
+    padding-top: 0px;
+    margin-right: 10px;
+    cursor: pointer;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+#twitter{
+    background: #00aced;
+}
+#instagram{
+    background: #d6249f;
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+}
+#facebook{
+    background: #3b5998;
+    margin-right: 0px;
+}
+.social img{
+    height: 20px;
+    margin-top: 4px;
+    margin-bottom: 2px;
+}
+.social:hover{
+    color: white;
+    -webkit-filter: grayscale(0%);
+    filter: grayscale(0%);
+}
