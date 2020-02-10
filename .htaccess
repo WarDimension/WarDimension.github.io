@@ -10,7 +10,7 @@ RewriteRule ^(.*)$ $1.html [NC,L]
 
 # home to index
 
-RewriteRule ^home https://wardimension.github.io/index.html [NC,L]
+RewriteRule ^home$ https://wardimension.github.io/index.html [NC,L]
 
 # rewrite blog
 
