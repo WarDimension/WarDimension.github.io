@@ -1,9 +1,5 @@
 ReWriteEngine On
 
-RewriteCond %{REQUEST_FILENAME} !-d
-
-RewriteCond %{REQUEST_FILENAME}\.html -f
-
 # remove .html
 
 RewriteRule ^(.*)$ $1.html [NC,L]
