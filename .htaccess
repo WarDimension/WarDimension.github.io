@@ -10,4 +10,4 @@ RewriteRule ^(.*)$ $1.html [NC,L]
 
 # home to index
 
-RewriteRule ^/home$ /index.html [NC,L]
+RewriteRule ^home$ /index.html [NC,L]
