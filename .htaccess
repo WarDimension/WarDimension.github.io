@@ -4,12 +4,10 @@ RewriteCond %{REQUEST_FILENAME} !-d
 
 RewriteCond %{REQUEST_FILENAME}\.html -f
 
-RewriteRule ^home$ ../index.html [NC,L]
-
 # remove .html
 
-RewriteRule ^(.*)$ $1.html [NC,L]
+RewriteRule ^(.*)$ index.html [NC,L]
 
 # home to index
 
-RewriteRule ^home$ ../index.html [NC,L]
+# RewriteRule ^home$ ../index.html [NC,L]
