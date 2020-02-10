@@ -46,6 +46,13 @@ var coverButton = document.getElementById("cover");
 var sortButton = document.getElementById("cover-button");
 songDisplay();
 
+function removeHash(){
+  const url = new URL(window.location);
+  url.hash = '';
+  history.replaceState(null, document.title, url);
+}
+window.onhashchange = removeHash;
+
 function songDisplay(){
   if(original){
     if(sortNewest){
