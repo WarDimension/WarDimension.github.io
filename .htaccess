@@ -1,3 +1,5 @@
+Options +FollowSymLinks -MultiViews
+
 ReWriteEngine On
 
 RewriteCond %{REQUEST_FILENAME} !-d
