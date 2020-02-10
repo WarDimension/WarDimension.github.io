@@ -70,7 +70,7 @@ a:hover, .page a:hover, #home-default:hover + #home a, #youtube:hover + #officia
     display: table;
 }
 #music .content{
-    max-width: 190px;
+    max-width: 250px;
 }
 #music .content a{
     margin-top: 5px;
