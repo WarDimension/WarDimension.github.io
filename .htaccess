@@ -10,8 +10,8 @@ RewriteRule ^(.*)$ $1.html [NC,L]
 
 # home to index
 
-RewriteRule ^home$ https://wardimension.github.io/index.html [NC,L]
+RewriteRule ^home?$ index.html [NC,L]
 
 # rewrite blog
 
-RewriteRule ^blog/([0-9a-zA-Z_-]+)$/([0-9a-zA-Z_-]+)$ https://wardimension.github.io/blog.html?b=$1&p=$2 [NC,L]
+RewriteRule ^blog/(.*)$/(.*)$ blog.html?b=$1&p=$2 [NC,L]
