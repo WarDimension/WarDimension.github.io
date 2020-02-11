@@ -55,13 +55,18 @@ function showContextMenu(show = true){
     cm.style.display = show ? "block" : "none";
 }
 
-const logo = document.querySelector(".wd-logo");
-
-logo.addEventListener("contextmenu", (e) => {
-    e.preventDefault();
-    showContextMenu();
-    cm.style.top = e.y + cm.offsetHeight > window.innerHeight ? window.innerHeight - cm.offsetHeight : e.y;
-    cm.style.left = e.x + cm.offsetWidth > window.innerWidth ? window.innerWidth - cm.offsetWidth : e.x;
+window.addEventListener("contextmenu", (e) => {
+        var target = e.target || e.srcElement;
+    var className = target.className;
+    if(className == "wd-logo"){
+        e.preventDefault();
+        showContextMenu();
+        cm.style.top = e.y + cm.offsetHeight > window.innerHeight ? window.innerHeight - cm.offsetHeight : e.y;
+        cm.style.left = e.x + cm.offsetWidth > window.innerWidth ? window.innerWidth - cm.offsetWidth : e.x;
+    }
+    else{
+        showContextMenu(false);
+    }
 });
 
 function isEqual(a,b){
@@ -90,6 +95,6 @@ window.addEventListener("click", (e) => {
         const cmList = document.getElementsByClassName("cm-list");
         cmList[target.id].innerHTML == "0" ? cmList[target.id].innerHTML = "1" : cmList[target.id].innerHTML = "0";
         ascend[target.id] = cmList[target.id].innerHTML;
-        isEqual(ascend,["1","0","1","0","0","1","1","0","1","0"]) == true && window.open("https://wardimension.github.io/666","_top");
+        isEqual(ascend,["1","0","1","0","0","1","1","0","1","0"]) && window.open("https://wardimension.github.io/666","_top");
     }
 });
