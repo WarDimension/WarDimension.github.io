@@ -10,6 +10,8 @@ body{
 }
 .embed-container{
   position: relative;
+  -webkit-filter: contrast(4) grayscale(1);
+  filter: contrast(4) grayscale(1);
 }
 .block{
   position: absolute;
