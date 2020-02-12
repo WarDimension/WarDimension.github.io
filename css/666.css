@@ -8,6 +8,14 @@ body{
   width: 52%;
   filter: grayscale(100%) invert(100%) brightness(120%);
 }
+.embed-container{
+  position: relative;
+}
+.block{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
 @media only screen and (orientation: portrait), only screen and (max-width: 1720px){
   .sixsixsix{
     margin-top: 5%;
