@@ -1,4 +1,4 @@
-document.body.innerHTML += `
+document.querySelector(".context-menu").innerHTML = `
     <style>
         .cm{
             background: white;
