@@ -16,7 +16,6 @@ if(["experimental", "chart", "tab"].indexOf(url()["b"]) >= 0){
 }
 
 window.addEventListener("message", function(e) {
-    console.log(e.data);
     if (["https://wardimension-experimental.blogspot.com","https://wardimension-chart.blogspot.com","https://wardimension-tab.blogspot.com"].indexOf(e.origin) >= 0){
         const url = new URL(window.location);
         var b = e.data[0];
