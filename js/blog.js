@@ -24,7 +24,6 @@ window.addEventListener("message", function(e) {
             p = `&p=${e.data[1]}`;
         }
         url.search = `?b=${b}${p}`;
-        console.log(url.search);
         history.replaceState(null, document.title, url);
     }
 });
