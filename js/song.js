@@ -2,7 +2,7 @@ function platform(url, img, name){
   return `
     ${url != undefined ?
       `<a class="platform-url" href="${url}"  target="aboutblank">
-        <img class="platform-img" src="./images/${img}"/>${name}
+        <img class="platform-img" src="./images/${img}" alt="${name}"/>${name}
       </a>` : ``
     }
   `
