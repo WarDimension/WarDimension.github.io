@@ -46,6 +46,6 @@ window.addEventListener("click", (e) => {
     player.playVideo();
 });
 
-window.addEventListener("touchmove", (e) => {
+window.addEventListener("touchstart", (e) => {
     player.playVideo();
 });
