@@ -46,6 +46,6 @@ window.addEventListener("click", (e) => {
     player.playVideo();
 });
 
-window.addEventListener("touchstart", (e) => {
+window.addEventListener("mousedown", (e) => {
     player.playVideo();
 });
