@@ -15,8 +15,7 @@ function onYouTubeIframeAPIReady() {
             'controls': 0,
             'showinfo': 0,
             'loop': 1,
-            'rel': 0,
-            'origin':'https://wardimension.github.io'
+            'rel': 0
         },
         events: {
             'onReady': onPlayerReady,
