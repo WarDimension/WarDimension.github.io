@@ -37,6 +37,17 @@ h3{
 .wd-logo{
   width: 200px;
 }
+.skip{
+  position: absolute;
+  top: 6.5vw;
+  left: -200px;
+  text-decoration: none;
+  color: #000;
+  padding: 5px;
+}
+.skip:focus{
+  left: 20px;
+}
 .menu-container{
   position: absolute;
   top: 50px;
@@ -140,6 +151,9 @@ h3{
     width: 100%;
     padding: 0 0 4% 0;
   }
+  .skip{
+    top: 18vw;
+  }
 }
 @media only screen and (max-width: 1024px){
   .content{
@@ -149,6 +163,9 @@ h3{
     width: 70%;
     margin-left: 15%;
   }
+  .skip{
+    top: 25vw;
+  }
 }
 @media only screen and (max-width: 800px){
   .wd-logo{
@@ -157,5 +174,8 @@ h3{
   }
   .content{
     margin: 10% 20px;
+  }
+  .skip{
+    top: 46vw;
   }
 }
