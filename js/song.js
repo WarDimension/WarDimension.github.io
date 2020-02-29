@@ -122,18 +122,18 @@ if(url()["album"]){
       content.innerHTML = songTemplate(songsData[i]);
       found = true;
     }
-    else if(songsData[i].romanized && songsData[i].romanized.toUpperCase() == decodeURI(url()["album"]).toUpperCase()){
+    else if(songsData[i].alt && songsData[i].alt.toUpperCase() == decodeURI(url()["album"]).toUpperCase()){
       content.innerHTML = songTemplate(songsData[i]);
       found = true;
     }
   }
   if(!found){
     for(i = 0; i< coversData.length; i++){
-      if(coversData[i].title.toUpperCase() == decodeURI(url()["album"]).toUpperCase()){
+      if(coversData[i].title.toUpperCase() == url()["album"].toUpperCase()){
         coverSong();
         content.innerHTML = songTemplate(coversData[i]);
       }
-      else if(coversData[i].romanized && coversData[i].romanized.toUpperCase() == decodeURI(url()["album"]).toUpperCase()){
+      else if(coversData[i].alt && coversData[i].alt.toUpperCase() == url()["album"].toUpperCase()){
         coverSong();
         content.innerHTML = songTemplate(coversData[i]);
       }

@@ -30,6 +30,7 @@ const songsData = [
   },
   {
     "title": "Let's do it..",
+    "alt": "lets-do-it..",
     "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/db9b0a59-1832-436d-be35-c4da781cf1c8/dd0nv9q-aa942c03-a069-4e8b-9d84-bd15640c22b9.png/v1/fill/w_600,h_600,q_80,strp/let_s_do_it___by_wardimension_dd0nv9q-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjAwIiwicGF0aCI6IlwvZlwvZGI5YjBhNTktMTgzMi00MzZkLWJlMzUtYzRkYTc4MWNmMWM4XC9kZDBudjlxLWFhOTQyYzAzLWEwNjktNGU4Yi05ZDg0LWJkMTU2NDBjMjJiOS5wbmciLCJ3aWR0aCI6Ijw9NjAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.fX8LGvvIF6lJiRR3SNwFN0gXTKh6d3KRBDNyS_7KJ9A",
     "url": [{
       "itunes": "https://itunes.apple.com/us/album/lets-do-it-single/1360088411?uo=4",
@@ -56,7 +57,7 @@ const songsData = [
   },
   {
     "title": "&#2384;",
-    "romanized": "om",
+    "alt": "om",
     "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/db9b0a59-1832-436d-be35-c4da781cf1c8/dd0nw5r-26508513-69a1-40ce-843e-a8544b6a614a.png/v1/fill/w_600,h_600,q_80,strp/om_by_wardimension_dd0nw5r-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjAwIiwicGF0aCI6IlwvZlwvZGI5YjBhNTktMTgzMi00MzZkLWJlMzUtYzRkYTc4MWNmMWM4XC9kZDBudzVyLTI2NTA4NTEzLTY5YTEtNDBjZS04NDNlLWE4NTQ0YjZhNjE0YS5wbmciLCJ3aWR0aCI6Ijw9NjAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.Xpn7ue0RPCgzwvLCfOeFGlz3Qt7e6YZqiPZFviXbYRU",
     "url": [{
       "itunes": "https://itunes.apple.com/us/album/%E0%A5%90-ep/1411653135?uo=4",
@@ -111,6 +112,7 @@ const songsData = [
   },
   {
     "title": "Neko da",
+    "alt": "neko-da",
     "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/db9b0a59-1832-436d-be35-c4da781cf1c8/dd0nx3e-cabbf13b-741b-4932-94b5-af77fbe6889b.png/v1/fill/w_600,h_600,q_80,strp/neko_da_by_wardimension_dd0nx3e-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjAwIiwicGF0aCI6IlwvZlwvZGI5YjBhNTktMTgzMi00MzZkLWJlMzUtYzRkYTc4MWNmMWM4XC9kZDBueDNlLWNhYmJmMTNiLTc0MWItNDkzMi05NGI1LWFmNzdmYmU2ODg5Yi5wbmciLCJ3aWR0aCI6Ijw9NjAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.vSID-IILxT4LZ81_9x8xroyDD9AFTU6m9wejtoIu8dA",
     "url": [{
       "itunes": "https://itunes.apple.com/us/album/neko-da-ep/1454056720?uo=4",
