@@ -94,6 +94,9 @@ window.addEventListener("click", (e) => {
         const cmList = document.getElementsByClassName("cm-list");
         cmList[target.id].innerHTML == "0" ? cmList[target.id].innerHTML = "1" : cmList[target.id].innerHTML = "0";
         ascend[target.id] = cmList[target.id].innerHTML;
-        isEqual(ascend,["1","0","1","0","0","1","1","0","1","0"]) && window.open("https://wardimension.github.io/666","_top");
+        if(isEqual(ascend,["1","0","1","0","0","1","1","0","1","0"])){
+            localStorage.setItem("ascend", "true");
+            window.open("https://wardimension.github.io/666","_top");
+        }
     }
 });
