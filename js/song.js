@@ -48,7 +48,8 @@ songDisplay();
 
 function removeHash(){
   const url = new URL(window.location);
-  url.hash = '';
+  url.hash = "";
+  url.search = "";
   history.replaceState(null, document.title, url);
 }
 window.onhashchange = removeHash;
@@ -104,4 +105,49 @@ function coverSong(){
   coverButton.style.background = "#000";
   coverButton.style.color = "#fff";
   coverButton.style.cursor = "default";
+}
+
+function url(){
+  var vars = {};
+  window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value){
+      vars[key] = value;
+  });
+  return vars;
+}
+
+if(url()["album"]){
+  found = false;
+  for(i = 0; i< songsData.length; i++){
+    if(songsData[i].title.toUpperCase() == decodeURI(url()["album"]).toUpperCase()){
+      content.innerHTML = songTemplate(songsData[i]);
+      found = true;
+    }
+    else if(songsData[i].romanized && songsData[i].romanized.toUpperCase() == decodeURI(url()["album"]).toUpperCase()){
+      content.innerHTML = songTemplate(songsData[i]);
+      found = true;
+    }
+  }
+  if(!found){
+    for(i = 0; i< coversData.length; i++){
+      if(coversData[i].title.toUpperCase() == decodeURI(url()["album"]).toUpperCase()){
+        coverSong();
+        content.innerHTML = songTemplate(coversData[i]);
+      }
+      else if(coversData[i].romanized && coversData[i].romanized.toUpperCase() == decodeURI(url()["album"]).toUpperCase()){
+        coverSong();
+        content.innerHTML = songTemplate(coversData[i]);
+      }
+    }
+  }
+  const params = new URL(window.location);
+  params.search = `?album=${url()["album"]}`;
+  history.replaceState(null, document.title, params);
+}
+
+if(url()["sort"] == "old"){
+  songSort();
+}
+
+if(url()["type"] == "cover"){
+  coverSong();
 }
