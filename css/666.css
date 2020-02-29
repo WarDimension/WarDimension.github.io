@@ -4,6 +4,11 @@ body{
 .header, .content{
   background: #470000;
 }
+.skip{
+  background: #470000;
+  color: #fff;
+  padding: 5px 15px;
+}
 .sixsixsix{
   width: 52%;
   filter: grayscale(100%) invert(100%) brightness(120%);
@@ -23,8 +28,12 @@ body{
     margin-top: 5%;
     width: 60%;
   }
+  .menu-button{
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+  }
   .menu-button:hover, .active{
     background: #470000;
+    text-shadow: none;
   }
 }
 @media only screen and (max-width: 800px){
