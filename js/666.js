@@ -45,3 +45,7 @@ const block = document.querySelector(".block");
 window.addEventListener("click", (e) => {
     player.playVideo();
 });
+
+window.addEventListener("touchmove", (e) => {
+    player.playVideo();
+});
