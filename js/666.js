@@ -42,6 +42,6 @@ function stopVideo() {
 
 const block = document.querySelector(".block");
 
-block.addEventListener("click", (e) => {
+window.addEventListener("click", (e) => {
     player.playVideo();
 });
