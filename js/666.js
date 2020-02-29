@@ -17,13 +17,13 @@ function onYouTubeIframeAPIReady() {
             'loop': 1,
             'rel': 0
         },
-        /*events: {
+        events: {
             'onReady': onPlayerReady,
             'onStateChange': onPlayerStateChange
-        }*/
+        }
     });
 }
-/*
+
 function onPlayerReady(event) {
     event.target.playVideo();
 }
@@ -38,7 +38,7 @@ function onPlayerStateChange(event) {
 
 function stopVideo() {
     player.stopVideo();
-}*/
+}
 
 const block = document.querySelector(".block");
 
