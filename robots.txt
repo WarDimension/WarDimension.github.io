@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /666.html
+
+Sitemap: https://wardimension.github.io/sitemap.xml
