@@ -11,6 +11,7 @@
 html, body, iframe {
   max-width: 100%;
   overflow-x: hidden;
+  overflow-y: overlay;
 }
 ::-webkit-scrollbar {
   width: 5px;

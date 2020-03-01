@@ -120,8 +120,36 @@ function url(){
   return vars;
 }
 
+function trackListTemplate(track, index){
+  return `
+    <tr class="track-list">
+      <td class="track-number">${index+1}</td>
+      <td class="track-name">${track.title}</td>
+      <td class="track-length">${track.length}</td>
+    </tr>
+  `;
+}
+
+function trackTemplate(song){
+  return `
+    <div class="content" id="track-container">
+      <table class="track">
+        <tbody class="track-body">
+        <tr class="track-head">
+          <th class="track-number-head">#</th>
+          <th class="track-name-head">Track Name</th>
+          <th class="track-length-head">Length</th>
+        </tr>
+        ${song.track.map(trackListTemplate).join("")}
+        </tbody>
+      </table>
+    </div>
+  `;
+}
+
 if(url()["album"]){
-  found = false;
+  var found = false;
+  var song;
   for(i = 0; i< songsData.length; i++){
     if(songsData[i].title.toUpperCase() == url()["album"].toUpperCase()){
       content.innerHTML = songTemplate(songsData[i]);
@@ -131,16 +159,26 @@ if(url()["album"]){
       content.innerHTML = songTemplate(songsData[i]);
       found = true;
     }
+    if(found){
+      content.innerHTML += trackTemplate(songsData[i]);
+      break;
+    }
   }
   if(!found){
     for(i = 0; i< coversData.length; i++){
       if(coversData[i].title.toUpperCase() == url()["album"].toUpperCase()){
         coverSong();
         content.innerHTML = songTemplate(coversData[i]);
+        found = true;
       }
       else if(coversData[i].alt && coversData[i].alt.toUpperCase() == url()["album"].toUpperCase()){
         coverSong();
         content.innerHTML = songTemplate(coversData[i]);
+        found = true;
+      }
+      if(found){
+        content.innerHTML += trackTemplate(coversData[i]);
+        break;
       }
     }
   }
@@ -160,6 +198,7 @@ window.addEventListener("click", (e) => {
   while(target.className && target.className != "platform-url" && target.className != "content"){
     target = target.parentElement;
   }
+  console.log(target.className);
   if(!url()["album"] && target.className != "platform-url" && target.className == "content"){
     var song;
     if(original == true){
@@ -179,6 +218,7 @@ window.addEventListener("click", (e) => {
       }
     }
     content.innerHTML = songTemplate(song);
+    content.innerHTML += trackTemplate(song);
     setParams(`?album=${(song.alt ? song.alt : song.title).toLowerCase()}`);
   }
   else if(target.className != "platform-url" && target.className != "content"){

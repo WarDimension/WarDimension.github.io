@@ -32,7 +32,7 @@
   margin-top: 70%;
   margin-left: 12%;
   margin-bottom: 22%;
-  font-size: 1.3vw;
+  font-size: 1.1vw;
   text-shadow: -1px 0 black, 0 1px black, 2px 0 black, 0 -1px black;
   color: #fff;
   display: inline-block;
@@ -73,6 +73,25 @@
 .song-sort-button:hover, .song-menu-container:hover{
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
+#track-container{
+  position: relative;
+  top: -5vw;
+  padding: 0;
+  background: #222;
+  padding: 25px;
+}
+.track{
+  margin: auto;
+}
+.track th, .track td{
+  color: #fff;
+  padding: 10px 40px;
+  margin: 0;
+  text-align: left;
+}
+td{
+  word-break:break-all;
+}
 @media only screen and (orientation: portrait), only screen and (max-width: 1720px){
   .album-container{
     width: 60%;
@@ -97,6 +116,9 @@
     margin-top: 4.5%;
     margin-left: 15%;
   }
+  #track-container{
+    padding: 25px;
+  }
 }
 @media only screen and (max-width: 1024px){
   .album-container{
@@ -113,6 +135,9 @@
   .song-menu-container{
     margin-top: 4%;
     margin-left: 15%;
+  }
+  #track-container{
+    padding: 25px;
   }
 }
 @media only screen and (max-width: 800px){
@@ -133,5 +158,9 @@
   .song-menu-container{
     margin-top: 6%;
     margin-left: 20px;
+  }
+  #track-container{
+    padding: 5px;
+    top: -10vw;
   }
 }

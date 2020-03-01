@@ -12,7 +12,17 @@ const songsData = [
       "amazon": "https://www.amazon.com/dp/B079CW27VN",
       "soundCloud": "https://soundcloud.com/wardimension/sets/nightmare",
       "rocksmith": "http://ignition.customsforge.com/search/browse?filters=%7B%22artist%22%3A%22WarDimension%22%2C%22album%22%3A%22Nightmare%22%7D"
-    }]
+    }],
+    "track": [
+      {
+        "title": "Nightmare",
+        "length": "2:48"
+      },
+      {
+        "title": "Nightmare -Instrumental-",
+        "length": "2:48"
+      }
+    ]
   },
   {
     "title": "Abandoned",
@@ -26,7 +36,13 @@ const songsData = [
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_nWYcbbuKkXWcjx507xQM9VJln5jtT3znQ",
       "amazon": "https://www.amazon.com/dp/B07BHF8JWG",
       "soundCloud": "https://soundcloud.com/wardimension/abandoned"
-    }]
+    }],
+    "track": [
+      {
+        "title": "Abandoned",
+        "length": "3:17"
+      }
+    ]
   },
   {
     "title": "Let's do it..",
@@ -40,7 +56,13 @@ const songsData = [
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_nqIQrGsNxxU6KTEpu0rQVRogIFGnwtY7o",
       "amazon": "https://www.amazon.com/dp/B07BHKP9YT",
       "soundCloud": "https://soundcloud.com/wardimension/lets-do-it"
-    }]
+    }],
+    "track": [
+      {
+        "title": "Let's Do It..",
+        "length": "2:16"
+      }
+    ]
   },
   {
     "title": "FruityDimension",
@@ -53,7 +75,29 @@ const songsData = [
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_ngbTWfAhv0pPJyAkV1yCMy4RSPqoAVIq8",
       "amazon": "https://www.amazon.com/dp/B07DY5LJ4H",
       "soundCloud": "https://soundcloud.com/wardimension/sets/fruitydimension"
-    }]
+    }],
+    "track": [
+      {
+        "title": "BriGHtFuture",
+        "length": "1:58"
+      },
+      {
+        "title": "Sound of Hope",
+        "length": "2:05"
+      },
+      {
+        "title": "Kurai",
+        "length": "2:13"
+      },
+      {
+        "title": "Ambiguity",
+        "length": "1:12"
+      },
+      {
+        "title": "Curse",
+        "length": "1:37"
+      }
+    ]
   },
   {
     "title": "&#2384;",
@@ -68,7 +112,25 @@ const songsData = [
       "amazon": "https://www.amazon.com/dp/B07FK8WN57",
       "soundCloud": "https://soundcloud.com/wardimension/sets/cxlclm2wunur",
       "rocksmith": "http://ignition.customsforge.com/search/browse?filters=%7B%22artist%22%3A%22WarDimension%22%2C%22album%22%3A%22Om%22%7D"
-    }]
+    }],
+    "track": [
+      {
+        "title": "&#2384;",
+        "length": "4:00"
+      },
+      {
+        "title": "&#2384; (Without Intro)",
+        "length": "3:04"
+      },
+      {
+        "title": "&#2384; -Instrumental-",
+        "length": "4:00"
+      },
+      {
+        "title": "&#2384; (Without Intro) -Instrumental-",
+        "length": "3:04"
+      }
+    ]
   },
   {
     "title": "NoHope_",
@@ -81,7 +143,13 @@ const songsData = [
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_kd8QzOX73fXWIlrDffjkdDlJEKEpTzLM0",
       "amazon": "https://www.amazon.com/dp/B07HBCH7BM",
       "soundCloud": "https://soundcloud.com/wardimension/nohope"
-    }]
+    }],
+    "track": [
+      {
+        "title": "NoHope_",
+        "length": "2:00"
+      }
+    ]
   },
   {
     "title": "Hyouka",
@@ -94,7 +162,17 @@ const songsData = [
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_mPLcT60QoFNTP6RFsNmCMT-SDqr5uJCoQ",
       "amazon": "https://www.amazon.com/dp/B07H9GB6MR",
       "soundCloud": "https://soundcloud.com/wardimension/sets/hyouka"
-    }]
+    }],
+    "track": [
+      {
+        "title": "Hyouka",
+        "length": "1:13"
+      },
+      {
+        "title": "Hyouka -Instrumental-",
+        "length": "1:13"
+      }
+    ]
   },
   {
     "title": "Vboo",
@@ -108,7 +186,49 @@ const songsData = [
       "amazon": "https://www.amazon.com/dp/B07N359FPM",
       "soundCloud": "https://soundcloud.com/wardimension/sets/vboo",
       "rocksmith": "http://ignition.customsforge.com/search/browse?filters=%7B%22artist%22%3A%22WarDimension%22%2C%22album%22%3A%22Vboo%22%7D"
-    }]
+    }],
+    "track": [
+      {
+        "title": "花火",
+        "length": "2:30"
+      },
+      {
+        "title": "花火 -Instrumental-",
+        "length": "2:30"
+      },
+      {
+        "title": "自宅",
+        "length": "2:10"
+      },
+      {
+        "title": "自宅 -Instrumental-",
+        "length": "2:10"
+      },
+      {
+        "title": "Imaginary World",
+        "length": "2:40"
+      },
+      {
+        "title": "Imaginary World -Instrumental-",
+        "length": "2:40"
+      },
+      {
+        "title": "Imaginary World (偽のメロディ Version)",
+        "length": "2:24"
+      },
+      {
+        "title": "Imaginary World (偽のメロディ Version) -Instrumental-",
+        "length": "2:24"
+      },
+      {
+        "title": "秋は",
+        "length": "2:16"
+      },
+      {
+        "title": "秋は -Instrumental-",
+        "length": "1:57"
+      }
+    ]
   },
   {
     "title": "Neko da",
@@ -122,7 +242,33 @@ const songsData = [
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_kiuXgQTZcTi0c9gC34_Ec3Lye6MwZ_FFw",
       "amazon": "https://www.amazon.com/dp/B07NZ92B4G",
       "rocksmith": "http://ignition.customsforge.com/search/browse?filters=%7B%22artist%22%3A%22WarDimension%22%2C%22album%22%3A%22Neko%20da%22%7D"
-    }]
+    }],
+    "track": [
+      {
+        "title": "Miaw",
+        "length": "1:32"
+      },
+      {
+        "title": "Miaw -Instrumental-",
+        "length": "1:32"
+      },
+      {
+        "title": "Nyaa",
+        "length": "1:40"
+      },
+      {
+        "title": "Nyaa -Instrumental-",
+        "length": "1:40"
+      },
+      {
+        "title": "goro goro",
+        "length": "2:00"
+      },
+      {
+        "title": "goro goro -Instrumental-",
+        "length": "2:00"
+      }
+    ]
   },
   {
     "title": "BandLab",
@@ -135,6 +281,56 @@ const songsData = [
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_nsRJ9w9SFCy3fZr5wXzOuaZrT9tzxLveA",
       "amazon": "https://www.amazon.com/dp/B07THS4L2B",
       "bandLab": "https://www.bandlab.com/wardimension/collections/54611ac3-28d6-e911-b5e9-28187831ee7a"
-    }]
+    }],
+    "track": [
+      {
+        "title": "The Day After Tomorrow",
+        "length": "1:05"
+      },
+      {
+        "title": "In the Middle of Nowhere",
+        "length": "1:14"
+      },
+      {
+        "title": "Sunday Morning",
+        "length": "0:40"
+      },
+      {
+        "title": "化け物",
+        "length": "1:28"
+      },
+      {
+        "title": "ルーパー",
+        "length": "1:13"
+      },
+      {
+        "title": "Dark Forest",
+        "length": "2:18"
+      },
+      {
+        "title": "It's My Fault",
+        "length": "2:19"
+      },
+      {
+        "title": "死",
+        "length": "1:41"
+      },
+      {
+        "title": "Every Second",
+        "length": "1:17"
+      },
+      {
+        "title": "遊ぼう",
+        "length": "0:55"
+      },
+      {
+        "title": "Mental Breakdown",
+        "length": "1:14"
+      },
+      {
+        "title": "My Secret Place",
+        "length": "1:39"
+      }
+    ]
   }
 ];
