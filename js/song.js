@@ -198,7 +198,6 @@ window.addEventListener("click", (e) => {
   while(target.className && target.className != "platform-url" && target.className != "content"){
     target = target.parentElement;
   }
-  console.log(target.className);
   if(!url()["album"] && target.className != "platform-url" && target.className == "content"){
     var song;
     if(original == true){
