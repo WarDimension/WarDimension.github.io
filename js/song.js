@@ -23,15 +23,15 @@ function platformTemplate(song){
   `;
 }
 
-function songTemplate(song){
+function songTemplate(song, index){
   return `
-    <div class="content">
+    <div class="content" id="${index}">
       <div class="album-container">
         <img class="song-img" src="${song.img}" alt="${song.title} Album Art" ${song.img1 != undefined ? `onmouseover="src='${song.img1}'" onmouseout="src='${song.img}'"` : ``}/><!--
         --><b class="song-title-disk"><p class="song-title">${song.title}</p></b>
       </div>
       <div class="platform-container">
-        <h3>Available on</h3>
+        <h3 class="available-on">Available on</h3>
         ${platformTemplate(song)}
       </div>
     </div>
@@ -49,10 +49,15 @@ songDisplay();
 function removeHash(){
   const url = new URL(window.location);
   url.hash = "";
-  url.search = "";
   history.replaceState(null, document.title, url);
 }
 window.onhashchange = removeHash;
+
+function setParams(search){
+  const url = new URL(window.location);
+  url.search = search;
+  history.replaceState(null, document.title, url);
+}
 
 function songDisplay(){
   if(original){
@@ -118,11 +123,11 @@ function url(){
 if(url()["album"]){
   found = false;
   for(i = 0; i< songsData.length; i++){
-    if(songsData[i].title.toUpperCase() == decodeURI(url()["album"]).toUpperCase()){
+    if(songsData[i].title.toUpperCase() == url()["album"].toUpperCase()){
       content.innerHTML = songTemplate(songsData[i]);
       found = true;
     }
-    else if(songsData[i].alt && songsData[i].alt.toUpperCase() == decodeURI(url()["album"]).toUpperCase()){
+    else if(songsData[i].alt && songsData[i].alt.toUpperCase() == url()["album"].toUpperCase()){
       content.innerHTML = songTemplate(songsData[i]);
       found = true;
     }
@@ -139,9 +144,7 @@ if(url()["album"]){
       }
     }
   }
-  const params = new URL(window.location);
-  params.search = `?album=${url()["album"]}`;
-  history.replaceState(null, document.title, params);
+  setParams(`?album=${url()["album"]}`);
 }
 
 if(url()["sort"] == "old"){
@@ -151,3 +154,35 @@ if(url()["sort"] == "old"){
 if(url()["type"] == "cover"){
   coverSong();
 }
+
+window.addEventListener("click", (e) => {
+  var target = e.target;
+  while(target.className && target.className != "platform-url" && target.className != "content"){
+    target = target.parentElement;
+  }
+  if(!url()["album"] && target.className != "platform-url" && target.className == "content"){
+    var song;
+    if(original == true){
+      if(sortNewest == true){
+        song = songsData[(songsData.length - 1) - target.id];
+      }
+      else{
+        song = songsData[target.id];
+      }
+    }
+    else{
+      if(sortNewest == true){
+        song = coversData[(coversData.length - 1) - target.id];
+      }
+      else{
+        song = coversData[target.id];
+      }
+    }
+    content.innerHTML = songTemplate(song);
+    setParams(`?album=${(song.alt ? song.alt : song.title).toLowerCase()}`);
+  }
+  else if(target.className != "platform-url" && target.className != "content"){
+    songDisplay();
+    setParams("");
+  }
+});

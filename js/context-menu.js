@@ -55,7 +55,7 @@ function showContextMenu(show = true){
 }
 
 window.addEventListener("contextmenu", (e) => {
-        var target = e.target || e.srcElement;
+    var target = e.target;
     var className = target.className;
     if(className == "wd-logo"){
         e.preventDefault();
@@ -85,7 +85,7 @@ function isEqual(a,b){
 var ascend = ["0","0","0","0","0","0","0","0","0","0"];
 
 window.addEventListener("click", (e) => {
-    var target = e.target || e.srcElement;
+    var target = e.target;
     var className = target.className;
     if(className != "cm" && className != "cm-list"){
         showContextMenu(false);
