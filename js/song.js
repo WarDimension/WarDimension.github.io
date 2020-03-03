@@ -1,8 +1,8 @@
-function platform(url, img, name){
+function platform(url, sprite, name){
   return `
     ${url != undefined ?
       `<a class="platform-url" href="${url}"  target="aboutblank">
-        <img class="platform-img" src="./images/${img}" alt="${name}"/>${name}
+        <i class="platform-icon i-${sprite}"></i>${name}
       </a>` : ``
     }
   `
@@ -10,16 +10,16 @@ function platform(url, img, name){
 
 function platformTemplate(song){
   return `
-    ${platform(song.url[0].itunes, "iTunes.png", "iTunes/Apple Music")}
-    ${platform(song.url[0].deezer, "Deezer.ico.png", "Deezer")}
-    ${platform(song.url[0].googlePlay, "Google Play.png", "Google Play")}
-    ${platform(song.url[0].spotify, "Spotify.png", "Spotify")}
-    ${platform(song.url[0].youtube, "YouTube.png", "YouTube")}
-    ${platform(song.url[0].youtubeMusic, "YouTube Music.png", "YouTube Music")}
-    ${platform(song.url[0].amazon, "Amazon.png", "Amazon Music")}
-    ${platform(song.url[0].bandLab, "BandLab.png", "BandLab")}
-    ${platform(song.url[0].soundCloud, "icon-soundcloud.png", "SoundCloud")}
-    ${platform(song.url[0].rocksmith, "Rocksmith.png", "Rocksmith")}
+    ${platform(song.url[0].itunes, "itunes", "iTunes/Apple Music")}
+    ${platform(song.url[0].deezer, "deezer", "Deezer")}
+    ${platform(song.url[0].googlePlay, "google-play", "Google Play")}
+    ${platform(song.url[0].spotify, "spotify", "Spotify")}
+    ${platform(song.url[0].youtube, "youtube", "YouTube")}
+    ${platform(song.url[0].youtubeMusic, "youtube-music", "YouTube Music")}
+    ${platform(song.url[0].amazon, "amazon", "Amazon Music")}
+    ${platform(song.url[0].bandLab, "bandlab", "BandLab")}
+    ${platform(song.url[0].soundCloud, "soundcloud", "SoundCloud")}
+    ${platform(song.url[0].rocksmith, "rocksmith", "Rocksmith")}
   `;
 }
 

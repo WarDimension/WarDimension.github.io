@@ -103,10 +103,58 @@ h3{
   font-size: 18px;
   padding: 2%;
 }
-.platform-img{
+.platform-icon{
+  display: inline-block;
+  background: url("../images/platform_icon.png");
   width: 25px;
+  height: 25px;
   margin-right: 5px;
   vertical-align: middle;
+}
+.i-deezer{
+  background-position: -27px 0;
+}
+.i-google-play{
+  background-position: -54px 0;
+}
+.i-spotify{
+  background-position: -81px 0;
+}
+.i-youtube{
+  background-position: 0 -27px;
+}
+.i-youtube-music{
+  background-position: -27px -27px;
+}
+.i-amazon{
+  background-position: -54px -27px;
+}
+.i-bandlab{
+  background-position: -81px -27px;
+}
+.i-soundcloud{
+  background-position: 0 -54px;
+}
+.i-rocksmith{
+  background-position: -27px -54px;
+}
+.i-wd-music{
+  background-position: -54px -54px;
+}
+.i-wd-rhythm{
+  background-position: -81px -54px;
+}
+.i-wd-gaming{
+  background-position: 0 -81px;
+}
+.i-twitter{
+  background-position: -27px -81px;
+}
+.i-instagram{
+  background-position: -54px -81px;
+}
+.i-facebook{
+  background-position: -81px -81px;
 }
 .platform-url{
   text-decoration:none;
