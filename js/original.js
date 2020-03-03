@@ -1,7 +1,7 @@
 const songsData = [
   {
     "title": "Nightmare",
-    "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/db9b0a59-1832-436d-be35-c4da781cf1c8/dd0nu9b-aa886b13-21f0-4e20-97ff-432e36ffd150.png/v1/fill/w_600,h_600,q_80,strp/nightmare_by_wardimension_dd0nu9b-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjAwIiwicGF0aCI6IlwvZlwvZGI5YjBhNTktMTgzMi00MzZkLWJlMzUtYzRkYTc4MWNmMWM4XC9kZDBudTliLWFhODg2YjEzLTIxZjAtNGUyMC05N2ZmLTQzMmUzNmZmZDE1MC5wbmciLCJ3aWR0aCI6Ijw9NjAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.CYpQj8wQ6qjYZ3p5p1rufM0RFGtwy2vV05ra93odZkY",
+    "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/db9b0a59-1832-436d-be35-c4da781cf1c8/dd0nu9b-aa886b13-21f0-4e20-97ff-432e36ffd150.png/v1/fill/w_400,h_400,q_80,strp/nightmare_by_wardimension_dd0nu9b-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDAwIiwicGF0aCI6IlwvZlwvZGI5YjBhNTktMTgzMi00MzZkLWJlMzUtYzRkYTc4MWNmMWM4XC9kZDBudTliLWFhODg2YjEzLTIxZjAtNGUyMC05N2ZmLTQzMmUzNmZmZDE1MC5wbmciLCJ3aWR0aCI6Ijw9NDAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.PdPfV6YeDNjMZQqVKAII0gupn4oPPP-9Tn_xMEmt3vw",
     "url": [{
       "itunes": "https://itunes.apple.com/us/album/nightmare-single/1341371794?uo=4",
       "deezer": "https://www.deezer.com/us/album/55904362",
@@ -26,7 +26,7 @@ const songsData = [
   },
   {
     "title": "Abandoned",
-    "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/db9b0a59-1832-436d-be35-c4da781cf1c8/dd0nuzi-a72748c8-2a0f-4447-87f2-64129f670cb4.png/v1/fill/w_600,h_600,q_80,strp/abandoned_by_wardimension_dd0nuzi-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjAwIiwicGF0aCI6IlwvZlwvZGI5YjBhNTktMTgzMi00MzZkLWJlMzUtYzRkYTc4MWNmMWM4XC9kZDBudXppLWE3Mjc0OGM4LTJhMGYtNDQ0Ny04N2YyLTY0MTI5ZjY3MGNiNC5wbmciLCJ3aWR0aCI6Ijw9NjAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.lmpEc6Xv5bGxX5iVwv6olS6l0plyN0nouoMFt8XC5zA",
+    "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/db9b0a59-1832-436d-be35-c4da781cf1c8/dd0nuzi-a72748c8-2a0f-4447-87f2-64129f670cb4.png/v1/fill/w_400,h_400,q_80,strp/abandoned_by_wardimension_dd0nuzi-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDAwIiwicGF0aCI6IlwvZlwvZGI5YjBhNTktMTgzMi00MzZkLWJlMzUtYzRkYTc4MWNmMWM4XC9kZDBudXppLWE3Mjc0OGM4LTJhMGYtNDQ0Ny04N2YyLTY0MTI5ZjY3MGNiNC5wbmciLCJ3aWR0aCI6Ijw9NDAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.OW7ySqNymFFihV8ikuPDx0pGlj8nSAZ_vQyUqL4BbPQ",
     "url": [{
       "itunes": "https://itunes.apple.com/us/album/abandoned-single/1360087542?uo=4",
       "deezer": "https://www.deezer.com/us/album/59088612",
@@ -47,7 +47,7 @@ const songsData = [
   {
     "title": "Let's do it..",
     "alt": "lets-do-it..",
-    "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/db9b0a59-1832-436d-be35-c4da781cf1c8/dd0nv9q-aa942c03-a069-4e8b-9d84-bd15640c22b9.png/v1/fill/w_600,h_600,q_80,strp/let_s_do_it___by_wardimension_dd0nv9q-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjAwIiwicGF0aCI6IlwvZlwvZGI5YjBhNTktMTgzMi00MzZkLWJlMzUtYzRkYTc4MWNmMWM4XC9kZDBudjlxLWFhOTQyYzAzLWEwNjktNGU4Yi05ZDg0LWJkMTU2NDBjMjJiOS5wbmciLCJ3aWR0aCI6Ijw9NjAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.fX8LGvvIF6lJiRR3SNwFN0gXTKh6d3KRBDNyS_7KJ9A",
+    "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/db9b0a59-1832-436d-be35-c4da781cf1c8/dd0nv9q-aa942c03-a069-4e8b-9d84-bd15640c22b9.png/v1/fill/w_400,h_400,q_80,strp/let_s_do_it___by_wardimension_dd0nv9q-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDAwIiwicGF0aCI6IlwvZlwvZGI5YjBhNTktMTgzMi00MzZkLWJlMzUtYzRkYTc4MWNmMWM4XC9kZDBudjlxLWFhOTQyYzAzLWEwNjktNGU4Yi05ZDg0LWJkMTU2NDBjMjJiOS5wbmciLCJ3aWR0aCI6Ijw9NDAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.f39KPjMvCBm6mtyd_TWw_YrLfXEnm7BRgnl4ex3ceJU",
     "url": [{
       "itunes": "https://itunes.apple.com/us/album/lets-do-it-single/1360088411?uo=4",
       "deezer": "https://www.deezer.com/us/album/59088622",
@@ -66,7 +66,7 @@ const songsData = [
   },
   {
     "title": "FruityDimension",
-    "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/db9b0a59-1832-436d-be35-c4da781cf1c8/dd0nvsc-ca29a2d3-0f02-4a12-b5e1-1a389004ce99.png/v1/fill/w_600,h_600,q_80,strp/fruitydimension_by_wardimension_dd0nvsc-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjAwIiwicGF0aCI6IlwvZlwvZGI5YjBhNTktMTgzMi00MzZkLWJlMzUtYzRkYTc4MWNmMWM4XC9kZDBudnNjLWNhMjlhMmQzLTBmMDItNGExMi1iNWUxLTFhMzg5MDA0Y2U5OS5wbmciLCJ3aWR0aCI6Ijw9NjAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.zFbFZs2INc2FvAjhH12jeOrzdxVFZM4ZokBC-O5rE6I",
+    "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/db9b0a59-1832-436d-be35-c4da781cf1c8/dd0nvsc-ca29a2d3-0f02-4a12-b5e1-1a389004ce99.png/v1/fill/w_400,h_400,q_80,strp/fruitydimension_by_wardimension_dd0nvsc-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDAwIiwicGF0aCI6IlwvZlwvZGI5YjBhNTktMTgzMi00MzZkLWJlMzUtYzRkYTc4MWNmMWM4XC9kZDBudnNjLWNhMjlhMmQzLTBmMDItNGExMi1iNWUxLTFhMzg5MDA0Y2U5OS5wbmciLCJ3aWR0aCI6Ijw9NDAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.kXZ9rBA22Pgm41Q1l3DRa2fB9RyN8DqWyS65F4PwaYw",
     "url": [{
       "itunes": "https://itunes.apple.com/us/album/fruity-dimension-ep/1402708218?uo=4",
       "deezer": "https://www.deezer.com/album/68426701",
@@ -102,7 +102,7 @@ const songsData = [
   {
     "title": "&#2384;",
     "alt": "om",
-    "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/db9b0a59-1832-436d-be35-c4da781cf1c8/dd0nw5r-26508513-69a1-40ce-843e-a8544b6a614a.png/v1/fill/w_600,h_600,q_80,strp/om_by_wardimension_dd0nw5r-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjAwIiwicGF0aCI6IlwvZlwvZGI5YjBhNTktMTgzMi00MzZkLWJlMzUtYzRkYTc4MWNmMWM4XC9kZDBudzVyLTI2NTA4NTEzLTY5YTEtNDBjZS04NDNlLWE4NTQ0YjZhNjE0YS5wbmciLCJ3aWR0aCI6Ijw9NjAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.Xpn7ue0RPCgzwvLCfOeFGlz3Qt7e6YZqiPZFviXbYRU",
+    "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/db9b0a59-1832-436d-be35-c4da781cf1c8/dd0nw5r-26508513-69a1-40ce-843e-a8544b6a614a.png/v1/fill/w_400,h_400,q_80,strp/om_by_wardimension_dd0nw5r-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDAwIiwicGF0aCI6IlwvZlwvZGI5YjBhNTktMTgzMi00MzZkLWJlMzUtYzRkYTc4MWNmMWM4XC9kZDBudzVyLTI2NTA4NTEzLTY5YTEtNDBjZS04NDNlLWE4NTQ0YjZhNjE0YS5wbmciLCJ3aWR0aCI6Ijw9NDAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.YqfJ3okSuqNtBAs08zYhmLrxAH-jJJ1CRSdZ7WaVwM4",
     "url": [{
       "itunes": "https://itunes.apple.com/us/album/%E0%A5%90-ep/1411653135?uo=4",
       "deezer": "https://www.deezer.com/album/68198331",
@@ -134,7 +134,7 @@ const songsData = [
   },
   {
     "title": "NoHope_",
-    "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/db9b0a59-1832-436d-be35-c4da781cf1c8/dd0nweg-838ec8bb-2e88-444f-83f6-164f222f453e.png/v1/fill/w_600,h_600,q_80,strp/nohope__by_wardimension_dd0nweg-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjAwIiwicGF0aCI6IlwvZlwvZGI5YjBhNTktMTgzMi00MzZkLWJlMzUtYzRkYTc4MWNmMWM4XC9kZDBud2VnLTgzOGVjOGJiLTJlODgtNDQ0Zi04M2Y2LTE2NGYyMjJmNDUzZS5wbmciLCJ3aWR0aCI6Ijw9NjAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.xcaAeGPUUkljQ09ZorcZH144YH1IKU5-JTKhg1WbvoA",
+    "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/db9b0a59-1832-436d-be35-c4da781cf1c8/dd0nweg-838ec8bb-2e88-444f-83f6-164f222f453e.png/v1/fill/w_400,h_400,q_80,strp/nohope__by_wardimension_dd0nweg-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDAwIiwicGF0aCI6IlwvZlwvZGI5YjBhNTktMTgzMi00MzZkLWJlMzUtYzRkYTc4MWNmMWM4XC9kZDBud2VnLTgzOGVjOGJiLTJlODgtNDQ0Zi04M2Y2LTE2NGYyMjJmNDUzZS5wbmciLCJ3aWR0aCI6Ijw9NDAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.f0988TZ3HTARbrePwNGoHAV5SAUW9EKjDy6fSPr2K9s",
     "url": [{
       "itunes": "https://itunes.apple.com/us/album/no-hope-single/1436219355?uo=4",
       "deezer": "https://www.deezer.com/album/73130572",
@@ -153,7 +153,7 @@ const songsData = [
   },
   {
     "title": "Hyouka",
-    "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/db9b0a59-1832-436d-be35-c4da781cf1c8/dd0nwok-ae360c0a-8d01-4673-8f2a-a32505f1dd59.png/v1/fill/w_600,h_600,q_80,strp/hyouka_by_wardimension_dd0nwok-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjAwIiwicGF0aCI6IlwvZlwvZGI5YjBhNTktMTgzMi00MzZkLWJlMzUtYzRkYTc4MWNmMWM4XC9kZDBud29rLWFlMzYwYzBhLThkMDEtNDY3My04ZjJhLWEzMjUwNWYxZGQ1OS5wbmciLCJ3aWR0aCI6Ijw9NjAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.yQE34qlqW5jwKnvEWVoE4M_iNRqNVEVJK1P7K_ES6ZY",
+    "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/db9b0a59-1832-436d-be35-c4da781cf1c8/dd0nwok-ae360c0a-8d01-4673-8f2a-a32505f1dd59.png/v1/fill/w_400,h_400,q_80,strp/hyouka_by_wardimension_dd0nwok-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDAwIiwicGF0aCI6IlwvZlwvZGI5YjBhNTktMTgzMi00MzZkLWJlMzUtYzRkYTc4MWNmMWM4XC9kZDBud29rLWFlMzYwYzBhLThkMDEtNDY3My04ZjJhLWEzMjUwNWYxZGQ1OS5wbmciLCJ3aWR0aCI6Ijw9NDAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.4g6ev6q2Ttq8qvxfYAS-FOp9ojh1hgf9sg4EwAAHkSs",
     "url": [{
       "itunes": "https://itunes.apple.com/us/album/hyouka-single/1436060545?uo=4",
       "deezer": "https://www.deezer.com/album/73005342",
@@ -176,7 +176,7 @@ const songsData = [
   },
   {
     "title": "Vboo",
-    "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/db9b0a59-1832-436d-be35-c4da781cf1c8/dd0nwtg-ff4e6837-4b0e-4b9d-89fa-7fca63a1aa65.png/v1/fill/w_600,h_600,q_80,strp/vboo_by_wardimension_dd0nwtg-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjAwIiwicGF0aCI6IlwvZlwvZGI5YjBhNTktMTgzMi00MzZkLWJlMzUtYzRkYTc4MWNmMWM4XC9kZDBud3RnLWZmNGU2ODM3LTRiMGUtNGI5ZC04OWZhLTdmY2E2M2ExYWE2NS5wbmciLCJ3aWR0aCI6Ijw9NjAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.T_NbdmAWwj0Drw3zP9pKOXSJSKbHju0C-6TI9o3FkxY",
+    "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/db9b0a59-1832-436d-be35-c4da781cf1c8/dd0nwtg-ff4e6837-4b0e-4b9d-89fa-7fca63a1aa65.png/v1/fill/w_400,h_400,q_80,strp/vboo_by_wardimension_dd0nwtg-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDAwIiwicGF0aCI6IlwvZlwvZGI5YjBhNTktMTgzMi00MzZkLWJlMzUtYzRkYTc4MWNmMWM4XC9kZDBud3RnLWZmNGU2ODM3LTRiMGUtNGI5ZC04OWZhLTdmY2E2M2ExYWE2NS5wbmciLCJ3aWR0aCI6Ijw9NDAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.b9eCvlMCeQ8CaHl4nRHoQewIeRrMiSQE40-ue7KEzso",
     "url": [{
       "itunes": "https://itunes.apple.com/us/album/vboo/1450558969?uo=4",
       "deezer": "https://www.deezer.com/album/86688942",
@@ -233,7 +233,7 @@ const songsData = [
   {
     "title": "Neko da",
     "alt": "neko-da",
-    "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/db9b0a59-1832-436d-be35-c4da781cf1c8/dd0nx3e-cabbf13b-741b-4932-94b5-af77fbe6889b.png/v1/fill/w_600,h_600,q_80,strp/neko_da_by_wardimension_dd0nx3e-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjAwIiwicGF0aCI6IlwvZlwvZGI5YjBhNTktMTgzMi00MzZkLWJlMzUtYzRkYTc4MWNmMWM4XC9kZDBueDNlLWNhYmJmMTNiLTc0MWItNDkzMi05NGI1LWFmNzdmYmU2ODg5Yi5wbmciLCJ3aWR0aCI6Ijw9NjAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.vSID-IILxT4LZ81_9x8xroyDD9AFTU6m9wejtoIu8dA",
+    "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/db9b0a59-1832-436d-be35-c4da781cf1c8/dd0nx3e-cabbf13b-741b-4932-94b5-af77fbe6889b.png/v1/fill/w_400,h_400,q_80,strp/neko_da_by_wardimension_dd0nx3e-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDAwIiwicGF0aCI6IlwvZlwvZGI5YjBhNTktMTgzMi00MzZkLWJlMzUtYzRkYTc4MWNmMWM4XC9kZDBueDNlLWNhYmJmMTNiLTc0MWItNDkzMi05NGI1LWFmNzdmYmU2ODg5Yi5wbmciLCJ3aWR0aCI6Ijw9NDAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.d4okB_VhM0brP1BmNy5v0HPoLcSTyu158Cmgq7wWIOI",
     "url": [{
       "itunes": "https://itunes.apple.com/us/album/neko-da-ep/1454056720?uo=4",
       "deezer": "https://www.deezer.com/album/88337072",
@@ -272,7 +272,7 @@ const songsData = [
   },
   {
     "title": "BandLab",
-    "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/db9b0a59-1832-436d-be35-c4da781cf1c8/ddg3q36-5b8b1f0b-5760-4bcf-a309-716e083d8693.png/v1/fill/w_600,h_600,q_80,strp/bandlab_by_wardimension_ddg3q36-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjAwIiwicGF0aCI6IlwvZlwvZGI5YjBhNTktMTgzMi00MzZkLWJlMzUtYzRkYTc4MWNmMWM4XC9kZGczcTM2LTViOGIxZjBiLTU3NjAtNGJjZi1hMzA5LTcxNmUwODNkODY5My5wbmciLCJ3aWR0aCI6Ijw9NjAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.uZMuNgB_D21BJCritxtzSg13X_clN-PfgoBLs0A4WRc",
+    "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/db9b0a59-1832-436d-be35-c4da781cf1c8/ddg3q36-5b8b1f0b-5760-4bcf-a309-716e083d8693.png/v1/fill/w_400,h_400,q_80,strp/bandlab_by_wardimension_ddg3q36-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDAwIiwicGF0aCI6IlwvZlwvZGI5YjBhNTktMTgzMi00MzZkLWJlMzUtYzRkYTc4MWNmMWM4XC9kZGczcTM2LTViOGIxZjBiLTU3NjAtNGJjZi1hMzA5LTcxNmUwODNkODY5My5wbmciLCJ3aWR0aCI6Ijw9NDAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.jHOSqN726wJx6CUV47jbyMcWdKJbLWUHa3CrbZZpy3c",
     "url": [{
       "itunes": "https://music.apple.com/us/album/band-lab/1469635289?uo=4",
       "deezer": "https://www.deezer.com/us/album/106191142",
