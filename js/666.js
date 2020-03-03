@@ -45,3 +45,14 @@ const block = document.querySelector(".block");
 window.addEventListener("click", (e) => {
     player.playVideo();
 });
+
+function effect(effect = true){
+    if(effect){
+      document.body.style.filter = "contrast(2)";
+      document.body.style.backdropFilter = "contrast(2)";
+    }
+    else{
+      document.body.style.filter = "";
+      document.body.style.backdropFilter = "";
+    }
+  }
