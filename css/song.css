@@ -102,6 +102,30 @@ td{
 .track-number-head{
   min-width: 38px;
 }
+.track-name{
+  position: relative;
+}
+.track-name:hover{
+  background: #333;
+}
+.track-tooltip{
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 0;
+  background: #fff;
+  color: #000;
+  padding: 8px 40px;
+  box-shadow: 3px 3px 3px #333;
+  opacity: 0;
+  visibility: hidden;
+  transition: none;
+}
+.track-name:hover > .track-tooltip{
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  transition-delay: 0.5s;
+}
 @media only screen and (orientation: portrait), only screen and (max-width: 1720px){
   .album-container{
     width: 60%;
@@ -175,5 +199,8 @@ td{
   }
   .track th, .track td{
     padding: 10px 10px;
+  }
+  .track-tooltip{
+    padding: 8px 10px;
   }
 }

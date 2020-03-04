@@ -116,18 +116,22 @@ const songsData = [
     "track": [
       {
         "title": "&#2384;",
+        "romanized": "Om",
         "length": "4:00"
       },
       {
         "title": "&#2384; (Without Intro)",
+        "romanized": "Om (Without Intro)",
         "length": "3:04"
       },
       {
         "title": "&#2384; -Instrumental-",
+        "romanized": "Om -Instrumental-",
         "length": "4:00"
       },
       {
         "title": "&#2384; (Without Intro) -Instrumental-",
+        "romanized": "Om (Without Intro) -Instrumental-",
         "length": "3:04"
       }
     ]
@@ -190,18 +194,22 @@ const songsData = [
     "track": [
       {
         "title": "花火",
+        "romanized": "Hanabi",
         "length": "2:30"
       },
       {
         "title": "花火 -Instrumental-",
+        "romanized": "Hanabi -Instrumental-",
         "length": "2:30"
       },
       {
         "title": "自宅",
+        "romanized": "Jitaku",
         "length": "2:10"
       },
       {
         "title": "自宅 -Instrumental-",
+        "romanized": "Jitaku -Instrumental-",
         "length": "2:10"
       },
       {
@@ -214,18 +222,22 @@ const songsData = [
       },
       {
         "title": "Imaginary World (偽のメロディ Version)",
+        "romanized": "Imaginary World (Nise no Melody Version)",
         "length": "2:24"
       },
       {
         "title": "Imaginary World (偽のメロディ Version) -Instrumental-",
+        "romanized": "Imaginary World (Nise no Melody Version) -Instrumental-",
         "length": "2:24"
       },
       {
         "title": "秋は",
+        "romanized": "Aki wa",
         "length": "2:16"
       },
       {
         "title": "秋は -Instrumental-",
+        "romanized": "Aki wa -Instrumental-",
         "length": "1:57"
       }
     ]
@@ -297,10 +309,12 @@ const songsData = [
       },
       {
         "title": "化け物",
+        "romanized": "Bakemono",
         "length": "1:28"
       },
       {
         "title": "ルーパー",
+        "romanized": "Looper",
         "length": "1:13"
       },
       {
@@ -313,6 +327,7 @@ const songsData = [
       },
       {
         "title": "死",
+        "romanized": "Shi",
         "length": "1:41"
       },
       {
@@ -321,6 +336,7 @@ const songsData = [
       },
       {
         "title": "遊ぼう",
+        "romanized": "Asobou",
         "length": "0:55"
       },
       {

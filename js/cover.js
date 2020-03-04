@@ -10,10 +10,12 @@ const coversData = [
     "track": [
       {
         "title": "バーチャルボーイ ft. 初音ミク (nano.RIPE Cover)",
+        "romanized": "Virtual Boy ft. Hatsune Miku (nano.RIPE Cover)",
         "length": "1:51"
       },
       {
         "title": "バーチャルボーイ (nano.RIPE Cover) -Instrumental-",
+        "romanized": "Virtual Boy (nano.RIPE Cover) -Instrumental-",
         "length": "1:51"
       }
     ]
@@ -31,6 +33,7 @@ const coversData = [
     "track": [
       {
         "title": "Basket Case ft. 初音ミク (Green Day Japanese Cover)",
+        "romanized": "Basket Case ft. Hatsune Miku (Green Day Japanese Cover)",
         "length": "3:19"
       },
       {

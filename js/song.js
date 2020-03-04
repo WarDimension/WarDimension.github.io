@@ -124,7 +124,10 @@ function trackListTemplate(track, index){
   return `
     <tr class="track-list">
       <td class="track-number">${index+1}</td>
-      <td class="track-name">${track.title}</td>
+      <td class="track-name">
+        <div class="track-name-text">${track.title}</div>
+        ${track.romanized != undefined ? `<div class="track-tooltip">${track.romanized}</div>` : ``}
+      </td>
       <td class="track-length">${track.length}</td>
     </tr>
   `;
