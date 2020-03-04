@@ -23,9 +23,12 @@ function platformTemplate(song){
   `;
 }
 
-function songTemplate(song, index){
+function songTemplate(song, index, songsData){
   return `
     <div class="content" id="${index}">
+      ${
+        songsData ? `${index != songsData.length-1 ? `<a class="skip skip-content" href="#${index+1}">next album</a>` : `<a class="skip skip-content" href="#top">return</a>`}` : ``
+      }
       <div class="album-container">
         <img class="song-img" src="${song.img}" alt="${song.title} Album Art" ${song.img1 != undefined ? `onmouseover="src='${song.img1}'" onmouseout="src='${song.img}'"` : ``}/><!--
         --><b class="song-title-disk"><p class="song-title">${song.title}</p></b>
@@ -34,6 +37,9 @@ function songTemplate(song, index){
         <h3 class="available-on">Available on</h3>
         ${platformTemplate(song)}
       </div>
+      ${
+        songsData ? `${index == songsData.length-1 ? `<a class="skip skip-content" href="#top">return</a>` : ``}` : ``
+      }
     </div>
   `;
 }
@@ -198,10 +204,11 @@ if(url()["type"] == "cover"){
 
 window.addEventListener("click", (e) => {
   var target = e.target;
-  while(target.className && target.className != "platform-url" && target.className != "content"){
+  while(target.className && target.className != "platform-url" && target.className != "content" && target.className != "skip skip-content"){
     target = target.parentElement;
   }
-  if(!url()["album"] && target.className != "platform-url" && target.className == "content"){
+  console.log(target.className);
+  if(!url()["album"] && target.className != "platform-url" && target.className == "content" && target.className != "skip skip-content"){
     var song;
     if(original == true){
       if(sortNewest == true){

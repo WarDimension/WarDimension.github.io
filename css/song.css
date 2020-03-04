@@ -153,6 +153,16 @@ td{
   #track-container{
     padding: 25px;
   }
+  .skip-content{
+    top: 20px;
+    left: 20px;
+    bottom: auto;
+    right: auto;
+    pointer-events: none;
+  }
+  .skip-content:focus{
+    left: 20px;
+  }
 }
 @media only screen and (max-width: 1024px){
   .album-container{
@@ -172,6 +182,16 @@ td{
   }
   #track-container{
     padding: 25px;
+  }
+  .skip-content{
+    top: 20px;
+    left: 20px;
+    bottom: auto;
+    right: auto;
+    pointer-events: none;
+  }
+  .skip-content:focus{
+    left: 20px;
   }
 }
 @media only screen and (max-width: 800px){
@@ -202,5 +222,13 @@ td{
   }
   .track-tooltip{
     padding: 8px 10px;
+  }
+  .skip{
+    top: 50vw;
+    right: 20px;
+    left: auto;
+  }
+  .skip:focus{
+    left: auto;
   }
 }

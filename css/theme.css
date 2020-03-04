@@ -8,6 +8,14 @@
   -webkit-user-select: none;
   -ms-user-select: none;
 }
+:focus{
+  position: relative;
+  outline: 2px solid #000;
+  z-index: 1;
+}
+.menu-button:focus{
+  outline: 2px solid #fff;
+}
 html, body, iframe {
   max-width: 100%;
   overflow-x: hidden;
@@ -43,13 +51,27 @@ h3{
   top: 6.5vw;
   left: -200px;
   text-decoration: none;
+  font-weight: bold;
   color: #000;
-  padding: 5px;
+  padding: 5px 10px;
   opacity: 0;
+  pointer-events: none;
+  background: #eee;
 }
 .skip:focus{
   left: 20px;
+  outline: 2px solid #000;
   opacity: 1;
+}
+.skip-content{
+  top: auto;
+  left: auto;
+  bottom: 20px;
+  right: 20px;
+  background: #fff;
+}
+.skip-content:focus{
+  left: auto;
 }
 .menu-container{
   position: absolute;
@@ -72,6 +94,7 @@ h3{
   cursor: default;
 }
 .content{
+  position: relative;
   margin: 7% 8%;
   background: #fff;
   -webkit-box-shadow:0 8px 6px -6px black;
@@ -205,6 +228,12 @@ h3{
   .skip{
     top: 18vw;
   }
+  .skip-content{
+    top: auto;
+  }
+  .menu-button:focus{
+    outline: 2px solid #000;
+  }
 }
 @media only screen and (max-width: 1024px){
   .content{
@@ -217,6 +246,9 @@ h3{
   .skip{
     top: 25vw;
   }
+  .skip-content{
+    top: auto;
+  }
 }
 @media only screen and (max-width: 800px){
   .wd-logo{
@@ -227,6 +259,27 @@ h3{
     margin: 10% 20px;
   }
   .skip{
+    top: 42vw;
+  }
+  .skip-content{
+    top: calc(100% + 2vw);
+    left: 30vw;
+    bottom: auto;
+    right: 30vw;
+    pointer-events: none;
+    text-align: center;
+    white-space: nowrap;
+    background: #eee;
+  }
+  .skip-content:focus{
+    left: 30vw;
+  }
+}
+@media only screen and (max-width: 640px){
+  .skip{
     top: 46vw;
+  }
+  .skip-content{
+    top: calc(100% + 2vw);
   }
 }
