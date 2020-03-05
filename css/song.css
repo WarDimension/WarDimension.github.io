@@ -83,6 +83,7 @@
 #track-container{
   position: relative;
   top: -80px;
+  margin-top: 0;
   padding: 0;
   background: #222;
   padding: 25px;
@@ -102,7 +103,7 @@
 .track-name{
   position: relative;
 }
-.track-name:hover{
+.track-name:hover, .track-name:focus{
   background: #333;
 }
 .track-tooltip{
@@ -117,11 +118,20 @@
   visibility: hidden;
   transition: none;
 }
-.track-name:hover > .track-tooltip{
+.track-name:hover > .track-tooltip, .track-name:focus > .track-tooltip{
   opacity: 1;
   visibility: visible;
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
   transition-delay: 0.5s;
+}
+#track-skip-content{
+  top: calc(100% + 20px);
+  bottom: auto;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 150px;
+  background: #eee;
 }
 @media only screen and (orientation: portrait), only screen and (max-width: 1600px){
   .album-container{
@@ -198,7 +208,6 @@
   }
   #track-container{
     padding: 18px 5px;
-    top: -10vw;
   }
   .track th, .track td{
     padding: 10px 10px;

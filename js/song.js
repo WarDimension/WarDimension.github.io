@@ -25,7 +25,7 @@ function platformTemplate(song){
 
 function songTemplate(song, index, songsData){
   return `
-    <div class="content" id="${index}">
+    <div class="content" id="${index}" tabIndex="0">
       ${
         songsData ? `${index != songsData.length-1 ? `<a class="skip-content" href="#${index+1}">next album</a>` : `<a class="skip-content" href="#top">return</a>`}` : ``
       }
@@ -130,7 +130,7 @@ function trackListTemplate(track, index){
   return `
     <tr class="track-list">
       <td class="track-number">${index+1}</td>
-      <td class="track-name">
+      <td class="track-name" tabIndex="0">
         <div class="track-name-text">${track.title}</div>
         ${track.romanized != undefined ? `<div class="track-tooltip">${track.romanized}</div>` : ``}
       </td>
@@ -152,6 +152,7 @@ function trackTemplate(song){
         ${song.track.map(trackListTemplate).join("")}
         </tbody>
       </table>
+      <a class="skip-content" id="track-skip-content" href="#top">return</a>
     </div>
   `;
 }
@@ -202,7 +203,15 @@ if(url()["type"] == "cover"){
   coverSong();
 }
 
-window.addEventListener("click", (e) => {
+window.addEventListener("click", track);
+
+window.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") {
+    track(e);
+  }
+});
+
+function track(e){
   var target = e.target;
   while(target.className && target.className != "platform-url" && target.className != "content" && target.className != "skip-content"){
     target = target.parentElement;
@@ -229,8 +238,8 @@ window.addEventListener("click", (e) => {
     content.innerHTML += trackTemplate(song);
     setParams(`?album=${(song.alt ? song.alt : song.title).toLowerCase()}`);
   }
-  else if(target.className != "platform-url" && target.className != "content"){
+  else if(target.className != "platform-url" && target.id != "track-container"){
     songDisplay();
     setParams("");
   }
-});
+}
