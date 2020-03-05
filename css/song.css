@@ -1,13 +1,17 @@
 #content-container{
-  padding: 2% 0 2% 0;
+  padding: 15px 0;
 }
 .content{
-  margin: 5% 15%;
+  width: 1344px;
+  margin-top: 0px;
+  margin-bottom: 80px;
 }
 .platform-container{
-  margin-top: 2.5%;
-  right: 20%;
-  width: 35%;
+  width: 75%;
+  right: 0;
+  padding: 0 250px;
+  top: calc(50% - 25px);
+  transform: translateY(-50%);
 }
 .album-container{
   width: 50%;
@@ -32,16 +36,19 @@
   margin-top: 70%;
   margin-left: 12%;
   margin-bottom: 22%;
-  font-size: 1.1vw;
+  font-size: 130%;
   text-shadow: -1px 0 black, 0 1px black, 2px 0 black, 0 -1px black;
   color: #fff;
   display: inline-block;
   white-space: nowrap;
 }
 .song-menu-container{
-  position: absolute;
-  margin-top: 5%;
-  margin-left: 15%;
+  width: 1344px;
+  margin: auto;
+  margin-top: 96px;
+}
+.song-menu{
+  display: inline-block;
   border-bottom: 2.5px solid #000;
   -webkit-box-shadow:0 8px 6px -6px black;
   -moz-box-shadow:0 8px 6px -6px black;
@@ -70,12 +77,12 @@
   text-decoration: none;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
-.song-sort-button:hover, .song-menu-container:hover{
+.song-sort-button:hover, .song-menu:hover{
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 #track-container{
   position: relative;
-  top: -5vw;
+  top: -80px;
   padding: 0;
   background: #222;
   padding: 25px;
@@ -88,16 +95,6 @@
   padding: 10px 40px;
   margin: 0;
   text-align: left;
-}
-td{
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  -ms-word-break: break-all;
-  word-break: break-word;
-  -ms-hyphens: auto;
-  -moz-hyphens: auto;
-  -webkit-hyphens: auto;
-  hyphens: auto;
 }
 .track-number-head{
   min-width: 38px;
@@ -126,29 +123,30 @@ td{
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
   transition-delay: 0.5s;
 }
-@media only screen and (orientation: portrait), only screen and (max-width: 1720px){
+@media only screen and (orientation: portrait), only screen and (max-width: 1600px){
   .album-container{
     width: 60%;
     display: block;
     margin-left: 35%;
   }
+  .song-menu-container{
+    margin-top: 50px;
+  }
   .content{
-    padding-top: 4%;
+    width: 900px;
+    padding-top: 50px;
   }
   .song-title{
-    font-size: 1.6vw;
+    font-size: 115%;
     white-space: normal;
   }
   .platform-container{
     width: 100%;
-    margin-top: 1%;
-  }
-  #content-container{
-    padding: 3.4% 0 2% 0;
+    transform: none;
+    padding: 0 20px 4% 20px;
   }
   .song-menu-container{
-    margin-top: 4.5%;
-    margin-left: 15%;
+    width: 900px;
   }
   #track-container{
     padding: 25px;
@@ -165,53 +163,38 @@ td{
   }
 }
 @media only screen and (max-width: 1024px){
+  .content, .song-menu-container{
+    width: 720px;
+  }
   .album-container{
     width: 75%;
-    margin-left: 28%;
+    margin-left: 31.25%;
   }
   .song-title{
-    font-size: 2.2vw;
     max-width: 50%;
-  }
-  #content-container{
-    padding: 3.8% 0 2% 0;
-  }
-  .song-menu-container{
-    margin-top: 4%;
-    margin-left: 15%;
   }
   #track-container{
     padding: 25px;
   }
-  .skip-content{
-    top: 20px;
-    left: 20px;
-    bottom: auto;
-    right: auto;
-    pointer-events: none;
-  }
-  .skip-content:focus{
-    left: 20px;
+  .skip{
+    width: 180px;
+    top: 335px;
+    transform: translateX(260px);
+    left: 0;
+    right: 0;
+    margin: auto;
   }
 }
 @media only screen and (max-width: 800px){
   .album-container{
-    width: 90%;
-    margin-left: 20%;
+    width: 80%;
+    margin-left: 30%;
   }
   .song-title{
-    font-size: 3.2vw;
+    font-size: 2.5vw;
   }
-  .content{
-    padding-top: 6.5%;
-    margin: 10% 20px;
-  }
-  #content-container{
-    padding: 4% 0 2% 0;
-  }
-  .song-menu-container{
-    margin-top: 6%;
-    margin-left: 20px;
+  .content, .song-menu-container{
+    width: 90vw;
   }
   #track-container{
     padding: 18px 5px;
@@ -224,11 +207,31 @@ td{
     padding: 8px 10px;
   }
   .skip{
-    top: 50vw;
-    right: 20px;
+    top: 357px;
+    transform: none;
     left: auto;
+    right: 5vw;
   }
   .skip:focus{
     left: auto;
+  }
+  .skip-content{
+    top: calc(100% + 20px);
+    bottom: auto;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 150px;
+    background: #eee;
+  }
+}
+@media only screen and (max-width: 500px){
+  .skip{
+    top: 340px;
+  }
+}
+@media only screen and (max-width: 480px){
+  .skip{
+    top: 320px;
   }
 }

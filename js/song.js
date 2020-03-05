@@ -27,7 +27,7 @@ function songTemplate(song, index, songsData){
   return `
     <div class="content" id="${index}">
       ${
-        songsData ? `${index != songsData.length-1 ? `<a class="skip skip-content" href="#${index+1}">next album</a>` : `<a class="skip skip-content" href="#top">return</a>`}` : ``
+        songsData ? `${index != songsData.length-1 ? `<a class="skip-content" href="#${index+1}">next album</a>` : `<a class="skip-content" href="#top">return</a>`}` : ``
       }
       <div class="album-container">
         <img class="song-img" src="${song.img}" alt="${song.title} Album Art" ${song.img1 != undefined ? `onmouseover="src='${song.img1}'" onmouseout="src='${song.img}'"` : ``}/><!--
@@ -38,7 +38,7 @@ function songTemplate(song, index, songsData){
         ${platformTemplate(song)}
       </div>
       ${
-        songsData ? `${index == songsData.length-1 ? `<a class="skip skip-content" href="#top">return</a>` : ``}` : ``
+        songsData ? `${index == songsData.length-1 ? `<a class="skip-content" href="#top">return</a>` : ``}` : ``
       }
     </div>
   `;
@@ -204,11 +204,10 @@ if(url()["type"] == "cover"){
 
 window.addEventListener("click", (e) => {
   var target = e.target;
-  while(target.className && target.className != "platform-url" && target.className != "content" && target.className != "skip skip-content"){
+  while(target.className && target.className != "platform-url" && target.className != "content" && target.className != "skip-content"){
     target = target.parentElement;
   }
-  console.log(target.className);
-  if(!url()["album"] && target.className != "platform-url" && target.className == "content" && target.className != "skip skip-content"){
+  if(!url()["album"] && target.className != "platform-url" && target.className == "content" && target.className != "skip-content"){
     var song;
     if(original == true){
       if(sortNewest == true){

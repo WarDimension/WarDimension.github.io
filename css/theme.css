@@ -7,6 +7,14 @@
   -webkit-user-drag: none;
   -webkit-user-select: none;
   -ms-user-select: none;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
 }
 :focus{
   position: relative;
@@ -35,8 +43,8 @@ body{
   background: #eeeeee;
 }
 h3{
-  margin-top: 3.5%;
-  margin-bottom: 0.5%;
+  margin-top: 25px;
+  margin-bottom: 5px;
 }
 .header{
   background: #000;
@@ -46,24 +54,29 @@ h3{
 .wd-logo{
   width: 200px;
 }
-.skip{
+.skip, .skip-content{
   position: absolute;
-  top: 6.5vw;
+  min-width: 180px;
+  text-align: center;
+  top: 125px;
   left: -200px;
   text-decoration: none;
   font-weight: bold;
   color: #000;
-  padding: 5px 10px;
+  padding: 5px 15px;
   opacity: 0;
+  white-space: nowrap;
   pointer-events: none;
   background: #eee;
 }
-.skip:focus{
+.skip:focus, .skip-content:focus{
   left: 20px;
   outline: 2px solid #000;
   opacity: 1;
+  pointer-events: none;
 }
 .skip-content{
+  min-width: 85px;
   top: auto;
   left: auto;
   bottom: 20px;
@@ -95,7 +108,8 @@ h3{
 }
 .content{
   position: relative;
-  margin: 7% 8%;
+  width: 1580px;
+  margin: 135px auto;
   background: #fff;
   -webkit-box-shadow:0 8px 6px -6px black;
   -moz-box-shadow:0 8px 6px -6px black;
@@ -120,13 +134,13 @@ h3{
 }
 .platform-container{
   position: absolute;
-  right: 8%;
-  width: 42%;
+  width: 50%;
   display: inline-block;
-  vertical-align: top;
   text-align: center;
   font-size: 18px;
-  padding: 2%;
+  padding: 20px;
+  top: calc(50% - 25px);
+  transform: translateY(-50%);
 }
 .platform-icon{
   display: inline-block;
@@ -193,14 +207,16 @@ h3{
   -webkit-filter: brightness(90%);
   filter: brightness(90%);
 }
-@media only screen and (orientation: portrait), only screen and (max-width: 1720px){
+@media only screen and (orientation: portrait), only screen and (max-width: 1600px){
   .header{
-    padding: 20px 20%;
+    padding: 20px 0;
     box-sizing: border-box;
+    text-align:center;
   }
   .wd-logo{
-    width: 50%;
-    margin-left: 25%;
+    height: 210px;
+    width: auto;
+    margin: auto;
   }
   .menu-container{
     position: static;
@@ -214,7 +230,8 @@ h3{
     color: #fff;
   }
   .content{
-    margin: 10% 200px;
+    margin-top: 60px;
+    width: 1004px;
   }
   .embed-container{
     padding-bottom: 56.25%;
@@ -223,13 +240,11 @@ h3{
   .platform-container{
     position: static;
     width: 100%;
-    padding: 0 0 4% 0;
+    padding: 0 20px 4% 20px;
+    transform: translateY(0%);
   }
   .skip{
-    top: 18vw;
-  }
-  .skip-content{
-    top: auto;
+    top: 270px;
   }
   .menu-button:focus{
     outline: 2px solid #000;
@@ -237,49 +252,63 @@ h3{
 }
 @media only screen and (max-width: 1024px){
   .content{
-    margin: 10% 80px;
+    width: 780px;
   }
   .wd-logo{
-    width: 70%;
-    margin-left: 15%;
+    height: 190px;
   }
   .skip{
-    top: 25vw;
-  }
-  .skip-content{
-    top: auto;
+    top: 250px;
   }
 }
 @media only screen and (max-width: 800px){
   .wd-logo{
-    width: 100%;
-    margin-left: 0;
+    height: 212px;
   }
   .content{
-    margin: 10% 20px;
+    width: 620px;
   }
   .skip{
-    top: 42vw;
+    top: 330px;
+    margin: auto;
+    left: 0;
+    right: 0;
+    width: 180px;
   }
   .skip-content{
-    top: calc(100% + 2vw);
-    left: 30vw;
+    top: calc(100% + 20px);
     bottom: auto;
-    right: 30vw;
-    pointer-events: none;
-    text-align: center;
-    white-space: nowrap;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 100px;
     background: #eee;
   }
   .skip-content:focus{
-    left: 30vw;
+    left: 20px;
   }
 }
 @media only screen and (max-width: 640px){
-  .skip{
-    top: 46vw;
+  .content{
+    width: 95vw;
   }
   .skip-content{
-    top: calc(100% + 2vw);
+    top: calc(100% + 20px);
+  }
+}
+@media only screen and (max-width: 500px){
+  .wd-logo{
+    height: 195px;
+  }
+  .skip{
+    top: 313px;
+  }
+}
+@media only screen and (max-width: 480px){
+  .wd-logo{
+    height: 175px;
+  }
+  .skip{
+    top: 293px;
   }
 }

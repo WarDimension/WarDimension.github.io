@@ -100,10 +100,3 @@ window.addEventListener("click", (e) => {
         }
     }
 });
-
-function removeHash(){
-  const url = new URL(window.location);
-  url.hash = "";
-  history.replaceState(null, document.title, url);
-}
-window.onhashchange = removeHash;

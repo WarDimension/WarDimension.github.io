@@ -4,18 +4,51 @@
 }
 .skip{
   background: #fff;
+  top: 125px;
+  margin: auto;
+  left: 0;
+  right: 0;
+  width: 180px;
 }
-.return-blog{
+.skip-content{
+  position: fixed;
+  background: #fff;
   top: auto;
   bottom: 20px;
-  padding-left: 20px;
-  padding-right: 20px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 100px;
 }
-@media only screen and (orientation: portrait), only screen and (max-width: 1720px){
+.skip-content:focus{
+  right: 0;
+  left: 20px;
+}
+@media only screen and (orientation: portrait), only screen and (max-width: 1600px){
   .skip{
-    top: 20px;
+    top: 328px;
   }
-  .return-blog{
-    top: auto;
+}
+@media only screen and (max-width: 1024px){
+  .skip{
+    top: 308px;
+  }
+}
+@media only screen and (max-width: 800px){
+  .skip{
+    top: 330px;
+  }
+}
+@media only screen and (max-width: 500px){
+  .skip{
+    top: 313px;
+  }
+}
+@media only screen and (max-width: 480px){
+  .wd-logo{
+    height: 175px;
+  }
+  .skip{
+    top: 293px;
   }
 }
