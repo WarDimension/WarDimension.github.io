@@ -162,11 +162,11 @@ if(url()["album"]){
   var song;
   for(i = 0; i< songsData.length; i++){
     if(songsData[i].title.toUpperCase() == url()["album"].toUpperCase()){
-      content.innerHTML = songTemplate(songsData[i]);
+      content.innerHTML = songTemplate(songsData[i],"0");
       found = true;
     }
     else if(songsData[i].alt && songsData[i].alt.toUpperCase() == url()["album"].toUpperCase()){
-      content.innerHTML = songTemplate(songsData[i]);
+      content.innerHTML = songTemplate(songsData[i],"0");
       found = true;
     }
     if(found){
@@ -178,12 +178,12 @@ if(url()["album"]){
     for(i = 0; i< coversData.length; i++){
       if(coversData[i].title.toUpperCase() == url()["album"].toUpperCase()){
         coverSong();
-        content.innerHTML = songTemplate(coversData[i]);
+        content.innerHTML = songTemplate(coversData[i],"0");
         found = true;
       }
       else if(coversData[i].alt && coversData[i].alt.toUpperCase() == url()["album"].toUpperCase()){
         coverSong();
-        content.innerHTML = songTemplate(coversData[i]);
+        content.innerHTML = songTemplate(coversData[i],"0");
         found = true;
       }
       if(found){
@@ -206,7 +206,7 @@ if(url()["type"] == "cover"){
 window.addEventListener("click", track);
 
 window.addEventListener("keypress", (e) => {
-  if (e.key === "Enter") {
+  if (e.key == "Enter"){
     track(e);
   }
 });
@@ -234,12 +234,83 @@ function track(e){
         song = coversData[target.id];
       }
     }
-    content.innerHTML = songTemplate(song);
+    content.innerHTML = songTemplate(song,"0");
     content.innerHTML += trackTemplate(song);
     setParams(`?album=${(song.alt ? song.alt : song.title).toLowerCase()}`);
   }
   else if(target.className != "platform-url" && target.id != "track-container"){
     songDisplay();
     setParams("");
+    index = indexDefault;
   }
 }
+
+const indexDefault = -1;
+
+var index = indexDefault;
+
+window.addEventListener("keydown", (e) => {
+  var album = document.getElementsByClassName("content");
+  var html = document.querySelector("html");
+  if(e.keyCode == "38"){
+    e.preventDefault();
+    if(url()["album"]){
+      index = album.length - 1;
+      html.style.scrollBehavior="smooth";
+    }
+    else if(index == 0){
+      index = album.length;
+      html.style.scrollBehavior="auto";
+    }
+    index--;
+    album[index].focus();
+    document.activeElement.scrollIntoViewCenter();
+    html.style.scrollBehavior="smooth";
+  }
+  else if(e.keyCode == "40"){
+    e.preventDefault();
+    if(url()["album"]){
+      index = -1;
+      html.style.scrollBehavior="smooth";
+    }
+    else if(index == album.length - 1){
+      index = -1;
+      html.style.scrollBehavior="auto";
+    }
+    index++;
+    album[index].focus();
+    document.activeElement.scrollIntoViewCenter();
+    html.style.scrollBehavior="smooth";
+  }
+  else if(e.key == "Escape") {
+    if(url()["album"]){
+      track(e);
+    }
+    index = indexDefault;
+  }
+  else if (e.keyCode == "37" || ( e.shiftKey && e.keyCode == "9") || e.keyCode == "39" || e.keyCode == "9"){
+    e.preventDefault();
+    target = document.activeElement;
+    while(target.className && target.className != "content"){
+      target = target.parentElement;
+    }
+    console.log(target.className);
+    if(target.className == "content"){
+      index = target.id;
+    }
+    if (e.shiftKey && e.keyCode == "9"){
+      prevFocus(document.activeElement).focus();
+    }
+    else if (e.keyCode == "9"){
+      nextFocus(document.activeElement).focus();
+    }
+  }
+});
+
+Element.prototype.documentOffsetTop = function () {
+  return this.offsetTop + ( this.offsetParent ? this.offsetParent.documentOffsetTop() : 0 );
+};
+
+Element.prototype.scrollIntoViewCenter = function () {
+  window.scrollTo( 0, this.documentOffsetTop() - (window.innerHeight / 2 ) );
+};

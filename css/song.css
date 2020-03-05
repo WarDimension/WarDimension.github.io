@@ -6,6 +6,9 @@
   margin-top: 0px;
   margin-bottom: 80px;
 }
+.content:focus{
+  box-shadow: -20px 0px 0px 5px black, 20px 0px 0px 5px black;
+}
 .platform-container{
   width: 75%;
   right: 0;
