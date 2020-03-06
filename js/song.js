@@ -213,10 +213,10 @@ window.addEventListener("keypress", (e) => {
 
 function track(e){
   var target = e.target;
-  while(target.className && target.className != "platform-url" && target.className != "content" && target.className != "skip-content"){
+  while(target.className && target.className != "platform-url" && target.className != "content" && target.className != "skip" && target.className != "skip-content"){
     target = target.parentElement;
   }
-  if(!url()["album"] && target.className != "platform-url" && target.className == "content" && target.className != "skip-content"){
+  if(!url()["album"] && target.className != "platform-url" && target.className == "content" && target.className != "skip" && target.className != "skip-content"){
     var song;
     if(original == true){
       if(sortNewest == true){
@@ -238,10 +238,16 @@ function track(e){
     content.innerHTML += trackTemplate(song);
     setParams(`?album=${(song.alt ? song.alt : song.title).toLowerCase()}`);
   }
-  else if(target.className != "platform-url" && target.id != "track-container"){
+  else if(target.className != "platform-url" && target.id != "track-container" && target.className != "skip" && target.className != "skip-content"){
     songDisplay();
     setParams("");
     index = indexDefault;
+  }
+  else if(target.className == "skip"){
+    index = 0;
+  }
+  else if(target.className == "skip-content"){
+    index++;
   }
 }
 
@@ -252,6 +258,9 @@ var index = indexDefault;
 window.addEventListener("keydown", (e) => {
   var album = document.getElementsByClassName("content");
   var html = document.querySelector("html");
+  var active = document.activeElement;
+  var activeParentHeight = parseInt(active.parentElement.offsetHeight);
+  var activeTop = parseInt(active.offsetTop);
   if(e.keyCode == "38"){
     e.preventDefault();
     if(url()["album"]){
@@ -261,6 +270,12 @@ window.addEventListener("keydown", (e) => {
     else if(index <= 0){
       index = album.length;
       html.style.scrollBehavior="auto";
+      if(active.className == "skip-content" && (activeParentHeight < activeTop)){
+        index = 1;
+      }
+    }
+    else if(active.className == "skip-content" && (activeParentHeight < activeTop)){
+      index++;
     }
     index--;
     album[index].focus();
@@ -289,14 +304,7 @@ window.addEventListener("keydown", (e) => {
     index = indexDefault;
   }
   else if (e.keyCode == "37" || ( e.shiftKey && e.keyCode == "9") || e.keyCode == "39" || e.keyCode == "9"){
-    if (e.shiftKey && e.keyCode == "9"){
-      prevFocus(document.activeElement).focus();
-    }
-    else if (e.keyCode == "9"){
-      nextFocus(document.activeElement).focus();
-    }
-    e.preventDefault();
-    target = document.activeElement;
+    target = active;
     while(target.className && target.className != "content"){
       target = target.parentElement;
     }

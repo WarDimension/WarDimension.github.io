@@ -70,6 +70,14 @@ h3{
   pointer-events: none;
   background: #eee;
 }
+#main{
+  position: absolute;
+  top: -22px;
+  bottom: -72px;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+}
 .skip:focus, .skip-content:focus{
   left: 20px;
   outline: 2px solid #000;
@@ -212,6 +220,10 @@ h3{
   transition: all 0.1s cubic-bezier(.25,.8,.25,1);
 }
 @media only screen and (orientation: portrait), only screen and (max-width: 1600px){
+  #main{
+    top: 0;
+    bottom: 0;
+  }
   .header{
     padding: 20px 0;
     box-sizing: border-box;
@@ -275,21 +287,24 @@ h3{
   .skip{
     top: 330px;
     margin: auto;
-    left: 0;
+    left: -20px;
     right: 0;
     width: 180px;
+  }
+  .skip:focus{
+    left: 0;
   }
   .skip-content{
     top: calc(100% + 20px);
     bottom: auto;
-    left: 0;
+    left: -20px;
     right: 0;
     margin: auto;
     width: 100px;
     background: #eee;
   }
   .skip-content:focus{
-    left: 20px;
+    left: 0;
   }
 }
 @media only screen and (max-width: 640px){
@@ -314,5 +329,13 @@ h3{
   }
   .skip{
     top: 293px;
+  }
+}
+@media only screen and (max-width: 360px){
+  .wd-logo{
+    height: 120px;
+  }
+  .skip{
+    top: 238px;
   }
 }

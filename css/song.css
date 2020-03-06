@@ -247,3 +247,14 @@
     top: 320px;
   }
 }
+@media only screen and (max-width: 360px){
+  .skip{
+    top: 230px;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+  .skip:focus{
+    left: 20px;
+  }
+}

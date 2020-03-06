@@ -2,27 +2,34 @@
   width: 100%;
   height: 100%;
 }
+#main{
+  position: static;
+  pointer-events: all;
+}
 .skip{
   background: #fff;
   top: 125px;
   margin: auto;
-  left: 0;
+  left: -20px;
   right: 0;
   width: 180px;
+}
+.skip:focus{
+  left: 0;
 }
 .skip-content{
   position: fixed;
   background: #fff;
   top: auto;
   bottom: 20px;
-  left: 0;
+  left: -20px;
   right: 0;
   margin: auto;
   width: 100px;
 }
 .skip-content:focus{
   right: 0;
-  left: 20px;
+  left: 0;
 }
 @media only screen and (orientation: portrait), only screen and (max-width: 1600px){
   .skip{
@@ -45,10 +52,12 @@
   }
 }
 @media only screen and (max-width: 480px){
-  .wd-logo{
-    height: 175px;
-  }
   .skip{
     top: 293px;
+  }
+}
+@media only screen and (max-width: 360px){
+  .skip{
+    top: 238px;
   }
 }
