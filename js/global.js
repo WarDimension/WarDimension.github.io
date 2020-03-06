@@ -5,11 +5,9 @@ function removeHash(){
 }
 window.onhashchange = removeHash;
 
-window.onload = function() {
-    if (screen.width < 480) {
-        var mvp = document.getElementById('vp');
-        mvp.setAttribute("content","width=480, user-scalable=no");
-    }
+if (screen.width < 480) {
+    var mvp = document.getElementById('vp');
+    mvp.setAttribute("content","width=480, user-scalable=no");
 }
 
 window.addEventListener("keydown", (e) => {

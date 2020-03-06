@@ -258,7 +258,7 @@ window.addEventListener("keydown", (e) => {
       index = album.length - 1;
       html.style.scrollBehavior="smooth";
     }
-    else if(index == 0){
+    else if(index <= 0){
       index = album.length;
       html.style.scrollBehavior="auto";
     }
@@ -270,11 +270,11 @@ window.addEventListener("keydown", (e) => {
   else if(e.keyCode == "40"){
     e.preventDefault();
     if(url()["album"]){
-      index = -1;
+      index = indexDefault;
       html.style.scrollBehavior="smooth";
     }
     else if(index == album.length - 1){
-      index = -1;
+      index = indexDefault;
       html.style.scrollBehavior="auto";
     }
     index++;
@@ -289,20 +289,22 @@ window.addEventListener("keydown", (e) => {
     index = indexDefault;
   }
   else if (e.keyCode == "37" || ( e.shiftKey && e.keyCode == "9") || e.keyCode == "39" || e.keyCode == "9"){
-    e.preventDefault();
-    target = document.activeElement;
-    while(target.className && target.className != "content"){
-      target = target.parentElement;
-    }
-    console.log(target.className);
-    if(target.className == "content"){
-      index = target.id;
-    }
     if (e.shiftKey && e.keyCode == "9"){
       prevFocus(document.activeElement).focus();
     }
     else if (e.keyCode == "9"){
       nextFocus(document.activeElement).focus();
+    }
+    e.preventDefault();
+    target = document.activeElement;
+    while(target.className && target.className != "content"){
+      target = target.parentElement;
+    }
+    if(target.className == "content"){
+      index = target.id;
+    }
+    else{
+      index = indexDefault;
     }
   }
 });
