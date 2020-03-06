@@ -38,7 +38,7 @@ function prevFocus(e) {
 }
 
 function getFocus(e,cond){
-    var universe = document.querySelectorAll("input, button, select, textarea, a[href], .content, .track-name, #main, iframe");
+    var universe = document.querySelectorAll("input, button, select, textarea, a[href], .content, .track-name, #main, iframe, .sixsixsix");
     var list = Array.prototype.filter.call(universe, function(item) {return item.tabIndex >= "0"});
     var index = list.indexOf(e);
     if(index + cond < 0){

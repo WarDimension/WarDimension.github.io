@@ -9,9 +9,23 @@ body{
   color: #fff;
   padding: 5px 15px;
 }
+.platform-container{
+  top: 0;
+  transform: none;
+  height: 100%;
+}
 .sixsixsix{
+  position: absolute;
   width: 52%;
   filter: grayscale(100%) invert(100%) brightness(120%);
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.sixsixsix:focus{
+  background: #fff;
 }
 .embed-container{
   position: relative;
@@ -25,10 +39,18 @@ body{
   height: 200%;
   width: 200%;
 }
-@media only screen and (orientation: portrait), only screen and (max-width: 1720px){
+@media only screen and (orientation: portrait), only screen and (max-width: 1600px){
+  .platform-container{
+    padding: 20px;
+    height: auto;
+    width: 100%;
+  }
   .sixsixsix{
-    margin-top: 5%;
+    position: static;
+    top: auto;
+    transform: none;
     width: 60%;
+    height: auto;
   }
   .menu-button{
     text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
@@ -38,8 +60,8 @@ body{
     text-shadow: none;
   }
 }
-@media only screen and (max-width: 800px){
+@media only screen and (max-width: 600px){
   .sixsixsix{
-    width: 75%;
+    width: 100%;
   }
 }

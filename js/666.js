@@ -55,4 +55,24 @@ function effect(effect = true){
       document.body.style.filter = "";
       document.body.style.backdropFilter = "";
     }
+}
+var skip = document.getElementsByClassName("skip");
+skip[0].addEventListener("keypress", (e) => {
+  if (e.key == "Enter"){
+    effect(false);
   }
+});
+window.addEventListener("keydown", (e) => {
+  var active = document.activeElement;
+  if (e.keyCode == "37" || ( e.shiftKey && e.keyCode == "9") || e.keyCode == "39" || e.keyCode == "9"){
+    if(active.className == "sixsixsix"){
+      effect(true);
+    }
+    else{
+      effect(false);
+    }
+  }
+  else if(e.key == "Enter" && active.className == "skip"){
+    effect(true);
+  }
+});
