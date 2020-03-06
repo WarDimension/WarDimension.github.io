@@ -103,6 +103,9 @@
 .track-number-head{
   min-width: 38px;
 }
+.track-length-head{
+  min-width: 74px;
+}
 .track-name{
   position: relative;
 }
