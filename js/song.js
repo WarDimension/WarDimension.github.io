@@ -97,7 +97,7 @@ function trackListTemplate(track, index){
   return `
     <tr class="track-list">
       <td class="track-number">${index+1}</td>
-      <td class="track-name" tabIndex="0" id="${index+2}" onclick="setSong('${track.youtubeID}','${track.title.replace("'","&apos")}',${index})" onkeypress="event.key == 'Enter' && setSong('${track.youtubeID}','${track.title.replace("'","&apos")}',${index})">
+      <td class="track-name" tabIndex="0" id="${index+2}" onclick="setSong('${track.youtubeID}','${track.title.replace("'","&apos")}',${index},true)" onkeypress="event.key == 'Enter' && setSong('${track.youtubeID}','${track.title.replace("'","&apos")}',${index},true)">
         <div class="track-name-text">${track.title}</div>
         ${track.romanized != undefined ? `<div class="track-tooltip">${track.romanized}</div>` : ``}
       </td>
@@ -340,12 +340,14 @@ function onPlayerStateChange(event){
     clearInterval(time);
     playButton.innerHTML = "<span class='player-button-content' tabindex='-1'><i class='material-icons'>play_arrow</i></span>";
     playButton.style.animation = "";
+    play = false;
     playerState = "PAUSED";
   }else if(event.data == YT.PlayerState.UNSTARTED){
     clearInterval(time);
     timeSlider.value = "0";
     playButton.innerHTML = "<span class='player-button-content' tabindex='-1'><i class='material-icons'>error</i></span>";
     playButton.style.animation = "";
+    play = undefined;
     playerState = "UNSTARTED";
   }
 }
@@ -354,13 +356,15 @@ var time;
 
 var currentAlbum;
 
+var currentAlbumToPlay;
+
 var currentTrack;
 
 var musicPlayer = document.getElementById("music-player");
 
 var songName = document.getElementById("player-song-name");
 
-function setSong(videoId,title,trackIndex){
+function setSong(videoId,title,trackIndex,setAlbumToPlay = false){
   player.loadVideoById(videoId);
   currentTrack = trackIndex;
   songName.innerHTML = title.replace("&apos","'");
@@ -370,6 +374,9 @@ function setSong(videoId,title,trackIndex){
   prevButton.tabIndex = "0";
   nextButton.tabIndex = "0";
   closePlayerButton.tabIndex = "0";
+  if(setAlbumToPlay){
+    currentAlbumToPlay = currentAlbum;
+  }
 }
 
 function closePlayer(){
@@ -389,7 +396,7 @@ function playSong(){
   if(play == false){
     player.playVideo();
     play = true;
-  }else if(playerState != "PAUSED" || play == undefined){
+  }else if(playerState != "PAUSED" || play == undefined || play == true){
     player.pauseVideo();
     play = false;
   }
@@ -417,15 +424,15 @@ function nextSong(){
 var getSongIndex;
 
 function getSong(cond){
-  if(currentAlbum.track[currentTrack+cond]){
+  if(currentAlbumToPlay.track[currentTrack+cond]){
     getSongIndex = currentTrack+cond;
-    return currentAlbum.track[currentTrack+cond];
+    return currentAlbumToPlay.track[currentTrack+cond];
   }else if(currentTrack+cond < 0){
-    getSongIndex = currentAlbum.track.length-1;
-    return currentAlbum.track[currentAlbum.track.length-1];
+    getSongIndex = currentAlbumToPlay.track.length-1;
+    return currentAlbum.track[currentAlbumToPlay.track.length-1];
   }else{
     getSongIndex = 0;
-    return currentAlbum.track[0];
+    return currentAlbumToPlay.track[0];
   }
 }
 
