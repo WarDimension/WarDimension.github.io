@@ -18,9 +18,7 @@
   scroll-behavior: smooth;
 }
 :focus{
-  position: relative;
   outline: 2px solid #000;
-  z-index: 2;
 }
 .menu-button:focus{
   outline: 2px solid #fff;
@@ -211,10 +209,9 @@ h3{
   background: #fff;
   cursor: pointer;
   display:inline-block;
+  margin: 2px;
 }
 .platform-url:hover{
-  position: relative;
-  z-index: 1;
   background: #eee;
   outline: solid 1px #eee;
   transition: all 0.1s cubic-bezier(.25,.8,.25,1);

@@ -44,43 +44,18 @@ function songTemplate(song, index, songsData){
   `;
 }
 
-var original = true;
-var sortNewest = true;
-var content = document.getElementById("content-container");
-var originalButton = document.getElementById("original");
-var coverButton = document.getElementById("cover");
-var sortButton = document.getElementById("cover-button");
-songDisplay();
-
-function removeHash(){
-  const url = new URL(window.location);
-  url.hash = "";
-  history.replaceState(null, document.title, url);
-}
-window.onhashchange = removeHash;
-
-function setParams(search){
-  const url = new URL(window.location);
-  url.search = search;
-  history.replaceState(null, document.title, url);
-}
-
 function songDisplay(){
-  if(original){
-    if(sortNewest){
-      content.innerHTML = `${songsData.slice(0).reverse().map(songTemplate).join("")}`;
-    }
-    else{
-      content.innerHTML = `${songsData.map(songTemplate).join("")}`;
-    }
+  if(original && sortNewest){
+    content.innerHTML = `${songsData.slice(0).reverse().map(songTemplate).join("")}`;
+  }
+  else if(original && !sortNewest){
+    content.innerHTML = `${songsData.map(songTemplate).join("")}`;
+  }
+  else if(!original && sortNewest){
+      content.innerHTML = `${coversData.slice(0).reverse().map(songTemplate).join("")}`;
   }
   else{
-    if(sortNewest){
-      content.innerHTML = `${coversData.slice(0).reverse().map(songTemplate).join("")}`;
-    }
-    else{
-      content.innerHTML = `${coversData.map(songTemplate).join("")}`;
-    }
+    content.innerHTML = `${coversData.map(songTemplate).join("")}`;
   }
 }
 
@@ -118,19 +93,11 @@ function coverSong(){
   coverButton.style.cursor = "default";
 }
 
-function url(){
-  var vars = {};
-  window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value){
-      vars[key] = value;
-  });
-  return vars;
-}
-
 function trackListTemplate(track, index){
   return `
     <tr class="track-list">
       <td class="track-number">${index+1}</td>
-      <td class="track-name" tabIndex="0">
+      <td class="track-name" tabIndex="0" id="${index+2}" onclick="setSong('${track.youtubeID}','${track.title.replace("'","&apos")}',${index})" onkeypress="event.key == 'Enter' && setSong('${track.youtubeID}','${track.title.replace("'","&apos")}',${index})">
         <div class="track-name-text">${track.title}</div>
         ${track.romanized != undefined ? `<div class="track-tooltip">${track.romanized}</div>` : ``}
       </td>
@@ -140,6 +107,7 @@ function trackListTemplate(track, index){
 }
 
 function trackTemplate(song){
+  currentAlbum = song;
   return `
     <div class="content" id="track-container">
       <table class="track">
@@ -156,6 +124,14 @@ function trackTemplate(song){
     </div>
   `;
 }
+
+var original = true;
+var sortNewest = true;
+var content = document.getElementById("content-container");
+var originalButton = document.getElementById("original");
+var coverButton = document.getElementById("cover");
+var sortButton = document.getElementById("cover-button");
+songDisplay();
 
 if(url()["album"]){
   var found = false;
@@ -213,32 +189,30 @@ window.addEventListener("keypress", (e) => {
 
 function track(e){
   var target = e.target;
-  while(target.className && target.className != "platform-url" && target.className != "content" && target.className != "skip" && target.className != "skip-content"){
-    target = target.parentElement;
-  }
-  if(!url()["album"] && target.className != "platform-url" && target.className == "content" && target.className != "skip" && target.className != "skip-content"){
+  if(!url()["album"] && getParentClass(target, "content") == "content"){
     var song;
     if(original == true){
       if(sortNewest == true){
-        song = songsData[(songsData.length - 1) - target.id];
+        song = songsData[(songsData.length - 1) - getParentIdByElement(target)];
       }
       else{
-        song = songsData[target.id];
+        song = songsData[getParentIdByElement(target)];
       }
     }
     else{
       if(sortNewest == true){
-        song = coversData[(coversData.length - 1) - target.id];
+        song = coversData[(coversData.length - 1) - getParentIdByElement(target)];
       }
       else{
-        song = coversData[target.id];
+        song = coversData[getParentIdByElement(target)];
       }
     }
     content.innerHTML = songTemplate(song,"0");
     content.innerHTML += trackTemplate(song);
     setParams(`?album=${(song.alt ? song.alt : song.title).toLowerCase()}`);
+    index = indexDefault;
   }
-  else if(target.className != "platform-url" && target.id != "track-container" && target.className != "skip" && target.className != "skip-content"){
+  else if(target.className != "platform-url" && getParentId(target, "track-container") != "track-container" && getParentId(target, "music-player") != "music-player" && target.className != "skip" && target.className != "skip-content"){
     songDisplay();
     setParams("");
     index = indexDefault;
@@ -249,6 +223,11 @@ function track(e){
   else if(target.className == "skip-content"){
     index++;
   }
+  else if(target.className == "track-name"){
+    index = target.id;
+  }else if(target.className == "track-name-text"){
+    index = target.parentElement.id;
+  }
 }
 
 const indexDefault = -1;
@@ -256,16 +235,17 @@ const indexDefault = -1;
 var index = indexDefault;
 
 window.addEventListener("keydown", (e) => {
-  var album = document.getElementsByClassName("content");
+  var className = ".content";
   var html = document.querySelector("html");
+  if(url()["album"]) className += ", .track-name"; html.style.scrollBehavior="auto";
+  var album = document.querySelectorAll(className);
   var active = document.activeElement;
   var activeParentHeight = parseInt(active.parentElement.offsetHeight);
   var activeTop = parseInt(active.offsetTop);
   if(e.keyCode == "38"){
     e.preventDefault();
-    if(url()["album"]){
-      index = album.length - 1;
-      html.style.scrollBehavior="smooth";
+    if(url()["album"] && index == 2){
+      index = 1;
     }
     else if(index <= 0){
       index = album.length;
@@ -284,9 +264,8 @@ window.addEventListener("keydown", (e) => {
   }
   else if(e.keyCode == "40"){
     e.preventDefault();
-    if(url()["album"]){
-      index = indexDefault;
-      html.style.scrollBehavior="smooth";
+    if(url()["album"] && index == 0){
+      index = 1;
     }
     else if(index == album.length - 1){
       index = indexDefault;
@@ -304,12 +283,11 @@ window.addEventListener("keydown", (e) => {
     index = indexDefault;
   }
   else if (e.keyCode == "37" || ( e.shiftKey && e.keyCode == "9") || e.keyCode == "39" || e.keyCode == "9"){
-    target = active;
-    while(target.className && target.className != "content"){
-      target = target.parentElement;
+    if(active.className == "skip-content" && url()["album"]){
+      index = album.length - 1;
     }
-    if(target.className == "content"){
-      index = target.id;
+    else if(getParentClass(active,"content") == "content" || active.className == "track-name"){
+      index = getParentIdByElement(active);
     }
     else{
       index = indexDefault;
@@ -324,3 +302,138 @@ Element.prototype.documentOffsetTop = function () {
 Element.prototype.scrollIntoViewCenter = function () {
   window.scrollTo( 0, this.documentOffsetTop() - (window.innerHeight / 2 ) );
 };
+
+//Music Player
+events = {
+  'onStateChange': onPlayerStateChange
+};
+
+var playButton =  document.getElementById("play-button");
+
+var prevButton =  document.getElementById("prev-button");
+
+var nextButton =  document.getElementById("next-button");
+
+var closePlayerButton = document.getElementById("close-player-button");
+
+var playerState;
+
+function onPlayerStateChange(event){
+  if(event.data == YT.PlayerState.ENDED){
+    clearInterval(time);
+    timeSlider.value = "0";
+    setSong(getSong(1).youtubeID,getSong(1).title,getSongIndex);
+    playerState = "ENDED";
+  }
+  else if(event.data == YT.PlayerState.PLAYING){
+    time = setInterval(updateTimeSlider,1000);
+    playButton.innerHTML = "<span class='player-button-content' tabindex='-1'><i class='material-icons'>pause</i></span>";
+    playButton.style.animation = "";
+    playerState = "PLAYING";
+  }
+  else if(event.data == YT.PlayerState.BUFFERING){
+    clearInterval(time);
+    playButton.innerHTML = "<span class='player-button-content' tabindex='-1'><i class='material-icons'>pause</i></span>";
+    playButton.style.animation = "buffering 1.4s cubic-bezier(.4,0,.4,1) infinite";
+    playerState = "BUFFERING";
+  }else if(event.data == YT.PlayerState.PAUSED){
+    clearInterval(time);
+    playButton.innerHTML = "<span class='player-button-content' tabindex='-1'><i class='material-icons'>play_arrow</i></span>";
+    playButton.style.animation = "";
+    playerState = "PAUSED";
+  }else if(event.data == YT.PlayerState.UNSTARTED){
+    clearInterval(time);
+    timeSlider.value = "0";
+    playButton.innerHTML = "<span class='player-button-content' tabindex='-1'><i class='material-icons'>error</i></span>";
+    playButton.style.animation = "";
+    playerState = "UNSTARTED";
+  }
+}
+
+var time;
+
+var currentAlbum;
+
+var currentTrack;
+
+var musicPlayer = document.getElementById("music-player");
+
+var songName = document.getElementById("player-song-name");
+
+function setSong(videoId,title,trackIndex){
+  player.loadVideoById(videoId);
+  currentTrack = trackIndex;
+  songName.innerHTML = title.replace("&apos","'");
+  musicPlayer.style.bottom = "20px";
+  musicPlayer.style.opacity = "1";
+  playButton.tabIndex = "0";
+  prevButton.tabIndex = "0";
+  nextButton.tabIndex = "0";
+  closePlayerButton.tabIndex = "0";
+}
+
+function closePlayer(){
+  player.pauseVideo();
+  clearInterval(time);
+  musicPlayer.style.bottom = "-200px";
+  musicPlayer.style.opacity = "0";
+  playButton.tabIndex = "-1";
+  prevButton.tabIndex = "-1";
+  nextButton.tabIndex = "-1";
+  closePlayerButton.tabIndex = "-1";
+}
+
+var play;
+
+function playSong(){
+  if(play == false){
+    player.playVideo();
+    play = true;
+  }else if(playerState != "PAUSED" || play == undefined){
+    player.pauseVideo();
+    play = false;
+  }
+}
+
+function seekTo(){
+  var currentTime = (timeSlider.value/timeSlider.max)*player.getDuration();
+  player.seekTo(currentTime);
+}
+
+function prevSong(){
+  if(player.getCurrentTime() >= 3){
+    player.seekTo(0);
+    timeSlider.value = "0";
+  }
+  else{
+    setSong(getSong(-1).youtubeID,getSong(-1).title,getSongIndex);
+  }
+}
+
+function nextSong(){
+  setSong(getSong(1).youtubeID,getSong(1).title,getSongIndex);
+}
+
+var getSongIndex;
+
+function getSong(cond){
+  if(currentAlbum.track[currentTrack+cond]){
+    getSongIndex = currentTrack+cond;
+    return currentAlbum.track[currentTrack+cond];
+  }else if(currentTrack+cond < 0){
+    getSongIndex = currentAlbum.track.length-1;
+    return currentAlbum.track[currentAlbum.track.length-1];
+  }else{
+    getSongIndex = 0;
+    return currentAlbum.track[0];
+  }
+}
+
+var timeSlider = document.getElementById("time-slider");
+
+function updateTimeSlider(){
+  var currentTime = Math.floor((player.getCurrentTime()/player.getDuration())*timeSlider.max);
+  if(!isNaN(currentTime)){
+    timeSlider.value = currentTime.toString();
+  }
+}

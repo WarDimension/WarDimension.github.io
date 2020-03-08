@@ -11,12 +11,14 @@ const coversData = [
       {
         "title": "バーチャルボーイ ft. 初音ミク (nano.RIPE Cover)",
         "romanized": "Virtual Boy ft. Hatsune Miku (nano.RIPE Cover)",
-        "length": "1:51"
+        "length": "1:51",
+        "youtubeID": "iqwJshOf33Y"
       },
       {
         "title": "バーチャルボーイ (nano.RIPE Cover) -Instrumental-",
         "romanized": "Virtual Boy (nano.RIPE Cover) -Instrumental-",
-        "length": "1:51"
+        "length": "1:51",
+        "youtubeID": "5hAh2Yv8e84"
       }
     ]
   },
@@ -34,15 +36,18 @@ const coversData = [
       {
         "title": "Basket Case ft. 初音ミク (Green Day Japanese Cover)",
         "romanized": "Basket Case ft. Hatsune Miku (Green Day Japanese Cover)",
-        "length": "3:19"
+        "length": "3:19",
+        "youtubeID": "wl_Lc2LTTdc"
       },
       {
         "title": "Basket Case ft. Billie Joe Armstrong (Green Day Cover)",
-        "length": "3:19"
+        "length": "3:19",
+        "youtubeID": "ojp3UBTzXXM"
       },
       {
         "title": "Basket Case (Green Day Cover) -Instrumental-",
-        "length": "3:19"
+        "length": "3:19",
+        "youtubeID": "wFkmtbA1Ylg"
       }
     ]
   }

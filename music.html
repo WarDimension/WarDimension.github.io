@@ -1,8 +1,9 @@
 <html lang="en">
   <head>
     <title>WarDimension Official - Music</title>
-    <link rel="stylesheet" type="text/css" href="./css/theme.css" />
-    <link rel="stylesheet" type="text/css" href="./css/song.css" />
+    <link rel="stylesheet" type="text/css" href="./css/theme.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/song.css"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
     <meta id="vp" name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8" />
@@ -41,6 +42,31 @@
       <a id="cover-button" class="song-sort-button" href="#" onclick="songSort();">▼</a>
     </div></div>
     <div id="content-container"></div>
+    <div id="music-player">
+      <p id="player-song-name">Song Name</p>
+      <button id="close-player-button" onclick="closePlayer()" tabindex="-1">
+        <i class="material-icons">close</i>
+      </button>
+      <div id="player-button-container">
+        <button class="player-button" id="prev-button" onclick="prevSong()" tabindex="-1">
+          <span class="player-button-content" tabindex="-1">
+            <i class="material-icons">skip_previous</i>
+          </span>
+        </button>
+        <button class="player-button" id="play-button" onclick="playSong()" tabindex="-1">
+          <span class="player-button-content" tabindex="-1">
+            <i class="material-icons">play_arrow</i>
+          </span>
+        </button>
+        <button class="player-button" id="next-button" onclick="nextSong()" tabindex="-1">
+          <span class="player-button-content" tabindex="-1">
+            <i class="material-icons">skip_next</i>
+          </span>
+        </button>
+      </div>
+      <input id="time-slider" type="range" min="0" max="1000" value="0" tabindex="-1" onclick="seekTo()" onmousedown="clearInterval(time)"/>
+      <div id="player" tabindex="-1"></div>
+    </div>
     <div class="context-menu"></div>
     <script type="text/javascript" src="./js/original.js"></script>
     <script type="text/javascript" src="./js/cover.js"></script>

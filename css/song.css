@@ -1,5 +1,5 @@
 #content-container{
-  padding: 15px 0;
+  padding: 15px 0 100px 0;
 }
 .content{
   width: 1344px;
@@ -7,6 +7,8 @@
   margin-bottom: 80px;
 }
 .content:focus{
+  -webkit-box-shadow: -20px 0px 0px 5px black, 20px 0px 0px 5px black;
+  -moz-box-shadow: -20px 0px 0px 5px black, 20px 0px 0px 5px black;
   box-shadow: -20px 0px 0px 5px black, 20px 0px 0px 5px black;
 }
 .platform-container{
@@ -53,9 +55,9 @@
 .song-menu{
   display: inline-block;
   border-bottom: 2.5px solid #000;
-  -webkit-box-shadow:0 8px 6px -6px black;
-  -moz-box-shadow:0 8px 6px -6px black;
-  box-shadow:0 8px 6px -6px black;
+  -webkit-box-shadow: 0 8px 6px -6px black;
+  -moz-box-shadow: 0 8px 6px -6px black;
+  box-shadow: 0 8px 6px -6px black;
   white-space: nowrap;
 }
 .song-button{
@@ -65,6 +67,8 @@
   font-weight: bold;
   font-size:18px;
   padding: 0 6px;
+  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 .song-button.active{
@@ -78,9 +82,13 @@
   padding: 1px 3.5px;
   color: #000;
   text-decoration: none;
+  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 .song-sort-button:hover, .song-menu:hover{
+  -webkit-box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  -moz-box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 #track-container{
@@ -138,6 +146,126 @@
   margin: auto;
   width: 150px;
   background: #eee;
+}
+#player{
+  position: absolute;
+  bottom: -1000px;
+  visibility: hidden;
+}
+#music-player{
+  position: fixed;
+  bottom: -200px;
+  padding: 20px 4%;
+  max-width: 90vw;
+  left: 0;
+  right: 0;
+  width: 600px;
+  background: #222;
+  margin: auto;
+  opacity: 0;
+  transition: all 0.5s cubic-bezier(.25,.8,.25,1);
+  -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#time-slider{
+  -webkit-appearance: none;
+  display: block;
+  height: 5px;
+  width: 100%;
+  background: #666;
+  overflow: hidden;
+}
+#time-slider:focus{
+  outline: none;
+}
+#time-slider::-webkit-slider-thumb{
+  -webkit-appearance: none;
+  appearance: none;
+  width: 0px;
+  height: 100%;
+  -moz-box-shadow: -666px 0px 0px 666px #eee;
+  -moz-box-shadow: -666px 0px 0px 666px #eee;
+  box-shadow: -666px 0px 0px 666px #eee;
+}
+#time-slider::-moz-range-thumb{
+  width: 0px;
+  height: 100%;
+  -moz-box-shadow: -666px 0px 0px 666px #eee;
+  -moz-box-shadow: -666px 0px 0px 666px #eee;
+  box-shadow: -666px 0px 0px 666px #eee;
+}
+#player-button-container{
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-block;
+  margin-bottom: 10px;
+}
+.player-button{
+  border-radius: 100%;
+  background: none;
+  color: #eee;
+  border: solid 2px #eee;
+  padding: 6px;
+}
+.player-button-content{
+  height: 100%;
+  width: 100%;
+  display: block;
+}
+#prev-button, #next-button{
+  border: none;
+}
+.player-button:focus, .player-button-content{
+  outline: none;
+}
+.player-button:focus > .player-button-content{
+  outline: solid 2px #fff;
+}
+#play-button.player-button:focus{
+  padding: 0;
+}
+#play-button.player-button:focus > .player-button-content{
+  outline: none;
+  border: solid 2px #fff;
+  border-radius: 100%;
+  padding: 5px;
+}
+.player-button:active{
+  color: #666;
+  border-color: #666;
+  padding: 5px;
+}
+#player-song-name{
+  color: #fff;
+  text-align: center;
+  margin-top: 0;
+}
+#close-player-button{
+  background: none;
+  color: #fff;
+  border: none;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
+#close-payer-button:focus{
+  outline: solid 2px #fff;
+}
+@keyframes buffering{
+  10%{
+    border-color: #222;
+  }
+  25%{
+    color: #222;
+  }
+  75%{
+    border-color: #eee;
+  }
+  80%{
+    color: #eee;
+  }
 }
 @media only screen and (orientation: portrait), only screen and (max-width: 1600px){
   .album-container{
