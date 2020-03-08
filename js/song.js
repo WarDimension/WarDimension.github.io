@@ -356,7 +356,7 @@ var time;
 
 var currentAlbum;
 
-var currentAlbumToPlay;
+var albumToPlay;
 
 var currentTrack;
 
@@ -375,7 +375,7 @@ function setSong(videoId,title,trackIndex,setAlbumToPlay = false){
   nextButton.tabIndex = "0";
   closePlayerButton.tabIndex = "0";
   if(setAlbumToPlay){
-    currentAlbumToPlay = currentAlbum;
+    albumToPlay = currentAlbum;
   }
 }
 
@@ -424,15 +424,15 @@ function nextSong(){
 var getSongIndex;
 
 function getSong(cond){
-  if(currentAlbumToPlay.track[currentTrack+cond]){
+  if(albumToPlay.track[currentTrack+cond]){
     getSongIndex = currentTrack+cond;
-    return currentAlbumToPlay.track[currentTrack+cond];
+    return albumToPlay.track[currentTrack+cond];
   }else if(currentTrack+cond < 0){
-    getSongIndex = currentAlbumToPlay.track.length-1;
-    return currentAlbum.track[currentAlbumToPlay.track.length-1];
+    getSongIndex = albumToPlay.track.length-1;
+    return albumToPlay.track[albumToPlay.track.length-1];
   }else{
     getSongIndex = 0;
-    return currentAlbumToPlay.track[0];
+    return albumToPlay.track[0];
   }
 }
 
