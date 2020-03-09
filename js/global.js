@@ -40,13 +40,9 @@ function getParentIdByElement(element){
   return element.parentNode && getParentIdByElement(element.parentNode);
 }
 
-if (screen.width <= 360) {
+if (screen.width < 360) {
   var mvp = document.getElementById('vp');
   mvp.setAttribute("content","width=360, user-scalable=no");
-}
-else if (screen.width <= 480) {
-  var mvp = document.getElementById('vp');
-  mvp.setAttribute("content","width=480, user-scalable=no");
 }
 
 window.addEventListener("keypress", (e) => {

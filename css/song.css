@@ -209,6 +209,7 @@
   transform: translateX(-50%);
   display: inline-block;
   margin-bottom: 10px;
+  min-width: 200px;
 }
 .player-button{
   border-radius: 100%;
@@ -386,7 +387,7 @@ button:focus{
 }
 @media only screen and (max-width: 480px){
   .skip{
-    top: 320px;
+    top: 260px;
   }
 }
 @media only screen and (max-width: 360px){
