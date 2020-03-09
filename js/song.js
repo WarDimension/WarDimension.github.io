@@ -353,8 +353,8 @@ function onPlayerStateChange(event){
   else if(event.data == YT.PlayerState.PLAYING){
     time = setInterval(updateTimeSlider,100);
     if(songName.innerHTML == ""){
-      var author = player.getVideoData().author + " - ";
-      if(author == "WarDimension - Topic - ") author = "";
+      var author = "「" + player.getVideoData().author + "」";
+      if(author == "「WarDimension - Topic」") author = "";
       songName.innerHTML = author + player.getVideoData().title;
     }
     playButton.innerHTML = "<span class='player-button-content' tabindex='-1'><i class='material-icons'>pause</i></span>";
