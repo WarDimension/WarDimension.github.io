@@ -343,7 +343,6 @@ var playerState;
 var error = 0;
 
 function onPlayerStateChange(event){
-  console.log(event.data);
   if(event.data == YT.PlayerState.ENDED){
     clearInterval(time);
     timeSlider.value = "0";
