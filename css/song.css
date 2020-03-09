@@ -119,6 +119,7 @@
 }
 .track-name:hover, .track-name:focus{
   background: #333;
+  outline: none;
 }
 .track-tooltip{
   position: absolute;
@@ -257,8 +258,8 @@
   right: 5px;
   top: 5px;
 }
-#close-payer-button:focus{
-  outline: solid 2px #fff;
+button:focus{
+  outline-color: #fff;
 }
 @keyframes buffering{
   10%{

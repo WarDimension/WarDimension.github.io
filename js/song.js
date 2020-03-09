@@ -191,7 +191,8 @@ window.addEventListener("keypress", (e) => {
 
 function track(e){
   var target = e.target;
-  if(!url()["album"] && getParentClass(target, "content") == "content"){
+  console.log(target);
+  if(!url()["album"] && getParentClass(target, "content") == "content" && e.target.className != "platform-url"){
     var song;
     if(original == true){
       if(sortNewest == true){

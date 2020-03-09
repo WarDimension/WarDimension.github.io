@@ -21,7 +21,7 @@
   outline: 2px solid #000;
 }
 .menu-button:focus{
-  outline: 2px solid #fff;
+  outline-color: #fff;
 }
 html, body, iframe {
   max-width: 100%;
@@ -78,7 +78,6 @@ h3{
 }
 .skip:focus, .skip-content:focus{
   left: 20px;
-  outline: 2px solid #000;
   opacity: 1;
   pointer-events: none;
 }
@@ -260,7 +259,7 @@ h3{
     top: 270px;
   }
   .menu-button:focus{
-    outline: 2px solid #000;
+    outline-color: #000;
   }
 }
 @media only screen and (max-width: 1024px){
