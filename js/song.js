@@ -218,9 +218,12 @@ function track(e){
   }
   else if(target.className != "platform-url" && getParentId(target, "track-container") != "track-container" && getParentId(target, "music-player") != "music-player" && target.className != "skip" && target.className != "skip-content"){
     songDisplay();
-    params = "";
-    if(url()["id"]) params += `id=${url()["id"]}`;
-    setParams(params);
+    if(url()["id"]){
+      setParams(`id=${url()["id"]}`);
+    }
+    else{
+      setParams("");
+    }
     index = indexDefault;
   }
   else if(target.className == "skip"){
@@ -401,6 +404,8 @@ function setSong(videoId,title,trackIndex,setAlbumToPlay = false){
   closePlayerButton.tabIndex = "0";
   if(url()["album"]){
     setParams(`album=${url()["album"]}&id=${videoId}`);
+  }else{
+    setParams(`id=${videoId}`);
   }
   if(setAlbumToPlay){
     albumToPlay = currentAlbum;
@@ -416,11 +421,11 @@ function closePlayer(){
   prevButton.tabIndex = "-1";
   nextButton.tabIndex = "-1";
   closePlayerButton.tabIndex = "-1";
-  var params = "";
   if(url()["album"]){
-    params = `album=${url()["album"]}`;
+    setParams(`album=${url()["album"]}`);
+  }else{
+  setParams("");
   }
-  setParams(params);
 }
 
 var play;
