@@ -222,7 +222,7 @@
   width: 100%;
   display: block;
 }
-#prev-button, #next-button{
+#prev-button, #next-button, #shuffle-button, #repeat-button{
   border: none;
 }
 .player-button:focus, .player-button-content{
@@ -257,6 +257,9 @@
   position: absolute;
   right: 5px;
   top: 5px;
+}
+button{
+  transition-duration: 0.1s;
 }
 button:focus{
   outline-color: #fff;

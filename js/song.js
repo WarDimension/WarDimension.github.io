@@ -1,3 +1,21 @@
+// music player parts
+var selectedAlbum = {
+  "data": "",
+  "index": "",
+  "type": ""
+};
+
+var currentTrack = {
+  "youtubeID": "",
+  "index": "",
+  "albumData": "",
+  "albumIndex": "",
+  "type": ""
+};
+
+var shuffleHistory = [];
+// end of player parts
+
 function platform(url, sprite, name){
   return `
     ${url != undefined ?
@@ -107,7 +125,7 @@ function trackListTemplate(track, index){
 }
 
 function trackTemplate(song){
-  selectedAlbum = song;
+  selectedAlbum.data = song;
   return `
     <div class="content" id="track-container">
       <table class="track">
@@ -147,6 +165,8 @@ if(url()["album"]){
     }
     if(found){
       content.innerHTML += trackTemplate(songsData[i]);
+      selectedAlbum.index = i;
+      selectedAlbum.type = "original";
       break;
     }
   }
@@ -164,6 +184,8 @@ if(url()["album"]){
       }
       if(found){
         content.innerHTML += trackTemplate(coversData[i]);
+        selectedAlbum.index = i;
+        selectedAlbum.type = "cover";
         break;
       }
     }
@@ -193,22 +215,30 @@ function track(e){
   var target = e.target;
   if(!url()["album"] && getParentClass(target, "content") == "content" && e.target.className != "platform-url"){
     var song;
+    var i;
     if(original == true){
       if(sortNewest == true){
-        song = songsData[(songsData.length - 1) - getParentIdByElement(target)];
+        i = (songsData.length - 1) - getParentIdByElement(target);
+        song = songsData[i];
       }
       else{
-        song = songsData[getParentIdByElement(target)];
+        i = getParentIdByElement(target);
+        song = songsData[i];
       }
+      selectedAlbum.type = "original";
     }
     else{
       if(sortNewest == true){
-        song = coversData[(coversData.length - 1) - getParentIdByElement(target)];
+        i = (coversData.length - 1) - getParentIdByElement(target);
+        song = coversData[i];
       }
       else{
-        song = coversData[getParentIdByElement(target)];
+        i = getParentIdByElement(target);
+        song = coversData[i];
       }
+      selectedAlbum.type = "cover";
     }
+    selectedAlbum.index = i;
     content.innerHTML = songTemplate(song,"0");
     content.innerHTML += trackTemplate(song);
     params = `?album=${(song.alt ? song.alt : song.title).toLowerCase()}`;
@@ -216,7 +246,7 @@ function track(e){
     setParams(params);
     index = indexDefault;
   }
-  else if(target.className != "platform-url" && getParentId(target, "track-container") != "track-container" && getParentId(target, "music-player") != "music-player" && target.className != "skip" && target.className != "skip-content"){
+  else if(target.className != "platform-url" && getParentId(target, "track-container") != "track-container" && getParentId(target, "music-player") != "music-player" && target.className != "skip" && target.className != "skip-content" && target.className != "material-icons"){
     songDisplay();
     if(url()["id"]){
       setParams(`id=${url()["id"]}`);
@@ -320,9 +350,11 @@ events = {
 
 function onPlayerReady(){
   if(url()["id"]){
+    currentTrack.youtubeID = url()["id"];
     player.loadVideoById(url()["id"]);
-    selectedAlbum = songsData[0];
-    setSong(url()["id"],"",selectedAlbum.track.length-1,true);
+    setSong(url()["id"]);
+    shuffle = false;
+    setShuffle();
   }
 }
 
@@ -336,6 +368,10 @@ var currentTimeText =  document.getElementById("current-time-text");
 
 var durationText =  document.getElementById("duration-text");
 
+var shuffleButton =  document.getElementById("shuffle-button");
+
+var repeatButton =  document.getElementById("repeat-button");
+
 var closePlayerButton = document.getElementById("close-player-button");
 
 var playerState;
@@ -346,14 +382,21 @@ function onPlayerStateChange(event){
   if(event.data == YT.PlayerState.ENDED){
     clearInterval(time);
     timeSlider.value = "0";
-    setSong(getSong(1).youtubeID,getSong(1).title,getSongIndex);
+    if(repeat == "repeat all"){
+      nextSong();
+    }
+    else if(repeat == "repeat one"){
+      player.playVideo();
+    }
+    playButton.innerHTML = "<span class='player-button-content' tabindex='-1'><i class='material-icons'>play_arrow</i></span>";
+    playButton.style.animation = "";
     playerState = "ENDED";
   }
   else if(event.data == YT.PlayerState.PLAYING){
     time = setInterval(updateTimeSlider,100);
     if(songName.innerHTML == ""){
       var author = "「" + player.getVideoData().author + "」";
-      if(author == "「WarDimension - Topic」") author = "";
+      if(author == "「WarDimension - Topic」" || author == "「WarDimension」") author = "";
       songName.innerHTML = author + player.getVideoData().title;
     }
     playButton.innerHTML = "<span class='player-button-content' tabindex='-1'><i class='material-icons'>pause</i></span>";
@@ -386,35 +429,32 @@ function onPlayerStateChange(event){
 
 var time;
 
-var selectedAlbum;
-
-var currentAlbum;
-
-var currentAlbumIndex;
-
-var currentTrackIndex;
-
 var musicPlayer = document.getElementById("music-player");
 
 var songName = document.getElementById("player-song-name");
 
-function setSong(videoId,title,trackIndex,setCurrentAlbum = false){
+function setSong(videoId,title = "",trackIndex,setCurrentTrack = false){
   player.loadVideoById(videoId);
-  currentTrackIndex = trackIndex;
+  currentTrack.index = trackIndex;
+  currentTrack.youtubeID = videoId;
   songName.innerHTML = title.replace("&apos","'");
   musicPlayer.style.bottom = "20px";
   musicPlayer.style.opacity = "1";
   playButton.tabIndex = "0";
   prevButton.tabIndex = "0";
   nextButton.tabIndex = "0";
+  shuffleButton.tabIndex = "0";
+  repeatButton.tabIndex = "0";
   closePlayerButton.tabIndex = "0";
   if(url()["album"]){
     setParams(`album=${url()["album"]}&id=${videoId}`);
   }else{
     setParams(`id=${videoId}`);
   }
-  if(setCurrentAlbum){
-    currentAlbum = selectedAlbum;
+  if(setCurrentTrack){
+    currentTrack.albumData = selectedAlbum.data;
+    currentTrack.albumIndex = selectedAlbum.index;
+    currentTrack.type = selectedAlbum.type;
   }
 }
 
@@ -426,7 +466,10 @@ function closePlayer(){
   playButton.tabIndex = "-1";
   prevButton.tabIndex = "-1";
   nextButton.tabIndex = "-1";
+  shuffleButton.tabIndex = "-1";
+  repeatButton.tabIndex = "-1";
   closePlayerButton.tabIndex = "-1";
+  shuffleHistory = [];
   if(url()["album"]){
     setParams(`album=${url()["album"]}`);
   }else{
@@ -434,8 +477,110 @@ function closePlayer(){
   }
 }
 
+var shuffle = false;
+shuffleButton.style.color = "#666";
+if(localStorage.getItem("shuffle") != null){
+  shuffle = (localStorage.getItem("shuffle") != "true");
+  setShuffle();
+}
+function setShuffle(){
+  if(shuffle){
+    shuffle = false;
+    localStorage.setItem("shuffle", false);
+    shuffleButton.style.color = "#666";
+  }
+  else{
+    shuffle = true;
+    localStorage.setItem("shuffle", true);
+    shuffleButton.style.color = "#eee";
+  }
+}
+
+function shuffleSong(){
+  shuffleHistory.push({
+    "youtubeID": currentTrack.youtubeID,
+    "index": currentTrack.index,
+    "albumData": currentTrack.albumData,
+    "albumIndex": currentTrack.albumIndex,
+    "type": currentTrack.type
+  });
+
+  var videoId;
+  var title;
+  var trackIndex;
+
+  switch(Math.floor(Math.random() * 2)){
+    case 0:
+      var randomAlbum = Math.floor(Math.random() * songsData.length);
+      var randomTrack = Math.floor(Math.random() * songsData[randomAlbum].track.length);
+      currentTrack.albumData = songsData[randomAlbum];
+      currentTrack.albumIndex = randomAlbum;
+      currentTrack.type = "original";
+      videoId = songsData[randomAlbum].track[randomTrack].youtubeID;
+      title = songsData[randomAlbum].track[randomTrack].title;
+      trackIndex = randomTrack;
+      break;
+    case 1:
+      var randomAlbum = Math.floor(Math.random() * coversData.length);
+      var randomTrack = Math.floor(Math.random() * coversData[randomAlbum].track.length);
+      currentTrack.albumData = coversData[randomAlbum];
+      currentTrack.albumIndex = randomAlbum;
+      currentTrack.type = "cover";
+      videoId = coversData[randomAlbum].track[randomTrack].youtubeID;
+      title = coversData[randomAlbum].track[randomTrack].title;
+      trackIndex = randomTrack;
+      break;
+  }
+
+  currentTrack.youtubeID = videoId;
+  currentTrack.index = trackIndex;
+
+  setSong(videoId,title,trackIndex);
+}
+
+function prevShuffle(){
+  var prevShuffle = shuffleHistory[shuffleHistory.length-1];
+  if(prevShuffle == undefined){
+    return;
+  }
+  else if(prevShuffle.index == undefined){
+    setSong(prevShuffle.youtubeID);
+    shuffleHistory.pop();
+    return;
+  }
+  var videoId = prevShuffle.youtubeID;
+  var title = prevShuffle.albumData.track[prevShuffle.index].title;
+  var trackIndex = prevShuffle.index;
+  setSong(videoId,title,trackIndex);
+  shuffleHistory.pop();
+}
+
+var repeat = "repeat all";
+if(localStorage.getItem("repeat") != null){
+  repeat = localStorage.getItem("repeat");
+  setRepeat();setRepeat();setRepeat();
+}
+function setRepeat(){
+  if(repeat == "no repeat"){
+    repeat = "repeat all";
+    localStorage.setItem("repeat", "repeat all");
+    repeatButton.style.color = "#eee";
+  }
+  else if(repeat == "repeat all"){
+    repeat = "repeat one";
+    localStorage.setItem("repeat", "repeat one");
+    repeatButton.innerHTML = "<span class='player-button-content' tabindex='-1'><i class='material-icons'>repeat_one</i></span>";
+  }
+  else{
+    repeat = "no repeat";
+    localStorage.setItem("repeat", "no repeat");
+    repeatButton.innerHTML = "<span class='player-button-content' tabindex='-1'><i class='material-icons'>repeat</i></span>";
+    repeatButton.style.color = "#666";
+  }
+}
+
 function playSong(){
-  if(playerState == "UNSTARTED" || playerState == "PAUSED"){
+  if(playerState == "UNSTARTED" || playerState == "PAUSED" || playerState == "ENDED"){
     player.playVideo();
   }else if(playerState == "PLAYING" || playerState == "BUFFERING"){
     player.pauseVideo();
@@ -452,28 +597,113 @@ function prevSong(){
     player.seekTo(0);
     timeSlider.value = "0";
   }
-  else{
-    setSong(getSong(-1).youtubeID,getSong(-1).title,getSongIndex);
+  else if(shuffle || currentTrack.index == undefined){
+    prevShuffle();
   }
+  else{
+    var title = getPrevSong();
+    setSong(currentTrack.youtubeID,title,currentTrack.index);
+  }
+}
+
+function getPrevSong(){
+  var trackIndex = currentTrack.index;
+  var albumData = currentTrack.albumData;
+  var albumIndex = currentTrack.albumIndex;
+  var trackType = currentTrack.type;
+
+  if(albumData.track[trackIndex-1]){
+    currentTrack.youtubeID = albumData.track[trackIndex-1].youtubeID;
+    currentTrack.index = trackIndex-1;
+  }
+  else if(trackType == "original"){
+    if(songsData[albumIndex-1]){
+      var i = songsData[albumIndex-1];
+      currentTrack.youtubeID = i.track[i.track.length-1].youtubeID;
+      currentTrack.index = i.track.length-1;
+      currentTrack.albumData = i;
+      currentTrack.albumIndex = albumIndex-1;
+    }
+    else{
+      var i = coversData[coversData.length-1];
+      currentTrack.youtubeID = i.track[i.track.length-1].youtubeID;
+      currentTrack.index = i.track.length-1;
+      currentTrack.albumData = i;
+      currentTrack.albumIndex = coversData.length-1;
+      currentTrack.type = "cover";
+    }
+  }
+  else{
+    if(coversData[albumIndex-1]){
+      var i = coversData[albumIndex-1];
+      currentTrack.youtubeID = i.track[i.track.length-1].youtubeID;
+      currentTrack.index = i.track.length-1;
+      currentTrack.albumData = i;
+      currentTrack.albumIndex = albumIndex-1;
+    }
+    else{
+      var i = songsData[songsData.length-1];
+      currentTrack.youtubeID = i.track[i.track.length-1].youtubeID;
+      currentTrack.index = i.track.length-1;
+      currentTrack.albumData = i;
+      currentTrack.albumIndex = songsData.length-1;
+      currentTrack.type = "cover";
+    }
+  }
+  return currentTrack.albumData.track[currentTrack.index].title;
 }
 
 function nextSong(){
-  setSong(getSong(1).youtubeID,getSong(1).title,getSongIndex);
+  if(shuffle || currentTrack.index == undefined){
+    shuffleSong();
+  }
+  else{
+    var title = getNextSong();
+    setSong(currentTrack.youtubeID,title,currentTrack.index);
+  }
 }
 
-var getSongIndex;
+function getNextSong(){
+  var trackIndex = currentTrack.index;
+  var albumData = currentTrack.albumData;
+  var albumIndex = currentTrack.albumIndex;
+  var trackType = currentTrack.type;
 
-function getSong(cond){
-  if(currentAlbum.track[currentTrackIndex+cond]){
-    getSongIndex = currentTrackIndex+cond;
-    return currentAlbum.track[currentTrackIndex+cond];
-  }else if(currentTrackIndex+cond < 0){
-    getSongIndex = currentAlbum.track.length-1;
-    return currentAlbum.track[currentAlbum.track.length-1];
-  }else{
-    getSongIndex = 0;
-    return currentAlbum.track[0];
+  if(albumData.track[trackIndex+1]){
+    currentTrack.youtubeID = albumData.track[trackIndex+1].youtubeID;
+    currentTrack.index = trackIndex+1;
   }
+  else if(trackType == "original"){
+    if(songsData[albumIndex+1]){
+      currentTrack.youtubeID = songsData[albumIndex+1].track[0].youtubeID;
+      currentTrack.index = 0;
+      currentTrack.albumData = songsData[albumIndex+1];
+      currentTrack.albumIndex = albumIndex+1;
+    }
+    else{
+      currentTrack.youtubeID = coversData[0].track[0].youtubeID;
+      currentTrack.index = 0;
+      currentTrack.albumData = coversData[0];
+      currentTrack.albumIndex = 0;
+      currentTrack.type = "cover";
+    }
+  }
+  else{
+    if(coversData[albumIndex+1]){
+      currentTrack.youtubeID = coversData[albumIndex+1].track[0].youtubeID;
+      currentTrack.index = 0;
+      currentTrack.albumData = coversData[albumIndex+1];
+      currentTrack.albumIndex = albumIndex+1;
+    }
+    else{
+      currentTrack.youtubeID = songsData[0].track[0].youtubeID;
+      currentTrack.index = 0;
+      currentTrack.albumData = songsData[0];
+      currentTrack.albumIndex = 0;
+      currentTrack.type = "original";
+    }
+  }
+  return currentTrack.albumData.track[currentTrack.index].title;
 }
 
 var timeSlider = document.getElementById("time-slider");

@@ -49,6 +49,11 @@
       </button>
       <p class="time-text" id="current-time-text">0:00</p>
       <div id="player-button-container">
+        <button class="player-button" id="shuffle-button" onclick="setShuffle()" tabindex="-1">
+          <span class="player-button-content" tabindex="-1">
+            <i class="material-icons">shuffle</i>
+          </span>
+        </button>
         <button class="player-button" id="prev-button" onclick="prevSong()" tabindex="-1">
           <span class="player-button-content" tabindex="-1">
             <i class="material-icons">skip_previous</i>
@@ -62,6 +67,11 @@
         <button class="player-button" id="next-button" onclick="nextSong()" tabindex="-1">
           <span class="player-button-content" tabindex="-1">
             <i class="material-icons">skip_next</i>
+          </span>
+        </button>
+        <button class="player-button" id="repeat-button" onclick="setRepeat()" tabindex="-1">
+          <span class="player-button-content" tabindex="-1">
+            <i class="material-icons">repeat</i>
           </span>
         </button>
       </div>
