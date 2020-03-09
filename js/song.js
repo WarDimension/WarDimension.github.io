@@ -168,7 +168,9 @@ if(url()["album"]){
       }
     }
   }
-  setParams(`?album=${url()["album"]}`);
+  params = `?album=${url()["album"]}`;
+  if(url()["id"]) params += `&id=${url()["id"]}`;
+  setParams(params);
 }
 
 if(url()["sort"] == "old"){
@@ -209,12 +211,16 @@ function track(e){
     }
     content.innerHTML = songTemplate(song,"0");
     content.innerHTML += trackTemplate(song);
-    setParams(`?album=${(song.alt ? song.alt : song.title).toLowerCase()}`);
+    params = `?album=${(song.alt ? song.alt : song.title).toLowerCase()}`;
+    if(url()["id"]) params += `&id=${url()["id"]}`;
+    setParams(params);
     index = indexDefault;
   }
   else if(target.className != "platform-url" && getParentId(target, "track-container") != "track-container" && getParentId(target, "music-player") != "music-player" && target.className != "skip" && target.className != "skip-content"){
     songDisplay();
-    setParams("");
+    params = "";
+    if(url()["id"]) params += `id=${url()["id"]}`;
+    setParams(params);
     index = indexDefault;
   }
   else if(target.className == "skip"){
@@ -305,14 +311,27 @@ Element.prototype.scrollIntoViewCenter = function () {
 
 //Music Player
 events = {
+  'onReady': onPlayerReady,
   'onStateChange': onPlayerStateChange
 };
+
+function onPlayerReady(){
+  if(url()["id"]){
+    player.loadVideoById(url()["id"]);
+    currentAlbum = songsData[0];
+    setSong(url()["id"],"",currentAlbum.track.length-1,true);
+  }
+}
 
 var playButton =  document.getElementById("play-button");
 
 var prevButton =  document.getElementById("prev-button");
 
 var nextButton =  document.getElementById("next-button");
+
+var currentTimeText =  document.getElementById("current-time-text");
+
+var durationText =  document.getElementById("duration-text");
 
 var closePlayerButton = document.getElementById("close-player-button");
 
@@ -326,9 +345,15 @@ function onPlayerStateChange(event){
     playerState = "ENDED";
   }
   else if(event.data == YT.PlayerState.PLAYING){
-    time = setInterval(updateTimeSlider,1000);
+    time = setInterval(updateTimeSlider,100);
+    if(songName.innerHTML == ""){
+      var author = player.getVideoData().author + " - ";
+      if(author == "WarDimension - Topic - ") author = "";
+      songName.innerHTML = author + player.getVideoData().title;
+    }
     playButton.innerHTML = "<span class='player-button-content' tabindex='-1'><i class='material-icons'>pause</i></span>";
     playButton.style.animation = "";
+    durationText.innerHTML = player.getDuration().toString().toHHMMSS();
     playerState = "PLAYING";
   }
   else if(event.data == YT.PlayerState.BUFFERING){
@@ -374,6 +399,9 @@ function setSong(videoId,title,trackIndex,setAlbumToPlay = false){
   prevButton.tabIndex = "0";
   nextButton.tabIndex = "0";
   closePlayerButton.tabIndex = "0";
+  if(url()["album"]){
+    setParams(`album=${url()["album"]}&id=${videoId}`);
+  }
   if(setAlbumToPlay){
     albumToPlay = currentAlbum;
   }
@@ -388,6 +416,11 @@ function closePlayer(){
   prevButton.tabIndex = "-1";
   nextButton.tabIndex = "-1";
   closePlayerButton.tabIndex = "-1";
+  var params = "";
+  if(url()["album"]){
+    params = `album=${url()["album"]}`;
+  }
+  setParams(params);
 }
 
 var play;
@@ -442,5 +475,18 @@ function updateTimeSlider(){
   var currentTime = Math.floor((player.getCurrentTime()/player.getDuration())*timeSlider.max);
   if(!isNaN(currentTime)){
     timeSlider.value = currentTime.toString();
+    currentTimeText.innerHTML = player.getCurrentTime().toString().toHHMMSS();
   }
+}
+
+String.prototype.toHHMMSS = function () {
+  var sec_num = parseInt(this, 10); // don't forget the second param
+  var hours   = Math.floor(sec_num / 3600);
+  var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
+  var seconds = sec_num - (hours * 3600) - (minutes * 60);
+
+  if (hours   < 1) {hours   = ""} else {hours = hours+":"}
+  if (minutes < 1) {minutes = "0"}
+  if (seconds < 10) {seconds = "0"+seconds;}
+  return hours+minutes+':'+seconds;
 }
