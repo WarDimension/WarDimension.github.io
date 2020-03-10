@@ -464,7 +464,7 @@ function songTemplate(song, index, songsData){
         songsData ? `${index != songsData.length-1 ? `<a class="skip-content" href="#${index+1}">next album</a>` : `<a class="skip-content" href="#top">return</a>`}` : ``
       }
       <div class="album-container">
-        <img class="song-img" src="${song.img}" alt="${song.title} Album Art" ${song.img1 != undefined ? `onmouseover="src='${song.img1}'" onmouseout="src='${song.img}'"` : ``}/><!--
+        <img ${song.imgCur != undefined ? `style="cursor: url('../cursors/${song.imgCur}.cur'), auto"` : ``} class="song-img" src="${song.img}" alt="${song.title} Album Art" ${song.img1 != undefined ? `onmouseover="src='${song.img1}'" onmouseout="src='${song.img}'"` : ``}/><!--
         --><b class="song-title-disk"><p class="song-title">${song.title}</p></b>
       </div>
       <div class="platform-container">

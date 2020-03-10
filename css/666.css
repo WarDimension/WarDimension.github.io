@@ -1,3 +1,9 @@
+*{
+  cursor: url("../cursors/666.cur"), auto;
+}
+.menu-button{
+  cursor: url("../cursors/666_link.cur"), auto;
+}
 body{
   background: url("../images/666.gif");
 }
@@ -32,12 +38,8 @@ body{
   -webkit-filter: contrast(4) grayscale(1);
   filter: contrast(4) grayscale(1);
 }
-.block{
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  height: 200%;
-  width: 200%;
+#player{
+  pointer-events: none;
 }
 @media only screen and (orientation: portrait), only screen and (max-width: 1600px){
   .platform-container{

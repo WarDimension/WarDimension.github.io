@@ -75,3 +75,6 @@ window.addEventListener("keydown", (e) => {
     effect(true);
   }
 });
+window.addEventListener('contextmenu', e => {
+  e.preventDefault();
+});
