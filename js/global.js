@@ -98,22 +98,6 @@ tag.src = "https://www.youtube.com/iframe_api";
 var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-var videoId;
-
-var playerVars;
-
-var events;
-
-var player;
-function onYouTubeIframeAPIReady() {
-  player = new YT.Player('player', {
-    height: '390',
-    width: '640',
-    videoId: videoId,
-    playerVars: playerVars,
-    events: events
-  });
-}
 String.prototype.toHHMMSS = function () {
   var sec_num = parseInt(this, 10); // don't forget the second param
   var hours   = Math.floor(sec_num / 3600);

@@ -1,17 +1,22 @@
-videoId = "HmlSNmbTUw4";
-
-playerVars = {
-  'autoplay': 1,
-  'controls': 0,
-  'showinfo': 0,
-  'loop': 1,
-  'rel': 0
-};
-
-events = {
-  'onReady': onPlayerReady,
-  'onStateChange': onPlayerStateChange
-};
+var player;
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player('player', {
+    height: '390',
+    width: '640',
+    videoId: "HmlSNmbTUw4",
+    playerVars: {
+      'autoplay': 1,
+      'controls': 0,
+      'showinfo': 0,
+      'loop': 1,
+      'rel': 0
+    },
+    events: {
+      'onReady': onPlayerReady,
+      'onStateChange': onPlayerStateChange
+    }
+  });
+}
 
 function onPlayerReady(event){
   event.target.playVideo();

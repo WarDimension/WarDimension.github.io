@@ -15,10 +15,17 @@ var currentTrack = {
 
 var shuffleHistory = [];
 
-events = {
-  'onReady': onPlayerReady,
-  'onStateChange': onPlayerStateChange
-};
+var player;
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player('player', {
+    height: '390',
+    width: '640',
+    events: {
+      'onReady': onPlayerReady,
+      'onStateChange': onPlayerStateChange
+    }
+  });
+}
 
 function onPlayerReady(){
   if(url()["id"]){
