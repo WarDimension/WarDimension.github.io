@@ -63,7 +63,7 @@ function onPlayerStateChange(event){
     playerState = "ENDED";
   }
   else if(event.data == YT.PlayerState.PLAYING){
-    time = setInterval(updateTimeSlider,100);
+    time = setInterval(updateTimeSlider,1000);
     if(songName.innerHTML == ""){
       var author = "「" + player.getVideoData().author + "」";
       if(author == "「WarDimension - Topic」" || author == "「WarDimension」") author = "";
@@ -284,7 +284,14 @@ function playSong(){
 
 function seekTo(){
   var currentTime = (timeSlider.value/timeSlider.max)*player.getDuration();
+  currentTimeText.innerHTML = (currentTime.toString().toHHMMSS());
   player.seekTo(currentTime);
+}
+
+function setSeek(){
+  clearInterval(time);
+  var currentTime = (timeSlider.value/timeSlider.max)*player.getDuration();
+  currentTimeText.innerHTML = (currentTime.toString().toHHMMSS());
 }
 
 function prevSong(){

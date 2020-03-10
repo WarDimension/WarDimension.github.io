@@ -76,7 +76,7 @@
         </button>
       </div>
       <p class="time-text" id="duration-text">0:00</p>
-      <input id="time-slider" type="range" min="0" max="1000" value="0" tabindex="-1" onclick="seekTo()" onmousedown="clearInterval(time)"/>
+      <input id="time-slider" type="range" min="0" max="1000" value="0" tabindex="-1" onchange="seekTo()" oninput="setSeek()"/>
       <div id="player" tabindex="-1"></div>
     </div>
     <div class="context-menu"></div>
