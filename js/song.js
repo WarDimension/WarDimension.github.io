@@ -93,7 +93,6 @@ function onPlayerStateChange(event){
     playButton.style.animation = "";
     if(player.getVideoData().title == ""){
       playButton.innerHTML = "<span class='player-button-content' tabindex='-1'><i class='material-icons'>error</i></span>";
-      songName.innerHTML = "「unavailable」";
     }
     playerState = "UNSTARTED";
   }
