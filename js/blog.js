@@ -13,6 +13,7 @@ window.addEventListener("message", function(e) {
         if(e.data[1] != undefined){
             p = `&p=${e.data[1]}`;
         }
+        document.getElementsByClassName("blog")[0].style.height = e.data[2] + 150;
         setParams(`?b=${b}${p}`);
     }
 });
