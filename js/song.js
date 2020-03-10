@@ -296,6 +296,7 @@ function setSeek(){
 
 function prevSong(){
   if(player.getCurrentTime() >= 3){
+    clearInterval(time);
     player.seekTo(0);
     timeSlider.value = "0";
   }
