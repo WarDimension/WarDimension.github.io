@@ -156,7 +156,7 @@ function closePlayer(){
   }
 }
 
-var shuffle = false;
+var shuffle = true;
 shuffleButton.style.color = "#666";
 if(localStorage.getItem("shuffle") != null){
   shuffle = (localStorage.getItem("shuffle") != "true");
