@@ -11,14 +11,14 @@ const coversData = [
       {
         "title": "バーチャルボーイ ft. 初音ミク (nano.RIPE Cover)",
         "romanized": "Virtual Boy ft. Hatsune Miku (nano.RIPE Cover)",
-        "length": "1:51",
-        "youtubeID": "iqwJshOf33Y"
+        "length": "1:50",
+        "youtubeID": "0oGyWmwP-HQ"
       },
       {
         "title": "バーチャルボーイ (nano.RIPE Cover) -Instrumental-",
         "romanized": "Virtual Boy (nano.RIPE Cover) -Instrumental-",
-        "length": "1:51",
-        "youtubeID": "5hAh2Yv8e84"
+        "length": "1:50",
+        "youtubeID": "yTc_QSF2GgE"
       }
     ]
   },
