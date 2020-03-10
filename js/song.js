@@ -63,7 +63,7 @@ function onPlayerStateChange(event){
     playerState = "ENDED";
   }
   else if(event.data == YT.PlayerState.PLAYING){
-    time = setInterval(updateTimeSlider,1000);
+    time = setInterval(updateTimeSlider,100);
     if(songName.innerHTML == ""){
       var author = "「" + player.getVideoData().author + "」";
       if(author == "「WarDimension - Topic」" || author == "「WarDimension」") author = "";
