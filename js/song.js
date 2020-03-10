@@ -609,7 +609,7 @@ window.addEventListener("keypress", (e) => {
 
 function track(e){
   var target = e.target;
-  if(!url()["album"] && getParentClass(target, "content") == "content" && e.target.className != "platform-url"){
+  if(!url()["album"] && getParentClass(target, "content") == "content" && e.target.className != "platform-url" && target.className != "skip-content"){
     var song;
     var i;
     if(original == true){
