@@ -48,8 +48,6 @@ var closePlayerButton = document.getElementById("close-player-button");
 
 var playerState;
 
-var error = 0;
-
 function onPlayerStateChange(event){
   if(event.data == YT.PlayerState.ENDED){
     clearInterval(time);
@@ -91,19 +89,12 @@ function onPlayerStateChange(event){
   else if(event.data == YT.PlayerState.UNSTARTED){
     clearInterval(time);
     timeSlider.value = "0";
-    error++;
     playButton.innerHTML = "<span class='player-button-content' tabindex='-1'><i class='material-icons'>play_arrow</i></span>";
     playButton.style.animation = "";
-    if(error == 3){
+    if(player.getVideoData().title == ""){
       playButton.innerHTML = "<span class='player-button-content' tabindex='-1'><i class='material-icons'>error</i></span>";
     }
     playerState = "UNSTARTED";
-  }
-  else if(event.data == YT.PlayerState.CUED){
-    clearInterval(time);
-    playButton.innerHTML = "<span class='player-button-content' tabindex='-1'><i class='material-icons'>play_arrow</i></span>";
-    playButton.style.animation = "";
-    playerState = "CUED";
   }
 }
 
