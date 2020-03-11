@@ -72,6 +72,7 @@ function onPlayerReady(){
       setShuffle();
     }
   }
+  trackHighlight();
 }
 
 var musicPlayer = document.getElementById("music-player");
@@ -119,7 +120,6 @@ function onPlayerStateChange(event){
     playButton.innerHTML = "<span class='player-button-content' tabindex='-1'><i class='material-icons'>pause</i></span>";
     playButton.style.animation = "";
     durationText.innerHTML = player.getDuration().toString().toHHMMSS();
-    trackHighlight();
     playerState = "PLAYING";
   }
   else if(event.data == YT.PlayerState.BUFFERING){
@@ -185,6 +185,7 @@ function setSong(videoId,title = "",trackIndex,setCurrentTrack = false){
     currentTrack.type = selectedAlbum.type;
     shuffleHistory = [];
   }
+  trackHighlight();
 }
 
 function closePlayer(){
