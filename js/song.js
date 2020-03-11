@@ -119,7 +119,7 @@ function onPlayerStateChange(event){
     playButton.innerHTML = "<span class='player-button-content' tabindex='-1'><i class='material-icons'>pause</i></span>";
     playButton.style.animation = "";
     durationText.innerHTML = player.getDuration().toString().toHHMMSS();
-    checkSelectedAlbum();
+    trackHighlight();
     playerState = "PLAYING";
   }
   else if(event.data == YT.PlayerState.BUFFERING){
@@ -148,16 +148,15 @@ function onPlayerStateChange(event){
 
 var trackHighlightTemp;
 
-function checkSelectedAlbum(){
+function trackHighlight(){
   if(url()["album"] && currentTrack.albumData != undefined){
     if(url()["album"].toUpperCase() == currentTrack.albumData.title.toUpperCase() || (currentTrack.albumData.alt && url()["album"].toUpperCase() == currentTrack.albumData.alt.toUpperCase())){
       var trackHighlight = document.getElementById(currentTrack.index+2);
       trackHighlight.style.background = "#666";
-      if(trackHighlightTemp != undefined) trackHighlightTemp.style.background = "";
+      if(trackHighlightTemp != undefined && trackHighlightTemp != trackHighlight) trackHighlightTemp.style.background = "";
       trackHighlightTemp = trackHighlight;
     }else{
       trackHighlightTemp.style.background = "";
-      trackHighlightTemp = undefined;
     }
   }
 }
@@ -725,7 +724,7 @@ function track(e){
     params = `?album=${(song.alt ? song.alt : song.title).toLowerCase()}`;
     if(url()["id"]) params += `&id=${url()["id"]}`;
     setParams(params);
-    checkSelectedAlbum();
+    trackHighlight();
     index = 0;
   }
   else if(target.className != "platform-url" && getParentId(target, "track-container") != "track-container" && getParentId(target, "music-player") != "music-player" && target.className != "skip" && target.className != "skip-content" && target.className != "material-icons"){
