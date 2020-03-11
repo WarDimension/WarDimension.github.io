@@ -480,16 +480,16 @@ function songTemplate(song, index, songsData){
 
 function songDisplay(){
   if(original && sortNewest){
-    content.innerHTML = `${songsData.slice(0).reverse().map(songTemplate).join("")}`;
+    contentContainer.innerHTML = `${songsData.slice(0).reverse().map(songTemplate).join("")}`;
   }
   else if(original && !sortNewest){
-    content.innerHTML = `${songsData.map(songTemplate).join("")}`;
+    contentContainer.innerHTML = `${songsData.map(songTemplate).join("")}`;
   }
   else if(!original && sortNewest){
-      content.innerHTML = `${coversData.slice(0).reverse().map(songTemplate).join("")}`;
+    contentContainer.innerHTML = `${coversData.slice(0).reverse().map(songTemplate).join("")}`;
   }
   else{
-    content.innerHTML = `${coversData.map(songTemplate).join("")}`;
+    contentContainer.innerHTML = `${coversData.map(songTemplate).join("")}`;
   }
 }
 
@@ -561,7 +561,7 @@ function trackTemplate(song){
 
 var original = true;
 var sortNewest = true;
-var content = document.getElementById("content-container");
+var contentContainer = document.getElementById("content-container");
 var originalButton = document.getElementById("original");
 var coverButton = document.getElementById("cover");
 var sortButton = document.getElementById("cover-button");
@@ -572,15 +572,15 @@ if(url()["album"]){
   var song;
   for(i = 0; i< songsData.length; i++){
     if(songsData[i].title.toUpperCase() == url()["album"].toUpperCase()){
-      content.innerHTML = songTemplate(songsData[i],"0");
+      contentContainer.innerHTML = songTemplate(songsData[i],"0");
       found = true;
     }
     else if(songsData[i].alt && songsData[i].alt.toUpperCase() == url()["album"].toUpperCase()){
-      content.innerHTML = songTemplate(songsData[i],"0");
+      contentContainer.innerHTML = songTemplate(songsData[i],"0");
       found = true;
     }
     if(found){
-      content.innerHTML += trackTemplate(songsData[i]);
+      contentContainer.innerHTML += trackTemplate(songsData[i]);
       selectedAlbum.index = i;
       selectedAlbum.type = "original";
       break;
@@ -590,16 +590,16 @@ if(url()["album"]){
     for(i = 0; i< coversData.length; i++){
       if(coversData[i].title.toUpperCase() == url()["album"].toUpperCase()){
         coverSong();
-        content.innerHTML = songTemplate(coversData[i],"0");
+        contentContainer.innerHTML = songTemplate(coversData[i],"0");
         found = true;
       }
       else if(coversData[i].alt && coversData[i].alt.toUpperCase() == url()["album"].toUpperCase()){
         coverSong();
-        content.innerHTML = songTemplate(coversData[i],"0");
+        contentContainer.innerHTML = songTemplate(coversData[i],"0");
         found = true;
       }
       if(found){
-        content.innerHTML += trackTemplate(coversData[i]);
+        contentContainer.innerHTML += trackTemplate(coversData[i]);
         selectedAlbum.index = i;
         selectedAlbum.type = "cover";
         break;
@@ -629,11 +629,13 @@ window.addEventListener("keypress", (e) => {
 
 function track(e){
   var target = e.target;
+  var content = document.getElementsByClassName("content");
+  document.getElementsByTagName("html")[0].style.scrollBehavior = "auto";
   if(!url()["album"] && getParentClass(target, "content") == "content" && e.target.className != "platform-url" && target.className != "skip-content"){
     var song;
     var i;
-    if(original == true){
-      if(sortNewest == true){
+    if(original){
+      if(sortNewest){
         i = (songsData.length - 1) - getParentIdByElement(target);
         song = songsData[i];
       }
@@ -644,7 +646,7 @@ function track(e){
       selectedAlbum.type = "original";
     }
     else{
-      if(sortNewest == true){
+      if(sortNewest){
         i = (coversData.length - 1) - getParentIdByElement(target);
         song = coversData[i];
       }
@@ -655,22 +657,49 @@ function track(e){
       selectedAlbum.type = "cover";
     }
     selectedAlbum.index = i;
-    content.innerHTML = songTemplate(song,"0");
-    content.innerHTML += trackTemplate(song);
+    contentContainer.innerHTML = songTemplate(song,"0");
+    contentContainer.innerHTML += trackTemplate(song);
+    content[0].focus();
     params = `?album=${(song.alt ? song.alt : song.title).toLowerCase()}`;
     if(url()["id"]) params += `&id=${url()["id"]}`;
     setParams(params);
-    index = indexDefault;
+    index = 0;
   }
   else if(target.className != "platform-url" && getParentId(target, "track-container") != "track-container" && getParentId(target, "music-player") != "music-player" && target.className != "skip" && target.className != "skip-content" && target.className != "material-icons"){
     songDisplay();
+    if(sortNewest){
+      if(url()["album"]) content[(content.length - 1) - selectedAlbum.index].scrollIntoViewCenter();
+      if(getParentClass(target,"content") == "content"){
+        content[(content.length - 1) - selectedAlbum.index].focus();
+        index = (content.length - 1) - selectedAlbum.index;
+      }else{
+        if(url()["album"]){
+          index = (content.length - 1) - selectedAlbum.index - 1;
+        }else{
+          index--;
+        }
+      }
+    }else{
+      if(url()["album"]) content[selectedAlbum.index].scrollIntoViewCenter();
+      if(getParentClass(target,"content") == "content"){
+        content[selectedAlbum.index].focus();
+        index = selectedAlbum.index;
+      }else{
+        if(url()["album"]){
+          index = selectedAlbum.index - 1;
+        }
+        else{
+          index--;
+        }
+      }
+    }
     if(url()["id"]){
       setParams(`id=${url()["id"]}`);
     }
     else{
       setParams("");
     }
-    index = indexDefault;
+    document.getElementsByTagName("html")[0].style.scrollBehavior = "smooth";
   }
   else if(target.className == "skip"){
     index = 0;
@@ -733,9 +762,18 @@ window.addEventListener("keydown", (e) => {
   }
   else if(e.key == "Escape") {
     if(url()["album"]){
-      track(e);
+      if(e.target.className == "content"){
+        track(e);
+        index = selectedAlbum.index;
+      }
+      else{
+        index = 0;
+        document.getElementsByClassName("content")[0].focus();
+      }
     }
-    index = indexDefault;
+    else{
+      index = indexDefault;
+    }
   }
   else if (e.keyCode == "37" || ( e.shiftKey && e.keyCode == "9") || e.keyCode == "39" || e.keyCode == "9"){
     if(active.className == "skip-content" && url()["album"]){

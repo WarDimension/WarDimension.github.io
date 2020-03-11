@@ -40,10 +40,19 @@ function getParentIdByElement(element){
   return element.parentNode && getParentIdByElement(element.parentNode);
 }
 
-if (screen.width < 360) {
-  var mvp = document.getElementById('vp');
+
+var mvp = document.getElementById("vp");
+if(screen.width < 360) {
   mvp.setAttribute("content","width=360, user-scalable=no");
 }
+
+window.addEventListener("resize", (e) => {
+  if(screen.width < 360) {
+    mvp.setAttribute("content","width=360, user-scalable=no");
+  }else{
+    mvp.setAttribute("content","width=device-width, initial-scale=1.0, user-scalable=no");
+  }
+});
 
 window.addEventListener("keypress", (e) => {
   if (e.key == "Enter" && e.target.className != "track-name"){
@@ -54,6 +63,7 @@ window.addEventListener("keypress", (e) => {
 window.addEventListener("keydown", (e) => {
   if(e.key == "Escape") {
     document.activeElement.blur();
+    document.getElementsByTagName("html")[0].style.scrollBehavior = "smooth";
     window.scrollTo(0, 0);
   }
   else if (e.keyCode == "37" || (e.shiftKey && e.keyCode == "9")){
