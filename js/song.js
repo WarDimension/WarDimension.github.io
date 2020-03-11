@@ -38,10 +38,45 @@ function onPlayerReady(){
     currentTrack.youtubeID = url()["id"];
     player.loadVideoById(url()["id"]);
     setSong(url()["id"]);
-    shuffle = false;
-    setShuffle();
+    var found = false;
+    for(i = 0; i < songsData.length; i++){
+      for(j = 0; j < songsData[i].track.length; j++){
+        if(songsData[i].track[j].youtubeID == url()["id"]){
+          currentTrack.index = j;
+          currentTrack.albumData = songsData[i];
+          currentTrack.albumIndex = i;
+          currentTrack.type = "original";
+          songName.innerHTML = songsData[i].track[j].title;
+          found = true;
+          break;
+        }
+      }
+    }
+    if(!found){
+      for(i = 0; i < coversData.length; i++){
+        for(j = 0; j < coversData[i].track.length; j++){
+          if(coversData[i].track[j].youtubeID == url()["id"]){
+            currentTrack.index = j;
+            currentTrack.albumData = coversData[i];
+            currentTrack.albumIndex = i;
+            currentTrack.type = "original";
+            songName.innerHTML = coversData[i].track[j].title;
+            found = true;
+            break;
+          }
+        }
+      }
+    }
+    if(!found){
+      shuffle = false;
+      setShuffle();
+    }
   }
 }
+
+var musicPlayer = document.getElementById("music-player");
+
+var songName = document.getElementById("player-song-name");
 
 var playButton =  document.getElementById("play-button");
 
@@ -79,7 +114,6 @@ function onPlayerStateChange(event){
     time = setInterval(updateTimeSlider,100);
     if(songName.innerHTML == ""){
       var author = "「" + player.getVideoData().author + "」";
-      if(author == "「WarDimension - Topic」" || author == "「WarDimension」") author = "";
       songName.innerHTML = author + player.getVideoData().title;
     }
     playButton.innerHTML = "<span class='player-button-content' tabindex='-1'><i class='material-icons'>pause</i></span>";
@@ -110,12 +144,6 @@ function onPlayerStateChange(event){
     playerState = "UNSTARTED";
   }
 }
-
-var time;
-
-var musicPlayer = document.getElementById("music-player");
-
-var songName = document.getElementById("player-song-name");
 
 function setSong(videoId,title = "",trackIndex,setCurrentTrack = false){
   player.loadVideoById(videoId);
@@ -312,8 +340,17 @@ function prevSong(){
     player.seekTo(0);
     timeSlider.value = "0";
   }
-  else if(shuffle || currentTrack.index == undefined){
+  else if(shuffle){
     prevShuffle();
+  }
+  else if(currentTrack.index == undefined){
+    var i = coversData[coversData.length-1];
+    currentTrack.youtubeID = i.track[i.track.length-1].youtubeID;
+    currentTrack.index = i.track.length-1;
+    currentTrack.albumData = i;
+    currentTrack.albumIndex = coversData.length-1;
+    currentTrack.type = "cover";
+    setSong(currentTrack.youtubeID,i.track[i.track.length-1].title,currentTrack.index);
   }
   else{
     var title = getPrevSong();
@@ -369,8 +406,16 @@ function getPrevSong(){
 }
 
 function nextSong(){
-  if(shuffle || currentTrack.index == undefined){
+  if(shuffle){
     shuffleSong();
+  }
+  else if(currentTrack.index == undefined){
+    currentTrack.youtubeID = songsData[0].track[0].youtubeID;
+    currentTrack.index = 0;
+    currentTrack.albumData = songsData[0];
+    currentTrack.albumIndex = 0;
+    currentTrack.type = "original";
+    setSong(currentTrack.youtubeID,songsData[0].track[0].title,0);
   }
   else{
     var title = getNextSong();
@@ -423,6 +468,7 @@ function getNextSong(){
 
 var timeSlider = document.getElementById("time-slider");
 
+var time;
 function updateTimeSlider(){
   var currentTime = Math.floor((player.getCurrentTime()/player.getDuration())*timeSlider.max);
   if(!isNaN(currentTime)){
@@ -569,7 +615,6 @@ songDisplay();
 
 if(url()["album"]){
   var found = false;
-  var song;
   for(i = 0; i< songsData.length; i++){
     if(songsData[i].title.toUpperCase() == url()["album"].toUpperCase()){
       contentContainer.innerHTML = songTemplate(songsData[i],"0");
