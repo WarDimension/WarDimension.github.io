@@ -818,7 +818,6 @@ window.addEventListener("keydown", (e) => {
     if(url()["album"]){
       if(e.target.className == "content"){
         track(e);
-        index = selectedAlbum.index;
       }
       else{
         index = 0;
