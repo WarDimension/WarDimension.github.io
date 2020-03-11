@@ -179,7 +179,8 @@
 #time-slider{
   -webkit-appearance: none;
   display: block;
-  height: 5px;
+  height: 15px;
+  border: solid 5px #222;
   width: 100%;
   background: #666;
   overflow: hidden;
@@ -203,6 +204,19 @@
   -moz-box-shadow: -666px 0px 0px 666px #eee;
   box-shadow: -666px 0px 0px 666px #eee;
 }
+#time-slider:hover{
+  background: #777;
+}
+#time-slider:hover::-webkit-slider-thumb{
+  -moz-box-shadow: -666px 0px 0px 666px #fff;
+  -moz-box-shadow: -666px 0px 0px 666px #fff;
+  box-shadow: -666px 0px 0px 666px #fff;
+}
+#time-slider:hover::-moz-range-thumb{
+  -moz-box-shadow: -666px 0px 0px 666px #fff;
+  -moz-box-shadow: -666px 0px 0px 666px #fff;
+  box-shadow: -666px 0px 0px 666px #fff;
+}
 #player-button-container{
   position: absolute;
   left: 50%;
@@ -212,12 +226,18 @@
   min-width: 250px;
   text-align: center;
 }
+i{
+  transition-duration: 0s;
+}
 .player-button{
   border-radius: 100%;
   background: none;
   color: #eee;
   border: solid 2px #eee;
   padding: 6px;
+}
+.player-button-content:hover > i{
+  filter: brightness(150%);
 }
 .player-button-content{
   height: 100%;
