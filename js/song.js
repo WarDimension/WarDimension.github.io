@@ -718,11 +718,7 @@ function track(e){
         content[(content.length - 1) - selectedAlbum.index].focus();
         index = (content.length - 1) - selectedAlbum.index;
       }else{
-        if(url()["album"]){
-          index = (content.length - 1) - selectedAlbum.index - 1;
-        }else{
-          index--;
-        }
+          index = indexDefault;
       }
     }else{
       if(url()["album"]) content[selectedAlbum.index].scrollIntoViewCenter();
@@ -730,12 +726,7 @@ function track(e){
         content[selectedAlbum.index].focus();
         index = selectedAlbum.index;
       }else{
-        if(url()["album"]){
-          index = selectedAlbum.index - 1;
-        }
-        else{
-          index--;
-        }
+          index = indexDefault;
       }
     }
     if(url()["id"]){
