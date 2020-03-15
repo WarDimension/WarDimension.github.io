@@ -730,22 +730,30 @@ function track(e){
   }
   else if(target.className != "platform-url" && getParentId(target, "track-container") != "track-container" && getParentId(target, "music-player") != "music-player" && target.className != "skip" && target.className != "skip-content" && target.className != "material-icons"){
     songDisplay();
-    if(sortNewest){
-      if(url()["album"]) content[(content.length - 1) - selectedAlbum.index].scrollIntoViewCenter();
-      if(getParentClass(target,"content") == "content"){
-        content[(content.length - 1) - selectedAlbum.index].focus();
-        index = (content.length - 1) - selectedAlbum.index;
-      }else{
-          index = indexDefault;
+    if(target.className != "song-button"){
+      if(sortNewest){
+        if(url()["album"]) content[(content.length - 1) - selectedAlbum.index].scrollIntoViewCenter();
+        if(getParentClass(target,"content") == "content"){
+          content[(content.length - 1) - selectedAlbum.index].focus();
+          index = (content.length - 1) - selectedAlbum.index;
+        }
+        else{
+            index = indexDefault;
+        }
       }
-    }else{
-      if(url()["album"]) content[selectedAlbum.index].scrollIntoViewCenter();
-      if(getParentClass(target,"content") == "content"){
-        content[selectedAlbum.index].focus();
-        index = selectedAlbum.index;
-      }else{
-          index = indexDefault;
+      else{
+        if(url()["album"]) content[selectedAlbum.index].scrollIntoViewCenter();
+        if(getParentClass(target,"content") == "content"){
+          content[selectedAlbum.index].focus();
+          index = selectedAlbum.index;
+        }
+        else{
+            index = indexDefault;
+        }
       }
+    }
+    else{
+      index = indexDefault;
     }
     if(url()["id"]){
       setParams(`id=${url()["id"]}`);
