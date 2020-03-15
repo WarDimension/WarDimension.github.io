@@ -571,23 +571,15 @@ function songSort(){
 function originalSong(){
   original = true;
   songDisplay();
-  originalButton.style.background = "#000";
-  originalButton.style.color = "#fff";
-  originalButton.style.cursor = "default";
-  coverButton.style.background = "#fff";
-  coverButton.style.color = "#000";
-  coverButton.style.cursor = "pointer";
+  originalButton.style = "background: #000; color: #fff; cursor: default";
+  coverButton.style = "background: #fff; color: #000; cursor: pointer";
 }
 
 function coverSong(){
   original = false;
   songDisplay();
-  originalButton.style.background = "#fff";
-  originalButton.style.color = "#000";
-  originalButton.style.cursor = "pointer";
-  coverButton.style.background = "#000";
-  coverButton.style.color = "#fff";
-  coverButton.style.cursor = "default";
+  originalButton.style = "background: #fff; color: #000; cursor: pointer";
+  coverButton.style = "background: #000; color: #fff; cursor: default";
 }
 
 function trackListTemplate(track, index){
