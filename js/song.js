@@ -627,7 +627,7 @@ var sortNewest = true;
 var contentContainer = document.getElementById("content-container");
 var originalButton = document.getElementById("original");
 var coverButton = document.getElementById("cover");
-var sortButton = document.getElementById("cover-button");
+var sortButton = document.getElementById("sort-button");
 songDisplay();
 
 if(url()["album"]){
