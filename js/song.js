@@ -846,5 +846,5 @@ Element.prototype.documentOffsetTop = function () {
 };
 
 Element.prototype.scrollIntoViewCenter = function () {
-  window.scrollTo( 0, this.documentOffsetTop() - (window.innerHeight / 2 ) );
+  window.scrollTo( 0, this.documentOffsetTop() - (window.innerHeight / 2 ) + (this.offsetHeight / 2) );
 };
