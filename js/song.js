@@ -753,7 +753,7 @@ function track(e){
     else{
       setParams("");
     }
-    document.getElementsByTagName("html")[0].style.scrollBehavior = "smooth";
+    if(index != indexDefault) document.getElementsByTagName("html")[0].style.scrollBehavior = "smooth";
   }
   else if(target.className == "skip"){
     index = 0;
