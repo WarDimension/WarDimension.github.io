@@ -775,7 +775,10 @@ var index = indexDefault;
 window.addEventListener("keydown", (e) => {
   var className = ".content";
   var html = document.querySelector("html");
-  if(url()["album"]) className += ", .track-name"; html.style.scrollBehavior="auto";
+  if(url()["album"]){
+    className += ", .track-name";
+    html.style.scrollBehavior="auto";
+  }
   var album = document.querySelectorAll(className);
   var active = document.activeElement;
   var activeParentHeight = parseInt(active.parentElement.offsetHeight);
