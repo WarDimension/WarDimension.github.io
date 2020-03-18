@@ -83,18 +83,30 @@ window.addEventListener("keyup", (e) => {
   }
 });
 
-function nextFocus(e) {
-  return getFocus(e,1);
+function nextFocus(element) {
+  if(element.innerHTML == "return"){
+    document.getElementsByTagName("html")[0].style.scrollBehavior = "auto";
+  }
+  else{
+    document.getElementsByTagName("html")[0].style.scrollBehavior = "smooth";
+  }
+  return getFocus(element,1);
 }
 
-function prevFocus(e) {
-  return getFocus(e,-1);
+function prevFocus(element) {
+  if(element.tagName == "BODY" || element.className == "skip"){
+    document.getElementsByTagName("html")[0].style.scrollBehavior = "auto";
+  }
+  else{
+    document.getElementsByTagName("html")[0].style.scrollBehavior = "smooth";
+  }
+  return getFocus(element,-1);
 }
 
-function getFocus(e,cond){
+function getFocus(element,cond){
   var universe = document.querySelectorAll("input, button, select, textarea, a[href], .content, .track-name, #main, iframe, .sixsixsix");
   var list = Array.prototype.filter.call(universe, function(item) {return item.tabIndex >= "0"});
-  var index = list.indexOf(e);
+  var index = list.indexOf(element);
   if(index + cond < 0){
     index = list.length;
   }
