@@ -392,5 +392,60 @@ const songsData = [
         "youtubeID": "gcEsEDDnb8k"
       }
     ]
+  },
+  {
+    "title": "ミクと遊ぶ",
+    "alt": "miku-to-asobu",
+    "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/db9b0a59-1832-436d-be35-c4da781cf1c8/ddtquor-2d7d1d29-e7c8-48d3-91a8-704d5e16200c.png/v1/fill/w_400,h_400,q_80,strp/miku_to_asobu_by_wardimension_ddtquor-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDAwIiwicGF0aCI6IlwvZlwvZGI5YjBhNTktMTgzMi00MzZkLWJlMzUtYzRkYTc4MWNmMWM4XC9kZHRxdW9yLTJkN2QxZDI5LWU3YzgtNDhkMy05MWE4LTcwNGQ1ZTE2MjAwYy5wbmciLCJ3aWR0aCI6Ijw9NDAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.yriBZi3GwfTzS1BzPFKZoNhlRgddNFLNP35QnMuXpqg",
+    "imgCur": "miku_leek",
+    "url": [{
+      "itunes": "https://music.apple.com/us/album/%E3%83%9F%E3%82%AF%E3%81%A8%E9%81%8A%E3%81%B6/1505344620?uo=4",
+      "deezer": "https://www.deezer.com/album/138990552?utm_source=deezer&utm_content=album-138990552&utm_term=0_1585595322&utm_medium=web",
+      "spotify": "https://play.spotify.com/album/3K3ubsFVCYkEuumc9PtCgV",
+      "youtubeMusic": "https://music.youtube.com/watch?v=fkvHcJeP4JU",
+      "amazon": "https://www.amazon.com/dp/B086KVQHQG"
+    }],
+    "track": [
+      {
+        "title": "yes you can!",
+        "length": "1:20",
+        "youtubeID": "fkvHcJeP4JU"
+      },
+      {
+        "title": "yes you can! -Instrumental-",
+        "length": "1:20",
+        "youtubeID": "at1JU2SIW2o"
+      },
+      {
+        "title": "ミクは寝たい",
+        "romanized": "Miku wa Netai",
+        "length": "2:03",
+        "youtubeID": "tSx91tD3oyM"
+      },
+      {
+        "title": "ミクは寝たい -Instrumental-",
+        "romanized": "Miku wa Netai -Instrumental-",
+        "length": "2:03",
+        "youtubeID": "BkJZex31JKM"
+      },
+      {
+        "title": "ら・ら・ら",
+        "romanized": "La La La",
+        "length": "2:04",
+        "youtubeID": "MDTNmlz_6fo"
+      },
+      {
+        "title": "天地開闢",
+        "romanized": "Tenchi-kaibyaku",
+        "length": "2:15",
+        "youtubeID": "UQ9TTmBOgWk"
+      },
+      {
+        "title": "天地開闢 -Instrumental-",
+        "romanized": "Tenchi-kaibyaku -Instrumental-",
+        "length": "2:15",
+        "youtubeID": "mnhTGgIFPYI"
+      }
+    ]
   }
 ];
