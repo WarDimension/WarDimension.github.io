@@ -400,7 +400,8 @@ const songsData = [
     "imgCur": "miku_leek",
     "url": [{
       "itunes": "https://music.apple.com/us/album/%E3%83%9F%E3%82%AF%E3%81%A8%E9%81%8A%E3%81%B6/1505344620?uo=4",
-      "deezer": "https://www.deezer.com/album/138990552?utm_source=deezer&utm_content=album-138990552&utm_term=0_1585595322&utm_medium=web",
+      "deezer": "https://www.deezer.com/album/138990552",
+      "googlePlay": "https://play.google.com/store/music/album?id=Bo2qapsrqetyh6mwub4y53orlba",
       "spotify": "https://play.spotify.com/album/3K3ubsFVCYkEuumc9PtCgV",
       "youtubeMusic": "https://music.youtube.com/watch?v=fkvHcJeP4JU",
       "amazon": "https://www.amazon.com/dp/B086KVQHQG"
