@@ -408,7 +408,8 @@ const songsData = [
     }],
     "track": [
       {
-        "title": "yes you can!",
+        "title": "yes you can! ft. 初音ミク",
+        "romanized": "yes you can! ft. Hatsune Miku",
         "length": "1:20",
         "youtubeID": "fkvHcJeP4JU"
       },
@@ -418,8 +419,8 @@ const songsData = [
         "youtubeID": "at1JU2SIW2o"
       },
       {
-        "title": "ミクは寝たい",
-        "romanized": "Miku wa Netai",
+        "title": "ミクは寝たい ft. 初音ミク",
+        "romanized": "Miku wa Netai ft. Hatsune Miku",
         "length": "2:03",
         "youtubeID": "tSx91tD3oyM"
       },
@@ -430,14 +431,14 @@ const songsData = [
         "youtubeID": "BkJZex31JKM"
       },
       {
-        "title": "ら・ら・ら",
-        "romanized": "La La La",
+        "title": "ら・ら・ら ft. 初音ミク",
+        "romanized": "La La La ft. Hatsune Miku",
         "length": "2:04",
         "youtubeID": "MDTNmlz_6fo"
       },
       {
-        "title": "天地開闢",
-        "romanized": "Tenchi-kaibyaku",
+        "title": "天地開闢 ft. 初音ミク",
+        "romanized": "Tenchi-kaibyaku ft. Hatsune Miku",
         "length": "2:15",
         "youtubeID": "UQ9TTmBOgWk"
       },
