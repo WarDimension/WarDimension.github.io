@@ -394,7 +394,7 @@ const songsData = [
     ]
   },
   {
-    "title": "ミクと遊ぶ",
+    "title": "ミクと遊ぶ ft. 初音ミク",
     "alt": "miku-to-asobu",
     "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/db9b0a59-1832-436d-be35-c4da781cf1c8/ddtquor-b9106bbe-350e-47a4-bee0-28b7431c58f4.png/v1/fill/w_400,h_400,q_80,strp/miku_to_asobu_by_wardimension_ddtquor-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDAwIiwicGF0aCI6IlwvZlwvZGI5YjBhNTktMTgzMi00MzZkLWJlMzUtYzRkYTc4MWNmMWM4XC9kZHRxdW9yLWI5MTA2YmJlLTM1MGUtNDdhNC1iZWUwLTI4Yjc0MzFjNThmNC5wbmciLCJ3aWR0aCI6Ijw9NDAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.beYcqy7rv4y4hVMQj4PlmXfim1BDG5ihdKoGdDBx6_I",
     "imgCur": "miku_leek",
