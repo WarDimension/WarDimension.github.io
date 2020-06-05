@@ -200,6 +200,14 @@ function closePlayer(){
   repeatButton.tabIndex = "-1";
   closePlayerButton.tabIndex = "-1";
   shuffleHistory = [];
+  currentTrack = {
+    "youtubeID": undefined,
+    "index": undefined,
+    "albumData": undefined,
+    "albumIndex": undefined,
+    "type": undefined
+  };
+  trackHighlightTemp.style.background = "";
   if(url()["album"]){
     setParams(`album=${url()["album"]}`);
   }else{
