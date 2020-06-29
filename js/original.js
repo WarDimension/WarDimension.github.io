@@ -179,7 +179,8 @@ const songsData = [
       "spotify": "https://play.spotify.com/album/6ZWMwloBk5ke2Jyfsm7Ix4",
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_mPLcT60QoFNTP6RFsNmCMT-SDqr5uJCoQ",
       "amazon": "https://www.amazon.com/dp/B07H9GB6MR",
-      "soundCloud": "https://soundcloud.com/wardimension/sets/hyouka"
+      "soundCloud": "https://soundcloud.com/wardimension/sets/hyouka",
+      "rocksmith": "http://ignition.customsforge.com/search/browse?filters=%7B%22artist%22%3A%22WarDimension%22%2C%22album%22%3A%22Hyouka%22%7D"
     }],
     "track": [
       {
