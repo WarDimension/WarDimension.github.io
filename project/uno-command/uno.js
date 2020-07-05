@@ -57,11 +57,15 @@ var ai_001_name = "AI-chan";
 var ai_002_name = "I'm a human, I swear";
 var ai_003_name = "I'm fine";
 
-current_card = "";
-player_cards = random7Cards();
-ai_001_cards = random7Cards();
-ai_002_cards = random7Cards();
-ai_003_cards = random7Cards();
+if(localStorage.getItem("player_name") != null){
+    changeName(localStorage.getItem("player_name"));
+}
+
+var current_card = "";
+var player_cards = random7Cards();
+var ai_001_cards = random7Cards();
+var ai_002_cards = random7Cards();
+var ai_003_cards = random7Cards();
 
 function cardDSP(cp_cards){
     for(i = 0; i < cp_cards.length; i++){
@@ -70,16 +74,15 @@ function cardDSP(cp_cards){
 }
 
 function UNO_PRE(){
-    player_name = cl_in.value;
-    player.innerHTML = player_name + ">";
+    localStorage.setItem("player_name", player_name);
+    first_in = true;
     ai_001_name = randomName(1);
     ai_002_name = randomName(2);
     ai_003_name = randomName(3);
-    cl_in.style.textIndent = player.scrollWidth + 10;
     current_card = randomCard();
     cl_dsp.innerHTML = cl_dsp_head + "current_card: " + current_card + "<br/><br/>";
     cardDSP(player_cards);
-    cl_dsp.innerHTML += "<br/><br/>[ex] exit"
+    cl_dsp.innerHTML += "<br/><br/>[ex] exit";
     state = "play";
 }
 
@@ -87,6 +90,11 @@ function UNO(){
     if(cl_in.value == "cls"){
         cl_dsp.innerHTML = cl_dsp_head + "current_card: " + current_card + "<br/><br/>";
         cardDSP(player_cards);
+        cl_dsp.innerHTML += "<br/><br/>[ex] exit";
+    }
+    else if(cl_in.value == "ex"){
+        cl_dsp.innerHTML = cl_dsp_head + cl_dsp_menu;
+        state = "menu";
     }
     else{
         cl_dsp.innerHTML += "<br/>command not found.";

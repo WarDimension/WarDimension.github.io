@@ -29,13 +29,30 @@ function clInReset(){
     }
 }
 
+var first_in = true;
+
+function changeName(p_name){
+    player_name = p_name;
+    player.innerHTML = player_name + ">";
+    cl_in.style.textIndent = player.scrollWidth + 10;
+}
+
 cl_in.addEventListener("input", (e) => {
     cl_in.style.height = "24px";
     cl_in.style.height = cl_in.scrollHeight;
+    if(state == "pre_play" && e.data != null){
+        if(first_in){
+            player_name = "";
+            first_in = false;
+        }
+        player_name += e.data;
+        changeName(player_name);
+        cl_in.value = "";
+    }
 });
 
-cl_in.addEventListener("keypress", (e) => {
-    if(e.key == "Enter" && cl_in.value != ""){
+cl_in.addEventListener("keydown", (e) => {
+    if(e.key == "Enter" && (cl_in.value != "" || state == "pre_play")){
         cl_dsp.innerHTML += `<br/><br/>${player_name}&gt; ` + cl_in.value;
         if(state == "menu"){
             if(cl_in.value == "1"){
@@ -64,6 +81,11 @@ cl_in.addEventListener("keypress", (e) => {
             UNO();
         }
         cl_in.value = "";
+    }
+    else if(e.key == "Backspace" && state == "pre_play"){
+        player_name = player_name.slice(0, -1);
+        changeName(player_name);
+        first_in = false;
     }
 });
 
