@@ -1,0 +1,52 @@
+*{
+    font-family: "Courier New", Courier, monospace;
+    box-sizing: border-box;
+}
+::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar-thumb {
+    background: #666;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #444;
+}
+body{
+    background: #dddddd;
+}
+p{
+    margin: 3px;
+}
+#cl{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    height: 576px;
+    width: 1024px;
+    border: solid 1px #000;
+    border-radius: 3px;
+    background: #000;
+    color: #fff;
+    overflow-y: overlay;
+}
+#cl-dsp{
+    margin-bottom: 16px;
+}
+#player{
+    display: inline-block;
+    position: absolute;
+}
+#cl-in{
+    padding: 3px;
+    resize: none;
+    width: 100%;
+    font-size: 16px;
+    height: 24px;
+    overflow: hidden;
+    text-indent: 96px;
+    background: #222;
+    color: #fff;
+    outline: none;
+    border: none;
+}
