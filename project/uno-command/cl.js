@@ -1,5 +1,6 @@
 var cl_dsp = document.getElementById("cl-dsp");
 var cl_in = document.getElementById("cl-in");
+var player = document.getElementById("player");
 
 var state = "menu";
 
@@ -30,16 +31,16 @@ function clInReset(){
 }
 
 cl_in.addEventListener("input", (e) => {
-    console.log(cl.scrollWidth);
     cl_in.style.height = cl_in.scrollHeight;
 });
 
 cl_in.addEventListener("keypress", (e) => {
-    if(e.key == "Enter"){
-        cl_dsp.innerHTML += "<br/><br/>player_1&gt; " + cl_in.value;
+    if(e.key == "Enter" && cl_in.value != ""){
+        cl_dsp.innerHTML += `<br/><br/>${player_name}&gt; ` + cl_in.value;
         if(state == "menu"){
             if(cl_in.value == "1"){
-                cl_dsp.innerHTML += "<br/>play.";
+                cl_dsp.innerHTML = cl_dsp_head + "your name?";
+                state = "name";
             }
             else if(cl_in.value == "2"){
                 cl_dsp.innerHTML = cl_dsp_head + cl_dsp_rules;
@@ -68,6 +69,12 @@ cl_in.addEventListener("keypress", (e) => {
             else{
                 cl_dsp.innerHTML += "<br/>command not found.";
             }
+        }
+        else if(state == "name"){
+            UNO_PRE();
+        }
+        else if(state == "play"){
+            UNO();
         }
         cl_in.value = "";
     }
