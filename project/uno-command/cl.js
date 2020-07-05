@@ -6,8 +6,8 @@ var state = "menu";
 
 cl_dsp_head = `
     UNO_command [version 1.0]<br/>
-    by WarDimension<br/>
-    <br/>
+    by WarDimension
+    <br/><br/>
 `;
 
 cl_dsp_menu = `
@@ -19,7 +19,6 @@ cl_dsp_menu = `
 cl_dsp_rules = `
     rules.
     <br/><br/>
-    [1] back
 `;
 
 var cl_in_reset = false;
@@ -31,6 +30,7 @@ function clInReset(){
 }
 
 cl_in.addEventListener("input", (e) => {
+    cl_in.style.height = "24px";
     cl_in.style.height = cl_in.scrollHeight;
 });
 
@@ -40,11 +40,10 @@ cl_in.addEventListener("keypress", (e) => {
         if(state == "menu"){
             if(cl_in.value == "1"){
                 cl_dsp.innerHTML = cl_dsp_head + "your name?";
-                state = "name";
+                state = "pre_play";
             }
             else if(cl_in.value == "2"){
-                cl_dsp.innerHTML = cl_dsp_head + cl_dsp_rules;
-                state = "rules";
+                cl_dsp.innerHTML = cl_dsp_head + cl_dsp_rules + cl_dsp_menu;
             }
             else if(cl_in.value == "3"){
                 window.open("https://wardimension.github.io","_blank");
@@ -58,19 +57,7 @@ cl_in.addEventListener("keypress", (e) => {
                 cl_dsp.innerHTML += "<br/>command not found.";
             }
         }
-        else if(state == "rules"){
-            if(cl_in.value == "1"){
-                cl_dsp.innerHTML = cl_dsp_head + cl_dsp_menu;
-                state = "menu";
-            }
-            else if(cl_in.value == "cls"){
-                cl_dsp.innerHTML = cl_dsp_head + cl_dsp_rules;
-            }
-            else{
-                cl_dsp.innerHTML += "<br/>command not found.";
-            }
-        }
-        else if(state == "name"){
+        else if(state == "pre_play"){
             UNO_PRE();
         }
         else if(state == "play"){
