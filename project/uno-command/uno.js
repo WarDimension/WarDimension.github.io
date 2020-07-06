@@ -22,89 +22,132 @@ function randomCard(){
 
 function random7Cards(){
     var sevCards = [];
-    for(i = 0; i < 7; i++){
+    for(var i = 0; i < 7; i++){
         sevCards.push(randomCard());
     }
 
     return sevCards;
 }
 
-function randomName(ai_id){
-    var ai_name = ai_names[Math.floor(Math.random() * ai_names.length)];
-    switch(ai_id){
-        case 1:
-            while(ai_name == player_name){
-                ai_name = ai_names[Math.floor(Math.random() * ai_names.length)];
-            }
-            break;
-        case 2:
-            while(ai_name == player_name || ai_name == ai_001_name){
-                ai_name = ai_names[Math.floor(Math.random() * ai_names.length)];
-            }
-            break;
-        case 3:
-            while(ai_name == player_name || ai_name == ai_001_name || ai_name == ai_002_name){
-                ai_name = ai_names[Math.floor(Math.random() * ai_names.length)];
-            }
-            break;
+function randomAI(){
+    for(var i = 1; i < max_player; i++){
+        var ai_name = ai_names[Math.floor(Math.random() * ai_names.length)];
+        while(players.indexOf(ai_name) >= 0){
+            ai_name = ai_names[Math.floor(Math.random() * ai_names.length)];
+        }
+        players.push(ai_name);
     }
-    return ai_name;
+}
+
+function randomPlayersCards(){
+    for(var i = 0; i < max_player; i++){
+        players_cards.push(random7Cards());
+        console.log(players_cards);
+    }
 }
 
 var ai_names = ["AI-chan", "I'm a human, I swear", "I'm fine", "AI FTW", "._.)", "UNO_BOT", "Markdivider", "Javascript AI", "WarDimension"];
-var player_name = "player_1";
-var ai_001_name = "";
-var ai_002_name = "";
-var ai_003_name = "";
+var players = ["player_1"];
+var players_cards = [];
+
+var current_card = "";
+
+var max_player = 4;
+var turn = 0;
+
+var reverse = false;
 
 if(localStorage.getItem("player_name") != null){
     changeName(localStorage.getItem("player_name"));
 }
 
-var current_card = "";
-var player_cards = "";
-var ai_001_cards = "";
-var ai_002_cards = "";
-var ai_003_cards = "";
+function updateTurn(){
+    if(!reverse){
+        turn++;
+        if(current_card.includes("skip")){
+            turn++;
+        }
+    }
+    else{
+        turn--;
+        if(current_card.includes("skip")){
+            turn--;
+        }
+    }
 
-function cardDSP(cp_cards){
-    for(i = 0; i < cp_cards.length; i++){
-        cl_dsp.innerHTML += `[${i+1}] ${cp_cards[i]} `;
+    if(turn > max_player-1){
+        turn -= max_player;
+    }
+    else if(turn < 0){
+        turn += max_player-1;
+    }
+}
+
+function updateDSP(){
+    cl_dsp.innerHTML += "<br/><br/>current_card: " + current_card + "<br/><br/>|" + players_cards[turn].length + " cards| ";
+
+    if(turn == 0){
+        for(var i = 0; i < players_cards[turn].length; i++){
+            cl_dsp.innerHTML += `[${i+1}] ${players_cards[turn][i]} `;
+        }
+        cl_dsp.innerHTML += "<br/><br/>[ex] exit";
+    }
+    else{
+        cl_dsp.innerHTML += "<br/><br/>" + players[turn]+ "&gt; ";
     }
 }
 
 function UNO_PRE(){
-    localStorage.setItem("player_name", player_name);
+    localStorage.setItem("player_name", players[0]);
     first_in = true;
 
-    ai_001_name = randomName(1);
-    ai_002_name = randomName(2);
-    ai_003_name = randomName(3);
+    randomAI();
 
     current_card = randomCard();
 
-    player_cards = random7Cards();
-    ai_001_cards = random7Cards();
-    ai_002_cards = random7Cards();
-    ai_003_cards = random7Cards();
+    randomPlayersCards();
 
-    cl_dsp.innerHTML = cl_dsp_head + "current_card: " + current_card + "<br/><br/>";
-    cardDSP(player_cards);
-    cl_dsp.innerHTML += "<br/><br/>[ex] exit";
+    cl_dsp.innerHTML = cl_dsp_head;
+
+    updateDSP();
+
     state = "play";
 }
 
 function UNO(){
-    if(cl_in.value == "cls"){
+    if(cl_in.value >= 1 && cl_in.value <= players_cards[0].length){
+        updateTurn();
+        updateDSP();
+    }
+    else if(cl_in.value == "cls"){
         cl_dsp.innerHTML = cl_dsp_head + "current_card: " + current_card + "<br/><br/>";
         cardDSP(player_cards);
         cl_dsp.innerHTML += "<br/><br/>[ex] exit";
     }
     else if(cl_in.value == "ex"){
+        players = [players[0]];
+        players_cards = [];
         cl_dsp.innerHTML = cl_dsp_head + cl_dsp_menu;
         state = "menu";
     }
     else{
-        cl_dsp.innerHTML += "<br/>command not found.";
+        cl_dsp.innerHTML += "<br/>invalid command.";
+    }
+}
+
+function UNO_AI(){
+    if(turn != 0){
+        while(turn != 0){
+            play = Math.floor(Math.random() * players_cards[turn].length);
+
+            cl_dsp.innerHTML += play;
+
+            current_card = players_cards[turn][play];
+            
+            updateTurn();
+            updateDSP();
+
+            cl.scrollTo(0,cl.scrollHeight);
+        }
     }
 }

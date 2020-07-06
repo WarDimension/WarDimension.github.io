@@ -1,3 +1,4 @@
+var cl = document.getElementById("cl");
 var cl_dsp = document.getElementById("cl-dsp");
 var cl_in = document.getElementById("cl-in");
 var player = document.getElementById("player");
@@ -7,18 +8,18 @@ var state = "menu";
 cl_dsp_head = `
     UNO_command [version 1.0]<br/>
     by WarDimension
-    <br/><br/>
 `;
 
 cl_dsp_menu = `
+    <br/><br/>
     [1] play
     [2] rules
     [3] home_page
 `;
 
 cl_dsp_rules = `
-    rules.
     <br/><br/>
+    rules.
 `;
 
 var cl_in_reset = false;
@@ -32,8 +33,8 @@ function clInReset(){
 var first_in = true;
 
 function changeName(p_name){
-    player_name = p_name;
-    player.innerHTML = player_name + ">";
+    players[0] = p_name;
+    player.innerHTML = players[0] + ">";
     cl_in.style.textIndent = player.scrollWidth + 10;
 }
 
@@ -42,21 +43,21 @@ cl_in.addEventListener("input", (e) => {
     cl_in.style.height = cl_in.scrollHeight;
     if(state == "pre_play" && e.data != null){
         if(first_in){
-            player_name = "";
+            players[0] = "";
             first_in = false;
         }
-        player_name += e.data;
-        changeName(player_name);
+        players[0] += e.data;
+        changeName(players[0]);
         cl_in.value = "";
     }
 });
 
 cl_in.addEventListener("keydown", (e) => {
     if(e.key == "Enter" && (cl_in.value != "" || state == "pre_play")){
-        cl_dsp.innerHTML += `<br/><br/>${player_name}&gt; ` + cl_in.value;
+        cl_dsp.innerHTML += `<br/><br/>${players[0]}&gt; ` + cl_in.value;
         if(state == "menu"){
             if(cl_in.value == "1"){
-                cl_dsp.innerHTML = cl_dsp_head + "your name?";
+                cl_dsp.innerHTML = cl_dsp_head + "<br/><br/>your name?";
                 state = "pre_play";
             }
             else if(cl_in.value == "2"){
@@ -71,7 +72,7 @@ cl_in.addEventListener("keydown", (e) => {
                 cl_dsp.innerHTML = cl_dsp_head + cl_dsp_menu;
             }
             else{
-                cl_dsp.innerHTML += "<br/>command not found.";
+                cl_dsp.innerHTML += "<br/>invalid command.";
             }
         }
         else if(state == "pre_play"){
@@ -83,8 +84,8 @@ cl_in.addEventListener("keydown", (e) => {
         cl_in.value = "";
     }
     else if(e.key == "Backspace" && state == "pre_play"){
-        player_name = player_name.slice(0, -1);
-        changeName(player_name);
+        players[0] = players[0].slice(0, -1);
+        changeName(players[0]);
         first_in = false;
     }
 });
@@ -93,5 +94,8 @@ cl_in.addEventListener("keyup", (e) => {
     if(e.key == "Enter"){
         cl_in.value = "";
         cl_in.style.height = "24px";
+        if(state == "play"){
+            UNO_AI();
+        }
     }
 });
