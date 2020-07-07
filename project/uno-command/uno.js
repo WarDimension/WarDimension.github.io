@@ -6,7 +6,7 @@ function randomCard(){
 
     var special = Math.floor(Math.random() * 2);
 
-    if(card_index >= 12 && card_index <= 14 && special != 0){
+    if(card_index >= 12 && special != 0){
         card_index = Math.floor(Math.random() * 12);
     }
 
@@ -32,7 +32,7 @@ function random7Cards(){
 function randomAI(){
     for(var i = 1; i < max_player; i++){
         var ai_name = ai_names[Math.floor(Math.random() * ai_names.length)];
-        while(players.indexOf(ai_name) >= 0){
+        while(players.includes(ai_name)){
             ai_name = ai_names[Math.floor(Math.random() * ai_names.length)];
         }
         players.push(ai_name);
@@ -42,7 +42,6 @@ function randomAI(){
 function randomPlayersCards(){
     for(var i = 0; i < max_player; i++){
         players_cards.push(random7Cards());
-        console.log(players_cards);
     }
 }
 
@@ -83,6 +82,36 @@ function updateTurn(){
     }
 }
 
+function cardChecker(card){
+    c_card = current_card.split(" ");
+    card = card.split(" ");
+    if(card[0] == c_card[0] || card[1] == c_card[1]){
+        return true;
+    }
+    else if(card[0] == "wild" || card[0] == "+4"){
+        return true;
+    }
+    return false;
+}
+
+function colorChoose(){
+    if(cl_in.value >= 1 && cl_in.value <= 4){
+        current_card += " -> " + colors[cl_in.value-1];
+        updateTurn();
+        updateDSP();
+        state = "play";
+    }
+}
+
+function drawCard(){
+    var draw = "";
+    while(!cardChecker(draw)){
+        draw = randomCard();
+        players_cards[turn].push(draw);
+    }
+    updateDSP();
+}
+
 function updateDSP(){
     cl_dsp.innerHTML += "<br/><br/>current_card: " + current_card + "<br/><br/>|" + players_cards[turn].length + " cards| ";
 
@@ -115,16 +144,41 @@ function UNO_PRE(){
 }
 
 function UNO(){
-    if(cl_in.value >= 1 && cl_in.value <= players_cards[0].length){
+    cardChecker("yellow 4");
+    command = cl_in.value.split(" ");
+
+    if(command[0] >= 1 && command[0] <= players_cards[0].length){
+        if(cardChecker(players_cards[0][command[0]-1])){
+            current_card = players_cards[0][command[0]-1];
+
+            players_cards[0].splice(command[0]-1, 1);
+
+            if(current_card == "wild" || current_card == "+4"){
+                if(colors.includes(command[1])){
+                    current_card += " -> " + command[1];
+                }
+                else{
+                    cl_dsp.innerHTML += "<br/><br/>|choose color| [1] red [2] yellow [3] green [4] blue";
+                    state = "color_choose";
+                    return;
+                }
+            }
+        }
+        else{
+            cl_dsp.innerHTML += "<br/>invalid command.";
+            return;
+        }
         updateTurn();
         updateDSP();
     }
-    else if(cl_in.value == "cls"){
-        cl_dsp.innerHTML = cl_dsp_head + "current_card: " + current_card + "<br/><br/>";
-        cardDSP(player_cards);
-        cl_dsp.innerHTML += "<br/><br/>[ex] exit";
+    else if(command[0] == "draw"){
+        drawCard();
     }
-    else if(cl_in.value == "ex"){
+    else if(command[0] == "cls"){
+        cl_dsp.innerHTML = cl_dsp_head;
+        updateDSP();
+    }
+    else if(command[0] == "ex"){
         players = [players[0]];
         players_cards = [];
         cl_dsp.innerHTML = cl_dsp_head + cl_dsp_menu;

@@ -81,6 +81,9 @@ cl_in.addEventListener("keydown", (e) => {
         else if(state == "play"){
             UNO();
         }
+        else if(state == "color_choose"){
+            colorChoose();
+        }
         cl_in.value = "";
     }
     else if(e.key == "Backspace" && state == "pre_play"){
