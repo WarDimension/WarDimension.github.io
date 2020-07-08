@@ -85,10 +85,7 @@ function updateTurn(){
 function cardChecker(card){
     c_card = current_card.split(" ");
     card = card.split(" ");
-    if(card[0] == c_card[0] || card[1] == c_card[1]){
-        return true;
-    }
-    else if(card[0] == "wild" || card[0] == "+4"){
+    if(card[0] == c_card[0] || card[1] == c_card[1] || card[0] == c_card[2] || card[0] == "wild" || card[0] == "+4"){
         return true;
     }
     return false;
