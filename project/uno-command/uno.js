@@ -98,6 +98,9 @@ function colorChoose(){
         updateDSP();
         state = "play";
     }
+    else{
+        cl_dsp.innerHTML += "<br/>invalid command.";
+    }
 }
 
 function drawCard(){
