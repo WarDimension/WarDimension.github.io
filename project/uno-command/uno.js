@@ -126,6 +126,15 @@ function colorChoose(){
     else if(command == "orange"){
         cl_dsp.innerHTML += "<br/>we are not playing guitar hero!";
     }
+    else if(command == "esc"){
+        players = [players[0]];
+        players_cards = [];
+        cl_dsp.innerHTML = cl_dsp_head + cl_dsp_menu;
+        state = "menu";
+    }
+    else if(command == "cls"){
+        cl_dsp.innerHTML = cl_dsp_head + "<br/><br/>|choose color| [1] green [2] red [3] yellow [4] blue<br/><br/>[esc] exit";
+    }
     else{
         cl_dsp.innerHTML += "<br/>invalid command.";
     }
@@ -147,7 +156,7 @@ function updateDSP(){
         for(var i = 0; i < players_cards[turn].length; i++){
             cl_dsp.innerHTML += `[${i+1}] ${players_cards[turn][i]} `;
         }
-        cl_dsp.innerHTML += "<br/><br/>[ex] exit";
+        cl_dsp.innerHTML += "<br/><br/>[esc] exit";
     }
     else{
         cl_dsp.innerHTML += "<br/><br/>" + players[turn]+ "&gt; ";
@@ -213,7 +222,7 @@ function UNO(){
                     current_card += " -> " + command.match(color_r);
                 }
                 else{
-                    cl_dsp.innerHTML += "<br/><br/>|choose color| [1] green [2] red [3] yellow [4] blue";
+                    cl_dsp.innerHTML += "<br/><br/>|choose color| [1] green [2] red [3] yellow [4] blue<br/><br/>[esc] exit";
                     state = "color_choose";
                     return;
                 }
@@ -232,7 +241,7 @@ function UNO(){
         cl_dsp.innerHTML = cl_dsp_head;
         updateDSP();
     }
-    else if(command == "ex"){
+    else if(command == "esc"){
         players = [players[0]];
         players_cards = [];
         cl_dsp.innerHTML = cl_dsp_head + cl_dsp_menu;

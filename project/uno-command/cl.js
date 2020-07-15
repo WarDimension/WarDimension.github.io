@@ -58,7 +58,7 @@ cl_in.addEventListener("keydown", (e) => {
         cl_dsp.innerHTML += `<br/><br/>${players[0]}&gt; ` + cl_in.value;
         if(state == "menu"){
             if(command == "1"){
-                cl_dsp.innerHTML = cl_dsp_head + "<br/><br/>your name?";
+                cl_dsp.innerHTML = cl_dsp_head + "<br/><br/>your name?<br/><br/>[enter] skip/continue [esc] back";
                 state = "pre_play";
             }
             else if(command == "2"){
@@ -91,6 +91,17 @@ cl_in.addEventListener("keydown", (e) => {
         players[0] = players[0].slice(0, -1);
         changeName(players[0]);
         first_in = false;
+    }
+    else if(e.key == "Escape" && state != "menu"){
+        cl_dsp.innerHTML = cl_dsp_head + cl_dsp_menu;
+        if(state == "play"){
+            players = [players[0]];
+            players_cards = [];
+        }
+        else if(state == "pre_play"){
+            changeName(localStorage.getItem("player_name"));
+        }
+        state = "menu";
     }
 });
 
