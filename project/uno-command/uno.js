@@ -1,5 +1,5 @@
 var cards = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "skip", "reverse", "+2", "wild", "+4"];
-var colors = ["red", "yellow", "green", "blue"];
+var colors = ["green", "red", "yellow", "blue"];
 
 function randomCard(){
     var card_index = Math.floor(Math.random() * 15);
@@ -83,20 +83,48 @@ function updateTurn(){
 }
 
 function cardChecker(card){
-    c_card = current_card.split(" ");
-    card = card.split(" ");
-    if(card[0] == c_card[0] || card[1] == c_card[1] || card[0] == c_card[2] || card[0] == "wild" || card[0] == "+4"){
+    var card_val_r = /((\+?\d+)|skip|reverse|wild)/g;
+    var color_r = /(green|red|yellow|blue)/g;
+
+    var c_card_val = current_card.match(card_val_r)[0];
+    var c_color = current_card.match(color_r);
+
+    if(c_color != null){
+        c_color = c_color[0]; //this part only for testing, later c_color will be allways available, add [0] back to the match above
+    }
+
+    var card_val = card.match(card_val_r);
+    var color = card.match(color_r);
+
+    if(card_val == c_card_val || color == c_color || card_val == "wild" || card_val == "+4"){
         return true;
     }
     return false;
 }
 
+function hasDuplicates(arr) {
+    var counts = [];
+
+    for (var i = 0; i <= arr.length; i++) {
+        if (counts[arr[i]] === undefined) {
+            counts[arr[i]] = 1;
+        } else {
+            return true;
+        }
+    }
+    return false;
+}
+
 function colorChoose(){
-    if(cl_in.value >= 1 && cl_in.value <= 4){
-        current_card += " -> " + colors[cl_in.value-1];
+    var command = cl_in.value.toLowerCase();
+    if(command >= 1 && command <= 4){
+        current_card += " -> " + colors[command-1];
         updateTurn();
         updateDSP();
         state = "play";
+    }
+    else if(command == "orange"){
+        cl_dsp.innerHTML += "<br/>we are not playing guitar hero!";
     }
     else{
         cl_dsp.innerHTML += "<br/>invalid command.";
@@ -144,41 +172,67 @@ function UNO_PRE(){
 }
 
 function UNO(){
-    cardChecker("yellow 4");
-    command = cl_in.value.split(" ");
+    var command = cl_in.value.toLowerCase();
 
-    if(command[0] >= 1 && command[0] <= players_cards[0].length){
-        if(cardChecker(players_cards[0][command[0]-1])){
-            current_card = players_cards[0][command[0]-1];
+    var filter = /^( ?\+? ?(\d+))+ ?(green|red|yellow|blue)? ?(uno)?$/g;
 
-            players_cards[0].splice(command[0]-1, 1);
+    if(filter.test(command)){
+        var card_index_r = /\d+/g;
+        var card_index = command.match(card_index_r);
 
-            if(current_card == "wild" || current_card == "+4"){
-                if(colors.includes(command[1])){
-                    current_card += " -> " + command[1];
-                }
-                else{
-                    cl_dsp.innerHTML += "<br/><br/>|choose color| [1] red [2] yellow [3] green [4] blue";
-                    state = "color_choose";
+        if(hasDuplicates(card_index)){
+            cl_dsp.innerHTML += "<br/>invalid combo.";
+            return;
+        }
+        
+        for(var i = 0; i < card_index.length; i++){
+            card_index[i] = card_index[i] - 1;
+            if(card_index[i] < 0 || card_index[i] >= players_cards[0].length){
+                cl_dsp.innerHTML += "<br/>you only have "+players_cards[0].length+" cards, stoopid!";
+                return;
+            }
+            if(i > 0){
+                if(players_cards[0][card_index[i]] != players_cards[0][card_index[0]]){
+                    cl_dsp.innerHTML += "<br/>invalid combo.";
                     return;
                 }
             }
         }
-        else{
-            cl_dsp.innerHTML += "<br/>invalid command.";
-            return;
+
+        if(cardChecker(players_cards[0][card_index[0]])){
+            card_index.sort();
+            current_card = players_cards[0][card_index[0]];
+
+            for(var i = card_index.length-1; i >= 0; i--){
+                players_cards[0].splice(card_index[i], 1);
+            }
+
+            if(current_card == "wild" || current_card == "+4"){
+                var color_r = /(green|red|yellow|blue)/g;
+                if(color_r.test(command)){
+                    current_card += " -> " + command.match(color_r);
+                }
+                else{
+                    cl_dsp.innerHTML += "<br/><br/>|choose color| [1] green [2] red [3] yellow [4] blue";
+                    state = "color_choose";
+                    return;
+                }
+            }
+            updateTurn();
+            updateDSP();
         }
-        updateTurn();
-        updateDSP();
+        else{
+            cl_dsp.innerHTML += "<br/>you can't play that card.";
+        }
     }
-    else if(command[0] == "draw"){
+    else if(command == "draw"){
         drawCard();
     }
-    else if(command[0] == "cls"){
+    else if(command == "cls"){
         cl_dsp.innerHTML = cl_dsp_head;
         updateDSP();
     }
-    else if(command[0] == "ex"){
+    else if(command == "ex"){
         players = [players[0]];
         players_cards = [];
         cl_dsp.innerHTML = cl_dsp_head + cl_dsp_menu;

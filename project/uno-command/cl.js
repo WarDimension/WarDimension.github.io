@@ -53,22 +53,23 @@ cl_in.addEventListener("input", (e) => {
 });
 
 cl_in.addEventListener("keydown", (e) => {
-    if(e.key == "Enter" && (cl_in.value != "" || state == "pre_play")){
+    var command = cl_in.value.toLowerCase();
+    if(e.key == "Enter" && (command != "" || state == "pre_play")){
         cl_dsp.innerHTML += `<br/><br/>${players[0]}&gt; ` + cl_in.value;
         if(state == "menu"){
-            if(cl_in.value == "1"){
+            if(command == "1"){
                 cl_dsp.innerHTML = cl_dsp_head + "<br/><br/>your name?";
                 state = "pre_play";
             }
-            else if(cl_in.value == "2"){
+            else if(command == "2"){
                 cl_dsp.innerHTML = cl_dsp_head + cl_dsp_rules + cl_dsp_menu;
             }
-            else if(cl_in.value == "3"){
+            else if(command == "3"){
                 window.open("https://wardimension.github.io","_blank");
                 cl_dsp.innerHTML = cl_dsp_head + cl_dsp_menu;
                 cl_in_reset = true;
             }
-            else if(cl_in.value == "cls"){
+            else if(command == "cls"){
                 cl_dsp.innerHTML = cl_dsp_head + cl_dsp_menu;
             }
             else{
