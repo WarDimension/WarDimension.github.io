@@ -171,6 +171,11 @@ function UNO_PRE(){
 
     current_card = randomCard();
 
+    if(current_card == "+4" || current_card == "wild"){
+        var color_index = Math.floor(Math.random() * colors.length);
+        current_card += " -> " + colors[color_index];
+    }
+
     randomPlayersCards();
 
     cl_dsp.innerHTML = cl_dsp_head;
@@ -255,7 +260,7 @@ function UNO(){
 function UNO_AI(){
     if(turn != 0){
         while(turn != 0){
-            play = Math.floor(Math.random() * players_cards[turn].length);
+            var play = Math.floor(Math.random() * players_cards[turn].length);
 
             cl_dsp.innerHTML += play;
 
