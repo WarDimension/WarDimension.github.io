@@ -87,11 +87,7 @@ function cardChecker(card){
     var color_r = /(green|red|yellow|blue)/g;
 
     var c_card_val = current_card.match(card_val_r)[0];
-    var c_color = current_card.match(color_r);
-
-    if(c_color != null){
-        c_color = c_color[0]; //this part only for testing, later c_color will be allways available, add [0] back to the match above
-    }
+    var c_color = current_card.match(color_r)[0];
 
     var card_val = card.match(card_val_r);
     var color = card.match(color_r);
