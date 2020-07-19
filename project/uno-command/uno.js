@@ -201,11 +201,9 @@ function UNO(){
                 cl_dsp.innerHTML += "<br/>you only have "+players_cards[0].length+" cards, stoopid!";
                 return;
             }
-            if(i > 0){
-                if(players_cards[0][card_index[i]] != players_cards[0][card_index[0]]){
-                    cl_dsp.innerHTML += "<br/>invalid combo.";
-                    return;
-                }
+            if(i > 0 && players_cards[0][card_index[i]] != players_cards[0][card_index[0]]){
+                cl_dsp.innerHTML += "<br/>invalid combo.";
+                return;
             }
         }
 
