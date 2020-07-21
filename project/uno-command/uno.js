@@ -226,6 +226,10 @@ function UNO(){
                     return;
                 }
             }
+            else if(current_card.includes("reverse")){
+                reverse = true;
+            }
+
             updateTurn();
             updateDSP();
         }
@@ -252,18 +256,20 @@ function UNO(){
 }
 
 function UNO_AI(){
-    if(turn != 0){
-        while(turn != 0){
-            var play = Math.floor(Math.random() * players_cards[turn].length);
+    while(turn != 0){
+        var play = Math.floor(Math.random() * players_cards[turn].length);
 
-            cl_dsp.innerHTML += play;
+        cl_dsp.innerHTML += play;
 
-            current_card = players_cards[turn][play];
-            
-            updateTurn();
-            updateDSP();
+        current_card = players_cards[turn][play];
 
-            cl.scrollTo(0,cl.scrollHeight);
+        if(current_card.includes("reverse")){
+            reverse = true;
         }
+        
+        updateTurn();
+        updateDSP();
+
+        cl.scrollTo(0,cl.scrollHeight);
     }
 }
