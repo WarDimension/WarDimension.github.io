@@ -4,12 +4,6 @@ var colors = ["green", "red", "yellow", "blue"];
 function randomCard(){
     var card_index = Math.floor(Math.random() * 15);
 
-    var special = Math.floor(Math.random() * 2);
-
-    if(card_index >= 12 && special != 0){
-        card_index = Math.floor(Math.random() * 12);
-    }
-
     var card = "";
 
     if(card_index != 13 && card_index != 14){
@@ -78,7 +72,7 @@ function updateTurn(){
         turn -= max_player;
     }
     else if(turn < 0){
-        turn += max_player-1;
+        turn += max_player;
     }
 }
 
@@ -257,17 +251,70 @@ function UNO(){
 
 function UNO_AI(){
     while(turn != 0){
-        var play = Math.floor(Math.random() * players_cards[turn].length);
+        var hasCard = false;
+        var hasNum = false;
 
-        cl_dsp.innerHTML += play;
-
-        current_card = players_cards[turn][play];
-
-        if(current_card.includes("reverse")){
-            reverse = true;
+        for(var i = 0; i < players_cards[turn].length; i++){
+            if(players_cards[turn][i] == "+4" || players_cards[turn][i] == "wild"){
+                hasCard = true;
+            }
+            else if(cardChecker(players_cards[turn][i])){
+                hasCard = true;
+                hasNum = true;
+                console.log(players_cards[turn][i]);
+            }
         }
-        
-        updateTurn();
+
+        if(hasCard){
+            var play = Math.floor(Math.random() * players_cards[turn].length);
+
+            
+            if(players_cards[turn][play] == "+4" || players_cards[turn][play] == "wild"){
+                var color_index = Math.floor(Math.random() * colors.length);
+
+                cl_dsp.innerHTML += play + " " + colors[color_index];
+                current_card = players_cards[turn][play];
+
+                current_card += " -> " + colors[color_index];
+            }
+            else if(hasNum){
+                while(!cardChecker(players_cards[turn][play]) || players_cards[turn][play] == "+4" || players_cards[turn][play] == "wild"){
+                    play = Math.floor(Math.random() * players_cards[turn].length);
+                }
+                current_card = players_cards[turn][play];
+                var card_index = [];
+                for(var i = players_cards[turn].length - 1; i >= 0; i--){
+                    if(players_cards[turn][i] == current_card){
+                        players_cards[turn].splice(i, 1);
+                        card_index.push(i+1);
+                    }
+                }
+                card_index = card_index.sort();
+                cl_dsp.innerHTML += card_index.join(" + ");
+            }
+            else{
+                while(!cardChecker(players_cards[turn][play])){
+                    play = Math.floor(Math.random() * players_cards[turn].length);
+                }
+
+                var color_index = Math.floor(Math.random() * colors.length);
+
+                cl_dsp.innerHTML += play + " " + colors[color_index];
+                current_card = players_cards[turn][play];
+
+                current_card += " -> " + colors[color_index];
+            }
+
+            if(current_card.includes("reverse")){
+                reverse = true;
+            }
+
+            updateTurn();
+        }
+        else{
+            cl_dsp.innerHTML += "draw";
+            drawCard();
+        }
         updateDSP();
 
         cl.scrollTo(0,cl.scrollHeight);
