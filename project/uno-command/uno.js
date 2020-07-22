@@ -255,10 +255,6 @@ function UNO_PRE(){
 }
 
 function UNO(){
-    if(state == "win"){
-        return;
-    }
-
     var command = cl_in.value.toLowerCase();
 
     var filter = /^( ?\+? ?(\d+))+ ?(green|red|yellow|blue)? ?(uno)?$/g;
@@ -379,10 +375,11 @@ function UNO(){
 }
 
 function UNO_AI(){
-    if(state == "win"){
-        return;
-    }
     while(turn != 0){
+        if(state == "win"){
+            return;
+        }
+
         var hasCard = false;
         var hasNum = false;
 
