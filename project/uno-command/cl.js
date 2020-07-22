@@ -57,12 +57,18 @@ cl_in.addEventListener("keydown", (e) => {
     if(e.key == "Enter" && (command != "" || state == "pre_play")){
         cl_dsp.innerHTML += `<br/><br/>${players[0]}> ` + cl_in.value;
 
-        if(/^background = #?\w+$/.test(command)){
+        if(/^background ?= ?#?\w+$/.test(command)){
             document.body.style.background = command.match(/#?\w+$/);
             if(command.includes("default")){
                 document.body.style.background = "#dddddd";
             }
             cl_dsp.innerHTML += "<br/>set background to " + command.match(/#?\w+$/);
+        }
+        else if(command == "1010011010" || command == "ascend"){
+            localStorage.setItem("ascend", "true");
+            window.open("https://wardimension.github.io/666","_blank");
+            cl_dsp.innerHTML = cl_dsp_head + cl_dsp_menu;
+            cl_in_reset = true;
         }
         else if(state == "menu"){
             if(command == "1"){
