@@ -160,6 +160,41 @@ function colorChoose(){
     }
 }
 
+function swapHands(){
+    var command = cl_in.value.toLowerCase();
+    if(command >= 1 && command < max_player){
+        var handsTemp = players_cards[0];
+
+        players_cards[0] = players_cards[command];
+        players_cards[command] = handsTemp;
+
+        cl_dsp.innerHTML += "<br/><br/>|swap hands| " + players[0] + " <-> " + players[command];
+        updateTurn();
+        updateDSP();
+        state = "play";
+    }
+    else if(command == "esc"){
+        players = [players[0]];
+        players_cards = [];
+        turn = 0;
+        reverse = false;
+        plusCard = true;
+        first_play = true;
+        cl_dsp.innerHTML = cl_dsp_head + cl_dsp_menu;
+        state = "menu";
+    }
+    else if(command == "cls"){
+        cl_dsp.innerHTML += "<br/><br/>|swap hands|";
+        for(var i = 1; i < max_player; i++){
+            cl_dsp.innerHTML += ` [${i}] ${players[i]}`;
+        }
+        cl_dsp.innerHTML += "<br/><br/>[esc] exit";
+    }
+    else{
+        cl_dsp.innerHTML += "<br/>invalid command.";
+    }
+}
+
 function drawCard(){
     var draw = "";
     while(!cardChecker(draw)){
@@ -330,6 +365,15 @@ function UNO(){
                     return;
                 }
             }
+            else if(current_card.includes("7")){
+                cl_dsp.innerHTML += "<br/><br/>|swap hands|";
+                for(var i = 1; i < max_player; i++){
+                    cl_dsp.innerHTML += ` [${i}] ${players[i]}`;
+                }
+                cl_dsp.innerHTML += "<br/><br/>[esc] exit";
+                state = "swap_hands";
+                return;
+            }
             else if(current_card.includes("+2")){
                 plusCard = true;
             }
@@ -483,6 +527,16 @@ function UNO_AI(){
 
                 card_index = card_index.sort();
                 cl_dsp.innerHTML += card_index.join(" + ");
+
+                if(current_card.includes("7")){
+                    var target = Math.floor(Math.random() * max_player);
+                    var handsTemp = players_cards[turn];
+
+                    players_cards[turn] = players_cards[target];
+                    players_cards[target] = handsTemp;
+
+                    cl_dsp.innerHTML += "<br/><br/>|swap hands| " + players[turn] + " <-> " + players[target];
+                }
             }
             else{
                 while(!cardChecker(players_cards[turn][play])){

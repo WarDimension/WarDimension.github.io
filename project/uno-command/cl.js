@@ -85,6 +85,9 @@ cl_in.addEventListener("keydown", (e) => {
         else if(state == "color_choose"){
             colorChoose();
         }
+        else if(state == "swap_hands"){
+            swapHands();
+        }
         else if(state == "win"){
             if(command == "esc"){
                 players = [players[0]];
