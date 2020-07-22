@@ -105,7 +105,7 @@ function updateTurn(){
             else if(turn_skip < 0){
                 turn_skip += max_player;
             }
-            
+
             turn--;
         }
     }
@@ -546,6 +546,7 @@ function UNO_AI(){
 
                 if(current_card.includes("7")){
                     var target = Math.floor(Math.random() * max_player);
+                    target = 0;
                     var handsTemp = players_cards[turn];
 
                     players_cards[turn] = players_cards[target];
@@ -577,10 +578,10 @@ function UNO_AI(){
                 reverse = true;
             }
 
-            if(players_cards[turn].length == 1 && uno == 1){
+            if(players_cards[turn].length == 1 && uno == 1 && !current_card.includes("7")){
                 cl_dsp.innerHTML += " uno";
             }
-            else if(players_cards[turn].length == 1){
+            else if(players_cards[turn].length == 1 && !current_card.includes("7")){
                 cl_dsp.innerHTML += "<br/><br/>UNO -> " + players[turn] + " +2";
                 for(var i = 0; i < 2; i++){
                     draw = randomCard();
