@@ -96,9 +96,11 @@ function updateTurn(){
 
     if(turn > max_player-1){
         turn -= max_player;
+        turn_skip -= max_player;
     }
     else if(turn < 0){
         turn += max_player;
+        turn_skip += max_player;
     }
 }
 
