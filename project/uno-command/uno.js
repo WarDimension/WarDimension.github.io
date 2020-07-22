@@ -320,7 +320,6 @@ function UNO(){
     }
     else if(command == "auto"){
         for(var i = 0; i < players_cards[0].length; i++){
-            console.log(players_cards[0][i]);
             if(players_cards[0][i] == "+4" || players_cards[0][i] == "wild"){
                 if(players_cards[0][i] == "+4"){
                     plusCard = true;
@@ -339,7 +338,6 @@ function UNO(){
                 return;
             }
             else if(cardChecker(players_cards[0][i])){
-                console.log(players_cards[0][i]);
                 if(players_cards[0][i].includes("+2")){
                     plusCard = true;
                 }
