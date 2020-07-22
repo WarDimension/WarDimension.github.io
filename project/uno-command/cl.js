@@ -55,7 +55,7 @@ cl_in.addEventListener("input", (e) => {
 cl_in.addEventListener("keydown", (e) => {
     var command = cl_in.value.toLowerCase();
     if(e.key == "Enter" && (command != "" || state == "pre_play")){
-        cl_dsp.innerHTML += `<br/><br/>${players[0]}&gt; ` + cl_in.value;
+        cl_dsp.innerHTML += `<br/><br/>${players[0]}> ` + cl_in.value;
         if(state == "menu"){
             if(command == "1"){
                 cl_dsp.innerHTML = cl_dsp_head + "<br/><br/>your name?<br/><br/>[enter] skip/continue [esc] back";
@@ -84,6 +84,34 @@ cl_in.addEventListener("keydown", (e) => {
         }
         else if(state == "color_choose"){
             colorChoose();
+        }
+        else if(state == "win"){
+            if(command == "esc"){
+                players = [players[0]];
+                players_cards = [];
+                turn = 0;
+                reverse = false;
+                plusCard = true;
+                first_play = true;
+                cl_dsp.innerHTML = cl_dsp_head + cl_dsp_menu;
+                state = "menu";
+            }
+            else if(command == "play"){
+                players = [players[0]];
+                players_cards = [];
+                turn = 0;
+                reverse = false;
+                plusCard = true;
+                first_play = true;
+                state = "pre_play";
+                UNO_PRE();
+            }
+            else if(command == "cls"){
+                cl_dsp.innerHTML = cl_dsp_head + "<br/><br/>|WINNER| " + winner + " |WINNER|";
+            }
+            else{
+                cl_dsp.innerHTML += "<br/>invalid command.";
+            }
         }
         cl_in.value = "";
     }

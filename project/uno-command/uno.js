@@ -4,6 +4,12 @@ var colors = ["green", "red", "yellow", "blue"];
 function randomCard(){
     var card_index = Math.floor(Math.random() * 15);
 
+    var special = Math.floor(Math.random() * 2);
+
+    if(card_index >= 12 && special != 0){
+        card_index = Math.floor(Math.random() * 12);
+    }
+
     var card = "";
 
     if(card_index != 13 && card_index != 14){
@@ -39,7 +45,7 @@ function randomPlayersCards(){
     }
 }
 
-var ai_names = ["AI-chan", "I'm a human, I swear", "I'm fine", "AI FTW", "._.)", "UNO_BOT", "Markdivider", "Javascript AI", "WarDimension"];
+var ai_names = ["WarDimension", "AI-chan", "I'm a human, I swear", "I'm fine", "AI FTW", "._.)", "UNO_BOT", "Markdivider", "Javascript AI", "_anon", "_blank", "1010011010", "666", "EEE", "SLAP LIKE NOW", "アニメ", "weebs69", "Davie404", "<span style='color: green'>Green</span>"];
 var players = ["player_1"];
 var players_cards = [];
 
@@ -47,23 +53,40 @@ var current_card = "";
 
 var max_player = 4;
 var turn = 0;
+var turn_before = 0;
+var turn_skip = 0;
 
 var reverse = false;
+var plusCard = true;
+var first_play = true;
+
+var winner = "";
 
 if(localStorage.getItem("player_name") != null){
     changeName(localStorage.getItem("player_name"));
 }
 
 function updateTurn(){
+    if(players_cards[turn].length == 0){
+        state = "win";
+        cl_dsp.innerHTML += "<br/><br/>|WINNER| " + players[turn] + " |WINNER|";
+        if(winner == ""){
+            winner = players[turn];
+        }
+    }
+
+    turn_before = turn;
     if(!reverse){
         turn++;
         if(current_card.includes("skip")){
+            turn_skip = turn;
             turn++;
         }
     }
     else{
         turn--;
         if(current_card.includes("skip")){
+            turn_skip = turn;
             turn--;
         }
     }
@@ -119,6 +142,10 @@ function colorChoose(){
     else if(command == "esc"){
         players = [players[0]];
         players_cards = [];
+        turn = 0;
+        reverse = false;
+        plusCard = true;
+        first_play = true;
         cl_dsp.innerHTML = cl_dsp_head + cl_dsp_menu;
         state = "menu";
     }
@@ -139,7 +166,54 @@ function drawCard(){
     updateDSP();
 }
 
+function applyPlusCard(){
+    if(plusCard && (current_card.includes("+2") || current_card.includes("+4"))){
+        if(first_play){
+            cl_dsp.innerHTML += `<br/><br/>UNO -> ${players[turn]} +`;
+        }
+        else{
+            cl_dsp.innerHTML += `<br/><br/>${players[turn_before]} -> ${players[turn]} +`;
+        }
+
+        if(current_card.includes("+2")){
+            cl_dsp.innerHTML += "2";
+            for(var i = 0; i < 2; i++){
+                draw = randomCard();
+                players_cards[turn].push(draw);
+            }
+        }
+        else if(current_card.includes("+4")){
+            cl_dsp.innerHTML += "4";
+            for(var i = 0; i < 4; i++){
+                draw = randomCard();
+                players_cards[turn].push(draw);
+            }
+        }
+
+        updateTurn();
+
+        plusCard = false;
+    }
+}
+
 function updateDSP(){
+    if(state == "win"){
+        return;
+    }
+
+    applyPlusCard();
+
+    if(current_card.includes("skip") && turn_skip > -1){
+        if(first_play){
+            cl_dsp.innerHTML += `<br/><br/>UNO -> ${players[turn_skip]} skip`;
+            turn_skip = -1;
+        }
+        else{
+            cl_dsp.innerHTML += `<br/><br/>${players[turn_before]} -> ${players[turn_skip]} skip`;
+            turn_skip = -1;
+        }
+    }
+    
     cl_dsp.innerHTML += "<br/><br/>current_card: " + current_card + "<br/><br/>|" + players_cards[turn].length + " cards| ";
 
     if(turn == 0){
@@ -149,8 +223,11 @@ function updateDSP(){
         cl_dsp.innerHTML += "<br/><br/>[esc] exit";
     }
     else{
-        cl_dsp.innerHTML += "<br/><br/>" + players[turn]+ "&gt; ";
+        cl_dsp.innerHTML += "[" + players[turn] + "'s cards]";
+        cl_dsp.innerHTML += "<br/><br/>" + players[turn]+ "> ";
     }
+
+    first_play = false;
 }
 
 function UNO_PRE(){
@@ -168,6 +245,8 @@ function UNO_PRE(){
 
     randomPlayersCards();
 
+    turn = Math.floor(Math.random() * players.length);
+
     cl_dsp.innerHTML = cl_dsp_head;
 
     updateDSP();
@@ -176,6 +255,10 @@ function UNO_PRE(){
 }
 
 function UNO(){
+    if(state == "win"){
+        return;
+    }
+
     var command = cl_in.value.toLowerCase();
 
     var filter = /^( ?\+? ?(\d+))+ ?(green|red|yellow|blue)? ?(uno)?$/g;
@@ -210,7 +293,12 @@ function UNO(){
             }
 
             if(current_card == "wild" || current_card == "+4"){
+                if(current_card == "+4"){
+                    plusCard = true;
+                }
+
                 var color_r = /(green|red|yellow|blue)/g;
+
                 if(color_r.test(command)){
                     current_card += " -> " + command.match(color_r);
                 }
@@ -219,6 +307,9 @@ function UNO(){
                     state = "color_choose";
                     return;
                 }
+            }
+            else if(current_card.includes("+2")){
+                plusCard = true;
             }
             else if(current_card.includes("reverse")){
                 reverse = true;
@@ -230,6 +321,44 @@ function UNO(){
         else{
             cl_dsp.innerHTML += "<br/>you can't play that card.";
         }
+    }
+    else if(command == "auto"){
+        for(var i = 0; i < players_cards[0].length; i++){
+            console.log(players_cards[0][i]);
+            if(players_cards[0][i] == "+4" || players_cards[0][i] == "wild"){
+                if(players_cards[0][i] == "+4"){
+                    plusCard = true;
+                }
+
+                var color_index = Math.floor(Math.random() * colors.length);
+
+                current_card = players_cards[0][i];
+
+                current_card += " -> " + colors[color_index];
+
+                players_cards[0].splice(i, 1);
+                
+                updateTurn();
+                updateDSP();
+                return;
+            }
+            else if(cardChecker(players_cards[0][i])){
+                console.log(players_cards[0][i]);
+                if(players_cards[0][i].includes("+2")){
+                    plusCard = true;
+                }
+
+                current_card = players_cards[0][i];
+
+                players_cards[0].splice(i, 1);
+                
+                updateTurn();
+                updateDSP();
+                return;
+            }
+        }
+
+        drawCard();
     }
     else if(command == "draw"){
         drawCard();
@@ -250,6 +379,9 @@ function UNO(){
 }
 
 function UNO_AI(){
+    if(state == "win"){
+        return;
+    }
     while(turn != 0){
         var hasCard = false;
         var hasNum = false;
@@ -269,25 +401,38 @@ function UNO_AI(){
 
             
             if(players_cards[turn][play] == "+4" || players_cards[turn][play] == "wild"){
+                if(players_cards[turn][play] == "+4"){
+                    plusCard = true;
+                }
+
                 var color_index = Math.floor(Math.random() * colors.length);
 
                 cl_dsp.innerHTML += play + " " + colors[color_index];
                 current_card = players_cards[turn][play];
 
                 current_card += " -> " + colors[color_index];
+
+                players_cards[turn].splice(play, 1);
             }
             else if(hasNum){
                 while(!cardChecker(players_cards[turn][play]) || players_cards[turn][play] == "+4" || players_cards[turn][play] == "wild"){
                     play = Math.floor(Math.random() * players_cards[turn].length);
                 }
+
+                if(players_cards[turn][play].includes("+2")){
+                    plusCard = true;
+                }
+
                 current_card = players_cards[turn][play];
                 var card_index = [];
+
                 for(var i = players_cards[turn].length - 1; i >= 0; i--){
                     if(players_cards[turn][i] == current_card){
                         players_cards[turn].splice(i, 1);
                         card_index.push(i+1);
                     }
                 }
+
                 card_index = card_index.sort();
                 cl_dsp.innerHTML += card_index.join(" + ");
             }
@@ -296,12 +441,18 @@ function UNO_AI(){
                     play = Math.floor(Math.random() * players_cards[turn].length);
                 }
 
+                if(players_cards[turn][play] == "+4"){
+                    plusCard = true;
+                }
+
                 var color_index = Math.floor(Math.random() * colors.length);
 
                 cl_dsp.innerHTML += play + " " + colors[color_index];
                 current_card = players_cards[turn][play];
 
                 current_card += " -> " + colors[color_index];
+
+                players_cards[turn].splice(play, 1);
             }
 
             if(current_card.includes("reverse")){
@@ -309,12 +460,12 @@ function UNO_AI(){
             }
 
             updateTurn();
+            updateDSP();
         }
         else{
             cl_dsp.innerHTML += "draw";
             drawCard();
         }
-        updateDSP();
 
         cl.scrollTo(0,cl.scrollHeight);
     }
