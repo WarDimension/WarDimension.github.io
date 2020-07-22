@@ -83,6 +83,14 @@ function updateTurn(){
         turn++;
         if(current_card.includes("skip")){
             turn_skip = turn;
+
+            if(turn_skip > max_player-1){
+                turn_skip -= max_player;
+            }
+            else if(turn_skip < 0){
+                turn_skip += max_player;
+            }
+            
             turn++;
         }
     }
@@ -90,17 +98,23 @@ function updateTurn(){
         turn--;
         if(current_card.includes("skip")){
             turn_skip = turn;
+
+            if(turn_skip > max_player-1){
+                turn_skip -= max_player;
+            }
+            else if(turn_skip < 0){
+                turn_skip += max_player;
+            }
+            
             turn--;
         }
     }
 
     if(turn > max_player-1){
         turn -= max_player;
-        turn_skip -= max_player;
     }
     else if(turn < 0){
         turn += max_player;
-        turn_skip += max_player;
     }
 }
 
