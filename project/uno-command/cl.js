@@ -149,4 +149,5 @@ cl_in.addEventListener("keyup", (e) => {
             UNO_AI();
         }
     }
+    cl.scrollTo(0,cl.scrollHeight);
 });

@@ -601,5 +601,4 @@ function UNO_AI(){
             drawCard();
         }
     }
-    cl.scrollTo(0,cl.scrollHeight);
 }
