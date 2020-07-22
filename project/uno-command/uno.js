@@ -368,6 +368,21 @@ function UNO(){
         cl_dsp.innerHTML = cl_dsp_head + cl_dsp_menu;
         state = "menu";
     }
+    else if(command == "f"){
+        cl_dsp.innerHTML +="<br/>press \"F\" to pay respect.";
+        if(reverse){
+            for(var i = players.length-1; i > 0; i--){
+                cl_dsp.innerHTML += "<br/><br/>" + players[i] + "> F";
+            }
+        }
+        else{
+            for(var i = 1; i < players.length; i++){
+                cl_dsp.innerHTML += "<br/><br/>" + players[i] + "> F";
+            }
+        }
+    }else if(command == "e"){
+        cl_dsp.innerHTML +="<br/><br/><img class='E' src='E.jpg'/>";
+    }
     else{
         cl_dsp.innerHTML += "<br/>invalid command.";
     }
@@ -462,7 +477,6 @@ function UNO_AI(){
             cl_dsp.innerHTML += "draw";
             drawCard();
         }
-
-        cl.scrollTo(0,cl.scrollHeight);
     }
+    cl.scrollTo(0,cl.scrollHeight);
 }

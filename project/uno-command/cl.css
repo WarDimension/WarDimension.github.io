@@ -51,6 +51,14 @@ p{
     border: none;
 }
 
+.E{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    max-height: 576px;
+    max-width: 100%;
+}
+
 @media only screen and (max-width: 1024px){
     #cl{
         left: 0;
