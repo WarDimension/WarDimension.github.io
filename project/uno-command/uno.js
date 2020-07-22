@@ -76,6 +76,8 @@ function updateTurn(){
         }
     }
 
+    apply0Card();
+
     turn_before = turn;
     if(!reverse){
         turn++;
@@ -197,6 +199,29 @@ function applyPlusCard(){
     }
 }
 
+function apply0Card(){
+    if(current_card.includes("0") && state != "win"){
+        cl_dsp.innerHTML += "<br/>everyone rotates hands.";
+        
+        if(reverse){
+            var handsTemp = players_cards[0];
+
+            for(var i = 1; i < max_player; i++){
+                players_cards[i-1] = players_cards[i];
+            }
+            players_cards[max_player-1] = handsTemp;
+        }
+        else{
+            var handsTemp = players_cards[max_player-1];
+            
+            for(var i = max_player-2; i >= 0; i--){
+                players_cards[i+1] = players_cards[i];
+            }
+            players_cards[0] = handsTemp;
+        }
+    }
+}
+
 function updateDSP(){
     if(state == "win"){
         return;
@@ -246,7 +271,7 @@ function UNO_PRE(){
 
     randomPlayersCards();
 
-    turn = Math.floor(Math.random() * players.length);
+    turn = Math.floor(Math.random() * max_player);
 
     cl_dsp.innerHTML = cl_dsp_head;
 
@@ -379,12 +404,12 @@ function UNO(){
     else if(command == "f"){
         cl_dsp.innerHTML +="<br/>press \"F\" to pay respect.";
         if(reverse){
-            for(var i = players.length-1; i > 0; i--){
+            for(var i = max_player-1; i > 0; i--){
                 cl_dsp.innerHTML += "<br/><br/>" + players[i] + "> F";
             }
         }
         else{
-            for(var i = 1; i < players.length; i++){
+            for(var i = 1; i < max_player; i++){
                 cl_dsp.innerHTML += "<br/><br/>" + players[i] + "> F";
             }
         }
