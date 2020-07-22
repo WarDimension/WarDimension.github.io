@@ -58,7 +58,7 @@ cl_in.addEventListener("keydown", (e) => {
         cl_dsp.innerHTML += `<br/><br/>${players[0]}> ` + cl_in.value;
         if(state == "menu"){
             if(command == "1"){
-                cl_dsp.innerHTML = cl_dsp_head + "<br/><br/>your name?<br/><br/>[enter] skip/continue [esc] back";
+                cl_dsp.innerHTML = cl_dsp_head + "<br/><br/>your name?<br/><br/>[enter] skip/continue [backspace] erase [esc] back";
                 state = "pre_play";
             }
             else if(command == "2"){

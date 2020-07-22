@@ -169,7 +169,7 @@ function colorChoose(){
         state = "menu";
     }
     else if(command == "cls"){
-        cl_dsp.innerHTML = cl_dsp_head + "<br/><br/>|choose color| [1] green [2] red [3] yellow [4] blue<br/><br/>[esc] exit";
+        cl_dsp.innerHTML = cl_dsp_head + "<br/><br/>|choose color| [1] green [2] red [3] yellow [4] blue<br/><br/>[auto] auto play [esc] exit";
     }
     else{
         cl_dsp.innerHTML += "<br/>invalid command.";
@@ -204,7 +204,7 @@ function swapHands(){
         for(var i = 1; i < max_player; i++){
             cl_dsp.innerHTML += ` [${i}] ${players[i]}`;
         }
-        cl_dsp.innerHTML += "<br/><br/>[esc] exit";
+        cl_dsp.innerHTML += "<br/><br/>[auto] auto play [esc] exit";
     }
     else{
         cl_dsp.innerHTML += "<br/>invalid command.";
@@ -297,7 +297,7 @@ function updateDSP(){
         for(var i = 0; i < players_cards[turn].length; i++){
             cl_dsp.innerHTML += `[${i+1}] ${players_cards[turn][i]} `;
         }
-        cl_dsp.innerHTML += "<br/><br/>[esc] exit";
+        cl_dsp.innerHTML += "<br/><br/>[auto] auto play [esc] exit";
     }
     else{
         cl_dsp.innerHTML += "[" + players[turn] + "'s cards]";
@@ -308,6 +308,10 @@ function updateDSP(){
 }
 
 function UNO_PRE(){
+    if(players[0] == "UNO"){
+        changeName("uno");
+    }
+
     localStorage.setItem("player_name", players[0]);
     first_in = true;
 
@@ -376,7 +380,7 @@ function UNO(){
                     current_card += " -> " + command.match(color_r);
                 }
                 else{
-                    cl_dsp.innerHTML += "<br/><br/>|choose color| [1] green [2] red [3] yellow [4] blue<br/><br/>[esc] exit";
+                    cl_dsp.innerHTML += "<br/><br/>|choose color| [1] green [2] red [3] yellow [4] blue<br/><br/>[auto] auto play [esc] exit";
                     state = "color_choose";
                     return;
                 }
@@ -386,7 +390,7 @@ function UNO(){
                 for(var i = 1; i < max_player; i++){
                     cl_dsp.innerHTML += ` [${i}] ${players[i]}`;
                 }
-                cl_dsp.innerHTML += "<br/><br/>[esc] exit";
+                cl_dsp.innerHTML += "<br/><br/>[auto] auto play [esc] exit";
                 state = "swap_hands";
                 return;
             }
