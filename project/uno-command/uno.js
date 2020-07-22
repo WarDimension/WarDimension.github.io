@@ -312,6 +312,14 @@ function UNO(){
                 reverse = true;
             }
 
+            if(players_cards[turn].length == 1 && !command.includes("uno")){
+                cl_dsp.innerHTML += "<br/><br/>UNO -> " + players[0] + " +2";
+                for(var i = 0; i < 2; i++){
+                    draw = randomCard();
+                    players_cards[turn].push(draw);
+                }
+            }
+
             updateTurn();
             updateDSP();
         }
@@ -409,7 +417,11 @@ function UNO_AI(){
 
         if(hasCard){
             var play = Math.floor(Math.random() * players_cards[turn].length);
+            var uno = Math.floor(Math.random() * 2);
 
+            if(uno == 0){
+                uno = Math.floor(Math.random() * 2);
+            }
             
             if(players_cards[turn][play] == "+4" || players_cards[turn][play] == "wild"){
                 if(players_cards[turn][play] == "+4"){
@@ -468,6 +480,17 @@ function UNO_AI(){
 
             if(current_card.includes("reverse")){
                 reverse = true;
+            }
+
+            if(players_cards[turn].length == 1 && uno == 1){
+                cl_dsp.innerHTML += " uno";
+            }
+            else if(players_cards[turn].length == 1){
+                cl_dsp.innerHTML += "<br/><br/>UNO -> " + players[turn] + " +2";
+                for(var i = 0; i < 2; i++){
+                    draw = randomCard();
+                    players_cards[turn].push(draw);
+                }
             }
 
             updateTurn();
