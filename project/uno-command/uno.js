@@ -261,7 +261,6 @@ function UNO_AI(){
             else if(cardChecker(players_cards[turn][i])){
                 hasCard = true;
                 hasNum = true;
-                console.log(players_cards[turn][i]);
             }
         }
 
