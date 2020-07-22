@@ -45,9 +45,14 @@ function randomPlayersCards(){
     }
 }
 
-var ai_names = ["WarDimension", "AI-chan", "I'm a human, I swear", "I'm fine", "AI FTW", "._.)", "UNO_BOT", "Markdivider", "Javascript AI", "_anon", "_blank", "1010011010", "666", "EEE", "SLAP LIKE NOW", "アニメ", "weebs69", "Davie404", "<span style='color: green'>Green</span>"];
 var players = ["player_1"];
 var players_cards = [];
+
+if(localStorage.getItem("player_name") != null){
+    changeName(localStorage.getItem("player_name"));
+}
+
+var ai_names = ["WarDimension", "AI-chan", "I'm a human, I swear", "I'm fine", "AI FTW", "._.)", "UNO_BOT", "Markdivider", "Javascript AI", "_anon", "_blank", "1010011010", "666", "EEE", "SLAP LIKE NOW", "アニメ", "weebs69", "Davie404", "Barbara", "UNO_Master", players[0] + "'s Clone"];
 
 var current_card = "";
 
@@ -61,10 +66,6 @@ var plusCard = true;
 var first_play = true;
 
 var winner = "";
-
-if(localStorage.getItem("player_name") != null){
-    changeName(localStorage.getItem("player_name"));
-}
 
 function updateTurn(){
     if(players_cards[turn].length == 0){
