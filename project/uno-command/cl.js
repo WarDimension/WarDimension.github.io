@@ -56,7 +56,15 @@ cl_in.addEventListener("keydown", (e) => {
     var command = cl_in.value.toLowerCase();
     if(e.key == "Enter" && (command != "" || state == "pre_play")){
         cl_dsp.innerHTML += `<br/><br/>${players[0]}> ` + cl_in.value;
-        if(state == "menu"){
+
+        if(/^background = #?\w+$/.test(command)){
+            document.body.style.background = command.match(/#?\w+$/);
+            if(command.includes("default")){
+                document.body.style.background = "#dddddd";
+            }
+            cl_dsp.innerHTML += "<br/>set background to " + command.match(/#?\w+$/);
+        }
+        else if(state == "menu"){
             if(command == "1"){
                 cl_dsp.innerHTML = cl_dsp_head + "<br/><br/>your name?<br/><br/>[enter] skip/continue [backspace] erase [esc] back";
                 state = "pre_play";
