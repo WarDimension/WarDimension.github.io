@@ -69,7 +69,7 @@ if(localStorage.getItem("player_name") != null){
 function updateTurn(){
     if(players_cards[turn].length == 0){
         state = "win";
-        cl_dsp.innerHTML += "<br/><br/>|WINNER| " + players[turn] + " |WINNER|";
+        cl_dsp.innerHTML += "<br/><br/>|WINNER| " + players[turn] + " |WINNER|<br/><br/>[play] play again [esc] exit";
         if(winner == ""){
             winner = players[turn];
         }

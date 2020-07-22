@@ -107,7 +107,7 @@ cl_in.addEventListener("keydown", (e) => {
                 UNO_PRE();
             }
             else if(command == "cls"){
-                cl_dsp.innerHTML = cl_dsp_head + "<br/><br/>|WINNER| " + winner + " |WINNER|";
+                cl_dsp.innerHTML = cl_dsp_head + "<br/><br/>|WINNER| " + winner + " |WINNER|<br/><br/>[play] play again [esc] exit";
             }
             else{
                 cl_dsp.innerHTML += "<br/>invalid command.";
@@ -132,6 +132,7 @@ cl_in.addEventListener("keydown", (e) => {
         }
         else if(state == "pre_play"){
             changeName(localStorage.getItem("player_name"));
+            first_in = true;
         }
         state = "menu";
     }
