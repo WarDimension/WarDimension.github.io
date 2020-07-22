@@ -184,7 +184,7 @@ function swapHands(){
         players_cards[0] = players_cards[command];
         players_cards[command] = handsTemp;
 
-        cl_dsp.innerHTML += "<br/><br/>|swap hands| " + players[0] + " <-> " + players[command];
+        cl_dsp.innerHTML += "<br/><br/>" + players[0] + " <-> " + players[command] + " swap hands";
         updateTurn();
         updateDSP();
         state = "play";
@@ -552,7 +552,7 @@ function UNO_AI(){
                     players_cards[turn] = players_cards[target];
                     players_cards[target] = handsTemp;
 
-                    cl_dsp.innerHTML += "<br/><br/>|swap hands| " + players[turn] + " <-> " + players[target];
+                    cl_dsp.innerHTML += "<br/><br/>" + players[turn] + " <-> " + players[target] + " swap hands";
                 }
             }
             else{
