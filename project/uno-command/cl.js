@@ -38,6 +38,27 @@ function changeName(p_name){
     cl_in.style.textIndent = player.scrollWidth + 10;
 }
 
+var ascendTemp;
+
+var ascend = 0;
+
+var time;
+function ascendTime(){
+    cl_dsp.innerHTML = cl_dsp_head + "<br/><br/>ascending.";
+
+    if(ascend == 0){
+        cl_dsp.innerHTML += ".";
+        ascend = 1;
+    }
+    else if(ascend == 1){
+        cl_dsp.innerHTML += "..";
+        ascend = 2;
+    }
+    else if(ascend == 2){
+        ascend = 0;
+    }
+}
+
 cl_in.addEventListener("input", (e) => {
     cl_in.style.height = "24px";
     cl_in.style.height = cl_in.scrollHeight;
@@ -55,7 +76,9 @@ cl_in.addEventListener("input", (e) => {
 cl_in.addEventListener("keydown", (e) => {
     var command = cl_in.value.toLowerCase();
     if(e.key == "Enter" && (command != "" || state == "pre_play")){
-        cl_dsp.innerHTML += `<br/><br/>${players[0]}> ` + cl_in.value;
+        if(state != "ascend"){
+            cl_dsp.innerHTML += `<br/><br/>${players[0]}> ` + cl_in.value;
+        }
 
         if(/^background ?= ?#?\w+$/.test(command)){
             document.body.style.background = command.match(/#?\w+$/);
@@ -63,12 +86,6 @@ cl_in.addEventListener("keydown", (e) => {
                 document.body.style.background = "#dddddd";
             }
             cl_dsp.innerHTML += "<br/>set background to " + command.match(/#?\w+$/);
-        }
-        else if(command == "1010011010" || command == "ascend"){
-            localStorage.setItem("ascend", "true");
-            window.open("https://wardimension.github.io/666","_blank");
-            cl_dsp.innerHTML = cl_dsp_head + cl_dsp_menu;
-            cl_in_reset = true;
         }
         else if(state == "menu"){
             if(command == "1"){
@@ -85,6 +102,13 @@ cl_in.addEventListener("keydown", (e) => {
             }
             else if(command == "cls"){
                 cl_dsp.innerHTML = cl_dsp_head + cl_dsp_menu;
+            }
+            else if(command == "ascend"){
+                cl_dsp.innerHTML = cl_dsp_head + "<br/><br/>ascending.";
+                time = setInterval(ascendTime, 1000);
+                ascendTemp = players[0];
+                changeName("666");
+                state = "ascend";
             }
             else{
                 cl_dsp.innerHTML += "<br/>invalid command.";
@@ -130,6 +154,16 @@ cl_in.addEventListener("keydown", (e) => {
                 cl_dsp.innerHTML += "<br/>invalid command.";
             }
         }
+        else if(state == "ascend" && command == "1010011010"){
+            clearInterval(time);
+            changeName(ascendTemp);
+            ascend = 0;
+            localStorage.setItem("ascend", "true");
+            window.open("https://wardimension.github.io/666","_blank");
+            cl_dsp.innerHTML = cl_dsp_head + cl_dsp_menu;
+            cl_in_reset = true;
+            state = "menu";
+        }
         cl_in.value = "";
     }
     else if(e.key == "Backspace" && state == "pre_play"){
@@ -150,6 +184,11 @@ cl_in.addEventListener("keydown", (e) => {
         else if(state == "pre_play"){
             changeName(localStorage.getItem("player_name"));
             first_in = true;
+        }
+        else if(state == "ascend"){
+            clearInterval(time);
+            changeName(ascendTemp);
+            ascend = 0;
         }
         state = "menu";
     }
