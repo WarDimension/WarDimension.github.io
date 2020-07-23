@@ -1,8 +1,6 @@
 var cards = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "skip", "reverse", "+2", "wild", "+4"];
 var colors = ["green", "red", "yellow", "blue"];
 
-var play_menu = "<br/><br/>[auto] autoplay [esc] exit";
-
 function randomCard(){
     var card_index = Math.floor(Math.random() * 15);
 
@@ -58,16 +56,24 @@ var ai_names = ["WarDimension", "AI-chan", "I'm a human, I swear", "I'm fine", "
 
 var current_card = "";
 
+var challengeCardTemp = "";
+
 var max_player = 4;
 var turn = 0;
 var turn_before = 0;
 var turn_skip = 0;
 
 var reverse = false;
-var plusCard = true;
+var plusCard = false;
+var resetPlus = false;
 var first_play = true;
 
 var winner = "";
+
+function resetPlusCard(){
+    plusCard = false;
+    resetPlus = true;
+}
 
 function win(){
     state = "win";
@@ -82,7 +88,8 @@ function exit(){
     players_cards = [];
     turn = 0;
     reverse = false;
-    plusCard = true;
+    plusCard = false;
+    resetPlus = false;
     first_play = true;
     cl_dsp.innerHTML = cl_dsp_head + cl_dsp_menu;
     state = "menu";
@@ -145,7 +152,10 @@ function cardChecker(card){
     var card_val = card.match(card_val_r);
     var color = card.match(color_r);
 
-    if(card_val == c_card_val || color == c_color || card_val == "wild" || card_val == "+4"){
+    if(plusCard && card_val != c_card_val){
+        return false;
+    }
+    else if(card_val == c_card_val || color == c_color || card_val == "wild" || card_val == "+4"){
         return true;
     }
     return false;
@@ -179,7 +189,110 @@ function colorChoose(){
         exit();
     }
     else if(command == "cls"){
-        cl_dsp.innerHTML = cl_dsp_head + "<br/><br/>|choose color| [1] green [2] red [3] yellow [4] blue" + play_menu;
+        cl_dsp.innerHTML = cl_dsp_head + "<br/><br/>|choose color| [1] green [2] red [3] yellow [4] blue<br/><br/>[esc] exit";
+    }
+    else{
+        cl_dsp.innerHTML += "<br/>invalid command.";
+    }
+}
+
+function challengeDSP(){
+    var hasCard = false;
+
+    for(var i = 0; i < players_cards[turn].length; i++){
+        if(players_cards[turn][i].includes("+4")){
+            hasCard = true;
+        }
+    }
+
+    cl_dsp.innerHTML += "<br/><br/>current_card: " + current_card + "<br/><br/>|challenge +4| [1] challenge [2] decline";
+
+    if(hasCard){
+        cl_dsp.innerHTML += " [3] play +4";
+    }
+    
+    cl_dsp.innerHTML += "<br/><br/>[esc] exit";
+}
+
+function challenge(){
+    var command = cl_in.value.toLowerCase();
+    if(command == 1){
+        var hasColor = false;
+        var color_r = /(green|red|yellow|blue)/g;
+        for(var i = 0; i < players_cards[turn_before].length; i++){
+            if(players_cards[turn_before][i].match(color_r)[0] == challengeCardTemp.match(color_r)){
+                hasColor = true;
+            }
+        }
+
+        var mult = 1;
+        if(/x\d+/g.test(current_card)){
+            mult = current_card.match(/x\d+/g)[0];
+            mult = mult.match(/\d+$/);
+        }
+
+        if(hasColor){
+            cl_dsp.innerHTML += `<br/><br/>${players[0]} -> ${players[turn_before]} +4 win challenge`;
+
+            for(var i = 0; i < 4; i++){
+                draw = randomCard();
+                players_cards[turn_before].push(draw);
+            }
+        }
+        else{
+            cl_dsp.innerHTML += `<br/><br/>${players[turn_before]} -> ${players[0]} +${4 * mult + 2} lose challenge`;
+
+            for(var i = 0; i < 4 * mult + 2; i++){
+                draw = randomCard();
+                players_cards[0].push(draw);
+            }
+            updateTurn();
+        }
+
+        resetPlusCard();
+        state = "play";
+        updateDSP();
+    }
+    else if(command == 2){
+        var mult = 1;
+        if(/x\d+/g.test(current_card)){
+            mult = current_card.match(/x\d+/g)[0];
+            mult = mult.match(/\d+$/);
+        }
+
+        cl_dsp.innerHTML += `<br/><br/>${players[turn_before]} -> ${players[0]} +${4 * mult}`;
+
+        for(var i = 0; i < 4 * mult; i++){
+            draw = randomCard();
+            players_cards[0].push(draw);
+        }
+
+        resetPlusCard();
+        state = "play";
+        updateTurn();
+        updateDSP();
+    }
+    else if(command == 3){
+        var hasCard = false;
+    
+        for(var i = 0; i < players_cards[0].length; i++){
+            if(players_cards[0][i].includes("+4")){
+                hasCard = true;
+            }
+        }
+
+        if(hasCard){
+            state = "play";
+            resetPlusCard();
+            updateDSP();
+        }
+    }
+    else if(command == "esc"){
+        exit();
+    }
+    else if(command == "cls"){
+        cl_dsp.innerHTML = cl_dsp_head;
+        challengeDSP();
     }
     else{
         cl_dsp.innerHTML += "<br/>invalid command.";
@@ -191,7 +304,7 @@ function swapHandsDSP(){
     for(var i = 1; i < max_player; i++){
         cl_dsp.innerHTML += ` [${i}] ${players[i]} |${players_cards[i].length} cards|`;
     }
-    cl_dsp.innerHTML += play_menu;
+    cl_dsp.innerHTML += "<br/><br/>[esc] exit";
 }
 
 function swapHands(){
@@ -237,33 +350,133 @@ function drawCard(){
     updateDSP();
 }
 
-function applyPlusCard(){
-    if(plusCard && (current_card.includes("+2") || current_card.includes("+4"))){
-        if(first_play){
-            cl_dsp.innerHTML += `<br/><br/>UNO -> ${players[turn]} +`;
+function plusMult(){
+    if(challengeCardTemp.includes("+") && !resetPlus){
+        var mult = 1;
+        if(/x\d+/g.test(challengeCardTemp)){
+            mult = challengeCardTemp.match(/x\d+/g)[0];
+            mult = mult.match(/\d+$/)[0];
+            current_card += " x" + (parseInt(mult) + 1);
         }
         else{
-            cl_dsp.innerHTML += `<br/><br/>${players[turn_before]} -> ${players[turn]} +`;
+            current_card += " x2";
         }
+    }
+    else{
+        resetPlus = false;
+    }
+}
 
+function applyPlusCard(){
+    if(plusCard && (current_card.includes("+2") || current_card.includes("+4"))){
         if(current_card.includes("+2")){
-            cl_dsp.innerHTML += "2";
-            for(var i = 0; i < 2; i++){
-                draw = randomCard();
-                players_cards[turn].push(draw);
+            var hasCard = false;
+
+            for(var i = 0; i < players_cards[turn].length; i++){
+                if(players_cards[turn][i].includes("+2")){
+                    hasCard = true;
+                }
+            }
+
+            if(!hasCard){
+                var mult = 1;
+                if(/x\d+/g.test(current_card)){
+                    mult = current_card.match(/x\d+/g)[0];
+                    mult = mult.match(/\d+$/);
+                }
+
+                if(first_play){
+                    cl_dsp.innerHTML += `<br/><br/>UNO -> ${players[turn]} +2`;
+                }
+                else{
+                    cl_dsp.innerHTML += `<br/><br/>${players[turn_before]} -> ${players[turn]} +${2 * mult}`;
+                }
+    
+                for(var i = 0; i < 2 * mult; i++){
+                    draw = randomCard();
+                    players_cards[turn].push(draw);
+                }
+                resetPlusCard();
+                updateTurn();
             }
         }
         else if(current_card.includes("+4")){
-            cl_dsp.innerHTML += "4";
-            for(var i = 0; i < 4; i++){
-                draw = randomCard();
-                players_cards[turn].push(draw);
+            var hasCard = false;
+
+            for(var i = 0; i < players_cards[turn].length; i++){
+                if(players_cards[turn][i].includes("+4")){
+                    hasCard = true;
+                }
+            }
+            
+            var mult = 1;
+            if(/x\d+/g.test(current_card)){
+                mult = current_card.match(/x\d+/g)[0];
+                mult = mult.match(/\d+$/);
+            }
+
+            if(first_play && !hasCard){
+                cl_dsp.innerHTML += `<br/><br/>UNO -> ${players[turn]} +4`;
+
+                for(var i = 0; i < 4; i++){
+                    draw = randomCard();
+                    players_cards[turn].push(draw);
+                }
+                resetPlusCard();
+                updateTurn();
+            }
+            else if(turn == 0 && !first_play){
+                challengeDSP();
+                state = "challenge";
+                return;
+            }
+            else if(!hasCard){
+                var challenge = Math.floor(Math.random() * 2);
+
+                challenge = 1;
+
+                if(challenge == 0){
+                    cl_dsp.innerHTML += `<br/><br/>${players[turn_before]} -> ${players[turn]} +${4 * mult}`;
+    
+                    for(var i = 0; i < 4 * mult; i++){
+                        draw = randomCard();
+                        players_cards[turn].push(draw);
+                    }
+                    updateTurn();
+                }
+                else{
+                    var hasColor = false;
+                    var color_r = /(green|red|yellow|blue)/g;
+                    for(var i = 0; i < players_cards[turn_before].length; i++){
+                        if(players_cards[turn_before][i] != "+4" && players_cards[turn_before][i] != "wild"){
+                            if(players_cards[turn_before][i].match(color_r)[0] == challengeCardTemp.match(color_r)){
+                                hasColor = true;
+                            }
+                        }
+                    }
+
+                    if(hasColor){
+                        cl_dsp.innerHTML += `<br/><br/>${players[turn]} -> ${players[turn_before]} +4 win challenge`;
+            
+                        for(var i = 0; i < 4; i++){
+                            draw = randomCard();
+                            players_cards[turn_before].push(draw);
+                        }
+                    }
+                    else{
+                        cl_dsp.innerHTML += `<br/><br/>${players[turn_before]} -> ${players[turn]} +${4 * mult + 2} lose challenge`;
+            
+                        for(var i = 0; i < 4 * mult + 2; i++){
+                            draw = randomCard();
+                            players_cards[turn].push(draw);
+                        }
+                        updateTurn();
+                    }
+                }
+
+                resetPlusCard();
             }
         }
-
-        updateTurn();
-
-        plusCard = false;
     }
 }
 
@@ -308,6 +521,10 @@ function updateDSP(){
 
     applyPlusCard();
 
+    if(state == "challenge"){
+        return;
+    }
+
     if(current_card.includes("skip") && turn_skip > -1){
         if(first_play){
             cl_dsp.innerHTML += `<br/><br/>UNO -> ${players[turn_skip]} skip`;
@@ -325,7 +542,7 @@ function updateDSP(){
         for(var i = 0; i < players_cards[turn].length; i++){
             cl_dsp.innerHTML += `[${i+1}] ${players_cards[turn][i]} `;
         }
-        cl_dsp.innerHTML += play_menu;
+        cl_dsp.innerHTML += "<br/><br/>[auto] autoplay [draw] draw card(s) [esc] exit";
     }
     else{
         cl_dsp.innerHTML += "[" + players[turn] + "'s cards]";
@@ -346,6 +563,10 @@ function UNO_PRE(){
     randomAI();
 
     current_card = randomCard();
+
+    if(current_card.includes("+")){
+        plusCard = true;
+    }
 
     if(current_card == "+4" || current_card == "wild"){
         var color_index = Math.floor(Math.random() * colors.length);
@@ -392,6 +613,9 @@ function UNO(){
 
         if(cardChecker(players_cards[0][card_index[0]])){
             card_index.sort();
+
+            challengeCardTemp = current_card;
+
             current_card = players_cards[0][card_index[0]];
 
             for(var i = card_index.length-1; i >= 0; i--){
@@ -406,6 +630,7 @@ function UNO(){
             if(current_card == "wild" || current_card == "+4"){
                 if(current_card == "+4"){
                     plusCard = true;
+                    plusMult();
                 }
 
                 var color_r = /(green|red|yellow|blue)/g;
@@ -414,7 +639,7 @@ function UNO(){
                     current_card += " -> " + command.match(color_r);
                 }
                 else{
-                    cl_dsp.innerHTML += "<br/><br/>|choose color| [1] green [2] red [3] yellow [4] blue" + play_menu;
+                    cl_dsp.innerHTML += "<br/><br/>|choose color| [1] green [2] red [3] yellow [4] blue<br/><br/>[esc] exit";
                     state = "color_choose";
                     return;
                 }
@@ -426,6 +651,7 @@ function UNO(){
             }
             else if(current_card.includes("+2")){
                 plusCard = true;
+                plusMult();
             }
             else if(current_card.includes("reverse")){
                 reverse = true;
@@ -443,6 +669,8 @@ function UNO(){
         }
     }
     else if(command == "auto"){
+        challengeCardTemp = current_card;
+
         for(var i = 0; i < players_cards[0].length; i++){
             if(players_cards[0][i] == "+4" || players_cards[0][i] == "wild"){
                 if(players_cards[0].length == 1){
@@ -450,13 +678,14 @@ function UNO(){
                     return;
                 }
 
-                if(players_cards[0][i] == "+4"){
-                    plusCard = true;
-                }
-
                 var color_index = Math.floor(Math.random() * colors.length);
 
                 current_card = players_cards[0][i];
+
+                if(players_cards[0][i] == "+4"){
+                    plusCard = true;
+                    plusMult();
+                }
 
                 current_card += " -> " + colors[color_index];
 
@@ -467,11 +696,13 @@ function UNO(){
                 return;
             }
             else if(cardChecker(players_cards[0][i])){
-                if(players_cards[0][i].includes("+2")){
-                    plusCard = true;
-                }
 
                 current_card = players_cards[0][i];
+
+                if(players_cards[0][i].includes("+2")){
+                    plusCard = true;
+                    plusMult();
+                }
 
                 players_cards[0].splice(i, 1);
 
@@ -489,7 +720,7 @@ function UNO(){
                     players_cards[turn] = players_cards[target];
                     players_cards[target] = handsTemp;
 
-                    cl_dsp.innerHTML += "<br/><br/>" + players[turn] + " <-> " + players[target] + " swap hands";
+                    cl_dsp.innerHTML += `<br/><br/>${players[turn]} <-> ${players[target]} swap hands`;
                 }
                 
                 updateTurn();
@@ -556,32 +787,37 @@ function UNO_AI(){
             if(uno == 0){
                 uno = Math.floor(Math.random() * 2);
             }
+
+            challengeCardTemp = current_card;
             
             if(players_cards[turn][play] == "+4" || players_cards[turn][play] == "wild"){
-                if(players_cards[turn][play] == "+4"){
-                    plusCard = true;
-                }
-
                 var color_index = Math.floor(Math.random() * colors.length);
 
-                cl_dsp.innerHTML += play + " " + colors[color_index];
+                cl_dsp.innerHTML += play + 1 + " " + colors[color_index];
+
                 current_card = players_cards[turn][play];
+
+                if(players_cards[turn][play] == "+4"){
+                    plusCard = true;
+                    plusMult();
+                }
 
                 current_card += " -> " + colors[color_index];
 
                 players_cards[turn].splice(play, 1);
             }
-            else if(hasNum){
+            else if(hasNum && !plusCard){
                 while(!cardChecker(players_cards[turn][play]) || players_cards[turn][play] == "+4" || players_cards[turn][play] == "wild"){
                     play = Math.floor(Math.random() * players_cards[turn].length);
                 }
 
-                if(players_cards[turn][play].includes("+2")){
-                    plusCard = true;
-                }
-
                 current_card = players_cards[turn][play];
                 var card_index = [];
+
+                if(players_cards[turn][play].includes("+2")){
+                    plusCard = true;
+                    plusMult();
+                }
 
                 for(var i = players_cards[turn].length - 1; i >= 0; i--){
                     if(players_cards[turn][i] == current_card){
@@ -605,11 +841,13 @@ function UNO_AI(){
 
                     if(players_cards[turn].length == 1 && uno == 1){
                         cl_dsp.innerHTML += " uno";
-                        cl_dsp.innerHTML += "<br/><br/>" + players[turn] + " <-> " + players[target] + " swap hands";
+                        cl_dsp.innerHTML += `<br/><br/>${players[turn]} <-> ${players[target]} swap hands`;
                     }
                     else if(players_cards[turn].length == 1){
-                        cl_dsp.innerHTML += "<br/><br/>" + players[turn] + " <-> " + players[target] + " swap hands";
+                        cl_dsp.innerHTML += `<br/><br/>${players[turn]} <-> ${players[target]} swap hands`;
                         applyUNO();
+                    }else{
+                        cl_dsp.innerHTML += `<br/><br/>${players[turn]} <-> ${players[target]} swap hands`;
                     }
                 }
             }
@@ -618,16 +856,24 @@ function UNO_AI(){
                     play = Math.floor(Math.random() * players_cards[turn].length);
                 }
 
-                if(players_cards[turn][play] == "+4"){
-                    plusCard = true;
-                }
-
                 var color_index = Math.floor(Math.random() * colors.length);
 
-                cl_dsp.innerHTML += play + " " + colors[color_index];
+                cl_dsp.innerHTML += play + 1;
+
+                if(players_cards[turn][play] == "+4" || players_cards[turn][play] == "wild"){
+                    cl_dsp.innerHTML += " " + colors[color_index];
+                }
+
                 current_card = players_cards[turn][play];
 
-                current_card += " -> " + colors[color_index];
+                if(players_cards[turn][play] == "+4" || players_cards[turn][play].includes("+2")){
+                    plusCard = true;
+                    plusMult();
+                }
+
+                if(players_cards[turn][play] == "+4" || players_cards[turn][play] == "wild"){
+                    current_card += " -> " + colors[color_index];
+                }
 
                 players_cards[turn].splice(play, 1);
             }

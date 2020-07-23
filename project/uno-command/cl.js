@@ -123,6 +123,9 @@ cl_in.addEventListener("keydown", (e) => {
         else if(state == "color_choose"){
             colorChoose();
         }
+        else if(state == "challenge"){
+            challenge();
+        }
         else if(state == "swap_hands"){
             swapHands();
         }
@@ -165,11 +168,7 @@ cl_in.addEventListener("keydown", (e) => {
         first_in = false;
     }
     else if(e.key == "Escape" && state != "menu"){
-        cl_dsp.innerHTML = cl_dsp_head + cl_dsp_menu;
-        if(state == "play" || state == "win"){
-            exit();
-        }
-        else if(state == "pre_play"){
+        if(state == "pre_play"){
             changeName(localStorage.getItem("player_name"));
             first_in = true;
         }
@@ -178,7 +177,7 @@ cl_in.addEventListener("keydown", (e) => {
             changeName(ascendTemp);
             ascend = 0;
         }
-        state = "menu";
+        exit();
     }
 });
 
