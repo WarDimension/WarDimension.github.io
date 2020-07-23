@@ -1,6 +1,7 @@
 *{
     font-family: "Courier New", Courier, monospace;
     box-sizing: border-box;
+    overflow-x: hidden;
 }
 ::-webkit-scrollbar {
     width: 5px;
