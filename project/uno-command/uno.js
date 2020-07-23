@@ -269,6 +269,9 @@ function applyPlusCard(){
 
 function apply0Card(){
     if(current_card.includes("0") && state != "win"){
+        if(first_play){
+            cl_dsp.innerHTML += "<br/>";
+        }
         cl_dsp.innerHTML += "<br/>everyone rotates hands.";
         
         if(reverse){
@@ -355,6 +358,7 @@ function UNO_PRE(){
 
     cl_dsp.innerHTML = cl_dsp_head;
 
+    apply0Card();
     updateDSP();
 
     state = "play";
