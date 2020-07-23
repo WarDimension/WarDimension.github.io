@@ -333,6 +333,10 @@ function UNO_PRE(){
 
     cl_dsp.innerHTML = cl_dsp_head;
 
+    turn = 0;//
+    players_cards[0] = ["yellow 7"]//
+    current_card = "yellow 7"//
+
     updateDSP();
 
     state = "play";
@@ -372,12 +376,12 @@ function UNO(){
                 players_cards[0].splice(card_index[i], 1);
             }
 
-            if(current_card == "wild" || current_card == "+4"){
-                if(players_cards[0].length == 1){
-                    win();
-                    return;
-                }
+            if(players_cards[0].length == 0){
+                win();
+                return;
+            }
 
+            if(current_card == "wild" || current_card == "+4"){
                 if(current_card == "+4"){
                     plusCard = true;
                 }
@@ -394,6 +398,7 @@ function UNO(){
                 }
             }
             else if(current_card.includes("7")){
+                
                 cl_dsp.innerHTML += "<br/><br/>|swap hands|";
                 for(var i = 1; i < max_player; i++){
                     cl_dsp.innerHTML += ` [${i}] ${players[i]}`;
@@ -443,19 +448,6 @@ function UNO(){
                 current_card += " -> " + colors[color_index];
 
                 players_cards[0].splice(i, 1);
-
-                if(current_card.includes("7")){
-                    var target = Math.floor(Math.random() * max_player);
-                    while(target == turn){
-                        target = Math.floor(Math.random() * max_player);
-                    }
-                    var handsTemp = players_cards[turn];
-
-                    players_cards[turn] = players_cards[target];
-                    players_cards[target] = handsTemp;
-
-                    cl_dsp.innerHTML += "<br/><br/>" + players[turn] + " <-> " + players[target] + " swap hands";
-                }
                 
                 updateTurn();
                 updateDSP();
@@ -469,6 +461,23 @@ function UNO(){
                 current_card = players_cards[0][i];
 
                 players_cards[0].splice(i, 1);
+
+                if(current_card.includes("7")){
+                    if(players_cards[0].length == 0){
+                        win();
+                        return;
+                    }
+                    var target = Math.floor(Math.random() * max_player);
+                    while(target == turn){
+                        target = Math.floor(Math.random() * max_player);
+                    }
+                    var handsTemp = players_cards[turn];
+
+                    players_cards[turn] = players_cards[target];
+                    players_cards[target] = handsTemp;
+
+                    cl_dsp.innerHTML += "<br/><br/>" + players[turn] + " <-> " + players[target] + " swap hands";
+                }
                 
                 updateTurn();
                 updateDSP();
