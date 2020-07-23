@@ -636,11 +636,7 @@ function UNO_AI(){
                 cl_dsp.innerHTML += " uno";
             }
             else if(players_cards[turn].length == 1 && !current_card.includes("7")){
-                cl_dsp.innerHTML += "<br/><br/>UNO -> " + players[turn] + " +2";
-                for(var i = 0; i < 2; i++){
-                    draw = randomCard();
-                    players_cards[turn].push(draw);
-                }
+                applyUNO();
             }
 
             updateTurn();
