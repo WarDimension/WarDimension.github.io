@@ -186,6 +186,14 @@ function colorChoose(){
     }
 }
 
+function swapHandsDSP(){
+    cl_dsp.innerHTML += "<br/><br/>|swap hands|";
+    for(var i = 1; i < max_player; i++){
+        cl_dsp.innerHTML += ` [${i}] ${players[i]} |${players_cards[i].length} cards|`;
+    }
+    cl_dsp.innerHTML += play_menu;
+}
+
 function swapHands(){
     var command = cl_in.value.toLowerCase();
     if(command >= 1 && command < max_player){
@@ -203,11 +211,7 @@ function swapHands(){
         exit();
     }
     else if(command == "cls"){
-        cl_dsp.innerHTML += "<br/><br/>|swap hands|";
-        for(var i = 1; i < max_player; i++){
-            cl_dsp.innerHTML += ` [${i}] ${players[i]}`;
-        }
-        cl_dsp.innerHTML += play_menu;
+        swapHandsDSP();
     }
     else{
         cl_dsp.innerHTML += "<br/>invalid command.";
@@ -394,12 +398,7 @@ function UNO(){
                 }
             }
             else if(current_card.includes("7")){
-                
-                cl_dsp.innerHTML += "<br/><br/>|swap hands|";
-                for(var i = 1; i < max_player; i++){
-                    cl_dsp.innerHTML += ` [${i}] ${players[i]}`;
-                }
-                cl_dsp.innerHTML += play_menu;
+                swapHandsDSP();
                 state = "swap_hands";
                 return;
             }
