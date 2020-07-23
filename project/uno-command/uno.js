@@ -69,13 +69,28 @@ var first_play = true;
 
 var winner = "";
 
+function win(){
+    state = "win";
+    cl_dsp.innerHTML += "<br/><br/>|WINNER| " + players[turn] + " |WINNER|<br/><br/>[play] play again [esc] exit";
+    if(winner == ""){
+        winner = players[turn];
+    }
+}
+
+function exit(){
+    players = [players[0]];
+    players_cards = [];
+    turn = 0;
+    reverse = false;
+    plusCard = true;
+    first_play = true;
+    cl_dsp.innerHTML = cl_dsp_head + cl_dsp_menu;
+    state = "menu";
+}
+
 function updateTurn(){
     if(players_cards[turn].length == 0){
-        state = "win";
-        cl_dsp.innerHTML += "<br/><br/>|WINNER| " + players[turn] + " |WINNER|<br/><br/>[play] play again [esc] exit";
-        if(winner == ""){
-            winner = players[turn];
-        }
+        win();
     }
 
     apply0Card();
@@ -161,14 +176,7 @@ function colorChoose(){
         cl_dsp.innerHTML += "<br/>we are not playing guitar hero!";
     }
     else if(command == "esc"){
-        players = [players[0]];
-        players_cards = [];
-        turn = 0;
-        reverse = false;
-        plusCard = true;
-        first_play = true;
-        cl_dsp.innerHTML = cl_dsp_head + cl_dsp_menu;
-        state = "menu";
+        exit();
     }
     else if(command == "cls"){
         cl_dsp.innerHTML = cl_dsp_head + "<br/><br/>|choose color| [1] green [2] red [3] yellow [4] blue" + play_menu;
@@ -192,14 +200,7 @@ function swapHands(){
         state = "play";
     }
     else if(command == "esc"){
-        players = [players[0]];
-        players_cards = [];
-        turn = 0;
-        reverse = false;
-        plusCard = true;
-        first_play = true;
-        cl_dsp.innerHTML = cl_dsp_head + cl_dsp_menu;
-        state = "menu";
+        exit();
     }
     else if(command == "cls"){
         cl_dsp.innerHTML += "<br/><br/>|swap hands|";
@@ -372,6 +373,11 @@ function UNO(){
             }
 
             if(current_card == "wild" || current_card == "+4"){
+                if(players_cards[0].length == 1){
+                    win();
+                    return;
+                }
+
                 if(current_card == "+4"){
                     plusCard = true;
                 }
@@ -421,6 +427,11 @@ function UNO(){
     else if(command == "auto"){
         for(var i = 0; i < players_cards[0].length; i++){
             if(players_cards[0][i] == "+4" || players_cards[0][i] == "wild"){
+                if(players_cards[0].length == 1){
+                    win();
+                    return;
+                }
+
                 if(players_cards[0][i] == "+4"){
                     plusCard = true;
                 }
@@ -432,6 +443,19 @@ function UNO(){
                 current_card += " -> " + colors[color_index];
 
                 players_cards[0].splice(i, 1);
+
+                if(current_card.includes("7")){
+                    var target = Math.floor(Math.random() * max_player);
+                    while(target == turn){
+                        target = Math.floor(Math.random() * max_player);
+                    }
+                    var handsTemp = players_cards[turn];
+
+                    players_cards[turn] = players_cards[target];
+                    players_cards[target] = handsTemp;
+
+                    cl_dsp.innerHTML += "<br/><br/>" + players[turn] + " <-> " + players[target] + " swap hands";
+                }
                 
                 updateTurn();
                 updateDSP();
@@ -462,10 +486,7 @@ function UNO(){
         updateDSP();
     }
     else if(command == "esc"){
-        players = [players[0]];
-        players_cards = [];
-        cl_dsp.innerHTML = cl_dsp_head + cl_dsp_menu;
-        state = "menu";
+        exit();
     }
     else if(command == "f"){
         cl_dsp.innerHTML +="<br/>press \"F\" to pay respect.";
@@ -552,7 +573,9 @@ function UNO_AI(){
 
                 if(current_card.includes("7")){
                     var target = Math.floor(Math.random() * max_player);
-                    target = 0;
+                    while(target == turn){
+                        target = Math.floor(Math.random() * max_player);
+                    }
                     var handsTemp = players_cards[turn];
 
                     players_cards[turn] = players_cards[target];

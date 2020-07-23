@@ -128,14 +128,7 @@ cl_in.addEventListener("keydown", (e) => {
         }
         else if(state == "win"){
             if(command == "esc"){
-                players = [players[0]];
-                players_cards = [];
-                turn = 0;
-                reverse = false;
-                plusCard = true;
-                first_play = true;
-                cl_dsp.innerHTML = cl_dsp_head + cl_dsp_menu;
-                state = "menu";
+                exit();
             }
             else if(command == "play"){
                 players = [players[0]];
@@ -174,12 +167,7 @@ cl_in.addEventListener("keydown", (e) => {
     else if(e.key == "Escape" && state != "menu"){
         cl_dsp.innerHTML = cl_dsp_head + cl_dsp_menu;
         if(state == "play" || state == "win"){
-            players = [players[0]];
-            players_cards = [];
-            turn = 0;
-            reverse = false;
-            plusCard = true;
-            first_play = true;
+            exit();
         }
         else if(state == "pre_play"){
             changeName(localStorage.getItem("player_name"));
