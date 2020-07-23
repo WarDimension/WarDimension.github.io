@@ -333,10 +333,6 @@ function UNO_PRE(){
 
     cl_dsp.innerHTML = cl_dsp_head;
 
-    turn = 0;//
-    players_cards[0] = ["yellow 7"]//
-    current_card = "yellow 7"//
-
     updateDSP();
 
     state = "play";
