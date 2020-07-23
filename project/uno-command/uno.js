@@ -196,13 +196,23 @@ function swapHandsDSP(){
 
 function swapHands(){
     var command = cl_in.value.toLowerCase();
-    if(command >= 1 && command < max_player){
+
+    var filter = /^\d+ ?(uno)?$/;
+
+    if(filter.test(command)){
+        var target = command.match(/\d+/);
+
         var handsTemp = players_cards[0];
 
-        players_cards[0] = players_cards[command];
-        players_cards[command] = handsTemp;
+        players_cards[0] = players_cards[target];
+        players_cards[target] = handsTemp;
 
-        cl_dsp.innerHTML += "<br/><br/>" + players[0] + " <-> " + players[command] + " swap hands";
+        cl_dsp.innerHTML += "<br/><br/>" + players[0] + " <-> " + players[target] + " swap hands";
+
+        if(players_cards[0].length == 1 && !command.includes("uno")){
+            applyUNO();
+        }
+
         updateTurn();
         updateDSP();
         state = "play";
@@ -277,6 +287,14 @@ function apply0Card(){
             }
             players_cards[0] = handsTemp;
         }
+    }
+}
+
+function applyUNO(){
+    cl_dsp.innerHTML += "<br/><br/>UNO -> " + players[turn] + " +2";
+    for(var i = 0; i < 2; i++){
+        draw = randomCard();
+        players_cards[turn].push(draw);
     }
 }
 
@@ -409,12 +427,8 @@ function UNO(){
                 reverse = true;
             }
 
-            if(players_cards[turn].length == 1 && !command.includes("uno")){
-                cl_dsp.innerHTML += "<br/><br/>UNO -> " + players[0] + " +2";
-                for(var i = 0; i < 2; i++){
-                    draw = randomCard();
-                    players_cards[turn].push(draw);
-                }
+            if(players_cards[0].length == 1 && !command.includes("uno")){
+                applyUNO();
             }
 
             updateTurn();
@@ -585,7 +599,14 @@ function UNO_AI(){
                     players_cards[turn] = players_cards[target];
                     players_cards[target] = handsTemp;
 
-                    cl_dsp.innerHTML += "<br/><br/>" + players[turn] + " <-> " + players[target] + " swap hands";
+                    if(players_cards[turn].length == 1 && uno == 1){
+                        cl_dsp.innerHTML += " uno";
+                        cl_dsp.innerHTML += "<br/><br/>" + players[turn] + " <-> " + players[target] + " swap hands";
+                    }
+                    else if(players_cards[turn].length == 1){
+                        cl_dsp.innerHTML += "<br/><br/>" + players[turn] + " <-> " + players[target] + " swap hands";
+                        applyUNO();
+                    }
                 }
             }
             else{
