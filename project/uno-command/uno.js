@@ -211,7 +211,7 @@ function challengeDSP(){
         cl_dsp.innerHTML += " [3] play +4";
     }
     
-    cl_dsp.innerHTML += "<br/><br/>[esc] exit";
+    cl_dsp.innerHTML += "<br/><br/>[auto] autoplay [esc] exit";
 }
 
 function challenge(){
@@ -287,6 +287,18 @@ function challenge(){
             updateDSP();
         }
     }
+    else if(command == "auto"){
+        var mult = 1;
+        if(/x\d+/g.test(current_card)){
+            mult = current_card.match(/x\d+/g)[0];
+            mult = mult.match(/\d+$/);
+        }
+
+        autoChallenge(mult);
+        state = "play";
+        updateTurn();
+        updateDSP();
+    }
     else if(command == "esc"){
         exit();
     }
@@ -297,6 +309,59 @@ function challenge(){
     else{
         cl_dsp.innerHTML += "<br/>invalid command.";
     }
+}
+
+function autoChallenge(mult){
+    var challenge = Math.floor(Math.random() * 2);
+
+    if(challenge == 1){
+        challenge = Math.floor(Math.random() * 2);
+    }
+
+    if(turn == 0){
+        cl_dsp.innerHTML += " -> " + (parseInt(challenge) + 1);
+    }
+
+    if(challenge == 1){
+        cl_dsp.innerHTML += `<br/><br/>${players[turn_before]} -> ${players[turn]} +${4 * mult}`;
+
+        for(var i = 0; i < 4 * mult; i++){
+            draw = randomCard();
+            players_cards[turn].push(draw);
+        }
+        updateTurn();
+    }
+    else{
+        var hasColor = false;
+        var color_r = /(green|red|yellow|blue)/g;
+        for(var i = 0; i < players_cards[turn_before].length; i++){
+            if(players_cards[turn_before][i] != "+4" && players_cards[turn_before][i] != "wild"){
+                if(players_cards[turn_before][i].match(color_r)[0] == challengeCardTemp.match(color_r)){
+                    hasColor = true;
+                }
+            }
+        }
+
+        if(hasColor){
+            cl_dsp.innerHTML += `<br/><br/>${players[turn]} -> ${players[turn_before]} +4 win challenge`;
+
+            for(var i = 0; i < 4; i++){
+                draw = randomCard();
+                players_cards[turn_before].push(draw);
+            }
+        }
+        else{
+            cl_dsp.innerHTML += `<br/><br/>${players[turn_before]} -> ${players[turn]} +${4 * mult + 2} lose challenge`;
+
+            for(var i = 0; i < 4 * mult + 2; i++){
+                draw = randomCard();
+                players_cards[turn].push(draw);
+            }
+            updateTurn();
+        }
+    }
+
+    resetPlusCard();
 }
 
 function swapHandsDSP(){
@@ -431,52 +496,7 @@ function applyPlusCard(){
                 return;
             }
             else if(!hasCard){
-                var challenge = Math.floor(Math.random() * 2);
-
-                if(challenge == 1){
-                    challenge = Math.floor(Math.random() * 2);
-                }
-
-                if(challenge == 0){
-                    cl_dsp.innerHTML += `<br/><br/>${players[turn_before]} -> ${players[turn]} +${4 * mult}`;
-    
-                    for(var i = 0; i < 4 * mult; i++){
-                        draw = randomCard();
-                        players_cards[turn].push(draw);
-                    }
-                    updateTurn();
-                }
-                else{
-                    var hasColor = false;
-                    var color_r = /(green|red|yellow|blue)/g;
-                    for(var i = 0; i < players_cards[turn_before].length; i++){
-                        if(players_cards[turn_before][i] != "+4" && players_cards[turn_before][i] != "wild"){
-                            if(players_cards[turn_before][i].match(color_r)[0] == challengeCardTemp.match(color_r)){
-                                hasColor = true;
-                            }
-                        }
-                    }
-
-                    if(hasColor){
-                        cl_dsp.innerHTML += `<br/><br/>${players[turn]} -> ${players[turn_before]} +4 win challenge`;
-            
-                        for(var i = 0; i < 4; i++){
-                            draw = randomCard();
-                            players_cards[turn_before].push(draw);
-                        }
-                    }
-                    else{
-                        cl_dsp.innerHTML += `<br/><br/>${players[turn_before]} -> ${players[turn]} +${4 * mult + 2} lose challenge`;
-            
-                        for(var i = 0; i < 4 * mult + 2; i++){
-                            draw = randomCard();
-                            players_cards[turn].push(draw);
-                        }
-                        updateTurn();
-                    }
-                }
-
-                resetPlusCard();
+                autoChallenge(mult);
             }
         }
     }
@@ -702,6 +722,8 @@ function UNO(){
                 }
 
                 current_card += " -> " + colors[color_index];
+
+                cl_dsp.innerHTML += " " + colors[color_index];
 
                 players_cards[0].splice(i, 1);
                 
