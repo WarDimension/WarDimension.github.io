@@ -207,11 +207,13 @@ function closePlayer(){
     "albumIndex": undefined,
     "type": undefined
   };
-  trackHighlightTemp.style.background = "";
+  if(trackHighlightTemp != undefined){
+    trackHighlightTemp.style.background = "";
+  }
   if(url()["album"]){
     setParams(`album=${url()["album"]}`);
   }else{
-  setParams("");
+    setParams("");
   }
 }
 
