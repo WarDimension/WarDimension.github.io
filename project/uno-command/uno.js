@@ -639,7 +639,11 @@ function UNO(){
         for(var i = 0; i < card_index.length; i++){
             card_index[i] = card_index[i] - 1;
             if(card_index[i] < 0 || card_index[i] >= players_cards[0].length){
-                cl_dsp.innerHTML += "<br/>you only have "+players_cards[0].length+" cards, stoopid!";
+                cl_dsp.innerHTML += "<br/>you only have " + players_cards[0].length + " card";
+                if(players_cards[0].length > 1){
+                    cl_dsp.innerHTML += "s";
+                }
+                cl_dsp.innerHTML += ", stoopid!";
                 return;
             }
             if(i > 0 && players_cards[0][card_index[i]] != players_cards[0][card_index[0]]){
