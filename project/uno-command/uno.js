@@ -433,7 +433,9 @@ function applyPlusCard(){
             else if(!hasCard){
                 var challenge = Math.floor(Math.random() * 2);
 
-                challenge = 1;
+                if(challenge == 1){
+                    challenge = Math.floor(Math.random() * 2);
+                }
 
                 if(challenge == 0){
                     cl_dsp.innerHTML += `<br/><br/>${players[turn_before]} -> ${players[turn]} +${4 * mult}`;
@@ -790,7 +792,7 @@ function UNO_AI(){
 
             challengeCardTemp = current_card;
             
-            if(players_cards[turn][play] == "+4" || players_cards[turn][play] == "wild"){
+            if(!plusCard && (players_cards[turn][play] == "+4" || players_cards[turn][play] == "wild")){
                 var color_index = Math.floor(Math.random() * colors.length);
 
                 cl_dsp.innerHTML += play + 1 + " " + colors[color_index];
