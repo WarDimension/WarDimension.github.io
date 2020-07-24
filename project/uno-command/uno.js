@@ -632,6 +632,11 @@ function UNO(){
             if(current_card == "wild" || current_card == "+4"){
                 if(current_card == "+4"){
                     plusCard = true;
+
+                    if(card_index.length > 1){
+                        resetPlusCard()
+                    }
+
                     plusMult();
                 }
 
@@ -653,6 +658,11 @@ function UNO(){
             }
             else if(current_card.includes("+2")){
                 plusCard = true;
+
+                if(card_index.length > 1){
+                    resetPlusCard()
+                }
+
                 plusMult();
             }
             else if(current_card.includes("reverse")){
@@ -675,6 +685,8 @@ function UNO(){
 
         for(var i = 0; i < players_cards[0].length; i++){
             if(players_cards[0][i] == "+4" || players_cards[0][i] == "wild"){
+                cl_dsp.innerHTML += " -> " + (parseInt(i) + 1);
+
                 if(players_cards[0].length == 1){
                     win();
                     return;
@@ -698,6 +710,7 @@ function UNO(){
                 return;
             }
             else if(cardChecker(players_cards[0][i])){
+                cl_dsp.innerHTML += " -> " + (parseInt(i) + 1);
 
                 current_card = players_cards[0][i];
 
@@ -818,6 +831,11 @@ function UNO_AI(){
 
                 if(players_cards[turn][play].includes("+2")){
                     plusCard = true;
+
+                    if(card_index.length > 1){
+                        resetPlusCard()
+                    }
+                
                     plusMult();
                 }
 
@@ -831,7 +849,13 @@ function UNO_AI(){
                 card_index = card_index.sort();
                 cl_dsp.innerHTML += card_index.join(" + ");
 
+
                 if(current_card.includes("7")){
+                    if(players_cards[turn].length == 0){
+                        win();
+                        return;
+                    }
+
                     var target = Math.floor(Math.random() * max_player);
                     while(target == turn){
                         target = Math.floor(Math.random() * max_player);
