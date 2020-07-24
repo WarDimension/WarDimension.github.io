@@ -42,7 +42,7 @@ var ascendTemp;
 
 var ascend = 0;
 
-var time;
+var ascendTimer;
 function ascendTime(){
     cl_dsp.innerHTML = cl_dsp_head + "<br/><br/>ascending.";
 
@@ -105,7 +105,7 @@ cl_in.addEventListener("keydown", (e) => {
             }
             else if(command == "ascend"){
                 cl_dsp.innerHTML = cl_dsp_head + "<br/><br/>ascending.";
-                time = setInterval(ascendTime, 1000);
+                ascendTimer = setInterval(ascendTime, 1000);
                 ascendTemp = players[0];
                 changeName("666");
                 state = "ascend";
@@ -151,7 +151,7 @@ cl_in.addEventListener("keydown", (e) => {
             }
         }
         else if(state == "ascend" && command == "1010011010"){
-            clearInterval(time);
+            clearInterval(ascendTimer);
             changeName(ascendTemp);
             ascend = 0;
             localStorage.setItem("ascend", "true");
@@ -173,7 +173,7 @@ cl_in.addEventListener("keydown", (e) => {
             first_in = true;
         }
         else if(state == "ascend"){
-            clearInterval(time);
+            clearInterval(ascendTimer);
             changeName(ascendTemp);
             ascend = 0;
         }
