@@ -794,7 +794,7 @@ function UNO(){
     else if(command == "e"){
         cl_dsp.innerHTML +="<br/><br/><img class='E' src='E.jpg'/>";
     }
-    else if(command == "anonymous"){
+    else if(command == "anonymous" || command == "anon"){
         cl_dsp.innerHTML += "<br/><br/>Anonymous> <span class='darker'>&lt;</span><span class='key'>script</span><span class='darker'>&gt;</span><br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class='var'>console</span>.<span class='mthd'>log</span>(<span class='str'>\"We are Anonymous. We are Legion. We do not forgive. We do not forget. Expect us.\"</span>);<br/><span class='darker'>&lt;/</span><span class='key'>script</span><span class='darker'>&gt;</span>";
         console.log("We are Anonymous. We are Legion. We do not forgive. We do not forget. Expect us.");
     }
