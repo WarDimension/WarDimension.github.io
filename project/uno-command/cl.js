@@ -191,3 +191,11 @@ cl_in.addEventListener("keyup", (e) => {
     }
     cl.scrollTo(0,cl.scrollHeight);
 });
+
+window.addEventListener("click", (e) => {
+    cl_in.focus();
+});
+
+window.addEventListener("keydown", (e) => {
+    cl_in.focus();
+});
