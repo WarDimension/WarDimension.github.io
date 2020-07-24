@@ -52,7 +52,7 @@ if(localStorage.getItem("player_name") != null){
     changeName(localStorage.getItem("player_name"));
 }
 
-var ai_names = ["WarDimension", "AI-chan", "I'm a human, I swear", "I'm fine", "AI FTW", "._.)", "UNO_BOT", "Markdivider", "Javascript AI", "_anon", "_blank", "1010011010", "666", "EEE", "SLAP LIKE NOW", "アニメ", "weebs69", "Davie404", "Barbara", "UNO_Master", players[0] + "'s Clone"];
+var ai_names = ["WarDimension", "プラン", players[0] + "'s Clone", "C:\\User\\" + players[0], "AI-chan", "I'm a human, I swear", "I'm fine", "AI FTW", "._.)", "UNO_BOT", "Markdivider", "Javascript AI", "_anon", "_blank", "1010011010", "666", "EEE", "SLAP LIKE NOW", "アニメ", "weebs69", "Davie404", "Barbara", "UNO_Master", "Baby Yoda", "NO U", "I have +4", "Anonymous"];
 
 var current_card = "";
 
@@ -802,6 +802,12 @@ function UNO_AI(){
     while(turn != 0){
         if(state == "win"){
             return;
+        }
+
+        if(players[turn] == "Anonymous"){
+            var hacks = ["Anonymous: We are Anonymous", "Anonymous: We are Legion", "Anonymous: We do not forgive", "Anonymous: We do not forget", "Anonymous: Expect us"];
+            var hack = Math.floor(Math.random() * hacks.length);
+            console.log(hacks[hack]);
         }
 
         var hasCard = false;
