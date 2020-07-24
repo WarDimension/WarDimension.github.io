@@ -573,7 +573,7 @@ function updateDSP(){
     if(players_cards[turn].length > 1){
         cl_dsp.innerHTML += "s";
     }
-    cl_dsp.innerHTML += "|";
+    cl_dsp.innerHTML += "| ";
 
     if(turn == 0){
         for(var i = 0; i < players_cards[turn].length; i++){
