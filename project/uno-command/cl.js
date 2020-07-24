@@ -10,7 +10,9 @@ var commandHistoryIndex = 0;
 var commandTemp = "";
 
 function addHistory(command){
-    commandHistory.push(command);
+    if(command != commandHistory[commandHistory.length-1]){
+        commandHistory.push(command);
+    }
     commandHistoryIndex = commandHistory.length;
     commandTemp = "";
 }
