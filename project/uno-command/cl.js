@@ -5,6 +5,16 @@ var player = document.getElementById("player");
 
 var state = "menu";
 
+var commandHistory = [];
+var commandHistoryIndex = 0;
+var commandTemp = "";
+
+function addHistory(command){
+    commandHistory.push(command);
+    commandHistoryIndex = commandHistory.length;
+    commandTemp = "";
+}
+
 cl_dsp_head = `
     UNO_command [version 1.0]<br/>
     by WarDimension
@@ -60,8 +70,13 @@ function ascendTime(){
 }
 
 cl_in.addEventListener("input", (e) => {
+    if(e.inputType != "insertLineBreak"){
+        commandTemp = cl_in.value;
+    }
+
     cl_in.style.height = "24px";
     cl_in.style.height = cl_in.scrollHeight;
+
     if(state == "pre_play" && e.data != null){
         if(first_in){
             players[0] = "";
@@ -76,6 +91,8 @@ cl_in.addEventListener("input", (e) => {
 cl_in.addEventListener("keydown", (e) => {
     var command = cl_in.value.toLowerCase();
     if(e.key == "Enter" && (command != "" || state == "pre_play")){
+        addHistory(cl_in.value);
+
         if(state != "ascend"){
             cl_dsp.innerHTML += `<br/><br/>${players[0]}> ` + cl_in.value;
         }
@@ -192,4 +209,18 @@ window.addEventListener("click", (e) => {
 
 window.addEventListener("keydown", (e) => {
     cl_in.focus();
+
+    if(e.key == "ArrowUp" && commandHistoryIndex != 0){
+        commandHistoryIndex--;
+        cl_in.value = commandHistory[commandHistoryIndex];
+    }
+    else if(e.key == "ArrowDown" && commandHistoryIndex != commandHistory.length){
+        commandHistoryIndex++;
+        if(commandHistoryIndex != commandHistory.length){
+            cl_in.value = commandHistory[commandHistoryIndex];
+        }
+        else{
+            cl_in.value = commandTemp;
+        }
+    }
 });
