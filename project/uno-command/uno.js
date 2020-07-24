@@ -374,7 +374,11 @@ function autoChallenge(mult){
 function swapHandsDSP(){
     cl_dsp.innerHTML += "<br/><br/>|swap hands|";
     for(var i = 1; i < max_player; i++){
-        cl_dsp.innerHTML += ` [${i}] ${players[i]} |${players_cards[i].length} cards|`;
+        cl_dsp.innerHTML += ` [${i}] ${players[i]} |${players_cards[i].length} card`;
+        if(players_cards[i].length > 1){
+            cl_dsp.innerHTML += "s";
+        }
+        cl_dsp.innerHTML += "|";
     }
     cl_dsp.innerHTML += "<br/><br/>[esc] exit";
 }
@@ -565,7 +569,11 @@ function updateDSP(){
         }
     }
     
-    cl_dsp.innerHTML += "<br/><br/>current_card: " + current_card + "<br/><br/>|" + players_cards[turn].length + " cards| ";
+    cl_dsp.innerHTML += `<br/><br/>current_card: ${current_card}<br/><br/>|${players_cards[turn].length} card`;
+    if(players_cards[turn].length > 1){
+        cl_dsp.innerHTML += "s";
+    }
+    cl_dsp.innerHTML += "|";
 
     if(turn == 0){
         for(var i = 0; i < players_cards[turn].length; i++){
