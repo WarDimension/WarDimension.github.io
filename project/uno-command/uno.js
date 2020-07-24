@@ -773,6 +773,7 @@ function UNO(){
             }
         }
 
+        cl_dsp.innerHTML += " -> draw";
         drawCard();
     }
     else if(command == "draw"){
