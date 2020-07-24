@@ -81,6 +81,13 @@ function win(){
     if(winner == ""){
         winner = players[turn];
     }
+    players = [players[0]];
+    players_cards = [];
+    turn = 0;
+    reverse = false;
+    plusCard = false;
+    resetPlus = false;
+    first_play = true;
 }
 
 function exit(){

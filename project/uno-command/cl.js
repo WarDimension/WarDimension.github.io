@@ -134,12 +134,6 @@ cl_in.addEventListener("keydown", (e) => {
                 exit();
             }
             else if(command == "play"){
-                players = [players[0]];
-                players_cards = [];
-                turn = 0;
-                reverse = false;
-                plusCard = true;
-                first_play = true;
                 state = "pre_play";
                 UNO_PRE();
             }
