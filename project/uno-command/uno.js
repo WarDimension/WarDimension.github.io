@@ -790,8 +790,13 @@ function UNO(){
                 cl_dsp.innerHTML += "<br/><br/>" + players[i] + "> F";
             }
         }
-    }else if(command == "e"){
+    }
+    else if(command == "e"){
         cl_dsp.innerHTML +="<br/><br/><img class='E' src='E.jpg'/>";
+    }
+    else if(command == "anonymous"){
+        cl_dsp.innerHTML += "<br/><br/>Anonymous> &lt;script&gt;<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log(\"We are Anonymous. We are Legion. We do not forgive. We do not forget. Expect us.\");<br/>&lt;/script&gt;";
+        console.log("We are Anonymous. We are Legion. We do not forgive. We do not forget. Expect us.");
     }
     else{
         cl_dsp.innerHTML += "<br/>invalid command.";
@@ -805,7 +810,7 @@ function UNO_AI(){
         }
 
         if(players[turn] == "Anonymous"){
-            var hacks = ["Anonymous: We are Anonymous", "Anonymous: We are Legion", "Anonymous: We do not forgive", "Anonymous: We do not forget", "Anonymous: Expect us"];
+            var hacks = ["Anonymous: We are Anonymous.", "Anonymous: We are Legion.", "Anonymous: We do not forgive.", "Anonymous: We do not forget.", "Anonymous: Expect us."];
             var hack = Math.floor(Math.random() * hacks.length);
             console.log(hacks[hack]);
         }
