@@ -128,7 +128,7 @@ function setSettings(command){
         var stack_plus_cards_temp = stack_plus_cards;
         var background_temp = background;
 
-        if(command.includes("background") || /6/.test(command)){
+        if(command.includes("background") || /^6/.test(command)){
             document.body.style.background = command.match(/#?\w+$/);
             if(command.includes("default")){
                 document.body.style.background = "#dddddd";
@@ -139,23 +139,23 @@ function setSettings(command){
         else if(!command.includes("background") && command.includes("#")){
             cl_dsp.innerHTML += "<br/>invalid command.";
         }
-        else if((command.includes("max_players") || /1/.test(command)) && command.match(/\b\d+$/) >= 2  && command.match(/\b\d+$/) <= ai_names.length){
+        else if((command.includes("max_players") || /^1/.test(command)) && command.match(/\b\d+$/) >= 2  && command.match(/\b\d+$/) <= ai_names.length){
             max_players = parseInt(command.match(/\b\d+$/));
             cl_dsp.innerHTML += "<br/>set max_players to " + max_players + ".";
         }
-        else if((command.includes("rotates_hands") || /2/.test(command)) && command.match(/(true|false)/)){
+        else if((command.includes("rotates_hands") || /^2/.test(command)) && command.match(/(true|false)/)){
             rotates_hands = command.match(/(true|false)/)[0] == "true";
             cl_dsp.innerHTML += "<br/>set rotates_hands to " + rotates_hands + ".";
         }
-        else if((command.includes("swap_hands") || /3/.test(command)) && command.match(/(true|false)/)){
+        else if((command.includes("swap_hands") || /^3/.test(command)) && command.match(/(true|false)/)){
             swap_hands = command.match(/(true|false)/)[0] == "true";
             cl_dsp.innerHTML += "<br/>set swap_hands to " + swap_hands + ".";
         }
-        else if((command.includes("challenge") || /4/.test(command)) && command.match(/(true|false)/)){
+        else if((command.includes("challenge") || /^4/.test(command)) && command.match(/(true|false)/)){
             challenge_set = command.match(/(true|false)/)[0] == "true";
             cl_dsp.innerHTML += "<br/>set challenge to " + challenge_set + ".";
         }
-        else if((command.includes("stack_plus_cards") || /5/.test(command)) && command.match(/(true|false)/)){
+        else if((command.includes("stack_plus_cards") || /^5/.test(command)) && command.match(/(true|false)/)){
             stack_plus_cards = command.match(/(true|false)/)[0] == "true";
             cl_dsp.innerHTML += "<br/>set stack_plus_cards to " + stack_plus_cards + ".";
         }
@@ -164,23 +164,23 @@ function setSettings(command){
                 defaultSettings();
                 cl_dsp.innerHTML += "<br/>set settings to default.";
             }
-            else if(command.includes("max_players") || /1/.test(command)){
+            else if(command.includes("max_players") || /^1/.test(command)){
                 max_players = max_players_def;
                 cl_dsp.innerHTML += "<br/>set max_players to default.";
             }
-            else if(command.includes("rotates_hands") || /2/.test(command)){
+            else if(command.includes("rotates_hands") || /^2/.test(command)){
                 rotates_hands = rotates_hands_def;
                 cl_dsp.innerHTML += "<br/>set rotates_hands to default.";
             }
-            else if(command.includes("swap_hands") || /3/.test(command)){
+            else if(command.includes("swap_hands") || /^3/.test(command)){
                 swap_hands = swap_hands_def;
                 cl_dsp.innerHTML += "<br/>set swap_hands to default.";
             }
-            else if(command.includes("challenge") || /4/.test(command)){
+            else if(command.includes("challenge") || /^4/.test(command)){
                 challenge_set = challenge_def;
                 cl_dsp.innerHTML += "<br/>set challenge to default.";
             }
-            else if(command.includes("stack_plus_cards") || /5/.test(command)){
+            else if(command.includes("stack_plus_cards") || /^5/.test(command)){
                 stack_plus_cards = stack_plus_cards_def;
                 cl_dsp.innerHTML += "<br/>set stack_plus_cards to default.";
             }
