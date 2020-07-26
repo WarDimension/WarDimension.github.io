@@ -75,6 +75,35 @@ var challenge_set = true;
 var stack_plus_cards = true;
 var background = "default";
 
+if(localStorage.getItem("max_players") != null){
+    max_players = localStorage.getItem("max_players");
+}
+if(localStorage.getItem("rotates_hands") != null){
+    rotates_hands = localStorage.getItem("rotates_hands");
+}
+if(localStorage.getItem("swap_hands") != null){
+    swap_hands = localStorage.getItem("swap_hands");
+}
+if(localStorage.getItem("challenge_set") != null){
+    challenge_set = localStorage.getItem("challenge_set");
+}
+if(localStorage.getItem("stack_plus_cards") != null){
+    stack_plus_cards = localStorage.getItem("stack_plus_cards");
+}
+if(localStorage.getItem("background") != null){
+    background = localStorage.getItem("background");
+    document.body.style.background = background;
+}
+
+function setLocalSetting(){
+    localStorage.setItem("max_players", max_players);
+    localStorage.setItem("rotates_hands", rotates_hands);
+    localStorage.setItem("swap_hands", swap_hands);
+    localStorage.setItem("challenge_set", challenge_set);
+    localStorage.setItem("stack_plus_cards", stack_plus_cards);
+    localStorage.setItem("background", background);
+}
+
 var cl_dsp_settings = `
     <br/><br/>
     settings:<br/>
@@ -91,7 +120,7 @@ var cl_dsp_settings = `
 `;
 
 function setSettings(command){
-    if(/^(\w+ ?= ?#?\w+)|(\d+ \w+)$/.test(command) || command == "default"){
+    if(/^(\w+ ?= ?#?\w+)|(\d+ #?\w+)$/.test(command) || command == "default"){
         var max_players_temp = max_players;
         var rotates_hands_temp = rotates_hands;
         var swap_hands_temp = swap_hands;
@@ -106,6 +135,9 @@ function setSettings(command){
             }
             background = command.match(/#?\w+$/);
             cl_dsp.innerHTML += "<br/>set background to " + command.match(/#?\w+$/) + ".";
+        }
+        else if(!command.includes("background") && command.includes("#")){
+            cl_dsp.innerHTML += "<br/>invalid command.";
         }
         else if((command.includes("max_players") || /1/.test(command)) && command.match(/\b\d+$/) >= 2  && command.match(/\b\d+$/) <= ai_names.length){
             max_players = parseInt(command.match(/\b\d+$/));
@@ -178,6 +210,8 @@ function setSettings(command){
         cl_dsp.innerHTML = cl_dsp.innerHTML.replace(`challenge = ${challenge_temp}`, `challenge = ${challenge_set}`);
         cl_dsp.innerHTML = cl_dsp.innerHTML.replace(`stack_plus_cards = ${stack_plus_cards_temp}`, `stack_plus_cards = ${stack_plus_cards}`);
         cl_dsp.innerHTML = cl_dsp.innerHTML.replace(`background = ${background_temp}`, `background = ${background}`);
+
+        setLocalSetting();
     }
     else if(command == "esc"){
         exit();
