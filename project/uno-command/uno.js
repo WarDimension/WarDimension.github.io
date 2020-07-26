@@ -823,10 +823,6 @@ function UNO_PRE(){
 
     cl_dsp.innerHTML = cl_dsp_head;
 
-    current_card = "yellow 2";//
-    turn = 0;//
-    players_cards[0] = ["yellow 7", "red 4"];//
-
     apply0Card();
     updateDSP();
 
@@ -975,10 +971,6 @@ function UNO(command){
                 }
 
                 players_cards[0].splice(i, 1);
-                
-                if(players_cards[0].length == 1 && !current_card.includes("7")){
-                    applyUNO();
-                }
 
                 if(swap_hands && current_card.includes("7")){
                     if(players_cards[0].length == 0){
@@ -995,6 +987,10 @@ function UNO(command){
                     players_cards[target] = handsTemp;
 
                     cl_dsp.innerHTML += `<br/><br/>${players[turn]} <-> ${players[target]} swap hands`;
+                }
+                
+                if(players_cards[0].length == 1){
+                    applyUNO();
                 }
                 
                 updateTurn();
