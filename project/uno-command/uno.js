@@ -744,12 +744,10 @@ function apply0Card(){
 }
 
 function applyUNO(){
-    if(!current_card.includes("0")){
-        cl_dsp.innerHTML += "<br/><br/>UNO -> " + players[turn] + " +2";
-        for(var i = 0; i < 2; i++){
-            draw = randomCard();
-            players_cards[turn].push(draw);
-        }
+    cl_dsp.innerHTML += "<br/><br/>UNO -> " + players[turn] + " +2";
+    for(var i = 0; i < 2; i++){
+        draw = randomCard();
+        players_cards[turn].push(draw);
     }
 }
 
