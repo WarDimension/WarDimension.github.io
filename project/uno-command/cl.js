@@ -26,7 +26,8 @@ cl_dsp_menu = `
     <br/><br/>
     [1] play
     [2] rules
-    [3] home_page
+    [3] settings
+    [4] home_page
 `;
 
 cl_dsp_rules = `
@@ -99,14 +100,7 @@ cl_in.addEventListener("keydown", (e) => {
             cl_dsp.innerHTML += `<br/><br/>${players[0]}> ` + cl_in.value;
         }
 
-        if(/^background ?= ?#?\w+$/.test(command)){
-            document.body.style.background = command.match(/#?\w+$/);
-            if(command.includes("default")){
-                document.body.style.background = "#dddddd";
-            }
-            cl_dsp.innerHTML += "<br/>set background to " + command.match(/#?\w+$/);
-        }
-        else if(state == "menu"){
+        if(state == "menu"){
             if(command == "1"){
                 cl_dsp.innerHTML = cl_dsp_head + "<br/><br/>your name?<br/><br/>[enter] skip/continue [backspace] erase [esc] back";
                 state = "pre_play";
@@ -115,6 +109,10 @@ cl_in.addEventListener("keydown", (e) => {
                 cl_dsp.innerHTML = cl_dsp_head + cl_dsp_rules + cl_dsp_menu;
             }
             else if(command == "3"){
+                cl_dsp.innerHTML = cl_dsp_head + cl_dsp_settings;
+                state = "settings";
+            }
+            else if(command == "4"){
                 window.open("https://wardimension.github.io","_blank");
                 cl_dsp.innerHTML = cl_dsp_head + cl_dsp_menu;
                 cl_in_reset = true;
@@ -133,20 +131,23 @@ cl_in.addEventListener("keydown", (e) => {
                 cl_dsp.innerHTML += "<br/>invalid command.";
             }
         }
+        else if(state == "settings"){
+            setSettings(command);
+        }
         else if(state == "pre_play"){
             UNO_PRE();
         }
         else if(state == "play"){
-            UNO();
+            UNO(command);
         }
         else if(state == "color_choose"){
-            colorChoose();
+            colorChoose(command);
         }
         else if(state == "challenge"){
-            challenge();
+            challenge(command);
         }
         else if(state == "swap_hands"){
-            swapHands();
+            swapHands(command);
         }
         else if(state == "win"){
             if(command == "esc"){
