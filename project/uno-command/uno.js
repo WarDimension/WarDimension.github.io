@@ -721,6 +721,7 @@ function apply0Card(){
         if(first_play){
             cl_dsp.innerHTML += "<br/>";
         }
+
         cl_dsp.innerHTML += "<br/>everyone rotates hands.";
         
         if(reverse){
@@ -743,10 +744,12 @@ function apply0Card(){
 }
 
 function applyUNO(){
-    cl_dsp.innerHTML += "<br/><br/>UNO -> " + players[turn] + " +2";
-    for(var i = 0; i < 2; i++){
-        draw = randomCard();
-        players_cards[turn].push(draw);
+    if(!current_card.includes("0")){
+        cl_dsp.innerHTML += "<br/><br/>UNO -> " + players[turn] + " +2";
+        for(var i = 0; i < 2; i++){
+            draw = randomCard();
+            players_cards[turn].push(draw);
+        }
     }
 }
 
