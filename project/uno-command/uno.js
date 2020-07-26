@@ -76,19 +76,19 @@ var stacking = true;
 var background = "default";
 
 if(localStorage.getItem("max_players") != null){
-    max_players = localStorage.getItem("max_players");
+    max_players = parseInt(localStorage.getItem("max_players"));
 }
 if(localStorage.getItem("rotates_hands") != null){
-    rotates_hands = localStorage.getItem("rotates_hands");
+    rotates_hands = localStorage.getItem("rotates_hands") == "true";
 }
 if(localStorage.getItem("swap_hands") != null){
-    swap_hands = localStorage.getItem("swap_hands");
+    swap_hands = localStorage.getItem("swap_hands") == "true";
 }
 if(localStorage.getItem("challenge_set") != null){
-    challenge_set = localStorage.getItem("challenge_set");
+    challenge_set = localStorage.getItem("challenge_set") == "true";
 }
 if(localStorage.getItem("stacking") != null){
-    stacking = localStorage.getItem("stacking");
+    stacking = localStorage.getItem("stacking") == "true";
 }
 if(localStorage.getItem("background") != null){
     background = localStorage.getItem("background");
@@ -911,8 +911,8 @@ function UNO(command){
 
                 plusMult();
             }
-            else if(current_card.includes("reverse")){
-                reverse = true;
+            else if(current_card.includes("reverse") && (card_index.length % 2 != 0)){
+                reverse = !reverse;
             }
 
             if(players_cards[0].length == 1 && !command.includes("uno")){
@@ -1167,8 +1167,8 @@ function UNO_AI(){
                 players_cards[turn].splice(play, 1);
             }
 
-            if(current_card.includes("reverse")){
-                reverse = true;
+            if(current_card.includes("reverse") && (card_index.length % 2 != 0)){
+                reverse = !reverse;
             }
 
             if(players_cards[turn].length == 1 && uno == 1 && !current_card.includes("7")){
