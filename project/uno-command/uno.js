@@ -72,7 +72,7 @@ var max_players = 4;
 var rotates_hands = true;
 var swap_hands = true;
 var challenge_set = true;
-var stack_plus_cards = true;
+var stack = true;
 var background = "default";
 
 if(localStorage.getItem("max_players") != null){
@@ -87,8 +87,8 @@ if(localStorage.getItem("swap_hands") != null){
 if(localStorage.getItem("challenge_set") != null){
     challenge_set = localStorage.getItem("challenge_set");
 }
-if(localStorage.getItem("stack_plus_cards") != null){
-    stack_plus_cards = localStorage.getItem("stack_plus_cards");
+if(localStorage.getItem("stack") != null){
+    stack = localStorage.getItem("stack");
 }
 if(localStorage.getItem("background") != null){
     background = localStorage.getItem("background");
@@ -100,7 +100,7 @@ function setLocalSetting(){
     localStorage.setItem("rotates_hands", rotates_hands);
     localStorage.setItem("swap_hands", swap_hands);
     localStorage.setItem("challenge_set", challenge_set);
-    localStorage.setItem("stack_plus_cards", stack_plus_cards);
+    localStorage.setItem("stack", stack);
     localStorage.setItem("background", background);
 }
 
@@ -111,7 +111,7 @@ var cl_dsp_settings = `
     [2] rotates_hands = ${rotates_hands} [true, false]<br/>
     [3] swap_hands = ${swap_hands} [true, false]<br/>
     [4] challenge = ${challenge_set} [true, false]<br/>
-    [5] stack_plus_cards = ${stack_plus_cards} [true, false]<br/>
+    [5] stack = ${stack} [true, false]<br/>
     [6] background = ${background} [color, #color_code]
     <br/><br/>
     commands: [1-6] [value], [1-6] default, [var] = [value], [var] = default
@@ -125,7 +125,7 @@ function setSettings(command){
         var rotates_hands_temp = rotates_hands;
         var swap_hands_temp = swap_hands;
         var challenge_temp = challenge_set;
-        var stack_plus_cards_temp = stack_plus_cards;
+        var stack_temp = stack;
         var background_temp = background;
 
         if(command.includes("background") || /^6/.test(command)){
@@ -155,9 +155,9 @@ function setSettings(command){
             challenge_set = command.match(/(true|false)/)[0] == "true";
             cl_dsp.innerHTML += "<br/>set challenge to " + challenge_set + ".";
         }
-        else if((command.includes("stack_plus_cards") || /^5/.test(command)) && command.match(/(true|false)/)){
-            stack_plus_cards = command.match(/(true|false)/)[0] == "true";
-            cl_dsp.innerHTML += "<br/>set stack_plus_cards to " + stack_plus_cards + ".";
+        else if((command.includes("stack") || /^5/.test(command)) && command.match(/(true|false)/)){
+            stack = command.match(/(true|false)/)[0] == "true";
+            cl_dsp.innerHTML += "<br/>set stack to " + stack + ".";
         }
         else if(command.includes("default")){
             if(command == "default"){
@@ -180,9 +180,9 @@ function setSettings(command){
                 challenge_set = challenge_def;
                 cl_dsp.innerHTML += "<br/>set challenge to default.";
             }
-            else if(command.includes("stack_plus_cards") || /^5/.test(command)){
-                stack_plus_cards = stack_plus_cards_def;
-                cl_dsp.innerHTML += "<br/>set stack_plus_cards to default.";
+            else if(command.includes("stack") || /^5/.test(command)){
+                stack = stack_def;
+                cl_dsp.innerHTML += "<br/>set stack to default.";
             }
         }
         else{
@@ -196,7 +196,7 @@ function setSettings(command){
             [2] rotates_hands = ${rotates_hands} [true, false]<br/>
             [3] swap_hands = ${swap_hands} [true, false]<br/>
             [4] challenge = ${challenge_set} [true, false]<br/>
-            [5] stack_plus_cards = ${stack_plus_cards} [true, false]<br/>
+            [5] stack = ${stack} [true, false]<br/>
             [6] background = ${background} [color, #color_code]
             <br/><br/>
             commands: [1-6] [value], [1-6] default, [var] = [value], [var] = default
@@ -208,7 +208,7 @@ function setSettings(command){
         cl_dsp.innerHTML = cl_dsp.innerHTML.replace(`rotates_hands = ${rotates_hands_temp}`, `rotates_hands = ${rotates_hands}`);
         cl_dsp.innerHTML = cl_dsp.innerHTML.replace(`swap_hands = ${swap_hands_temp}`, `swap_hands = ${swap_hands}`);
         cl_dsp.innerHTML = cl_dsp.innerHTML.replace(`challenge = ${challenge_temp}`, `challenge = ${challenge_set}`);
-        cl_dsp.innerHTML = cl_dsp.innerHTML.replace(`stack_plus_cards = ${stack_plus_cards_temp}`, `stack_plus_cards = ${stack_plus_cards}`);
+        cl_dsp.innerHTML = cl_dsp.innerHTML.replace(`stack = ${stack_temp}`, `stack = ${stack}`);
         cl_dsp.innerHTML = cl_dsp.innerHTML.replace(`background = ${background_temp}`, `background = ${background}`);
 
         setLocalSetting();
@@ -229,14 +229,14 @@ var max_players_def = 4;
 var rotates_hands_def = true;
 var swap_hands_def = true;
 var challenge_def = true;
-var stack_plus_cards_def = true;
+var stack_def = true;
 
 function defaultSettings(){
     max_players = max_players_def;
     rotates_hands = rotates_hands_def;
     swap_hands = swap_hands_def;
     challenge_set = challenge_def;
-    stack_plus_cards = stack_plus_cards_def;
+    stack = stack_def;
     background = "default";
     document.body.style.background = "#dddddd";
 }
@@ -387,7 +387,7 @@ function challengeDSP(){
 
     cl_dsp.innerHTML += "<br/><br/>current_card: " + current_card + "<br/><br/>|challenge +4| [1] challenge [2] decline";
 
-    if(hasCard && stack_plus_cards){
+    if(hasCard && stack){
         cl_dsp.innerHTML += " [3] play +4";
     }
     
@@ -460,7 +460,7 @@ function challenge(command){
             }
         }
 
-        if(hasCard && stack_plus_cards){
+        if(hasCard && stack){
             state = "play";
             resetPlusCard();
             updateDSP();
@@ -635,7 +635,7 @@ function applyPlusCard(){
                 }
             }
 
-            if(!stack_plus_cards){
+            if(!stack){
                 hasCard = false;
                 resetPlusCard();
             }
@@ -671,7 +671,7 @@ function applyPlusCard(){
                 }
             }
 
-            if(!stack_plus_cards){
+            if(!stack){
                 hasCard = false;
                 resetPlusCard();
             }
