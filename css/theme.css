@@ -215,6 +215,116 @@ h3{
   outline: solid 1px #eee;
   transition: all 0.1s cubic-bezier(.25,.8,.25,1);
 }
+
+/* MORE */
+
+.more-container{
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+}
+
+.more{
+  width: fit-content;
+  display: inline-block;
+  margin-left: 8px;
+  background: #fff;
+  border-radius: 26px;
+  padding: 8px;
+  color: #444;
+  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.1s cubic-bezier(.25,.8,.25,1);
+}
+
+.more .material-icons{
+  vertical-align: middle;
+  font-size: 25px;
+}
+
+.more p, .more a{
+  margin: 0;
+  margin-right: 8px;
+  font-weight: bold;
+  display: none;
+  vertical-align: middle;
+}
+
+.more a{
+  display: inline-block;
+  margin-right: 0;
+  margin-left: 8px;
+  text-decoration: none;
+  color: #444;
+  outline: none;
+}
+
+.more-menu{
+  position: relative;
+  padding: 8px 15px;
+  opacity: 0%;
+  transition: all 0.2s cubic-bezier(.25,.8,.25,1);
+}
+
+.more-menu-div{
+  display: none;
+}
+
+.more-list{
+  opacity: 0%;
+  transition: all 0.2s cubic-bezier(.25,.8,.25,1);
+}
+
+.list-nav{
+  display: inline-block;
+}
+
+.list-nav-v2{
+  display: none;
+}
+
+.more-button:hover, .material-icons:hover, .more a:hover{
+  color: cornflowerblue;
+}
+
+.more-button:hover > .more_close{
+  color: #B22;
+}
+
+.more-button:hover > p{
+  display: inline-block;
+}
+
+.more-apps, .more-games{
+  position: absolute;
+  right: 0;
+  bottom: 50px;
+  text-align: center;
+  width: 100%;
+  padding: 6px;
+  font-size: 15px;
+  opacity: 0%;
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.more-apps > p, .more-games > p{
+  display: inline-block;
+  margin: 0;
+}
+
+.apps-i:hover ~ .more-apps{
+  opacity: 100%;
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.games-i:hover ~ .more-games{
+  opacity: 100%;
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+/* MORE */
+
 @media only screen and (orientation: portrait), only screen and (max-width: 1600px){
   #main{
     top: 0;
@@ -261,6 +371,61 @@ h3{
   .menu-button:focus{
     outline-color: #000;
   }
+
+  /* MORE */
+
+  .more-container{
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 100%;
+    color: #000;
+  }
+
+  .more{
+    margin: 0;
+  }
+
+  .more a{
+    margin-right: 8px;
+  }
+
+  .more-button, .more-menu, .more-list, .list-nav-v2{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: fit-content;
+  }
+
+  .more-menu{
+    width: 159px;
+  }
+
+  .more-menu-div{
+    display: inline-block;
+    width: 70px;
+  }
+
+  .more-list{
+    bottom: 50px;
+  }
+
+  .list-nav{
+    display: none;
+  }
+
+  .list-nav-v2{
+    display: inline-block;
+  }
+
+  .list-nav-div{
+    display: inline-block;
+    width: 170px;
+  }
+
+  /* MORE */
 }
 @media only screen and (max-width: 1024px){
   .content{

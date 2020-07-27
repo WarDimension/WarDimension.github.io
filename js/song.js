@@ -508,7 +508,7 @@ function updateTimeSlider(){
 function platform(url, sprite, name){
   return `
     ${url != undefined ?
-      `<a class="platform-url" href="${url}"  target="aboutblank">
+      `<a class="platform-url" href="${url}"  target="_blank">
         <i class="platform-icon i-${sprite}"></i>${name}
       </a>` : ``
     }
