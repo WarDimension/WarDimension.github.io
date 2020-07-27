@@ -418,6 +418,7 @@ h3{
 
   .list-nav-v2{
     display: inline-block;
+    opacity: 0%;
   }
 
   .list-nav-div{

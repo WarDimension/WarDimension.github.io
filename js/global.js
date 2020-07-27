@@ -85,6 +85,7 @@ function moreGames(){
 }
 
 var moreList = document.getElementsByClassName("more-list");
+var list_nav_v2 = document.getElementsByClassName("list-nav-v2");
 var moreLink = document.getElementsByClassName("more-link");
 var apps_i = document.getElementsByClassName("apps-i");
 var games_i = document.getElementsByClassName("games-i");
@@ -102,6 +103,7 @@ list_index = 0;
 function displayMoreList(){
   if((more_games || more_apps) && more_open){
     moreList[0].style.opacity = "100%";
+    list_nav_v2[0].style.opacity = "100%";
     prev_list[0].style.color = "";
     prev_list[1].style.color = "";
     next_list[0].style.color = "";
@@ -133,6 +135,7 @@ function displayMoreList(){
   }
   else{
     moreList[0].style.opacity = "0%";
+    list_nav_v2[0].style.opacity = "0%";
     apps_i[0].style.color = "";
     games_i[0].style.color = "";
   }
