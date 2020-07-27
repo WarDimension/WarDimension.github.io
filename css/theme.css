@@ -390,6 +390,14 @@ h3{
   .more a{
     margin-right: 8px;
   }
+  
+  .more-apps, .more-games{
+    left: 0;
+    right: 0;
+    margin: auto;
+    bottom: 95px;
+    width: 80px;
+  }
 
   .more-button, .more-menu, .more-list, .list-nav-v2{
     position: absolute;
