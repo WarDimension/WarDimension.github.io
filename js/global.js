@@ -51,7 +51,7 @@ function more(){
     moreMenu[0].style.opacity = "100%";
   }
   else{
-    moreButton[0].innerHTML = "<i class='material-icons'>add</i><p clas='more-text'>MORE</p>";
+    moreButton[0].innerHTML = "<i class='material-icons'>add</i>\n<p class='more-text'>MORE</p>";
     moreMenu[0].style.opacity = "0%";
   }
   more_open = !more_open;
@@ -173,6 +173,13 @@ window.addEventListener("resize", (e) => {
     mvp.setAttribute("content","width=360, user-scalable=no");
   }else{
     mvp.setAttribute("content","width=device-width, initial-scale=1.0, user-scalable=no");
+  }
+});
+
+window.addEventListener("click", (e) => {
+  var className = e.target.className;
+  if(!(getParentClass(e.target, "more-container") || className == "more-text" || className =="material-icons") && more_open){
+    more();
   }
 });
 
