@@ -48,11 +48,11 @@ var more_open = false;
 function more(){
   if(!more_open){
     moreButton[0].innerHTML = "<i class='material-icons more_close'>clear</i>";
-    moreMenu[0].style.opacity = "100%";
+    moreMenu[0].style.opacity = "1";
   }
   else{
     moreButton[0].innerHTML = "<i class='material-icons'>add</i>\n<p class='more-text'>MORE</p>";
-    moreMenu[0].style.opacity = "0%";
+    moreMenu[0].style.opacity = "0";
   }
   more_open = !more_open;
   more_apps = false;
@@ -102,8 +102,8 @@ list_index = 0;
 
 function displayMoreList(){
   if((more_games || more_apps) && more_open){
-    moreList[0].style.opacity = "100%";
-    list_nav_v2[0].style.opacity = "100%";
+    moreList[0].style.opacity = "1";
+    list_nav_v2[0].style.opacity = "1";
     prev_list[0].style.color = "";
     prev_list[1].style.color = "";
     next_list[0].style.color = "";
@@ -134,8 +134,8 @@ function displayMoreList(){
     }
   }
   else{
-    moreList[0].style.opacity = "0%";
-    list_nav_v2[0].style.opacity = "0%";
+    moreList[0].style.opacity = "0";
+    list_nav_v2[0].style.opacity = "0";
     apps_i[0].style.color = "";
     games_i[0].style.color = "";
   }
