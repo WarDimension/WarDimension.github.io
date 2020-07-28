@@ -43,16 +43,21 @@ function getParentIdByElement(element){
 var moreContainer = document.getElementsByClassName("more-container");
 var moreButton = document.getElementsByClassName("more-button");
 var moreMenu = document.getElementsByClassName("more-menu");
+var moreList = document.getElementsByClassName("more-list");
 
 var more_open = false;
 function more(){
   if(!more_open){
     moreButton[0].innerHTML = "<i class='material-icons more_close'>clear</i>";
     moreMenu[0].style.opacity = "1";
+    moreMenu[0].style.transition = "all 0.2s cubic-bezier(.25,.8,.25,1)";
+    moreList[0].style.transition = "all 0.2s cubic-bezier(.25,.8,.25,1)";
   }
   else{
     moreButton[0].innerHTML = "<i class='material-icons'>add</i>\n<p class='more-text'>MORE</p>";
     moreMenu[0].style.opacity = "0";
+    moreMenu[0].style.transition = "all 0s";
+    moreList[0].style.transition = "all 0s";
   }
   more_open = !more_open;
   more_apps = false;
@@ -84,7 +89,6 @@ function moreGames(){
   displayMoreList();
 }
 
-var moreList = document.getElementsByClassName("more-list");
 var list_nav_v2 = document.getElementsByClassName("list-nav-v2");
 var moreLink = document.getElementsByClassName("more-link");
 var apps_i = document.getElementsByClassName("apps-i");
