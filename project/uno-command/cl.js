@@ -32,7 +32,40 @@ cl_dsp_menu = `
 
 cl_dsp_rules = `
     <br/><br/>
-    rules.
+    commands:
+    <br/><br/>
+    [anytime]<br/>
+    <ul class="rules">
+        <li>cls: clear screen.</li>
+        <li>esc_key: exit to main menu.</li>
+    </ul>
+    <br/><br/>
+    [play mode]<br/>
+    <ul class="rules">
+        <li>command format: [card_number] [color] uno.</li>
+        <li>[card_number]: play card number [card_number] from your hand.</li>
+        <li>[card_number1] + [card_number2] + ... : play 2 or more identical cards from your hand (combo).</li>
+        <li>[color]: add the color for wild card. if not included, the game will ask you to choose color.</li>
+        <li>uno: say uno.</li>
+        <li>draw: draw card until you find playable card.</li>
+        <li>auto: autoplay.</li>
+        <li>esc/esc_key: exit to main menu.</li>
+    </ul>
+    <br/><br/>
+    rules:<br/>
+    <ul class="rules">
+        <li>general: play the card with the same value/color with previous card.</li>
+        <li>skip: skip the next player.</li>
+        <li>reverse: reverses the direction of play.</li>
+        <li>+2 card: the next player must draw 2 cards and lose a turn, or stack it.</li>
+        <li>+4 card: change the color, the next player must draw 4 cards and lose a turn, or stack it.</li>
+        <li>wild: change the color.</li>
+        <li>challenge: if the player who played +4 card have the matching color with the previous card, this player must draw 4 cards, otherwise you will draw 2 more cards.</li>
+        <li>uno: say uno before playing your next to last card. if not, you must draw 2 cards</li>
+        <li>stack: stack +2 with +2 and +4 with +4, player that can't add to the stack must draw the total. playing a combo will reset the total.</li>
+        <li>7 card: swap hands with another player.</li>
+        <li>0 card: everyone rotates hands in the direction of play.</li>
+    </ul>
 `;
 
 var cl_in_reset = false;
@@ -181,7 +214,7 @@ cl_in.addEventListener("keydown", (e) => {
         changeName(players[0]);
         first_in = false;
     }
-    else if(e.key == "Escape" && state != "menu"){
+    else if(e.key == "Escape"){
         if(state == "pre_play"){
             changeName(localStorage.getItem("player_name"));
             first_in = true;

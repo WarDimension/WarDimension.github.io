@@ -52,6 +52,29 @@ p{
     border: none;
 }
 
+ul{
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+}
+
+li{
+    display: table;
+}
+
+li::before{
+    display: table-cell;
+    padding-right: 8px;
+}
+
+.rules li::before{
+    content: "-";
+}
+
+.set-li::before{
+    content: attr(data-before);
+}
+
 .E{
     position: relative;
     left: 50%;

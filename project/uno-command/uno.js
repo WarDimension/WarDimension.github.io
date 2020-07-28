@@ -107,12 +107,14 @@ function setLocalSetting(){
 var cl_dsp_settings = `
     <br/><br/>
     settings:<br/>
-    [1] max_players = ${max_players} [2-${ai_names.length}]<br/>
-    [2] rotates_hands = ${rotates_hands} [true, false]<br/>
-    [3] swap_hands = ${swap_hands} [true, false]<br/>
-    [4] challenge = ${challenge_set} [true, false]<br/>
-    [5] stacking = ${stacking} [true, false]<br/>
-    [6] background = ${background} [color, #color_code]
+    <ul>
+        <li class="set-li" data-before="[1]">max_players = ${max_players} [2-${ai_names.length}]</li>
+        <li class="set-li" data-before="[2]">max_players = ${max_players} [2-${ai_names.length}]</li>
+        <li class="set-li" data-before="[3]">swap_hands = ${swap_hands} [true, false]</li>
+        <li class="set-li" data-before="[4]">challenge = ${challenge_set} [true, false]</li>
+        <li class="set-li" data-before="[5]">stacking = ${stacking} [true, false]</li>
+        <li class="set-li" data-before="[6]">background = ${background} [color, #color_code]</li>
+    </ul>
     <br/><br/>
     commands: [1-6] [value], [1-6] default, [var] = [value], [var] = default
     <br/><br/>
@@ -192,12 +194,14 @@ function setSettings(command){
         cl_dsp_settings = `
             <br/><br/>
             settings:<br/>
-            [1] max_players = ${max_players} [2-${ai_names.length}]<br/>
-            [2] rotates_hands = ${rotates_hands} [true, false]<br/>
-            [3] swap_hands = ${swap_hands} [true, false]<br/>
-            [4] challenge = ${challenge_set} [true, false]<br/>
-            [5] stacking = ${stacking} [true, false]<br/>
-            [6] background = ${background} [color, #color_code]
+            <ul>
+                <li class="set-li" data-before="[1]">max_players = ${max_players} [2-${ai_names.length}]</li>
+                <li class="set-li" data-before="[2]">max_players = ${max_players} [2-${ai_names.length}]</li>
+                <li class="set-li" data-before="[3]">swap_hands = ${swap_hands} [true, false]</li>
+                <li class="set-li" data-before="[4]">challenge = ${challenge_set} [true, false]</li>
+                <li class="set-li" data-before="[5]">stacking = ${stacking} [true, false]</li>
+                <li class="set-li" data-before="[6]">background = ${background} [color, #color_code]</li>
+            </ul>
             <br/><br/>
             commands: [1-6] [value], [1-6] default, [var] = [value], [var] = default
             <br/><br/>
