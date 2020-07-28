@@ -921,7 +921,11 @@ function UNO(command){
             updateDSP();
         }
         else{
-            cl_dsp.innerHTML += "<br/>you can't play that card.";
+            cl_dsp.innerHTML += "<br/>you can't play that card";
+            if(command.includes("+")){
+                cl_dsp.innerHTML += "s";
+            }
+            cl_dsp.innerHTML += ".";
         }
     }
     else if(command == "auto"){
@@ -1003,7 +1007,12 @@ function UNO(command){
         drawCard();
     }
     else if(command == "draw"){
-        drawCard();
+        if(plusCard){
+            cl_dsp.innerHTML += "<br/>you can't draw card(s).";
+        }
+        else{
+            drawCard();
+        }
     }
     else if(command == "cls"){
         cl_dsp.innerHTML = cl_dsp_head;
