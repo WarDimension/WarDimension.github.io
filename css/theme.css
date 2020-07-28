@@ -284,7 +284,7 @@ h3{
   display: none;
 }
 
-.more-button:hover, .material-icons:hover, .more a:hover{
+.more-button:hover, .more .material-icons:hover, .more a:hover{
   color: cornflowerblue;
 }
 
