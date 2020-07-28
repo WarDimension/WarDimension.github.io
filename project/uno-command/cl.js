@@ -61,10 +61,10 @@ cl_dsp_rules = `
         <li>+4 card: change the color, the next player must draw 4 cards and lose a turn, or stack it.</li>
         <li>wild: change the color.</li>
         <li>challenge: if the player who played +4 card have the matching color with the previous card, this player must draw 4 cards, otherwise you will draw 2 more cards.</li>
-        <li>uno: say uno before playing your next to last card. if not, you must draw 2 cards</li>
         <li>stack: stack +2 with +2 and +4 with +4, player that can't add to the stack must draw the total. playing a combo will reset the total.</li>
         <li>7 card: swap hands with another player.</li>
         <li>0 card: everyone rotates hands in the direction of play.</li>
+        <li>uno: say uno before playing your next to last card. if not, you must draw 2 cards</li>
     </ul>
 `;
 
