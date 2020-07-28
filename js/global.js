@@ -40,6 +40,8 @@ function getParentIdByElement(element){
   return element.parentNode && getParentIdByElement(element.parentNode);
 }
 
+// MORE
+
 var moreContainer = document.getElementsByClassName("more-container");
 var moreButton = document.getElementsByClassName("more-button");
 var moreMenu = document.getElementsByClassName("more-menu");
@@ -172,6 +174,8 @@ function nextList(){
     }
   }
 }
+
+// END MORE
 
 var mvp = document.getElementById("vp");
 if(screen.width < 360) {
