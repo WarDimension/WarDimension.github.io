@@ -1,0 +1,47 @@
+*{
+    font-family: "Courier New", Courier, monospace;
+    box-sizing: border-box;
+    overflow: hidden;
+    padding:0;
+    margin:0;
+}
+.keys-container{
+    position: absolute;
+    display: flex;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: fit-content;
+    height: fit-content;
+}
+.black-container{
+    position: relative;
+    overflow: visible;
+    background: purple;
+    z-index: 1;
+}
+.key.white{
+    position: relative;
+    width: 25px;
+    height: 120px;
+    background: #fff;
+    border: solid 2px #000;
+    border-radius: 5px;
+}
+.key.black{
+    position: absolute;
+    left: -8px;
+    width: 16px;
+    height: 70px;
+    background: #000;
+    border: solid 2px #000;
+    border-radius: 3px;
+}
+.key.white:hover{
+    background: #cbcbda;
+}
+.key.black:hover{
+    background: #343425;
+}
