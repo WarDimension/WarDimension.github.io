@@ -7,7 +7,7 @@ var highestOctave = 3;
 const notes = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
 
 var samples = "stage-grand";
-var audioSamples;
+var audioSamples = [];
 
 function loadSamples(){
     var src = "";
@@ -15,12 +15,12 @@ function loadSamples(){
         notes.forEach(note => {
             src = "./notes/" + samples + "/" + note.replace("#", "%23") + i.toString() + ".ogg";
             audioSamples.push(new Audio(src));
-            audioSamples[audioSamples.length - 1].play();
+            audioSamples[audioSamples.length - 1].load();
         });
     }
     src = "./notes/" + samples + "/" + highestNote + ".ogg";
     audioSamples.push(new Audio(src));
-    audioSamples[audioSamples.length - 1].play();
+    audioSamples[audioSamples.length - 1].load();
 }
 
 loadSamples();
