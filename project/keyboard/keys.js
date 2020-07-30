@@ -10,37 +10,29 @@ var samples = "stage-grand";
 var audioSamples = [];
 
 function loadSamples(){
+    audioSamples = [];
     loadDone = false;
     var src = "";
     for(var i = 1; i <= highestOctave; i++){
         notes.forEach(note => {
             src = "./notes/" + samples + "/" + note.replace("#", "%23") + i.toString() + ".ogg";
             audioSamples.push(new Audio(src));
-            audioSamples[audioSamples.length - 1].load();
+            audioSamples[audioSamples.length - 1].addEventListener("canplaythrough", loadedAudio, false);
         });
     }
     src = "./notes/" + samples + "/" + highestNote + ".ogg";
     audioSamples.push(new Audio(src));
-    audioSamples[audioSamples.length - 1].load();
-
-    loadTimer = setInterval(loadTime, 100);
+    audioSamples[audioSamples.length - 1].addEventListener("canplaythrough", loadedAudio, false);
 }
-
-var loadDone = false;
-
-var loadTimer;
 
 const loading = document.querySelector(".loading");
 
-function loadTime(){
-    var isReady = true;
-    audioSamples.forEach(audio => {
-        if(audio.readyState < 3){
-            isReady = false;
-        }
-    });
+var loadDone = false;
+var loaded = 0;
 
-    if(isReady){
+function loadedAudio(){
+    loaded++;
+    if (loaded == audioSamples.length){
         loadDone = true;
         loading.style.display = "none";
         clearInterval(loadTimer);
@@ -54,10 +46,14 @@ loadSamples();
 var audio = [];
 
 function playNote(note){
-    var src = "./notes/" + samples + "/" + note.replace("#", "%23") + ".ogg";
+    var note = note.replace("#", "%23");
 
-    audio.push(new Audio(src));
-    audio[audio.length - 1].play();
+    audioSamples.forEach(playAudio => {
+        if(playAudio.src.includes(note)){
+            audio.push(playAudio.cloneNode());
+            audio[audio.length - 1].play();
+        }
+    });
 }
 
 var fadeOutAudio = [];
