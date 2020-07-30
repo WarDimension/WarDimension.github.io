@@ -35,7 +35,6 @@ function loadedAudio(){
     if (loaded == audioSamples.length){
         loadDone = true;
         loading.style.display = "none";
-        clearInterval(loadTimer);
     }
 }
 
