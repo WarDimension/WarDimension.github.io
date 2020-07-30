@@ -27,9 +27,7 @@ function loadSamples(){
     audioSamples[audioSamples.length - 1].play();
 }
 
-window.onpaint = function(){
-    loadSamples();
-}
+loadSamples();
 
 // END LOAD SAMPLES
 
