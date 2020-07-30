@@ -57,6 +57,24 @@ function fadeOut(){
     }
 }
 
+function setNote(note){
+    playNote(note);
+    const key = document.querySelector("[note='" + note + "']");
+
+    if(key.className.includes("white")){
+        key.style.background = "#cbcbda";
+    }
+    else{
+        key.style.background = "#343425";
+    }
+}
+
+function unsetNote(note){
+    stopNote(note);
+    const key = document.querySelector("[note='" + note + "']");
+    key.style.background = "";
+}
+
 const keyPress = document.querySelector(".key-press");
 
 window.addEventListener("keydown", (e) => {
@@ -64,52 +82,52 @@ window.addEventListener("keydown", (e) => {
         keyPress.classList.add("space");
     }
     else if(e.key == "z" && !keyPress.className.includes(" z")){
-        playNote("C1");
         keyPress.classList.add("z");
+        setNote("C1");
     }
     else if(e.key == "s" && !keyPress.className.includes(" s")){
-        playNote("C#1");
         keyPress.classList.add("s");
+        setNote("C#1");
     }
     else if(e.key == "x" && !keyPress.className.includes(" x")){
-        playNote("D1");
         keyPress.classList.add("x");
+        setNote("D1");
     }
     else if(e.key == "d" && !keyPress.className.includes(" d")){
-        playNote("D#1");
         keyPress.classList.add("d");
+        setNote("D#1");
     }
     else if(e.key == "c" && !keyPress.className.includes(" c")){
-        playNote("E1");
         keyPress.classList.add("c");
+        setNote("E1");
     }
     else if(e.key == "v" && !keyPress.className.includes(" v")){
-        playNote("F1");
         keyPress.classList.add("v");
+        setNote("F1");
     }
     else if(e.key == "g" && !keyPress.className.includes(" g")){
-        playNote("F#1");
         keyPress.classList.add("g");
+        setNote("F#1");
     }
     else if(e.key == "b" && !keyPress.className.includes(" b")){
-        playNote("G1");
         keyPress.classList.add("b");
+        setNote("G1");
     }
     else if(e.key == "h" && !keyPress.className.includes(" h")){
-        playNote("G#1");
         keyPress.classList.add("h");
+        setNote("G#1");
     }
     else if(e.key == "n" && !keyPress.className.includes(" n")){
-        playNote("A1");
         keyPress.classList.add("n");
+        setNote("A1");
     }
     else if(e.key == "j" && !keyPress.className.includes(" j")){
-        playNote("A#1");
         keyPress.classList.add("j");
+        setNote("A#1");
     }
     else if(e.key == "m" && !keyPress.className.includes(" m")){
-        playNote("B1");
         keyPress.classList.add("m");
+        setNote("B1");
     }
 });
 
@@ -123,51 +141,51 @@ window.addEventListener("keyup", (e) => {
         }
     }
     else if(e.key == "z"){
-        stopNote("C1");
         keyPress.classList.remove("z");
+        unsetNote("C1");
     }
     else if(e.key == "s"){
-        stopNote("C#1");
         keyPress.classList.remove("s");
+        unsetNote("C#1");
     }
     else if(e.key == "x"){
-        stopNote("D1");
         keyPress.classList.remove("x");
+        unsetNote("D1");
     }
     else if(e.key == "d"){
-        stopNote("D#1");
         keyPress.classList.remove("d");
+        unsetNote("D#1");
     }
     else if(e.key == "c"){
-        stopNote("E1");
         keyPress.classList.remove("c");
+        unsetNote("E1");
     }
     else if(e.key == "v"){
-        stopNote("F1");
         keyPress.classList.remove("v");
+        unsetNote("F1");
     }
     else if(e.key == "g"){
-        stopNote("F#1");
         keyPress.classList.remove("g");
+        unsetNote("F#1");
     }
     else if(e.key == "b"){
-        stopNote("G1");
         keyPress.classList.remove("b");
+        unsetNote("G1");
     }
     else if(e.key == "h"){
-        stopNote("G#1");
         keyPress.classList.remove("h");
+        unsetNote("G#1");
     }
     else if(e.key == "n"){
-        stopNote("A1");
         keyPress.classList.remove("n");
+        unsetNote("A1");
     }
     else if(e.key == "j"){
-        stopNote("A#1");
         keyPress.classList.remove("j");
+        unsetNote("A#1");
     }
     else if(e.key == "m"){
-        stopNote("B1");
         keyPress.classList.remove("m");
+        unsetNote("B1");
     }
 });
