@@ -45,10 +45,10 @@
     border-radius: 3px;
 }
 .key.white:hover{
-    background: #cbcbda;
+    background: #babac9;
 }
 .key.black:hover{
-    background: #343425;
+    background: #565647;
 }
 .loading{
     position: absolute;

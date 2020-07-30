@@ -123,10 +123,10 @@ function setNote(note){
     const key = document.querySelector("[note='" + note + "']");
 
     if(key.className.includes("white")){
-        key.style.background = "#cbcbda";
+        key.style.background = "#babac9";
     }
     else{
-        key.style.background = "#343425";
+        key.style.background = "#565647";
     }
 }
 
