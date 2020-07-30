@@ -71,16 +71,16 @@
     animation: loading 1.4s cubic-bezier(.4,0,.4,1) infinite;
 }
 @keyframes loading{
-  10%{
-    border-color: #222;
-  }
-  25%{
-    color: #222;
-  }
-  75%{
-    border-color: #eee;
-  }
-  80%{
-    color: #eee;
-  }
+    10%{
+        border-color: #222;
+    }
+    25%{
+        color: #222;
+    }
+    75%{
+        border-color: #eee;
+    }
+    80%{
+        color: #eee;
+    }
 }
