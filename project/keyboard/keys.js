@@ -1,6 +1,31 @@
-var audio = [];
+// LOAD SAMPLES
+
+const notes = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
 
 var samples = "stage-grand";
+
+function loadSamples(){
+    var audio;
+    var src = "";
+    for(var i = 1; i <= highestOctave; i++){
+        notes.forEach(note => {
+            src = "./notes/" + samples + "/" + note.replace("#", "%23") + i + ".ogg";
+            audio = new Audio(src);
+            audio.load();
+            audio.remove();
+        });
+    }
+    src = "./notes/" + samples + "/" + highestNote + ".ogg";
+    audio = new Audio(src);
+    audio.load();
+    audio.remove();
+}
+
+loadSamples();
+
+// END LOAD SAMPLES
+
+var audio = [];
 
 function playNote(note){
     var src = "./notes/" + samples + "/" + note.replace("#", "%23") + ".ogg";
@@ -60,14 +85,14 @@ function fadeOut(){
 }
 
 var shiftKey = 0;
-var highestKey = "C4";
+var highestNote = "C4";
 var highestOctave = 3;
 
 function setNote(note){
 
     if(shiftKey > 0){
         note = note.replace(/\d$/, parseInt(note.match(/\d$/)) + shiftKey);
-        if(note != highestKey && note.match(/\d$/) > highestOctave){
+        if(note != highestNote && note.match(/\d$/) > highestOctave){
             return
         }
     }
@@ -87,7 +112,7 @@ function unsetNote(note){
 
     if(shiftKey > 0){
         note = note.replace(/\d$/, parseInt(note.match(/\d$/)) + shiftKey);
-        if(note != highestKey && note.match(/\d$/) > highestOctave){
+        if(note != highestNote && note.match(/\d$/) > highestOctave){
             return
         }
     }
