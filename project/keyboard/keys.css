@@ -18,8 +18,8 @@
     top: 0;
     bottom: 0;
     margin: auto;
-    width: fit-content;
-    height: fit-content;
+    width: max-content;
+    height: max-content;
 }
 .black-container{
     position: relative;
@@ -64,8 +64,8 @@
     right: 0;
     bottom: 0;
     margin: auto;
-    width: fit-content;
-    height: fit-content;
+    width: max-content;
+    height: max-content;
     font-size: 35px;
     font-weight: bold;
     animation: loading 1.4s cubic-bezier(.4,0,.4,1) infinite;
