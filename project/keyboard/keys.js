@@ -7,22 +7,20 @@ var highestOctave = 3;
 const notes = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
 
 var samples = "stage-grand";
+var audioSamples;
 
 function loadSamples(){
-    var audio;
     var src = "";
     for(var i = 1; i <= highestOctave; i++){
         notes.forEach(note => {
             src = "./notes/" + samples + "/" + note.replace("#", "%23") + i.toString() + ".ogg";
-            audio = new Audio(src);
-            audio.load();
-            audio.remove();
+            audioSamples.push(new Audio(src));
+            audioSamples[audioSamples.length - 1].play();
         });
     }
     src = "./notes/" + samples + "/" + highestNote + ".ogg";
-    audio = new Audio(src);
-    audio.load();
-    audio.remove();
+    audioSamples.push(new Audio(src));
+    audioSamples[audioSamples.length - 1].play();
 }
 
 loadSamples();
