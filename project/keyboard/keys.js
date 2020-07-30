@@ -1,4 +1,5 @@
-var shiftKey = 3;
+var shiftKey = 0;
+var maxShift = 3;
 var highestNote = "C6";
 var highestOctave = 5;
 
@@ -145,166 +146,226 @@ function unsetNote(note){
     key.style.background = "";
 }
 
+function keyLower(key){
+    key = key.toLowerCase();
+
+    var keyNum = [")", "!",  "@",  "#",  "$",  "%",  "^",  "&",  "*",  "("];
+
+    if(key == "<"){
+        key = ",";
+    }
+    else if(key == ">"){
+        key = ".";
+    }
+    else if(key == ":"){
+        key = ";";
+    }
+    else if(key == "?"){
+        key = "/";
+    }
+    else if(key == "{"){
+        key = "[";
+    }
+    else if(key == "+"){
+        key = "=";
+    }
+    else if(key == "}"){
+        key = "]";
+    }
+    else if(keyNum.includes(key)){
+        for(var i = 0; i < keyNum.length; i++){
+            if(key == keyNum[i]){
+                key = i;
+            }
+        }
+    }
+
+    return key;
+}
+
 const keyPress = document.querySelector(".key-press");
 
 window.addEventListener("keydown", (e) => {
+    var key = keyLower(e.key);
+
     if(!loadDone){
         return;
     }
-    else if(e.key == " " && !keyPress.className.includes("space")){
+    else if(key == " " && !keyPress.className.includes("space")){
         keyPress.classList.add("space");
     }
-    else if(e.key == "z" && !keyPress.className.includes(" z")){
+    else if(key == "z" && !keyPress.className.includes(" z")){
         keyPress.classList.add("z");
         setNote("C1");
     }
-    else if(e.key == "s" && !keyPress.className.includes(" s")){
+    else if(key == "s" && !keyPress.className.includes(" s")){
         keyPress.classList.add("s");
         setNote("C#1");
     }
-    else if(e.key == "x" && !keyPress.className.includes(" x")){
+    else if(key == "x" && !keyPress.className.includes(" x")){
         keyPress.classList.add("x");
         setNote("D1");
     }
-    else if(e.key == "d" && !keyPress.className.includes(" d")){
+    else if(key == "d" && !keyPress.className.includes(" d")){
         keyPress.classList.add("d");
         setNote("D#1");
     }
-    else if(e.key == "c" && !keyPress.className.includes(" c")){
+    else if(key == "c" && !keyPress.className.includes(" c")){
         keyPress.classList.add("c");
         setNote("E1");
     }
-    else if(e.key == "v" && !keyPress.className.includes(" v")){
+    else if(key == "v" && !keyPress.className.includes(" v")){
         keyPress.classList.add("v");
         setNote("F1");
     }
-    else if(e.key == "g" && !keyPress.className.includes(" g")){
+    else if(key == "g" && !keyPress.className.includes(" g")){
         keyPress.classList.add("g");
         setNote("F#1");
     }
-    else if(e.key == "b" && !keyPress.className.includes(" b")){
+    else if(key == "b" && !keyPress.className.includes(" b")){
         keyPress.classList.add("b");
         setNote("G1");
     }
-    else if(e.key == "h" && !keyPress.className.includes(" h")){
+    else if(key == "h" && !keyPress.className.includes(" h")){
         keyPress.classList.add("h");
         setNote("G#1");
     }
-    else if(e.key == "n" && !keyPress.className.includes(" n")){
+    else if(key == "n" && !keyPress.className.includes(" n")){
         keyPress.classList.add("n");
         setNote("A1");
     }
-    else if(e.key == "j" && !keyPress.className.includes(" j")){
+    else if(key == "j" && !keyPress.className.includes(" j")){
         keyPress.classList.add("j");
         setNote("A#1");
     }
-    else if(e.key == "m" && !keyPress.className.includes(" m")){
+    else if(key == "m" && !keyPress.className.includes(" m")){
         keyPress.classList.add("m");
         setNote("B1");
     }
-    else if(e.key == "," && !keyPress.className.includes(" ,")){
+    else if(key == "," && !keyPress.className.includes(" ,")){
         keyPress.classList.add(",");
         setNote("C2");
     }
-    else if(e.key == "l" && !keyPress.className.includes(" l")){
+    else if(key == "l" && !keyPress.className.includes(" l")){
         keyPress.classList.add("l");
         setNote("C#2");
     }
-    else if(e.key == "." && !keyPress.className.includes(" .")){
+    else if(key == "." && !keyPress.className.includes(" .")){
         keyPress.classList.add(".");
         setNote("D2");
     }
-    else if(e.key == ";" && !keyPress.className.includes(" ;")){
+    else if(key == ";" && !keyPress.className.includes(" ;")){
         keyPress.classList.add(";");
         setNote("D#2");
     }
-    else if(e.key == "/" && !keyPress.className.includes(" /")){
+    else if(key == "/" && !keyPress.className.includes(" /")){
         keyPress.classList.add("/");
         setNote("E2");
     }
-    else if(e.key == "q" && !keyPress.className.includes(" q")){
+    else if(key == "q" && !keyPress.className.includes(" q")){
         keyPress.classList.add("q");
         setNote("C2");
     }
-    else if(e.key == "2" && !keyPress.className.includes(" 2")){
+    else if(key == "2" && !keyPress.className.includes(" 2")){
         keyPress.classList.add("2");
         setNote("C#2");
     }
-    else if(e.key == "w" && !keyPress.className.includes(" w")){
+    else if(key == "w" && !keyPress.className.includes(" w")){
         keyPress.classList.add("w");
         setNote("D2");
     }
-    else if(e.key == "3" && !keyPress.className.includes(" 3")){
+    else if(key == "3" && !keyPress.className.includes(" 3")){
         keyPress.classList.add("3");
         setNote("D#2");
     }
-    else if(e.key == "e" && !keyPress.className.includes(" e")){
+    else if(key == "e" && !keyPress.className.includes(" e")){
         keyPress.classList.add("e");
         setNote("E2");
     }
-    else if(e.key == "r" && !keyPress.className.includes(" r")){
+    else if(key == "r" && !keyPress.className.includes(" r")){
         keyPress.classList.add("r");
         setNote("F2");
     }
-    else if(e.key == "5" && !keyPress.className.includes(" 5")){
+    else if(key == "5" && !keyPress.className.includes(" 5")){
         keyPress.classList.add("5");
         setNote("F#2");
     }
-    else if(e.key == "t" && !keyPress.className.includes(" t")){
+    else if(key == "t" && !keyPress.className.includes(" t")){
         keyPress.classList.add("t");
         setNote("G2");
     }
-    else if(e.key == "6" && !keyPress.className.includes(" 6")){
+    else if(key == "6" && !keyPress.className.includes(" 6")){
         keyPress.classList.add("6");
         setNote("G#2");
     }
-    else if(e.key == "y" && !keyPress.className.includes(" y")){
+    else if(key == "y" && !keyPress.className.includes(" y")){
         keyPress.classList.add("y");
         setNote("A2");
     }
-    else if(e.key == "7" && !keyPress.className.includes(" 7")){
+    else if(key == "7" && !keyPress.className.includes(" 7")){
         keyPress.classList.add("7");
         setNote("A#2");
     }
-    else if(e.key == "u" && !keyPress.className.includes(" u")){
+    else if(key == "u" && !keyPress.className.includes(" u")){
         keyPress.classList.add("u");
         setNote("B2");
     }
-    else if(e.key == "i" && !keyPress.className.includes(" i")){
+    else if(key == "i" && !keyPress.className.includes(" i")){
         keyPress.classList.add("i");
         setNote("C3");
     }
-    else if(e.key == "9" && !keyPress.className.includes(" 9")){
+    else if(key == "9" && !keyPress.className.includes(" 9")){
         keyPress.classList.add("9");
         setNote("C#3");
     }
-    else if(e.key == "o" && !keyPress.className.includes(" o")){
+    else if(key == "o" && !keyPress.className.includes(" o")){
         keyPress.classList.add("o");
         setNote("D3");
     }
-    else if(e.key == "0" && !keyPress.className.includes(" 0")){
+    else if(key == "0" && !keyPress.className.includes(" 0")){
         keyPress.classList.add("0");
         setNote("D#3");
     }
-    else if(e.key == "p" && !keyPress.className.includes(" p")){
+    else if(key == "p" && !keyPress.className.includes(" p")){
         keyPress.classList.add("p");
         setNote("E3");
     }
-    else if(e.key == "[" && !keyPress.className.includes(" [")){
+    else if(key == "[" && !keyPress.className.includes(" [")){
         keyPress.classList.add("[");
         setNote("F3");
     }
-    else if(e.key == "=" && !keyPress.className.includes(" =")){
+    else if(key == "=" && !keyPress.className.includes(" =")){
         keyPress.classList.add("=");
         setNote("F#3");
     }
-    else if(e.key == "]" && !keyPress.className.includes(" ]")){
+    else if(key == "]" && !keyPress.className.includes(" ]")){
         keyPress.classList.add("]");
         setNote("G3");
+    }
+    else if(e.key == "F2" && shiftKey < maxShift){
+        shiftKey++;
+        fadeOutAudio = audio;
+        audio = [];
+        if(fadeOutTimer == undefined){
+            fadeOutTimer = setInterval(fadeOut, fadeOutTime);
+        }
+    }
+    else if(e.key == "F1"){
+        e.preventDefault();
+        if(shiftKey > 0){
+            shiftKey--;
+        }
+        fadeOutAudio = audio;
+        audio = [];
+        if(fadeOutTimer == undefined){
+            fadeOutTimer = setInterval(fadeOut, fadeOutTime);
+        }
     }
 });
 
 window.addEventListener("keyup", (e) => {
+    var key = keyLower(e.key);
+
     if(e.key == " "){
         keyPress.classList.remove("space");
         fadeOutAudio = audio;
@@ -313,151 +374,151 @@ window.addEventListener("keyup", (e) => {
             fadeOutTimer = setInterval(fadeOut, fadeOutTime);
         }
     }
-    else if(e.key == "z"){
+    else if(key == "z"){
         keyPress.classList.remove("z");
         unsetNote("C1");
     }
-    else if(e.key == "s"){
+    else if(key == "s"){
         keyPress.classList.remove("s");
         unsetNote("C#1");
     }
-    else if(e.key == "x"){
+    else if(key == "x"){
         keyPress.classList.remove("x");
         unsetNote("D1");
     }
-    else if(e.key == "d"){
+    else if(key == "d"){
         keyPress.classList.remove("d");
         unsetNote("D#1");
     }
-    else if(e.key == "c"){
+    else if(key == "c"){
         keyPress.classList.remove("c");
         unsetNote("E1");
     }
-    else if(e.key == "v"){
+    else if(key == "v"){
         keyPress.classList.remove("v");
         unsetNote("F1");
     }
-    else if(e.key == "g"){
+    else if(key == "g"){
         keyPress.classList.remove("g");
         unsetNote("F#1");
     }
-    else if(e.key == "b"){
+    else if(key == "b"){
         keyPress.classList.remove("b");
         unsetNote("G1");
     }
-    else if(e.key == "h"){
+    else if(key == "h"){
         keyPress.classList.remove("h");
         unsetNote("G#1");
     }
-    else if(e.key == "n"){
+    else if(key == "n"){
         keyPress.classList.remove("n");
         unsetNote("A1");
     }
-    else if(e.key == "j"){
+    else if(key == "j"){
         keyPress.classList.remove("j");
         unsetNote("A#1");
     }
-    else if(e.key == "m"){
+    else if(key == "m"){
         keyPress.classList.remove("m");
         unsetNote("B1");
     }
-    else if(e.key == ","){
+    else if(key == ","){
         keyPress.classList.remove(",");
         unsetNote("C2");
     }
-    else if(e.key == "l"){
+    else if(key == "l"){
         keyPress.classList.remove("l");
         unsetNote("C#2");
     }
-    else if(e.key == "."){
+    else if(key == "."){
         keyPress.classList.remove(".");
         unsetNote("D2");
     }
-    else if(e.key == ";"){
+    else if(key == ";"){
         keyPress.classList.remove(";");
         unsetNote("D#2");
     }
-    else if(e.key == "/"){
+    else if(key == "/"){
         keyPress.classList.remove("/");
         unsetNote("E2");
     }
-    else if(e.key == "q"){
+    else if(key == "q"){
         keyPress.classList.remove("q");
         unsetNote("C2");
     }
-    else if(e.key == "2"){
+    else if(key == "2"){
         keyPress.classList.remove("2");
         unsetNote("C#2");
     }
-    else if(e.key == "w"){
+    else if(key == "w"){
         keyPress.classList.remove("w");
         unsetNote("D2");
     }
-    else if(e.key == "3"){
+    else if(key == "3"){
         keyPress.classList.remove("3");
         unsetNote("D#2");
     }
-    else if(e.key == "e"){
+    else if(key == "e"){
         keyPress.classList.remove("e");
         unsetNote("E2");
     }
-    else if(e.key == "r"){
+    else if(key == "r"){
         keyPress.classList.remove("r");
         unsetNote("F2");
     }
-    else if(e.key == "5"){
+    else if(key == "5"){
         keyPress.classList.remove("5");
         unsetNote("F#2");
     }
-    else if(e.key == "t"){
+    else if(key == "t"){
         keyPress.classList.remove("t");
         unsetNote("G2");
     }
-    else if(e.key == "6"){
+    else if(key == "6"){
         keyPress.classList.remove("6");
         unsetNote("G#2");
     }
-    else if(e.key == "y"){
+    else if(key == "y"){
         keyPress.classList.remove("y");
         unsetNote("A2");
     }
-    else if(e.key == "7"){
+    else if(key == "7"){
         keyPress.classList.remove("7");
         unsetNote("A#2");
     }
-    else if(e.key == "u"){
+    else if(key == "u"){
         keyPress.classList.remove("u");
         unsetNote("B2");
     }
-    else if(e.key == "i"){
+    else if(key == "i"){
         keyPress.classList.remove("i");
         unsetNote("C3");
     }
-    else if(e.key == "9"){
+    else if(key == "9"){
         keyPress.classList.remove("9");
         unsetNote("C#3");
     }
-    else if(e.key == "o"){
+    else if(key == "o"){
         keyPress.classList.remove("o");
         unsetNote("D3");
     }
-    else if(e.key == "0"){
+    else if(key == "0"){
         keyPress.classList.remove("0");
         unsetNote("D#3");
     }
-    else if(e.key == "p"){
+    else if(key == "p"){
         keyPress.classList.remove("p");
         unsetNote("E3");
     }
-    else if(e.key == "["){
+    else if(key == "["){
         keyPress.classList.remove("[");
         unsetNote("F3");
     }
-    else if(e.key == "="){
+    else if(key == "="){
         keyPress.classList.remove("=");
         unsetNote("F#3");
     }
-    else if(e.key == "]"){
+    else if(key == "]"){
         keyPress.classList.remove("]");
         unsetNote("G3");
     }
