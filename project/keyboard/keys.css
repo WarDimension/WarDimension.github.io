@@ -4,6 +4,11 @@
     overflow: hidden;
     padding:0;
     margin:0;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }
 .keys-container{
     position: absolute;
@@ -44,4 +49,38 @@
 }
 .key.black:hover{
     background: #343425;
+}
+.loading{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background: #eee;
+    opacity: 0.6;
+}
+.loading p{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: fit-content;
+    height: fit-content;
+    font-size: 35px;
+    font-weight: bold;
+    animation: loading 1.4s cubic-bezier(.4,0,.4,1) infinite;
+}
+@keyframes loading{
+  10%{
+    border-color: #222;
+  }
+  25%{
+    color: #222;
+  }
+  75%{
+    border-color: #eee;
+  }
+  80%{
+    color: #eee;
+  }
 }

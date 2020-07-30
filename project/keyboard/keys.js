@@ -10,21 +10,41 @@ var samples = "stage-grand";
 var audioSamples = [];
 
 function loadSamples(){
+    loadDone = false;
     var src = "";
     for(var i = 1; i <= highestOctave; i++){
         notes.forEach(note => {
             src = "./notes/" + samples + "/" + note.replace("#", "%23") + i.toString() + ".ogg";
             audioSamples.push(new Audio(src));
             audioSamples[audioSamples.length - 1].load();
-            audioSamples[audioSamples.length - 1].volume = 0.00000001;
-            audioSamples[audioSamples.length - 1].play();
         });
     }
     src = "./notes/" + samples + "/" + highestNote + ".ogg";
     audioSamples.push(new Audio(src));
     audioSamples[audioSamples.length - 1].load();
-    audioSamples[audioSamples.length - 1].volume = 0.00000001;
-    audioSamples[audioSamples.length - 1].play();
+
+    loadTimer = setInterval(loadTime, 100);
+}
+
+var loadDone = false;
+
+var loadTimer;
+
+const loading = document.querySelector(".loading");
+
+function loadTime(){
+    var isReady = true;
+    audioSamples.forEach(audio => {
+        if(audio.readyState < 3){
+            isReady = false;
+        }
+    });
+
+    if(isReady){
+        loadDone = true;
+        loading.style.display = "none";
+        clearInterval(loadTimer);
+    }
 }
 
 loadSamples();
@@ -127,7 +147,10 @@ function unsetNote(note){
 const keyPress = document.querySelector(".key-press");
 
 window.addEventListener("keydown", (e) => {
-    if(e.key == " " && !keyPress.className.includes("space")){
+    if(!loadDone){
+        return;
+    }
+    else if(e.key == " " && !keyPress.className.includes("space")){
         keyPress.classList.add("space");
     }
     else if(e.key == "z" && !keyPress.className.includes(" z")){
