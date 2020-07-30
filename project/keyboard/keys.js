@@ -1,6 +1,6 @@
 var audio = [];
 
-function playNote(note) { 
+function playNote(note){
     var src = "./notes/" + note.replace("#", "%23") + ".ogg";
 
     audio.push(new Audio(src));
@@ -28,11 +28,11 @@ function stopNote(note){
 const keys = document.querySelectorAll(".key");
 
 keys.forEach(key => {
-    key.addEventListener("mousedown", () => {
+    key.addEventListener("mousedown", (e) => {
         playNote(key.attributes.note.value);
     });
-    
-    key.addEventListener("mouseup", () => {
+ 
+    window.addEventListener("mouseup", () => {
         stopNote(key.attributes.note.value);
     });
 });
@@ -57,7 +57,19 @@ function fadeOut(){
     }
 }
 
+var shiftKey = 0;
+var highestKey = "C4";
+var highestOctave = 3;
+
 function setNote(note){
+
+    if(shiftKey > 0){
+        note = note.replace(/\d$/, parseInt(note.match(/\d$/)) + shiftKey);
+        if(note != highestKey && note.match(/\d$/) > highestOctave){
+            return
+        }
+    }
+
     playNote(note);
     const key = document.querySelector("[note='" + note + "']");
 
@@ -70,6 +82,14 @@ function setNote(note){
 }
 
 function unsetNote(note){
+
+    if(shiftKey > 0){
+        note = note.replace(/\d$/, parseInt(note.match(/\d$/)) + shiftKey);
+        if(note != highestKey && note.match(/\d$/) > highestOctave){
+            return
+        }
+    }
+
     stopNote(note);
     const key = document.querySelector("[note='" + note + "']");
     key.style.background = "";
@@ -129,6 +149,74 @@ window.addEventListener("keydown", (e) => {
         keyPress.classList.add("m");
         setNote("B1");
     }
+    else if(e.key == "," && !keyPress.className.includes(" ,")){
+        keyPress.classList.add(",");
+        setNote("C2");
+    }
+    else if(e.key == "l" && !keyPress.className.includes(" l")){
+        keyPress.classList.add("l");
+        setNote("C#2");
+    }
+    else if(e.key == "." && !keyPress.className.includes(" .")){
+        keyPress.classList.add(".");
+        setNote("D2");
+    }
+    else if(e.key == ";" && !keyPress.className.includes(" ;")){
+        keyPress.classList.add(";");
+        setNote("D#2");
+    }
+    else if(e.key == "/" && !keyPress.className.includes(" /")){
+        keyPress.classList.add("/");
+        setNote("E2");
+    }
+    else if(e.key == "q" && !keyPress.className.includes(" q")){
+        keyPress.classList.add("q");
+        setNote("C2");
+    }
+    else if(e.key == "2" && !keyPress.className.includes(" 2")){
+        keyPress.classList.add("2");
+        setNote("C#2");
+    }
+    else if(e.key == "w" && !keyPress.className.includes(" w")){
+        keyPress.classList.add("w");
+        setNote("D2");
+    }
+    else if(e.key == "3" && !keyPress.className.includes(" 3")){
+        keyPress.classList.add("3");
+        setNote("D#2");
+    }
+    else if(e.key == "e" && !keyPress.className.includes(" e")){
+        keyPress.classList.add("e");
+        setNote("E2");
+    }
+    else if(e.key == "r" && !keyPress.className.includes(" r")){
+        keyPress.classList.add("r");
+        setNote("F2");
+    }
+    else if(e.key == "5" && !keyPress.className.includes(" 5")){
+        keyPress.classList.add("5");
+        setNote("F#2");
+    }
+    else if(e.key == "t" && !keyPress.className.includes(" t")){
+        keyPress.classList.add("t");
+        setNote("G2");
+    }
+    else if(e.key == "6" && !keyPress.className.includes(" 6")){
+        keyPress.classList.add("6");
+        setNote("G#2");
+    }
+    else if(e.key == "y" && !keyPress.className.includes(" y")){
+        keyPress.classList.add("y");
+        setNote("A2");
+    }
+    else if(e.key == "7" && !keyPress.className.includes(" 7")){
+        keyPress.classList.add("7");
+        setNote("A#2");
+    }
+    else if(e.key == "u" && !keyPress.className.includes(" u")){
+        keyPress.classList.add("u");
+        setNote("B2");
+    }
 });
 
 window.addEventListener("keyup", (e) => {
@@ -187,5 +275,73 @@ window.addEventListener("keyup", (e) => {
     else if(e.key == "m"){
         keyPress.classList.remove("m");
         unsetNote("B1");
+    }
+    else if(e.key == ","){
+        keyPress.classList.remove(",");
+        unsetNote("C2");
+    }
+    else if(e.key == "l"){
+        keyPress.classList.remove("l");
+        unsetNote("C#2");
+    }
+    else if(e.key == "."){
+        keyPress.classList.remove(".");
+        unsetNote("D2");
+    }
+    else if(e.key == ";"){
+        keyPress.classList.remove(";");
+        unsetNote("D#2");
+    }
+    else if(e.key == "/"){
+        keyPress.classList.remove("/");
+        unsetNote("E2");
+    }
+    else if(e.key == "q"){
+        keyPress.classList.remove("q");
+        unsetNote("C2");
+    }
+    else if(e.key == "2"){
+        keyPress.classList.remove("2");
+        unsetNote("C#2");
+    }
+    else if(e.key == "w"){
+        keyPress.classList.remove("w");
+        unsetNote("D2");
+    }
+    else if(e.key == "3"){
+        keyPress.classList.remove("3");
+        unsetNote("D#2");
+    }
+    else if(e.key == "e"){
+        keyPress.classList.remove("e");
+        unsetNote("E2");
+    }
+    else if(e.key == "r"){
+        keyPress.classList.remove("r");
+        unsetNote("F2");
+    }
+    else if(e.key == "5"){
+        keyPress.classList.remove("5");
+        unsetNote("F#2");
+    }
+    else if(e.key == "t"){
+        keyPress.classList.remove("t");
+        unsetNote("G2");
+    }
+    else if(e.key == "6"){
+        keyPress.classList.remove("6");
+        unsetNote("G#2");
+    }
+    else if(e.key == "y"){
+        keyPress.classList.remove("y");
+        unsetNote("A2");
+    }
+    else if(e.key == "7"){
+        keyPress.classList.remove("7");
+        unsetNote("A#2");
+    }
+    else if(e.key == "u"){
+        keyPress.classList.remove("u");
+        unsetNote("B2");
     }
 });
