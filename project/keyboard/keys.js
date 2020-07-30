@@ -6,12 +6,12 @@ var highestOctave = 3;
 
 const notes = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
 
-var samples = "stage-grand";
 var audioSamples = [];
 
-function loadSamples(){
+function loadSamples(samples){
     audioSamples = [];
     loadDone = false;
+    loading.style.display = "";
     var src = "";
     for(var i = 1; i <= highestOctave; i++){
         notes.forEach(note => {
@@ -38,7 +38,7 @@ function loadedAudio(){
     }
 }
 
-loadSamples();
+loadSamples("stage-grand");
 
 // END LOAD SAMPLES
 
