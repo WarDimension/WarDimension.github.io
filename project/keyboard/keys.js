@@ -27,7 +27,9 @@ function loadSamples(){
     audioSamples[audioSamples.length - 1].play();
 }
 
-loadSamples();
+window.onload = function(){
+    loadSamples();
+}
 
 // END LOAD SAMPLES
 
