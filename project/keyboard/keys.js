@@ -10,9 +10,13 @@ var audioSamples = [];
 
 function loadSamples(samples){
     audioSamples = [];
-    loadDone = false;
-    loading.style.display = "";
     var src = "";
+
+    loading.style.display = "";
+
+    loadDone = false;
+    loaded = 0;
+
     for(var i = 1; i <= highestOctave; i++){
         notes.forEach(note => {
             src = "./notes/" + samples + "/" + note.replace("#", "%23") + i.toString() + ".ogg";
@@ -20,7 +24,9 @@ function loadSamples(samples){
             audioSamples[audioSamples.length - 1].addEventListener("canplaythrough", loadedAudio, false);
         });
     }
+
     src = "./notes/" + samples + "/" + highestNote + ".ogg";
+    
     audioSamples.push(new Audio(src));
     audioSamples[audioSamples.length - 1].addEventListener("canplaythrough", loadedAudio, false);
 }
