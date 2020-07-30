@@ -17,9 +17,11 @@ function stopNote(note){
     for(var i = 0; i < audio.length; i++){
         if(audio[i].src.includes(note)){
             fadeOutAudio.push(audio[i]);
-            fadeOutTimer = setInterval(fadeOut, 120);
             audio.splice(i, 1);
         }
+    }
+    if(fadeOutTimer == undefined){
+        fadeOutTimer = setInterval(fadeOut, fadeOutTime);
     }
 }
 
@@ -35,19 +37,23 @@ keys.forEach(key => {
     });
 });
 
+var fadeOutTime = 100;
+
 var fadeOutTimer;
 function fadeOut(){
-    try{
-        fadeOutAudio.forEach(fadingAudio => {
-            fadingAudio.volume -= 0.1;
-        });
+    for(var i = 0; i < fadeOutAudio.length; i++){
+        if(fadeOutAudio[i].volume == 0){
+            fadeOutAudio[i].remove();
+            fadeOutAudio.splice(i, 1);
+        }
+        else{
+            fadeOutAudio[i].volume = (fadeOutAudio[i].volume - 0.1).toFixed(1);
+        }
     }
-    catch{
-        fadeOutAudio.forEach(fadingAudio => {
-            fadingAudio.remove();
-        });
+    
+    if(fadeOutAudio.length == 0){
         clearInterval(fadeOutTimer);
-        fadeOutAudio = [];
+        fadeOutTimer = undefined;
     }
 }
 
@@ -110,10 +116,10 @@ window.addEventListener("keydown", (e) => {
 window.addEventListener("keyup", (e) => {
     if(e.key == " "){
         keyPress.classList.remove("space");
-        for(var i = 0; i < audio.length; i++){
-            fadeOutAudio.push(audio[i]);
-            fadeOutTimer = setInterval(fadeOut, 120);
-            audio.splice(i, 1);
+        fadeOutAudio = audio;
+        audio = [];
+        if(fadeOutTimer == undefined){
+            fadeOutTimer = setInterval(fadeOut, fadeOutTime);
         }
     }
     else if(e.key == "z"){
