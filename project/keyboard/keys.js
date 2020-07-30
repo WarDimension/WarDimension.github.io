@@ -17,15 +17,11 @@ function loadSamples(){
             src = "./notes/" + samples + "/" + note.replace("#", "%23") + i.toString() + ".ogg";
             audioSamples.push(new Audio(src));
             audioSamples[audioSamples.length - 1].load();
-            audioSamples[audioSamples.length - 1].volume = 0;
-            audioSamples[audioSamples.length - 1].play();
         });
     }
     src = "./notes/" + samples + "/" + highestNote + ".ogg";
     audioSamples.push(new Audio(src));
     audioSamples[audioSamples.length - 1].load();
-    audioSamples[audioSamples.length - 1].volume = 0;
-    audioSamples[audioSamples.length - 1].play();
 
     loadTimer = setInterval(loadTime, 100);
 }
@@ -41,7 +37,7 @@ function loadTime(){
     audioSamples.forEach(audio => {
         if(audio.readyState < 3){
             isReady = false;
-            audio.play();
+            audio.load();
         }
     });
 
