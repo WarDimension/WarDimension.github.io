@@ -38,7 +38,7 @@ body{
     border-radius: 5px;
     box-sizing: initial;
 }
-.component-container p{
+.component-container div{
     position: relative;
     margin: 20px;
     padding: 2px 10px;
@@ -60,6 +60,9 @@ body{
 }
 .material-icons:hover{
     color: #fff;
+}
+.component-container .key-signature-container, .component-container .modes-container{
+    display: none;
 }
 .black-container{
     position: relative;

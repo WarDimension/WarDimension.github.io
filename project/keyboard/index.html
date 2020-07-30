@@ -30,11 +30,31 @@
                 <p>LOADING SAMPLES</p>
             </div>
             <div class="component-container">
-                <p>
+                <div>
+                    <i class="material-icons up" onclick="">arrow_drop_up</i>
+                    Samples: <span class="samples">Stage Grand</span>
+                    <i class="material-icons down" onclick="">arrow_drop_down</i>
+                </div>
+                <div>
+                    <i class="material-icons up" onclick="playMode('up')">arrow_drop_up</i>
+                    Play Mode: <span class="play-mode">Chromatic</span>
+                    <i class="material-icons down" onclick="playMode('down')">arrow_drop_down</i>
+                </div>
+                <div class="range-container">
                     <i class="material-icons up" onclick="shifting('up')">arrow_drop_up</i>
                     Play Range: <span class="range">C1 - G3</span>
                     <i class="material-icons down" onclick="shifting('down')">arrow_drop_down</i>
-                </p>
+                </div>
+                <div class="key-signature-container">
+                    <i class="material-icons up" onclick="">arrow_drop_up</i>
+                    Key: <span class="key-signature">C</span>
+                    <i class="material-icons down" onclick="">arrow_drop_down</i>
+                </div>
+                <div class="modes-container">
+                    <i class="material-icons up" onclick="">arrow_drop_up</i>
+                    <span class="modes">Major</span>
+                    <i class="material-icons down" onclick="">arrow_drop_down</i>
+                </div>
             </div>
             <div class="key white" note="C1"></div>
             <div class="black-container">

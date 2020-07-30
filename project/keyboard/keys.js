@@ -183,6 +183,44 @@ function keyLower(key){
     return key;
 }
 
+var diatonic = false;
+function playMode(direction){
+    if(direction == "up"){
+        rangeContainer.style.display = "none";
+        up[1].style.color = "#565647";
+        down[1].style.color = "";
+        keySignatureContainer.style.display = "inline-block";
+        modesContainer.style.display = "inline-block";
+        playModeText.innerHTML = "Diatonic";
+        diatonic = true;
+    }
+    else{
+        rangeContainer.style.display = "";
+        up[1].style.color = "";
+        down[1].style.color = "#565647";
+        keySignatureContainer.style.display = "";
+        modesContainer.style.display = "";
+        diatonic = false;
+    }
+}
+
+function keySignatureChange(direction){
+    if(direction == "up"){
+        rangeContainer.style.display = "none";
+        up[1].style.color = "#565647";
+        down[1].style.color = "";
+        keySignatureContainer.style.display = "inline-block";
+        modesContainer.style.display = "inline-block";
+    }
+    else{
+        rangeContainer.style.display = "";
+        up[1].style.color = "";
+        down[1].style.color = "#565647";
+        keySignatureContainer.style.display = "";
+        modesContainer.style.display = "";
+    }
+}
+
 function shifting(direction){
     if(direction == "up" && shiftKey < maxShift){
         shiftKey++;
@@ -196,28 +234,34 @@ function shifting(direction){
 
     if(shiftKey == 0){
         range.innerHTML = "C1 - G3";
-        down.style.color = "#565647";
+        down[2].style.color = "#565647";
     }
     else if(shiftKey == 1){
         range.innerHTML = "C2 - G4";
-        down.style.color = "";
+        down[2].style.color = "";
     }
     else if(shiftKey == 2){
         range.innerHTML = "C3 - G5";
-        up.style.color = "";
+        up[2].style.color = "";
     }
     else if(shiftKey == 3){
         range.innerHTML = "C4 - C6";
-        up.style.color = "#565647";
+        up[2].style.color = "#565647";
     }
 }
 
 const keyPress = document.querySelector(".key-press");
+const playModeText = document.querySelector(".play-mode");
+const rangeContainer = document.querySelector(".range-container");
 const range = document.querySelector(".range");
-const up = document.querySelector(".up");
-const down = document.querySelector(".down");
+const keySignatureContainer = document.querySelector(".key-signature-container");
+const modesContainer = document.querySelector(".modes-container");
+const up = document.querySelectorAll(".up");
+const down = document.querySelectorAll(".down");
 
-down.style.color = "#565647";
+down.forEach(button => {
+    button.style.color = "#565647";
+});
 
 window.addEventListener("keydown", (e) => {
     var key = keyLower(e.key);
