@@ -217,6 +217,38 @@ window.addEventListener("keydown", (e) => {
         keyPress.classList.add("u");
         setNote("B2");
     }
+    else if(e.key == "i" && !keyPress.className.includes(" i")){
+        keyPress.classList.add("i");
+        setNote("C3");
+    }
+    else if(e.key == "9" && !keyPress.className.includes(" 9")){
+        keyPress.classList.add("9");
+        setNote("C#3");
+    }
+    else if(e.key == "o" && !keyPress.className.includes(" o")){
+        keyPress.classList.add("o");
+        setNote("D3");
+    }
+    else if(e.key == "0" && !keyPress.className.includes(" 0")){
+        keyPress.classList.add("0");
+        setNote("D#3");
+    }
+    else if(e.key == "p" && !keyPress.className.includes(" p")){
+        keyPress.classList.add("p");
+        setNote("E3");
+    }
+    else if(e.key == "[" && !keyPress.className.includes(" [")){
+        keyPress.classList.add("[");
+        setNote("F3");
+    }
+    else if(e.key == "=" && !keyPress.className.includes(" =")){
+        keyPress.classList.add("=");
+        setNote("F#3");
+    }
+    else if(e.key == "]" && !keyPress.className.includes(" ]")){
+        keyPress.classList.add("]");
+        setNote("G3");
+    }
 });
 
 window.addEventListener("keyup", (e) => {
@@ -343,5 +375,37 @@ window.addEventListener("keyup", (e) => {
     else if(e.key == "u"){
         keyPress.classList.remove("u");
         unsetNote("B2");
+    }
+    else if(e.key == "i"){
+        keyPress.classList.remove("i");
+        unsetNote("C3");
+    }
+    else if(e.key == "9"){
+        keyPress.classList.remove("9");
+        unsetNote("C#3");
+    }
+    else if(e.key == "o"){
+        keyPress.classList.remove("o");
+        unsetNote("D3");
+    }
+    else if(e.key == "0"){
+        keyPress.classList.remove("0");
+        unsetNote("D#3");
+    }
+    else if(e.key == "p"){
+        keyPress.classList.remove("p");
+        unsetNote("E3");
+    }
+    else if(e.key == "["){
+        keyPress.classList.remove("[");
+        unsetNote("F3");
+    }
+    else if(e.key == "="){
+        keyPress.classList.remove("=");
+        unsetNote("F#3");
+    }
+    else if(e.key == "]"){
+        keyPress.classList.remove("]");
+        unsetNote("G3");
     }
 });
