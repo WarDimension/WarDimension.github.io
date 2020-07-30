@@ -1,7 +1,6 @@
 *{
     font-family: "Courier New", Courier, monospace;
     box-sizing: border-box;
-    overflow: hidden;
     padding:0;
     margin:0;
     user-select: none;
@@ -9,6 +8,9 @@
     -webkit-user-drag: none;
     -webkit-user-select: none;
     -ms-user-select: none;
+}
+body{
+    overflow: hidden;
 }
 .keys-container{
     position: absolute;
@@ -20,10 +22,47 @@
     margin: auto;
     width: max-content;
     height: max-content;
+    background: #222;
+    border: solid 3px #222;
+    border-radius: 5px;
+}
+.component-container{
+    position: absolute;
+    left: -3px;
+    top: -100px;
+    padding: 20px 0;
+    width: 100%;
+    background: #222;
+    color: #ccc;
+    border: solid 3px #222;
+    border-radius: 5px;
+    box-sizing: initial;
+}
+.component-container p{
+    position: relative;
+    margin: 20px;
+    padding: 2px 10px;
+    display: inline-block;
+    background: #111;
+}
+.material-icons{
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: max-content;
+    margin: auto;
+}
+.up{
+    top: -20px;
+}
+.down{
+    bottom: -20px;
+}
+.material-icons:hover{
+    color: #fff;
 }
 .black-container{
     position: relative;
-    overflow: visible;
     background: purple;
     z-index: 1;
 }

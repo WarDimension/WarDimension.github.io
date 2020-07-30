@@ -2,6 +2,7 @@
     <head>
         <title>Keyboard</title>
         <link rel="stylesheet" type="text/css" href="keys.css"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
         <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
         <meta id="vp" name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
         <meta name="description" content="">
@@ -27,6 +28,13 @@
         <div class="keys-container">
             <div class="loading">
                 <p>LOADING SAMPLES</p>
+            </div>
+            <div class="component-container">
+                <p>
+                    <i class="material-icons up" onclick="shifting('up')">arrow_drop_up</i>
+                    Play Range: <span class="range">C1 - G3</span>
+                    <i class="material-icons down" onclick="shifting('down')">arrow_drop_down</i>
+                </p>
             </div>
             <div class="key white" note="C1"></div>
             <div class="black-container">

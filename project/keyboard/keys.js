@@ -183,7 +183,41 @@ function keyLower(key){
     return key;
 }
 
+function shifting(direction){
+    if(direction == "up" && shiftKey < maxShift){
+        shiftKey++;
+    }
+    else if(direction == "down" && shiftKey > 0){
+        shiftKey--;
+    }
+    else if(direction != "down" && direction != "up"){
+        console.log("Hey... What's up? Why don't play the piano instead of playing with the console?");
+    }
+
+    if(shiftKey == 0){
+        range.innerHTML = "C1 - G3";
+        down.style.color = "#565647";
+    }
+    else if(shiftKey == 1){
+        range.innerHTML = "C2 - G4";
+        down.style.color = "";
+    }
+    else if(shiftKey == 2){
+        range.innerHTML = "C3 - G5";
+        up.style.color = "";
+    }
+    else if(shiftKey == 3){
+        range.innerHTML = "C4 - C6";
+        up.style.color = "#565647";
+    }
+}
+
 const keyPress = document.querySelector(".key-press");
+const range = document.querySelector(".range");
+const up = document.querySelector(".up");
+const down = document.querySelector(".down");
+
+down.style.color = "#565647";
 
 window.addEventListener("keydown", (e) => {
     var key = keyLower(e.key);
@@ -343,7 +377,7 @@ window.addEventListener("keydown", (e) => {
         setNote("G3");
     }
     else if(e.key == "F2" && shiftKey < maxShift){
-        shiftKey++;
+        shifting("up");
 
         if(fadeOutTimer == undefined){
             fadeOutAudio = audio;
@@ -354,9 +388,7 @@ window.addEventListener("keydown", (e) => {
     else if(e.key == "F1"){
         e.preventDefault();
 
-        if(shiftKey > 0){
-            shiftKey--;
-        }
+        shifting("down");
 
         if(fadeOutTimer == undefined){
             fadeOutAudio = audio;
