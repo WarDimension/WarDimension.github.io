@@ -344,20 +344,23 @@ window.addEventListener("keydown", (e) => {
     }
     else if(e.key == "F2" && shiftKey < maxShift){
         shiftKey++;
-        fadeOutAudio = audio;
-        audio = [];
+
         if(fadeOutTimer == undefined){
+            fadeOutAudio = audio;
+            audio = [];
             fadeOutTimer = setInterval(fadeOut, fadeOutTime);
         }
     }
     else if(e.key == "F1"){
         e.preventDefault();
+
         if(shiftKey > 0){
             shiftKey--;
         }
-        fadeOutAudio = audio;
-        audio = [];
+
         if(fadeOutTimer == undefined){
+            fadeOutAudio = audio;
+            audio = [];
             fadeOutTimer = setInterval(fadeOut, fadeOutTime);
         }
     }
@@ -368,9 +371,9 @@ window.addEventListener("keyup", (e) => {
 
     if(e.key == " "){
         keyPress.classList.remove("space");
-        fadeOutAudio = audio;
-        audio = [];
         if(fadeOutTimer == undefined){
+            fadeOutAudio = audio;
+            audio = [];
             fadeOutTimer = setInterval(fadeOut, fadeOutTime);
         }
     }
