@@ -37,7 +37,6 @@ function loadTime(){
     audioSamples.forEach(audio => {
         if(audio.readyState < 3){
             isReady = false;
-            audio.load();
         }
     });
 
