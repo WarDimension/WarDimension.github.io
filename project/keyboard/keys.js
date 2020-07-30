@@ -1,3 +1,7 @@
+var shiftKey = 0;
+var highestNote = "C4";
+var highestOctave = 3;
+
 // LOAD SAMPLES
 
 const notes = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
@@ -9,7 +13,7 @@ function loadSamples(){
     var src = "";
     for(var i = 1; i <= highestOctave; i++){
         notes.forEach(note => {
-            src = "./notes/" + samples + "/" + note.replace("#", "%23") + i + ".ogg";
+            src = "./notes/" + samples + "/" + note.replace("#", "%23") + i.toString() + ".ogg";
             audio = new Audio(src);
             audio.load();
             audio.remove();
@@ -83,10 +87,6 @@ function fadeOut(){
         fadeOutTimer = undefined;
     }
 }
-
-var shiftKey = 0;
-var highestNote = "C4";
-var highestOctave = 3;
 
 function setNote(note){
 
