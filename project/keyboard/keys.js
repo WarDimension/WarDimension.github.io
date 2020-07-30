@@ -1,7 +1,9 @@
 var audio = [];
 
+var samples = "stage-grand";
+
 function playNote(note){
-    var src = "./notes/" + note.replace("#", "%23") + ".ogg";
+    var src = "./notes/" + samples + "/" + note.replace("#", "%23") + ".ogg";
 
     audio.push(new Audio(src));
     audio[audio.length - 1].play();
