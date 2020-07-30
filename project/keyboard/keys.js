@@ -200,6 +200,7 @@ function playMode(direction){
         down[1].style.color = "#565647";
         keySignatureContainer.style.display = "";
         modesContainer.style.display = "";
+        playModeText.innerHTML = "Chromatic";
         diatonic = false;
     }
 }
