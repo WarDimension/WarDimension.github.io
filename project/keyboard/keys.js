@@ -1,6 +1,6 @@
-var shiftKey = 0;
-var highestNote = "C4";
-var highestOctave = 3;
+var shiftKey = 3;
+var highestNote = "C6";
+var highestOctave = 5;
 
 // LOAD SAMPLES
 
@@ -26,7 +26,7 @@ function loadSamples(samples){
     }
 
     src = "./notes/" + samples + "/" + highestNote + ".ogg";
-    
+
     audioSamples.push(new Audio(src));
     audioSamples[audioSamples.length - 1].addEventListener("canplaythrough", loadedAudio, false);
 }
