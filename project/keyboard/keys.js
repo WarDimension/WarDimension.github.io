@@ -57,6 +57,8 @@ function playNote(note){
     audioSamples.forEach(playAudio => {
         if(playAudio.src.includes(note)){
             audio.push(playAudio.cloneNode());
+            audio[audio.length - 1].volume = 1;
+            audio[audio.length - 1].loop = false;
             audio[audio.length - 1].play();
         }
 
