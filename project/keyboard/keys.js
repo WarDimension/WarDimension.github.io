@@ -59,6 +59,10 @@ function playNote(note){
             audio.push(playAudio.cloneNode());
             audio[audio.length - 1].play();
         }
+
+        playAudio.volume = 0;
+        playAudio.loop = true;
+        playAudio.play();
     });
 }
 
