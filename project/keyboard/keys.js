@@ -71,9 +71,6 @@ function playNote(note){
 var fadeOutAudio = [];
 
 function stopNote(note){
-    if(keyPress.className.includes("space")){
-        return;
-    }
     note = note.replace("#", "%23");
     for(var i = 0; i < audio.length; i++){
         if(audio[i].src.includes(note)){
@@ -81,7 +78,7 @@ function stopNote(note){
             audio.splice(i, 1);
         }
     }
-    if(fadeOutTimer == undefined){
+    if(fadeOutTimer == undefined && !keyPress.className.includes("space")){
         fadeOutTimer = setInterval(fadeOut, fadeOutTime);
     }
 }
@@ -401,8 +398,6 @@ window.addEventListener("keydown", (e) => {
         shifting("down");
 
         if(fadeOutTimer == undefined){
-            fadeOutAudio = audio;
-            audio = [];
             fadeOutTimer = setInterval(fadeOut, fadeOutTime);
         }
     }
@@ -750,8 +745,6 @@ window.addEventListener("keyup", (e) => {
     if(e.key == " "){
         keyPress.classList.remove("space");
         if(fadeOutTimer == undefined){
-            fadeOutAudio = audio;
-            audio = [];
             fadeOutTimer = setInterval(fadeOut, fadeOutTime);
         }
     }
