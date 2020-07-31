@@ -105,9 +105,11 @@ const scales = [
 function samplesChange(direction){
     if(direction == "up" && samples < samplesList.length - 1){
         samples++;
+        loadSamples(samplesList[samples]);
     }
     else if(direction == "down" && samples > 0){
         samples--;
+        loadSamples(samplesList[samples]);
     }
     else if(direction != "up" && direction != "down" && direction != "update"){
         console.log("Hey... What's up? Why don't play the piano instead of playing with the console?");
@@ -123,8 +125,7 @@ function samplesChange(direction){
         up[1].style.color = "";
         down[1].style.color = "";
     }
-    
-    loadSamples(samplesList[samples]);
+
     save();
 }
 
@@ -341,6 +342,8 @@ function save(){
     localStorage.setItem("modes", modes);
 }
 
+update();
+
 // LOAD SAMPLES
 
 var audioSamples = [];
@@ -381,9 +384,9 @@ function loadedAudio(){
     }
 }
 
-// END LOAD SAMPLES
+loadSamples(samplesList[samples]);
 
-update();
+// END LOAD SAMPLES
 
 var audio = [];
 
