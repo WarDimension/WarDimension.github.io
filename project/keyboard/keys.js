@@ -538,8 +538,6 @@ update();
 window.addEventListener("keydown", (e) => {
     var key = keyLower(e.key, e.keyCode);
 
-    console.log(key);
-
     if(!loadDone){
         return;
     }
