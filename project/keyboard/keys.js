@@ -183,20 +183,29 @@ function keyLower(key){
     else if(key == ">"){
         key = ".";
     }
+    else if(key == "?"){
+        key = "/";
+    }
     else if(key == ":"){
         key = ";";
     }
-    else if(key == "?"){
-        key = "/";
+    else if(key == '"'){
+        key = "'";
     }
     else if(key == "{"){
         key = "[";
     }
-    else if(key == "+"){
-        key = "=";
-    }
     else if(key == "}"){
         key = "]";
+    }
+    else if(key == "|"){
+        key = "\\";
+    }
+    else if(key == "_"){
+        key = "-";
+    }
+    else if(key == "+"){
+        key = "=";
     }
     else if(keyNum.includes(key)){
         for(var i = 0; i < keyNum.length; i++){
