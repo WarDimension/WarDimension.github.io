@@ -39,16 +39,309 @@ const maxShift = 3;
 const maxShiftRight = 4;
 const highestNote = "C6";
 const highestOctave = 5;
+const samplesList = ["stage-grand"];
+const samplesName = ["Stage Grand"];
 
+var samples = 0;
 var shiftKey = 0;
 var shiftKeyRight = 0;
 var diatonic = true;
 var keySignature = 0;
 var modes = 0;
 
-// LOAD SAMPLES
-
 const notes = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
+
+const scales = [
+    [
+        ["C", "D", "E", "F", "G", "A", "B"],
+        ["C", "D", "D#", "F", "G", "G#", "A#"],
+    ],
+    [
+        ["C#", "D#", "F", "F#", "G#", "A#", "C"],
+        ["C#", "D#", "E", "F#", "G#", "A", "B"]
+    ],
+    [
+        ["D", "E", "F#", "G", "A", "B", "C#"],
+        ["D", "E", "F", "G", "A", "A#", "C"]
+    ],
+    [
+        ["D#", "F", "G", "G#", "A#", "C", "D"],
+        ["D#", "F", "F#", "G#", "A#", "B", "C#"]
+    ],
+    [
+        ["E", "F#", "G#", "A", "B", "C#", "D#"],
+        ["E", "F#", "G", "A", "B", "C", "D"]
+    ],
+    [
+        ["F", "G", "A", "A#", "C", "D", "E"],
+        ["F", "G", "G#", "A#", "C", "C#", "D#"]
+    ],
+    [
+        ["F#", "G#", "A#", "B", "C#", "D#", "F"],
+        ["F#", "G#", "A", "B", "C#", "D", "E"]
+    ],
+    [
+        ["G", "A", "B", "C", "D", "E", "F#"],
+        ["G", "A", "A#", "C", "D", "D#", "F"]
+    ],
+    [
+        ["G#", "A#", "C", "C#", "D#", "F", "G"],
+        ["G#", "A#", "B", "C#", "D#", "E", "F#"]
+    ],
+    [
+        ["A", "B", "C#", "D", "E", "F#", "G#"],
+        ["A", "B", "C", "D", "E", "F", "G"]
+    ],
+    [
+        ["A#", "C", "D", "D#", "F", "G", "A"],
+        ["A#", "C", "C#", "D#", "F", "F#", "G#"]
+    ],
+    [
+        ["B", "C#", "D#", "E", "F#", "G#", "A#"],
+        ["B", "C#", "D", "E", "F#", "G", "A"]
+    ]
+];
+
+function samplesChange(direction){
+    if(direction == "up" && samples < samplesList.length - 1){
+        samples++;
+    }
+    else if(direction == "down" && samples > 0){
+        samples--;
+    }
+    else if(direction != "up" && direction != "down" && direction != "update"){
+        console.log("Hey... What's up? Why don't play the piano instead of playing with the console?");
+    }
+
+    if(samples == 0){
+        down[0].style.color = "#565647";
+    }
+    else if(samples == samplesList.length - 1){
+        up[0].style.color = "#565647";
+    }
+    else{
+        up[1].style.color = "";
+        down[1].style.color = "";
+    }
+    
+    loadSamples(samplesList[samples]);
+    save();
+}
+
+function playMode(direction){
+    if(direction == "up"){
+        diatonic = false;
+    }
+    else if(direction == "down"){
+        diatonic = true;
+    }
+    else if(direction != "up" && direction != "down" && direction != "update"){
+        console.log("Hey... What's up? Why don't play the piano instead of playing with the console?");
+    }
+
+    if(diatonic){
+        rangeContainer.style.display = "none";
+        keySignatureContainer.style.display = "inline-block";
+        modesContainer.style.display = "inline-block";
+        playModeText.innerHTML = "Diatonic";
+        up[1].style.color = "";
+        down[1].style.color = "#565647";
+    }
+    else{
+        rangeContainer.style.display = "";
+        keySignatureContainer.style.display = "";
+        modesContainer.style.display = "";
+        playModeText.innerHTML = "Chromatic";
+        up[1].style.color = "#565647";
+        down[1].style.color = "";
+    }
+
+    keys.forEach(key => {
+        key.style.background = "";
+    });
+
+    shiftingRight("update");
+    save();
+}
+
+function shifting(direction){
+    if(direction == "up" && shiftKey < maxShift){
+        shiftKey++;
+    }
+    else if(direction == "down" && shiftKey > 0){
+        shiftKey--;
+    }
+    else if(direction != "up" && direction != "down" && direction != "update"){
+        console.log("Hey... What's up? Why don't play the piano instead of playing with the console?");
+    }
+
+    if(shiftKey == maxShift){
+        leftRange.innerHTML = "C"+ (shiftKey + 1) + "-" + highestNote;
+    }
+    else{
+        leftRange.innerHTML = "C" + (shiftKey + 1) + "-G" + (shiftKey + 3);
+    }
+
+    if(shiftKey == 0){
+        down[2].style.color = "#565647";
+    }
+    else if(shiftKey == maxShift){
+        up[2].style.color = "#565647";
+    }
+    else{
+        up[2].style.color = "";
+        down[2].style.color = "";
+    }
+
+    keys.forEach(key => {
+        key.style.background = "";
+    });
+
+    save();
+}
+
+function shiftingRight(direction){
+    if(direction == "up" && shiftKeyRight < maxShiftRight){
+        shiftKeyRight++;
+    }
+    else if(direction == "down" && shiftKeyRight > 0){
+        shiftKeyRight--;
+    }
+    else if(direction != "up" && direction != "down" && direction != "update"){
+        console.log("Hey... What's up? Why don't play the piano instead of playing with the console?");
+    }
+
+    if(diatonic){
+        if(shiftKeyRight == maxShiftRight){
+            var note = scales[keySignature][modes][0];
+            rightRange.innerHTML = note + (shiftKeyRight + 1 + octave(note)) + "-" + highestNote;
+        }
+        else{
+            var note = scales[keySignature][modes][0];
+            var note1 = scales[keySignature][modes][1];
+            rightRange.innerHTML = note + (shiftKeyRight + 1 + octave(note)) + "-" + note1 + (shiftKeyRight + 2 + octave(note1));
+        }
+    }
+    else{
+        rightRange.innerHTML = "C" + (shiftKeyRight + 1) + "-G#" + (shiftKeyRight + 1);
+    }
+
+    if(shiftKeyRight == 0){
+        down[5].style.color = "#565647";
+    }
+    else if(shiftKeyRight == maxShiftRight){
+        up[5].style.color = "#565647";
+    }
+    else{
+        up[5].style.color = "";
+        down[5].style.color = "";
+    }
+
+    keys.forEach(key => {
+        key.style.background = "";
+    });
+    
+    save();
+}
+
+function keySignatureChange(direction){
+    if(direction == "up" && keySignature < notes.length - 1){
+        keySignature++;
+    }
+    else if(direction == "down" && keySignature > 0){
+        keySignature--;
+    }
+    else if(direction != "up" && direction != "down" && direction != "update"){
+        console.log("Hey... What's up? Why don't play the piano instead of playing with the console?");
+    }
+
+    keySignatureText.innerHTML = notes[keySignature];
+
+    if(keySignature == 0){
+        down[3].style.color = "#565647";
+    }
+    else if(keySignature == notes.length - 1){
+        up[3].style.color = "#565647";
+    }
+    else{
+        up[3].style.color = "";
+        down[3].style.color = "";
+    }
+
+    keys.forEach(key => {
+        key.style.background = "";
+    });
+
+    shiftingRight("update");
+    save();
+}
+
+function modesChange(direction){
+    if(direction == "up"){
+        modes = 1;
+    }
+    else if(direction == "down"){
+        modes = 0;
+    }
+    else if(direction != "up" && direction != "down" && direction != "update"){
+        console.log("Hey... What's up? Why don't play the piano instead of playing with the console?");
+    }
+
+    if(modes == 0){
+        modesText.innerHTML = "Major";
+        up[4].style.color = "";
+        down[4].style.color = "#565647";
+    }
+    else if(modes = 1){
+        modesText.innerHTML = "Minor";
+        up[4].style.color = "#565647";
+        down[4].style.color = "";
+    }
+
+    keys.forEach(key => {
+        key.style.background = "";
+    });
+    
+    save();
+}
+
+function update(){
+    if(localStorage.getItem("samples") != null){
+        samples = parseInt(localStorage.getItem("samples"));
+    }
+    if(localStorage.getItem("shiftKey") != null){
+        shiftKey = parseInt(localStorage.getItem("shiftKey"));
+    }
+    if(localStorage.getItem("shiftKeyRight") != null){
+        shiftKeyRight = parseInt(localStorage.getItem("shiftKeyRight"));
+    }
+    if(localStorage.getItem("diatonic") != null){
+        diatonic = localStorage.getItem("diatonic") == "true";
+    }
+    if(localStorage.getItem("keySignature") != null){
+        keySignature = parseInt(localStorage.getItem("keySignature"));
+    }
+    if(localStorage.getItem("modes") != null){
+        modes = parseInt(localStorage.getItem("modes"));
+    }
+    samplesChange("update");
+    playMode("update");
+    shifting("update");
+    shiftingRight("update");
+    keySignatureChange("update");
+    modesChange("update");
+}
+
+function save(){
+    localStorage.setItem("samples", samples);
+    localStorage.setItem("shiftKey", shiftKey);
+    localStorage.setItem("shiftKeyRight", shiftKeyRight);
+    localStorage.setItem("diatonic", diatonic);
+    localStorage.setItem("keySignature", keySignature);
+    localStorage.setItem("modes", modes);
+}
+
+// LOAD SAMPLES
 
 var audioSamples = [];
 
@@ -88,9 +381,9 @@ function loadedAudio(){
     }
 }
 
-loadSamples("stage-grand");
-
 // END LOAD SAMPLES
+
+update();
 
 var audio = [];
 
@@ -259,234 +552,6 @@ function keyLower(key, keyCode){
     return key;
 }
 
-function playMode(direction){
-    if(direction == "up"){
-        diatonic = false;
-    }
-    else if(direction == "down"){
-        diatonic = true;
-    }
-    else if(direction != "up" && direction != "down" && direction != "update"){
-        console.log("Hey... What's up? Why don't play the piano instead of playing with the console?");
-    }
-
-    if(diatonic){
-        rangeContainer.style.display = "none";
-        keySignatureContainer.style.display = "inline-block";
-        modesContainer.style.display = "inline-block";
-        playModeText.innerHTML = "Diatonic";
-        up[1].style.color = "";
-        down[1].style.color = "#565647";
-    }
-    else{
-        rangeContainer.style.display = "";
-        keySignatureContainer.style.display = "";
-        modesContainer.style.display = "";
-        playModeText.innerHTML = "Chromatic";
-        up[1].style.color = "#565647";
-        down[1].style.color = "";
-    }
-
-    keys.forEach(key => {
-        key.style.background = "";
-    });
-
-    shiftingRight("update");
-    save();
-}
-
-function shifting(direction){
-    if(direction == "up" && shiftKey < maxShift){
-        shiftKey++;
-    }
-    else if(direction == "down" && shiftKey > 0){
-        shiftKey--;
-    }
-    else if(direction != "up" && direction != "down" && direction != "update"){
-        console.log("Hey... What's up? Why don't play the piano instead of playing with the console?");
-    }
-
-    if(shiftKey == maxShift){
-        leftRange.innerHTML = "C"+ (shiftKey + 1) + "-" + highestNote;
-    }
-    else{
-        leftRange.innerHTML = "C" + (shiftKey + 1) + "-G" + (shiftKey + 3);
-    }
-
-    if(shiftKey == 0){
-        down[2].style.color = "#565647";
-    }
-    else if(shiftKey == maxShift){
-        up[2].style.color = "#565647";
-    }
-    else{
-        up[2].style.color = "";
-        down[2].style.color = "";
-    }
-
-    keys.forEach(key => {
-        key.style.background = "";
-    });
-
-    save();
-}
-
-function shiftingRight(direction){
-    if(direction == "up" && shiftKeyRight < maxShiftRight){
-        shiftKeyRight++;
-    }
-    else if(direction == "down" && shiftKeyRight > 0){
-        shiftKeyRight--;
-    }
-    else if(direction != "up" && direction != "down" && direction != "update"){
-        console.log("Hey... What's up? Why don't play the piano instead of playing with the console?");
-    }
-
-    if(diatonic){
-        if(shiftKeyRight == maxShiftRight){
-            var note = scales[keySignature][modes][0];
-            rightRange.innerHTML = note + (shiftKeyRight + 1 + octave(note)) + "-" + highestNote;
-        }
-        else{
-            var note = scales[keySignature][modes][0];
-            var note1 = scales[keySignature][modes][1];
-            rightRange.innerHTML = note + (shiftKeyRight + 1 + octave(note)) + "-" + note1 + (shiftKeyRight + 2 + octave(note1));
-        }
-    }
-    else{
-        rightRange.innerHTML = "C" + (shiftKeyRight + 1) + "-G#" + (shiftKeyRight + 1);
-    }
-
-    if(shiftKeyRight == 0){
-        down[5].style.color = "#565647";
-    }
-    else if(shiftKeyRight == maxShiftRight){
-        up[5].style.color = "#565647";
-    }
-    else{
-        up[5].style.color = "";
-        down[5].style.color = "";
-    }
-
-    keys.forEach(key => {
-        key.style.background = "";
-    });
-    
-    save();
-}
-
-const scales = [
-    [
-        ["C", "D", "E", "F", "G", "A", "B"],
-        ["C", "D", "D#", "F", "G", "G#", "A#"],
-    ],
-    [
-        ["C#", "D#", "F", "F#", "G#", "A#", "C"],
-        ["C#", "D#", "E", "F#", "G#", "A", "B"]
-    ],
-    [
-        ["D", "E", "F#", "G", "A", "B", "C#"],
-        ["D", "E", "F", "G", "A", "A#", "C"]
-    ],
-    [
-        ["D#", "F", "G", "G#", "A#", "C", "D"],
-        ["D#", "F", "F#", "G#", "A#", "B", "C#"]
-    ],
-    [
-        ["E", "F#", "G#", "A", "B", "C#", "D#"],
-        ["E", "F#", "G", "A", "B", "C", "D"]
-    ],
-    [
-        ["F", "G", "A", "A#", "C", "D", "E"],
-        ["F", "G", "G#", "A#", "C", "C#", "D#"]
-    ],
-    [
-        ["F#", "G#", "A#", "B", "C#", "D#", "F"],
-        ["F#", "G#", "A", "B", "C#", "D", "E"]
-    ],
-    [
-        ["G", "A", "B", "C", "D", "E", "F#"],
-        ["G", "A", "A#", "C", "D", "D#", "F"]
-    ],
-    [
-        ["G#", "A#", "C", "C#", "D#", "F", "G"],
-        ["G#", "A#", "B", "C#", "D#", "E", "F#"]
-    ],
-    [
-        ["A", "B", "C#", "D", "E", "F#", "G#"],
-        ["A", "B", "C", "D", "E", "F", "G"]
-    ],
-    [
-        ["A#", "C", "D", "D#", "F", "G", "A"],
-        ["A#", "C", "C#", "D#", "F", "F#", "G#"]
-    ],
-    [
-        ["B", "C#", "D#", "E", "F#", "G#", "A#"],
-        ["B", "C#", "D", "E", "F#", "G", "A"]
-    ]
-];
-
-function keySignatureChange(direction){
-    if(direction == "up" && keySignature < notes.length - 1){
-        keySignature++;
-    }
-    else if(direction == "down" && keySignature > 0){
-        keySignature--;
-    }
-    else if(direction != "up" && direction != "down" && direction != "update"){
-        console.log("Hey... What's up? Why don't play the piano instead of playing with the console?");
-    }
-
-    keySignatureText.innerHTML = notes[keySignature];
-
-    if(keySignature == 0){
-        down[3].style.color = "#565647";
-    }
-    else if(keySignature == notes.length - 1){
-        up[3].style.color = "#565647";
-    }
-    else{
-        up[3].style.color = "";
-        down[3].style.color = "";
-    }
-
-    keys.forEach(key => {
-        key.style.background = "";
-    });
-
-    shiftingRight("update");
-    save();
-}
-
-function modesChange(direction){
-    if(direction == "up"){
-        modes = 1;
-    }
-    else if(direction == "down"){
-        modes = 0;
-    }
-    else if(direction != "up" && direction != "down" && direction != "update"){
-        console.log("Hey... What's up? Why don't play the piano instead of playing with the console?");
-    }
-
-    if(modes == 0){
-        modesText.innerHTML = "Major";
-        up[4].style.color = "";
-        down[4].style.color = "#565647";
-    }
-    else if(modes = 1){
-        modesText.innerHTML = "Minor";
-        up[4].style.color = "#565647";
-        down[4].style.color = "";
-    }
-
-    keys.forEach(key => {
-        key.style.background = "";
-    });
-    
-    save();
-}
-
 function octave(note){
     var key = scales[keySignature][modes];
     for(var i = 0; i < 7; i++){
@@ -501,39 +566,6 @@ function octave(note){
         }
     }
 }
-
-function update(){
-    if(localStorage.getItem("shiftKey") != null){
-        shiftKey = parseInt(localStorage.getItem("shiftKey"));
-    }
-    if(localStorage.getItem("shiftKeyRight") != null){
-        shiftKeyRight = parseInt(localStorage.getItem("shiftKeyRight"));
-    }
-    if(localStorage.getItem("diatonic") != null){
-        diatonic = localStorage.getItem("diatonic") == "true";
-    }
-    if(localStorage.getItem("keySignature") != null){
-        keySignature = parseInt(localStorage.getItem("keySignature"));
-    }
-    if(localStorage.getItem("modes") != null){
-        modes = parseInt(localStorage.getItem("modes"));
-    }
-    playMode("update");
-    shifting("update");
-    shiftingRight("update");
-    keySignatureChange("update");
-    modesChange("update");
-}
-
-function save(){
-    localStorage.setItem("shiftKey", shiftKey);
-    localStorage.setItem("shiftKeyRight", shiftKeyRight);
-    localStorage.setItem("diatonic", diatonic);
-    localStorage.setItem("keySignature", keySignature);
-    localStorage.setItem("modes", modes);
-}
-
-update();
 
 window.addEventListener("keydown", (e) => {
     var key = keyLower(e.key, e.keyCode);
