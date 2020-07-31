@@ -13,13 +13,24 @@ window.addEventListener("resize", (e) => {
 
 const keys = document.querySelectorAll(".key");
 
+var isMouseDown = false;
+
 keys.forEach(key => {
     key.addEventListener("mousedown", (e) => {
         playNote(key.attributes.note.value);
+        isMouseDown = true;
     });
  
     window.addEventListener("mouseup", () => {
         stopNote(key.attributes.note.value);
+        isMouseDown = false;
+    });
+
+    key.addEventListener("mouseover", (e) => {
+        if(isMouseDown){
+            fadeOutAll();
+            playNote(key.attributes.note.value);
+        }
     });
 });
 
