@@ -40,8 +40,8 @@ const maxShift = 3;
 const maxShiftRight = 4;
 const highestNote = "C6";
 const highestOctave = 5;
-const samplesList = ["stage-grand"];
-const samplesName = ["Stage Grand"];
+const samplesList = ["stage-grand", "electric"];
+const samplesName = ["Stage Grand", "Electric"];
 
 var samples = 0;
 var shiftKey = 0;
@@ -119,16 +119,16 @@ function samplesChange(direction){
     samplesText.innerHTML = samplesName[samples];
 
     if(samples == 0){
-        up[1].style.color = "";
+        up[0].style.color = "";
         down[0].style.color = "#565647";
     }
     else if(samples == samplesList.length - 1){
         up[0].style.color = "#565647";
-        down[1].style.color = "";
+        down[0].style.color = "";
     }
     else{
-        up[1].style.color = "";
-        down[1].style.color = "";
+        up[0].style.color = "";
+        down[0].style.color = "";
     }
 
     save();
@@ -360,7 +360,12 @@ update();
 var audioSamples = [];
 
 function loadSamples(samples){
-    audioSamples = [];
+    if(audioSamples.length > 0){
+        audioSamples.forEach(audio => {
+            audio.remove();
+        });
+        audioSamples = [];
+    }
     var src = "";
 
     loading.style.display = "";
