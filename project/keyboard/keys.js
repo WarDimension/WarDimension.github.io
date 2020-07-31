@@ -24,6 +24,7 @@ keys.forEach(key => {
 });
 
 const keyPress = document.querySelector(".key-press");
+const samplesText = document.querySelector(".samples");
 const playModeText = document.querySelector(".play-mode");
 const rangeContainer = document.querySelector(".range-container");
 const leftRange = document.querySelector(".left-range");
@@ -115,11 +116,15 @@ function samplesChange(direction){
         console.log("Hey... What's up? Why don't play the piano instead of playing with the console?");
     }
 
+    samplesText.innerHTML = samplesName[samples];
+
     if(samples == 0){
+        up[1].style.color = "";
         down[0].style.color = "#565647";
     }
     else if(samples == samplesList.length - 1){
         up[0].style.color = "#565647";
+        down[1].style.color = "";
     }
     else{
         up[1].style.color = "";
@@ -184,10 +189,12 @@ function shifting(direction){
     }
 
     if(shiftKey == 0){
+        up[2].style.color = "";
         down[2].style.color = "#565647";
     }
     else if(shiftKey == maxShift){
         up[2].style.color = "#565647";
+        down[2].style.color = "";
     }
     else{
         up[2].style.color = "";
@@ -228,10 +235,12 @@ function shiftingRight(direction){
     }
 
     if(shiftKeyRight == 0){
+        up[5].style.color = "";
         down[5].style.color = "#565647";
     }
     else if(shiftKeyRight == maxShiftRight){
         up[5].style.color = "#565647";
+        down[5].style.color = "";
     }
     else{
         up[5].style.color = "";
@@ -259,10 +268,12 @@ function keySignatureChange(direction){
     keySignatureText.innerHTML = notes[keySignature];
 
     if(keySignature == 0){
+        up[3].style.color = "";
         down[3].style.color = "#565647";
     }
     else if(keySignature == notes.length - 1){
         up[3].style.color = "#565647";
+        down[3].style.color = "";
     }
     else{
         up[3].style.color = "";
@@ -577,21 +588,43 @@ window.addEventListener("keydown", (e) => {
         return;
     }
     else if(key == " " && !keyPress.className.includes("space")){
+        e.preventDefault();
+        
         keyPress.classList.add("space");
     }
+    else if(key == "f2"){
+        e.preventDefault();
+
+        samplesChange("up");
+        fadeOutAll();
+    }
+    else if(key == "f1"){
+        e.preventDefault();
+
+        samplesChange("down");
+        fadeOutAll();
+    }
     else if(key == "pageup"){
+        e.preventDefault();
+
         playMode("up");
         fadeOutAll();
     }
     else if(key == "pagedown"){
+        e.preventDefault();
+        
         playMode("down");
         fadeOutAll();
     }
     else if(key == "home"){
+        e.preventDefault();
+        
         shiftingRight("up");
         fadeOutAll();
     }
     else if(key == "end"){
+        e.preventDefault();
+        
         shiftingRight("down");
         fadeOutAll();
     }
