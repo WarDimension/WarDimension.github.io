@@ -66,6 +66,10 @@ const modesText = document.querySelector(".modes");
 const up = document.querySelectorAll(".up");
 const down = document.querySelectorAll(".down");
 
+const controlsImg = document.querySelector(".controls-img");
+const controlsButton = document.querySelector(".controls-button");
+const expand = document.querySelector(".expand");
+
 const maxShift = 3;
 const maxShiftRight = 4;
 const highestNote = "C6";
@@ -189,6 +193,7 @@ function playMode(direction){
         modesContainer.style.display = "";
 
         playModeText.innerHTML = "Diatonic";
+        controlsImg.src = "diatonic.png";
         
         setArrow(1, 0, 1);
     }
@@ -198,6 +203,7 @@ function playMode(direction){
         modesContainer.style.display = "none";
 
         playModeText.innerHTML = "Chromatic";
+        controlsImg.src = "chromatic.png";
         
         setArrow(1, 1, 1);
     }
@@ -354,6 +360,17 @@ function save(){
 }
 
 update();
+
+function showControls(){
+    if(controlsImg.style.display != "block"){
+        controlsImg.style.display = "block";
+        expand.innerHTML = "expand_less";
+    }
+    else{
+        controlsImg.style.display = "";
+        expand.innerHTML = "expand_more";
+    }
+}
 
 // LOAD SAMPLES
 
@@ -886,6 +903,18 @@ window.addEventListener("keydown", (e) => {
             e.preventDefault();
     
             shifting("down");
+            fadeOutAll();
+        }
+        else if(key == "arrowright"){
+            e.preventDefault();
+            
+            shiftingRight("up");
+            fadeOutAll();
+        }
+        else if(key == "arrowleft"){
+            e.preventDefault();
+            
+            shiftingRight("down");
             fadeOutAll();
         }
         else if(key == "z" && !keyPress.className.includes(" z")){
