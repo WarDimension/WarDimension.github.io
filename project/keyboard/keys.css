@@ -85,6 +85,11 @@ body{
     background: purple;
     z-index: 1;
 }
+.keys-container, .component-container, .key, .pedal-box{
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
 .key.white{
     position: relative;
     width: 25px;
@@ -107,6 +112,57 @@ body{
 }
 .key.black:hover{
     background: #565647;
+}
+.pedal-container{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -18px;
+    transform: scale(0.9);
+}
+.pedal-box.top{
+    position: absolute;
+    top: 2px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 34px;
+    height: 56px;
+    background: #404040;
+}
+.pedal-box.bottom{
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 40px;
+    height: 62px;
+    background: #222;
+}
+.pedal-outline, .pedal{
+    position: absolute;
+    top: 10px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: max-content;
+    height: 0;
+    width: 28px;
+    border-left: solid 3px transparent;
+    border-right: solid 3px transparent;
+    border-bottom: solid 104px #222;
+    border-radius: 3px;
+}
+.pedal{
+    top: 2px;
+    left: -1px;
+    bottom: auto;
+    width: 18px;
+    border-bottom: solid 100px #efefef;
+    box-sizing: initial;
+}
+.pedal:hover{
+    border-bottom-color: #babac9;
 }
 .loading{
     position: absolute;

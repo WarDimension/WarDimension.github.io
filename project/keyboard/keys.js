@@ -16,6 +16,7 @@ window.addEventListener("mousedown", () => {
 });
 
 const keys = document.querySelectorAll(".key");
+const pedal = document.querySelector(".pedal");
 
 var isMouseDown = false;
 
@@ -39,6 +40,17 @@ keys.forEach(key => {
     key.addEventListener("mouseleave", () => {
         stopNote(key.attributes.note.value);
     });
+});
+
+pedal.addEventListener("mousedown", () => {
+    if(!keyPress.className.includes("space")){
+        keyPress.classList.add("space");
+        pedal.style.borderBottomColor = "#babac9";
+    }
+    else{
+        keyPress.classList.remove("space");
+        pedal.style.borderBottomColor = "";
+    }
 });
 
 const keyPress = document.querySelector(".key-press");
@@ -574,10 +586,12 @@ window.addEventListener("keydown", (e) => {
     if(!loadDone){
         return;
     }
-    else if(key == " " && !keyPress.className.includes("space")){
+    else if(key == " "){
         e.preventDefault();
-        
+
         keyPress.classList.add("space");
+
+        pedal.style.borderBottomColor = "#babac9";
     }
     else if(key == "f2"){
         e.preventDefault();
@@ -1066,6 +1080,7 @@ window.addEventListener("keyup", (e) => {
 
     if(e.key == " "){
         keyPress.classList.remove("space");
+        pedal.style.borderBottomColor = "";
         if(fadeOutTimer == undefined){
             fadeOutTimer = setInterval(fadeOut, fadeOutTime);
         }
