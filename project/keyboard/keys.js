@@ -3,7 +3,7 @@ if(screen.width < 920) {
   mvp.setAttribute("content","width=920, user-scalable=no");
 }
 
-window.addEventListener("resize", (e) => {
+window.addEventListener("resize", () => {
   if(screen.width < 920) {
     mvp.setAttribute("content","width=920, user-scalable=no");
   }else{
@@ -11,12 +11,16 @@ window.addEventListener("resize", (e) => {
   }
 });
 
+window.addEventListener("mousedown", () => {
+    isMouseDown = true;
+});
+
 const keys = document.querySelectorAll(".key");
 
 var isMouseDown = false;
 
 keys.forEach(key => {
-    key.addEventListener("mousedown", (e) => {
+    key.addEventListener("mousedown", () => {
         playNote(key.attributes.note.value);
         isMouseDown = true;
     });
@@ -26,11 +30,14 @@ keys.forEach(key => {
         isMouseDown = false;
     });
 
-    key.addEventListener("mouseover", (e) => {
+    key.addEventListener("mouseenter", () => {
         if(isMouseDown){
-            fadeOutAll();
             playNote(key.attributes.note.value);
         }
+    });
+
+    key.addEventListener("mouseleave", () => {
+        stopNote(key.attributes.note.value);
     });
 });
 
