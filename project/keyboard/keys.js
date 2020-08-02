@@ -63,6 +63,8 @@ var modes = 0;
 
 const notes = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
 
+const modesList = ["Major", "Minor"];
+
 const scales = [
     [
         ["C", "D", "E", "F", "G", "A", "B"],
@@ -114,6 +116,21 @@ const scales = [
     ]
 ];
 
+function setArrow(index, position, max){
+    if(position == 0){
+        up[index].style.color = "";
+        down[index].style.color = "#565647";
+    }
+    else if(position == max){
+        up[index].style.color = "#565647";
+        down[index].style.color = "";
+    }
+    else{
+        up[index].style.color = "";
+        down[index].style.color = "";
+    }
+}
+
 function samplesChange(direction){
     if(direction == "up" && samples < samplesList.length - 1){
         samples++;
@@ -129,18 +146,7 @@ function samplesChange(direction){
 
     samplesText.innerHTML = samplesName[samples];
 
-    if(samples == 0){
-        up[0].style.color = "";
-        down[0].style.color = "#565647";
-    }
-    else if(samples == samplesList.length - 1){
-        up[0].style.color = "#565647";
-        down[0].style.color = "";
-    }
-    else{
-        up[0].style.color = "";
-        down[0].style.color = "";
-    }
+    setArrow(0, samples, samplesList.length - 1);
 
     save();
 }
@@ -157,20 +163,22 @@ function playMode(direction){
     }
 
     if(diatonic){
-        rangeContainer.style.display = "none";
-        keySignatureContainer.style.display = "inline-block";
-        modesContainer.style.display = "inline-block";
-        playModeText.innerHTML = "Diatonic";
-        up[1].style.color = "";
-        down[1].style.color = "#565647";
-    }
-    else{
         rangeContainer.style.display = "";
         keySignatureContainer.style.display = "";
         modesContainer.style.display = "";
+
+        playModeText.innerHTML = "Diatonic";
+        
+        setArrow(1, 0, 1);
+    }
+    else{
+        rangeContainer.style.display = "inline-block";
+        keySignatureContainer.style.display = "none";
+        modesContainer.style.display = "none";
+
         playModeText.innerHTML = "Chromatic";
-        up[1].style.color = "#565647";
-        down[1].style.color = "";
+        
+        setArrow(1, 1, 1);
     }
 
     keys.forEach(key => {
@@ -199,18 +207,7 @@ function shifting(direction){
         leftRange.innerHTML = "C" + (shiftKey + 1) + "-G" + (shiftKey + 3);
     }
 
-    if(shiftKey == 0){
-        up[2].style.color = "";
-        down[2].style.color = "#565647";
-    }
-    else if(shiftKey == maxShift){
-        up[2].style.color = "#565647";
-        down[2].style.color = "";
-    }
-    else{
-        up[2].style.color = "";
-        down[2].style.color = "";
-    }
+    setArrow(2, shiftKey, maxShift);
 
     keys.forEach(key => {
         key.style.background = "";
@@ -245,18 +242,7 @@ function shiftingRight(direction){
         rightRange.innerHTML = "C" + (shiftKeyRight + 1) + "-G#" + (shiftKeyRight + 1);
     }
 
-    if(shiftKeyRight == 0){
-        up[5].style.color = "";
-        down[5].style.color = "#565647";
-    }
-    else if(shiftKeyRight == maxShiftRight){
-        up[5].style.color = "#565647";
-        down[5].style.color = "";
-    }
-    else{
-        up[5].style.color = "";
-        down[5].style.color = "";
-    }
+    setArrow(5, shiftKeyRight, maxShiftRight);
 
     keys.forEach(key => {
         key.style.background = "";
@@ -278,18 +264,7 @@ function keySignatureChange(direction){
 
     keySignatureText.innerHTML = notes[keySignature];
 
-    if(keySignature == 0){
-        up[3].style.color = "";
-        down[3].style.color = "#565647";
-    }
-    else if(keySignature == notes.length - 1){
-        up[3].style.color = "#565647";
-        down[3].style.color = "";
-    }
-    else{
-        up[3].style.color = "";
-        down[3].style.color = "";
-    }
+    setArrow(3, keySignature, notes.length - 1);
 
     keys.forEach(key => {
         key.style.background = "";
@@ -310,16 +285,9 @@ function modesChange(direction){
         console.log("Hey... What's up? Why don't play the piano instead of playing with the console?");
     }
 
-    if(modes == 0){
-        modesText.innerHTML = "Major";
-        up[4].style.color = "";
-        down[4].style.color = "#565647";
-    }
-    else if(modes = 1){
-        modesText.innerHTML = "Minor";
-        up[4].style.color = "#565647";
-        down[4].style.color = "";
-    }
+    modesText.innerHTML = modesList[modes];
+
+    setArrow(4, modes, modesList.length - 1);
 
     keys.forEach(key => {
         key.style.background = "";
@@ -479,7 +447,7 @@ function fadeOutAll(){
     }
 }
 
-function setNote(note, oct, right = false){
+function getNote(note, oct, right){
     if(diatonic){
         note = scales[keySignature][modes][note];
         oct = oct + octave(note);
@@ -492,9 +460,17 @@ function setNote(note, oct, right = false){
         oct = oct + shiftKeyRight;
     }
 
-    note = note + oct;
-
     if(note != highestNote && oct > highestOctave){
+        return false;
+    }
+
+    return note + oct;
+}
+
+function setNote(note, oct, right = false){
+    note = getNote(note, oct, right);
+
+    if(!note){
         return;
     }
 
@@ -510,21 +486,9 @@ function setNote(note, oct, right = false){
 }
 
 function unsetNote(note, oct, right = false){
-    if(diatonic){
-        note = scales[keySignature][modes][note];
-        oct = oct + octave(note);
-    }
+    note = getNote(note, oct, right);
 
-    if(shiftKey > 0 && !right){
-        oct = oct + shiftKey;
-    }
-    else if(shiftKeyRight > 0 && right){
-        oct = oct + shiftKeyRight;
-    }
-
-    note = note + oct;
-
-    if(note != highestNote && oct > highestOctave){
+    if(!note){
         return;
     }
 
@@ -533,7 +497,7 @@ function unsetNote(note, oct, right = false){
     key.style.background = "";
 }
 
-function keyLower(key, keyCode){
+function keyLower(key, code){
     key = key.toLowerCase();
 
     var keyNum = [")", "!",  "@",  "#",  "$",  "%",  "^",  "&",  "*",  "("];
@@ -568,8 +532,8 @@ function keyLower(key, keyCode){
     else if(key == "+"){
         key = "=";
     }
-    else if(keyCode >= 96 && keyCode <= 105){
-        key = "num-" + key;
+    else if(code.includes("Numpad")){
+        key = code.toLowerCase();
     }
     else if(keyNum.includes(key)){
         for(var i = 0; i < keyNum.length; i++){
@@ -598,7 +562,7 @@ function octave(note){
 }
 
 window.addEventListener("keydown", (e) => {
-    var key = keyLower(e.key, e.keyCode);
+    var key = keyLower(e.key, e.code);
 
     if(!loadDone){
         return;
@@ -853,40 +817,40 @@ window.addEventListener("keydown", (e) => {
             keyPress.classList.add("=");
             setNote(4, 5);
         }
-        else if(key == "num-1" && !keyPress.className.includes(" num-1")){
-            keyPress.classList.add("num-1");
+        else if(key == "numpad1" && !keyPress.className.includes(" numpad1")){
+            keyPress.classList.add("numpad1");
             setNote(0, 1, true);
         }
-        else if(key == "num-2" && !keyPress.className.includes(" num-2")){
-            keyPress.classList.add("num-2");
+        else if(key == "numpad2" && !keyPress.className.includes(" numpad2")){
+            keyPress.classList.add("numpad2");
             setNote(1, 1, true);
         }
-        else if(key == "num-3" && !keyPress.className.includes(" num-3")){
-            keyPress.classList.add("num-3");
+        else if(key == "numpad3" && !keyPress.className.includes(" numpad3")){
+            keyPress.classList.add("numpad3");
             setNote(2, 1, true);
         }
-        else if(key == "num-4" && !keyPress.className.includes(" num-4")){
-            keyPress.classList.add("num-4");
+        else if(key == "numpad4" && !keyPress.className.includes(" numpad4")){
+            keyPress.classList.add("numpad4");
             setNote(3, 1, true);
         }
-        else if(key == "num-5" && !keyPress.className.includes(" num-5")){
-            keyPress.classList.add("num-5");
+        else if(key == "numpad5" && !keyPress.className.includes(" numpad5")){
+            keyPress.classList.add("numpad5");
             setNote(4, 1, true);
         }
-        else if(key == "num-6" && !keyPress.className.includes(" num-6")){
-            keyPress.classList.add("num-6");
+        else if(key == "numpad6" && !keyPress.className.includes(" numpad6")){
+            keyPress.classList.add("numpad6");
             setNote(5, 1, true);
         }
-        else if(key == "num-7" && !keyPress.className.includes(" num-7")){
-            keyPress.classList.add("num-7");
+        else if(key == "numpad7" && !keyPress.className.includes(" numpad7")){
+            keyPress.classList.add("numpad7");
             setNote(6, 1, true);
         }
-        else if(key == "num-8" && !keyPress.className.includes(" num-8")){
-            keyPress.classList.add("num-8");
+        else if(key == "numpad8" && !keyPress.className.includes(" numpad8")){
+            keyPress.classList.add("numpad8");
             setNote(0, 2, true);
         }
-        else if(key == "num-9" && !keyPress.className.includes(" num-9")){
-            keyPress.classList.add("num-9");
+        else if(key == "numpad9" && !keyPress.className.includes(" numpad9")){
+            keyPress.classList.add("numpad9");
             setNote(1, 2, true);
         }
     }
@@ -1051,47 +1015,47 @@ window.addEventListener("keydown", (e) => {
             keyPress.classList.add("]");
             setNote("G", 3);
         }
-        else if(key == "num-1" && !keyPress.className.includes(" num-1")){
-            keyPress.classList.add("num-1");
+        else if(key == "numpad1" && !keyPress.className.includes(" numpad1")){
+            keyPress.classList.add("numpad1");
             setNote("C", 1, true);
         }
-        else if(key == "num-2" && !keyPress.className.includes(" num-2")){
-            keyPress.classList.add("num-2");
+        else if(key == "numpad2" && !keyPress.className.includes(" numpad2")){
+            keyPress.classList.add("numpad2");
             setNote("C#", 1, true);
         }
-        else if(key == "num-3" && !keyPress.className.includes(" num-3")){
-            keyPress.classList.add("num-3");
+        else if(key == "numpad3" && !keyPress.className.includes(" numpad3")){
+            keyPress.classList.add("numpad3");
             setNote("D", 1, true);
         }
-        else if(key == "num-4" && !keyPress.className.includes(" num-4")){
-            keyPress.classList.add("num-4");
+        else if(key == "numpad4" && !keyPress.className.includes(" numpad4")){
+            keyPress.classList.add("numpad4");
             setNote("D#", 1, true);
         }
-        else if(key == "num-5" && !keyPress.className.includes(" num-5")){
-            keyPress.classList.add("num-5");
+        else if(key == "numpad5" && !keyPress.className.includes(" numpad5")){
+            keyPress.classList.add("numpad5");
             setNote("E", 1, true);
         }
-        else if(key == "num-6" && !keyPress.className.includes(" num-6")){
-            keyPress.classList.add("num-6");
+        else if(key == "numpad6" && !keyPress.className.includes(" numpad6")){
+            keyPress.classList.add("numpad6");
             setNote("F", 1, true);
         }
-        else if(key == "num-7" && !keyPress.className.includes(" num-7")){
-            keyPress.classList.add("num-7");
+        else if(key == "numpad7" && !keyPress.className.includes(" numpad7")){
+            keyPress.classList.add("numpad7");
             setNote("F#", 1, true);
         }
-        else if(key == "num-8" && !keyPress.className.includes(" num-8")){
-            keyPress.classList.add("num-8");
+        else if(key == "numpad8" && !keyPress.className.includes(" numpad8")){
+            keyPress.classList.add("numpad8");
             setNote("G", 1, true);
         }
-        else if(key == "num-9" && !keyPress.className.includes(" num-9")){
-            keyPress.classList.add("num-9");
+        else if(key == "numpad9" && !keyPress.className.includes(" numpad9")){
+            keyPress.classList.add("numpad9");
             setNote("G#", 1, true);
         }
     }
 });
 
 window.addEventListener("keyup", (e) => {
-    var key = keyLower(e.key, e.keyCode);
+    var key = keyLower(e.key, e.code);
 
     if(e.key == " "){
         keyPress.classList.remove("space");
@@ -1284,40 +1248,40 @@ window.addEventListener("keyup", (e) => {
             keyPress.classList.remove("=");
             unsetNote(4, 5);
         }
-        else if(key == "num-1"){
-            keyPress.classList.remove("num-1");
+        else if(key == "numpad1"){
+            keyPress.classList.remove("numpad1");
             unsetNote(0, 1, true);
         }
-        else if(key == "num-2"){
-            keyPress.classList.remove("num-2");
+        else if(key == "numpad2"){
+            keyPress.classList.remove("numpad2");
             unsetNote(1, 1, true);
         }
-        else if(key == "num-3"){
-            keyPress.classList.remove("num-3");
+        else if(key == "numpad3"){
+            keyPress.classList.remove("numpad3");
             unsetNote(2, 1, true);
         }
-        else if(key == "num-4"){
-            keyPress.classList.remove("num-4");
+        else if(key == "numpad4"){
+            keyPress.classList.remove("numpad4");
             unsetNote(3, 1, true);
         }
-        else if(key == "num-5"){
-            keyPress.classList.remove("num-5");
+        else if(key == "numpad5"){
+            keyPress.classList.remove("numpad5");
             unsetNote(4, 1, true);
         }
-        else if(key == "num-6"){
-            keyPress.classList.remove("num-6");
+        else if(key == "numpad6"){
+            keyPress.classList.remove("numpad6");
             unsetNote(5, 1, true);
         }
-        else if(key == "num-7"){
-            keyPress.classList.remove("num-7");
+        else if(key == "numpad7"){
+            keyPress.classList.remove("numpad7");
             unsetNote(6, 1, true);
         }
-        else if(key == "num-8"){
-            keyPress.classList.remove("num-8");
+        else if(key == "numpad8"){
+            keyPress.classList.remove("numpad8");
             unsetNote(0, 2, true);
         }
-        else if(key == "num-9"){
-            keyPress.classList.remove("num-9");
+        else if(key == "numpad9"){
+            keyPress.classList.remove("numpad9");
             unsetNote(1, 2, true);
         }
     }
@@ -1470,40 +1434,40 @@ window.addEventListener("keyup", (e) => {
             keyPress.classList.remove("]");
             unsetNote("G", 3);
         }
-        else if(key == "num-1"){
-            keyPress.classList.remove("num-1");
+        else if(key == "numpad1"){
+            keyPress.classList.remove("numpad1");
             unsetNote("C", 1, true);
         }
-        else if(key == "num-2"){
-            keyPress.classList.remove("num-2");
+        else if(key == "numpad2"){
+            keyPress.classList.remove("numpad2");
             unsetNote("C#", 1, true);
         }
-        else if(key == "num-3"){
-            keyPress.classList.remove("num-3");
+        else if(key == "numpad3"){
+            keyPress.classList.remove("numpad3");
             unsetNote("D", 1, true);
         }
-        else if(key == "num-4"){
-            keyPress.classList.remove("num-4");
+        else if(key == "numpad4"){
+            keyPress.classList.remove("numpad4");
             unsetNote("D#", 1, true);
         }
-        else if(key == "num-5"){
-            keyPress.classList.remove("num-5");
+        else if(key == "numpad5"){
+            keyPress.classList.remove("numpad5");
             unsetNote("E", 1, true);
         }
-        else if(key == "num-6"){
-            keyPress.classList.remove("num-6");
+        else if(key == "numpad6"){
+            keyPress.classList.remove("numpad6");
             unsetNote("F", 1, true);
         }
-        else if(key == "num-7"){
-            keyPress.classList.remove("num-7");
+        else if(key == "numpad7"){
+            keyPress.classList.remove("numpad7");
             unsetNote("F#", 1, true);
         }
-        else if(key == "num-8"){
-            keyPress.classList.remove("num-8");
+        else if(key == "numpad8"){
+            keyPress.classList.remove("numpad8");
             unsetNote("G", 1, true);
         }
-        else if(key == "num-9"){
-            keyPress.classList.remove("num-9");
+        else if(key == "numpad9"){
+            keyPress.classList.remove("numpad9");
             unsetNote("G#", 1, true);
         }
     }
