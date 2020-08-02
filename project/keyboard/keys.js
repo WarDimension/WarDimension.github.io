@@ -73,6 +73,8 @@ const highestOctave = 5;
 const samplesList = ["stage-grand", "electric"];
 const samplesName = ["Stage Grand", "Electric"];
 
+var fadeOutTime = 30;
+
 var samples = 0;
 var shiftKey = 0;
 var shiftKeyRight = 0;
@@ -437,8 +439,6 @@ function stopNote(note){
         fadeOutTimer = setInterval(fadeOut, fadeOutTime);
     }
 }
-
-var fadeOutTime = 30;
 
 var fadeOutTimer;
 function fadeOut(){
