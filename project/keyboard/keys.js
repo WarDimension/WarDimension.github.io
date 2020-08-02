@@ -438,7 +438,7 @@ function stopNote(note){
     }
 }
 
-var fadeOutTime = 100;
+var fadeOutTime = 30;
 
 var fadeOutTimer;
 function fadeOut(){
