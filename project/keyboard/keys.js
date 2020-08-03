@@ -535,7 +535,7 @@ function getNote(note, oct, right){
         oct = oct + shiftKeyRight;
     }
 
-    if(note != highestNote && oct > highestOctave){
+    if(note + oct != highestNote && oct > highestOctave){
         return false;
     }
 
