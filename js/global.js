@@ -100,8 +100,8 @@ var games_i = document.getElementsByClassName("games-i");
 var prev_list = document.getElementsByClassName("prev-list");
 var next_list = document.getElementsByClassName("next-list");
 
-var apps_list = ["Ritsu.exe", "Mio.exe", "WarDimension_VirtualDrums", "GH!mania", "WarDimension Official Extension", "osu!play"];
-var apps_link = ["https://wardimension.github.io/blog?b=experimental&p=2019/02/ritsu.exe", "https://wardimension.github.io/blog?b=experimental&p=2019/02/mio.exe", "https://wardimension.github.io/blog?b=experimental&p=2019/02/virtual-drums", "https://wardimension.github.io/blog?b=experimental&p=2019/02/gh-mania", "https://wardimension.github.io/blog?b=experimental&p=2020/02/wardimension-official-extension", "https://wardimension.github.io/blog?b=experimental&p=2020/04/osu-play"];
+var apps_list = ["Ritsu.exe", "Mio.exe", "WarDimension_VirtualDrums", "GH!mania", "WarDimension Official Extension", "osu!play", "Keyboard"];
+var apps_link = ["https://wardimension.github.io/blog?b=experimental&p=2019/02/ritsu.exe", "https://wardimension.github.io/blog?b=experimental&p=2019/02/mio.exe", "https://wardimension.github.io/blog?b=experimental&p=2019/02/virtual-drums", "https://wardimension.github.io/blog?b=experimental&p=2019/02/gh-mania", "https://wardimension.github.io/blog?b=experimental&p=2020/02/wardimension-official-extension", "https://wardimension.github.io/blog?b=experimental&p=2020/04/osu-play", "https://wardimension.github.io/project/keyboard"];
 
 var games_list = ["UNO_command"];
 var games_link = ["https://wardimension.github.io/project/uno-command/"];
