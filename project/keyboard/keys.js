@@ -34,6 +34,7 @@ if(mobileAndTabletCheck()){
 
 window.addEventListener("mousedown", () => {
     isMouseDown = true;
+    playNote("blank");
 });
 
 const keys = document.querySelectorAll(".key");
