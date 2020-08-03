@@ -121,6 +121,7 @@ var fadeOutTime = 30;
 var samples = 0;
 var shiftKey = 0;
 var shiftKeyRight = 0;
+var semiShiftKey = 0;
 var diatonic = true;
 var keySignature = 0;
 var modes = 0;
@@ -282,12 +283,52 @@ function shifting(direction){
     save();
 }
 
+function getNoteShift(rightKey){
+    rightKey--;
+
+    var index = semiShiftKey + rightKey;
+
+    if(index >= notes.length){
+        index -= notes.length;
+    }
+
+    return notes[index];
+}
+
+function getOctaveShift(rightKey){
+    var octave = shiftKeyRight + 1;
+
+    rightKey--;
+
+    if(semiShiftKey >= notes.length - rightKey){
+        octave++;
+    }
+
+    return octave;
+}
+
 function shiftingRight(direction){
-    if(direction == "up" && shiftKeyRight < maxShiftRight){
+    if(diatonic && direction == "up" && shiftKeyRight < maxShiftRight){
         shiftKeyRight++;
     }
-    else if(direction == "down" && shiftKeyRight > 0){
+    else if(diatonic && direction == "down" && shiftKeyRight > 0){
         shiftKeyRight--;
+    }
+    else if(direction == "up" && (shiftKeyRight < maxShiftRight || semiShiftKey < notes.length - 8)){
+        semiShiftKey++;
+
+        if(semiShiftKey >= notes.length){
+            semiShiftKey -= notes.length;
+            shiftKeyRight++;
+        }
+    }
+    else if(direction == "down" && (shiftKeyRight > 0 || semiShiftKey > 0)){
+        semiShiftKey--;
+
+        if(semiShiftKey < 0){
+            semiShiftKey += notes.length;
+            shiftKeyRight--;
+        }
     }
     else if(direction != "up" && direction != "down" && direction != "update"){
         console.log("Hey... What's up?");
@@ -305,7 +346,21 @@ function shiftingRight(direction){
         }
     }
     else{
-        rightRange.innerHTML = "C" + (shiftKeyRight + 1) + "-G#" + (shiftKeyRight + 1);
+        var maxNoteIndex = semiShiftKey + 8;
+
+        if(maxNoteIndex >= notes.length){
+            maxNoteIndex -= notes.length;
+        }
+
+        var maxNote = notes[maxNoteIndex];
+
+        var maxOctave = shiftKeyRight + 1;
+
+        if(semiShiftKey >= notes.length - 8){
+            maxOctave++;
+        }
+
+        rightRange.innerHTML = notes[semiShiftKey] + (shiftKeyRight + 1) + "-" + maxNote + maxOctave;
     }
 
     setArrow(5, shiftKeyRight, maxShiftRight);
@@ -528,10 +583,10 @@ function getNote(note, oct, right){
         oct = oct + octave(note);
     }
 
-    if(shiftKey > 0 && !right){
+    if(!diatonic && shiftKey > 0 && !right){
         oct = oct + shiftKey;
     }
-    else if(shiftKeyRight > 0 && right){
+    else if(diatonic && shiftKeyRight > 0 && right){
         oct = oct + shiftKeyRight;
     }
 
@@ -1106,39 +1161,39 @@ window.addEventListener("keydown", (e) => {
         }
         else if(key == "numpad1" && !keyPress.className.includes(" numpad1")){
             keyPress.classList.add("numpad1");
-            setNote("C", 1, true);
+            setNote(getNoteShift(1), getOctaveShift(1), true);
         }
         else if(key == "numpad2" && !keyPress.className.includes(" numpad2")){
             keyPress.classList.add("numpad2");
-            setNote("C#", 1, true);
+            setNote(getNoteShift(2), getOctaveShift(2), true);
         }
         else if(key == "numpad3" && !keyPress.className.includes(" numpad3")){
             keyPress.classList.add("numpad3");
-            setNote("D", 1, true);
+            setNote(getNoteShift(3), getOctaveShift(3), true);
         }
         else if(key == "numpad4" && !keyPress.className.includes(" numpad4")){
             keyPress.classList.add("numpad4");
-            setNote("D#", 1, true);
+            setNote(getNoteShift(4), getOctaveShift(4), true);
         }
         else if(key == "numpad5" && !keyPress.className.includes(" numpad5")){
             keyPress.classList.add("numpad5");
-            setNote("E", 1, true);
+            setNote(getNoteShift(5), getOctaveShift(5), true);
         }
         else if(key == "numpad6" && !keyPress.className.includes(" numpad6")){
             keyPress.classList.add("numpad6");
-            setNote("F", 1, true);
+            setNote(getNoteShift(6), getOctaveShift(6), true);
         }
         else if(key == "numpad7" && !keyPress.className.includes(" numpad7")){
             keyPress.classList.add("numpad7");
-            setNote("F#", 1, true);
+            setNote(getNoteShift(7), getOctaveShift(7), true);
         }
         else if(key == "numpad8" && !keyPress.className.includes(" numpad8")){
             keyPress.classList.add("numpad8");
-            setNote("G", 1, true);
+            setNote(getNoteShift(8), getOctaveShift(8), true);
         }
         else if(key == "numpad9" && !keyPress.className.includes(" numpad9")){
             keyPress.classList.add("numpad9");
-            setNote("G#", 1, true);
+            setNote(getNoteShift(9), getOctaveShift(9), true);
         }
     }
 });
@@ -1526,39 +1581,39 @@ window.addEventListener("keyup", (e) => {
         }
         else if(key == "numpad1"){
             keyPress.classList.remove("numpad1");
-            unsetNote("C", 1, true);
+            unsetNote(getNoteShift(1), getOctaveShift(1), true);
         }
         else if(key == "numpad2"){
             keyPress.classList.remove("numpad2");
-            unsetNote("C#", 1, true);
+            unsetNote(getNoteShift(2), getOctaveShift(2), true);
         }
         else if(key == "numpad3"){
             keyPress.classList.remove("numpad3");
-            unsetNote("D", 1, true);
+            unsetNote(getNoteShift(3), getOctaveShift(3), true);
         }
         else if(key == "numpad4"){
             keyPress.classList.remove("numpad4");
-            unsetNote("D#", 1, true);
+            unsetNote(getNoteShift(4), getOctaveShift(4), true);
         }
         else if(key == "numpad5"){
             keyPress.classList.remove("numpad5");
-            unsetNote("E", 1, true);
+            unsetNote(getNoteShift(5), getOctaveShift(5), true);
         }
         else if(key == "numpad6"){
             keyPress.classList.remove("numpad6");
-            unsetNote("F", 1, true);
+            unsetNote(getNoteShift(6), getOctaveShift(6), true);
         }
         else if(key == "numpad7"){
             keyPress.classList.remove("numpad7");
-            unsetNote("F#", 1, true);
+            unsetNote(getNoteShift(7), getOctaveShift(7), true);
         }
         else if(key == "numpad8"){
             keyPress.classList.remove("numpad8");
-            unsetNote("G", 1, true);
+            unsetNote(getNoteShift(8), getOctaveShift(8), true);
         }
         else if(key == "numpad9"){
             keyPress.classList.remove("numpad9");
-            unsetNote("G#", 1, true);
+            unsetNote(getNoteShift(9), getOctaveShift(9), true);
         }
     }
 });
