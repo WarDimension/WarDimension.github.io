@@ -74,6 +74,24 @@ pedal.addEventListener("mousedown", () => {
     }
 });
 
+// CONSOLE NOTES
+
+console.log("%cYoo!", "font-size: 30px");
+console.log(
+    "You can play with these:" +
+    "\n\n" +
+    "fadeOutTime = int;\n" +
+    "//control the release (millisecond)" +
+    "\n\n" +
+    "playNote(\"note\");\n" +
+    "//play a note; note example: C1" +
+    "\n\n" +
+    "stopNote(\"note\");\n" +
+    "//stop a note; call this after playing a note"
+);
+
+// END CONSOLE NOTES
+
 const keyPress = document.querySelector(".key-press");
 const samplesText = document.querySelector(".samples");
 const playModeText = document.querySelector(".play-mode");
@@ -187,7 +205,7 @@ function samplesChange(direction){
         loadSamples(samplesList[samples]);
     }
     else if(direction != "up" && direction != "down" && direction != "update"){
-        console.log("Hey... What's up? Why don't play the piano instead of playing with the console?");
+        console.log("Hey... What's up?");
     }
 
     samplesText.innerHTML = samplesName[samples];
@@ -205,7 +223,7 @@ function playMode(direction){
         diatonic = true;
     }
     else if(direction != "up" && direction != "down" && direction != "update"){
-        console.log("Hey... What's up? Why don't play the piano instead of playing with the console?");
+        console.log("Hey... What's up?");
     }
 
     if(diatonic){
@@ -245,7 +263,7 @@ function shifting(direction){
         shiftKey--;
     }
     else if(direction != "up" && direction != "down" && direction != "update"){
-        console.log("Hey... What's up? Why don't play the piano instead of playing with the console?");
+        console.log("Hey... What's up?");
     }
 
     if(shiftKey == maxShift){
@@ -272,7 +290,7 @@ function shiftingRight(direction){
         shiftKeyRight--;
     }
     else if(direction != "up" && direction != "down" && direction != "update"){
-        console.log("Hey... What's up? Why don't play the piano instead of playing with the console?");
+        console.log("Hey... What's up?");
     }
 
     if(diatonic){
@@ -307,7 +325,7 @@ function keySignatureChange(direction){
         keySignature--;
     }
     else if(direction != "up" && direction != "down" && direction != "update"){
-        console.log("Hey... What's up? Why don't play the piano instead of playing with the console?");
+        console.log("Hey... What's up?");
     }
 
     keySignatureText.innerHTML = notes[keySignature];
@@ -330,7 +348,7 @@ function modesChange(direction){
         modes = 0;
     }
     else if(direction != "up" && direction != "down" && direction != "update"){
-        console.log("Hey... What's up? Why don't play the piano instead of playing with the console?");
+        console.log("Hey... What's up?");
     }
 
     modesText.innerHTML = modesList[modes];
