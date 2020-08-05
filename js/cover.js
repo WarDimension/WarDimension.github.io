@@ -1,6 +1,6 @@
 const coversData = [
   {
-    "title": "バーチャルボーイ ft. 初音ミク (nano.RIPE Cover)",
+    "title": "バーチャルボーイ ft. 初音ミク, きみコ (nano.RIPE Cover)",
     "alt": "virtual-boy",
     "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/db9b0a59-1832-436d-be35-c4da781cf1c8/ddg5rg0-49e8fca6-8140-4851-858c-60240653bd63.png/v1/fill/w_400,h_400,q_80,strp/virtual_boy_ft__hatsune_miku__nano_ripe_cover__by_wardimension_ddg5rg0-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDAwIiwicGF0aCI6IlwvZlwvZGI5YjBhNTktMTgzMi00MzZkLWJlMzUtYzRkYTc4MWNmMWM4XC9kZGc1cmcwLTQ5ZThmY2E2LTgxNDAtNDg1MS04NThjLTYwMjQwNjUzYmQ2My5wbmciLCJ3aWR0aCI6Ijw9NDAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.oGtWIgNW5znBe1NzJBp4TtOnbBQUkFDGfBNuIkiLqXw",
     "img1": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/db9b0a59-1832-436d-be35-c4da781cf1c8/de2p700-b231099e-7dce-4353-adc2-f7a5b104aa25.png/v1/fill/w_400,h_400,q_80,strp/virtual_boy_ft__kimiko__nano_ripe_cover__by_wardimension_de2p700-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3siaGVpZ2h0IjoiPD00MDAiLCJwYXRoIjoiXC9mXC9kYjliMGE1OS0xODMyLTQzNmQtYmUzNS1jNGRhNzgxY2YxYzhcL2RlMnA3MDAtYjIzMTA5OWUtN2RjZS00MzUzLWFkYzItZjdhNWIxMDRhYTI1LnBuZyIsIndpZHRoIjoiPD00MDAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.fPWj2BjrXYDF_mO6-lrwbA-CJT7QjXH7VEf24sRICtA",
