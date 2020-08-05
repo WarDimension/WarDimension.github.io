@@ -427,6 +427,9 @@ function update(){
     if(localStorage.getItem("shiftKeyRight") != null){
         shiftKeyRight = parseInt(localStorage.getItem("shiftKeyRight"));
     }
+    if(localStorage.getItem("semiShiftKey") != null){
+        semiShiftKey = parseInt(localStorage.getItem("semiShiftKey"));
+    }
     if(localStorage.getItem("diatonic") != null){
         diatonic = localStorage.getItem("diatonic") == "true";
     }
@@ -448,6 +451,7 @@ function save(){
     localStorage.setItem("samples", samples);
     localStorage.setItem("shiftKey", shiftKey);
     localStorage.setItem("shiftKeyRight", shiftKeyRight);
+    localStorage.setItem("semiShiftKey", semiShiftKey);
     localStorage.setItem("diatonic", diatonic);
     localStorage.setItem("keySignature", keySignature);
     localStorage.setItem("modes", modes);
