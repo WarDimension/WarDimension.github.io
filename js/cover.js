@@ -20,6 +20,12 @@ const coversData = [
         "romanized": "Virtual Boy (nano.RIPE Cover) -Instrumental-",
         "length": "1:50",
         "youtubeID": "yTc_QSF2GgE"
+      },
+      {
+        "title": "バーチャルボーイ ft. きみコ (nano.RIPE Cover)",
+        "romanized": "Virtual Boy ft. Kimiko (nano.RIPE Cover)",
+        "length": "1:50",
+        "youtubeID": "PC2KOSMQ10w"
       }
     ]
   },
