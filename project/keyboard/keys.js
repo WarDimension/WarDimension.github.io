@@ -130,56 +130,72 @@ const notes = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
 
 const modesList = ["Major", "Dorian", "Phrygian", "Lydian", "Mixolydian", "Minor", "Locrian"];
 
-const scales = [
-    [
-        ["C", "D", "E", "F", "G", "A", "B"],
-        ["C", "D", "D#", "F", "G", "G#", "A#"],
-    ],
-    [
-        ["C#", "D#", "F", "F#", "G#", "A#", "C"],
-        ["C#", "D#", "E", "F#", "G#", "A", "B"]
-    ],
-    [
-        ["D", "E", "F#", "G", "A", "B", "C#"],
-        ["D", "E", "F", "G", "A", "A#", "C"]
-    ],
-    [
-        ["D#", "F", "G", "G#", "A#", "C", "D"],
-        ["D#", "F", "F#", "G#", "A#", "B", "C#"]
-    ],
-    [
-        ["E", "F#", "G#", "A", "B", "C#", "D#"],
-        ["E", "F#", "G", "A", "B", "C", "D"]
-    ],
-    [
-        ["F", "G", "A", "A#", "C", "D", "E"],
-        ["F", "G", "G#", "A#", "C", "C#", "D#"]
-    ],
-    [
-        ["F#", "G#", "A#", "B", "C#", "D#", "F"],
-        ["F#", "G#", "A", "B", "C#", "D", "E"]
-    ],
-    [
-        ["G", "A", "B", "C", "D", "E", "F#"],
-        ["G", "A", "A#", "C", "D", "D#", "F"]
-    ],
-    [
-        ["G#", "A#", "C", "C#", "D#", "F", "G"],
-        ["G#", "A#", "B", "C#", "D#", "E", "F#"]
-    ],
-    [
-        ["A", "B", "C#", "D", "E", "F#", "G#"],
-        ["A", "B", "C", "D", "E", "F", "G"]
-    ],
-    [
-        ["A#", "C", "D", "D#", "F", "G", "A"],
-        ["A#", "C", "C#", "D#", "F", "F#", "G#"]
-    ],
-    [
-        ["B", "C#", "D#", "E", "F#", "G#", "A#"],
-        ["B", "C#", "D", "E", "F#", "G", "A"]
-    ]
-];
+function n(root, degre){
+    note = 0;
+    for(var i = 0; i < notes.length; i++){
+        if(root == notes[i]){
+            note = i;
+        }
+    }
+    switch(degre){
+        case "1":
+            note += 0;
+            break;
+        case "b2":
+            note += 1;
+            break;
+        case "2":
+            note += 2;
+            break;
+        case "b3":
+            note += 3;
+            break;
+        case "3":
+            note += 4;
+            break;
+        case "4":
+            note += 5;
+            break;
+        case "#4": case "b5":
+            note += 6;
+            break;
+        case "5":
+            note += 7;
+            break;
+        case "b6":
+            note += 8;
+            break;
+        case "6":
+            note += 9;
+            break;
+        case "b7":
+            note += 10;
+            break;
+        case "7":
+            note += 11;
+            break;
+    }
+
+    if(note > notes.length - 1){
+        note -= notes.length;
+    }
+
+    return notes[note];
+}
+
+var scales = [];
+
+notes.forEach(note => {
+    scales.push([
+        [n(note, "1"), n(note, "2"), n(note, "3"), n(note, "4"), n(note, "5"), n(note, "6"), n(note, "7")],
+        [n(note, "1"), n(note, "2"), n(note, "b3"), n(note, "4"), n(note, "5"), n(note, "6"), n(note, "b7")],
+        [n(note, "1"), n(note, "b2"), n(note, "b3"), n(note, "4"), n(note, "5"), n(note, "b6"), n(note, "b7")],
+        [n(note, "1"), n(note, "2"), n(note, "3"), n(note, "#4"), n(note, "5"), n(note, "6"), n(note, "7")],
+        [n(note, "1"), n(note, "2"), n(note, "3"), n(note, "4"), n(note, "5"), n(note, "6"), n(note, "b7")],
+        [n(note, "1"), n(note, "2"), n(note, "b3"), n(note, "4"), n(note, "5"), n(note, "b6"), n(note, "b7")],
+        [n(note, "1"), n(note, "b2"), n(note, "b3"), n(note, "4"), n(note, "b5"), n(note, "b6"), n(note, "b7")]
+    ]);
+});
 
 function setArrow(index, position, max){
     if(position == 0){
@@ -390,11 +406,11 @@ function keySignatureChange(direction){
 }
 
 function modesChange(direction){
-    if(direction == "up"){
-        modes = 1;
+    if(direction == "up" && modes < modesList.length - 1){
+        modes++;
     }
-    else if(direction == "down"){
-        modes = 0;
+    else if(direction == "down" && modes > 0){
+        modes--;
     }
     else if(direction != "up" && direction != "down" && direction != "update"){
         console.log("Hey... What's up?");

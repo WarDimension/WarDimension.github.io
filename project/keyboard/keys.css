@@ -82,7 +82,7 @@ body{
 }
 .component-container > div div{
     position: relative;
-    margin: 5px;
+    margin: 5px 2px;
     padding: 2px 10px;
     display: inline-block;
     background: #111;
@@ -110,11 +110,17 @@ body{
     display: inline-block;
     text-align: center;
 }
+.samples{
+    width: 106px;
+}
 .play-mode{
     width: 87px;
 }
 .key-signature{
     width: 20px;
+}
+.modes{
+    width: 96px;
 }
 .right-range{
     width: 70px;
