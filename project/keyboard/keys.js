@@ -126,6 +126,39 @@ var diatonic = true;
 var keySignature = 0;
 var modes = 0;
 
+function defaultSetting(){
+    samples = 0;
+    shiftKey = 0;
+    shiftKeyRight = 0;
+    semiShiftKey = 0;
+    diatonic = true;
+    keySignature = 0;
+    modes = 0;
+
+    save();
+    update();
+}
+
+var local_version = "1.0";
+
+if(localStorage.getItem("keyboard_local_version") == null || localStorage.getItem("keyboard_local_version") != local_version){
+
+    var clear = false;
+
+    for(var i = 0; i < localStorage.length; i++){
+        if(localStorage.key(i).includes("keyboard")){
+            localStorage.removeItem(localStorage.key(i));
+            clear = true;
+        }
+    }
+
+    if(!clear){
+        localStorage.clear();
+    }
+
+    localStorage.setItem("keyboard_local_version", local_version);
+}
+
 const notes = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
 
 const modesList = ["Major", "Dorian", "Phrygian", "Lydian", "Mixolydian", "Minor", "Locrian"];
@@ -426,26 +459,26 @@ function modesChange(direction){
 }
 
 function update(){
-    if(localStorage.getItem("samples") != null){
-        samples = parseInt(localStorage.getItem("samples"));
+    if(localStorage.getItem("keyboard_samples") != null){
+        samples = parseInt(localStorage.getItem("keyboard_samples"));
     }
-    if(localStorage.getItem("shiftKey") != null){
-        shiftKey = parseInt(localStorage.getItem("shiftKey"));
+    if(localStorage.getItem("keyboard_shiftKey") != null){
+        shiftKey = parseInt(localStorage.getItem("keyboard_shiftKey"));
     }
-    if(localStorage.getItem("shiftKeyRight") != null){
-        shiftKeyRight = parseInt(localStorage.getItem("shiftKeyRight"));
+    if(localStorage.getItem("keyboard_shiftKeyRight") != null){
+        shiftKeyRight = parseInt(localStorage.getItem("keyboard_shiftKeyRight"));
     }
-    if(localStorage.getItem("semiShiftKey") != null){
-        semiShiftKey = parseInt(localStorage.getItem("semiShiftKey"));
+    if(localStorage.getItem("keyboard_semiShiftKey") != null){
+        semiShiftKey = parseInt(localStorage.getItem("keyboard_semiShiftKey"));
     }
-    if(localStorage.getItem("diatonic") != null){
-        diatonic = localStorage.getItem("diatonic") == "true";
+    if(localStorage.getItem("keyboard_diatonic") != null){
+        diatonic = localStorage.getItem("keyboard_diatonic") == "true";
     }
-    if(localStorage.getItem("keySignature") != null){
-        keySignature = parseInt(localStorage.getItem("keySignature"));
+    if(localStorage.getItem("keyboard_keySignature") != null){
+        keySignature = parseInt(localStorage.getItem("keyboard_keySignature"));
     }
-    if(localStorage.getItem("modes") != null){
-        modes = parseInt(localStorage.getItem("modes"));
+    if(localStorage.getItem("keyboard_modes") != null){
+        modes = parseInt(localStorage.getItem("keyboard_modes"));
     }
     samplesChange("update");
     playMode("update");
@@ -456,13 +489,13 @@ function update(){
 }
 
 function save(){
-    localStorage.setItem("samples", samples);
-    localStorage.setItem("shiftKey", shiftKey);
-    localStorage.setItem("shiftKeyRight", shiftKeyRight);
-    localStorage.setItem("semiShiftKey", semiShiftKey);
-    localStorage.setItem("diatonic", diatonic);
-    localStorage.setItem("keySignature", keySignature);
-    localStorage.setItem("modes", modes);
+    localStorage.setItem("keyboard_samples", samples);
+    localStorage.setItem("keyboard_shiftKey", shiftKey);
+    localStorage.setItem("keyboard_shiftKeyRight", shiftKeyRight);
+    localStorage.setItem("keyboard_semiShiftKey", semiShiftKey);
+    localStorage.setItem("keyboard_diatonic", diatonic);
+    localStorage.setItem("keyboard_keySignature", keySignature);
+    localStorage.setItem("keyboard_modes", modes);
 }
 
 update();
