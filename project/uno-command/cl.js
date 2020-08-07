@@ -17,6 +17,28 @@ function addHistory(command){
     commandTemp = "";
 }
 
+var local_version = "1.0";
+
+if(localStorage.getItem("uno_local_version") == null || localStorage.getItem("uno_local_version") != local_version){
+
+    var clear = false;
+
+    for(var i = 0; i < localStorage.length; i++){
+        if(localStorage.key(i).includes("uno")){
+            localStorage.removeItem(localStorage.key(i));
+            clear = true;
+        }
+    }
+
+    if(!clear){
+        localStorage.clear();
+    }
+
+    localStorage.setItem("uno_local_version", local_version);
+}
+
+localStorage.setItem("uno_player_name", "player_1");
+
 cl_dsp_head = `
     UNO_command [version 1.0]<br/>
     by WarDimension

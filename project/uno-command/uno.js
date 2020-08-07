@@ -48,8 +48,8 @@ function randomPlayersCards(){
 var players = ["player_1"];
 var players_cards = [];
 
-if(localStorage.getItem("player_name") != null){
-    changeName(localStorage.getItem("player_name"));
+if(localStorage.getItem("uno_player_name") != null){
+    changeName(localStorage.getItem("uno_player_name"));
 }
 
 var ai_names = ["WarDimension", "プラン", players[0] + "'s Clone", "C:\\User\\" + players[0], "AI-chan", "I'm a human, I swear", "I'm fine", "AI FTW", "._.)", "UNO_BOT", "Markivider", "Javascript AI", "_anon", "_blank", "1010011010", "666", "EEE", "SLAP LIKE NOW", "アニメ", "weebs69", "Davie404", "Barbara", "UNO_Master", "Baby Yoda", "NO U", "I have +4", "Anonymous"];
@@ -75,33 +75,33 @@ var challenge_set = true;
 var stacking = true;
 var background = "default";
 
-if(localStorage.getItem("max_players") != null){
-    max_players = parseInt(localStorage.getItem("max_players"));
+if(localStorage.getItem("uno_max_players") != null){
+    max_players = parseInt(localStorage.getItem("uno_max_players"));
 }
-if(localStorage.getItem("rotates_hands") != null){
-    rotates_hands = localStorage.getItem("rotates_hands") == "true";
+if(localStorage.getItem("uno_rotates_hands") != null){
+    rotates_hands = localStorage.getItem("uno_rotates_hands") == "true";
 }
-if(localStorage.getItem("swap_hands") != null){
-    swap_hands = localStorage.getItem("swap_hands") == "true";
+if(localStorage.getItem("uno_swap_hands") != null){
+    swap_hands = localStorage.getItem("uno_swap_hands") == "true";
 }
-if(localStorage.getItem("challenge_set") != null){
-    challenge_set = localStorage.getItem("challenge_set") == "true";
+if(localStorage.getItem("uno_challenge_set") != null){
+    challenge_set = localStorage.getItem("uno_challenge_set") == "true";
 }
-if(localStorage.getItem("stacking") != null){
-    stacking = localStorage.getItem("stacking") == "true";
+if(localStorage.getItem("uno_stacking") != null){
+    stacking = localStorage.getItem("uno_stacking") == "true";
 }
-if(localStorage.getItem("background") != null){
-    background = localStorage.getItem("background");
+if(localStorage.getItem("uno_background") != null){
+    background = localStorage.getItem("uno_background");
     document.body.style.background = background;
 }
 
 function setLocalSetting(){
-    localStorage.setItem("max_players", max_players);
-    localStorage.setItem("rotates_hands", rotates_hands);
-    localStorage.setItem("swap_hands", swap_hands);
-    localStorage.setItem("challenge_set", challenge_set);
-    localStorage.setItem("stacking", stacking);
-    localStorage.setItem("background", background);
+    localStorage.setItem("uno_max_players", max_players);
+    localStorage.setItem("uno_rotates_hands", rotates_hands);
+    localStorage.setItem("uno_swap_hands", swap_hands);
+    localStorage.setItem("uno_challenge_set", challenge_set);
+    localStorage.setItem("uno_stacking", stacking);
+    localStorage.setItem("uno_background", background);
 }
 
 var cl_dsp_settings = `
@@ -802,7 +802,7 @@ function UNO_PRE(){
         changeName("uno");
     }
 
-    localStorage.setItem("player_name", players[0]);
+    localStorage.setItem("uno_player_name", players[0]);
     first_in = true;
 
     ai_names[2] = players[0] + "'s Clone";
