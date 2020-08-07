@@ -19,19 +19,21 @@ function addHistory(command){
 
 var local_version = "1.0";
 
-if(localStorage.getItem("uno_local_version") == null || localStorage.getItem("uno_local_version") != local_version){
-
-    var clear = false;
-
+if(localStorage.getItem("uno_local_version") == null){
     for(var i = 0; i < localStorage.length; i++){
-        if(localStorage.key(i).includes("uno")){
+        if(!localStorage.key(i).includes("local_version")){
             localStorage.removeItem(localStorage.key(i));
-            clear = true;
         }
     }
 
-    if(!clear){
-        localStorage.clear();
+    localStorage.setItem("uno_local_version", local_version);
+}
+
+if(localStorage.getItem("uno_local_version") != local_version){
+    for(var i = 0; i < localStorage.length; i++){
+        if(localStorage.key(i).includes("uno")){
+            localStorage.removeItem(localStorage.key(i));
+        }
     }
 
     localStorage.setItem("uno_local_version", local_version);
