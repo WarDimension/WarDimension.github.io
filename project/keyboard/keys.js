@@ -128,7 +128,7 @@ var modes = 0;
 
 const notes = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
 
-const modesList = ["Major", "Minor"];
+const modesList = ["Major", "Dorian", "Phrygian", "Lydian", "Mixolydian", "Minor", "Locrian"];
 
 const scales = [
     [
@@ -213,6 +213,8 @@ function samplesChange(direction){
 
     setArrow(0, samples, samplesList.length - 1);
 
+    fadeOutAll();
+
     save();
 }
 
@@ -248,9 +250,7 @@ function playMode(direction){
         setArrow(1, 1, 1);
     }
 
-    keys.forEach(key => {
-        key.style.background = "";
-    });
+    fadeOutAll();
 
     shiftingRight("update");
     save();
@@ -276,9 +276,7 @@ function shifting(direction){
 
     setArrow(2, shiftKey, maxShift);
 
-    keys.forEach(key => {
-        key.style.background = "";
-    });
+    fadeOutAll();
 
     save();
 }
@@ -365,9 +363,7 @@ function shiftingRight(direction){
 
     setArrow(5, shiftKeyRight, maxShiftRight);
 
-    keys.forEach(key => {
-        key.style.background = "";
-    });
+    fadeOutAll();
     
     save();
 }
@@ -387,9 +383,7 @@ function keySignatureChange(direction){
 
     setArrow(3, keySignature, notes.length - 1);
 
-    keys.forEach(key => {
-        key.style.background = "";
-    });
+    fadeOutAll();
 
     shiftingRight("update");
     save();
@@ -410,9 +404,7 @@ function modesChange(direction){
 
     setArrow(4, modes, modesList.length - 1);
 
-    keys.forEach(key => {
-        key.style.background = "";
-    });
+    fadeOutAll();
     
     save();
 }
@@ -579,6 +571,9 @@ function fadeOutAll(){
         audio = [];
         fadeOutTimer = setInterval(fadeOut, fadeOutTime);
     }
+    keys.forEach(key => {
+        key.style.background = "";
+    });
 }
 
 function getNote(note, oct, right){
@@ -712,62 +707,52 @@ window.addEventListener("keydown", (e) => {
         e.preventDefault();
 
         samplesChange("up");
-        fadeOutAll();
     }
     else if(key == "f1"){
         e.preventDefault();
 
         samplesChange("down");
-        fadeOutAll();
     }
     else if(key == "pageup"){
         e.preventDefault();
 
         playMode("up");
-        fadeOutAll();
     }
     else if(key == "pagedown"){
         e.preventDefault();
         
         playMode("down");
-        fadeOutAll();
     }
     else if(key == "home"){
         e.preventDefault();
         
         shiftingRight("up");
-        fadeOutAll();
     }
     else if(key == "end"){
         e.preventDefault();
         
         shiftingRight("down");
-        fadeOutAll();
     }
     else if(diatonic){
         if(key == "arrowup"){
             e.preventDefault();
             
             keySignatureChange("up");
-            fadeOutAll();
         }
         else if(key == "arrowdown"){
             e.preventDefault();
     
             keySignatureChange("down");
-            fadeOutAll();
         }
         else if(key == "arrowleft"){
             e.preventDefault();
     
             modesChange("down");
-            fadeOutAll();
         }
         else if(key == "arrowright"){
             e.preventDefault();
     
             modesChange("up");
-            fadeOutAll();
         }
         if(key == "z" && !keyPress.className.includes(" z")){
             keyPress.classList.add("z");
@@ -995,25 +980,21 @@ window.addEventListener("keydown", (e) => {
             e.preventDefault();
             
             shifting("up");
-            fadeOutAll();
         }
         else if(key == "arrowdown"){
             e.preventDefault();
     
             shifting("down");
-            fadeOutAll();
         }
         else if(key == "arrowright"){
             e.preventDefault();
             
             shiftingRight("up");
-            fadeOutAll();
         }
         else if(key == "arrowleft"){
             e.preventDefault();
             
             shiftingRight("down");
-            fadeOutAll();
         }
         else if(key == "z" && !keyPress.className.includes(" z")){
             keyPress.classList.add("z");
