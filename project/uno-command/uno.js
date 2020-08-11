@@ -834,9 +834,14 @@ function UNO_PRE(){
 }
 
 function UNO(command){
-    var filter = /^( ?\+? ?(\d+))+ ?(green|red|yellow|blue)? ?(uno)?$/g;
+    var filter = /^( ?\+? ?(\d+))+ ?(green|red|yellow|blue|orange)? ?(uno)?$/g;
 
     if(filter.test(command)){
+        if(command.includes("orange")){
+            cl_dsp.innerHTML += "<br/>we are not playing guitar hero!";
+            return;
+        }
+
         var card_index_r = /\d+/g;
         var card_index = command.match(card_index_r);
 
