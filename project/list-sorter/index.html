@@ -64,14 +64,13 @@
             }
 
             function sort(){
-                console.log(ascending);
                 var lines = text.value.split("\n");
 
-                lines.forEach((line, index) => {
-                    if(line == ""){
-                        lines.splice(index, 1);
+                for(var i = lines.length - 1; i >= 0; i--){
+                    if(!lines[i].replace(/\s/g, "").length){
+                        lines.splice(i, 1);
                     }
-                });
+                }
 
                 lines = lines.sort();
 
