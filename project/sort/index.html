@@ -1,0 +1,84 @@
+<html lang="en">
+    <head>
+        <title>sort</title>
+        <style>
+            *{
+                font-family: "Courier New", Courier, monospace;
+                box-sizing: border-box;
+                font-size: 14px;
+            }
+            body{
+                padding: 100px;
+                overflow: hidden;
+            }
+            .text{
+                width: 100%;
+                height: 90%;
+            }
+            .button-container{
+                margin-bottom: 10px;
+            }
+            .button{
+                background: #fff;
+                border: solid 1px #000;
+                padding: 6px 16px;
+            }
+            .sort-button:hover{
+                background: #ddd;
+            }
+            input{
+                margin-top: -4px;
+                vertical-align: middle;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="button-container">
+            <button class="button" onclick="sort()">sort</button>
+            <button class="button" onclick="copy()">copy</button>
+            <input class="asc" type="radio" onclick="asc(true)" checked="true"/>
+            <label>ASCENDING</label>
+            <input class="dsc" type="radio" onclick="asc(false)"/>
+            <label>DESCENDING</label>
+        </div>
+        <textarea class="text"></textarea>
+        <script>
+            const text = document.querySelector(".text");
+            const radioASC = document.querySelector(".asc");
+            const radioDSC = document.querySelector(".dsc");
+
+            ascending = true;
+
+            function asc(bool){
+                ascending = bool;
+                radioASC.checked = bool;
+                radioDSC.checked = !bool;
+            }
+
+            function sort(){
+                console.log(ascending);
+                var lines = text.value.split("\n");
+
+                lines.forEach((line, index) => {
+                    if(line == ""){
+                        lines.splice(index, 1);
+                    }
+                });
+
+                lines = lines.sort();
+
+                if(!ascending){
+                    lines = lines.reverse();
+                }
+
+                text.value = lines.join("\n");
+            }
+
+            function copy(){
+                text.select();
+                text.setSelectionRange(0, 99999);
+                document.execCommand("copy");
+            }
+        </script>
+    </body>
+</html>

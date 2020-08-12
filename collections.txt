@@ -4,3 +4,4 @@ anime.txt
 cartoon.txt
 k-drama.txt
 movie.txt
+waifu.txt
