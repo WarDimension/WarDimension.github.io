@@ -233,17 +233,22 @@ notes.forEach(note => {
 });
 
 function setArrow(index, position, max){
-    if(position == 0){
-        up[index].style.color = "";
-        down[index].style.color = "#565647";
-    }
-    else if(position == max){
-        up[index].style.color = "#565647";
-        down[index].style.color = "";
-    }
-    else{
-        up[index].style.color = "";
-        down[index].style.color = "";
+    switch(position){
+        case 0:
+            up[index].style.color = "";
+            down[index].style.color = "#565647";
+
+            break;
+        case max:
+            up[index].style.color = "#565647";
+            down[index].style.color = "";
+        
+            break;
+        default:
+            up[index].style.color = "";
+            down[index].style.color = "";
+
+            break;
     }
 }
 
@@ -270,14 +275,21 @@ function samplesChange(direction){
 }
 
 function playMode(direction){
-    if(direction == "up"){
-        diatonic = false;
-    }
-    else if(direction == "down"){
-        diatonic = true;
-    }
-    else if(direction != "up" && direction != "down" && direction != "update"){
-        console.log("Hey... What's up?");
+    switch(direction){
+        case "update":
+            break;
+        case "up":
+            diatonic = false;
+        
+            break;
+        case "down":
+            diatonic = true;
+        
+            break;
+        default:
+            console.log("Hey... What's up?");
+
+            break;
     }
 
     if(diatonic){
@@ -784,452 +796,468 @@ window.addEventListener("keydown", (e) => {
         
         shiftingRight("down");
     }
-    else if(diatonic){
-        if(key == "arrowup"){
-            e.preventDefault();
+    else if(diatonic && !keyPress.className.includes(" " + key)){
+        keyPress.classList.add(key);
+
+        switch(key){
+            case "arrowup":
+                e.preventDefault();
+
+                keySignatureChange("up");
+
+                break;
+            case "arrowdown":
+                e.preventDefault();
+        
+                keySignatureChange("down");
+
+                break;
+            case "arrowleft":
+                e.preventDefault();
+        
+                modesChange("down");
+
+                break;
+            case "arrowright":
+                e.preventDefault();
+        
+                modesChange("up");
+
+                break;
+            case "z":
+                setNote(0, 1);
+                
+                break;
+            case "x":
+                setNote(1, 1);
             
-            keySignatureChange("up");
-        }
-        else if(key == "arrowdown"){
-            e.preventDefault();
-    
-            keySignatureChange("down");
-        }
-        else if(key == "arrowleft"){
-            e.preventDefault();
-    
-            modesChange("down");
-        }
-        else if(key == "arrowright"){
-            e.preventDefault();
-    
-            modesChange("up");
-        }
-        if(key == "z" && !keyPress.className.includes(" z")){
-            keyPress.classList.add("z");
-            setNote(0, 1);
-        }
-        else if(key == "x" && !keyPress.className.includes(" x")){
-            keyPress.classList.add("x");
-            setNote(1, 1);
-        }
-        else if(key == "c" && !keyPress.className.includes(" c")){
-            keyPress.classList.add("c");
-            setNote(2, 1);
-        }
-        else if(key == "v" && !keyPress.className.includes(" v")){
-            keyPress.classList.add("v");
-            setNote(3, 1);
-        }
-        else if(key == "b" && !keyPress.className.includes(" b")){
-            keyPress.classList.add("b");
-            setNote(4, 1);
-        }
-        else if(key == "n" && !keyPress.className.includes(" n")){
-            keyPress.classList.add("n");
-            setNote(5, 1);
-        }
-        else if(key == "m" && !keyPress.className.includes(" m")){
-            keyPress.classList.add("m");
-            setNote(6, 1);
-        }
-        else if(key == "," && !keyPress.className.includes(" ,")){
-            keyPress.classList.add(",");
-            setNote(0, 2);
-        }
-        else if(key == "." && !keyPress.className.includes(" .")){
-            keyPress.classList.add(".");
-            setNote(1, 2);
-        }
-        else if(key == "/" && !keyPress.className.includes(" /")){
-            keyPress.classList.add("/");
-            setNote(2, 2);
-        }
-        else if(key == "a" && !keyPress.className.includes(" a")){
-            keyPress.classList.add("a");
-            setNote(0, 2);
-        }
-        else if(key == "s" && !keyPress.className.includes(" s")){
-            keyPress.classList.add("s");
-            setNote(1, 2);
-        }
-        else if(key == "d" && !keyPress.className.includes(" d")){
-            keyPress.classList.add("d");
-            setNote(2, 2);
-        }
-        else if(key == "f" && !keyPress.className.includes(" f")){
-            keyPress.classList.add("f");
-            setNote(3, 2);
-        }
-        else if(key == "g" && !keyPress.className.includes(" g")){
-            keyPress.classList.add("g");
-            setNote(4, 2);
-        }
-        else if(key == "h" && !keyPress.className.includes(" h")){
-            keyPress.classList.add("h");
-            setNote(5, 2);
-        }
-        else if(key == "j" && !keyPress.className.includes(" j")){
-            keyPress.classList.add("j");
-            setNote(6, 2);
-        }
-        else if(key == "k" && !keyPress.className.includes(" k")){
-            keyPress.classList.add("k");
-            setNote(0, 3);
-        }
-        else if(key == "l" && !keyPress.className.includes(" l")){
-            keyPress.classList.add("l");
-            setNote(1, 3);
-        }
-        else if(key == ";" && !keyPress.className.includes(" ;")){
-            keyPress.classList.add(";");
-            setNote(2, 3);
-        }
-        else if(key == "'" && !keyPress.className.includes(" '")){
-            keyPress.classList.add("'");
-            setNote(3, 3);
-        }
-        else if(key == "q" && !keyPress.className.includes(" q")){
-            keyPress.classList.add("q");
-            setNote(0, 3);
-        }
-        else if(key == "w" && !keyPress.className.includes(" w")){
-            keyPress.classList.add("w");
-            setNote(1, 3);
-        }
-        else if(key == "e" && !keyPress.className.includes(" e")){
-            keyPress.classList.add("e");
-            setNote(2, 3);
-        }
-        else if(key == "r" && !keyPress.className.includes(" r")){
-            keyPress.classList.add("r");
-            setNote(3, 3);
-        }
-        else if(key == "t" && !keyPress.className.includes(" t")){
-            keyPress.classList.add("t");
-            setNote(4, 3);
-        }
-        else if(key == "y" && !keyPress.className.includes(" y")){
-            keyPress.classList.add("y");
-            setNote(5, 3);
-        }
-        else if(key == "u" && !keyPress.className.includes(" u")){
-            keyPress.classList.add("u");
-            setNote(6, 3);
-        }
-        else if(key == "i" && !keyPress.className.includes(" i")){
-            keyPress.classList.add("i");
-            setNote(0, 4);
-        }
-        else if(key == "o" && !keyPress.className.includes(" o")){
-            keyPress.classList.add("o");
-            setNote(1, 4);
-        }
-        else if(key == "p" && !keyPress.className.includes(" p")){
-            keyPress.classList.add("p");
-            setNote(2, 4);
-        }
-        else if(key == "[" && !keyPress.className.includes(" [")){
-            keyPress.classList.add("[");
-            setNote(3, 4);
-        }
-        else if(key == "]" && !keyPress.className.includes(" ]")){
-            keyPress.classList.add("]");
-            setNote(4, 4);
-        }
-        else if(key == "\\" && !keyPress.className.includes(" \\")){
-            keyPress.classList.add("\\");
-            setNote(5, 4);
-        }
-        else if(key == "1" && !keyPress.className.includes(" 1")){
-            keyPress.classList.add("1");
-            setNote(0, 4);
-        }
-        else if(key == "2" && !keyPress.className.includes(" 2")){
-            keyPress.classList.add("2");
-            setNote(1, 4);
-        }
-        else if(key == "3" && !keyPress.className.includes(" 3")){
-            keyPress.classList.add("3");
-            setNote(2, 4);
-        }
-        else if(key == "4" && !keyPress.className.includes(" 4")){
-            keyPress.classList.add("4");
-            setNote(3, 4);
-        }
-        else if(key == "5" && !keyPress.className.includes(" 5")){
-            keyPress.classList.add("5");
-            setNote(4, 4);
-        }
-        else if(key == "6" && !keyPress.className.includes(" 6")){
-            keyPress.classList.add("6");
-            setNote(5, 4);
-        }
-        else if(key == "7" && !keyPress.className.includes(" 7")){
-            keyPress.classList.add("7");
-            setNote(6, 4);
-        }
-        else if(key == "8" && !keyPress.className.includes(" 8")){
-            keyPress.classList.add("8");
-            setNote(0, 5);
-        }
-        else if(key == "9" && !keyPress.className.includes(" 9")){
-            keyPress.classList.add("9");
-            setNote(1, 5);
-        }
-        else if(key == "0" && !keyPress.className.includes(" 0")){
-            keyPress.classList.add("0");
-            setNote(2, 5);
-        }
-        else if(key == "-" && !keyPress.className.includes(" -")){
-            keyPress.classList.add("-");
-            setNote(3, 5);
-        }
-        else if(key == "=" && !keyPress.className.includes(" =")){
-            keyPress.classList.add("=");
-            setNote(4, 5);
-        }
-        else if(key == "numpad1" && !keyPress.className.includes(" numpad1")){
-            keyPress.classList.add("numpad1");
-            setNote(0, 1, true);
-        }
-        else if(key == "numpad2" && !keyPress.className.includes(" numpad2")){
-            keyPress.classList.add("numpad2");
-            setNote(1, 1, true);
-        }
-        else if(key == "numpad3" && !keyPress.className.includes(" numpad3")){
-            keyPress.classList.add("numpad3");
-            setNote(2, 1, true);
-        }
-        else if(key == "numpad4" && !keyPress.className.includes(" numpad4")){
-            keyPress.classList.add("numpad4");
-            setNote(3, 1, true);
-        }
-        else if(key == "numpad5" && !keyPress.className.includes(" numpad5")){
-            keyPress.classList.add("numpad5");
-            setNote(4, 1, true);
-        }
-        else if(key == "numpad6" && !keyPress.className.includes(" numpad6")){
-            keyPress.classList.add("numpad6");
-            setNote(5, 1, true);
-        }
-        else if(key == "numpad7" && !keyPress.className.includes(" numpad7")){
-            keyPress.classList.add("numpad7");
-            setNote(6, 1, true);
-        }
-        else if(key == "numpad8" && !keyPress.className.includes(" numpad8")){
-            keyPress.classList.add("numpad8");
-            setNote(0, 2, true);
-        }
-        else if(key == "numpad9" && !keyPress.className.includes(" numpad9")){
-            keyPress.classList.add("numpad9");
-            setNote(1, 2, true);
+                break;
+            case "c":
+                setNote(2, 1);
+            
+                break;
+            case "v":
+                setNote(3, 1);
+            
+                break;
+            case "b":
+                setNote(4, 1);
+            
+                break;
+            case "n":
+                setNote(5, 1);
+            
+                break;
+            case "m":
+                setNote(6, 1);
+            
+                break;
+            case ",":
+                setNote(0, 2);
+            
+                break;
+            case ".":
+                setNote(1, 2);
+            
+                break;
+            case "/":
+                setNote(2, 2);
+            
+                break;
+            case "a":
+                setNote(0, 2);
+            
+                break;
+            case "s":
+                setNote(1, 2);
+            
+                break;
+            case "d":
+                setNote(2, 2);
+            
+                break;
+            case "f":
+                setNote(3, 2);
+            
+                break;
+            case "g":
+                setNote(4, 2);
+            
+                break;
+            case "h":
+                setNote(5, 2);
+            
+                break;
+            case "j":
+                setNote(6, 2);
+            
+                break;
+            case "k":
+                setNote(0, 3);
+            
+                break;
+            case "l":
+                setNote(1, 3);
+            
+                break;
+            case ";":
+                setNote(2, 3);
+            
+                break;
+            case "'":
+                setNote(3, 3);
+            
+                break;
+            case "q":
+                setNote(0, 3);
+            
+                break;
+            case "w":
+                setNote(1, 3);
+            
+                break;
+            case "e":
+                setNote(2, 3);
+            
+                break;
+            case "r":
+                setNote(3, 3);
+            
+                break;
+            case "t":
+                setNote(4, 3);
+            
+                break;
+            case "y":
+                setNote(5, 3);
+            
+                break;
+            case "u":
+                setNote(6, 3);
+            
+                break;
+            case "i":
+                setNote(0, 4);
+            
+                break;
+            case "o":
+                setNote(1, 4);
+            
+                break;
+            case "p":
+                setNote(2, 4);
+            
+                break;
+            case "[":
+                setNote(3, 4);
+            
+                break;
+            case "]":
+                setNote(4, 4);
+            
+                break;
+            case "\\" :;
+                setNote(5, 4);
+            
+                break;
+            case "1":
+                setNote(0, 4);
+            
+                break;
+            case "2":
+                setNote(1, 4);
+            
+                break;
+            case "3":
+                setNote(2, 4);
+            
+                break;
+            case "4":
+                setNote(3, 4);
+            
+                break;
+            case "5":
+                setNote(4, 4);
+            
+                break;
+            case "6":
+                setNote(5, 4);
+            
+                break;
+            case "7":
+                setNote(6, 4);
+            
+                break;
+            case "8":
+                setNote(0, 5);
+            
+                break;
+            case "9":
+                setNote(1, 5);
+            
+                break;
+            case "0":
+                setNote(2, 5);
+            
+                break;
+            case "-":
+                setNote(3, 5);
+            
+                break;
+            case "=":
+                setNote(4, 5);
+            
+                break;
+            case "numpad1":
+                setNote(0, 1, true);
+            
+                break;
+            case "numpad2":
+                setNote(1, 1, true);
+            
+                break;
+            case "numpad3":
+                setNote(2, 1, true);
+            
+                break;
+            case "numpad4":
+                setNote(3, 1, true);
+            
+                break;
+            case "numpad5":
+                setNote(4, 1, true);
+            
+                break;
+            case "numpad6":
+                setNote(5, 1, true);
+            
+                break;
+            case "numpad7":
+                setNote(6, 1, true);
+            
+                break;
+            case "numpad8":
+                setNote(0, 2, true);
+            
+                break;
+            case "numpad9":
+                setNote(1, 2, true);
+            
+                break;
         }
     }
-    else{
-        if(key == "arrowup"){
-            e.preventDefault();
+    else if(!keyPress.className.includes(" " + key)){
+        keyPress.classList.add(key);
+
+        switch(key){
+            case "arrowup":
+                e.preventDefault();
+                
+                shifting("up");
             
-            shifting("up");
-        }
-        else if(key == "arrowdown"){
-            e.preventDefault();
-    
-            shifting("down");
-        }
-        else if(key == "arrowright"){
-            e.preventDefault();
+                break;
+            case "arrowdown":
+                e.preventDefault();
+
+                shifting("down");
             
-            shiftingRight("up");
-        }
-        else if(key == "arrowleft"){
-            e.preventDefault();
+                break;
+            case "arrowright":
+                e.preventDefault();
+                
+                shiftingRight("up");
             
-            shiftingRight("down");
-        }
-        else if(key == "z" && !keyPress.className.includes(" z")){
-            keyPress.classList.add("z");
-            setNote("C", 1);
-        }
-        else if(key == "s" && !keyPress.className.includes(" s")){
-            keyPress.classList.add("s");
-            setNote("C#", 1);
-        }
-        else if(key == "x" && !keyPress.className.includes(" x")){
-            keyPress.classList.add("x");
-            setNote("D", 1);
-        }
-        else if(key == "d" && !keyPress.className.includes(" d")){
-            keyPress.classList.add("d");
-            setNote("D#", 1);
-        }
-        else if(key == "c" && !keyPress.className.includes(" c")){
-            keyPress.classList.add("c");
-            setNote("E", 1);
-        }
-        else if(key == "v" && !keyPress.className.includes(" v")){
-            keyPress.classList.add("v");
-            setNote("F", 1);
-        }
-        else if(key == "g" && !keyPress.className.includes(" g")){
-            keyPress.classList.add("g");
-            setNote("F#", 1);
-        }
-        else if(key == "b" && !keyPress.className.includes(" b")){
-            keyPress.classList.add("b");
-            setNote("G", 1);
-        }
-        else if(key == "h" && !keyPress.className.includes(" h")){
-            keyPress.classList.add("h");
-            setNote("G#", 1);
-        }
-        else if(key == "n" && !keyPress.className.includes(" n")){
-            keyPress.classList.add("n");
-            setNote("A", 1);
-        }
-        else if(key == "j" && !keyPress.className.includes(" j")){
-            keyPress.classList.add("j");
-            setNote("A#", 1);
-        }
-        else if(key == "m" && !keyPress.className.includes(" m")){
-            keyPress.classList.add("m");
-            setNote("B", 1);
-        }
-        else if(key == "," && !keyPress.className.includes(" ,")){
-            keyPress.classList.add(",");
-            setNote("C", 2);
-        }
-        else if(key == "l" && !keyPress.className.includes(" l")){
-            keyPress.classList.add("l");
-            setNote("C#", 2);
-        }
-        else if(key == "." && !keyPress.className.includes(" .")){
-            keyPress.classList.add(".");
-            setNote("D", 2);
-        }
-        else if(key == ";" && !keyPress.className.includes(" ;")){
-            keyPress.classList.add(";");
-            setNote("D#", 2);
-        }
-        else if(key == "/" && !keyPress.className.includes(" /")){
-            keyPress.classList.add("/");
-            setNote("E", 2);
-        }
-        else if(key == "q" && !keyPress.className.includes(" q")){
-            keyPress.classList.add("q");
-            setNote("C", 2);
-        }
-        else if(key == "2" && !keyPress.className.includes(" 2")){
-            keyPress.classList.add("2");
-            setNote("C#", 2);
-        }
-        else if(key == "w" && !keyPress.className.includes(" w")){
-            keyPress.classList.add("w");
-            setNote("D", 2);
-        }
-        else if(key == "3" && !keyPress.className.includes(" 3")){
-            keyPress.classList.add("3");
-            setNote("D#", 2);
-        }
-        else if(key == "e" && !keyPress.className.includes(" e")){
-            keyPress.classList.add("e");
-            setNote("E", 2);
-        }
-        else if(key == "r" && !keyPress.className.includes(" r")){
-            keyPress.classList.add("r");
-            setNote("F", 2);
-        }
-        else if(key == "5" && !keyPress.className.includes(" 5")){
-            keyPress.classList.add("5");
-            setNote("F#", 2);
-        }
-        else if(key == "t" && !keyPress.className.includes(" t")){
-            keyPress.classList.add("t");
-            setNote("G", 2);
-        }
-        else if(key == "6" && !keyPress.className.includes(" 6")){
-            keyPress.classList.add("6");
-            setNote("G#", 2);
-        }
-        else if(key == "y" && !keyPress.className.includes(" y")){
-            keyPress.classList.add("y");
-            setNote("A", 2);
-        }
-        else if(key == "7" && !keyPress.className.includes(" 7")){
-            keyPress.classList.add("7");
-            setNote("A#", 2);
-        }
-        else if(key == "u" && !keyPress.className.includes(" u")){
-            keyPress.classList.add("u");
-            setNote("B", 2);
-        }
-        else if(key == "i" && !keyPress.className.includes(" i")){
-            keyPress.classList.add("i");
-            setNote("C", 3);
-        }
-        else if(key == "9" && !keyPress.className.includes(" 9")){
-            keyPress.classList.add("9");
-            setNote("C#", 3);
-        }
-        else if(key == "o" && !keyPress.className.includes(" o")){
-            keyPress.classList.add("o");
-            setNote("D", 3);
-        }
-        else if(key == "0" && !keyPress.className.includes(" 0")){
-            keyPress.classList.add("0");
-            setNote("D#", 3);
-        }
-        else if(key == "p" && !keyPress.className.includes(" p")){
-            keyPress.classList.add("p");
-            setNote("E", 3);
-        }
-        else if(key == "[" && !keyPress.className.includes(" [")){
-            keyPress.classList.add("[");
-            setNote("F", 3);
-        }
-        else if(key == "=" && !keyPress.className.includes(" =")){
-            keyPress.classList.add("=");
-            setNote("F#", 3);
-        }
-        else if(key == "]" && !keyPress.className.includes(" ]")){
-            keyPress.classList.add("]");
-            setNote("G", 3);
-        }
-        else if(key == "numpad1" && !keyPress.className.includes(" numpad1")){
-            keyPress.classList.add("numpad1");
-            setNote(getNoteShift(1), getOctaveShift(1), true);
-        }
-        else if(key == "numpad2" && !keyPress.className.includes(" numpad2")){
-            keyPress.classList.add("numpad2");
-            setNote(getNoteShift(2), getOctaveShift(2), true);
-        }
-        else if(key == "numpad3" && !keyPress.className.includes(" numpad3")){
-            keyPress.classList.add("numpad3");
-            setNote(getNoteShift(3), getOctaveShift(3), true);
-        }
-        else if(key == "numpad4" && !keyPress.className.includes(" numpad4")){
-            keyPress.classList.add("numpad4");
-            setNote(getNoteShift(4), getOctaveShift(4), true);
-        }
-        else if(key == "numpad5" && !keyPress.className.includes(" numpad5")){
-            keyPress.classList.add("numpad5");
-            setNote(getNoteShift(5), getOctaveShift(5), true);
-        }
-        else if(key == "numpad6" && !keyPress.className.includes(" numpad6")){
-            keyPress.classList.add("numpad6");
-            setNote(getNoteShift(6), getOctaveShift(6), true);
-        }
-        else if(key == "numpad7" && !keyPress.className.includes(" numpad7")){
-            keyPress.classList.add("numpad7");
-            setNote(getNoteShift(7), getOctaveShift(7), true);
-        }
-        else if(key == "numpad8" && !keyPress.className.includes(" numpad8")){
-            keyPress.classList.add("numpad8");
-            setNote(getNoteShift(8), getOctaveShift(8), true);
-        }
-        else if(key == "numpad9" && !keyPress.className.includes(" numpad9")){
-            keyPress.classList.add("numpad9");
-            setNote(getNoteShift(9), getOctaveShift(9), true);
+                break;
+            case "arrowleft":
+                e.preventDefault();
+                
+                shiftingRight("down");
+            
+                break;
+            case "z":
+                setNote("C", 1);
+            
+                break;
+            case "s":
+                setNote("C#", 1);
+            
+                break;
+            case "x":
+                setNote("D", 1);
+            
+                break;
+            case "d":
+                setNote("D#", 1);
+            
+                break;
+            case "c":
+                setNote("E", 1);
+            
+                break;
+            case "v":
+                setNote("F", 1);
+            
+                break;
+            case "g":
+                setNote("F#", 1);
+            
+                break;
+            case "b":
+                setNote("G", 1);
+            
+                break;
+            case "h":
+                setNote("G#", 1);
+            
+                break;
+            case "n":
+                setNote("A", 1);
+            
+                break;
+            case "j":
+                setNote("A#", 1);
+            
+                break;
+            case "m":
+                setNote("B", 1);
+            
+                break;
+            case ",":
+                setNote("C", 2);
+            
+                break;
+            case "l":
+                setNote("C#", 2);
+            
+                break;
+            case ".":
+                setNote("D", 2);
+            
+                break;
+            case ";":
+                setNote("D#", 2);
+            
+                break;
+            case "/":
+                setNote("E", 2);
+            
+                break;
+            case "q":
+                setNote("C", 2);
+            
+                break;
+            case "2":
+                setNote("C#", 2);
+            
+                break;
+            case "w":
+                setNote("D", 2);
+            
+                break;
+            case "3":
+                setNote("D#", 2);
+            
+                break;
+            case "e":
+                setNote("E", 2);
+            
+                break;
+            case "r":
+                setNote("F", 2);
+            
+                break;
+            case "5":
+                setNote("F#", 2);
+            
+                break;
+            case "t":
+                setNote("G", 2);
+            
+                break;
+            case "6":
+                setNote("G#", 2);
+            
+                break;
+            case "y":
+                setNote("A", 2);
+            
+                break;
+            case "7":
+                setNote("A#", 2);
+            
+                break;
+            case "u":
+                setNote("B", 2);
+            
+                break;
+            case "i":
+                setNote("C", 3);
+            
+                break;
+            case "9":
+                setNote("C#", 3);
+            
+                break;
+            case "o":
+                setNote("D", 3);
+            
+                break;
+            case "0":
+                setNote("D#", 3);
+            
+                break;
+            case "p":
+                setNote("E", 3);
+            
+                break;
+            case "[":
+                setNote("F", 3);
+            
+                break;
+            case "=":
+                setNote("F#", 3);
+            
+                break;
+            case "]":
+                setNote("G", 3);
+            
+                break;
+            case "numpad1":
+                setNote(getNoteShift(1), getOctaveShift(1), true);
+            
+                break;
+            case "numpad2":
+                setNote(getNoteShift(2), getOctaveShift(2), true);
+            
+                break;
+            case "numpad3":
+                setNote(getNoteShift(3), getOctaveShift(3), true);
+            
+                break;
+            case "numpad4":
+                setNote(getNoteShift(4), getOctaveShift(4), true);
+            
+                break;
+            case "numpad5":
+                setNote(getNoteShift(5), getOctaveShift(5), true);
+            
+                break;
+            case "numpad6":
+                setNote(getNoteShift(6), getOctaveShift(6), true);
+            
+                break;
+            case "numpad7":
+                setNote(getNoteShift(7), getOctaveShift(7), true);
+            
+                break;
+            case "numpad8":
+                setNote(getNoteShift(8), getOctaveShift(8), true);
+            
+                break;
+            case "numpad9":
+                setNote(getNoteShift(9), getOctaveShift(9), true);
+            
+                break;
         }
     }
 });
@@ -1237,419 +1265,429 @@ window.addEventListener("keydown", (e) => {
 window.addEventListener("keyup", (e) => {
     var key = keyLower(e.key, e.code);
 
-    if(e.key == " "){
+    if(key == " "){
         keyPress.classList.remove("space");
+
         pedal.style.borderBottomColor = "";
+
         if(fadeOutTimer == undefined){
             fadeOutTimer = setInterval(fadeOut, fadeOutTime);
         }
     }
     else if(diatonic){
-        if(key == "z"){
-            keyPress.classList.remove("z");
-            unsetNote(0, 1);
-        }
-        else if(key == "x"){
-            keyPress.classList.remove("x");
-            unsetNote(1, 1);
-        }
-        else if(key == "c"){
-            keyPress.classList.remove("c");
-            unsetNote(2, 1);
-        }
-        else if(key == "v"){
-            keyPress.classList.remove("v");
-            unsetNote(3, 1);
-        }
-        else if(key == "b"){
-            keyPress.classList.remove("b");
-            unsetNote(4, 1);
-        }
-        else if(key == "n"){
-            keyPress.classList.remove("n");
-            unsetNote(5, 1);
-        }
-        else if(key == "m"){
-            keyPress.classList.remove("m");
-            unsetNote(6, 1);
-        }
-        else if(key == ","){
-            keyPress.classList.remove(",");
-            unsetNote(0, 2);
-        }
-        else if(key == "."){
-            keyPress.classList.remove(".");
-            unsetNote(1, 2);
-        }
-        else if(key == "/"){
-            keyPress.classList.remove("/");
-            unsetNote(2, 2);
-        }
-        else if(key == "a"){
-            keyPress.classList.remove("a");
-            unsetNote(0, 2);
-        }
-        else if(key == "s"){
-            keyPress.classList.remove("s");
-            unsetNote(1, 2);
-        }
-        else if(key == "d"){
-            keyPress.classList.remove("d");
-            unsetNote(2, 2);
-        }
-        else if(key == "f"){
-            keyPress.classList.remove("f");
-            unsetNote(3, 2);
-        }
-        else if(key == "g"){
-            keyPress.classList.remove("g");
-            unsetNote(4, 2);
-        }
-        else if(key == "h"){
-            keyPress.classList.remove("h");
-            unsetNote(5, 2);
-        }
-        else if(key == "j"){
-            keyPress.classList.remove("j");
-            unsetNote(6, 2);
-        }
-        else if(key == "k"){
-            keyPress.classList.remove("k");
-            unsetNote(0, 3);
-        }
-        else if(key == "l"){
-            keyPress.classList.remove("l");
-            unsetNote(1, 3);
-        }
-        else if(key == ";"){
-            keyPress.classList.remove(";");
-            unsetNote(2, 3);
-        }
-        else if(key == "'"){
-            keyPress.classList.remove("'");
-            unsetNote(3, 3);
-        }
-        else if(key == "q"){
-            keyPress.classList.remove("q");
-            unsetNote(0, 3);
-        }
-        else if(key == "w"){
-            keyPress.classList.remove("w");
-            unsetNote(1, 3);
-        }
-        else if(key == "e"){
-            keyPress.classList.remove("e");
-            unsetNote(2, 3);
-        }
-        else if(key == "r"){
-            keyPress.classList.remove("r");
-            unsetNote(3, 3);
-        }
-        else if(key == "t"){
-            keyPress.classList.remove("t");
-            unsetNote(4, 3);
-        }
-        else if(key == "y"){
-            keyPress.classList.remove("y");
-            unsetNote(5, 3);
-        }
-        else if(key == "u"){
-            keyPress.classList.remove("u");
-            unsetNote(6, 3);
-        }
-        else if(key == "i"){
-            keyPress.classList.remove("i");
-            unsetNote(0, 4);
-        }
-        else if(key == "o"){
-            keyPress.classList.remove("o");
-            unsetNote(1, 4);
-        }
-        else if(key == "p"){
-            keyPress.classList.remove("p");
-            unsetNote(2, 4);
-        }
-        else if(key == "["){
-            keyPress.classList.remove("[");
-            unsetNote(3, 4);
-        }
-        else if(key == "]"){
-            keyPress.classList.remove("]");
-            unsetNote(4, 4);
-        }
-        else if(key == "\\"){
-            keyPress.classList.remove("\\");
-            unsetNote(5, 4);
-        }
-        else if(key == "1"){
-            keyPress.classList.remove("1");
-            unsetNote(0, 4);
-        }
-        else if(key == "2"){
-            keyPress.classList.remove("2");
-            unsetNote(1, 4);
-        }
-        else if(key == "3"){
-            keyPress.classList.remove("3");
-            unsetNote(2, 4);
-        }
-        else if(key == "4"){
-            keyPress.classList.remove("4");
-            unsetNote(3, 4);
-        }
-        else if(key == "5"){
-            keyPress.classList.remove("5");
-            unsetNote(4, 4);
-        }
-        else if(key == "6"){
-            keyPress.classList.remove("6");
-            unsetNote(5, 4);
-        }
-        else if(key == "7"){
-            keyPress.classList.remove("7");
-            unsetNote(6, 4);
-        }
-        else if(key == "8"){
-            keyPress.classList.remove("8");
-            unsetNote(0, 5);
-        }
-        else if(key == "9"){
-            keyPress.classList.remove("9");
-            unsetNote(1, 5);
-        }
-        else if(key == "0"){
-            keyPress.classList.remove("0");
-            unsetNote(2, 5);
-        }
-        else if(key == "-"){
-            keyPress.classList.remove("-");
-            unsetNote(3, 5);
-        }
-        else if(key == "="){
-            keyPress.classList.remove("=");
-            unsetNote(4, 5);
-        }
-        else if(key == "numpad1"){
-            keyPress.classList.remove("numpad1");
-            unsetNote(0, 1, true);
-        }
-        else if(key == "numpad2"){
-            keyPress.classList.remove("numpad2");
-            unsetNote(1, 1, true);
-        }
-        else if(key == "numpad3"){
-            keyPress.classList.remove("numpad3");
-            unsetNote(2, 1, true);
-        }
-        else if(key == "numpad4"){
-            keyPress.classList.remove("numpad4");
-            unsetNote(3, 1, true);
-        }
-        else if(key == "numpad5"){
-            keyPress.classList.remove("numpad5");
-            unsetNote(4, 1, true);
-        }
-        else if(key == "numpad6"){
-            keyPress.classList.remove("numpad6");
-            unsetNote(5, 1, true);
-        }
-        else if(key == "numpad7"){
-            keyPress.classList.remove("numpad7");
-            unsetNote(6, 1, true);
-        }
-        else if(key == "numpad8"){
-            keyPress.classList.remove("numpad8");
-            unsetNote(0, 2, true);
-        }
-        else if(key == "numpad9"){
-            keyPress.classList.remove("numpad9");
-            unsetNote(1, 2, true);
+        keyPress.classList.remove(key);
+        
+        switch(key){
+            case "z":
+                unsetNote(0, 1);
+            
+                break;
+            case "x":
+                unsetNote(1, 1);
+            
+                break;
+            case "c":
+                unsetNote(2, 1);
+            
+                break;
+            case "v":
+                unsetNote(3, 1);
+            
+                break;
+            case "b":
+                unsetNote(4, 1);
+            
+                break;
+            case "n":
+                unsetNote(5, 1);
+            
+                break;
+            case "m":
+                unsetNote(6, 1);
+            
+                break;
+            case ",":
+                unsetNote(0, 2);
+            
+                break;
+            case ".":
+                unsetNote(1, 2);
+            
+                break;
+            case "/":
+                unsetNote(2, 2);
+            
+                break;
+            case "a":
+                unsetNote(0, 2);
+            
+                break;
+            case "s":
+                unsetNote(1, 2);
+            
+                break;
+            case "d":
+                unsetNote(2, 2);
+            
+                break;
+            case "f":
+                unsetNote(3, 2);
+            
+                break;
+            case "g":
+                unsetNote(4, 2);
+            
+                break;
+            case "h":
+                unsetNote(5, 2);
+            
+                break;
+            case "j":
+                unsetNote(6, 2);
+            
+                break;
+            case "k":
+                unsetNote(0, 3);
+            
+                break;
+            case "l":
+                unsetNote(1, 3);
+            
+                break;
+            case ";":
+                unsetNote(2, 3);
+            
+                break;
+            case "'":
+                unsetNote(3, 3);
+            
+                break;
+            case "q":
+                unsetNote(0, 3);
+            
+                break;
+            case "w":
+                unsetNote(1, 3);
+            
+                break;
+            case "e":
+                unsetNote(2, 3);
+            
+                break;
+            case "r":
+                unsetNote(3, 3);
+            
+                break;
+            case "t":
+                unsetNote(4, 3);
+            
+                break;
+            case "y":
+                unsetNote(5, 3);
+            
+                break;
+            case "u":
+                unsetNote(6, 3);
+            
+                break;
+            case "i":
+                unsetNote(0, 4);
+            
+                break;
+            case "o":
+                unsetNote(1, 4);
+            
+                break;
+            case "p":
+                unsetNote(2, 4);
+            
+                break;
+            case "[":
+                unsetNote(3, 4);
+            
+                break;
+            case "]":
+                unsetNote(4, 4);
+            
+                break;
+            case "\\":;
+                unsetNote(5, 4);
+            
+                break;
+            case "1":
+                unsetNote(0, 4);
+            
+                break;
+            case "2":
+                unsetNote(1, 4);
+            
+                break;
+            case "3":
+                unsetNote(2, 4);
+            
+                break;
+            case "4":
+                unsetNote(3, 4);
+            
+                break;
+            case "5":
+                unsetNote(4, 4);
+            
+                break;
+            case "6":
+                unsetNote(5, 4);
+            
+                break;
+            case "7":
+                unsetNote(6, 4);
+            
+                break;
+            case "8":
+                unsetNote(0, 5);
+            
+                break;
+            case "9":
+                unsetNote(1, 5);
+            
+                break;
+            case "0":
+                unsetNote(2, 5);
+            
+                break;
+            case "-":
+                unsetNote(3, 5);
+            
+                break;
+            case "=":
+                unsetNote(4, 5);
+            
+                break;
+            case "numpad1":
+                unsetNote(0, 1, true);
+            
+                break;
+            case "numpad2":
+                unsetNote(1, 1, true);
+            
+                break;
+            case "numpad3":
+                unsetNote(2, 1, true);
+            
+                break;
+            case "numpad4":
+                unsetNote(3, 1, true);
+            
+                break;
+            case "numpad5":
+                unsetNote(4, 1, true);
+            
+                break;
+            case "numpad6":
+                unsetNote(5, 1, true);
+            
+                break;
+            case "numpad7":
+                unsetNote(6, 1, true);
+            
+                break;
+            case "numpad8":
+                unsetNote(0, 2, true);
+            
+                break;
+            case "numpad9":
+                unsetNote(1, 2, true);
+            
+                break;
         }
     }
     else{
-        if(key == "z"){
-            keyPress.classList.remove("z");
-            unsetNote("C", 1);
-        }
-        else if(key == "s"){
-            keyPress.classList.remove("s");
-            unsetNote("C#", 1);
-        }
-        else if(key == "x"){
-            keyPress.classList.remove("x");
-            unsetNote("D", 1);
-        }
-        else if(key == "d"){
-            keyPress.classList.remove("d");
-            unsetNote("D#", 1);
-        }
-        else if(key == "c"){
-            keyPress.classList.remove("c");
-            unsetNote("E", 1);
-        }
-        else if(key == "v"){
-            keyPress.classList.remove("v");
-            unsetNote("F", 1);
-        }
-        else if(key == "g"){
-            keyPress.classList.remove("g");
-            unsetNote("F#", 1);
-        }
-        else if(key == "b"){
-            keyPress.classList.remove("b");
-            unsetNote("G", 1);
-        }
-        else if(key == "h"){
-            keyPress.classList.remove("h");
-            unsetNote("G#", 1);
-        }
-        else if(key == "n"){
-            keyPress.classList.remove("n");
-            unsetNote("A", 1);
-        }
-        else if(key == "j"){
-            keyPress.classList.remove("j");
-            unsetNote("A#", 1);
-        }
-        else if(key == "m"){
-            keyPress.classList.remove("m");
-            unsetNote("B", 1);
-        }
-        else if(key == ","){
-            keyPress.classList.remove(",");
-            unsetNote("C", 2);
-        }
-        else if(key == "l"){
-            keyPress.classList.remove("l");
-            unsetNote("C#", 2);
-        }
-        else if(key == "."){
-            keyPress.classList.remove(".");
-            unsetNote("D", 2);
-        }
-        else if(key == ";"){
-            keyPress.classList.remove(";");
-            unsetNote("D#", 2);
-        }
-        else if(key == "/"){
-            keyPress.classList.remove("/");
-            unsetNote("E", 2);
-        }
-        else if(key == "q"){
-            keyPress.classList.remove("q");
-            unsetNote("C", 2);
-        }
-        else if(key == "2"){
-            keyPress.classList.remove("2");
-            unsetNote("C#", 2);
-        }
-        else if(key == "w"){
-            keyPress.classList.remove("w");
-            unsetNote("D", 2);
-        }
-        else if(key == "3"){
-            keyPress.classList.remove("3");
-            unsetNote("D#", 2);
-        }
-        else if(key == "e"){
-            keyPress.classList.remove("e");
-            unsetNote("E", 2);
-        }
-        else if(key == "r"){
-            keyPress.classList.remove("r");
-            unsetNote("F", 2);
-        }
-        else if(key == "5"){
-            keyPress.classList.remove("5");
-            unsetNote("F#", 2);
-        }
-        else if(key == "t"){
-            keyPress.classList.remove("t");
-            unsetNote("G", 2);
-        }
-        else if(key == "6"){
-            keyPress.classList.remove("6");
-            unsetNote("G#", 2);
-        }
-        else if(key == "y"){
-            keyPress.classList.remove("y");
-            unsetNote("A", 2);
-        }
-        else if(key == "7"){
-            keyPress.classList.remove("7");
-            unsetNote("A#", 2);
-        }
-        else if(key == "u"){
-            keyPress.classList.remove("u");
-            unsetNote("B", 2);
-        }
-        else if(key == "i"){
-            keyPress.classList.remove("i");
-            unsetNote("C", 3);
-        }
-        else if(key == "9"){
-            keyPress.classList.remove("9");
-            unsetNote("C#", 3);
-        }
-        else if(key == "o"){
-            keyPress.classList.remove("o");
-            unsetNote("D", 3);
-        }
-        else if(key == "0"){
-            keyPress.classList.remove("0");
-            unsetNote("D#", 3);
-        }
-        else if(key == "p"){
-            keyPress.classList.remove("p");
-            unsetNote("E", 3);
-        }
-        else if(key == "["){
-            keyPress.classList.remove("[");
-            unsetNote("F", 3);
-        }
-        else if(key == "="){
-            keyPress.classList.remove("=");
-            unsetNote("F#", 3);
-        }
-        else if(key == "]"){
-            keyPress.classList.remove("]");
-            unsetNote("G", 3);
-        }
-        else if(key == "numpad1"){
-            keyPress.classList.remove("numpad1");
-            unsetNote(getNoteShift(1), getOctaveShift(1), true);
-        }
-        else if(key == "numpad2"){
-            keyPress.classList.remove("numpad2");
-            unsetNote(getNoteShift(2), getOctaveShift(2), true);
-        }
-        else if(key == "numpad3"){
-            keyPress.classList.remove("numpad3");
-            unsetNote(getNoteShift(3), getOctaveShift(3), true);
-        }
-        else if(key == "numpad4"){
-            keyPress.classList.remove("numpad4");
-            unsetNote(getNoteShift(4), getOctaveShift(4), true);
-        }
-        else if(key == "numpad5"){
-            keyPress.classList.remove("numpad5");
-            unsetNote(getNoteShift(5), getOctaveShift(5), true);
-        }
-        else if(key == "numpad6"){
-            keyPress.classList.remove("numpad6");
-            unsetNote(getNoteShift(6), getOctaveShift(6), true);
-        }
-        else if(key == "numpad7"){
-            keyPress.classList.remove("numpad7");
-            unsetNote(getNoteShift(7), getOctaveShift(7), true);
-        }
-        else if(key == "numpad8"){
-            keyPress.classList.remove("numpad8");
-            unsetNote(getNoteShift(8), getOctaveShift(8), true);
-        }
-        else if(key == "numpad9"){
-            keyPress.classList.remove("numpad9");
-            unsetNote(getNoteShift(9), getOctaveShift(9), true);
+        keyPress.classList.remove(key);
+
+        switch(key){
+            case "z":
+                unsetNote("C", 1);
+            
+                break;
+            case "s":
+                unsetNote("C#", 1);
+            
+                break;
+            case "x":
+                unsetNote("D", 1);
+            
+                break;
+            case "d":
+                unsetNote("D#", 1);
+            
+                break;
+            case "c":
+                unsetNote("E", 1);
+            
+                break;
+            case "v":
+                unsetNote("F", 1);
+            
+                break;
+            case "g":
+                unsetNote("F#", 1);
+            
+                break;
+            case "b":
+                unsetNote("G", 1);
+            
+                break;
+            case "h":
+                unsetNote("G#", 1);
+            
+                break;
+            case "n":
+                unsetNote("A", 1);
+            
+                break;
+            case "j":
+                unsetNote("A#", 1);
+            
+                break;
+            case "m":
+                unsetNote("B", 1);
+            
+                break;
+            case ",":
+                unsetNote("C", 2);
+            
+                break;
+            case "l":
+                unsetNote("C#", 2);
+            
+                break;
+            case ".":
+                unsetNote("D", 2);
+            
+                break;
+            case ";":
+                unsetNote("D#", 2);
+            
+                break;
+            case "/":
+                unsetNote("E", 2);
+            
+                break;
+            case "q":
+                unsetNote("C", 2);
+            
+                break;
+            case "2":
+                unsetNote("C#", 2);
+            
+                break;
+            case "w":
+                unsetNote("D", 2);
+            
+                break;
+            case "3":
+                unsetNote("D#", 2);
+            
+                break;
+            case "e":
+                unsetNote("E", 2);
+            
+                break;
+            case "r":
+                unsetNote("F", 2);
+            
+                break;
+            case "5":
+                unsetNote("F#", 2);
+            
+                break;
+            case "t":
+                unsetNote("G", 2);
+            
+                break;
+            case "6":
+                unsetNote("G#", 2);
+            
+                break;
+            case "y":
+                unsetNote("A", 2);
+            
+                break;
+            case "7":
+                unsetNote("A#", 2);
+            
+                break;
+            case "u":
+                unsetNote("B", 2);
+            
+                break;
+            case "i":
+                unsetNote("C", 3);
+            
+                break;
+            case "9":
+                unsetNote("C#", 3);
+            
+                break;
+            case "o":
+                unsetNote("D", 3);
+            
+                break;
+            case "0":
+                unsetNote("D#", 3);
+            
+                break;
+            case "p":
+                unsetNote("E", 3);
+            
+                break;
+            case "[":
+                unsetNote("F", 3);
+            
+                break;
+            case "=":
+                unsetNote("F#", 3);
+            
+                break;
+            case "]":
+                unsetNote("G", 3);
+            
+                break;
+            case "numpad1":
+                unsetNote(getNoteShift(1), getOctaveShift(1), true);
+            
+                break;
+            case "numpad2":
+                unsetNote(getNoteShift(2), getOctaveShift(2), true);
+            
+                break;
+            case "numpad3":
+                unsetNote(getNoteShift(3), getOctaveShift(3), true);
+            
+                break;
+            case "numpad4":
+                unsetNote(getNoteShift(4), getOctaveShift(4), true);
+            
+                break;
+            case "numpad5":
+                unsetNote(getNoteShift(5), getOctaveShift(5), true);
+            
+                break;
+            case "numpad6":
+                unsetNote(getNoteShift(6), getOctaveShift(6), true);
+            
+                break;
+            case "numpad7":
+                unsetNote(getNoteShift(7), getOctaveShift(7), true);
+            
+                break;
+            case "numpad8":
+                unsetNote(getNoteShift(8), getOctaveShift(8), true);
+            
+                break;
+            case "numpad9":
+                unsetNote(getNoteShift(9), getOctaveShift(9), true);
+            
+                break;
         }
     }
 });
