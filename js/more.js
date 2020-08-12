@@ -57,10 +57,10 @@ var prev_list = document.getElementsByClassName("prev-list");
 var next_list = document.getElementsByClassName("next-list");
 
 var apps_list = ["Ritsu.exe", "Mio.exe", "WarDimension_VirtualDrums", "GH!mania", "WarDimension Official Extension", "osu!play", "Keyboard", "List Sorter"];
-var apps_link = ["https://wardimension.github.io/blog?b=experimental&p=2019/02/ritsu.exe", "https://wardimension.github.io/blog?b=experimental&p=2019/02/mio.exe", "https://wardimension.github.io/blog?b=experimental&p=2019/02/virtual-drums", "https://wardimension.github.io/blog?b=experimental&p=2019/02/gh-mania", "https://wardimension.github.io/blog?b=experimental&p=2020/02/wardimension-official-extension", "https://wardimension.github.io/blog?b=experimental&p=2020/04/osu-play", "https://wardimension.github.io/project/keyboard", "https://wardimension.github.io/project/list-sorter"];
+var apps_link = ["blog?b=experimental&p=2019/02/ritsu.exe", "blog?b=experimental&p=2019/02/mio.exe", "blog?b=experimental&p=2019/02/virtual-drums", "blog?b=experimental&p=2019/02/gh-mania", "blog?b=experimental&p=2020/02/wardimension-official-extension", "blog?b=experimental&p=2020/04/osu-play", "project/keyboard", "project/list-sorter"];
 
 var games_list = ["UNO_command"];
-var games_link = ["https://wardimension.github.io/project/uno-command"];
+var games_link = ["project/uno-command"];
 
 list_index = 0;
 
@@ -82,7 +82,7 @@ function displayMoreList(){
 
     if(more_apps){
       moreLink[0].innerHTML = apps_list[list_index];
-      moreLink[0].href = apps_link[list_index];
+      moreLink[0].href = "https://wardimension.github.io/" + apps_link[list_index];
 
       if(list_index == apps_list.length - 1){
         next_list[0].style.color = "#ddd";
@@ -91,7 +91,7 @@ function displayMoreList(){
     }
     else if(more_games){
       moreLink[0].innerHTML = games_list[list_index];
-      moreLink[0].href = games_link[list_index];
+      moreLink[0].href = "https://wardimension.github.io/" + games_link[list_index];
 
       if(list_index == games_list.length - 1){
         next_list[0].style.color = "#ddd";
