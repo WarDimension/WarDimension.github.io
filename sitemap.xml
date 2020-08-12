@@ -9,17 +9,32 @@
 
 <url>
   <loc>https://wardimension.github.io/</loc>
-  <lastmod>2020-02-29T04:33:56+00:00</lastmod>
+  <lastmod>2020-08-12T14:41:15+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://wardimension.github.io/music</loc>
-  <lastmod>2020-02-29T04:33:56+00:00</lastmod>
+  <lastmod>2020-08-12T14:41:15+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://wardimension.github.io/blog</loc>
-  <lastmod>2020-02-29T04:33:56+00:00</lastmod>
+  <lastmod>2020-08-12T14:41:15+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://wardimension.github.io/project/uno-command</loc>
+  <lastmod>2020-08-12T14:41:15+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://wardimension.github.io/project/keyboard</loc>
+  <lastmod>2020-08-12T14:41:15+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://wardimension.github.io/project/list-sorter</loc>
+  <lastmod>2020-08-12T14:41:15+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 
