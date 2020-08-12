@@ -87,7 +87,10 @@ console.log(
     "//play a note; note example: C1" +
     "\n\n" +
     "stopNote(\"note\");\n" +
-    "//stop a note; call this after playing a note"
+    "//stop a note; call this after playing a note" +
+    "\n\n" +
+    "defaultSetting();\n" +
+    "//you know what it's for"
 );
 
 // END CONSOLE NOTES
