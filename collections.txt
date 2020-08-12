@@ -1,4 +1,6 @@
 ./collections/
 
 anime.txt
+cartoon.txt
+k-drama.txt
 movie.txt
