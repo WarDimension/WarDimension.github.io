@@ -1,8 +1,11 @@
-*{
+.menu-button, .wd-logo{
+  cursor: url("../cursors/666_link.cur"), auto;
+}
+*, .active{
   cursor: url("../cursors/666.cur"), auto;
 }
-.menu-button, a{
-  cursor: url("../cursors/666_link.cur"), auto;
+.wd-link:focus{
+  outline: 0;
 }
 body{
   background: url("../images/666.gif");
