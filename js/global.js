@@ -53,13 +53,6 @@ window.addEventListener("resize", (e) => {
   }
 });
 
-window.addEventListener("click", (e) => {
-  var className = e.target.className;
-  if(!(getParentClass(e.target, "more-container") || className == "more-text" || className =="material-icons") && more_open){
-    more();
-  }
-});
-
 window.addEventListener("keypress", (e) => {
   if (e.key == "Enter" && e.target.className != "track-name"){
     document.activeElement.blur();

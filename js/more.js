@@ -130,3 +130,10 @@ function nextList(){
     }
   }
 }
+
+window.addEventListener("click", (e) => {
+  var className = e.target.className;
+  if(!(getParentClass(e.target, "more-container") || className == "more-text" || className =="material-icons") && more_open){
+    more();
+  }
+});
