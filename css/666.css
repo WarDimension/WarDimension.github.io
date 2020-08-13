@@ -1,7 +1,7 @@
 *{
   cursor: url("../cursors/666.cur"), auto;
 }
-.menu-button{
+.menu-button, a{
   cursor: url("../cursors/666_link.cur"), auto;
 }
 body{
