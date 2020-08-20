@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: wardimension.github.io
+Token: 5ea12dcb0fee6cad7e846dae0e52f2fd52e449f28466d88a4287570807e3d331
