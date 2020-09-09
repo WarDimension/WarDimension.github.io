@@ -1,7 +1,7 @@
 *{
   font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
   box-sizing: border-box;
-  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1.1);
   user-select: none;
   -moz-user-select: none;
   -webkit-user-drag: none;
