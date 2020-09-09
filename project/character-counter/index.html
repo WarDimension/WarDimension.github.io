@@ -1,0 +1,228 @@
+<html lang="en">
+    <head>
+        <title>Character Counter</title>
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
+        <meta id="vp" name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+        <meta name="description" content="Count Keyboard Character in a Text"/>
+        <meta name="og:title" property="og:title" content="Character Counter"/>
+        <meta name="og:type" property="og:type" content="website"/>
+        <meta name="og:description" property="og:description" content="Count Keyboard Character in a Text"/>
+        <meta name="og:image" property="og:image" content="abc.png"/>
+        <link href="https://wardimension.github.io/" rel="canonical"/>
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-THCN8CM');</script>
+        <!-- End Google Tag Manager -->
+        <style>
+            *{
+                font-family: "Courier New", Courier, monospace;
+                box-sizing: border-box;
+                font-size: 14px;
+                user-select: none;
+                -moz-user-select: none;
+                -webkit-user-drag: none;
+                -webkit-user-select: none;
+                -ms-user-select: none;
+            }
+            body{
+                padding: 100px;
+                overflow: hidden;
+            }
+            .text, .result{
+                display: inline-block;
+                width: 80%;
+                height: 100%;
+                padding: 6px;
+            }
+            .result{
+                width: 180px;
+                vertical-align: top;
+            }
+            .char-result{
+                overflow-y: auto;
+                height: 98.5%;
+            }
+            @media only screen and (max-width: 1160px){
+                body{
+                    padding: 75px;
+                }
+                .text{
+                    width: 100%;
+                    height: 70%;
+                }
+                .result{
+                    height: 30%;
+                }
+            }
+            @media only screen and (max-width: 990px){
+                body{
+                    padding: 30px;
+                }
+            }
+            @media only screen and (max-width: 600px){
+                body{
+                    padding: 0;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <textarea class="text" oninput="count()"></textarea>
+        <div class="result">
+            character count:<br/>
+            <div class="char-result">
+                &lt;empty&gt;
+            </div>
+        </div>
+        <script>
+            const text = document.querySelector(".text");
+            const result = document.querySelector(".char-result");
+
+            function keyLower(key){
+                key = key.toLowerCase();
+
+                var keyNum = [")", "!",  "@",  "#",  "$",  "%",  "^",  "&",  "*",  "("];
+
+                if(key == "<"){
+                    key = ",";
+                }
+                else if(key == ">"){
+                    key = ".";
+                }
+                else if(key == "?"){
+                    key = "/";
+                }
+                else if(key == ":"){
+                    key = ";";
+                }
+                else if(key == '"'){
+                    key = "'";
+                }
+                else if(key == "{"){
+                    key = "[";
+                }
+                else if(key == "}"){
+                    key = "]";
+                }
+                else if(key == "|"){
+                    key = "\\";
+                }
+                else if(key == "_"){
+                    key = "-";
+                }
+                else if(key == "+"){
+                    key = "=";
+                }
+                else if(key == "~"){
+                    key = "`";
+                }
+                else if(keyNum.includes(key)){
+                    for(var i = 0; i < keyNum.length; i++){
+                        if(key == keyNum[i]){
+                            key = i;
+                        }
+                    }
+                }
+            
+                return key;
+            }
+
+            function count(){
+                var chars = text.value.split("");
+
+                chars = chars.sort();
+
+                if(chars.length == 0){
+                    result.innerHTML = "&lt;empty&gt;";
+                }
+                else{
+                    result.innerHTML = "";
+                }
+
+                var charTemp;
+                var newChars = [];
+                var index = -1;
+
+                chars.forEach(char => {
+                    if(char != charTemp){
+                        charTemp = char;
+                        newChars.push([]);
+                        index++;
+                    }
+                    newChars[index].push(char);
+                });
+
+                //get shift
+                for(var i = newChars.length - 1; i >= 0; i--){
+                    if(newChars[i][0] == newChars[i][0].toUpperCase() && keyLower(newChars[i][0]) != newChars[i][0].toUpperCase()){
+                        sameChar = false;
+
+                        var shift = -1;
+                        
+                        newChars.forEach((char, index) => {
+                            if(char[0] == newChars[i][0].toLowerCase() && char[0] != newChars[i][0]){
+                                char.push(...newChars[i].map(c => c.toLowerCase()));
+
+                                sameChar = true;
+                            }
+                            else if(char[0] == "Shift"){
+                                shift = index;
+                            }
+                        });
+                        
+                        newChars[i] = newChars[i].map(c => c.toLowerCase());
+
+                        if(shift > -1){
+                            newChars[shift].push(...newChars[i].map(c => "Shift"));
+                        }
+                        else{
+                            newChars.push(newChars[i].map(c => "Shift"));
+                        }
+                        
+                        if(sameChar){
+                            newChars.splice(i, 1);
+                        }
+                    }
+                }
+
+                newChars = newChars.map(char => char.map(c => c.toUpperCase()));
+
+                //sort
+                for(var i = 0; i < newChars.length - 1; i++){
+                    for(var j = i + 1; j < newChars.length; j++){
+                        if(newChars[i].length < newChars[j].length){
+                            var temp = newChars[i];
+                            newChars[i] = newChars[j];
+                            newChars[j] = temp;
+                        }
+                    }
+                }
+
+                newChars.forEach(char => {
+                    switch(char[0]){
+                        case "\n":
+                            result.innerHTML += "Enter: ";
+                            break;
+                        case "\t":
+                            result.innerHTML += "Tab: ";
+                            break;
+                        case " ":
+                            result.innerHTML += "Space: ";
+                            break;
+                        case "SHIFT":
+                            result.innerHTML += "Shift: ";
+                            break;
+                        default:
+                            result.innerHTML += char[0] + ": ";
+                            break;
+                    }
+
+                    result.innerHTML += char.length + "<br/>";
+                });
+            }
+        </script>
+    </body>
+</html>
