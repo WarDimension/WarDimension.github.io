@@ -527,6 +527,7 @@ function platformTemplate(song){
     ${platform(song.url[0].bandLab, "bandlab", "BandLab")}
     ${platform(song.url[0].soundCloud, "soundcloud", "SoundCloud")}
     ${platform(song.url[0].rocksmith, "rocksmith", "Rocksmith")}
+    ${platform(song.url[0].osu, "osu", "osu!")}
   `;
 }
 

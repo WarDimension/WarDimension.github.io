@@ -280,7 +280,8 @@ const songsData = [
       "spotify": "https://play.spotify.com/album/6Mj29kVSrR5cUwgGF0HThQ",
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_kiuXgQTZcTi0c9gC34_Ec3Lye6MwZ_FFw",
       "amazon": "https://www.amazon.com/dp/B07NZ92B4G",
-      "rocksmith": "http://ignition.customsforge.com/search/browse?filters=%7B%22artist%22%3A%22WarDimension%22%2C%22album%22%3A%22Neko%20da%22%7D"
+      "rocksmith": "http://ignition.customsforge.com/search/browse?filters=%7B%22artist%22%3A%22WarDimension%22%2C%22album%22%3A%22Neko%20da%22%7D",
+      "osu": "https://osu.ppy.sh/beatmapsets?s=any&q=%22Neko%20da%20-%20EP%22"
     }],
     "track": [
       {
