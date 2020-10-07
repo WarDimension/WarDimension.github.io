@@ -78,7 +78,8 @@ const songsData = [
       "spotify": "https://play.spotify.com/album/4jMZzRKQIQUSKmb36r8bdi",
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_ngbTWfAhv0pPJyAkV1yCMy4RSPqoAVIq8",
       "amazon": "https://www.amazon.com/dp/B07DY5LJ4H",
-      "soundCloud": "https://soundcloud.com/wardimension/sets/fruitydimension"
+      "soundCloud": "https://soundcloud.com/wardimension/sets/fruitydimension",
+      "osu": "https://osu.ppy.sh/beatmapsets?s=any&q=%22Neko%20da%20-%20EP%22"
     }],
     "track": [
       {
