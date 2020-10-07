@@ -405,7 +405,7 @@ const songsData = [
       "deezer": "https://www.deezer.com/album/138990552",
       "googlePlay": "https://play.google.com/store/music/album?id=Bo2qapsrqetyh6mwub4y53orlba",
       "spotify": "https://play.spotify.com/album/3K3ubsFVCYkEuumc9PtCgV",
-      "youtubeMusic": "https://music.youtube.com/watch?v=fkvHcJeP4JU",
+      "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_mZlWh62vzRJkjELtpl4_LslGKOHd3t17c",
       "amazon": "https://www.amazon.com/dp/B086KVQHQG"
     }],
     "track": [
