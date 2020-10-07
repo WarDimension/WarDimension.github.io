@@ -519,7 +519,6 @@ function platformTemplate(song){
   return `
     ${platform(song.url[0].itunes, "itunes", "iTunes/Apple Music")}
     ${platform(song.url[0].deezer, "deezer", "Deezer")}
-    ${platform(song.url[0].googlePlay, "google-play", "Google Play")}
     ${platform(song.url[0].spotify, "spotify", "Spotify")}
     ${platform(song.url[0].youtube, "youtube", "YouTube")}
     ${platform(song.url[0].youtubeMusic, "youtube-music", "YouTube Music")}
