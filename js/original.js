@@ -455,7 +455,7 @@ const songsData = [
   },
   {
     "title": "Dengungan",
-    "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/db9b0a59-1832-436d-be35-c4da781cf1c8/de7cy3o-ee4cef52-6b20-49d9-a18e-bd57ff17f2d7.png/v1/fill/w_400,h_400,q_80,strp/dengungan_by_wardimension_de7cy3o-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3siaGVpZ2h0IjoiPD00MDAiLCJwYXRoIjoiXC9mXC9kYjliMGE1OS0xODMyLTQzNmQtYmUzNS1jNGRhNzgxY2YxYzhcL2RlN2N5M28tZWU0Y2VmNTItNmIyMC00OWQ5LWExOGUtYmQ1N2ZmMTdmMmQ3LnBuZyIsIndpZHRoIjoiPD00MDAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.EioENvaexKMvUxg1ddvCp41QQasejBFcXYIT6NydyIM",
+    "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/db9b0a59-1832-436d-be35-c4da781cf1c8/de7cy3o-554ef055-1ea0-4517-9c3a-7100a61d3292.png/v1/fill/w_400,h_400,q_80,strp/dengungan_by_wardimension_de7cy3o-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3siaGVpZ2h0IjoiPD00MDAiLCJwYXRoIjoiXC9mXC9kYjliMGE1OS0xODMyLTQzNmQtYmUzNS1jNGRhNzgxY2YxYzhcL2RlN2N5M28tNTU0ZWYwNTUtMWVhMC00NTE3LTljM2EtNzEwMGE2MWQzMjkyLnBuZyIsIndpZHRoIjoiPD00MDAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.MnM1skuLxuMIVNIAxOj6qnJQWN6hPWYHxpjL_NwZHXY",
     "url": [{
       "itunes": "https://music.apple.com/album/dengungan/1536842696",
       "deezer": "https://www.deezer.com/album/181137082",
