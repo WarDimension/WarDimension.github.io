@@ -71,6 +71,7 @@ const songsData = [
   {
     "title": "FruityDimension",
     "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/db9b0a59-1832-436d-be35-c4da781cf1c8/dd0nvsc-ca29a2d3-0f02-4a12-b5e1-1a389004ce99.png/v1/fill/w_400,h_400,q_80,strp/fruitydimension_by_wardimension_dd0nvsc-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDAwIiwicGF0aCI6IlwvZlwvZGI5YjBhNTktMTgzMi00MzZkLWJlMzUtYzRkYTc4MWNmMWM4XC9kZDBudnNjLWNhMjlhMmQzLTBmMDItNGExMi1iNWUxLTFhMzg5MDA0Y2U5OS5wbmciLCJ3aWR0aCI6Ijw9NDAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.kXZ9rBA22Pgm41Q1l3DRa2fB9RyN8DqWyS65F4PwaYw",
+    "imgCur": "mango-fruit-pointer",
     "url": [{
       "itunes": "https://music.apple.com/album/fruity-dimension-ep/1402708218",
       "deezer": "https://www.deezer.com/album/68426701",
