@@ -405,6 +405,7 @@ const songsData = [
     "imgCur": "miku_leek",
     "url": [{
       "itunes": "https://music.apple.com/album/%E3%83%9F%E3%82%AF%E3%81%A8%E9%81%8A%E3%81%B6/1505344620",
+      "itunes": "hey-apple--why-is-my-album-gone?",
       "deezer": "https://www.deezer.com/album/138990552",
       "googlePlay": "https://play.google.com/store/music/album?id=Bo2qapsrqetyh6mwub4y53orlba",
       "spotify": "https://play.spotify.com/album/3K3ubsFVCYkEuumc9PtCgV",
