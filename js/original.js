@@ -459,6 +459,7 @@ const songsData = [
     "url": [{
       "itunes": "https://music.apple.com/album/dengungan/1536842696",
       "deezer": "https://www.deezer.com/album/181137082",
+      "spotify": "https://play.spotify.com/album/1FaG61R7faoyEvRiOudPni",
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_mOXoBNn5gLapbT9UIO8iz4Pe4js8n1pEg",
       "amazon": "https://www.amazon.com/dp/B08LN14DCN"
     }],
