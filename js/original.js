@@ -274,6 +274,7 @@ const songsData = [
     "title": "Neko da",
     "alt": "neko-da",
     "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/db9b0a59-1832-436d-be35-c4da781cf1c8/dd0nx3e-cabbf13b-741b-4932-94b5-af77fbe6889b.png/v1/fill/w_400,h_400,q_80,strp/neko_da_by_wardimension_dd0nx3e-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDAwIiwicGF0aCI6IlwvZlwvZGI5YjBhNTktMTgzMi00MzZkLWJlMzUtYzRkYTc4MWNmMWM4XC9kZDBueDNlLWNhYmJmMTNiLTc0MWItNDkzMi05NGI1LWFmNzdmYmU2ODg5Yi5wbmciLCJ3aWR0aCI6Ijw9NDAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.d4okB_VhM0brP1BmNy5v0HPoLcSTyu158Cmgq7wWIOI",
+    "imgCur": "Bongo_Cat_Cursor",
     "url": [{
       "itunes": "https://music.apple.com/album/neko-da-ep/1454056720",
       "deezer": "https://www.deezer.com/album/88337072",
