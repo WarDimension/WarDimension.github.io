@@ -123,3 +123,5 @@ String.prototype.toHHMMSS = function () {
   if (seconds < 10) {seconds = "0"+seconds;}
   return hours+minutes+':'+seconds;
 }
+
+console.log("𝄞 ⁴⁄₄ ᴅ♪ ᴇ♪ ғ♪ ɢ♪ ᴇ♩ ᴄ♪ ᴅ♪‿𝅝");
