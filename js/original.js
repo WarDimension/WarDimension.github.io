@@ -329,7 +329,8 @@ const songsData = [
       "spotify": "https://play.spotify.com/album/7cYdhAfrl5z92fa9ddGMpW",
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_nsRJ9w9SFCy3fZr5wXzOuaZrT9tzxLveA",
       "amazon": "https://www.amazon.com/dp/B07THS4L2B",
-      "bandLab": "https://www.bandlab.com/wardimension/collections/54611ac3-28d6-e911-b5e9-28187831ee7a"
+      "bandLab": "https://www.bandlab.com/wardimension/collections/54611ac3-28d6-e911-b5e9-28187831ee7a",
+      "rocksmith": "http://ignition.customsforge.com/search/browse?filters=%7B%22artist%22%3A%22WarDimension%22%2C%22album%22%3A%22BandLab%22%7D"
     }],
     "track": [
       {
