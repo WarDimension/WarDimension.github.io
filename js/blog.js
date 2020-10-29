@@ -1,4 +1,8 @@
-if(["experimental", "chart", "tab"].indexOf(url()["b"]) >= 0){
+if(url()["rocksmith"]){
+    var blog = document.getElementsByClassName("blog");
+    blog[0].src = "https://wardimension-chart.blogspot.com/search/label/Artist%3A%20WarDimension+Rocksmith%202014";
+}
+else if(["experimental", "chart", "tab"].indexOf(url()["b"]) >= 0){
     var blog = document.getElementsByClassName("blog");
     blog[0].src = `https://wardimension-${url()["b"]}.blogspot.com/`;
     if(url()["p"]!=undefined&&url()["p"]!=""){
