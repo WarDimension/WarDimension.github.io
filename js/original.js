@@ -11,7 +11,7 @@ const songsData = [
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_lXgyWybrogtK35zeAvapBoYzlSEhpQRLE",
       "amazon": "https://www.amazon.com/dp/B079CW27VN",
       "soundCloud": "https://soundcloud.com/wardimension/sets/nightmare",
-      "rocksmith": "https://wardimension.github.io/blog?album=Nightmare%20-%20Single"
+      "rocksmith": "https://wardimension.github.io/blog?album=Nightmare"
     }],
     "track": [
       {
@@ -122,7 +122,7 @@ const songsData = [
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_nLp99MftlDnTU0g-8i5WX1acavz-kbsMw",
       "amazon": "https://www.amazon.com/dp/B07FK8WN57",
       "soundCloud": "https://soundcloud.com/wardimension/sets/cxlclm2wunur",
-      "rocksmith": "https://wardimension.github.io/blog?album=Om%20-%20EP"
+      "rocksmith": "https://wardimension.github.io/blog?album=Om"
     }],
     "track": [
       {
@@ -182,7 +182,7 @@ const songsData = [
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_mPLcT60QoFNTP6RFsNmCMT-SDqr5uJCoQ",
       "amazon": "https://www.amazon.com/dp/B07H9GB6MR",
       "soundCloud": "https://soundcloud.com/wardimension/sets/hyouka",
-      "rocksmith": "https://wardimension.github.io/blog?album=Hyouka%20-%20Single"
+      "rocksmith": "https://wardimension.github.io/blog?album=Hyouka"
     }],
     "track": [
       {
@@ -283,7 +283,7 @@ const songsData = [
       "spotify": "https://play.spotify.com/album/6Mj29kVSrR5cUwgGF0HThQ",
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_kiuXgQTZcTi0c9gC34_Ec3Lye6MwZ_FFw",
       "amazon": "https://www.amazon.com/dp/B07NZ92B4G",
-      "rocksmith": "https://wardimension.github.io/blog?album=Neko%20da%20-%20EP",
+      "rocksmith": "https://wardimension.github.io/blog?album=Neko da",
       "osu": "https://osu.ppy.sh/beatmapsets?s=any&q=%22Neko%20da%20-%20EP%22"
     }],
     "track": [
