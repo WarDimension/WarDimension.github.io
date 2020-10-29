@@ -1,9 +1,12 @@
+var blog = document.getElementsByClassName("blog");
+
 if(url()["rocksmith"]){
-    var blog = document.getElementsByClassName("blog");
     blog[0].src = "https://wardimension-chart.blogspot.com/search/label/Artist%3A%20WarDimension+Rocksmith%202014";
 }
+else if(url()["album"]){
+    blog[0].src = "https://wardimension-chart.blogspot.com/search/label/Artist%3A%20WarDimension+Album%3A%20" + url()["album"];
+}
 else if(["experimental", "chart", "tab"].indexOf(url()["b"]) >= 0){
-    var blog = document.getElementsByClassName("blog");
     blog[0].src = `https://wardimension-${url()["b"]}.blogspot.com/`;
     if(url()["p"]!=undefined&&url()["p"]!=""){
         blog[0].src += `${url()["p"]}.html`;

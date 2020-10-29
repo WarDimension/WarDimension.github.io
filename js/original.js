@@ -11,7 +11,7 @@ const songsData = [
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_lXgyWybrogtK35zeAvapBoYzlSEhpQRLE",
       "amazon": "https://www.amazon.com/dp/B079CW27VN",
       "soundCloud": "https://soundcloud.com/wardimension/sets/nightmare",
-      "rocksmith": "http://ignition.customsforge.com/search/browse?filters=%7B%22artist%22%3A%22WarDimension%22%2C%22album%22%3A%22Nightmare%22%7D"
+      "rocksmith": "https://wardimension.github.io/album=Nightmare%20-%20Single"
     }],
     "track": [
       {
@@ -122,7 +122,7 @@ const songsData = [
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_nLp99MftlDnTU0g-8i5WX1acavz-kbsMw",
       "amazon": "https://www.amazon.com/dp/B07FK8WN57",
       "soundCloud": "https://soundcloud.com/wardimension/sets/cxlclm2wunur",
-      "rocksmith": "http://ignition.customsforge.com/search/browse?filters=%7B%22artist%22%3A%22WarDimension%22%2C%22album%22%3A%22Om%22%7D"
+      "rocksmith": "https://wardimension.github.io/album=Om%20-%20EP"
     }],
     "track": [
       {
@@ -182,7 +182,7 @@ const songsData = [
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_mPLcT60QoFNTP6RFsNmCMT-SDqr5uJCoQ",
       "amazon": "https://www.amazon.com/dp/B07H9GB6MR",
       "soundCloud": "https://soundcloud.com/wardimension/sets/hyouka",
-      "rocksmith": "http://ignition.customsforge.com/search/browse?filters=%7B%22artist%22%3A%22WarDimension%22%2C%22album%22%3A%22Hyouka%22%7D"
+      "rocksmith": "https://wardimension.github.io/album=Hyouka%20-%20Single"
     }],
     "track": [
       {
@@ -208,7 +208,7 @@ const songsData = [
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_l3m8d3HT5Ai49qhDTLKYAu0Jxl26O9jMk",
       "amazon": "https://www.amazon.com/dp/B07N359FPM",
       "soundCloud": "https://soundcloud.com/wardimension/sets/vboo",
-      "rocksmith": "http://ignition.customsforge.com/search/browse?filters=%7B%22artist%22%3A%22WarDimension%22%2C%22album%22%3A%22Vboo%22%7D"
+      "rocksmith": "https://wardimension.github.io/album=Vboo"
     }],
     "track": [
       {
@@ -283,7 +283,7 @@ const songsData = [
       "spotify": "https://play.spotify.com/album/6Mj29kVSrR5cUwgGF0HThQ",
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_kiuXgQTZcTi0c9gC34_Ec3Lye6MwZ_FFw",
       "amazon": "https://www.amazon.com/dp/B07NZ92B4G",
-      "rocksmith": "http://ignition.customsforge.com/search/browse?filters=%7B%22artist%22%3A%22WarDimension%22%2C%22album%22%3A%22Neko%20da%22%7D",
+      "rocksmith": "https://wardimension.github.io/album=Neko%20da%20-%20EP",
       "osu": "https://osu.ppy.sh/beatmapsets?s=any&q=%22Neko%20da%20-%20EP%22"
     }],
     "track": [
@@ -330,7 +330,7 @@ const songsData = [
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_nsRJ9w9SFCy3fZr5wXzOuaZrT9tzxLveA",
       "amazon": "https://www.amazon.com/dp/B07THS4L2B",
       "bandLab": "https://www.bandlab.com/wardimension/collections/54611ac3-28d6-e911-b5e9-28187831ee7a",
-      "rocksmith": "http://ignition.customsforge.com/search/browse?filters=%7B%22artist%22%3A%22WarDimension%22%2C%22album%22%3A%22BandLab%22%7D"
+      "rocksmith": "https://wardimension.github.io/album=BandLab"
     }],
     "track": [
       {
