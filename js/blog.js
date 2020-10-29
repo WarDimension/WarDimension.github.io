@@ -4,7 +4,7 @@ if(url()["rocksmith"]){
     blog[0].src = "https://wardimension-chart.blogspot.com/search/label/Artist%3A%20WarDimension+Rocksmith%202014";
 }
 else if(url()["album"]){
-    blog[0].src = "https://wardimension-chart.blogspot.com/search/label/Artist%3A%20WarDimension+Rocksmith%202014+Album%3A%20" + url()["album"];
+    blog[0].src = "https://wardimension-chart.blogspot.com/search/label/Artist%3A%20WarDimension+Album%3A%20+Rocksmith%202014" + url()["album"];
 }
 else if(["experimental", "chart", "tab"].indexOf(url()["b"]) >= 0){
     blog[0].src = `https://wardimension-${url()["b"]}.blogspot.com/`;
