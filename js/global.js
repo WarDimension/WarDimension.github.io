@@ -124,4 +124,4 @@ String.prototype.toHHMMSS = function () {
   return hours+minutes+':'+seconds;
 }
 
-console.log("%c𝄞 ⁴⁄₄ ᴅ♪ ᴇ♪ ғ♪ ɢ♪ ᴇ♩ ᴄ♪ ᴅ♪‿𝅝", "font-size: 16px");
+console.log("%c│𝄞 ⁴⁄₄ ᴅ♪ ᴇ♪ ғ♪ ɢ♪ ᴇ♩ ᴄ♪ ᴅ♪│‿𝅝║", "font-size: 16px");
