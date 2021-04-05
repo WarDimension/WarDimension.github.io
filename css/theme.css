@@ -1,3 +1,7 @@
+@font-face {
+  font-family: "8 Days Later";
+  src: url("../fonts/28_Days_Later.ttf") format("truetype");
+}
 *{
   font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
   box-sizing: border-box;
@@ -98,6 +102,7 @@ h3{
   right: 25px;
 }
 .menu-button{
+  font-family: "8 Days Later";
   color: #fff;
   text-decoration: none;
   font-size: 20px;
