@@ -6,8 +6,12 @@
   cursor: url("../cursors/666_link.cur"), auto;
 }
 *, .active{
-  font-family: "Solstice Of Suffering";
   cursor: url("../cursors/666.cur"), auto;
+}
+.active{
+  font-family: "Solstice Of Suffering";
+  padding-top: 6px;
+  padding-bottom: 0;
 }
 .wd-link:focus{
   outline: 0;
