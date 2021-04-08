@@ -62,7 +62,7 @@ const songsData = [
     }],
     "track": [
       {
-        "title": "Let's Do It..",
+        "title": "Let's do it..",
         "length": "2:16",
         "youtubeID": "FFEgITIxM-8"
       }
