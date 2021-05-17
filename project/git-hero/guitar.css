@@ -1,0 +1,143 @@
+*{
+    box-sizing: border-box;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+body{
+    font-size: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #444;
+    perspective: 9em;
+    perspective-origin: 50% calc(50% - 4.75em);
+    margin: 0;
+    overflow: hidden;
+}
+
+.scene{
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+.highway{
+    background: #000;
+    width: 3em;
+    height: 10em;
+    transform: rotateX(90deg) translateZ(1.9em);
+}
+
+.highway::before, .highway::after{
+    position: absolute;
+    content: "";
+    width: 0.15em;
+    height: 100%;
+    background-image: linear-gradient(
+        to left,
+        #111, 80%, #ccc
+    );
+}
+
+.highway::after{
+    right: 0;
+    background-image: linear-gradient(
+        to right,
+        #111, 70%, #eee
+    );
+}
+
+.hit-circles{
+    position: absolute;
+    bottom: 0.2em;
+    padding: 0 0.32em;
+    width: 100%;
+    text-align-last:justify;
+}
+
+.hit-circle{
+    position: relative;
+    display: inline-block;
+    width: 0.3em;
+    height: 0.3em;
+    background: #666;
+    border-radius: 100%;
+    font-size: 80%;
+}
+
+.hit-circle::before{
+    position: absolute;
+    content: "";
+    top: -0.45em;
+    left: -0.05em;
+    right: -0.05em;
+    border: 0.19em solid transparent;
+    border-bottom-color: #000;
+    -webkit-filter: drop-shadow(0 0 4px #666);
+    filter: drop-shadow(0 0 4px #666);
+    z-index: -1;
+}
+
+.hit-circle::after{
+    position: absolute;
+    content: "";
+    top: -11.6em;
+    left: 0.14em;
+    right: 0.14em;
+    height: 12em;
+    background: #666;
+    z-index: -2;
+}
+
+.green{
+    box-shadow:
+        inset 0 0 0.15em 0.06em #000,
+        0 0 0 0.02em #00C500,
+        0 0 0 0.03em #000,
+        0 0 0 0.08em #fff,
+        0 0 0 0.09em #000,
+        0 0 0.03em 0.14em #00C500;
+}
+
+.red{
+    box-shadow:
+        inset 0 0 0.15em 0.06em #000,
+        0 0 0 0.02em #B90000,
+        0 0 0 0.03em #000,
+        0 0 0 0.08em #fff,
+        0 0 0 0.09em #000,
+        0 0 0.03em 0.14em #B90000;
+}
+
+.yellow{
+    box-shadow:
+        inset 0 0 0.15em 0.06em #000,
+        0 0 0 0.02em #B2AF00,
+        0 0 0 0.03em #000,
+        0 0 0 0.08em #fff,
+        0 0 0 0.09em #000,
+        0 0 0.03em 0.14em #B2AF00;
+}
+
+.blue{
+    box-shadow:
+        inset 0 0 0.15em 0.06em #000,
+        0 0 0 0.02em #0055BB,
+        0 0 0 0.03em #000,
+        0 0 0 0.08em #fff,
+        0 0 0 0.09em #000,
+        0 0 0.03em 0.14em #0055BB;
+}
+
+.orange{
+    box-shadow:
+        inset 0 0 0.15em 0.06em #000,
+        0 0 0 0.02em #C46A00,
+        0 0 0 0.03em #000,
+        0 0 0 0.08em #fff,
+        0 0 0 0.09em #000,
+        0 0 0.03em 0.14em #C46A00;
+}
