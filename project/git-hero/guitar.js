@@ -1,11 +1,21 @@
 const chart = document.querySelector(".chart");
 
 let offset = 0;
+let resolution = 0;
+let BPM = {};
 let UPS = 0;
 let expertSingle = "";
 
+let currentBPMIndex = -1;
+
 let hiperSpeed = 5;
 let extraOffset = 0.4;
+
+function calculateUPS(){
+    currentBPMIndex++;
+    let UPM = BPM[currentBPMIndex][1] * resolution;
+    UPS = UPM / 60;
+}
 
 chart.addEventListener("change", function (e) {
     const reader = new FileReader();
@@ -15,14 +25,21 @@ chart.addEventListener("change", function (e) {
         offset = rChart.match(/Offset = .*/g);
         offset = offset[0].match(/\d+\.?(\d?)+/g)[0] * 1;
 
-        let resolution = rChart.match(/Resolution = .*/g);
+        resolution = rChart.match(/Resolution = .*/g);
         resolution = resolution[0].match(/\d+/g)[0] * 1;
 
-        let BPM = rChart.match(/B \d+/g);
-        BPM = BPM[0].match(/\d+/g)[0] / 1000;
+        let rBPM = rChart.match(/\d+ = B \d+/g);
+        
+        for(let i = 0; i < rBPM.length; i++){
+            let time = rBPM[i].match(/\d+/)[0];
 
-        let UPM = BPM * resolution;
-        UPS = UPM / 60;
+            let theBPM = rBPM[i].match(/B \d+/);
+            theBPM = theBPM[0].match(/\d+/)[0] / 1000;
+            
+            BPM[i] = [time, theBPM];
+        }
+
+        calculateUPS();
 
         expertSingle = rChart.match(/\[ExpertSingle][\s\S]*?(?=})/g);
         expertSingle = expertSingle[0].match(/\d+ = .*/g);
@@ -58,6 +75,11 @@ playButton.addEventListener("click", function (e) {
 audio.onplay = function() {
     for(let i = 1; i <= expertSingle.length; i++){
         let time = expertSingle[i-1].match(/\d+/)[0];
+
+        if(BPM[currentBPMIndex + 1] != undefined && (time * 1) >= BPM[currentBPMIndex + 1][0]){
+            calculateUPS();
+        }
+        
         time = (time / UPS) + offset - audio.currentTime + extraOffset;
 
         if(expertSingle[i-1].includes("N 0")){
