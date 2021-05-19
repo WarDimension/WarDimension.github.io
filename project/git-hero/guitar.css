@@ -46,10 +46,30 @@ input{
     transform-style: preserve-3d;
 }
 
+.fade-in{
+    position: absolute;
+    margin-left: 0.55em;
+    width: 60%;
+    height: 10em;
+    background: #444;
+    transform: rotateX(-90deg) translateZ(-2em) translateY(-5.6em);
+    box-shadow: 0 0 0.2em 0.1em #000;
+}
+
+.fade-in::before{
+    position: absolute;
+    left: -50%;
+    content: "";
+    width: 200%;
+    height: 100%;
+    background: #444;
+}
+
 .highway{
     background: #000;
     width: 3em;
     height: 10em;
+    transform-style: preserve-3d;
     transform: rotateX(90deg) translateZ(1.9em);
 }
 
@@ -116,7 +136,7 @@ input{
     filter: drop-shadow(0 0 4px #666);
 }
 
-.green{
+.greenHit{
     box-shadow:
         inset 0 0 0.15em 0.06em #000,
         0 0 0 0.02em #00C500,
@@ -126,7 +146,7 @@ input{
         0 0 0.03em 0.14em #00C500;
 }
 
-.red{
+.redHit{
     box-shadow:
         inset 0 0 0.15em 0.06em #000,
         0 0 0 0.02em #B90000,
@@ -136,7 +156,7 @@ input{
         0 0 0.03em 0.14em #B90000;
 }
 
-.yellow{
+.yellowHit{
     box-shadow:
         inset 0 0 0.15em 0.06em #000,
         0 0 0 0.02em #B2AF00,
@@ -146,7 +166,7 @@ input{
         0 0 0.03em 0.14em #B2AF00;
 }
 
-.blue{
+.blueHit{
     box-shadow:
         inset 0 0 0.15em 0.06em #000,
         0 0 0 0.02em #0055BB,
@@ -156,7 +176,7 @@ input{
         0 0 0.03em 0.14em #0055BB;
 }
 
-.orange{
+.orangeHit{
     box-shadow:
         inset 0 0 0.15em 0.06em #000,
         0 0 0 0.02em #C46A00,
@@ -164,4 +184,109 @@ input{
         0 0 0 0.08em #fff,
         0 0 0 0.09em #000,
         0 0 0.03em 0.14em #C46A00;
+}
+
+.notes{
+    position: absolute;
+    bottom: 0.2em;
+    padding: 0 0.45em;
+    width: 100%;
+    text-align-last:justify;
+    z-index: 1;
+    transform-style: preserve-3d;
+    transform: rotateX(-90deg) translateY(-0.68em) translateZ(0.7em);
+}
+
+.note{
+    position: relative;
+    display: inline-block;
+    width: 0.22em;
+    height: 0.1em;
+    background: #fff;
+    border-radius: 100%;
+    font-size: 80%;
+    box-shadow:
+        inset 0 0 0.07em 0.01em #000,
+        0 0 0 0.03em #000;
+}
+
+.note::before{
+    position: absolute;
+    content: "";
+    top: -0.26em;
+    left: -0.22em;
+    width: 80%;
+    border: 0.24em solid transparent;
+    border-bottom-width: 0.23em;
+    border-radius: 100%;
+    z-index: -1;
+    -webkit-filter: drop-shadow(0 0 4px #666);
+    filter: drop-shadow(0 0.03em 0.01em #000);
+}
+
+.note::after{
+    position: absolute;
+    content: "";
+    top: 0.04em;
+    left: -0.132em;
+    border-radius: 100%;
+    width: 0.48em;
+    height: 0.25em;
+    background: #fff;
+    z-index: -2;
+    box-shadow: inset 0 0 0.05em 0.03em #222;
+}
+
+.green::before{
+    border-bottom-color: #00C500;
+}
+
+.red::before{
+    border-bottom-color: #B90000;
+}
+
+.yellow::before{
+    border-bottom-color: #B2AF00;
+}
+
+.blue::before{
+    border-bottom-color: #0055BB;
+}
+
+.orange::before{
+    border-bottom-color: #C46A00;
+}
+
+.note-container{
+    position: absolute;
+    font-size: 0.85em;
+    display: inline-block;
+    transform: translateZ(-10em);
+    left: 10em;
+}
+
+.green-note{
+    left: 0.67em;
+}
+
+.red-note{
+    left: 1.17em;
+}
+
+.yellow-note{
+    left: 1.67em;
+}
+
+.blue-note{
+    left: 2.17em;
+}
+
+.orange-note{
+    left: 2.67em;
+}
+
+@keyframes scrolling{
+    100% {
+        transform: translateZ(2em);
+    }
 }

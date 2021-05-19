@@ -5,20 +5,40 @@
     <body>
         <div class="file">
             <label>chart</label>
-            <label>song</label><br/>
+            <label>song</label>
+            <label>ini</label><br/>
             <input type="file" class="chart" name="chart" accept=".chart">
             <input type="file" class="song" name="song" accept=".ogg">
+            <input type="file" class="ini" name="ini" accept=".ini">
             <br/><button class="play">Play</button>
         </div>
         <div class="scene">
             <div class="highway">
                 <div class="hit-circles">
-                    <div class="hit-circle green"></div>
-                    <div class="hit-circle red"></div>
-                    <div class="hit-circle yellow"></div>
-                    <div class="hit-circle blue"></div>
-                    <div class="hit-circle orange"></div>
+                    <div class="hit-circle greenHit"></div>
+                    <div class="hit-circle redHit"></div>
+                    <div class="hit-circle yellowHit"></div>
+                    <div class="hit-circle blueHit"></div>
+                    <div class="hit-circle orangeHit"></div>
                 </div>
+                <div class="notes">
+                    <div class="note-container green-note">
+                        <div class="note green"></div>
+                    </div>
+                    <div class="note-container red-note">
+                        <div class="note red"></div>
+                    </div>
+                    <div class="note-container yellow-note">
+                        <div class="note yellow"></div>
+                    </div>
+                    <div class="note-container blue-note">
+                        <div class="note blue"></div>
+                    </div>
+                    <div class="note-container orange-note">
+                        <div class="note orange"></div>
+                    </div>
+                </div>
+                <div class="fade-in"></div>
             </div>
         </div>
     </body>
