@@ -76,9 +76,10 @@ audio.onplay = function() {
     for(let i = 1; i <= expertSingle.length; i++){
         let time = expertSingle[i-1].match(/\d+/)[0];
 
-        if(BPM[currentBPMIndex + 1] != undefined && (time * 1) >= BPM[currentBPMIndex + 1][0]){
+        /*if(BPM[currentBPMIndex + 1] != undefined && (time * 1) >= BPM[currentBPMIndex + 1][0]){
             calculateUPS();
-        }
+            console.log("BPM Change, Time: " + time + ", UPS: " + UPS);
+        }*/
         
         time = (time / UPS) + offset - audio.currentTime + extraOffset;
 
