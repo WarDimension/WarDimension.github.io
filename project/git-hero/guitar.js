@@ -17,7 +17,26 @@ function calculateUPS(){
     UPS = UPM / 60;
 }
 
+function reset(){
+    BPM = {};
+    currentBPMIndex = -1;
+
+    song.value = "";
+    ini.value = "";
+
+    audio.pause();
+    audio.currentTime = 0;
+}
+
 chart.addEventListener("change", function (e) {
+    reset();
+
+    const noteClone = document.querySelectorAll(".note-clone");
+
+    if(noteClone.length > 0){
+        noteClone.forEach(el => el.remove());
+    }
+
     const reader = new FileReader();
     reader.onload = function(){
         const rChart = reader.result;
@@ -67,7 +86,7 @@ const blueNote = document.querySelector(".blue-note");
 const orangeNote = document.querySelector(".orange-note");
 
 playButton.addEventListener("click", function (e) {
-    if(audio.paused){
+    if(audio.paused && !song.value == ""){
         audio.play();
     }
 }, false);
@@ -87,30 +106,35 @@ audio.onplay = function() {
             let note = greenNote.cloneNode(true);
             note.style.animation = `scrolling ${time}s linear`;
             note.style.transform = `translateZ(-${time * hiperSpeed}em)`;
+            note.classList.add("note-clone");
             greenNote.after(note);
         }
         else if(expertSingle[i-1].includes("N 1")){
             let note = redNote.cloneNode(true);
             note.style.animation = `scrolling ${time}s linear`;
             note.style.transform = `translateZ(-${time * hiperSpeed}em)`;
+            note.classList.add("note-clone");
             redNote.after(note);
         }
         else if(expertSingle[i-1].includes("N 2")){
             let note = yellowNote.cloneNode(true);
             note.style.animation = `scrolling ${time}s linear`;
             note.style.transform = `translateZ(-${time * hiperSpeed}em)`;
+            note.classList.add("note-clone");
             yellowNote.after(note);
         }
         else if(expertSingle[i-1].includes("N 3")){
             let note = blueNote.cloneNode(true);
             note.style.animation = `scrolling ${time}s linear`;
             note.style.transform = `translateZ(-${time * hiperSpeed}em)`;
+            note.classList.add("note-clone");
             blueNote.after(note);
         }
         else if(expertSingle[i-1].includes("N 4")){
             let note = orangeNote.cloneNode(true);
             note.style.animation = `scrolling ${time}s linear`;
             note.style.transform = `translateZ(-${time * hiperSpeed}em)`;
+            note.classList.add("note-clone");
             orangeNote.after(note);
         }
     }
