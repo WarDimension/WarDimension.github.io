@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!-- saved from url=(0147)file:///C:/Users/ASUS/Desktop/New%20folder%20(2)/_Let's%20Do%20It..%20-%20Single%20by%20WarDimension%20on%20Apple%20Music_files/saved_resource.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"><script type="text/javascript" class="__REQUESTLY__SCRIPT">(function(namespace) {
+  window[namespace] = window[namespace] || {};
+  window[namespace].responseRules = {};
+
+  let open = XMLHttpRequest.prototype.open;
+  XMLHttpRequest.prototype.open = function(method) {
+    this.addEventListener('readystatechange', function() {
+      if (this.readyState === 4 && window[namespace].responseRules.hasOwnProperty(this.responseURL)) {
+        const responseRule = window[namespace].responseRules[this.responseURL];
+        const {response, id} = responseRule;
+        const responseType = this.responseType;
+        let customResponse;
+
+        customResponse = response.type === 'code' ? responseRule.evaluator({
+            method,
+            url: this.responseURL,
+            requestHeaders: this.requestHeaders,
+            requestData: this.requestData,
+            responseType: this.responseType,
+            response: this.response
+          }) : response.value;
+
+        Object.defineProperty(this, 'response', {
+          get: function () {
+            if (response.type === 'static' && responseType === 'json') {
+              return JSON.parse(customResponse);
+            }
+            return customResponse;
+          }
+        });
+
+        if (responseType === '' || responseType === 'text') {
+          Object.defineProperty(this, 'responseText', {
+            get: function () {
+              return customResponse;
+            }
+          });
+        }
+
+        window.postMessage({
+          from: 'requestly',
+          type: 'response_rule_applied',
+          id
+        }, window.location.href);
+      }
+    }, false);
+    open.apply(this, arguments);
+  };
+
+  let send = XMLHttpRequest.prototype.send;
+  XMLHttpRequest.prototype.send = function(data) {
+    this.requestData = data;
+    send.apply(this, arguments);
+  };
+
+  let setRequestHeader = XMLHttpRequest.prototype.setRequestHeader;
+  XMLHttpRequest.prototype.setRequestHeader = function(header, value) {
+    this.requestHeaders = this.requestHeaders || {};
+    this.requestHeaders[header] = value;
+    setRequestHeader.apply(this, arguments);
+  }
+})('__REQUESTLY__')</script> <script src="./auth-bridge.js.download"></script><script src="./auth-bridge.js(1).download"></script></head>
+  <body data-new-gr-c-s-check-loaded="14.1012.0" data-gr-ext-installed="">
+    <script>
+      function getSrc() {
+        let src = 'js-cdn.music.apple.com/musickit/v2/amp/auth-bridge.js';
+
+        // Support x-mediaauth.apple.com/auth-bridge/
+        const hostname = location.hostname;
+        const prefixMatch = /^[a-z0-9]+-/.exec(location.hostname);
+        if (prefixMatch && prefixMatch[0]) {
+          src = prefixMatch[0] + src;
+        } else if (location.search) {
+          // Support mediaauth.apple.com/auth-bridge/?env=x
+          const envMatch = /env=([a-z0-9]+)/.exec(location.search);
+          if (envMatch && envMatch[1]) {
+            src = envMatch[1] + '-' + src;
+          }
+        }
+
+        return src;
+      }
+
+      const script = document.createElement('script');
+      script.src = 'https://' + getSrc();
+      document.head.appendChild(script);
+    </script>
+  
+
+</body></html>
