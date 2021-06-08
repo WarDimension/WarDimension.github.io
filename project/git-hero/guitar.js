@@ -24,9 +24,8 @@ function reset(){
     song.value = "";
     ini.value = "";
 
-    audioTemp = audio[0];
-    audio.forEach(track => {track.pause(); track.remove()});
-    audio = [audioTemp];
+    audio.forEach(track => track.pause());
+    audio = [audio[0]];
     audio.currentTime = 0;
 }
 
