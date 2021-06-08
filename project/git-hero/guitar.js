@@ -24,7 +24,7 @@ function reset(){
     song.value = "";
     ini.value = "";
 
-    audio.pause();
+    audio.forEach(track => track.pause());
     audio.currentTime = 0;
 }
 
@@ -67,14 +67,20 @@ chart.addEventListener("change", function (e) {
 }, false);
 
 const song = document.querySelector(".song");
-const audio = document.createElement("audio");
+let audio = [document.createElement("audio")];
 
 song.addEventListener("change", function (e) {
-    const reader = new FileReader();
-    reader.onload = function(){
-        audio.src = reader.result;
+    for(let i = 0; i < song.files.length; i++){
+        if(i > 0){
+            audio.push(document.createElement("audio"));
+        }
+
+        const reader = new FileReader();
+        reader.onload = function(){
+            audio[i].src = reader.result;
+        }
+        reader.readAsDataURL(song.files[i]);
     }
-    reader.readAsDataURL(song.files[0]);
 }, false);
 
 const playButton = document.querySelector(".play");
@@ -86,12 +92,12 @@ const blueNote = document.querySelector(".blue-note");
 const orangeNote = document.querySelector(".orange-note");
 
 playButton.addEventListener("click", function (e) {
-    if(audio.paused && !song.value == ""){
-        audio.play();
+    if(audio[0].paused && !song.value == ""){
+        audio.forEach(track => track.play());
     }
 }, false);
 
-audio.onplay = function() {
+audio[0].onplay = function() {
     let timeTemp = 0;
 
     for(let i = 1; i <= expertSingle.length; i++){
