@@ -510,5 +510,67 @@ const songsData = [
         "youtubeID": "OXBWRj2KMH0"
       }
     ]
+  },
+  {
+    "title": "白いメロディー",
+    "alt": "shiroi-melody",
+    "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/db9b0a59-1832-436d-be35-c4da781cf1c8/deuyimk-4f9b728e-7492-4870-b8b9-ee4bb748a5f2.jpg/v1/fill/w_400,h_400,q_75,strp/shiroi_melody_by_wardimension_deuyimk-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDAwIiwicGF0aCI6IlwvZlwvZGI5YjBhNTktMTgzMi00MzZkLWJlMzUtYzRkYTc4MWNmMWM4XC9kZXV5aW1rLTRmOWI3MjhlLTc0OTItNDg3MC1iOGI5LWVlNGJiNzQ4YTVmMi5qcGciLCJ3aWR0aCI6Ijw9NDAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.WjrOBy0j3kxkWGNwbEWEf9YkH7kBeH0a8cji9Da1KM8",
+    "url": [{
+      "itunes": "",
+      "deezer": "",
+      "spotify": "",
+      "youtubeMusic": "",
+      "amazon": ""
+    }],
+    "track": [
+      {
+        "title": "落書き",
+        "romanized": "Rakugaki",
+        "length": "1:56",
+        "youtubeID": ""
+      },
+      {
+        "title": "色の鏡",
+        "romanized": "Iro no Kagami",
+        "length": "2:02",
+        "youtubeID": ""
+      },
+      {
+        "title": "星を描いた",
+        "romanized": "Hoshi o Kaita",
+        "length": "2:04",
+        "youtubeID": ""
+      },
+      {
+        "title": "壊れたページ",
+        "romanized": "Kowareta Page",
+        "length": "1:53",
+        "youtubeID": ""
+      },
+      {
+        "title": "プリズム",
+        "romanized": "Prism",
+        "length": "2:29",
+        "youtubeID": ""
+      },
+      {
+        "title": "彩度",
+        "romanized": "Saido",
+        "length": "2:30",
+        "youtubeID": ""
+      },
+      {
+        "title": "明るい色と暗い色",
+        "romanized": "Akarui Iro to Kurai Iro",
+        "length": "2:11",
+        "youtubeID": ""
+      },
+      {
+        "title": "虹",
+        "romanized": "Niji",
+        "length": "2:00",
+        "youtubeID": ""
+      }
+    ]
   }
 ];

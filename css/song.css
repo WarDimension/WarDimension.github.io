@@ -23,10 +23,14 @@
   display: inline-block;
 }
 .song-img{
+  position: relative;
+  z-index: 2;
   width: 50%;
   vertical-align: middle;
   margin: 0;
   display: inline-block;
+  -webkit-box-shadow: 5px 0px 6px -3px #000;
+  box-shadow: 5px 0px 6px -3px #000;
 }
 .song-title-disk{
   background: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/db9b0a59-1832-436d-be35-c4da781cf1c8/dds3hmn-9f5ef694-f5ce-43c0-9e76-7e1adec5f640.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2RiOWIwYTU5LTE4MzItNDM2ZC1iZTM1LWM0ZGE3ODFjZjFjOFwvZGRzM2htbi05ZjVlZjY5NC1mNWNlLTQzYzAtOWU3Ni03ZTFhZGVjNWY2NDAucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.kCMW2OAJHcDT-qTU3aEKb4BqlTcj0_SKDaj1XqO3ks0");
@@ -36,12 +40,15 @@
   background-repeat: no-repeat;
   display: inline-block;
   vertical-align: middle;
+  -webkit-filter: drop-shadow(2px 0px 2px rgba(0, 0, 0, 0.75));
+  filter: drop-shadow(2px 0px 2px rgba(0, 0, 0, 0.75));
 }
 .song-title{
   margin-top: 70%;
   margin-left: 12%;
   margin-bottom: 22%;
   font-size: 130%;
+  max-height: 30px;
   text-shadow: -1px 0 black, 0 1px black, 2px 0 black, 0 -1px black;
   color: #fff;
   display: inline-block;
