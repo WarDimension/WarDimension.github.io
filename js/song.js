@@ -516,6 +516,14 @@ function platform(url, sprite, name){
 }
 
 function platformTemplate(song){
+  if(song.url == undefined){
+    return `
+      <a class="platform-url">
+        <b style="font-size: 50px">COMING SOON</b>
+      </a>
+    `;
+  }
+
   return `
     ${platform(song.url[0].itunes, "itunes", "iTunes/Apple Music")}
     ${platform(song.url[0].deezer, "deezer", "Deezer")}
