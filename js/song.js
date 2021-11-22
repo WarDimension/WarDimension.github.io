@@ -381,6 +381,7 @@ function setSeek(){
 }
 
 function prevSong(){
+  setDiskSpin(false);
   if(player.getCurrentTime() >= 3){
     clearInterval(time);
     player.seekTo(0);
@@ -402,6 +403,7 @@ function prevSong(){
     var title = getPrevSong();
     setSong(currentTrack.youtubeID,title,currentTrack.index);
   }
+  setDiskSpin(true);
 }
 
 function getPrevSong(){
@@ -452,6 +454,7 @@ function getPrevSong(){
 }
 
 function nextSong(){
+  setDiskSpin(false);
   if(shuffle){
     shuffleSong();
   }
@@ -467,6 +470,7 @@ function nextSong(){
     var title = getNextSong();
     setSong(currentTrack.youtubeID,title,currentTrack.index);
   }
+  setDiskSpin(true);
 }
 
 function getNextSong(){
