@@ -33,6 +33,19 @@ function onYouTubeIframeAPIReady() {
   });
 }
 
+function setDiskSpin(spin){
+  if(spin && currentTrack.albumData != undefined){
+    let title = currentTrack.albumData.title;
+    let alt = currentTrack.albumData.alt;
+    document.querySelector(`#${alt != undefined ? alt : title}`).style = "animation-play-state: running;";
+  }
+  else if(currentTrack.albumData != undefined){
+    let title = currentTrack.albumData.title;
+    let alt = currentTrack.albumData.alt;
+    document.querySelector(`#${alt != undefined ? alt : title}`).style = "animation-play-state: paused;";
+  }
+}
+
 function onPlayerReady(){
   if(url()["id"]){
     currentTrack.youtubeID = url()["id"];
@@ -109,6 +122,7 @@ function onPlayerStateChange(event){
     }
     playButton.innerHTML = "<span class='player-button-content' tabindex='-1'><i class='material-icons'>play_arrow</i></span>";
     playButton.style.animation = "";
+    setDiskSpin(false);
     playerState = "ENDED";
   }
   else if(event.data == YT.PlayerState.PLAYING){
@@ -120,18 +134,21 @@ function onPlayerStateChange(event){
     playButton.innerHTML = "<span class='player-button-content' tabindex='-1'><i class='material-icons'>pause</i></span>";
     playButton.style.animation = "";
     durationText.innerHTML = player.getDuration().toString().toHHMMSS();
+    setDiskSpin(true);
     playerState = "PLAYING";
   }
   else if(event.data == YT.PlayerState.BUFFERING){
     clearInterval(time);
     playButton.innerHTML = "<span class='player-button-content' tabindex='-1'><i class='material-icons'>pause</i></span>";
     playButton.style.animation = "buffering 1.4s cubic-bezier(.4,0,.4,1) infinite";
+    setDiskSpin(false);
     playerState = "BUFFERING";
   }
   else if(event.data == YT.PlayerState.PAUSED){
     clearInterval(time);
     playButton.innerHTML = "<span class='player-button-content' tabindex='-1'><i class='material-icons'>play_arrow</i></span>";
     playButton.style.animation = "";
+    setDiskSpin(false);
     playerState = "PAUSED";
   }
   else if(event.data == YT.PlayerState.UNSTARTED){
@@ -142,6 +159,7 @@ function onPlayerStateChange(event){
     if(player.getVideoData().title == ""){
       playButton.innerHTML = "<span class='player-button-content' tabindex='-1'><i class='material-icons'>error</i></span>";
     }
+    setDiskSpin(false);
     playerState = "UNSTARTED";
   }
 }
@@ -191,6 +209,7 @@ function setSong(videoId,title = "",trackIndex,setCurrentTrack = false){
 function closePlayer(){
   player.pauseVideo();
   clearInterval(time);
+  setDiskSpin(false);
   musicPlayer.style.bottom = "-200px";
   musicPlayer.style.opacity = "0";
   playButton.tabIndex = "-1";
@@ -502,6 +521,7 @@ function updateTimeSlider(){
     timeSlider.value = currentTime.toString();
     currentTimeText.innerHTML = player.getCurrentTime().toString().toHHMMSS();
   }
+  setDiskSpin(true);
 }
 //END of Music Player
 
@@ -546,7 +566,7 @@ function songTemplate(song, index, songsData){
       }
       <div class="album-container">
         <img ${song.imgCur != undefined ? `style="cursor: url('../cursors/${song.imgCur}.cur'), auto"` : ``} class="song-img" src="${song.img}" alt="${song.title} Album Art" ${song.img1 != undefined ? `onmouseover="src='${song.img1}'" onmouseout="src='${song.img}'"` : ``}/><!--
-        --><b class="song-title-disk"><p class="song-title">${song.title}</p></b>
+        --><b class="song-title-disk"><span class="disk" id="${song.alt != undefined ? song.alt : song.title}"></span><p class="song-title">${song.title}</p></b>
       </div>
       <div class="platform-container">
         <h3 class="available-on">Available on</h3>

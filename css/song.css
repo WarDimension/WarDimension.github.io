@@ -33,17 +33,34 @@
   box-shadow: 5px 0px 6px -3px #000;
 }
 .song-title-disk{
-  background: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/db9b0a59-1832-436d-be35-c4da781cf1c8/dds3hmn-9f5ef694-f5ce-43c0-9e76-7e1adec5f640.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2RiOWIwYTU5LTE4MzItNDM2ZC1iZTM1LWM0ZGE3ODFjZjFjOFwvZGRzM2htbi05ZjVlZjY5NC1mNWNlLTQzYzAtOWU3Ni03ZTFhZGVjNWY2NDAucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.kCMW2OAJHcDT-qTU3aEKb4BqlTcj0_SKDaj1XqO3ks0");
-  background-position: 538%;
-  background-size: 110%;
   width: 49.45%;
-  background-repeat: no-repeat;
   display: inline-block;
   vertical-align: middle;
   -webkit-filter: drop-shadow(2px 0px 2px rgba(0, 0, 0, 0.75));
   filter: drop-shadow(2px 0px 2px rgba(0, 0, 0, 0.75));
 }
+.disk {
+  position: absolute;
+  left: -51%;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/db9b0a59-1832-436d-be35-c4da781cf1c8/dds3hmn-850372c1-99d2-466b-ae7c-73ee0010489b.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2RiOWIwYTU5LTE4MzItNDM2ZC1iZTM1LWM0ZGE3ODFjZjFjOFwvZGRzM2htbi04NTAzNzJjMS05OWQyLTQ2NmItYWU3Yy03M2VlMDAxMDQ4OWIucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.q7tJvXzSm5etUsfu7uC4T2uG7Lk8ttRjwccDZTW9TTs");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 110%;
+  animation: disk-spin 20s linear infinite;
+  animation-play-state: paused;
+}
+
+@keyframes disk-spin{
+  100%{
+    transform: rotate(360deg);
+  }
+}
 .song-title{
+  position: relative;
+  z-index: 2;
   margin-top: 70%;
   margin-left: 12%;
   margin-bottom: 22%;
@@ -162,6 +179,7 @@
 }
 #music-player{
   position: fixed;
+  z-index: 10;
   bottom: -200px;
   padding: 20px 4%;
   max-width: 90vw;
