@@ -762,7 +762,7 @@ function track(e){
     trackHighlight();
     index = 0;
   }
-  else if(target.className != "platform-url" && getParentId(target, "track-container") != "track-container" && getParentId(target, "music-player") != "music-player" && target.className != "skip" && target.className != "skip-content" && target.className != "material-icons"){
+  else if(url()["album"] && target.className != "platform-url" && getParentId(target, "track-container") != "track-container" && getParentId(target, "music-player") != "music-player" && target.className != "skip" && target.className != "skip-content" && target.className != "material-icons"){
     songDisplay();
     if(target.className != "song-button"){
       if(sortNewest){
