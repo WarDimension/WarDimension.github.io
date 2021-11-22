@@ -37,12 +37,18 @@ function setDiskSpin(spin){
   if(spin && currentTrack.albumData != undefined){
     let title = currentTrack.albumData.title;
     let alt = currentTrack.albumData.alt;
-    document.querySelector(`#${alt != undefined ? alt : title}`).style = "animation-play-state: running;";
+    let disk = document.querySelector(`#${alt != undefined ? alt : title}`);
+    if(disk != null){
+      disk.style = "animation-play-state: running;";
+    }
   }
   else if(currentTrack.albumData != undefined){
     let title = currentTrack.albumData.title;
     let alt = currentTrack.albumData.alt;
-    document.querySelector(`#${alt != undefined ? alt : title}`).style = "animation-play-state: paused;";
+    let disk = document.querySelector(`#${alt != undefined ? alt : title}`);
+    if(disk != null){
+      disk.style = "animation-play-state: paused;";
+    }
   }
 }
 
