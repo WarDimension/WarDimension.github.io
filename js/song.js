@@ -33,11 +33,15 @@ function onYouTubeIframeAPIReady() {
   });
 }
 
+function titleToId(title){
+  return title.replaceAll(".", "");
+}
+
 function setDiskSpin(spin){
   if(spin && currentTrack.albumData != undefined){
     let title = currentTrack.albumData.title;
     let alt = currentTrack.albumData.alt;
-    let disk = document.querySelector(`#${alt != undefined ? alt : title}`);
+    let disk = document.querySelector(`#${alt != undefined ? titleToId(alt) : titleToId(title)}`);
     if(disk != null){
       disk.style = "animation-play-state: running;";
     }
@@ -45,7 +49,7 @@ function setDiskSpin(spin){
   else if(currentTrack.albumData != undefined){
     let title = currentTrack.albumData.title;
     let alt = currentTrack.albumData.alt;
-    let disk = document.querySelector(`#${alt != undefined ? alt : title}`);
+    let disk = document.querySelector(`#${alt != undefined ? titleToId(alt) : titleToId(title)}`);
     if(disk != null){
       disk.style = "animation-play-state: paused;";
     }
@@ -576,7 +580,7 @@ function songTemplate(song, index, songsData){
       }
       <div class="album-container">
         <img ${song.imgCur != undefined ? `style="cursor: url('../cursors/${song.imgCur}.cur'), auto"` : ``} class="song-img" src="${song.img}" alt="${song.title} Album Art" ${song.img1 != undefined ? `onmouseover="src='${song.img1}'" onmouseout="src='${song.img}'"` : ``}/><!--
-        --><b class="song-title-disk"><span class="disk" id="${song.alt != undefined ? song.alt : song.title}"></span><p class="song-title">${song.title}</p></b>
+        --><b class="song-title-disk"><span class="disk" id="${song.alt != undefined ? titleToId(song.alt) : titleToId(song.title)}"></span><p class="song-title">${song.title}</p></b>
       </div>
       <div class="platform-container">
         <h3 class="available-on">Available on</h3>
