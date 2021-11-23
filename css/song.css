@@ -265,9 +265,17 @@ i{
   filter: brightness(150%);
 }
 .player-button-content{
+  position: relative;
   height: 100%;
   width: 100%;
   display: block;
+}
+#repeat-album{
+  position: absolute;
+  top: -3.5px;
+  left: 0;
+  right: 0;
+  font-size: 8px;
 }
 #prev-button, #next-button, #shuffle-button, #repeat-button{
   border: none;

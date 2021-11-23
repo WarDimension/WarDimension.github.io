@@ -124,7 +124,7 @@ function onPlayerStateChange(event){
   if(event.data == YT.PlayerState.ENDED){
     clearInterval(time);
     timeSlider.value = "0";
-    if(repeat == "repeat all"){
+    if(repeat == "repeat all" || repeat == "repeat album"){
       nextSong();
     }
     else if(repeat == "repeat one"){
@@ -349,7 +349,7 @@ function prevShuffle(){
 var repeat = "repeat all";
 if(localStorage.getItem("repeat") != null){
   repeat = localStorage.getItem("repeat");
-  setRepeat();setRepeat();setRepeat();
+  setRepeat();setRepeat();setRepeat();setRepeat();
 }
 function setRepeat(){
   if(repeat == "no repeat"){
@@ -361,6 +361,11 @@ function setRepeat(){
     repeat = "repeat one";
     localStorage.setItem("repeat", "repeat one");
     repeatButton.innerHTML = "<span class='player-button-content' tabindex='-1'><i class='material-icons'>repeat_one</i></span>";
+  }
+  else if(repeat == "repeat one"){
+    repeat = "repeat album";
+    localStorage.setItem("repeat", "repeat album");
+    repeatButton.innerHTML = "<span class='player-button-content' tabindex='-1'><p id='repeat-album'>A</p><i class='material-icons'>repeat</i></span>";
   }
   else{
     repeat = "no repeat";
@@ -425,6 +430,10 @@ function getPrevSong(){
   if(albumData.track[trackIndex-1]){
     currentTrack.youtubeID = albumData.track[trackIndex-1].youtubeID;
     currentTrack.index = trackIndex-1;
+  }
+  else if(repeat == "repeat album"){
+    currentTrack.youtubeID = albumData.track[albumData.track.length-1].youtubeID;
+    currentTrack.index = albumData.track.length-1;
   }
   else if(trackType == "original"){
     if(songsData[albumIndex-1]){
@@ -492,6 +501,10 @@ function getNextSong(){
   if(albumData.track[trackIndex+1]){
     currentTrack.youtubeID = albumData.track[trackIndex+1].youtubeID;
     currentTrack.index = trackIndex+1;
+  }
+  else if(repeat == "repeat album"){
+    currentTrack.youtubeID = albumData.track[0].youtubeID;
+    currentTrack.index = 0;
   }
   else if(trackType == "original"){
     if(songsData[albumIndex+1]){
