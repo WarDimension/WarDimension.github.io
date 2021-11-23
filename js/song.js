@@ -279,10 +279,16 @@ function shuffleSong(push = true){
   var title;
   var trackIndex;
 
-  switch(Math.floor(Math.random() * 2)){
+  var randomType = Math.floor(Math.random() * 2);
+
+  if(repeat == "repeat album") currentTrack.type == "original" ? randomType = 0 : randomType = 1;
+
+  switch(randomType){
     case 0:
       var randomAlbum = Math.floor(Math.random() * songsData.length);
       var randomTrack = Math.floor(Math.random() * songsData[randomAlbum].track.length);
+
+      if(repeat == "repeat album") randomAlbum = currentTrack.albumIndex;
 
       if(currentTrack.youtubeID == songsData[randomAlbum].track[randomTrack].youtubeID){
         shuffleSong(false);
@@ -299,6 +305,8 @@ function shuffleSong(push = true){
     case 1:
       var randomAlbum = Math.floor(Math.random() * coversData.length);
       var randomTrack = Math.floor(Math.random() * coversData[randomAlbum].track.length);
+
+      if(repeat == "repeat album") randomAlbum = currentTrack.albumIndex;
 
       if(currentTrack.youtubeID == coversData[randomAlbum].track[randomTrack].youtubeID){
         shuffleSong(false);
