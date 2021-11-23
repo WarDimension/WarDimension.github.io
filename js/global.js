@@ -65,11 +65,11 @@ window.addEventListener("keydown", (e) => {
     document.getElementsByTagName("html")[0].style.scrollBehavior = "smooth";
     window.scrollTo(0, 0);
   }
-  else if (e.keyCode == "37" || (e.shiftKey && e.keyCode == "9")){
+  else if (e.key == "ArrowLeft" || (e.shiftKey && e.key == "Tab")){
     e.target.tagName != "iframe" && e.preventDefault();
     prevFocus(document.activeElement).focus();
   }
-  else if (e.keyCode == "39" || e.keyCode == "9"){
+  else if (e.key == "ArrowRight" || e.key == "Tab"){
     e.target.tagName != "iframe" && e.preventDefault();
     nextFocus(document.activeElement).focus();
   }

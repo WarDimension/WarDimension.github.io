@@ -879,7 +879,7 @@ window.addEventListener("keydown", (e) => {
   var active = document.activeElement;
   var activeParentHeight = parseInt(active.parentElement.offsetHeight);
   var activeTop = parseInt(active.offsetTop);
-  if(e.keyCode == "38"){
+  if(e.key == "ArrowUp"){
     e.preventDefault();
     if(url()["album"] && index == 2){
       index = 1;
@@ -899,7 +899,7 @@ window.addEventListener("keydown", (e) => {
     document.activeElement.scrollIntoViewCenter();
     html.style.scrollBehavior="smooth";
   }
-  else if(e.keyCode == "40"){
+  else if(e.key == "ArrowDown"){
     e.preventDefault();
     if(url()["album"] && index == 0){
       index = 1;
@@ -927,7 +927,7 @@ window.addEventListener("keydown", (e) => {
       index = indexDefault;
     }
   }
-  else if (e.keyCode == "37" || ( e.shiftKey && e.keyCode == "9") || e.keyCode == "39" || e.keyCode == "9"){
+  else if (e.key == "ArrowLeft" || ( e.shiftKey && e.key == "Tab") || e.key == "ArrowRight" || e.key == "Tab"){
     if(active.className == "skip-content" && url()["album"]){
       index = album.length - 1;
     }

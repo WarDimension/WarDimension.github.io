@@ -63,7 +63,7 @@ skip[0].addEventListener("keypress", (e) => {
 });
 window.addEventListener("keydown", (e) => {
   var active = document.activeElement;
-  if (e.keyCode == "37" || ( e.shiftKey && e.keyCode == "9") || e.keyCode == "39" || e.keyCode == "9"){
+  if (e.key == "ArrowLeft" || ( e.shiftKey && e.key == "Tab") || e.key == "ArrowRight" || e.key == "Tab"){
     if(active.className == "sixsixsix"){
       effect(true);
     }
