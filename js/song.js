@@ -411,7 +411,7 @@ function playSong(){
     player.pauseVideo();
   }
   
-  if(playerState == "UNSTARTED") playButtonState == "PAUSED" ? setPlayButton("BUFFERING") : setPlayButton("PAUSED");
+  if(playerState == "UNSTARTED" && player.getVideoData().title != "" && url()["id"] != "") playButtonState == "PAUSED" ? setPlayButton("BUFFERING") : setPlayButton("PAUSED");
 }
 
 function seekTo(){
