@@ -52,7 +52,6 @@
   animation: disk-spin 20s linear infinite;
   animation-play-state: paused;
 }
-
 @keyframes disk-spin{
   100%{
     transform: rotate(360deg);
