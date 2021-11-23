@@ -94,6 +94,7 @@ function onPlayerReady(){
       shuffle = false;
       setShuffle();
     }
+    playSong();
   }
   trackHighlight();
 }
