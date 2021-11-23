@@ -782,7 +782,7 @@ function track(e){
   var target = e.target;
   var content = document.getElementsByClassName("content");
   document.getElementsByTagName("html")[0].style.scrollBehavior = "auto";
-  if(!url()["album"] && getParentClass(target, "content") == "content" && e.target.className != "platform-url" && target.className != "skip-content"){
+  if(!url()["album"] && getParentClass(target, "content") == "content" && target.className != "platform-url" && target.className != "skip-content"){
     var song;
     var i;
     if(original){
