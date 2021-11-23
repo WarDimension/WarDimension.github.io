@@ -82,7 +82,7 @@ function onPlayerReady(){
             currentTrack.index = j;
             currentTrack.albumData = coversData[i];
             currentTrack.albumIndex = i;
-            currentTrack.type = "original";
+            currentTrack.type = "cover";
             songName.innerHTML = coversData[i].track[j].title;
             found = true;
             break;
