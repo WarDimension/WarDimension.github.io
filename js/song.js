@@ -185,7 +185,7 @@ function onPlayerStateChange(event){
     timeSlider.value = "0";
     setPlayButton("PAUSED");
     
-    if(player.getVideoData().title == "") setPlayButton("ERROR");
+    if(player.getVideoData().title != undefined && player.getVideoData().title == "") setPlayButton("ERROR");
 
     setDiskSpin(false);
     playerState = "UNSTARTED";
@@ -201,7 +201,8 @@ function trackHighlight(){
       trackHighlight.style.background = "#666";
       if(trackHighlightTemp != undefined && trackHighlightTemp != trackHighlight) trackHighlightTemp.style.background = "";
       trackHighlightTemp = trackHighlight;
-    }else{
+    }
+    else if(trackHighlightTemp != undefined){
       trackHighlightTemp.style.background = "";
     }
   }
