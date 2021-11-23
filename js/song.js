@@ -120,6 +120,29 @@ var closePlayerButton = document.getElementById("close-player-button");
 
 var playerState;
 
+var playButtonState;
+
+function setPlayButton(state){
+  if(state == "PLAYING"){
+    playButton.innerHTML = "<span class='player-button-content' tabindex='-1'><i class='material-icons'>pause</i></span>";
+    playButton.style.animation = "";
+    playButtonState = "PLAYING";
+  }
+  else if(state == "PAUSED"){
+    playButton.innerHTML = "<span class='player-button-content' tabindex='-1'><i class='material-icons'>play_arrow</i></span>";
+    playButton.style.animation = "";
+    playButtonState = "PAUSED";
+  }
+  else if(state == "BUFFERING"){
+    playButton.innerHTML = "<span class='player-button-content' tabindex='-1'><i class='material-icons'>pause</i></span>";
+    playButton.style.animation = "buffering 1.4s cubic-bezier(.4,0,.4,1) infinite";
+    playButtonState = "BUFFERING";
+  }
+  else if(state == "ERROR"){
+    playButton.innerHTML = "<span class='player-button-content' tabindex='-1'><i class='material-icons'>error</i></span>";
+  }
+}
+
 function onPlayerStateChange(event){
   if(event.data == YT.PlayerState.ENDED){
     clearInterval(time);
@@ -130,8 +153,7 @@ function onPlayerStateChange(event){
     else if(repeat == "repeat one"){
       player.playVideo();
     }
-    playButton.innerHTML = "<span class='player-button-content' tabindex='-1'><i class='material-icons'>play_arrow</i></span>";
-    playButton.style.animation = "";
+    setPlayButton("PAUSED");
     setDiskSpin(false);
     playerState = "ENDED";
   }
@@ -141,34 +163,30 @@ function onPlayerStateChange(event){
       var author = "「" + player.getVideoData().author + "」";
       songName.innerHTML = author + player.getVideoData().title;
     }
-    playButton.innerHTML = "<span class='player-button-content' tabindex='-1'><i class='material-icons'>pause</i></span>";
-    playButton.style.animation = "";
+    setPlayButton("PLAYING");
     durationText.innerHTML = player.getDuration().toString().toHHMMSS();
     setDiskSpin(true);
     playerState = "PLAYING";
   }
   else if(event.data == YT.PlayerState.BUFFERING){
     clearInterval(time);
-    playButton.innerHTML = "<span class='player-button-content' tabindex='-1'><i class='material-icons'>pause</i></span>";
-    playButton.style.animation = "buffering 1.4s cubic-bezier(.4,0,.4,1) infinite";
+    setPlayButton("BUFFERING");
     setDiskSpin(false);
     playerState = "BUFFERING";
   }
   else if(event.data == YT.PlayerState.PAUSED){
     clearInterval(time);
-    playButton.innerHTML = "<span class='player-button-content' tabindex='-1'><i class='material-icons'>play_arrow</i></span>";
-    playButton.style.animation = "";
+    setPlayButton("PAUSED");
     setDiskSpin(false);
     playerState = "PAUSED";
   }
   else if(event.data == YT.PlayerState.UNSTARTED){
     clearInterval(time);
     timeSlider.value = "0";
-    playButton.innerHTML = "<span class='player-button-content' tabindex='-1'><i class='material-icons'>play_arrow</i></span>";
-    playButton.style.animation = "";
-    if(player.getVideoData().title == ""){
-      playButton.innerHTML = "<span class='player-button-content' tabindex='-1'><i class='material-icons'>error</i></span>";
-    }
+    setPlayButton("PAUSED");
+    
+    if(player.getVideoData().title == "") setPlayButton("ERROR");
+
     setDiskSpin(false);
     playerState = "UNSTARTED";
   }
@@ -309,7 +327,7 @@ function shuffleSong(push = true){
       if(repeat == "repeat album") randomAlbum = currentTrack.albumIndex;
 
       var randomTrack = Math.floor(Math.random() * coversData[randomAlbum].track.length);
-      
+
       if(currentTrack.youtubeID == coversData[randomAlbum].track[randomTrack].youtubeID && !(repeat == "repeat album" && coversData[randomAlbum].track.length == 1)){
         shuffleSong(false);
         return;
@@ -388,9 +406,12 @@ function setRepeat(){
 function playSong(){
   if(playerState == "UNSTARTED" || playerState == "PAUSED" || playerState == "ENDED"){
     player.playVideo();
-  }else if(playerState == "PLAYING" || playerState == "BUFFERING"){
+  }
+  else if(playerState == "PLAYING" || playerState == "BUFFERING"){
     player.pauseVideo();
   }
+  
+  if(playerState == "UNSTARTED") playButtonState == "PAUSED" ? setPlayButton("BUFFERING") : setPlayButton("PAUSED");
 }
 
 function seekTo(){
