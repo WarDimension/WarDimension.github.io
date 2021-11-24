@@ -26,20 +26,6 @@ function getParentClass(element, classname){
   return element.parentNode && getParentClass(element.parentNode, classname);
 }
 
-function getParentId(element, id){
-  if (element.id && element.id.indexOf(id)>=0){
-    return element.id;
-  }
-  return element.parentNode && getParentId(element.parentNode, id);
-}
-
-function getParentIdByElement(element){
-  if (element.id){
-    return element.id;
-  }
-  return element.parentNode && getParentIdByElement(element.parentNode);
-}
-
 var mvp = document.getElementById("vp");
 if(screen.width < 360) {
   mvp.setAttribute("content","width=360, user-scalable=no");
