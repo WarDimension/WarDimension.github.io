@@ -105,7 +105,7 @@ String.prototype.toHHMMSS = function () {
 
 console.clear();
 
-console.group("FUN");
+console.group("FUN (.❛ ᴗ ❛.)");
   console.log("%c│𝄞 ⁴⁄₄ ᴅ♪ ᴇ♪ ғ♪ ɢ♪ ᴇ♩ ᴄ♪ ᴅ♪│‿𝅝║", "font-size: 16px; margin: 10px 0;");
 
   var consoleStyle = "padding: 1px 6px; color: #fbfbfb; background: #444;";
