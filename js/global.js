@@ -21,6 +21,14 @@ console.group("FUN (.❛ ᴗ ❛.)");
     console.log("%cList Sorter", consoleStyle, "https://wardimension.github.io/project/list-sorter");
     console.log("%cCharacter Counter", consoleStyle, "https://wardimension.github.io/project/character-counter");
   console.groupEnd();
+
+  console.groupCollapsed("%c[-External Sites-]", consoleStyle);
+    console.log("%cMyAnimeList", consoleStyle, "https://myanimelist.net/profile/WarDimension");
+    console.log("%cAniList", consoleStyle, "https://anilist.co/user/WarDimension");
+    console.log("%cMyWaifuList", consoleStyle, "https://mywaifulist.moe/u/WarDimension");
+    console.log("%cMyDramaList", consoleStyle, "https://mydramalist.com/profile/WarDimension");
+    console.log("%cIMDb", consoleStyle, "https://www.imdb.com/user/ur127996481");
+  console.groupEnd();
 console.groupEnd();
 
 console.groupCollapsed("%cThe End of the World", "padding: 1px 8px; color: #fff; background: #e2363a; border-radius: 15px;");
