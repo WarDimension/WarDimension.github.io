@@ -1,0 +1,48 @@
+<html lang="en">
+  <head>
+    <title>More</title>
+    <link rel="stylesheet" type="text/css" href="more.css"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico"/>
+    <meta id="vp" name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+  </head>
+  <body>
+    <div class="more-container">
+      <div class="more more-list">
+        <a class="more-link" target="_blank" href="" tabindex="-1"></a>
+        <div class="list-nav">
+          <i class="material-icons prev-list" onclick="prevList()">arrow_left</i>
+          <i class="material-icons next-list" onclick="nextList()">arrow_right</i>
+        </div>
+      </div>
+      <div class="more list-nav-v2">
+        <i class="material-icons prev-list" onclick="prevList()">arrow_left</i>
+        <div class="list-nav-div"></div>
+        <i class="material-icons next-list" onclick="nextList()">arrow_right</i>
+      </div>
+      <div class="more more-menu">
+        <i class="material-icons apps-i" onclick="moreApps()">apps</i>
+        <div class="more-menu-div"></div>
+        <i class="material-icons games-i" onclick="moreGames()">games</i>
+        <div class="more more-apps">
+          <p class="more-apps-text">APPS</p>
+        </div>
+        <div class="more more-apps-v2">
+          <p class="more-apps-text">APPS</p>
+        </div>
+        <div class="more more-games">
+          <p class="more-games-text">GAMES</p>
+        </div>
+        <div class="more more-games-v2">
+          <p class="more-games-text">GAMES</p>
+        </div>
+      </div>
+      <div class="more more-button" onclick="more()">
+        <i class="material-icons">add</i>
+        <p class="more-text">MORE</p>
+      </div>
+    </div>
+    <div class="context-menu"></div>
+    <script type="text/javascript" src="more.js"></script>
+  </body>
+</html>
