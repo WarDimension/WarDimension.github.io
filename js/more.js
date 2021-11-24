@@ -133,7 +133,7 @@ function nextList(){
 
 window.addEventListener("click", (e) => {
   var className = e.target.className;
-  if(!(getParentClass(e.target, "more-container") || className == "more-text" || className =="material-icons") && more_open){
+  if(!(e.target.closest(".more-container") || ["more-text", "material-icons"].includes(className)) && more_open){
     more();
   }
 });

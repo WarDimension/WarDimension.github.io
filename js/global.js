@@ -19,13 +19,6 @@ function url(){
   return vars;
 }
 
-function getParentClass(element, classname){
-  if (element.className && element.className.split(' ').indexOf(classname)>=0){
-    return element.className;
-  }
-  return element.parentNode && getParentClass(element.parentNode, classname);
-}
-
 var mvp = document.getElementById("vp");
 if(screen.width < 360) {
   mvp.setAttribute("content","width=360, user-scalable=no");
