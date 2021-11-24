@@ -165,7 +165,6 @@ function onPlayerStateChange(event){
     }
     setPlayButton("PLAYING");
     durationText.innerHTML = player.getDuration().toString().toHHMMSS();
-    setDiskSpin(true);
     playerState = "PLAYING";
   }
   else if(event.data == YT.PlayerState.BUFFERING){
@@ -450,7 +449,6 @@ function prevSong(){
     var title = getPrevSong();
     setSong(currentTrack.youtubeID,title,currentTrack.index);
   }
-  setDiskSpin(true);
 }
 
 function getPrevSong(){
@@ -521,7 +519,6 @@ function nextSong(){
     var title = getNextSong();
     setSong(currentTrack.youtubeID,title,currentTrack.index);
   }
-  setDiskSpin(true);
 }
 
 function getNextSong(){
