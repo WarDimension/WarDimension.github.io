@@ -22,7 +22,7 @@ console.group("FUN (.❛ ᴗ ❛.)");
     console.log("%cCharacter Counter", consoleStyle, "https://wardimension.github.io/project/character-counter");
   console.groupEnd();
 
-  console.groupCollapsed("%c[-External Sites-]", consoleStyle);
+  console.groupCollapsed("%c[-External-Sites-]", consoleStyle);
     console.log("%cMyAnimeList", consoleStyle, "https://myanimelist.net/profile/WarDimension");
     console.log("%cAniList", consoleStyle, "https://anilist.co/user/WarDimension");
     console.log("%cMyWaifuList", consoleStyle, "https://mywaifulist.moe/u/WarDimension");
