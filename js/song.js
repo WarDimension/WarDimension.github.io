@@ -782,7 +782,7 @@ function track(e){
   var target = e.target;
   var content = document.getElementsByClassName("content");
   document.getElementsByTagName("html")[0].style.scrollBehavior = "auto";
-  if(!url()["album"] && getParentClass(target, "content") == "content" && target.className != "platform-url" && target.className != "skip-content"){
+  if(!url()["album"] && target.closest(".content") && !(["platform-url", "skip-content"].includes(target.className))){
     var song;
     var i;
     if(original){
@@ -817,12 +817,12 @@ function track(e){
     trackHighlight();
     index = 0;
   }
-  else if(url()["album"] && target.className != "platform-url" && getParentId(target, "track-container") != "track-container" && getParentId(target, "music-player") != "music-player" && target.className != "skip" && target.className != "skip-content" && target.className != "material-icons"){
+  else if(url()["album"] && !target.closest("#track-container") && !target.closest("#music-player") && !(["platform-url", "skip", "skip-content", "material-icons"].includes(target.className))){
     songDisplay();
     if(target.className != "song-button"){
       if(sortNewest){
         if(url()["album"]) content[(content.length - 1) - selectedAlbum.index].scrollIntoViewCenter();
-        if(getParentClass(target,"content") == "content"){
+        if(target.closest(".content")){
           content[(content.length - 1) - selectedAlbum.index].focus();
           index = (content.length - 1) - selectedAlbum.index;
         }
@@ -832,7 +832,7 @@ function track(e){
       }
       else{
         if(url()["album"]) content[selectedAlbum.index].scrollIntoViewCenter();
-        if(getParentClass(target,"content") == "content"){
+        if(target.closest(".content")){
           content[selectedAlbum.index].focus();
           index = selectedAlbum.index;
         }
@@ -932,7 +932,7 @@ window.addEventListener("keydown", (e) => {
     if(active.className == "skip-content" && url()["album"]){
       index = album.length - 1;
     }
-    else if(getParentClass(active,"content") == "content" || active.className == "track-name"){
+    else if(active.closest(".content") || active.className == "track-name"){
       index = getParentIdByElement(active);
     }
     else{
