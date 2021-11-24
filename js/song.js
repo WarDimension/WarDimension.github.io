@@ -787,22 +787,22 @@ function track(e){
     var i;
     if(original){
       if(sortNewest){
-        i = (songsData.length - 1) - getParentIdByElement(target);
+        i = (songsData.length - 1) - target.closest(".content").id;
         song = songsData[i];
       }
       else{
-        i = getParentIdByElement(target);
+        i = target.closest(".content").id;
         song = songsData[i];
       }
       selectedAlbum.type = "original";
     }
     else{
       if(sortNewest){
-        i = (coversData.length - 1) - getParentIdByElement(target);
+        i = (coversData.length - 1) - target.closest(".content").id;
         song = coversData[i];
       }
       else{
-        i = getParentIdByElement(target);
+        i = target.closest(".content").id;
         song = coversData[i];
       }
       selectedAlbum.type = "cover";
@@ -933,7 +933,7 @@ window.addEventListener("keydown", (e) => {
       index = album.length - 1;
     }
     else if(active.closest(".content") || active.className == "track-name"){
-      index = getParentIdByElement(active);
+      index = active.closest(".content").id;
     }
     else{
       index = indexDefault;
