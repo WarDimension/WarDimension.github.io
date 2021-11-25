@@ -37,31 +37,41 @@ function titleToId(title){
   return title.replaceAll(".", "");
 }
 
-var degree = 0.0;
-const rotationSpeed = 0.18; //360deg/20s -> 0.18deg/10ms
+var degree = 0;
+var degreeTemp = 0;
+const rotationSpeed = 18; //360deg/20s
+const seekSpeed = 0.3;
 
 function resetDiskRotation(disk){
-  degree = 0;
-  rotationTime = 0;
   if(disk) disk.style = `transform: rotate(0deg);`;
+
+  degree = 0;
+  degreeTemp = 0;
+}
+
+function diskSeekRotation(disk){
+  let currentTime = (timeSlider.value/timeSlider.max)*player.getDuration();
+  if(disk) disk.style = `transform: rotate(${currentTime * rotationSpeed}deg);`;
 }
 
 var diskTemp;
 
-function updateDiskSpin(){
-  degree += rotationSpeed;
-
-  if(degree > 359) degree = 0;
+function updateDiskSpin(seek = false){
+  if(!seek) degreeTemp = degree;
+  degree = player.getCurrentTime() * rotationSpeed;
 
   if(currentTrack.albumData){
     let title = currentTrack.albumData.title;
     let alt = currentTrack.albumData.alt;
     let disk = document.querySelector(`#${alt ? titleToId(alt) : titleToId(title)}`);
 
-    if(disk != null && (diskTemp && diskTemp.id == disk.id)){
-      disk.style = `transform: rotate(${degree}deg); transition: none;`;
+    if(seek){
+      diskSeekRotation(disk);
     }
-    else{
+    else if(disk != null && (diskTemp && diskTemp.id == disk.id)){
+      disk.style = `transform: rotate(${degree}deg);`;
+    }
+    else if(degree != 0){
       resetDiskRotation(diskTemp);
     }
 
@@ -160,6 +170,7 @@ function onPlayerStateChange(event){
   if(event.data == YT.PlayerState.ENDED){
     clearInterval(time);
     timeSlider.value = "0";
+    resetDiskRotation(diskTemp);
     if(repeat == "repeat all" || repeat == "repeat album"){
       nextSong();
     }
@@ -192,6 +203,7 @@ function onPlayerStateChange(event){
   else if(event.data == YT.PlayerState.UNSTARTED){
     clearInterval(time);
     timeSlider.value = "0";
+    resetDiskRotation(diskTemp);
     setPlayButton("PAUSED");
     
     if(player.getVideoData().title != undefined && player.getVideoData().title == "") setPlayButton("ERROR");
@@ -432,6 +444,7 @@ function setSeek(){
   clearInterval(time);
   var currentTime = (timeSlider.value/timeSlider.max)*player.getDuration();
   currentTimeText.innerHTML = (currentTime.toString().toHHMMSS());
+  updateDiskSpin(true);
 }
 
 function prevSong(){
@@ -439,6 +452,7 @@ function prevSong(){
     clearInterval(time);
     player.seekTo(0);
     timeSlider.value = "0";
+    resetDiskRotation(diskTemp);
   }
   else if(shuffle){
     prevShuffle();
@@ -634,7 +648,7 @@ function songTemplate(song, index, songsData){
       }
       <div class="album-container">
         <img ${song.imgCur ? `style="cursor: url('../cursors/${song.imgCur}.cur'), auto"` : ""} class="song-img" src="${song.img}" alt="${song.title} Album Art" ${song.img1 ? `onmouseover="src='${song.img1}'" onmouseout="src='${song.img}'"` : ""}/><!--
-        --><b class="song-title-disk"><span class="disk" id="${diskId}" ${diskId == diskTempId ? `style="transform: rotate(${degree}deg); transition: none;"` : ""}></span><p class="song-title">${song.title}</p></b>
+        --><b class="song-title-disk"><span class="disk" id="${diskId}" ${diskId == diskTempId ? `style="transform: rotate(${degree}deg);"` : ""}></span><p class="song-title">${song.title}</p></b>
       </div>
       <div class="platform-container">
         <h3 class="available-on">Available on</h3>

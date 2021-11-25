@@ -49,6 +49,7 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: 110%;
+  transition-timing-function: ease;
 }
 .song-title{
   position: relative;
