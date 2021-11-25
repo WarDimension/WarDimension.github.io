@@ -49,13 +49,6 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: 110%;
-  animation: disk-spin 20s linear infinite;
-  animation-play-state: paused;
-}
-@keyframes disk-spin{
-  100%{
-    transform: rotate(360deg);
-  }
 }
 .song-title{
   position: relative;

@@ -37,21 +37,28 @@ function titleToId(title){
   return title.replaceAll(".", "");
 }
 
-function setDiskSpin(spin){
-  if(spin && currentTrack.albumData != undefined){
+var degree = 0.0;
+const rotationSpeed = 0.18; //360deg/20s -> 0.18deg/10ms
+
+function resetDiskRotation(){
+  degree = 0;
+  rotationTime = 0;
+}
+
+var diskTemp;
+
+function updateDiskSpin(){
+  degree += rotationSpeed;
+  if(currentTrack.albumData){
     let title = currentTrack.albumData.title;
     let alt = currentTrack.albumData.alt;
-    let disk = document.querySelector(`#${alt != undefined ? titleToId(alt) : titleToId(title)}`);
-    if(disk != null){
-      disk.style = "animation-play-state: running;";
+    let disk = document.querySelector(`#${alt ? titleToId(alt) : titleToId(title)}`);
+    diskTemp = disk;
+    if(disk != null && (diskTemp && diskTemp.id == disk.id)){
+      disk.style = `transform: rotate(${degree}deg);`;
     }
-  }
-  else if(currentTrack.albumData != undefined){
-    let title = currentTrack.albumData.title;
-    let alt = currentTrack.albumData.alt;
-    let disk = document.querySelector(`#${alt != undefined ? titleToId(alt) : titleToId(title)}`);
-    if(disk != null){
-      disk.style = "animation-play-state: paused;";
+    else if(disk != null){
+      resetDiskRotation();
     }
   }
 }
@@ -154,11 +161,10 @@ function onPlayerStateChange(event){
       player.playVideo();
     }
     setPlayButton("PAUSED");
-    setDiskSpin(false);
     playerState = "ENDED";
   }
   else if(event.data == YT.PlayerState.PLAYING){
-    time = setInterval(updateTimeSlider,100);
+    time = setInterval(updateTimeSlider,10);
     if(songName.innerHTML == ""){
       var author = "「" + player.getVideoData().author + "」";
       songName.innerHTML = author + player.getVideoData().title;
@@ -170,13 +176,11 @@ function onPlayerStateChange(event){
   else if(event.data == YT.PlayerState.BUFFERING){
     clearInterval(time);
     setPlayButton("BUFFERING");
-    setDiskSpin(false);
     playerState = "BUFFERING";
   }
   else if(event.data == YT.PlayerState.PAUSED){
     clearInterval(time);
     setPlayButton("PAUSED");
-    setDiskSpin(false);
     playerState = "PAUSED";
   }
   else if(event.data == YT.PlayerState.UNSTARTED){
@@ -186,7 +190,6 @@ function onPlayerStateChange(event){
     
     if(player.getVideoData().title != undefined && player.getVideoData().title == "") setPlayButton("ERROR");
 
-    setDiskSpin(false);
     playerState = "UNSTARTED";
   }
 }
@@ -237,7 +240,6 @@ function setSong(videoId,title = "",trackIndex,setCurrentTrack = false){
 function closePlayer(){
   player.pauseVideo();
   clearInterval(time);
-  setDiskSpin(false);
   musicPlayer.style.bottom = "-200px";
   musicPlayer.style.opacity = "0";
   playButton.tabIndex = "-1";
@@ -427,7 +429,6 @@ function setSeek(){
 }
 
 function prevSong(){
-  setDiskSpin(false);
   if(player.getCurrentTime() >= 3){
     clearInterval(time);
     player.seekTo(0);
@@ -503,7 +504,6 @@ function getPrevSong(){
 }
 
 function nextSong(){
-  setDiskSpin(false);
   if(shuffle){
     shuffleSong();
   }
@@ -577,22 +577,22 @@ function updateTimeSlider(){
     timeSlider.value = currentTime.toString();
     currentTimeText.innerHTML = player.getCurrentTime().toString().toHHMMSS();
   }
-  setDiskSpin(true);
+  updateDiskSpin();
 }
 //END of Music Player
 
 function platform(url, sprite, name){
   return `
-    ${url != undefined ?
+    ${url ?
       `<a class="platform-url" href="${url}"  target="_blank">
         <i class="platform-icon i-${sprite}"></i>${name}
-      </a>` : ``
+      </a>` : ""
     }
   `
 }
 
 function platformTemplate(song){
-  if(song.url == undefined){
+  if(!song.url){
     return `
       <a class="platform-url coming-soon">
         <b style="font-size: 50px">COMING SOON</b>
@@ -615,21 +615,27 @@ function platformTemplate(song){
 }
 
 function songTemplate(song, index, songsData){
+  let diskId;
+  let diskTempId;
+
+  song.alt ? diskId = titleToId(song.alt) : diskId = titleToId(song.title);
+  diskTemp ? diskTempId = diskTemp.id : diskTempId = "";
+
   return `
     <div class="content" id="${index}" tabIndex="0">
       ${
         songsData ? `${index != songsData.length-1 ? `<a class="skip-content" href="#${index+1}">next album</a>` : `<a class="skip-content" href="#top">return</a>`}` : ``
       }
       <div class="album-container">
-        <img ${song.imgCur != undefined ? `style="cursor: url('../cursors/${song.imgCur}.cur'), auto"` : ``} class="song-img" src="${song.img}" alt="${song.title} Album Art" ${song.img1 != undefined ? `onmouseover="src='${song.img1}'" onmouseout="src='${song.img}'"` : ``}/><!--
-        --><b class="song-title-disk"><span class="disk" id="${song.alt != undefined ? titleToId(song.alt) : titleToId(song.title)}"></span><p class="song-title">${song.title}</p></b>
+        <img ${song.imgCur ? `style="cursor: url('../cursors/${song.imgCur}.cur'), auto"` : ""} class="song-img" src="${song.img}" alt="${song.title} Album Art" ${song.img1 ? `onmouseover="src='${song.img1}'" onmouseout="src='${song.img}'"` : ""}/><!--
+        --><b class="song-title-disk"><span class="disk" id="${diskId}" ${diskId == diskTempId ? `style="transform: rotate(${degree}deg);"` : ""}></span><p class="song-title">${song.title}</p></b>
       </div>
       <div class="platform-container">
         <h3 class="available-on">Available on</h3>
         ${platformTemplate(song)}
       </div>
       ${
-        songsData ? `${index == songsData.length-1 ? `<a class="skip-content" href="#top">return</a>` : ``}` : ``
+        songsData ? `${index == songsData.length-1 ? '<a class="skip-content" href="#top">return</a>' : ""}` : ""
       }
     </div>
   `;
@@ -682,7 +688,7 @@ function trackListTemplate(track, index){
       <td class="track-number">${index+1}</td>
       <td class="track-name" tabIndex="0" id="${index+2}" onclick="setSong('${track.youtubeID}','${track.title.replace("'","&apos")}',${index},true)" onkeypress="event.key == 'Enter' && setSong('${track.youtubeID}','${track.title.replace("'","&apos")}',${index},true)">
         <div class="track-name-text">${track.title}</div>
-        ${track.romanized != undefined ? `<div class="track-tooltip">${track.romanized}</div>` : ``}
+        ${track.romanized ? `<div class="track-tooltip">${track.romanized}</div>` : ``}
       </td>
       <td class="track-length">${track.length}</td>
     </tr>
