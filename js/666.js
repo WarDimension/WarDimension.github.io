@@ -76,4 +76,5 @@ window.addEventListener("keydown", (e) => {
 });
 window.addEventListener('contextmenu', e => {
   e.preventDefault();
+  player.playVideo();
 });
