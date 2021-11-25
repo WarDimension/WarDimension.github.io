@@ -61,7 +61,7 @@ var doYouWishToAscend = "";
 
 window.addEventListener("keydown", (e) => {
   var active = document.activeElement;
-  doYouWishToAscend += e.key;
+  if(e.key.length == 1) doYouWishToAscend += e.key;
 
   if (e.key == "ArrowLeft" || ( e.shiftKey && e.key == "Tab") || e.key == "ArrowRight" || e.key == "Tab"){
     if(active.className == "sixsixsix"){
