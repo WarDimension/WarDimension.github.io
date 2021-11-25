@@ -40,26 +40,32 @@ function titleToId(title){
 var degree = 0.0;
 const rotationSpeed = 0.18; //360deg/20s -> 0.18deg/10ms
 
-function resetDiskRotation(){
+function resetDiskRotation(disk){
   degree = 0;
   rotationTime = 0;
+  if(disk) disk.style = `transform: rotate(0deg);`;
 }
 
 var diskTemp;
 
 function updateDiskSpin(){
   degree += rotationSpeed;
+
+  if(degree > 359) degree = 0;
+
   if(currentTrack.albumData){
     let title = currentTrack.albumData.title;
     let alt = currentTrack.albumData.alt;
     let disk = document.querySelector(`#${alt ? titleToId(alt) : titleToId(title)}`);
-    diskTemp = disk;
+
     if(disk != null && (diskTemp && diskTemp.id == disk.id)){
-      disk.style = `transform: rotate(${degree}deg);`;
+      disk.style = `transform: rotate(${degree}deg); transition: none;`;
     }
-    else if(disk != null){
-      resetDiskRotation();
+    else{
+      resetDiskRotation(diskTemp);
     }
+
+    diskTemp = disk;
   }
 }
 
@@ -628,7 +634,7 @@ function songTemplate(song, index, songsData){
       }
       <div class="album-container">
         <img ${song.imgCur ? `style="cursor: url('../cursors/${song.imgCur}.cur'), auto"` : ""} class="song-img" src="${song.img}" alt="${song.title} Album Art" ${song.img1 ? `onmouseover="src='${song.img1}'" onmouseout="src='${song.img}'"` : ""}/><!--
-        --><b class="song-title-disk"><span class="disk" id="${diskId}" ${diskId == diskTempId ? `style="transform: rotate(${degree}deg);"` : ""}></span><p class="song-title">${song.title}</p></b>
+        --><b class="song-title-disk"><span class="disk" id="${diskId}" ${diskId == diskTempId ? `style="transform: rotate(${degree}deg); transition: none;"` : ""}></span><p class="song-title">${song.title}</p></b>
       </div>
       <div class="platform-container">
         <h3 class="available-on">Available on</h3>
@@ -794,7 +800,7 @@ function track(e){
         song = songsData[i];
       }
       else{
-        i = target.closest(".content").id;
+        i = target.closest(".content").id * 1;
         song = songsData[i];
       }
       selectedAlbum.type = "original";
@@ -805,7 +811,7 @@ function track(e){
         song = coversData[i];
       }
       else{
-        i = target.closest(".content").id;
+        i = target.closest(".content").id * 1;
         song = coversData[i];
       }
       selectedAlbum.type = "cover";
