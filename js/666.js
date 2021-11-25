@@ -54,14 +54,15 @@ function effect(effect = true){
     document.body.style.backdropFilter = "";
   }
 }
+
 var skip = document.getElementsByClassName("skip");
-skip[0].addEventListener("keypress", (e) => {
-  if (e.key == "Enter"){
-    effect(false);
-  }
-});
+
+var doYouWishToAscend = "";
+
 window.addEventListener("keydown", (e) => {
   var active = document.activeElement;
+  doYouWishToAscend += e.key;
+
   if (e.key == "ArrowLeft" || ( e.shiftKey && e.key == "Tab") || e.key == "ArrowRight" || e.key == "Tab"){
     if(active.className == "sixsixsix"){
       effect(true);
@@ -73,7 +74,12 @@ window.addEventListener("keydown", (e) => {
   else if(e.key == "Enter" && active.className == "skip"){
     effect(true);
   }
+  else if(e.key == "Enter" && doYouWishToAscend.toLocaleLowerCase().includes("ascend")){
+    localStorage.setItem("ascend1", "true");
+    window.open("https://wardimension.github.io/👁","_top");
+  }
 });
+
 window.addEventListener('contextmenu', e => {
   e.preventDefault();
   player.playVideo();
