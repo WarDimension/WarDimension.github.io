@@ -74,7 +74,7 @@ window.addEventListener("keydown", (e) => {
   else if(e.key == "Enter" && active.className == "skip"){
     effect(true);
   }
-  else if(e.key == "Enter" && active.className == "sixsixsix" && doYouWishToAscend.toLocaleLowerCase().match(/ascend$/)){
+  else if(e.key == "Enter" && active.className == "sixsixsix" && doYouWishToAscend.match(/ascend$/i)){
     localStorage.setItem("ascend1", "true");
     window.open("https://wardimension.github.io/👁","_top");
   }
