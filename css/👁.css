@@ -1,0 +1,6 @@
+.menu-button, .wd-logo{
+  cursor: url("../cursors/👁_link.cur"), auto;
+}
+*, .active{
+  cursor: url("../cursors/👁.cur"), auto;
+}
