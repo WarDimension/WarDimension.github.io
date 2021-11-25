@@ -32,6 +32,7 @@ console.group("FUN (.❛ ᴗ ❛.)");
 console.groupEnd();
 
 console.groupCollapsed("%cThe End of the World", "padding: 1px 8px; color: #fff; background: #e2363a; border-radius: 15px;");
+  console.error("%c1010011010", "color: #666;");
 
 function removeHash(){
     const url = new URL(window.location);
