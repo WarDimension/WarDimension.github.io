@@ -71,7 +71,7 @@ function updateDiskSpin(seek = false){
     else if(disk != null && (diskTemp && diskTemp.id == disk.id)){
       disk.style = `transform: rotate(${degree}deg);`;
     }
-    else if(degree != 0){
+    else{
       resetDiskRotation(diskTemp);
     }
 
