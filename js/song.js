@@ -258,6 +258,7 @@ function setSong(videoId,title = "",trackIndex,setCurrentTrack = false){
 function closePlayer(){
   player.pauseVideo();
   clearInterval(time);
+  resetDiskRotation(diskTemp);
   musicPlayer.style.bottom = "-200px";
   musicPlayer.style.opacity = "0";
   playButton.tabIndex = "-1";
