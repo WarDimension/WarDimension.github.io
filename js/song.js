@@ -318,13 +318,6 @@ function shuffleSong(push = true){
   var title;
   var trackIndex;
 
-  var randomType = Math.floor(Math.random() * 100);
-
-  var totalSongs = songsData.length + coversData.length;
-  var coversPercentage = Math.round(coversData.length / totalSongs * 100);
-
-  randomType < coversPercentage ? randomType = 1 : randomType = 0;
-
   if(repeat == "repeat album") currentTrack.type == "original" ? randomType = 0 : randomType = 1;
 
   switch(randomType){
