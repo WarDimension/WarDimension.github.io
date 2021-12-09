@@ -691,21 +691,26 @@ function songSort(){
     sortNewest = true;
     sortButton.innerHTML = "▼";
   }
+  sortButton.blur();
   songDisplay();
 }
 
 function originalSong(){
   original = true;
   songDisplay();
-  originalButton.style = "background: #000; color: #fff; cursor: default";
-  coverButton.style = "background: #fff; color: #000; cursor: pointer";
+  originalButton.className = "song-button active";
+  coverButton.className = "song-button";
+  originalButton.tabIndex = "-1";
+  coverButton.tabIndex = "0";
 }
 
 function coverSong(){
   original = false;
   songDisplay();
-  originalButton.style = "background: #fff; color: #000; cursor: pointer";
-  coverButton.style = "background: #000; color: #fff; cursor: default";
+  originalButton.className = "song-button";
+  coverButton.className = "song-button active";
+  originalButton.tabIndex = "0";
+  coverButton.tabIndex = "-1";
 }
 
 function trackListTemplate(track, index){
