@@ -895,7 +895,8 @@ function track(e){
   }
   else if(target.className == "track-name"){
     index = target.id;
-  }else if(target.className == "track-name-text"){
+  }
+  else if(target.className == "track-name-text"){
     index = target.parentElement.id;
   }
 }
