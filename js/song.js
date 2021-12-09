@@ -125,19 +125,19 @@ var musicPlayer = document.getElementById("music-player");
 
 var songName = document.getElementById("player-song-name");
 
-var playButton =  document.getElementById("play-button");
+var playButton = document.getElementById("play-button");
 
-var prevButton =  document.getElementById("prev-button");
+var prevButton = document.getElementById("prev-button");
 
-var nextButton =  document.getElementById("next-button");
+var nextButton = document.getElementById("next-button");
 
-var currentTimeText =  document.getElementById("current-time-text");
+var currentTimeText = document.getElementById("current-time-text");
 
-var durationText =  document.getElementById("duration-text");
+var durationText = document.getElementById("duration-text");
 
-var shuffleButton =  document.getElementById("shuffle-button");
+var shuffleButton = document.getElementById("shuffle-button");
 
-var repeatButton =  document.getElementById("repeat-button");
+var repeatButton = document.getElementById("repeat-button");
 
 var closePlayerButton = document.getElementById("close-player-button");
 
@@ -816,8 +816,9 @@ window.addEventListener("keypress", (e) => {
 function track(e){
   var target = e.target;
   var content = document.getElementsByClassName("content");
+  var trackExist = document.querySelector("#track-container") != null;
   document.getElementsByTagName("html")[0].style.scrollBehavior = "auto";
-  if(!url()["album"] && target.closest(".content") && !(["platform-url", "skip-content"].includes(target.className))){
+  if(!trackExist && target.closest(".content") && !(["platform-url", "skip-content"].includes(target.className))){
     var song;
     var i;
     if(original){
@@ -852,7 +853,7 @@ function track(e){
     trackHighlight();
     index = 0;
   }
-  else if(url()["album"] && !target.closest("#track-container") && !target.closest("#music-player") && !(["platform-url", "skip", "skip-content", "material-icons"].includes(target.className))){
+  else if(trackExist && !target.closest("#track-container") && !target.closest("#music-player") && !(["platform-url", "skip", "skip-content", "material-icons"].includes(target.className))){
     songDisplay();
     if(target.className != "song-button"){
       if(sortNewest){
