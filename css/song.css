@@ -5,11 +5,18 @@
   width: 1344px;
   margin-top: 0px;
   margin-bottom: 80px;
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1.1), outline-width 0.1s, outline-color 0s;
 }
-.content:focus, .content:hover{
+.content:focus{
   -webkit-box-shadow: -20px 0px 0px 5px black, 20px 0px 0px 5px black;
   -moz-box-shadow: -20px 0px 0px 5px black, 20px 0px 0px 5px black;
   box-shadow: -20px 0px 0px 5px black, 20px 0px 0px 5px black;
+}
+.content:hover{
+  outline: 4px solid #fff;
+}
+.content:focus:hover{
+  outline: none;
 }
 .platform-container{
   width: 75%;
@@ -156,6 +163,7 @@
   -webkit-box-shadow:0 8px 6px -6px black;
   -moz-box-shadow:0 8px 6px -6px black;
   box-shadow:0 8px 6px -6px black;
+  outline: none;
 }
 .track{
   margin: auto;
