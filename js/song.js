@@ -701,6 +701,7 @@ function originalSong(){
   coverButton.className = "song-button";
   originalButton.tabIndex = "-1";
   coverButton.tabIndex = "0";
+  originalButton.blur();
 }
 
 function coverSong(){
@@ -710,6 +711,7 @@ function coverSong(){
   coverButton.className = "song-button active";
   originalButton.tabIndex = "0";
   coverButton.tabIndex = "-1";
+  coverButton.blur();
 }
 
 function trackListTemplate(track, index){

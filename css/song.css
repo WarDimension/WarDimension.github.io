@@ -153,9 +153,9 @@
   padding: 25px;
 }
 #track-container:hover{
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
+  -webkit-box-shadow:0 8px 6px -6px black;
+  -moz-box-shadow:0 8px 6px -6px black;
+  box-shadow:0 8px 6px -6px black;
 }
 .track{
   margin: auto;
@@ -317,7 +317,7 @@ i{
 .player-button:focus, .player-button-content{
   outline: none;
 }
-.player-button:focus > .player-button-content{
+.player-button:focus-visible > .player-button-content{
   outline: solid 2px #fff;
 }
 #play-button.player-button:focus{
