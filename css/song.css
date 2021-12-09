@@ -114,7 +114,17 @@
   -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
-.song-sort-button:hover, .song-menu:hover{
+.song-button, .song-sort-button{
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1.1), border 0s;
+}
+.song-button:hover, .song-sort-button:hover{
+  border: 2px solid #fff;
+  border-bottom: none;
+}
+.song-button.active:hover{
+  border: none;
+}
+.song-sort-button:hover, .song-menu:hover, .song-menu:hover > .song-sort-button{
   -webkit-box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   -moz-box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
