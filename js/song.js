@@ -707,6 +707,7 @@ function songSort(){
     sortNewest = true;
     sortButton.innerHTML = "▼";
   }
+  setAlbumParameter();
   songDisplay();
 }
 
@@ -751,12 +752,12 @@ function trackTemplate(song){
     <div class="content" id="track-container">
       <table class="track">
         <tbody class="track-body">
-        <tr class="track-head">
-          <th class="track-number-head">#</th>
-          <th class="track-name-head">Track Name</th>
-          <th class="track-length-head">Length</th>
-        </tr>
-        ${song.track.map(trackListTemplate).join("")}
+          <tr class="track-head">
+            <th class="track-number-head">#</th>
+            <th class="track-name-head">Track Name</th>
+            <th class="track-length-head">Length</th>
+          </tr>
+          ${song.track.map(trackListTemplate).join("")}
         </tbody>
       </table>
       <a class="skip-content" id="track-skip-content" href="#top">return</a>
@@ -774,7 +775,7 @@ songDisplay();
 
 if(url()["album"]){
   var found = false;
-  var params = `?album=${url()["album"]}`;
+  var params = url()["album"];
   for(i = 0; i < songsData.length; i++){
     if(songsData[i].title.toUpperCase() == url()["album"].toUpperCase()){
       contentContainer.innerHTML = songTemplate(songsData[i],"0");
