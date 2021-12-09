@@ -90,13 +90,6 @@ window.addEventListener("keydown", (e) => {
   }
 });
 
-
-window.addEventListener("keyup", (e) => {
-  if (e.key == " " && e.target.className != "track-name"){
-    e.target.blur();
-  }
-});
-
 function nextFocus(element) {
   if(element.innerHTML == "return"){
     document.getElementsByTagName("html")[0].style.scrollBehavior = "auto";

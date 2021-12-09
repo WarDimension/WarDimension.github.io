@@ -691,7 +691,6 @@ function songSort(){
     sortNewest = true;
     sortButton.innerHTML = "▼";
   }
-  sortButton.blur();
   songDisplay();
 }
 
