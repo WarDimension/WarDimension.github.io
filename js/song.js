@@ -862,7 +862,7 @@ function track(e){
           index = (content.length - 1) - selectedAlbum.index;
         }
         else{
-            index = indexDefault;
+          index = indexDefault;
         }
       }
       else{
@@ -872,7 +872,7 @@ function track(e){
           index = selectedAlbum.index;
         }
         else{
-            index = indexDefault;
+          index = indexDefault;
         }
       }
     }
@@ -898,6 +898,9 @@ function track(e){
   }
   else if(target.className == "track-name-text"){
     index = target.parentElement.id;
+  }
+  else{
+    index = indexDefault;
   }
 }
 
