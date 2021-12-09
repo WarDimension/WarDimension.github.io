@@ -682,6 +682,22 @@ function songDisplay(){
   }
 }
 
+function setAlbumParameter(album){
+  if(album){
+    var params = `?album=${album}`;
+    if(url()["id"]) params += `&id=${url()["id"]}`;
+    setParams(params);
+  }
+  else{
+    if(url()["id"]){
+      setParams(`id=${url()["id"]}`);
+    }
+    else{
+      setParams("");
+    }
+  }
+}
+
 function songSort(){
   if(sortNewest){
     sortNewest = false;
@@ -702,12 +718,7 @@ function originalSong(){
   originalButton.tabIndex = "-1";
   coverButton.tabIndex = "0";
   originalButton.blur();
-  if(url()["id"]){
-    setParams(`id=${url()["id"]}`);
-  }
-  else{
-    setParams("");
-  }
+  setAlbumParameter();
 }
 
 function coverSong(){
@@ -718,12 +729,7 @@ function coverSong(){
   originalButton.tabIndex = "0";
   coverButton.tabIndex = "-1";
   coverButton.blur();
-  if(url()["id"]){
-    setParams(`id=${url()["id"]}`);
-  }
-  else{
-    setParams("");
-  }
+  setAlbumParameter();
 }
 
 function trackListTemplate(track, index){
@@ -768,7 +774,8 @@ songDisplay();
 
 if(url()["album"]){
   var found = false;
-  for(i = 0; i< songsData.length; i++){
+  var params = `?album=${url()["album"]}`;
+  for(i = 0; i < songsData.length; i++){
     if(songsData[i].title.toUpperCase() == url()["album"].toUpperCase()){
       contentContainer.innerHTML = songTemplate(songsData[i],"0");
       found = true;
@@ -785,7 +792,7 @@ if(url()["album"]){
     }
   }
   if(!found){
-    for(i = 0; i< coversData.length; i++){
+    for(i = 0; i < coversData.length; i++){
       if(coversData[i].title.toUpperCase() == url()["album"].toUpperCase()){
         coverSong();
         contentContainer.innerHTML = songTemplate(coversData[i],"0");
@@ -804,9 +811,7 @@ if(url()["album"]){
       }
     }
   }
-  params = `?album=${url()["album"]}`;
-  if(url()["id"]) params += `&id=${url()["id"]}`;
-  setParams(params);
+  setAlbumParameter(params);
 }
 
 if(url()["sort"] == "old"){
@@ -859,9 +864,7 @@ function track(e){
     contentContainer.innerHTML = songTemplate(song,"0");
     contentContainer.innerHTML += trackTemplate(song);
     content[0].focus();
-    params = `?album=${(song.alt ? song.alt : song.title).toLowerCase()}`;
-    if(url()["id"]) params += `&id=${url()["id"]}`;
-    setParams(params);
+    setAlbumParameter((song.alt ? song.alt : song.title).toLowerCase());
     trackHighlight();
     index = 0;
   }
@@ -892,12 +895,7 @@ function track(e){
     else{
       index = indexDefault;
     }
-    if(url()["id"]){
-      setParams(`id=${url()["id"]}`);
-    }
-    else{
-      setParams("");
-    }
+    setAlbumParameter();
     if(index != indexDefault) document.getElementsByTagName("html")[0].style.scrollBehavior = "smooth";
   }
   else if(target.className == "skip"){
