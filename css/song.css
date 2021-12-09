@@ -65,6 +65,7 @@
   white-space: nowrap;
 }
 .song-menu-container{
+  position: relative;
   width: 1344px;
   margin: auto;
   margin-top: 96px;
@@ -107,6 +108,38 @@
   -webkit-box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   -moz-box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+.controls-info-container{
+  position: absolute;
+  display: inline-block;
+  right: 0;
+  background: #fff6;
+  pointer-events: none;
+  padding: 2px 6px 0 6px;
+  height: 28px;
+  color: #aaa;
+}
+.controls-info-container p{
+  position: relative;
+  display: inline;
+  margin-left: 6px;
+  top: -7px;
+}
+.key{
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  margin-right: 8px;
+}
+.controls-info-container::before{
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 37px;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background: #aaa;
 }
 #track-container{
   position: relative;
@@ -439,6 +472,9 @@ button:focus{
 @media only screen and (max-width: 480px){
   .skip{
     top: 260px;
+  }
+  .controls-info-container{
+    display: none;
   }
 }
 @media only screen and (max-width: 360px){
