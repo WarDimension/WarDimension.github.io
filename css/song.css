@@ -320,10 +320,10 @@ i{
 .player-button:focus-visible > .player-button-content{
   outline: solid 2px #fff;
 }
-#play-button.player-button:focus{
+#play-button.player-button:focus-visible{
   padding: 0;
 }
-#play-button.player-button:focus > .player-button-content{
+#play-button.player-button:focus-visible > .player-button-content{
   outline: none;
   border: solid 2px #fff;
   border-radius: 100%;
