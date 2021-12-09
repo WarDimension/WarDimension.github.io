@@ -702,6 +702,12 @@ function originalSong(){
   originalButton.tabIndex = "-1";
   coverButton.tabIndex = "0";
   originalButton.blur();
+  if(url()["id"]){
+    setParams(`id=${url()["id"]}`);
+  }
+  else{
+    setParams("");
+  }
 }
 
 function coverSong(){
@@ -712,6 +718,12 @@ function coverSong(){
   originalButton.tabIndex = "0";
   coverButton.tabIndex = "-1";
   coverButton.blur();
+  if(url()["id"]){
+    setParams(`id=${url()["id"]}`);
+  }
+  else{
+    setParams("");
+  }
 }
 
 function trackListTemplate(track, index){
