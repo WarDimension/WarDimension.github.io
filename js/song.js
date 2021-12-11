@@ -176,6 +176,7 @@ function onPlayerStateChange(event){
     }
     else if(repeat == "repeat one"){
       player.playVideo();
+      player.unMute();
     }
     setPlayButton("PAUSED");
     playerState = "ENDED";
@@ -432,6 +433,7 @@ function setRepeat(){
 function playSong(){
   if(playerState == "UNSTARTED" || playerState == "PAUSED" || playerState == "ENDED"){
     player.playVideo();
+    player.unMute();
   }
   else if(playerState == "PLAYING" || playerState == "BUFFERING"){
     player.pauseVideo();
