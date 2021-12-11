@@ -37,7 +37,7 @@ body{
 }
 @media only screen and (orientation: portrait), only screen and (max-width: 1600px){
   .skip{
-    top: 328px;
+    top: 318px;
   }
 }
 @media only screen and (max-width: 1024px){
@@ -48,5 +48,10 @@ body{
 @media only screen and (max-width: 800px){
   .skip{
     top: 320px;
+  }
+}
+@media only screen and (max-width: 500px){
+  .skip{
+    top: 303px;
   }
 }

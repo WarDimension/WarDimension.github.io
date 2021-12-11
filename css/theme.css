@@ -320,3 +320,11 @@ h3{
     top: calc(100% + 20px);
   }
 }
+@media only screen and (max-width: 500px){
+  .wd-logo{
+    height: 195px;
+  }
+  .skip{
+    top: 303px;
+  }
+}
