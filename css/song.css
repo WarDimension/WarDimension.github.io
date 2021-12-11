@@ -444,7 +444,7 @@ button:focus{
   }
   .skip{
     width: 180px;
-    top: 335px;
+    top: 286px;
     transform: translateX(260px);
     left: 0;
     right: 0;
@@ -472,7 +472,7 @@ button:focus{
     padding: 8px 10px;
   }
   .skip{
-    top: 357px;
+    top: 308px;
     transform: none;
     left: auto;
     right: 5vw;
@@ -488,29 +488,5 @@ button:focus{
     margin: auto;
     width: 150px;
     background: #eee;
-  }
-}
-@media only screen and (max-width: 500px){
-  .skip{
-    top: 340px;
-  }
-}
-@media only screen and (max-width: 480px){
-  .skip{
-    top: 260px;
-  }
-  .controls-info-container{
-    display: none;
-  }
-}
-@media only screen and (max-width: 360px){
-  .skip{
-    top: 230px;
-    left: 0;
-    right: 0;
-    margin: auto;
-  }
-  .skip:focus{
-    left: 20px;
   }
 }

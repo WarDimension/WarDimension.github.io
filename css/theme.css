@@ -290,7 +290,7 @@ h3{
     width: 620px;
   }
   .skip{
-    top: 330px;
+    top: 320px;
     margin: auto;
     left: -20px;
     right: 0;
@@ -318,29 +318,5 @@ h3{
   }
   .skip-content{
     top: calc(100% + 20px);
-  }
-}
-@media only screen and (max-width: 500px){
-  .wd-logo{
-    height: 195px;
-  }
-  .skip{
-    top: 313px;
-  }
-}
-@media only screen and (max-width: 480px){
-  .wd-logo{
-    height: 150px;
-  }
-  .skip{
-    top: 268px;
-  }
-}
-@media only screen and (max-width: 360px){
-  .wd-logo{
-    height: 120px;
-  }
-  .skip{
-    top: 238px;
   }
 }

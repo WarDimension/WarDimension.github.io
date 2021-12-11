@@ -42,26 +42,11 @@ body{
 }
 @media only screen and (max-width: 1024px){
   .skip{
-    top: 308px;
+    top: 298px;
   }
 }
 @media only screen and (max-width: 800px){
   .skip{
-    top: 330px;
-  }
-}
-@media only screen and (max-width: 500px){
-  .skip{
-    top: 313px;
-  }
-}
-@media only screen and (max-width: 480px){
-  .skip{
-    top: 268px;
-  }
-}
-@media only screen and (max-width: 360px){
-  .skip{
-    top: 238px;
+    top: 320px;
   }
 }
