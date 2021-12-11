@@ -61,9 +61,11 @@ if(screen.width < 500) {
 }
 
 window.addEventListener("resize", (e) => {
-  if(screen.width < 500) {
+  var vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+  if(vw < 500) {
     mvp.setAttribute("content","width=500, user-scalable=no");
-  }else{
+  }
+  else{
     mvp.setAttribute("content","width=device-width, initial-scale=1.0, user-scalable=no");
   }
 });
