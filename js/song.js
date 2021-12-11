@@ -176,7 +176,6 @@ function onPlayerStateChange(event){
     }
     else if(repeat == "repeat one"){
       player.playVideo();
-      player.unMute();
     }
     setPlayButton("PAUSED");
     playerState = "ENDED";
@@ -433,7 +432,6 @@ function setRepeat(){
 function playSong(){
   if(playerState == "UNSTARTED" || playerState == "PAUSED" || playerState == "ENDED"){
     player.playVideo();
-    player.unMute();
   }
   else if(playerState == "PLAYING" || playerState == "BUFFERING"){
     player.pauseVideo();
@@ -600,6 +598,8 @@ var timeSlider = document.getElementById("time-slider");
 
 var time;
 function updateTimeSlider(){
+  player.setVolume(100);
+  player.unMute();
   var currentTime = Math.floor((player.getCurrentTime()/player.getDuration())*timeSlider.max);
   if(!isNaN(currentTime)){
     timeSlider.value = currentTime.toString();
