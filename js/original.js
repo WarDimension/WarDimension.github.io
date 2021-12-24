@@ -521,49 +521,49 @@ const songsData = [
         "title": "落書き",
         "romanized": "Rakugaki",
         "length": "1:56",
-        "youtubeID": ""
+        "youtubeID": "xJJzKweopRQ"
       },
       {
         "title": "色の鏡",
         "romanized": "Iro no Kagami",
         "length": "2:02",
-        "youtubeID": ""
+        "youtubeID": "HBfrao80Mxw"
       },
       {
         "title": "星を描いた",
         "romanized": "Hoshi o Kaita",
         "length": "2:04",
-        "youtubeID": ""
+        "youtubeID": "QE5PkQGUiVc"
       },
       {
         "title": "壊れたページ",
         "romanized": "Kowareta Page",
         "length": "1:53",
-        "youtubeID": ""
+        "youtubeID": "U6FtzeCULU8"
       },
       {
         "title": "プリズム",
         "romanized": "Prism",
         "length": "2:29",
-        "youtubeID": ""
+        "youtubeID": "wtqyeVzcmKI"
       },
       {
         "title": "彩度",
         "romanized": "Saido",
         "length": "2:30",
-        "youtubeID": ""
+        "youtubeID": "8Rp2gwg7J3I"
       },
       {
         "title": "明るい色と暗い色",
         "romanized": "Akarui Iro to Kurai Iro",
         "length": "2:11",
-        "youtubeID": ""
+        "youtubeID": "sTBz_BE1UgI"
       },
       {
         "title": "虹",
         "romanized": "Niji",
         "length": "2:00",
-        "youtubeID": ""
+        "youtubeID": "N4gXQP9PfGM"
       }
     ]
   }
