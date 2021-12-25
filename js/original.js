@@ -516,6 +516,7 @@ const songsData = [
     "alt": "shiroi-melody",
     "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/db9b0a59-1832-436d-be35-c4da781cf1c8/deuyimk-4f9b728e-7492-4870-b8b9-ee4bb748a5f2.jpg/v1/fill/w_400,h_400,q_75,strp/shiroi_melody_by_wardimension_deuyimk-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDAwIiwicGF0aCI6IlwvZlwvZGI5YjBhNTktMTgzMi00MzZkLWJlMzUtYzRkYTc4MWNmMWM4XC9kZXV5aW1rLTRmOWI3MjhlLTc0OTItNDg3MC1iOGI5LWVlNGJiNzQ4YTVmMi5qcGciLCJ3aWR0aCI6Ijw9NDAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.WjrOBy0j3kxkWGNwbEWEf9YkH7kBeH0a8cji9Da1KM8",
     "url": [{
+      "itunes": "https://music.apple.com/jp/album/白いメロディー/1597478873",
       "deezer": "https://www.deezer.com/album/275653712",
       "spotify": "https://play.spotify.com/album/2jzbkOlmMHOiUni19zMcIS",
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_lTGBsB2uNP-JKhJPYPjbhMRrOrgRfrafw",
