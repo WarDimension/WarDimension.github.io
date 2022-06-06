@@ -572,5 +572,60 @@ const songsData = [
         "youtubeID": "N4gXQP9PfGM"
       }
     ]
+  },
+  {
+    "title": "Μαύρη Μελωδία",
+    "alt": "mavri-melodia",
+    "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/db9b0a59-1832-436d-be35-c4da781cf1c8/df6spn2-d7d6b0e8-b057-4d81-9a97-c4398fb53bbb.jpg/v1/fill/w_400,h_400,q_75,strp/mavri_melodia_by_wardimension_df6spn2-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDAwIiwicGF0aCI6IlwvZlwvZGI5YjBhNTktMTgzMi00MzZkLWJlMzUtYzRkYTc4MWNmMWM4XC9kZjZzcG4yLWQ3ZDZiMGU4LWIwNTctNGQ4MS05YTk3LWM0Mzk4ZmI1M2JiYi5qcGciLCJ3aWR0aCI6Ijw9NDAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.9ygth97yEU1X-RKIL14SheqsB9pt8QxlolDOo-DjeRM",
+    "track": [
+      {
+        "title": "Η 1η Θυσία",
+        "romanized": "I 1i Thysía",
+        "length": "2:38",
+        "youtubeID": ""
+      },
+      {
+        "title": "Η 2η Θυσία",
+        "romanized": "I 2i Thysía",
+        "length": "2:55",
+        "youtubeID": ""
+      },
+      {
+        "title": "Η 3η Θυσία",
+        "romanized": "I 3i Thysía",
+        "length": "2:22",
+        "youtubeID": ""
+      },
+      {
+        "title": "Η 4η Θυσία",
+        "romanized": "I 4i Thysía",
+        "length": "1:55",
+        "youtubeID": ""
+      },
+      {
+        "title": "Η 5η Θυσία",
+        "romanized": "I 5i Thysía",
+        "length": "2:08",
+        "youtubeID": ""
+      },
+      {
+        "title": "Η 6η Θυσία",
+        "romanized": "I 6i Thysía",
+        "length": "2:17",
+        "youtubeID": ""
+      },
+      {
+        "title": "Η 7η Θυσία",
+        "romanized": "I 7i Thysía",
+        "length": "1:45",
+        "youtubeID": ""
+      },
+      {
+        "title": "Η 8η Θυσία",
+        "romanized": "I 8i Thysía",
+        "length": "1:24",
+        "youtubeID": ""
+      }
+    ]
   }
 ];
