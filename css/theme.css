@@ -50,6 +50,22 @@ body{
   top: -60px;
   color: #aaa;
 }
+.dev-console-info.help{
+  text-decoration: none;
+}
+.dev-console-info.help:focus{
+  color: #000;
+  outline: none;
+}
+.dev-console-info.help:focus::before{
+  content: "- "
+}
+.dev-console-info.help:focus::after{
+  content: " -"
+}
+#player{
+  pointer-events: none;
+}
 h3{
   margin-top: 25px;
   margin-bottom: 5px;
@@ -148,6 +164,9 @@ h3{
 }
 #trailer{
   filter: grayscale(1);
+}
+#trailer:focus{
+  outline-width: 4px;
 }
 .platform-container{
   position: absolute;

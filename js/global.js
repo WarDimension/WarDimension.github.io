@@ -69,7 +69,7 @@ window.addEventListener("resize", (e) => {
 });
 
 window.addEventListener("keypress", (e) => {
-  if (e.key == "Enter" && e.target.className != "track-name"){
+  if (e.key == "Enter" && e.target.className != "track-name" && e.target.id != "trailer"){
     document.activeElement.blur();
   }
 });
@@ -111,7 +111,7 @@ function prevFocus(element) {
 }
 
 function getFocus(element,cond){
-  var universe = document.querySelectorAll("input, button, select, textarea, a[href], .content, .track-name, #main, iframe, .sixsixsix");
+  var universe = document.querySelectorAll("input, button, select, textarea, a[href], .content, .track-name, #trailer, iframe, .sixsixsix");
   var list = Array.prototype.filter.call(universe, function(item) {return item.tabIndex >= "0"});
   var index = list.indexOf(element);
   if(index + cond < 0){
