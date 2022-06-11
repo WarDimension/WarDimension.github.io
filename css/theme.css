@@ -45,6 +45,11 @@ body{
   margin: 0;
   background: #eeeeee;
 }
+.dev-console-info{
+  position: relative;
+  top: -60px;
+  color: #aaa;
+}
 h3{
   margin-top: 25px;
   margin-bottom: 5px;
