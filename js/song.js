@@ -713,14 +713,15 @@ function songSort(){
   songDisplay();
 }
 
+var unTab = "";
+
 function originalSong(){
   original = true;
   songDisplay();
   originalButton.className = "song-button active";
   coverButton.className = "song-button";
-  originalButton.tabIndex = "-1";
   coverButton.tabIndex = "0";
-  originalButton.blur();
+  unTab = "original";
   setAlbumParameter();
 }
 
@@ -730,8 +731,7 @@ function coverSong(){
   originalButton.className = "song-button";
   coverButton.className = "song-button active";
   originalButton.tabIndex = "0";
-  coverButton.tabIndex = "-1";
-  coverButton.blur();
+  unTab = "cover";
   setAlbumParameter();
 }
 

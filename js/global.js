@@ -69,7 +69,7 @@ window.addEventListener("resize", (e) => {
 });
 
 window.addEventListener("keypress", (e) => {
-  if (e.key == "Enter" && e.target.className != "track-name" && e.target.id != "trailer"){
+  if (e.key == "Enter" && !["track-name", "player-button"].includes(e.target.className) && e.target.id != "trailer"){
     document.activeElement.blur();
   }
 });
@@ -88,6 +88,14 @@ window.addEventListener("keydown", (e) => {
     e.target.tagName != "iframe" && e.preventDefault();
     nextFocus(document.activeElement).focus();
   }
+
+  if(unTab == "original"){
+    originalButton.tabIndex = "-1";
+  }
+  else if(unTab == "cover"){
+    coverButton.tabIndex = "-1";
+  }
+  unTab = "";
 });
 
 function nextFocus(element) {
