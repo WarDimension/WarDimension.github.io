@@ -141,3 +141,18 @@ String.prototype.toHHMMSS = function () {
   if (seconds < 10) {seconds = "0"+seconds;}
   return hours+minutes+':'+seconds;
 }
+
+// FUN!!!
+
+function disco(fun = true){
+  if (fun){
+    var s = 2;
+    if(typeof fun == "number") s = fun;
+    document.body.style = `animation: disco ${s}s linear infinite;`;
+    return;
+  }
+
+  document.body.style = "";
+}
+
+// FUN!!!
