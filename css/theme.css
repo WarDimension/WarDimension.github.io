@@ -164,6 +164,7 @@ h3{
 }
 #trailer{
   filter: grayscale(1);
+  cursor: pointer;
 }
 #trailer:focus{
   outline-width: 4px;

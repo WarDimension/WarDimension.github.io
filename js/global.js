@@ -89,6 +89,8 @@ window.addEventListener("keydown", (e) => {
     nextFocus(document.activeElement).focus();
   }
 
+  var unTab = "";
+
   if(unTab == "original"){
     originalButton.tabIndex = "-1";
   }

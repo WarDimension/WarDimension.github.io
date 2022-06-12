@@ -41,4 +41,3 @@ function onPlayerStateChange(event){
     play = true;
   }
 }
-

@@ -713,8 +713,6 @@ function songSort(){
   songDisplay();
 }
 
-var unTab = "";
-
 function originalSong(){
   original = true;
   songDisplay();
