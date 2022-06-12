@@ -166,6 +166,9 @@ h3{
   filter: grayscale(1);
   cursor: pointer;
 }
+#trailer:hover{
+  filter: grayscale(1) sepia(0.3);
+}
 #trailer:focus{
   outline-width: 4px;
 }
