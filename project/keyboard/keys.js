@@ -799,7 +799,7 @@ window.addEventListener("keydown", (e) => {
         
         shiftingRight("down");
     }
-    else if(diatonic && !keyPress.className.includes(" " + key)){
+    else if(diatonic && !keyPress.className.split(" ").includes(key)){
         keyPress.classList.add(key);
 
         switch(key){
@@ -1049,7 +1049,7 @@ window.addEventListener("keydown", (e) => {
                 break;
         }
     }
-    else if(!keyPress.className.includes(" " + key)){
+    else if(!keyPress.className.split(" ").includes(key)){
         keyPress.classList.add(key);
 
         switch(key){
