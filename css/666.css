@@ -32,6 +32,10 @@ body{
   transform: none;
   height: 100%;
 }
+.hell-gate{
+  position: absolute;
+  top: -100vh;
+}
 .sixsixsix{
   position: absolute;
   width: 52%;
@@ -42,8 +46,9 @@ body{
   right: 0;
   margin: auto;
 }
-.sixsixsix:focus{
+.sixsixsix:focus, .hell-gate:focus + .sixsixsix{
   background: #fff;
+  outline: 2px solid #000;
 }
 .embed-container{
   position: relative;

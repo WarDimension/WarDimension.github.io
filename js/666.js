@@ -38,16 +38,31 @@ function stopVideo(){
   player.stopVideo();
 }
 
-const block = document.querySelector(".block");
-
 window.addEventListener("click", (e) => {
+  effect(false);
   player.playVideo();
 });
 
+var hellGate = document.querySelector(".hell-gate");
+var satan = document.querySelector(".sixsixsix");
+
+function sellYourSoul(){
+  hellGate.focus();
+}
+
+function defyingGod(){
+  effect(true);
+}
+
+function fallenAngel(){
+  effect(false);
+}
+
 function effect(effect = true){
-  if(effect){
+  if(effect || document.activeElement.className == "hell-gate"){
     document.body.style.filter = "contrast(2)";
     document.body.style.backdropFilter = "contrast(2)";
+    satan.scrollIntoView();
   }
   else{
     document.body.style.filter = "";
@@ -57,28 +72,12 @@ function effect(effect = true){
 
 var skip = document.getElementsByClassName("skip");
 
-var doYouWishToAscend = "";
-
-window.addEventListener("keydown", (e) => {
-  var active = document.activeElement;
-  if(e.key.length == 1) doYouWishToAscend += e.key;
-
-  if (e.key == "ArrowLeft" || ( e.shiftKey && e.key == "Tab") || e.key == "ArrowRight" || e.key == "Tab"){
-    if(active.className == "sixsixsix"){
-      effect(true);
-    }
-    else{
-      effect(false);
-    }
-  }
-  else if(e.key == "Enter" && active.className == "skip"){
-    effect(true);
-  }
-  else if(active.className == "sixsixsix" && doYouWishToAscend.match(/ascend$/i)){
+function doYouWishToAscend(){
+  if(hellGate.value.match(/ascend$/i)){
     localStorage.setItem("ascend1", "true");
     window.open("https://wardimension.github.io/👁","_top");
   }
-});
+}
 
 window.addEventListener('contextmenu', e => {
   e.preventDefault();
