@@ -26,3 +26,7 @@ document.addEventListener("touchmove", (e) => {
 
     setPosition(x, y);
 });
+
+window.addEventListener('contextmenu', e => {
+  e.preventDefault();
+});
