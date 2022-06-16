@@ -1,10 +1,14 @@
 let glyphs = document.querySelector(".glyphs");
 
-let centerX = window.innerWidth / 2;
-let centerY = window.innerHeight / 2;
+function centerLight(){
+    let centerX = window.innerWidth / 2;
+    let centerY = window.innerHeight / 2;
 
-glyphs.style.setProperty("--x", centerX + "px");
-glyphs.style.setProperty("--y", centerY + "px");
+    glyphs.style.setProperty("--x", centerX + "px");
+    glyphs.style.setProperty("--y", centerY + "px");
+}
+
+centerLight();
 
 function setPosition(x, y){
     glyphs.style.setProperty("--x", x + "px");
@@ -29,4 +33,8 @@ document.addEventListener("touchmove", (e) => {
 
 window.addEventListener('contextmenu', e => {
   e.preventDefault();
+});
+
+window.addEventListener("resize", (e) => {
+    centerLight();
 });
