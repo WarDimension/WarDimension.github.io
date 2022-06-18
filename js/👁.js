@@ -13,7 +13,6 @@ centerLight();
 function setPosition(x, y){
     glyphs.style.setProperty("--x", x + "px");
     glyphs.style.setProperty("--y", y + "px");
-
 }
 
 document.addEventListener("mousemove", (e) => {
