@@ -79,6 +79,9 @@ body{
     background: #470000;
     text-shadow: none;
   }
+  .hell-gate{
+    bottom: 25%;
+  }
 }
 @media only screen and (max-width: 600px){
   .sixsixsix{
