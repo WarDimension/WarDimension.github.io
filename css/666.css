@@ -34,7 +34,7 @@ body{
 }
 .hell-gate{
   position: absolute;
-  bottom: 0;
+  bottom: 50%;
   opacity: 0;
 }
 .sixsixsix{
