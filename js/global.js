@@ -74,6 +74,8 @@ window.addEventListener("keypress", (e) => {
   }
 });
 
+var unTab = "";
+
 window.addEventListener("keydown", (e) => {
   if(e.key == "Escape") {
     document.activeElement.blur();
@@ -88,8 +90,6 @@ window.addEventListener("keydown", (e) => {
     e.target.tagName != "iframe" && e.preventDefault();
     nextFocus(document.activeElement).focus();
   }
-
-  var unTab = "";
 
   if(unTab == "original"){
     originalButton.tabIndex = "-1";
