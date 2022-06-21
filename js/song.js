@@ -982,6 +982,7 @@ window.addEventListener("keydown", (e) => {
     }
     else if(active.closest(".content") || active.className == "track-name"){
       index = active.closest(".content").id;
+      active.closest(".content").scrollIntoViewCenter();
     }
     else{
       index = indexDefault;
