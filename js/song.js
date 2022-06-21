@@ -905,6 +905,9 @@ function track(e){
   else if(target.className == "track-name-text"){
     index = target.parentElement.id;
   }
+  else if(target.className == "platform-url"){
+    document.getElementsByTagName("html")[0].style.scrollBehavior = "smooth";
+  }
   else{
     index = indexDefault;
   }
