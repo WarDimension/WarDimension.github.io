@@ -980,13 +980,13 @@ window.addEventListener("keydown", (e) => {
     if(active.className == "skip-content" && url()["album"]){
       index = album.length - 1;
     }
-    else if(active.className == "track-name"){
-      index = active.id;
-      active.scrollIntoViewCenter();
-    }
     else if(active.closest(".content")){
       index = active.closest(".content").id;
       active.closest(".content").scrollIntoViewCenter();
+    }
+    else if(active.className == "track-name"){
+      index = active.id;
+      active.scrollIntoViewCenter();
     }
     else{
       index = indexDefault;
