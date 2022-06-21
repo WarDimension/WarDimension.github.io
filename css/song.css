@@ -418,11 +418,13 @@ button:focus{
     padding: 25px;
   }
   .skip-content{
-    top: 20px;
-    left: 20px;
+    top: calc(100% + 20px);
     bottom: auto;
-    right: auto;
-    pointer-events: none;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 150px;
+    background: #eee;
   }
   .skip-content:focus{
     left: 20px;
@@ -479,15 +481,6 @@ button:focus{
   }
   .skip:focus{
     left: auto;
-  }
-  .skip-content{
-    top: calc(100% + 20px);
-    bottom: auto;
-    left: 0;
-    right: 0;
-    margin: auto;
-    width: 150px;
-    background: #eee;
   }
 }
 @media only screen and (max-width: 500px){

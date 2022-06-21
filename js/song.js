@@ -899,9 +899,6 @@ function track(e){
   else if(target.className == "skip"){
     index = 0;
   }
-  else if(target.className == "skip-content"){
-    index++;
-  }
   else if(target.className == "track-name"){
     index = target.id;
   }
@@ -926,8 +923,6 @@ window.addEventListener("keydown", (e) => {
   }
   var album = document.querySelectorAll(className);
   var active = document.activeElement;
-  var activeParentHeight = parseInt(active.parentElement.offsetHeight);
-  var activeTop = parseInt(active.offsetTop);
   if(e.key == "ArrowUp"){
     e.preventDefault();
     if(url()["album"] && index == 2){
@@ -936,12 +931,6 @@ window.addEventListener("keydown", (e) => {
     else if(index <= 0 || index > album.length - 1){
       index = album.length;
       html.style.scrollBehavior="auto";
-      if(active.className == "skip-content" && (activeParentHeight < activeTop)){
-        index = 1;
-      }
-    }
-    else if(active.className == "skip-content" && (activeParentHeight < activeTop)){
-      index++;
     }
     index--;
     album[index].focus();
@@ -977,8 +966,8 @@ window.addEventListener("keydown", (e) => {
     }
   }
   else if (e.key == "ArrowLeft" || ( e.shiftKey && e.key == "Tab") || e.key == "ArrowRight" || e.key == "Tab"){
-    if(active.className == "skip-content" && url()["album"]){
-      index = album.length - 1;
+    if(active.className == "skip-content"){
+      index = indexDefault;
     }
     else if(active.className == "track-name"){
       index = active.id;
