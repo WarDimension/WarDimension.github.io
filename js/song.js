@@ -650,7 +650,7 @@ function songTemplate(song, index, songsData){
   diskTemp ? diskTempId = diskTemp.id : diskTempId = "";
 
   return `
-    <div class="content" id="${index}" tabIndex="0" onfocus="scrollElementToCenter()">
+    <div class="content" id="${index}" tabIndex="0">
       <div class="album-container">
         <img ${song.imgCur ? `style="cursor: url('../cursors/${song.imgCur}.cur'), auto"` : ""} class="song-img" src="${song.img}" alt="${song.title} Album Art" ${song.img1 ? `onmouseover="src='${song.img1}'" onmouseout="src='${song.img}'"` : ""}/><!--
         --><b class="song-title-disk"><span class="disk" id="${diskId}" ${diskId == diskTempId ? `style="transform: rotate(${degree}deg);"` : ""}></span><p class="song-title">${song.title}</p></b>
@@ -734,7 +734,7 @@ function trackListTemplate(track, index){
   return `
     <tr class="track-list">
       <td class="track-number">${index+1}</td>
-      <td class="track-name" tabIndex="0" id="${index+2}" onfocus="scrollElementToCenter()" onclick="setSong('${track.youtubeID}','${track.title.replace("'","&apos")}',${index},true)" onkeypress="event.key == 'Enter' && setSong('${track.youtubeID}','${track.title.replace("'","&apos")}',${index},true)">
+      <td class="track-name" tabIndex="0" id="${index+2}" onclick="setSong('${track.youtubeID}','${track.title.replace("'","&apos")}',${index},true)" onkeypress="event.key == 'Enter' && setSong('${track.youtubeID}','${track.title.replace("'","&apos")}',${index},true)">
         <div class="track-name-text">${track.title}</div>
         ${track.romanized ? `<div class="track-tooltip">${track.romanized}</div>` : ``}
       </td>
@@ -827,10 +827,6 @@ window.addEventListener("keypress", (e) => {
     track(e);
   }
 });
-
-function scrollElementToCenter(){
-  document.activeElement.scrollIntoViewCenter();
-}
 
 function track(e){
   var target = e.target;
@@ -949,6 +945,7 @@ window.addEventListener("keydown", (e) => {
     }
     index--;
     album[index].focus();
+    document.activeElement.scrollIntoViewCenter();
     html.style.scrollBehavior="smooth";
   }
   else if(e.key == "ArrowDown"){
@@ -962,6 +959,7 @@ window.addEventListener("keydown", (e) => {
     }
     index++;
     album[index].focus();
+    document.activeElement.scrollIntoViewCenter();
     html.style.scrollBehavior="smooth";
   }
   else if(e.key == "Escape") {
