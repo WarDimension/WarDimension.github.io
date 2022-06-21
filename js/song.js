@@ -651,9 +651,6 @@ function songTemplate(song, index, songsData){
 
   return `
     <div class="content" id="${index}" tabIndex="0">
-      ${
-        songsData ? `${index != songsData.length-1 ? `<a class="skip-content" href="#${index+1}">next album</a>` : `<a class="skip-content" href="#top">return</a>`}` : ``
-      }
       <div class="album-container">
         <img ${song.imgCur ? `style="cursor: url('../cursors/${song.imgCur}.cur'), auto"` : ""} class="song-img" src="${song.img}" alt="${song.title} Album Art" ${song.img1 ? `onmouseover="src='${song.img1}'" onmouseout="src='${song.img}'"` : ""}/><!--
         --><b class="song-title-disk"><span class="disk" id="${diskId}" ${diskId == diskTempId ? `style="transform: rotate(${degree}deg);"` : ""}></span><p class="song-title">${song.title}</p></b>
@@ -936,7 +933,7 @@ window.addEventListener("keydown", (e) => {
     if(url()["album"] && index == 2){
       index = 1;
     }
-    else if(index <= 0){
+    else if(index <= 0 || index > album.length - 1){
       index = album.length;
       html.style.scrollBehavior="auto";
       if(active.className == "skip-content" && (activeParentHeight < activeTop)){
@@ -956,7 +953,7 @@ window.addEventListener("keydown", (e) => {
     if(url()["album"] && index == 0){
       index = 1;
     }
-    else if(index == album.length - 1){
+    else if(index >= album.length - 1 || index < 0){
       index = indexDefault;
       html.style.scrollBehavior="auto";
     }
