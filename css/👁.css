@@ -21,7 +21,7 @@ body{
   max-width: 100%;
 }
 .glyphs{
-  box-shadow: 0px 0px 15px 6px rgba(77,43,43,1);
+  box-shadow: var(--shadowX) var(--shadowY) 15px 6px rgba(77,43,43,1), calc(var(--shadowX) * -1 / 2) calc(var(--shadowY) * -1 / 2) 10px 0px rgba(255,255,255,.5);
 }
 .glyphs::after{
   content: "";
