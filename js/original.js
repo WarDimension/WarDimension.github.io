@@ -580,7 +580,7 @@ const songsData = [
     "url": [{
       "itunes": "",
       "deezer": "https://www.deezer.com/album/327400167",
-      "spotify": "",
+      "spotify": "https://play.spotify.com/album/7iM4MBXURVLQPzV9sU5rHu?si=j3DmGSWdSJiGdP_LG0h2NQ",
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_krj8XHkMkdspm0AjxYOBxAEaCpfFd8RJ8",
       "amazon": "https://www.amazon.com/music/player/albums/B0B42SGC4B"
     }],
