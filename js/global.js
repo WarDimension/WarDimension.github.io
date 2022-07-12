@@ -22,6 +22,12 @@ console.group("FUN (.❛ ᴗ ❛.)");
     console.log("%cCharacter Counter", consoleStyle, "https://wardimension.github.io/project/character-counter");
   console.groupEnd();
 
+  console.groupCollapsed("%c[-COLLECTIONS-]", consoleStyle);
+    console.log("%cFavorites", consoleStyle, "https://wardimension.github.io/collections/favorites");
+    console.log("%cRecomended Watch Order", consoleStyle, "https://wardimension.github.io/collections/watch-order");
+    console.log("%cWaifu", consoleStyle, "https://waifu-list.blogspot.com/");
+  console.groupEnd();
+
   console.groupCollapsed("%c[-External-Sites-]", consoleStyle);
     console.log("%cMyAnimeList", consoleStyle, "https://myanimelist.net/profile/WarDimension");
     console.log("%cAniList", consoleStyle, "https://anilist.co/user/WarDimension");
