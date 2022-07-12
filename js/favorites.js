@@ -1,4 +1,3 @@
-console.clear();
 let favorites = [
     {
         "category": "Anime",
