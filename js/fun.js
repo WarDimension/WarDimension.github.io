@@ -25,7 +25,7 @@ console.group("FUN (.❛ ᴗ ❛.)");
   console.groupCollapsed("%c[-COLLECTIONS-]", consoleStyle);
     console.log("%cFavorites", consoleStyle, "https://wardimension.github.io/collections/favorites");
     console.log("%cRecomended Watch Order", consoleStyle, "https://wardimension.github.io/collections/watch-order");
-    console.log("%cWaifu", consoleStyle, "https://waifu-list.blogspot.com/");
+    console.log("%cWaifu", consoleStyle, "https://wardimension.github.io/collections/waifu-list");
   console.groupEnd();
 
   console.groupCollapsed("%c[-External-Sites-]", consoleStyle);
