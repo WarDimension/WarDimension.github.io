@@ -31,7 +31,7 @@ li:hover{
     right: 0;
     margin: auto;
     z-index: 1;
-    height: 80px;
+    height: 105px;
     box-shadow: 0px 0px 8px 0px #888;
 }
 .search-container::before{
@@ -41,21 +41,34 @@ li:hover{
     width: 100%;
     height: 100%;
     background: #fff;
+    z-index: -1;
     filter: brightness(0.96);
 }
-input{
+input, label{
+    vertical-align: middle;
+}
+input[type="text"]{
     width: 400px;
     opacity: 0.8;
     padding: 2px 5px;
 }
-input:focus{
+label{
+    color: #444;
+    font-size: 12.2px;
+    margin-left: 5px;
+}
+select{
+    margin-top: 8px;
+    padding: 2px;
+}
+input:focus, select:focus{
     outline-width: 1px;
 }
 .container{
     position: absolute;
-    top: 80px;
+    top: 105px;
     width: 100%;
-    padding: 5px 0 40px;
+    padding: 10px 0 40px;
 }
 a{
     text-decoration: none;

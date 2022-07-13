@@ -20,6 +20,12 @@
   <body>
     <div class="search-container">
       <p>Search</p><input class="search" type="text" oninput="showList()"/>
+      <br/><input class="hide" type="checkbox" onchange="showList()"/><label>Hide shows that isn't available on</label>
+      <select class="database" onchange="showList()">
+        <option value="AniList">AniList</option>
+        <option value="MyAnimeList">MyAnimeList</option>
+        <option value="YouTube">YouTube</option>
+      </select>
     </div>
     <div class="container"></div>
   </body>
