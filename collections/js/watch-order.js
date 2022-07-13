@@ -1,5 +1,77 @@
 let series = [
     {
+        "name": "180-byou de Kimi no Mimi wo Shiawase ni Dekiru ka?",
+        "tags": "180秒で君の耳を幸せにできるか？|Can I Make Your Ears Happy in 180 Seconds?",
+        "list": [
+            {
+                "title": "180-byou de Kimi no Mimi wo Shiawase ni Dekiru ka?",
+                "link": "https://anilist.co/anime/133411/180byou-de-Kimi-no-Mimi-wo-Shiawase-ni-Dekiru-ka/"
+            }
+        ]
+    },
+    {
+        "name": "3-gatsu no Lion",
+        "tags": "３月のライオン|Sangatsu no Lion|San-gatsu no Lion|March comes in like a lion",
+        "list": [
+            {
+                "title": "3-gatsu no Lion",
+                "link": "https://anilist.co/anime/21366/3gatsu-no-Lion/"
+            },
+            {
+                "title": "3-gatsu no Lion 2",
+                "link": "https://anilist.co/anime/98478/3gatsu-no-Lion-2/"
+            }
+        ]
+    },
+    {
+        "name": "3D Kanojo: Real Girl",
+        "tags": "3D彼女 リアルガール|3D Girlfriend",
+        "list": [
+            {
+                "title": "3D Kanojo: Real Girl",
+                "link": "https://anilist.co/anime/100526/3D-Kanojo-Real-Girl/"
+            },
+            {
+                "title": "3D Kanojo: Real Girl 2",
+                "link": "https://anilist.co/anime/102882/3D-Kanojo-Real-Girl-2/"
+            }
+        ]
+    },
+    {
+        "name": "A.I.C.O. -Incarnation-",
+        "tags": "アイコ|AICO",
+        "list": [
+            {
+                "title": "A.I.C.O. -Incarnation-",
+                "link": "https://anilist.co/anime/99725/AICO-Incarnation/"
+            }
+        ]
+    },
+    {
+        "name": "Adachi to Shimamura",
+        "tags": "安達としまむら|AdaShima|Adachi and Shimamura",
+        "list": [
+            {
+                "title": "Adachi to Shimamura",
+                "link": "https://anilist.co/anime/109287/Adachi-to-Shimamura/"
+            },
+            {
+                "title": "Adachi to Shimamura Mini Anime",
+                "link": "https://anilist.co/anime/127465/Adachi-to-Shimamura-Mini-Anime/"
+            }
+        ]
+    },
+    {
+        "name": "Aho-Girl",
+        "tags": "アホガール|Ahogaru: Clueless Girl",
+        "list": [
+            {
+                "title": "Aho-Girl",
+                "link": "https://anilist.co/anime/98251/AhoGirl/"
+            }
+        ]
+    },
+    {
         "name": "citrus",
         "list": [
             {
