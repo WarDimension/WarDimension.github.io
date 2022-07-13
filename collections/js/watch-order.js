@@ -101,6 +101,88 @@ let series = [
         ]
     },
     {
+        "name": "Ai no Utagoe wo Kikasete",
+        "tags": "アイの歌声を聴かせて|Sing a Bit of Harmony",
+        "list": [
+            {
+                "title": "Ai no Utagoe wo Kikasete",
+                "AniList": "https://anilist.co/anime/123899/Ai-no-Utagoe-wo-Kikasete/",
+                "MyAnimeList": "https://myanimelist.net/anime/42847/Ai_no_Utagoe_wo_Kikasete"
+            }
+        ]
+    },
+    {
+        "name": "AIURA",
+        "tags": "あいうら",
+        "list": [
+            {
+                "title": "AIURA",
+                "AniList": "https://anilist.co/anime/17082/Aiura/",
+                "MyAnimeList": "https://myanimelist.net/anime/17082/Aiura"
+            }
+        ]
+    },
+    {
+        "name": "Ajin",
+        "tags": "亜人",
+        "list": [
+            {
+                "title": "Ajin",
+                "AniList": "https://anilist.co/anime/21341/Ajin/",
+                "MyAnimeList": "https://myanimelist.net/anime/31580/Ajin"
+            },
+            {
+                "title": "Ajin OVA",
+                "AniListTitle": "Ajin OVA 1-2",
+                "AniList": "https://anilist.co/anime/21487/Ajin-OVA/",
+                "MyAnimeList": "https://myanimelist.net/anime/32015/Ajin_OVA"
+            },
+            {
+                "title": "Ajin 2",
+                "AniList": "https://anilist.co/anime/21799/Ajin-2/",
+                "MyAnimeList": "https://myanimelist.net/anime/33253/Ajin_Part_2"
+            },
+            {
+                "title": "Ajin 2 OVA",
+                "AniListTitle": "Ajin OVA 3",
+                "AniList": "https://anilist.co/anime/21487/Ajin-OVA/",
+                "MyAnimeList": "https://myanimelist.net/anime/36625/Ajin_Part_2_OVA"
+            }
+        ]
+    },
+    {
+        "name": "Akagami no Shirayuki-hime",
+        "tags": "赤髪の白雪姫|Snow White with the Red Hair",
+        "list": [
+            {
+                "title": "Akagami no Shirayuki-hime",
+                "AniList": "https://anilist.co/anime/21058/Akagami-no-Shirayukihime/",
+                "MyAnimeList": "https://myanimelist.net/anime/30123/Akagami_no_Shirayuki-hime"
+            },
+            {
+                "title": "Akagami no Shirayuki-hime: Nandemonai Takaramono, Kono Page",
+                "AniList": "https://anilist.co/anime/21313/Akagami-no-Shirayukihime-Nandemonai-Takaramono-Kono-Page/",
+                "MyAnimeList": "https://myanimelist.net/anime/31483/Akagami_no_Shirayuki-hime__Nandemonai_Takaramono_Kono_Page"
+            },
+            {
+                "title": "Akagami no Shirayuki-hime 2",
+                "AniList": "https://anilist.co/anime/21258/Akagami-no-Shirayukihime-2/",
+                "MyAnimeList": "https://myanimelist.net/anime/31173/Akagami_no_Shirayuki-hime_2nd_Season"
+            }
+        ]
+    },
+    {
+        "name": "Akebi-chan no Sailor Fuku",
+        "tags": "明日ちゃんのセーラー服|Akebi's Sailor Uniform",
+        "list": [
+            {
+                "title": "Akebi-chan no Sailor Fuku",
+                "AniList": "https://anilist.co/anime/131548/Akebichan-no-Sailor-Fuku/",
+                "MyAnimeList": "https://myanimelist.net/anime/48553/Akebi-chan_no_Sailor-fuku"
+            }
+        ]
+    },
+    {
         "name": "citrus",
         "list": [
             {
@@ -272,8 +354,9 @@ function showList(){
             content += "<ol>";
             show.list.forEach(item => {
                 if(item[database.value] != undefined || !hideCheckbox.checked){
-                    let link = item[database.value] != undefined? item[database.value] : item[Object.keys(item)[1]];
-                    content += `<a href="${link}" target="_blank"><li>${item.title}</li></a>`;
+                    let link = item[database.value] != undefined ? item[database.value] : item[Object.keys(item)[1]];
+                    let title = item[database.value + "Title"] != undefined ? item[database.value + "Title"] : item.title;
+                    content += `<a href="${link}" target="_blank"><li>${title}</li></a>`;
                 }
             })
             content += "</ol>";
