@@ -61,14 +61,14 @@ body{
 .dev-console-info.help{
   text-decoration: none;
 }
-.dev-console-info.help:focus{
+.dev-console-info.help:focus, .dev-console-info.help:hover{
   color: #000;
   outline: none;
 }
-.dev-console-info.help:focus::before{
+.dev-console-info.help:focus::before, .dev-console-info.help:hover::before{
   content: "- "
 }
-.dev-console-info.help:focus::after{
+.dev-console-info.help:focus::after, .dev-console-info.help:hover::after{
   content: " -"
 }
 #player{
