@@ -74,3 +74,10 @@ a{
     text-decoration: none;
     color: inherit;
 }
+span{
+    display: block;
+    color: #444;
+    font-size: 12px;
+    opacity: 0.75;
+    margin-top: 10px;
+}

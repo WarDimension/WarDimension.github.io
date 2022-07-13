@@ -148,6 +148,23 @@ let series = [
                 "AniList": "https://anilist.co/anime/21487/Ajin-OVA/",
                 "MyAnimeList": "https://myanimelist.net/anime/36625/Ajin_Part_2_OVA"
             }
+        ],
+        "alt": [
+            {
+                "title": "Ajin: Shoudou",
+                "AniList": "https://anilist.co/anime/21212/Ajin-Shoudou/",
+                "MyAnimeList": "https://myanimelist.net/anime/30868/Ajin_Part_1__Shoudou"
+            },
+            {
+                "title": "Ajin: Shoutotsu",
+                "AniList": "https://anilist.co/anime/21505/Ajin-Shoutotsu/",
+                "MyAnimeList": "https://myanimelist.net/anime/30869/Ajin_Part_2__Shoutotsu"
+            },
+            {
+                "title": "Ajin: Shougeki",
+                "AniList": "https://anilist.co/anime/21681/Ajin-Shougeki/",
+                "MyAnimeList": "https://myanimelist.net/anime/30870/Ajin_Part_3__Shougeki"
+            }
         ]
     },
     {
@@ -344,22 +361,31 @@ let series = [
 let search = document.querySelector(".search");
 let database = document.querySelector(".database");
 let hideCheckbox = document.querySelector(".hide");
+let content = "";
+
+function showListItems(list){
+    content += "<ol>";
+    list.forEach(item => {
+        if(item[database.value] != undefined || !hideCheckbox.checked){
+            let link = item[database.value] != undefined ? item[database.value] : item[Object.keys(item)[1]];
+            let title = item[database.value + "Title"] != undefined ? item[database.value + "Title"] : item.title;
+            content += `<a href="${link}" target="_blank"><li>${title}</li></a>`;
+        }
+    })
+    content += "</ol>";
+}
 
 function showList(){
-    let content = "";
+    content = "";
 
     series.forEach(show => {
         if((search.value == null || JSON.stringify(show).match(new RegExp(search.value, "mi"))) && (JSON.stringify(show).match(new RegExp(database.value, "m")) || !hideCheckbox.checked)){
             content += `<p>${show.name}</p>`;
-            content += "<ol>";
-            show.list.forEach(item => {
-                if(item[database.value] != undefined || !hideCheckbox.checked){
-                    let link = item[database.value] != undefined ? item[database.value] : item[Object.keys(item)[1]];
-                    let title = item[database.value + "Title"] != undefined ? item[database.value + "Title"] : item.title;
-                    content += `<a href="${link}" target="_blank"><li>${title}</li></a>`;
-                }
-            })
-            content += "</ol>";
+            showListItems(show.list);
+            if(show.alt != undefined){
+                content += "<span>Alternative</span>";
+                showListItems(show.alt);
+            }
         }
     });
 
