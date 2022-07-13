@@ -1,11 +1,20 @@
 let series = [
     {
+        "name": "citrus",
+        "list": [
+            {
+                "title": "citrus",
+                "link": "https://anilist.co/anime/97832/citrus/"
+            }
+        ]
+    },
+    {
         "name": "Higurashi no Naku Koro ni",
+        "tags": "ひぐらしのなく頃に|When They Cry|うら☆ひぐ|Ura Higu",
         "list": [
             {
                 "title": "Higurashi no Naku Koro ni",
-                "link": "https://anilist.co/anime/934/Higurashi-no-Naku-Koro-ni/",
-                "tags": "ひぐらしのなく頃に/When They Cry"
+                "link": "https://anilist.co/anime/934/Higurashi-no-Naku-Koro-ni/"
             },
             {
                 "title": "Higurashi no Naku Koro ni: Nekogoroshi-hen",
@@ -25,8 +34,7 @@ let series = [
             },
             {
                 "title": "Ura☆Higu",
-                "link": "https://anilist.co/anime/6064/UraHigu/",
-                "tags": "うら☆ひぐ/Ura Higu"
+                "link": "https://anilist.co/anime/6064/UraHigu/"
             },
             {
                 "title": "Higurashi no Naku Koro ni Rei",
@@ -44,21 +52,21 @@ let series = [
     },
     {
         "name": "Yagate Kimi ni Naru",
+        "tags": "やがて君になる|Bloom Into You|YagaKimi",
         "list": [
             {
                 "title": "Yagate Kimi ni Naru",
-                "link": "https://anilist.co/anime/101573/Yagate-Kimi-ni-Naru/",
-                "tags": "やがて君になる/Bloom Into You/YagaKimi"
+                "link": "https://anilist.co/anime/101573/Yagate-Kimi-ni-Naru/"
             }
         ]
     },
     {
         "name": "Yahari Ore no Seishun Love Come wa Machigatteiru.",
+        "tags": "やはり俺の青春ラブコメはまちがっている。|俺ガイル|Oregairu|My Teen Romantic Comedy SNAFU|My youth romantic comedy is wrong as I expected.",
         "list": [
             {
                 "title": "Yahari Ore no Seishun Love Come wa Machigatteiru.",
-                "link": "https://anilist.co/anime/14813/Yahari-Ore-no-Seishun-Love-Come-wa-Machigatteiru/",
-                "": "やはり俺の青春ラブコメはまちがっている。/俺ガイル/Oregairu/My Teen Romantic Comedy SNAFU/My youth romantic comedy is wrong as I expected."
+                "link": "https://anilist.co/anime/14813/Yahari-Ore-no-Seishun-Love-Come-wa-Machigatteiru/"
             },
             {
                 "title": "Yahari Ore no Seishun Love Come wa Machigatteiru.: Kochira to Shite mo Karera Kanojora no Yukusue ni Sachi Ookaran Koto wo Negawazaru wo Enai.",
@@ -79,6 +87,48 @@ let series = [
             {
                 "title": "Yahari Ore no Seishun Love Come wa Machigatteiru. Kan OVA",
                 "link": "https://anilist.co/anime/128643/Yahari-Ore-no-Seishun-Love-Come-wa-Machigatteiru-Kan-OVA/"
+            }
+        ]
+    },
+    {
+        "name": "Yuru Yuri",
+        "tags": "ゆるゆり|YuruYuri",
+        "list": [
+            {
+                "title": "Yuru Yuri",
+                "link": "https://anilist.co/anime/10495/Yuru-Yuri/"
+            },
+            {
+                "title": "Yuru Yuri: Doushite☆Tomaranai☆Tokimeki☆Doki Doki☆Paradox☆Eternal",
+                "link": "https://anilist.co/anime/12665/Yuru-Yuri-DoushiteTomaranaiTokimekiDoki-DokiParadoxEternal/"
+            },
+            {
+                "title": "Yuru Yuri♪♪",
+                "link": "https://anilist.co/anime/12403/Yuru-Yuri/"
+            },
+            {
+                "title": "Yuru Yuri Nachuyachumi!",
+                "link": "https://anilist.co/anime/20625/Yuru-Yuri-Nachuyachumi/"
+            },
+            {
+                "title": "Yuru Yuri Nachuyachumi!+",
+                "link": "https://anilist.co/anime/21214/Yuru-Yuri-Nachuyachumi/"
+            },
+            {
+                "title": "Yuru Yuri San☆Hai!",
+                "link": "https://anilist.co/anime/21088/Yuru-Yuri-SanHai/"
+            },
+            {
+                "title": "Yuru Yuri San☆Hai! Happy Go Lucky",
+                "link": "https://www.youtube.com/playlist?list=PLLPYMaP0tgFJxb0NNM_Fn5V_jzKVTHf9j"
+            },
+            {
+                "title": "Yuru Yuri,",
+                "link": "https://anilist.co/anime/102090/Yuru-Yuri/"
+            },
+            {
+                "title": "Mini Yuri",
+                "link": "https://anilist.co/anime/110382/Mini-Yuri/"
             }
         ]
     }
