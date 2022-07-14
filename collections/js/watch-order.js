@@ -191,6 +191,17 @@ let series = [
         ]
     },
     {
+        "name": "Akkun to Kanojo",
+        "tags": ["あっくんとカノジョ","Akkun and His Girlfriend","My Sweet Tyrant"],
+        "list": [
+            {
+                "title": "Akkun to Kanojo",
+                "AniList": "https://anilist.co/anime/100645/Akkun-to-Kanojo/",
+                "MyAnimeList": "https://myanimelist.net/anime/36864/Akkun_to_Kanojo"
+            }
+        ]
+    },
+    {
         "name": "citrus",
         "list": [
             {
