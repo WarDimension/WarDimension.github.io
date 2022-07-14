@@ -1,7 +1,7 @@
 let series = [
     {
         "name": "180-byou de Kimi no Mimi wo Shiawase ni Dekiru ka?",
-        "tags": "180秒で君の耳を幸せにできるか？|Can I Make Your Ears Happy in 180 Seconds?",
+        "tags": ["180秒で君の耳を幸せにできるか？","Can I Make Your Ears Happy in 180 Seconds?"],
         "list": [
             {
                 "title": "180-byou de Kimi no Mimi wo Shiawase ni Dekiru ka?",
@@ -12,7 +12,7 @@ let series = [
     },
     {
         "name": "3-gatsu no Lion",
-        "tags": "３月のライオン|Sangatsu no Lion|San-gatsu no Lion|March comes in like a lion",
+        "tags": ["３月のライオン","Sangatsu no Lion","San-gatsu no Lion","March comes in like a lion"],
         "list": [
             {
                 "title": "3-gatsu no Lion",
@@ -28,7 +28,7 @@ let series = [
     },
     {
         "name": "3D Kanojo: Real Girl",
-        "tags": "3D彼女 リアルガール|3D Girlfriend",
+        "tags": ["3D彼女 リアルガール","3D Girlfriend"],
         "list": [
             {
                 "title": "3D Kanojo: Real Girl",
@@ -44,7 +44,7 @@ let series = [
     },
     {
         "name": "A.I.C.O. -Incarnation-",
-        "tags": "アイコ|AICO",
+        "tags": ["アイコ","AICO"],
         "list": [
             {
                 "title": "A.I.C.O. -Incarnation-",
@@ -55,7 +55,7 @@ let series = [
     },
     {
         "name": "Adachi to Shimamura",
-        "tags": "安達としまむら|AdaShima|Adachi and Shimamura",
+        "tags": ["安達としまむら","AdaShima","Adachi and Shimamura"],
         "list": [
             {
                 "title": "Adachi to Shimamura",
@@ -71,7 +71,7 @@ let series = [
     },
     {
         "name": "Aho-Girl",
-        "tags": "アホガール|Ahogaru: Clueless Girl",
+        "tags": ["アホガール","Ahogaru: Clueless Girl"],
         "list": [
             {
                 "title": "Aho-Girl",
@@ -82,7 +82,7 @@ let series = [
     },
     {
         "name": "Ai no Utagoe wo Kikasete",
-        "tags": "アイの歌声を聴かせて|Sing a Bit of Harmony",
+        "tags": ["アイの歌声を聴かせて","Sing a Bit of Harmony"],
         "list": [
             {
                 "title": "Ai no Utagoe wo Kikasete",
@@ -93,7 +93,7 @@ let series = [
     },
     {
         "name": "AIURA",
-        "tags": "あいうら",
+        "tags": ["あいうら"],
         "list": [
             {
                 "title": "AIURA",
@@ -104,7 +104,7 @@ let series = [
     },
     {
         "name": "Ajin",
-        "tags": "亜人",
+        "tags": ["亜人"],
         "list": [
             {
                 "title": "Ajin",
@@ -149,7 +149,7 @@ let series = [
     },
     {
         "name": "Akagami no Shirayuki-hime",
-        "tags": "赤髪の白雪姫|Snow White with the Red Hair",
+        "tags": ["赤髪の白雪姫","Snow White with the Red Hair"],
         "list": [
             {
                 "title": "Akagami no Shirayuki-hime",
@@ -170,12 +170,23 @@ let series = [
     },
     {
         "name": "Akebi-chan no Sailor Fuku",
-        "tags": "明日ちゃんのセーラー服|Akebi's Sailor Uniform",
+        "tags": ["明日ちゃんのセーラー服","Akebi's Sailor Uniform"],
         "list": [
             {
                 "title": "Akebi-chan no Sailor Fuku",
                 "AniList": "https://anilist.co/anime/131548/Akebichan-no-Sailor-Fuku/",
                 "MyAnimeList": "https://myanimelist.net/anime/48553/Akebi-chan_no_Sailor-fuku"
+            }
+        ]
+    },
+    {
+        "name": "Aki no Kanade",
+        "tags": ["アキの奏で"],
+        "list": [
+            {
+                "title": "Aki no Kanade",
+                "AniList": "https://anilist.co/anime/21069/Aki-no-Kanade/",
+                "MyAnimeList": "https://myanimelist.net/anime/29513/Aki_no_Kanade"
             }
         ]
     },
@@ -191,7 +202,7 @@ let series = [
     },
     {
         "name": "Higurashi no Naku Koro ni",
-        "tags": "ひぐらしのなく頃に|When They Cry|うら☆ひぐ|Ura Higu",
+        "tags": ["ひぐらしのなく頃に","When They Cry","うら☆ひぐ","Ura Higu"],
         "list": [
             {
                 "title": "Higurashi no Naku Koro ni",
@@ -242,7 +253,7 @@ let series = [
     },
     {
         "name": "Yagate Kimi ni Naru",
-        "tags": "やがて君になる|Bloom Into You|YagaKimi",
+        "tags": ["やがて君になる","Bloom Into You","YagaKimi"],
         "list": [
             {
                 "title": "Yagate Kimi ni Naru",
@@ -253,7 +264,7 @@ let series = [
     },
     {
         "name": "Yahari Ore no Seishun Love Come wa Machigatteiru.",
-        "tags": "やはり俺の青春ラブコメはまちがっている。|俺ガイル|Oregairu|My Teen Romantic Comedy SNAFU|My youth romantic comedy is wrong as I expected.",
+        "tags": ["やはり俺の青春ラブコメはまちがっている。","俺ガイル","Oregairu","My Teen Romantic Comedy SNAFU","My youth romantic comedy is wrong as I expected."],
         "list": [
             {
                 "title": "Yahari Ore no Seishun Love Come wa Machigatteiru.",
@@ -289,7 +300,7 @@ let series = [
     },
     {
         "name": "Yuru Yuri",
-        "tags": "ゆるゆり|YuruYuri",
+        "tags": ["ゆるゆり","YuruYuri"],
         "list": [
             {
                 "title": "Yuru Yuri",
