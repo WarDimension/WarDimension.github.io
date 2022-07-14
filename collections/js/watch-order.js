@@ -202,6 +202,17 @@ let series = [
         ]
     },
     {
+        "name": "Aku no Hana",
+        "tags": ["惡の華","Flowers of Evil"],
+        "list": [
+            {
+                "title": "Aku no Hana",
+                "AniList": "https://anilist.co/anime/16201/Aku-no-Hana/",
+                "MyAnimeList": "https://myanimelist.net/anime/16201/Aku_no_Hana"
+            }
+        ]
+    },
+    {
         "name": "citrus",
         "list": [
             {
