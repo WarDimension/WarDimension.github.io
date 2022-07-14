@@ -102,6 +102,7 @@ textarea{
     margin-top: 10px;
     width: 800px;
     height: 350px;
+    max-width: 98%;
     resize: none;
     cursor: pointer;
 }
