@@ -50,13 +50,13 @@
       </div>
       <div class="wrapper" label="Tags">
         <input class="tags" type="text" oninput="updateResult()"/>
-        <button class="add-tag" onclick="addTag();updateResult()">+</button><button class="remove-tag" onclick="removeTag();updateResult()">-</button>
+        <button class="add-tag" onclick="addTag();updateResult(false)">+</button><button class="remove-tag" onclick="removeTag();updateResult(false)">-</button>
       </div>
     </div>
     <div class="container">
       <div class="list-container">
       </div>
-      <button class="add-list" onclick="addList();updateResult()">Add List</button>
+      <button class="add-list" onclick="addList();updateResult(false)">Add List</button>
     </div>
     <div class="search-container result-container">
       <span>Result</span>
