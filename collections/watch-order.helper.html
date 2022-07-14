@@ -1,0 +1,66 @@
+<html lang="en">
+  <head>
+    <title>Recomended Watch Order - Helper</title>
+    <link rel="stylesheet" type="text/css" href="../css/theme.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/watch-order.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/watch-order.helper.css"/>
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico"/>
+    <meta id="vp" name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+    <meta name="description" content="Available on: iTunes, Apple Music, Deezer, Google Play Music, Spotify, YouTube Music, Amazon Music, and more."/>
+    <meta name="robots" content="index, follow"/>
+    <meta name="og:title" property="og:title" content="WarDimension Official"/>
+    <meta name="og:type" property="og:type" content="website"/>
+    <meta name="og:description" property="og:description" content="Available on: iTunes, Apple Music, Deezer, Google Play Music, Spotify, YouTube Music, Amazon Music, and more."/>
+    <meta name="og:image" property="og:image" content="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/intermediary/f/db9b0a59-1832-436d-be35-c4da781cf1c8/dd0nweg-838ec8bb-2e88-444f-83f6-164f222f453e.png"/>
+    <meta name="google-site-verification" content="pvgTiA18o5sKX1dow-nKfl8uOUPXnLIVwOKUUZzsiJ8"/>
+    <link href="https://wardimension.github.io/" rel="canonical"/>
+    <script type="text/javascript" src="../js/viewport.js"></script>
+    <script type="text/javascript" src="../js/fun.js" defer></script>
+    <script type="text/javascript" src="./js/watch-order.helper.js" defer></script>
+  </head>
+  <body>
+    <template>
+      <div class="list-wrapper">
+        <span>Title</span>
+        <div class="wrapper" label="Title">
+          <input class="title" type="text" oninput="updateResult()"/>
+        </div>
+        <div class="wrapper" label="AniListTitle">
+          <input class="AniListTitle" type="text" oninput="updateResult()"/>
+        </div>
+        <div class="wrapper" label="MyAnimeListTitle">
+          <input class="MyAnimeListTitle" type="text" oninput="updateResult()"/>
+        </div>
+        <span>Link</span>
+        <div class="wrapper" label="AniList">
+          <input class="AniList" type="text" oninput="updateResult()"/>
+        </div>
+        <div class="wrapper" label="MyAnimeList">
+          <input class="MyAnimeList" type="text" oninput="updateResult()"/>
+        </div>
+        <div class="wrapper" label="YouTube">
+          <input class="YouTube" type="text" oninput="updateResult()"/>
+        </div>
+        <button class="remove-list" onclick="removeList(this);updateResult()">Remove List</button>
+      </div>
+    </template>
+    <div class="search-container">
+      <div class="wrapper" label="Name">
+        <input class="name" type="text" oninput="updateResult()"/>
+      </div>
+      <div class="wrapper" label="Tags">
+        <input class="tags" type="text" oninput="updateResult()"/>
+        <button class="add-tag" onclick="addTag()">+</button><button class="remove-tag" onclick="removeTag()">-</button>
+      </div>
+    </div>
+    <div class="container">
+      <div class="list-container">
+      </div>
+      <button class="add-list" onclick="addList();updateResult()">Add List</button>
+    </div>
+    <div class="search-container result-container">
+      <span>Result</span>
+      <textarea class="result" readonly></textarea>
+    </div>
+  </body>
+</html>
