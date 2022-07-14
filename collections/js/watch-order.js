@@ -240,6 +240,32 @@ let series = [
         ]
     },
     {
+        "name": "Amanchu!",
+        "tags": ["あまんちゅ！"],
+        "list": [
+            {
+                "title": "Amanchu!",
+                "AniList": "https://anilist.co/anime/21406/Amanchu/",
+                "MyAnimeList": "https://myanimelist.net/anime/31771/Amanchu"
+            },
+            {
+                "title": "Amanchu!: Upyopyo Dive Tsukkome! Umi no Sekai!",
+                "AniList": "https://anilist.co/anime/110578/Amanchu-Upyopyo-Dive-Tsukkome-Umi-no-Sekai/",
+                "MyAnimeList": "https://myanimelist.net/anime/39709/Amanchu__Upyopyo_Dive_Tsukkome_Umi_no_Sekai"
+            },
+            {
+                "title": "Amanchu! Yakusoku no Natsu to Atarashii Omoide no Koto",
+                "AniList": "https://anilist.co/anime/98536/Amanchu-Yakusoku-no-Natsu-to-Atarashii-Omoide-no-Koto/",
+                "MyAnimeList": "https://myanimelist.net/anime/33818/Amanchu__Yakusoku_no_Natsu_to_Atarashii_Omoide_no_Koto"
+            },
+            {
+                "title": "Amanchu! Advance",
+                "AniList": "https://anilist.co/anime/100532/Amanchu-Advance/",
+                "MyAnimeList": "https://myanimelist.net/anime/36800/Amanchu_Advance"
+            }
+        ]
+    },
+    {
         "name": "citrus",
         "list": [
             {
