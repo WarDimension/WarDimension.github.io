@@ -213,6 +213,33 @@ let series = [
         ]
     },
     {
+        "name": "Akuma no Riddle",
+        "tags": ["悪魔のリドル","Riddle Story of Devil"],
+        "list": [
+            {
+                "title": "Akuma no Riddle",
+                "AniList": "https://anilist.co/anime/19429/Akuma-no-Riddle/",
+                "MyAnimeList": "https://myanimelist.net/anime/19429/Akuma_no_Riddle"
+            },
+            {
+                "title": "Akuma no Riddle Special",
+                "AniList": "https://anilist.co/anime/20926/Akuma-no-Riddle-Special/",
+                "MyAnimeList": "https://myanimelist.net/anime/24751/Akuma_no_Riddle__Shousha_wa_Dare_Nukiuchi_Test"
+            }
+        ]
+    },
+    {
+        "name": "Amaama to Inazuma",
+        "tags": ["甘々と稲妻","Sweetness & Lightning"],
+        "list": [
+            {
+                "title": "Amaama to Inazuma",
+                "AniList": "https://anilist.co/anime/21659/Amaama-to-Inazuma/",
+                "MyAnimeList": "https://myanimelist.net/anime/32828/Amaama_to_Inazuma"
+            }
+        ]
+    },
+    {
         "name": "citrus",
         "list": [
             {
