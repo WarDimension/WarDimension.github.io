@@ -34,21 +34,40 @@ button.remove-tag{
     margin: auto;
     margin-top: 10px;
     width: 400px;
-    background: #ddd;
+    background: #dfdfdf;
     padding: 5px;
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1.1), opacity 0s;
+    box-shadow: inset 0px 0px 4px 0px #bcbcbcbc;
 }
-.toggle-button{
+.toggle-button:hover{
     background: #d8d8d8;
 }
 .toggle:checked + .toggle-wrapper > .less{
+    position: static;
     width: 420px;
     padding-bottom: 10px;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+.toggle:checked + .toggle-wrapper > .more{
+    transform: translateY(-5px);
+    width: 420px;
 }
 .toggle:checked + .toggle-wrapper > .more, .toggle-button.less{
-    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    opacity: 0;
+    pointer-events: none;
 }
-.toggle:checked + .toggle-wrapper > .less{
-    display: block;
+.toggle-button.less{
+    margin-top: 10px;
+    transform: translateY(-10px);
+}
+.toggle-button.more{
+    transform: translateY(0);
 }
 .search-container{
     height: 120px;
