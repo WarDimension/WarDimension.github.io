@@ -29,25 +29,25 @@ button{
 button.remove-tag{
     margin-left: 6px;
 }
-.more, .less{
-    display: inline-block;
+.toggle-button{
+    display: block;
     margin: auto;
     margin-top: 10px;
     width: 400px;
     background: #ddd;
     padding: 5px;
 }
-.more:hover, .less:hover{
+.toggle-button{
     background: #d8d8d8;
 }
-.title-toggle:checked ~ .less{
+.toggle:checked + .toggle-wrapper > .less{
     width: 420px;
     padding-bottom: 10px;
 }
-.wrapper[label="AniListTitle"], .wrapper[label="MyAnimeListTitle"], .title-toggle:checked ~ .more, label.less{
+.toggle:checked + .toggle-wrapper > .more, .toggle-button.less{
     display: none;
 }
-.title-toggle:checked ~ .less > .wrapper[label="AniListTitle"], .title-toggle:checked ~ .less > .wrapper[label="MyAnimeListTitle"], .title-toggle:checked ~ .less{
+.toggle:checked + .toggle-wrapper > .less{
     display: block;
 }
 .search-container{

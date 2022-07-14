@@ -1,13 +1,20 @@
 const template = document.querySelector("template");
 
 function addList(){
-    const listWrapper = document.querySelectorAll(".list-wrapper");
     const list = template.content.cloneNode(true);
-    const toggle = list.querySelector("#title-toggle");
-    const more = list.querySelector(".more");
-    const less = list.querySelector(".less");
-    toggle.id = toggle.id + (listWrapper.length + 1);
-    more.htmlFor = less.htmlFor = toggle.id;
+
+    const listWrapper = document.querySelectorAll(".list-wrapper");
+    const toggle = list.querySelectorAll(".toggle");
+    const toggleButton = list.querySelectorAll(".toggle-button");
+
+    toggle.forEach(element => {
+        element.id = element.id + listWrapper.length;
+    });
+
+    toggleButton.forEach(element => {
+        element.htmlFor = element.htmlFor + listWrapper.length;
+    });
+
     document.querySelector(".list-container").append(list);
 }
 
