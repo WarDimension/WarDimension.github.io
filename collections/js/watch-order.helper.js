@@ -25,6 +25,7 @@ function removeTag(){
 
 function copyResult(){
     navigator.clipboard.writeText(result.value);
+    result.blur();
 }
 
 function list(listWrapper){

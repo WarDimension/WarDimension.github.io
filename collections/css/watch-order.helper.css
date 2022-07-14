@@ -79,7 +79,23 @@ textarea{
     width: 800px;
     height: 350px;
     resize: none;
+    cursor: pointer;
+}
+.copied{
+    position: relative;
+    top: -30px;
+    opacity: 0;
+    transition-duration: 2.2s;
+}
+textarea:active + .copied{
+    top: -40px;
+    opacity: 0.8;
+    transition-duration: 0.2s;
 }
 textarea:focus{
     outline-width: 1px;
+    position: absolute;
+    z-index: 1;
+    width: 100px;
+    height: 100px;
 }
