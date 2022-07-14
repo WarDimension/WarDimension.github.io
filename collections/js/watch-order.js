@@ -1,23 +1,3 @@
-/* TEMPLATE
-
-    {
-        "name": "",
-        "tags": "",
-        "list": [
-            {
-                "title": "",
-                "AniList": "",
-                "MyAnimeList": ""
-            },
-            {
-                "title": "",
-                "AniList": "",
-                "MyAnimeList": ""
-            }
-        ]
-    },
-*/
-
 let series = [
     {
         "name": "180-byou de Kimi no Mimi wo Shiawase ni Dekiru ka?",
