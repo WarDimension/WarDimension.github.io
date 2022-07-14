@@ -2,7 +2,6 @@
     font-family: "Courier New", Courier, monospace;
 }
 body{
-    margin: 0 0 40px;
     text-align: center;
 }
 p, ol{
@@ -35,4 +34,10 @@ li span{
 }
 li span::before, li span::after{
     content: "|";
+}
+.container{
+    position: absolute;
+    margin: auto;
+    padding-bottom: 40px;
+    width: 100%;
 }

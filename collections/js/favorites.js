@@ -234,4 +234,4 @@ favorites.forEach(favorite => {
     })
 });
 
-document.body.innerHTML = content;
+document.querySelector(".container").innerHTML = content;
