@@ -25,12 +25,16 @@
         <div class="wrapper" label="Title">
           <input class="title" type="text" oninput="updateResult()"/>
         </div>
-        <div class="wrapper" label="AniListTitle">
-          <input class="AniListTitle" type="text" oninput="updateResult()"/>
-        </div>
-        <div class="wrapper" label="MyAnimeListTitle">
-          <input class="MyAnimeListTitle" type="text" oninput="updateResult()"/>
-        </div>
+        <input class="title-toggle" id="title-toggle" type="checkbox" hidden/>
+        <label class="more" for="title-toggle">[ + ]</label>
+        <label class="less" for="title-toggle">[ - ]
+          <div class="wrapper" label="AniListTitle">
+            <input class="AniListTitle" type="text" oninput="updateResult()"/>
+          </div>
+          <div class="wrapper" label="MyAnimeListTitle">
+            <input class="MyAnimeListTitle" type="text" oninput="updateResult()"/>
+          </div>
+        </label>
         <span>Link</span>
         <div class="wrapper" label="AniList">
           <input class="AniList" type="text" oninput="updateResult()"/>

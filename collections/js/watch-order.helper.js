@@ -1,7 +1,13 @@
 const template = document.querySelector("template");
 
 function addList(){
+    const listWrapper = document.querySelectorAll(".list-wrapper");
     const list = template.content.cloneNode(true);
+    const toggle = list.querySelector("#title-toggle");
+    const more = list.querySelector(".more");
+    const less = list.querySelector(".less");
+    toggle.id = toggle.id + (listWrapper.length + 1);
+    more.htmlFor = less.htmlFor = toggle.id;
     document.querySelector(".list-container").append(list);
 }
 
