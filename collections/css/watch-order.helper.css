@@ -90,7 +90,7 @@ textarea{
 textarea:active + .copied{
     top: -40px;
     opacity: 0.8;
-    transition-duration: 0.2s;
+    transition-duration: 0.1s;
 }
 textarea:focus{
     outline-width: 1px;
