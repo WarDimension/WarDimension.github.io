@@ -38,6 +38,6 @@ li span::before, li span::after{
 .container{
     position: absolute;
     margin: auto;
-    padding-bottom: 40px;
+    padding: 10px 0 40px;
     width: 100%;
 }
