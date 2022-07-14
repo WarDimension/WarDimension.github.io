@@ -59,7 +59,7 @@ const result = document.querySelector(".result");
 const name = document.querySelector(".name");
 const tags = document.querySelector(".tags");
 
-function updateResult(copy = true){
+function updateResult(){
     const listWrapper = document.querySelectorAll(".list-wrapper");
     result.value = "";
     result.value +=
@@ -71,10 +71,6 @@ function updateResult(copy = true){
             ${list(listWrapper)}
         ]
     },`;
-
-    if(copy){
-        copyResult();
-    }
 }
 
-updateResult(false);
+updateResult();
