@@ -1,0 +1,231 @@
+*{
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1.1);
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+  }
+  body{
+    background-size: cover;
+    overflow-y: overlay;
+  }
+  a, .list-item, .score-label{
+    color: #FF1493;
+  }
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255,20,147,0.4);
+    border-radius: 8px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #FF1493;
+  }
+  .list-table-data:hover{
+    background: #eee;
+    outline: solid 1px #eee;
+    transition: all 0.1s cubic-bezier(.25,.8,.25,1);
+  }
+  .header::before{
+    content: url("https://wardimension.github.io/images/WarDimension_White.png");
+  }
+  #list-container, #cover-image, .list-menu-float{
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  }
+  #copyright{
+    color: #fff;
+  }
+  #advanced-options .sort-widget input[type=radio]:checked + label, .list-menu-float .icon-menu:not(.profile):hover, .list-menu-float .icon-menu.setting:hover .text .link-list-setting,
+  .list-menu-float .icon-menu.setting:hover .text .link-style-setting, .status-menu-container .status-menu .status-button:after, .list-unit .list-status-title, .list-unit .list-stats, .list-table .list-table-data .data.status.completed, #footer-block{
+    background: #FF1493;
+  }
+  .list-table .list-table-data .data.image .image{
+    width: 65px;
+    height: auto;
+  }
+  #footer-block{
+    position: relative;
+    z-index: 1;
+  }
+  #list-container{
+    z-index: 2;
+  }
+  #status-menu{
+    z-index: 3;
+  }
+  #search-box input{
+    border: none;
+    outline: none;
+    border-bottom: solid 2px #FF1493;
+  }
+  .header .header-title, .header .header-menu{
+    -webkit-filter: drop-shadow(0px 0px 1px #FF1493);
+    filter: drop-shadow(0px 0px 1px #FF1493);
+  }
+  .header::before{
+    -webkit-filter: drop-shadow(0px 0px 2px #000);
+    filter: drop-shadow(0px 0px 2px #000);
+  }
+  
+  /* Some Cool Stuff */
+  
+  .cover-block .image-container::before{
+    position: absolute;
+    display: block;
+    top: 25px;
+    right: 0;
+    width: 250px;
+    height: 267px;
+    content: "";
+    background: url("https://i.imgur.com/L7MwqR5.gif");
+    background-size: 250px;
+  }
+  .cover-block .image-container::after{
+    position: absolute;
+    display: block;
+    top: 15px;
+    left: 305px;
+    width: 350px;
+    height: 275px;
+    content: "";
+    background: url("https://i.imgur.com/cFvYOiJ.png");
+    background-size: 352px;
+    background-position-y: -38px;
+    transition: all 0.2s ease-in-out;
+  }
+  .cover-block .image-container:hover:after{
+    background-size: 362px;
+    background-position: -5px -43px;
+    -webkit-filter: drop-shadow(0px 0px 2px #FF1493);
+    filter: drop-shadow(0px 0px 2px #FF1493);
+  }
+  body::before{
+    position: fixed;
+    display: block;
+    bottom: 0;
+    right: -80px;
+    width: 80px;
+    height: 157px;
+    content: "";
+    background: url("https://i.imgur.com/11rxk5C.gif");
+    background-size: 80px;
+    animation: walk 22s linear infinite;
+  }
+  @keyframes walk{
+    0%{
+      right: -120px;
+    }
+    50%{
+      right: calc((100% - 1058px) / 2);
+    }
+    51%{
+      right: calc((100% - 1058px) / 2 + (1058px - 80px));
+    }
+    100%{
+      right: 100%;
+    }
+  }
+  
+  /* rewatch - general */
+  /* publishing, airing, etc */
+  .link + span, .content-status, .rewatching{
+    background: #000;
+    padding: 0 5px;
+  }
+  
+  /* custom link - general */
+  
+  /* bring data to the front of the custom link  */
+  .data div, .data a[title="Watch Episode Video"]{
+    position: relative;
+    z-index: 1;
+  }
+  .data.title .link, .data.title .link + span{
+    position: relative;
+  }
+  .data.title .link::before{
+    content: "";
+    position: absolute;
+    display: block;
+    top: -43px;
+    left: -114px;
+    width: 1022px;
+    height: 102px;
+    -webkit-filter: drop-shadow(0px 0px 1px #222);
+    filter: drop-shadow(0px 0px 1px #222);
+  }
+  .list-table-data:hover > .data.title .link::before{
+    -webkit-filter: drop-shadow(0px 0px 2px #888);
+    filter: drop-shadow(0px 0px 2px #888);
+  }
+  
+  /* custom score - general */
+  
+  .data.title .link::after{
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 639px;
+    width: 68px;
+    background: #fff;
+    white-space: nowrap;
+    text-align: center;
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1.1);
+  }
+  .data.title .link[href*="/manga/"]::after{
+    left: 609px;
+  }
+  .list-table-data:hover > .data.title .link::after{
+    background: #eee;
+    transition: all 0.1s cubic-bezier(.25,.8,.25,1);
+  }
+  
+  /* image - only for link with custom image */
+  .data.image .link[href*="Yagate_Kimi_ni_Naru"]{
+    opacity: 0.75;
+  }
+  
+  /* YagaKimi */
+  
+  /* link - YagaKimi */
+  /* rewatch - YagaKimi */
+  .data.title .link[href*="Yagate_Kimi_ni_Naru"], .data.title .link[href*="Yagate_Kimi_ni_Naru"] + div + span{
+    position: relative;
+    left: 32px; /* title offset  */
+  }
+  /* custom link - YagaKimi*/
+  .data.title .link[href*="Yagate_Kimi_ni_Naru"]::before{
+    left: calc(-114px - 32px);
+    background: url("https://i.imgur.com/AFeQfTe.png");
+    background-size: 200px;
+    background-repeat: no-repeat;
+    background-position-x: -9px;
+  }
+  /* custom score - YagaKimi  */
+  .data.title .link[href*="Yagate_Kimi_ni_Naru"]::after{
+    content: "❤";
+    left: calc(639px - 32px);
+  }
+  .data.title .link[href*="Yagate_Kimi_ni_Naru"][href*="manga"]::after{
+    left: calc(609px - 32px);
+  }
+  
+  /* END YagaKimi */
+  
+  /* CUSTOM SCORE SECTION */
+  
+  /* custom score - ( ͡° ͜ʖ ͡°)  */
+  .data.title .link[href*="/7748/"]::after, .data.title .link[href*="/4473/"]::after{
+    content: "( ͡° ͜ʖ ͡°)";
+  }
+  
+  /* custom score - Josee */
+  .data.title .link[href*="/40787/"]::after{
+    content: "🦽";
+  }
+  
+  /* END CUSTOM SCORE SECTION */
