@@ -9,6 +9,7 @@
   body{
     background-size: cover;
     overflow-y: overlay;
+    overflow-x: hidden;
   }
   a, .list-item, .score-label{
     color: #FF1493;
@@ -103,30 +104,37 @@
     -webkit-filter: drop-shadow(0px 0px 2px #FF1493);
     filter: drop-shadow(0px 0px 2px #FF1493);
   }
-  body::before{
-    position: fixed;
+  body{
+    padding-bottom: 61px;
+  }
+  footer{
+    position: relative;
+    bottom: calc(-61px - 157px);
+  }
+  body::after{
+    position: sticky;
     display: block;
     bottom: 0;
-    right: -80px;
     width: 80px;
     height: 157px;
     content: "";
     background: url("https://i.imgur.com/11rxk5C.gif");
     background-size: 80px;
+    transform: translateX(calc(100vw - 80px + 120px));
     animation: walk 22s linear infinite;
   }
   @keyframes walk{
     0%{
-      right: -120px;
+        transform: translateX(calc(100vw - 80px + 120px)); /* equivalent of right: -120px */
     }
     50%{
-      right: calc((100% - 1058px) / 2);
+        transform: translateX(calc(50vw + 1058px / 2 - 80px)); /* left side transformed to the center + half of the list-container - the image width*/
     }
     51%{
-      right: calc((100% - 1058px) / 2 + (1058px - 80px));
+        transform: translateX(calc(50vw - 1058px / 2)); /* left side transformed to the center - half of the list-container*/
     }
     100%{
-      right: 100%;
+        transform: translateX(-80px);
     }
   }
   
