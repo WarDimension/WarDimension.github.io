@@ -29,7 +29,7 @@ function addList(alt = false){
 
     document.querySelector(".list-container").append(list);
 
-    if(document.querySelectorAll(".list-wrapper").length == 1){
+    if(document.querySelectorAll(".list-wrapper:not(.alt)").length == 1){
         document.querySelector(".remove-list").setAttribute("hidden", "");
     }
     else{
@@ -42,7 +42,7 @@ addList();
 function removeList(removeButton){
     removeButton.parentElement.remove();
 
-    if(document.querySelectorAll(".list-wrapper").length == 1){
+    if(document.querySelectorAll(".list-wrapper:not(.alt)").length == 1){
         document.querySelector(".remove-list").setAttribute("hidden", "");
     }
 }
