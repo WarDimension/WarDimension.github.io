@@ -2,7 +2,7 @@ const template = document.querySelector("template");
 
 let index = 0;
 
-function addList(){
+function addList(alt = false){
     const list = template.content.cloneNode(true);
 
     const toggle = list.querySelectorAll(".toggle");
@@ -18,13 +18,33 @@ function addList(){
 
     index++;
 
+    if(alt){
+        list.querySelector(".list-wrapper").className += " alt";
+        list.querySelector(".list-wrapper").style.backgroundColor = "#e4e4e4";
+
+        document.querySelector(".alt-list-container").append(list);
+
+        return;
+    }
+
     document.querySelector(".list-container").append(list);
+
+    if(document.querySelectorAll(".list-wrapper").length == 1){
+        document.querySelector(".remove-list").setAttribute("hidden", "");
+    }
+    else{
+        document.querySelector(".remove-list").removeAttribute("hidden");
+    }
 }
 
 addList();
 
 function removeList(removeButton){
     removeButton.parentElement.remove();
+
+    if(document.querySelectorAll(".list-wrapper").length == 1){
+        document.querySelector(".remove-list").setAttribute("hidden", "");
+    }
 }
 
 function addTag(){
@@ -77,7 +97,9 @@ const name = document.querySelector(".name");
 const tags = document.querySelector(".tags");
 
 function updateResult(){
-    const listWrapper = document.querySelectorAll(".list-wrapper");
+    const listWrapper = document.querySelectorAll(".list-wrapper:not(.alt)");
+    const listWrapperAlt = document.querySelectorAll(".alt");
+
     result.value = "";
     result.value +=
 `
@@ -86,7 +108,10 @@ function updateResult(){
         "tags": ${JSON.stringify(tags.value.split("|"))}` : ""},
         "list": [
             ${list(listWrapper)}
-        ]
+        ]${listWrapperAlt.length > 0 ? `,
+        "alt": [
+            ${list(listWrapperAlt)}
+        ]` : ""}
     },`;
 }
 

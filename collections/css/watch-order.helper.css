@@ -76,13 +76,24 @@ button.remove-tag{
 .container{
     top: 120px;
     padding: 0;
-    height: calc(100% - 120px - 460px);
+    padding-top: 30px;
+    height: calc(100% - 120px - 443px);
     overflow-y: overlay;
+}
+.alternative-container{
+    background: #d8d8d8;
+    margin-top: 20px;
+    padding: 20px;
+    box-shadow: inset 0px 0px 5px 0px #aaa;
+}
+.alt-span{
+    margin-top: 0;
+    margin-bottom: 10px;
 }
 .list-wrapper{
     position: relative;
     margin: auto;
-    margin-top: 30px;
+    margin-bottom: 20px;
     padding: 5px 0 20px;
     background: #ebebeb;
     box-shadow: 0px 0px 5px 0px #aaa;
@@ -92,11 +103,12 @@ button.add-list, button.remove-list{
     box-shadow: 0px 0px 2px 0px #aaa;
 }
 button.add-list{
-    margin-bottom: 16px;
+    margin-top: 0;
 }
 .result-container{
+    padding-top: 15px;
     bottom: 0;
-    height: 460px;
+    height: 443px;
 }
 textarea{
     margin-top: 10px;

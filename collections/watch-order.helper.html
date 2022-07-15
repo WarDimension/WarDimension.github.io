@@ -66,9 +66,13 @@
       </div>
     </div>
     <div class="container">
-      <div class="list-container">
-      </div>
+      <div class="list-container"></div>
       <button class="add-list" onclick="addList();updateResult()">Add List</button>
+      <div class="alternative-container">
+        <span class="alt-span">Alternative</span>
+        <div class="list-container alt-list-container"></div>
+        <button class="add-list add-alt-list" onclick="addList(true);updateResult()">Add List</button>
+      </div>
     </div>
     <div class="search-container result-container">
       <span>Result</span>
