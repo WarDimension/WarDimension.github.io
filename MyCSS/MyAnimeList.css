@@ -127,15 +127,26 @@
     0%{
         transform: translateX(calc(100vw - 80px + 120px)); /* equivalent of right: -120px */
     }
+    49%{
+        opacity: 1;
+    }
     50%{
         transform: translateX(calc(50vw + 1058px / 2 - 80px)); /* left side transformed to the center + half of the list-container - the image width*/
+        opacity: 0;
     }
     51%{
         transform: translateX(calc(50vw - 1058px / 2)); /* left side transformed to the center - half of the list-container*/
+        opacity: 0;
+    }
+    52%{
+        opacity: 1;
     }
     100%{
         transform: translateX(-80px);
     }
+  }
+  footer::before{
+    background: url("https://i.imgur.com/aZWB7x2.gif");
   }
   
   /* rewatch - general */
