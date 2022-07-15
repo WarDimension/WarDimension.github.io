@@ -20,7 +20,9 @@ function addList(alt = false){
 
     if(alt){
         list.querySelector(".list-wrapper").className += " alt";
-        list.querySelector(".list-wrapper").style.backgroundColor = "#e4e4e4";
+        list.querySelectorAll(".toggle-button").forEach(button => {
+            button.className += " toggle-button-alt";
+        });
 
         document.querySelector(".alt-list-container").append(list);
 
