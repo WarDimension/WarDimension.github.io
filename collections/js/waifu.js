@@ -19,9 +19,9 @@ function inIframe () {
 }
 
 if(!inIframe()){
+    const url = new URL(window.location);
     var p = "";
     if(getPost(url.toString())[1] != undefined){
-        const url = new URL(window.location);
         p += `?p=getPost(url.toString())`;
     }
     window.location.replace(`https://wardimension.github.io/collections/waifu-list${p}`);
