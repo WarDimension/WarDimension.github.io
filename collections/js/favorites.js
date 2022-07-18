@@ -81,16 +81,20 @@ let favorites = [
             {
                 "rankedList": [
                     {
-                        "title": "Adventure Time"
+                        "title": "Adventure Time",
+                        "link": "https://www.imdb.com/title/tt1305826/"
                     },
                     {
-                        "title": "Gravity Falls"
+                        "title": "Gravity Falls",
+                        "link": "https://www.imdb.com/title/tt1865718/"
                     },
                     {
-                        "title": "SpongeBob SquarePants"
+                        "title": "SpongeBob SquarePants",
+                        "link": "https://www.imdb.com/title/tt0206512/"
                     },
                     {
-                        "title": "Rick and Morty"
+                        "title": "Rick and Morty",
+                        "link": "https://www.imdb.com/title/tt2861424/"
                     }
                 ]
             },
@@ -98,7 +102,8 @@ let favorites = [
                 "subCategory": "Plan to Watch (Probably Will Be One of My Favorites)",
                 "rankedList": [
                     {
-                        "title": "The Owl House"
+                        "title": "The Owl House",
+                        "link": "https://www.imdb.com/title/tt8050756/"
                     }
                 ]
             }
@@ -110,19 +115,24 @@ let favorites = [
             {
                 "rankedList": [
                     {
-                        "title": "Clone Hero/Guitar Hero/Rock Band"
+                        "title": "Clone Hero/Guitar Hero/Rock Band",
+                        "link": "https://clonehero.net/"
                     },
                     {
-                        "title": "Rocksmith 2014"
+                        "title": "Rocksmith 2014",
+                        "link": "https://store.steampowered.com/app/221680/Rocksmith_2014_Edition__Remastered/"
                     },
                     {
-                        "title": "osu!"
+                        "title": "osu!",
+                        "link": "https://osu.ppy.sh/"
                     },
                     {
-                        "title": "Resident Evil"
+                        "title": "Resident Evil",
+                        "link": "https://store.steampowered.com/search/?term=resident+evil"
                     },
                     {
-                        "title": "The Adventures of Tintin: The Secret of the Unicorn"
+                        "title": "The Adventures of Tintin: The Secret of the Unicorn",
+                        "link": "https://www.youtube.com/playlist?list=PL2RRP5DCQpv5Olyj754GFGhScONqLLxO6"
                     }
                 ]
             }
@@ -134,7 +144,8 @@ let favorites = [
             {
                 "rankedList": [
                     {
-                        "title": "Yagate Kimi ni Naru Saeki Sayaka ni Tsuite"
+                        "title": "Yagate Kimi ni Naru Saeki Sayaka ni Tsuite",
+                        "link": "https://anilist.co/manga/105388/Yagate-Kimi-ni-Naru-Saeki-Sayaka-ni-Tsuite/"
                     }
                 ]
             }
@@ -146,7 +157,8 @@ let favorites = [
             {
                 "rankedList": [
                     {
-                        "title": "Yagate Kimi ni Naru"
+                        "title": "Yagate Kimi ni Naru",
+                        "link": "https://anilist.co/manga/86218/Yagate-Kimi-ni-Naru/"
                     }
                 ]
             },
@@ -154,7 +166,8 @@ let favorites = [
                 "subCategory": "Psychological",
                 "rankedList": [
                     {
-                        "title": "Aku no Hana"
+                        "title": "Aku no Hana",
+                        "link": "https://anilist.co/manga/54705/Aku-no-Hana/"
                     }
                 ]
             },
@@ -162,7 +175,8 @@ let favorites = [
                 "subCategory": "Yuri",
                 "rankedList": [
                     {
-                        "title": "Yagate Kimi ni Naru"
+                        "title": "Yagate Kimi ni Naru",
+                        "link": "https://anilist.co/manga/86218/Yagate-Kimi-ni-Naru/"
                     }
                 ]
             }
@@ -175,7 +189,8 @@ let favorites = [
                 "subCategory": "Band",
                 "rankedList": [
                     {
-                        "title": "nano.RIPE"
+                        "title": "nano.RIPE",
+                        "link": "http://nanoripe.com/"
                     }
                 ]
             },
@@ -183,7 +198,8 @@ let favorites = [
                 "subCategory": "Composer",
                 "rankedList": [
                     {
-                        "title": "Frédéric Chopin"
+                        "title": "Frédéric Chopin",
+                        "link": "https://open.spotify.com/artist/7y97mc3bZRFXzT2szRM4L4"
                     }
                 ]
             },
@@ -192,11 +208,13 @@ let favorites = [
                 "rankedList": [
                     {
                         "title": "Naisho no Hanashi",
-                        "subTitle": "ClariS"
+                        "subTitle": "ClariS",
+                        "link": "https://open.spotify.com/track/0BDtQ3XsoRHYYcHvvVgFLE"
                     },
                     {
-                        "title": "Haru Natsu Aki Fuyu",
-                        "subTitle": "sumika"
+                        "title": "Shunkashuutou",
+                        "subTitle": "sumika",
+                        "link": "https://open.spotify.com/track/3TQKZoYr4tH2YeJ02bcw1m"
                     }
                 ]
             },
@@ -204,11 +222,13 @@ let favorites = [
                 "subCategory": "Singer",
                 "rankedList": [
                     {
-                        "title": "Sayuri"
+                        "title": "Sayuri",
+                        "link": "https://open.spotify.com/artist/1YLxQZIGsaZq9rvFu8zeRz"
                     },
                     {
                         "title": "Kimiko",
-                        "subTitle": "nano.RIPE"
+                        "subTitle": "nano.RIPE",
+                        "link": "http://nanoripe.com/"
                     }
                 ]
             },
@@ -217,7 +237,8 @@ let favorites = [
                 "rankedList": [
                     {
                         "title": "Furaregai Girl",
-                        "subTitle": "Sayuri"
+                        "subTitle": "Sayuri",
+                        "link": "https://open.spotify.com/track/79i3cvW2LUR6vmZpMxezJ5"
                     }
                 ]
             },
@@ -226,11 +247,13 @@ let favorites = [
                 "rankedList": [
                     {
                         "title": "Furaregai Girl",
-                        "subTitle": "Sayuri"
+                        "subTitle": "Sayuri",
+                        "link": "https://open.spotify.com/track/79i3cvW2LUR6vmZpMxezJ5"
                     },
                     {
                         "title": "Taisetsu na Kimi no Tame ni, Boku ni Dekiru Ichiban no Koto",
-                        "subTitle": "Duca"
+                        "subTitle": "Duca",
+                        "link": "https://www.youtube.com/watch?v=VqKZbcLU2yA"
                     }
                 ]
             }
