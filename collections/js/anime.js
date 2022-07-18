@@ -361,6 +361,12 @@ const series = [
                 "romaji": "Koito Yuu",
                 "img": "https://i.imgur.com/2LalP2S.gif",
                 "AniListLink": "https://anilist.co/character/123528/Koito-Yuu"
+            },
+            {
+                "native": "七海燈子",
+                "romaji": "Nanami Touko",
+                "img": "https://i.imgur.com/rRpjnbw.gif",
+                "AniListLink": "https://anilist.co/character/123529/Nanami-Touko"
             }
         ]
     },

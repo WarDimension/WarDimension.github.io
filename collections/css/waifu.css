@@ -1,7 +1,9 @@
 ol{
     list-style: none;
+    width: 100%; /*remove this to remove the inline thingy*/
 }
 li{
+    margin-top: 10px;
     box-shadow: 0px 0px 5px 0px #aaa;
 }
 li:hover img{
@@ -10,6 +12,17 @@ li:hover img{
 li span{
     margin-bottom: 2px;
 }
+
+/*remove this to remove the inline thingy*/
+a{
+    display: inline-block;
+    width: 400px;
+    vertical-align: top;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+/*remove this to remove the inline thingy*/
+
 img{
     width: 400px;
     margin-bottom: 2px;
