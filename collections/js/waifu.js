@@ -34,7 +34,7 @@ function showWaifuList(){
     content = "";
 
     series.forEach(show => {
-        if((search.value == null || JSON.stringify(show).match(new RegExp(search.value, "mi"))) && show.waifu != undefined && (JSON.stringify(show.waifu).match(new RegExp(database.value, "m")) || !hideCheckbox.checked)){
+        if((search.value == null || show.waifu != undefined && JSON.stringify(show.waifu).match(new RegExp(search.value, "mi"))) && show.waifu != undefined && (JSON.stringify(show.waifu).match(new RegExp(database.value, "m")) || !hideCheckbox.checked)){
             content += `<p>${show.name}</p>`;
             showGirls(show.waifu);
         }
