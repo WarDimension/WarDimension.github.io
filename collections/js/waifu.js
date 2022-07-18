@@ -3,13 +3,28 @@ const database = document.querySelector(".database");
 const hideCheckbox = document.querySelector(".hide");
 let content = "";
 
+function getFirstLink(girl){
+    let keys = Object.keys(girl);
+    let link = "";
+
+    keys.forEach(key =>{
+        if(key.includes("Link")){
+            link = `<a href="${girl[key]}" target="_blank">`;
+        }
+    });
+
+    return link;
+}
+
 function showGirls(waifu){
     content += "<ol>";
     waifu.forEach(girl => {
-        if(girl[database.value] != undefined || !hideCheckbox.checked){
-            let link = girl[database.value] != undefined ? girl[database.value] : girl[Object.keys(girl)[1]];
-            let title = girl[database.value + "Title"] != undefined ? girl[database.value + "Title"] : girl.title;
-            content += `<a href="${link}" target="_blank"><li>${title}</li></a>`;
+        if(girl[database.value + "Link"] != undefined || !hideCheckbox.checked){
+            let link = girl[database.value + "Link"] != undefined ? `<a href="${girl[database.value + "Link"]}" target="_blank">` : getFirstLink(girl);
+            let romaji = girl.romaji != undefined ? `<span>${girl.romaji}</span>` : "";
+            let image = girl.img != undefined ? `<img src="${girl.img}"/>` : "";
+            content += `${link}<li>${image}${girl.native}${romaji}</li>`;
+            content += link != "" ? "</a>" : "";
         }
     })
     content += "</ol>";
@@ -19,7 +34,7 @@ function showWaifuList(){
     content = "";
 
     series.forEach(show => {
-        if((search.value == null || JSON.stringify(show).match(new RegExp(search.value, "mi"))) && show.waifu != undefined && (JSON.stringify(show).match(new RegExp(database.value, "m")) || !hideCheckbox.checked)){
+        if((search.value == null || JSON.stringify(show).match(new RegExp(search.value, "mi"))) && show.waifu != undefined && (JSON.stringify(show.waifu).match(new RegExp(database.value, "m")) || !hideCheckbox.checked)){
             content += `<p>${show.name}</p>`;
             showGirls(show.waifu);
         }

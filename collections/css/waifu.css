@@ -26,6 +26,9 @@ li{
 li:hover{
     background: #ccc;
 }
+li:hover img{
+    filter: brightness(0.95);
+}
 .search-container{
     position: fixed;
     left: 0;
@@ -72,4 +75,15 @@ span{
     font-size: 12px;
     opacity: 0.75;
     margin-top: 10px;
+}
+li span{
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+li span::before, li span::after{
+    content: "|";
+}
+img{
+    width: 400px;
+    margin-bottom: 2px;
 }

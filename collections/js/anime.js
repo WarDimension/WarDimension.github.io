@@ -340,6 +340,7 @@ const series = [
             {
                 "native": "小糸侑",
                 "romaji": "Koito Yuu",
+                "img": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgHE6r8hyP_dsci9mF62JuFTKAT9jW2TeRkgzMfWH1EB34ZW9KE1rLwxHB5q0kVDFiYuKSKvFroGhm-BAq-dcBXD13nKH_sS91VPFYofEhwfNYsFmONw0Eti7FdR_u2dG7WcGKQCcnmt8szcWgWGo7J1hORNJuw5oyMQft9oTuc2kouINJKYY4C2iTD/s1600/tumblr_28383b69d0f8e983cb9d509ffb10fbea_f0da43bb_540.gif",
                 "AniListLink": "https://anilist.co/character/123528/Koito-Yuu"
             }
         ]
