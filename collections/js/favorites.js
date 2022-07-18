@@ -93,6 +93,14 @@ let favorites = [
                         "title": "Rick and Morty"
                     }
                 ]
+            },
+            {
+                "subCategory": "Plan to Watch (Probably Will Be One of My Favorites)",
+                "rankedList": [
+                    {
+                        "title": "The Owl House"
+                    }
+                ]
             }
         ]
     },
