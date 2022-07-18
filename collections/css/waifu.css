@@ -22,7 +22,7 @@ li span{
 }
 a{
     display: inline-block;
-    vertical-align: top;
+    vertical-align: middle;
     margin: 10px;
     margin-bottom: 0;
 }
