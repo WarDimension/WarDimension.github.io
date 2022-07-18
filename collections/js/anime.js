@@ -328,12 +328,20 @@ const series = [
     },
     {
         "name": "Josee to Tora to Sakana-tachi",
-        "tags": ["ジョゼと虎と魚たち","Josee to Tora to Sakanatachi","Josee, the Tiger and the Fish"],
+        "tags": ["ジョゼと虎と魚たち","Josee to Tora to Sakanatachi","Josee, the Tiger and the Fish","Josee the Tiger and the Fish"],
         "list": [
             {
                 "title": "Josee to Tora to Sakana-tachi",
                 "AniListLink": "https://anilist.co/anime/113596/Josee-to-Tora-to-Sakanatachi/",
                 "MyAnimeListLink": "https://myanimelist.net/anime/40787/Josee_to_Tora_to_Sakana-tachi"
+            }
+        ],
+        "waifu": [
+            {
+                "native": "山村クミ子 - ジョゼ",
+                "romaji": "Yamamura Kumiko - Josee",
+                "img": "https://i.imgur.com/5mlMKYp.gif",
+                "AniListLink": "https://anilist.co/character/162228/Josee"
             }
         ]
     },
@@ -351,7 +359,7 @@ const series = [
             {
                 "native": "小糸侑",
                 "romaji": "Koito Yuu",
-                "img": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgHE6r8hyP_dsci9mF62JuFTKAT9jW2TeRkgzMfWH1EB34ZW9KE1rLwxHB5q0kVDFiYuKSKvFroGhm-BAq-dcBXD13nKH_sS91VPFYofEhwfNYsFmONw0Eti7FdR_u2dG7WcGKQCcnmt8szcWgWGo7J1hORNJuw5oyMQft9oTuc2kouINJKYY4C2iTD/s1600/tumblr_28383b69d0f8e983cb9d509ffb10fbea_f0da43bb_540.gif",
+                "img": "https://i.imgur.com/2LalP2S.gif",
                 "AniListLink": "https://anilist.co/character/123528/Koito-Yuu"
             }
         ]
