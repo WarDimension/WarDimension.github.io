@@ -373,6 +373,11 @@ const series = [
                 "AniListLink": "https://anilist.co/character/123529/Nanami-Touko",
                 "MyAnimeListLink": "https://myanimelist.net/character/137996/Touko_Nanami",
                 "MyWaifuListLink": "https://mywaifulist.moe/waifu/touko-nanami-bloom-into-you"
+            },
+            {
+                "native": "佐伯沙弥香",
+                "romaji": "Saeki Sayaka",
+                "img": "https://i.imgur.com/TXgmDhJ.gif"
             }
         ]
     },
