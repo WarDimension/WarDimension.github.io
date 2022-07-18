@@ -23,7 +23,7 @@ function showGirls(show, waifu, showAll = false){
     contentTemp += "<ol>";
     waifu.forEach(girl => {
         let isGirlExist = girl.native.match(regex) || girl.romaji?.match(regex) || (girl.tags != undefined && JSON.stringify(girl.tags).match(regex));
-        if(((girl[database.value + "Link"] != undefined || !hideCheckbox.checked) && (search.value == null || isGirlExist)) || showAll){
+        if((girl[database.value + "Link"] != undefined || !hideCheckbox.checked) && (search.value == null || isGirlExist || showAll)){
             let link = girl[database.value + "Link"] != undefined ? `<a href="${girl[database.value + "Link"]}" target="_blank">` : getFirstLink(girl);
             let romaji = girl.romaji != undefined ? `<span>${girl.romaji}</span>` : "";
             let image = girl.img != undefined ? `<img src="${girl.img}"/>` : "";
