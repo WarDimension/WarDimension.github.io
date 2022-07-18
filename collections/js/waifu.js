@@ -42,14 +42,11 @@ function showGirls(show, waifu, showAll = false){
 
 function showWaifuList(){
     content = "";
-    let regex = new RegExp(search.value, "mi");
-
     series.forEach(show => {
         if(show.waifu != undefined){
             showGirls(show, show.waifu);
         }
     });
-
     document.querySelector(".container").innerHTML = content;
 }
 
