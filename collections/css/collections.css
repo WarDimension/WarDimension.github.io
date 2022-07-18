@@ -7,9 +7,9 @@ body{
 p, ol{
     width: 400px;
     margin: auto;
-    opacity: 0.8;
 }
 p{
+    color: #303030;
     font-weight: bold;
     margin-top: 20px;
     margin-bottom: 2px;
@@ -20,10 +20,14 @@ ol{
 li{
     padding: 2px 0;
     margin-top: 6px;
-    background: #ddd;
+    background: #e1e1e1;
+    color: #303030;
 }
 li:hover{
-    background: #ccc;
+    background: #d3d3d3;
+}
+li:hover img{
+    filter: brightness(0.95);
 }
 .search-container{
     position: fixed;
@@ -67,8 +71,17 @@ a{
 }
 span{
     display: block;
-    color: #444;
+    color: #8e8e8e;
     font-size: 12px;
-    opacity: 0.75;
     margin-top: 10px;
+}
+li span{
+    margin-top: 2px;
+}
+li span::before, li span::after{
+    content: "|";
+}
+img{
+    width: 400px;
+    margin-bottom: 2px;
 }
