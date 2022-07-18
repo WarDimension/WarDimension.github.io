@@ -19,10 +19,10 @@ function getFirstLink(girl){
 function showGirls(show, waifu, showAll = false){
     isFound = false;
     let contentTemp = "";
-    let regex = new RegExp(search.value, "mi");
+    let regex = new RegExp(search.value, "i");
     contentTemp += "<ol>";
     waifu.forEach(girl => {
-        let isGirlExist = girl.native.match(regex) || girl.romaji?.match(regex) || girl.tags?.match(regex);
+        let isGirlExist = girl.native.match(regex) || girl.romaji?.match(regex) || (girl.tags != undefined && JSON.stringify(girl.tags).match(regex));
         if(((girl[database.value + "Link"] != undefined || !hideCheckbox.checked) && (search.value == null || isGirlExist)) || showAll){
             let link = girl[database.value + "Link"] != undefined ? `<a href="${girl[database.value + "Link"]}" target="_blank">` : getFirstLink(girl);
             let romaji = girl.romaji != undefined ? `<span>${girl.romaji}</span>` : "";
