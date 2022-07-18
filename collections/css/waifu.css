@@ -17,6 +17,9 @@ li:hover img{
 li span{
     margin-bottom: 2px;
 }
+.container{
+    padding: 10px 10px 40px 10px;
+}
 a{
     display: inline-block;
     vertical-align: top;
