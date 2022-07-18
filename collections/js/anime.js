@@ -327,6 +327,17 @@ const series = [
         ]
     },
     {
+        "name": "Josee to Tora to Sakana-tachi",
+        "tags": ["ジョゼと虎と魚たち","Josee to Tora to Sakanatachi","Josee, the Tiger and the Fish"],
+        "list": [
+            {
+                "title": "Josee to Tora to Sakana-tachi",
+                "AniListLink": "https://anilist.co/anime/113596/Josee-to-Tora-to-Sakanatachi/",
+                "MyAnimeListLink": "https://myanimelist.net/anime/40787/Josee_to_Tora_to_Sakana-tachi"
+            }
+        ]
+    },
+    {
         "name": "Yagate Kimi ni Naru",
         "tags": ["やがて君になる","Bloom Into You","YagaKimi"],
         "list": [

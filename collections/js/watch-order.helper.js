@@ -80,9 +80,9 @@ function list(listWrapper){
                 "title": "${title.value}"${AniListTitle.value != "" ? `,
                 "AniListTitle": "${AniListTitle.value}"` : ""}${MyAnimeListTitle.value != "" ? `,
                 "MyAnimeListTitle": "${MyAnimeListTitle.value}"` : ""}${AniList.value != "" ? `,
-                "AniList": "${AniList.value}"` : ""}${MyAnimeList.value != "" ? `,
-                "MyAnimeList": "${MyAnimeList.value}"` : ""}${YouTube.value != "" ? `,
-                "YouTube": "${YouTube.value}"` : ""}
+                "AniListLink": "${AniList.value}"` : ""}${MyAnimeList.value != "" ? `,
+                "MyAnimeListLink": "${MyAnimeList.value}"` : ""}${YouTube.value != "" ? `,
+                "YouTubeLink": "${YouTube.value}"` : ""}
             }`;
         if(i < listWrapper.length - 1){
             list +=
