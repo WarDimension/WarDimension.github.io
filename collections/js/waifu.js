@@ -50,4 +50,16 @@ function showWaifuList(){
     document.querySelector(".container").innerHTML = content;
 }
 
+function url(){
+    var vars = {};
+    window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value){
+        vars[key] = value;
+    });
+    return vars;
+}
+
+if(url()["s"]){
+    search.value = url()["s"];
+}
+
 showWaifuList();
