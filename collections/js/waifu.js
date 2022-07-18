@@ -8,7 +8,7 @@ function getFirstLink(girl){
     let link = "";
 
     keys.forEach(key =>{
-        if(key.includes("Link")){
+        if(key.includes("Link") && link == ""){
             link = `<a href="${girl[key]}" target="_blank">`;
         }
     });
