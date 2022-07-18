@@ -55,7 +55,7 @@ function url(){
 }
 
 if(url()["s"]){
-    search.value = url()["s"];
+    search.value = decodeURI(url()["s"]);
 }
 
 showList();
