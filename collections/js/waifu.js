@@ -3,33 +3,29 @@ const database = document.querySelector(".database");
 const hideCheckbox = document.querySelector(".hide");
 let content = "";
 
-function showListItems(list){
+function showGirls(waifu){
     content += "<ol>";
-    list.forEach(item => {
-        if(item[database.value] != undefined || !hideCheckbox.checked){
-            let link = item[database.value] != undefined ? item[database.value] : item[Object.keys(item)[1]];
-            let title = item[database.value + "Title"] != undefined ? item[database.value + "Title"] : item.title;
+    waifu.forEach(girl => {
+        if(girl[database.value] != undefined || !hideCheckbox.checked){
+            let link = girl[database.value] != undefined ? girl[database.value] : girl[Object.keys(girl)[1]];
+            let title = girl[database.value + "Title"] != undefined ? girl[database.value + "Title"] : girl.title;
             content += `<a href="${link}" target="_blank"><li>${title}</li></a>`;
         }
     })
     content += "</ol>";
 }
 
-function showList(){
+function showWaifuList(){
     content = "";
 
     series.forEach(show => {
-        if((search.value == null || JSON.stringify(show).match(new RegExp(search.value, "mi"))) && (JSON.stringify(show).match(new RegExp(database.value, "m")) || !hideCheckbox.checked)){
+        if((search.value == null || JSON.stringify(show).match(new RegExp(search.value, "mi"))) && show.waifu != undefined && (JSON.stringify(show).match(new RegExp(database.value, "m")) || !hideCheckbox.checked)){
             content += `<p>${show.name}</p>`;
-            showListItems(show.list);
-            if(show.alt != undefined){
-                content += "<span>Alternative</span>";
-                showListItems(show.alt);
-            }
+            showGirls(show.waifu);
         }
     });
 
     document.querySelector(".container").innerHTML = content;
 }
 
-showList();
+showWaifuList();

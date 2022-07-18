@@ -16,6 +16,7 @@ p{
 }
 ol{
     padding: 0;
+    list-style: none;
 }
 li{
     padding: 2px 0;
