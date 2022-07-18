@@ -361,27 +361,42 @@ const series = [
             {
                 "native": "箱崎理子",
                 "romaji": "Hakozaki Riko",
-                "img": "https://i.imgur.com/LLyTJYQ.gif"
+                "img": "https://i.imgur.com/LLyTJYQ.gif",
+                "AniListLink": "https://anilist.co/character/128562/Hakozaki-Riko",
+                "MyAnimeListLink": "https://myanimelist.net/character/163925/Riko_Hakozaki",
+                "MyWaifuListLink": "https://mywaifulist.moe/waifu/riko-hakozaki-bloom-into-you"
             },
             {
                 "native": "日向朱里",
                 "romaji": "Hyuuga Akari",
-                "img": "https://i.imgur.com/Zb3aEcJ.gif"
+                "img": "https://i.imgur.com/Zb3aEcJ.gif",
+                "AniListLink": "https://anilist.co/character/128103/Hyuuga-Akari",
+                "MyAnimeListLink": "https://myanimelist.net/character/164049/Akari_Hyuuga",
+                "MyWaifuListLink": "https://mywaifulist.moe/waifu/akari-hyuuga-bloom-into-you"
             },
             {
                 "native": "叶こよみ",
                 "romaji": "Kanou Koyomi",
-                "img": "https://i.imgur.com/EqUdjWn.gif"
+                "img": "https://i.imgur.com/EqUdjWn.gif",
+                "AniListLink": "https://anilist.co/character/127273/Kanou-Koyomi",
+                "MyAnimeListLink": "https://myanimelist.net/character/163923/Koyomi_Kanou",
+                "MyWaifuListLink": "https://mywaifulist.moe/waifu/koyomi-kanou"
             },
             {
                 "native": "児玉都",
                 "romaji": "Kodama Miyako",
-                "img": "https://i.imgur.com/ijoflOm.gif"
+                "img": "https://i.imgur.com/ijoflOm.gif",
+                "AniListLink": "https://anilist.co/character/128561/Kodama-Miyako",
+                "MyAnimeListLink": "https://myanimelist.net/character/164795/Miyako_Kodama",
+                "MyWaifuListLink": "https://mywaifulist.moe/waifu/kodama-miyako"
             },
             {
                 "native": "小糸怜",
                 "romaji": "Koito Rei",
-                "img": "https://i.imgur.com/2JfRtDk.gif"
+                "img": "https://i.imgur.com/2JfRtDk.gif",
+                "AniListLink": "https://anilist.co/character/128564/Koito-Rei",
+                "MyAnimeListLink": "https://myanimelist.net/character/165634/Rei_Koito",
+                "MyWaifuListLink": "https://mywaifulist.moe/waifu/rei-koito-bloom-into-you"
             },
             {
                 "native": "小糸侑",
@@ -402,22 +417,33 @@ const series = [
             {
                 "native": "佐伯沙弥香",
                 "romaji": "Saeki Sayaka",
-                "img": "https://i.imgur.com/TXgmDhJ.gif"
+                "img": "https://i.imgur.com/TXgmDhJ.gif",
+                "AniListLink": "https://anilist.co/character/123530/Saeki-Sayaka",
+                "MyAnimeListLink": "https://myanimelist.net/character/142089/Sayaka_Saeki",
+                "MyWaifuListLink": "https://mywaifulist.moe/waifu/sayaka-saeki"
             },
             {
                 "native": "芹澤",
                 "romaji": "Serizawa",
-                "img": "https://i.imgur.com/d4TDPgw.gif"
+                "img": "https://i.imgur.com/d4TDPgw.gif",
+                "AniListLink": "https://anilist.co/character/142096/Serizawa",
+                "MyAnimeListLink": "https://myanimelist.net/character/179204/Serizawa"
             },
             {
                 "native": "燈子の母",
                 "romaji": "Touko no Haha - Touko's Mom",
-                "img": "https://i.imgur.com/kgeia40.gif"
+                "img": "https://i.imgur.com/kgeia40.gif",
+                "tags": ["Touko's Mother"],
+                "AniListLink": "https://anilist.co/character/154095/Touko-no-Haha",
+                "MyAnimeListLink": "https://myanimelist.net/character/181909/Touko_039_s_Mother"
             },
             {
                 "native": "侑の母",
                 "romaji": "Yuu no Haha - Yuu's Mom",
-                "img": "https://i.imgur.com/jRDvVL3.gif"
+                "img": "https://i.imgur.com/jRDvVL3.gif",
+                "tags": ["Yuu's Mother"],
+                "AniListLink": "https://anilist.co/character/154092/Yuu-no-Haha",
+                "MyAnimeListLink": "https://myanimelist.net/character/181908/Yuu_039_s_Mother"
             }
         ]
     },
