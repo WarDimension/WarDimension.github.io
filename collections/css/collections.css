@@ -86,7 +86,3 @@ li span{
 li span::before, li span::after{
     content: "|";
 }
-img{
-    width: 400px;
-    margin-bottom: 2px;
-}
