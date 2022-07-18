@@ -35,7 +35,7 @@ function showGirls(show, waifu, showAll = false){
     if(isFound){
         content += `<p>${show.name}</p>` + contentTemp + "</ol>";
     }
-    else if(show.name.match(regex) || (show.tags != undefined && JSON.stringify(show.tags).match(regex))){
+    else if((show.name.match(regex) || (show.tags != undefined && JSON.stringify(show.tags).match(regex))) && (!hideCheckbox.checked || (JSON.stringify(waifu).match(new RegExp(database.value + "Link", "m"))))){
         showGirls(show, waifu, true);
     }
 }
