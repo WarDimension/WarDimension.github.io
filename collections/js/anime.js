@@ -341,7 +341,9 @@ const series = [
                 "native": "山村クミ子 - ジョゼ",
                 "romaji": "Yamamura Kumiko - Josee",
                 "img": "https://i.imgur.com/5mlMKYp.gif",
-                "AniListLink": "https://anilist.co/character/162228/Josee"
+                "AniListLink": "https://anilist.co/character/162228/Josee",
+                "MyAnimeListLink": "https://myanimelist.net/character/185511/Josee",
+                "MyWaifuListLink": "https://mywaifulist.moe/waifu/josee"
             }
         ]
     },
@@ -360,13 +362,17 @@ const series = [
                 "native": "小糸侑",
                 "romaji": "Koito Yuu",
                 "img": "https://i.imgur.com/2LalP2S.gif",
-                "AniListLink": "https://anilist.co/character/123528/Koito-Yuu"
+                "AniListLink": "https://anilist.co/character/123528/Koito-Yuu",
+                "MyAnimeListLink": "https://myanimelist.net/character/137994/Yuu_Koito",
+                "MyWaifuListLink": "https://mywaifulist.moe/waifu/koito-yuu"
             },
             {
                 "native": "七海燈子",
                 "romaji": "Nanami Touko",
                 "img": "https://i.imgur.com/rRpjnbw.gif",
-                "AniListLink": "https://anilist.co/character/123529/Nanami-Touko"
+                "AniListLink": "https://anilist.co/character/123529/Nanami-Touko",
+                "MyAnimeListLink": "https://myanimelist.net/character/137996/Touko_Nanami",
+                "MyWaifuListLink": "https://mywaifulist.moe/waifu/touko-nanami-bloom-into-you"
             }
         ]
     },
