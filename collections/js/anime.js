@@ -359,6 +359,31 @@ const series = [
         ],
         "waifu": [
             {
+                "native": "箱崎理子",
+                "romaji": "Hakozaki Riko",
+                "img": "https://i.imgur.com/LLyTJYQ.gif"
+            },
+            {
+                "native": "日向朱里",
+                "romaji": "Hyuuga Akari",
+                "img": "https://i.imgur.com/Zb3aEcJ.gif"
+            },
+            {
+                "native": "叶こよみ",
+                "romaji": "Kanou Koyomi",
+                "img": "https://i.imgur.com/EqUdjWn.gif"
+            },
+            {
+                "native": "児玉都",
+                "romaji": "Kodama Miyako",
+                "img": "https://i.imgur.com/ijoflOm.gif"
+            },
+            {
+                "native": "小糸怜",
+                "romaji": "Koito Rei",
+                "img": "https://i.imgur.com/2JfRtDk.gif"
+            },
+            {
                 "native": "小糸侑",
                 "romaji": "Koito Yuu",
                 "img": "https://i.imgur.com/2LalP2S.gif",
@@ -378,6 +403,21 @@ const series = [
                 "native": "佐伯沙弥香",
                 "romaji": "Saeki Sayaka",
                 "img": "https://i.imgur.com/TXgmDhJ.gif"
+            },
+            {
+                "native": "芹澤",
+                "romaji": "Serizawa",
+                "img": "https://i.imgur.com/d4TDPgw.gif"
+            },
+            {
+                "native": "燈子の母",
+                "romaji": "Touko no Haha - Touko's Mom",
+                "img": "https://i.imgur.com/kgeia40.gif"
+            },
+            {
+                "native": "侑の母",
+                "romaji": "Yuu no Haha - Yuu's Mom",
+                "img": "https://i.imgur.com/jRDvVL3.gif"
             }
         ]
     },
