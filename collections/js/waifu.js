@@ -16,14 +16,14 @@ function getFirstLink(girl){
     return link;
 }
 
-function showGirls(showName, waifu){
+function showGirls(show, waifu, showAll = false){
     isFound = false;
     let contentTemp = "";
+    let regex = new RegExp(search.value, "mi");
     contentTemp += "<ol>";
     waifu.forEach(girl => {
-        let regex = new RegExp(search.value, "mi");
         let isGirlExist = girl.native.match(regex) || girl.romaji?.match(regex) || girl.tags?.match(regex);
-        if((girl[database.value + "Link"] != undefined || !hideCheckbox.checked) && (search.value == null || isGirlExist)){
+        if(((girl[database.value + "Link"] != undefined || !hideCheckbox.checked) && (search.value == null || isGirlExist)) || showAll){
             let link = girl[database.value + "Link"] != undefined ? `<a href="${girl[database.value + "Link"]}" target="_blank">` : getFirstLink(girl);
             let romaji = girl.romaji != undefined ? `<span>${girl.romaji}</span>` : "";
             let image = girl.img != undefined ? `<img src="${girl.img}"/>` : "";
@@ -33,16 +33,20 @@ function showGirls(showName, waifu){
         }
     })
     if(isFound){
-        content += `<p>${showName}</p>` + contentTemp + "</ol>";
+        content += `<p>${show.name}</p>` + contentTemp + "</ol>";
+    }
+    else if(show.name.match(regex) || (show.tags != undefined && JSON.stringify(show.tags).match(regex))){
+        showGirls(show, waifu, true);
     }
 }
 
 function showWaifuList(){
     content = "";
+    let regex = new RegExp(search.value, "mi");
 
     series.forEach(show => {
         if(show.waifu != undefined){
-            showGirls(show.name, show.waifu);
+            showGirls(show, show.waifu);
         }
     });
 
