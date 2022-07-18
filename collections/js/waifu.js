@@ -19,7 +19,7 @@ function getFirstLink(girl){
 function showGirls(waifu){
     content += "<ol>";
     waifu.forEach(girl => {
-        if(girl[database.value + "Link"] != undefined || !hideCheckbox.checked){
+        if((girl[database.value + "Link"] != undefined || !hideCheckbox.checked) && (search.value == null || JSON.stringify(girl).match(new RegExp(search.value, "mi")))){
             let link = girl[database.value + "Link"] != undefined ? `<a href="${girl[database.value + "Link"]}" target="_blank">` : getFirstLink(girl);
             let romaji = girl.romaji != undefined ? `<span>${girl.romaji}</span>` : "";
             let image = girl.img != undefined ? `<img src="${girl.img}"/>` : "";
