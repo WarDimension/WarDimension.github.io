@@ -30,6 +30,7 @@ a li{
     margin: 0;
 }
 img{
-    height: 280px;
+    max-height: 280px;
+    max-width: calc(100vw - 40px);
     margin-bottom: 2px;
 }
