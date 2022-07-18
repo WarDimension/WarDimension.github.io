@@ -124,7 +124,7 @@ let favorites = [
                     },
                     {
                         "title": "osu!",
-                        "link": "https://osu.ppy.sh/"
+                        "link": "https://osu.ppy.sh/users/5326020"
                     },
                     {
                         "title": "Resident Evil",
