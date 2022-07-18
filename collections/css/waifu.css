@@ -18,7 +18,7 @@ li span{
 }
 a, li{
     display: inline-block;
-    vertical-align: middle;
+    vertical-align: top;
     margin: 10px;
     margin-bottom: 0;
 }
