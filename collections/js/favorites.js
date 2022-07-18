@@ -228,7 +228,7 @@ let favorites = [
                     {
                         "title": "Kimiko",
                         "subTitle": "nano.RIPE",
-                        "link": "http://nanoripe.com/"
+                        "link": "https://twitter.com/nanoripekimiko"
                     }
                 ]
             },
