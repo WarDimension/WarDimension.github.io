@@ -5,7 +5,8 @@ let favorites = [
             {
                 "rankedList": [
                     {
-                        "title": "Yagate Kimi ni Naru"
+                        "title": "Yagate Kimi ni Naru",
+                        "link": "./watch-order?s=やがて君になる"
                     }
                 ]
             },
@@ -13,7 +14,8 @@ let favorites = [
                 "subCategory": "Adventure",
                 "rankedList": [
                     {
-                        "title": "Sora yori mo Tooi Basho"
+                        "title": "Sora yori mo Tooi Basho",
+                        "link": "./watch-order?s=宇宙よりも遠い場所"
                     }
                 ]
             },
@@ -21,13 +23,16 @@ let favorites = [
                 "subCategory": "Horror",
                 "rankedList": [
                     {
-                        "title": "Higurashi no Naku Koro ni"
+                        "title": "Higurashi no Naku Koro ni",
+                        "link": "./watch-order?s=ひぐらしのなく頃に"
                     },
                     {
-                        "title": "Mayoiga"
+                        "title": "Mayoiga",
+                        "link": "./watch-order?s=迷家-マヨイガ-"
                     },
                     {
-                        "title": "Another"
+                        "title": "Another",
+                        "link": "./watch-order?s=アナザー"
                     }
                 ]
             },
@@ -35,7 +40,8 @@ let favorites = [
                 "subCategory": "Psychological",
                 "rankedList": [
                     {
-                        "title": "Aku no Hana"
+                        "title": "Aku no Hana",
+                        "link": "./watch-order?s=惡の華"
                     }
                 ]
             },
@@ -43,10 +49,12 @@ let favorites = [
                 "subCategory": "Yuri",
                 "rankedList": [
                     {
-                        "title": "Yagate Kimi ni Naru"
+                        "title": "Yagate Kimi ni Naru",
+                        "link": "./watch-order?s=やがて君になる"
                     },
                     {
-                        "title": "citrus"
+                        "title": "citrus",
+                        "link": "./watch-order?s=citrus"
                     }
                 ]
             },
@@ -55,11 +63,13 @@ let favorites = [
                 "rankedList": [
                     {
                         "title": "Koito Yuu",
-                        "subTitle": "Yagate Kimi ni Naru"
+                        "subTitle": "Yagate Kimi ni Naru",
+                        "link": "./waifu?s=小糸侑"
                     },
                     {
-                        "title": "Yamamura Kumiko",
-                        "subTitle": "Josee to Tora to Sakana-tachi"
+                        "title": "Yamamura Kumiko - Josee",
+                        "subTitle": "Josee to Tora to Sakana-tachi",
+                        "link": "./waifu?s=山村クミ子"
                     }
                 ]
             }
@@ -228,7 +238,9 @@ favorites.forEach(favorite => {
         item.subCategory != undefined ? content += `<span>${item.subCategory}</span>` : "";
         content += "<ol>";
         item.rankedList.forEach(rankedItem => {
-            content += `<li>${rankedItem.title}${rankedItem.subTitle != undefined ? `<span>${rankedItem.subTitle}</span>` : ""}</li>`;
+            let link = rankedItem.link != undefined ? `<a href="${rankedItem.link}">` : "";
+            content += `${link}<li>${rankedItem.title}${rankedItem.subTitle != undefined ? `<span>${rankedItem.subTitle}</span>` : ""}</li>`;
+            content += link != "" ? "</a>" : "";
         });
         content += "</ol>";
     })
