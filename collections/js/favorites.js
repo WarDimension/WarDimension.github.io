@@ -238,7 +238,7 @@ favorites.forEach(favorite => {
         item.subCategory != undefined ? content += `<span>${item.subCategory}</span>` : "";
         content += "<ol>";
         item.rankedList.forEach(rankedItem => {
-            let link = rankedItem.link != undefined ? `<a href="${rankedItem.link}">` : "";
+            let link = rankedItem.link != undefined ? `<a href="${rankedItem.link}" target="_blank">` : "";
             content += `${link}<li>${rankedItem.title}${rankedItem.subTitle != undefined ? `<span>${rankedItem.subTitle}</span>` : ""}</li>`;
             content += link != "" ? "</a>" : "";
         });
