@@ -16,27 +16,33 @@ function getFirstLink(girl){
     return link;
 }
 
-function showGirls(waifu){
-    content += "<ol>";
+function showGirls(showName, waifu){
+    isFound = false;
+    let contentTemp = "";
+    contentTemp += "<ol>";
     waifu.forEach(girl => {
-        if((girl[database.value + "Link"] != undefined || !hideCheckbox.checked) && (search.value == null || JSON.stringify(girl).match(new RegExp(search.value, "mi")))){
+        let regex = new RegExp(search.value, "mi");
+        let isGirlExist = girl.native.match(regex) || girl.romaji?.match(regex) || girl.tags?.match(regex);
+        if((girl[database.value + "Link"] != undefined || !hideCheckbox.checked) && (search.value == null || isGirlExist)){
             let link = girl[database.value + "Link"] != undefined ? `<a href="${girl[database.value + "Link"]}" target="_blank">` : getFirstLink(girl);
             let romaji = girl.romaji != undefined ? `<span>${girl.romaji}</span>` : "";
             let image = girl.img != undefined ? `<img src="${girl.img}"/>` : "";
-            content += `${link}<li>${image}<div>${girl.native}</div>${romaji}</li>`;
-            content += link != "" ? "</a>" : "";
+            contentTemp += `${link}<li>${image}<div>${girl.native}</div>${romaji}</li>`;
+            contentTemp += link != "" ? "</a>" : "";
+            isFound = true;
         }
     })
-    content += "</ol>";
+    if(isFound){
+        content += `<p>${showName}</p>` + contentTemp + "</ol>";
+    }
 }
 
 function showWaifuList(){
     content = "";
 
     series.forEach(show => {
-        if((search.value == null || show.waifu != undefined && JSON.stringify(show.waifu).match(new RegExp(search.value, "mi"))) && show.waifu != undefined && (JSON.stringify(show.waifu).match(new RegExp(database.value, "m")) || !hideCheckbox.checked)){
-            content += `<p>${show.name}</p>`;
-            showGirls(show.waifu);
+        if(show.waifu != undefined){
+            showGirls(show.name, show.waifu);
         }
     });
 
