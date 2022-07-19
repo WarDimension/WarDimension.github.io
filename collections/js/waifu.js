@@ -71,10 +71,6 @@ function setImageAttribute(){
         let aspectRatio = (image.offsetWidth / image.offsetHeight).toFixed(1);
         image.setAttribute("aspectRatio", aspectRatio);
         image.style = "height: 280px";
-        if(aspectRatio == NaN){
-            setImageAttribute();
-            return;
-        }
     });
     resizeImage();
 }
@@ -82,6 +78,9 @@ function setImageAttribute(){
 function resizeImage(){
     const img = document.querySelectorAll("img");
     img.forEach(image => {
+        if(aspectRatio == NaN){
+            setImageAttribute(image.getAttribute("aspectRatio") == NaN);
+        }
         let aspectRatio = (image.offsetWidth / image.offsetHeight).toFixed(1);
         image.style = "height: 280px";
         if(aspectRatio != image.getAttribute("aspectRatio")){
