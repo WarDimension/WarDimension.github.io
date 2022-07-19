@@ -63,3 +63,27 @@ if(url()["s"]){
 }
 
 showWaifuList();
+
+const img = document.querySelectorAll("img");
+
+img.forEach(image => {
+    let aspectRatio = (image.offsetWidth / image.offsetHeight).toFixed(1);
+    image.setAttribute("aspectRatio", aspectRatio);
+    image.style.height = "280px";
+});
+
+function resizeImage(){
+    img.forEach(image => {
+        let aspectRatio = (image.offsetWidth / image.offsetHeight).toFixed(1);
+        image.style.height = "280px";
+        if(aspectRatio != image.getAttribute("aspectRatio")){
+            image.style.height = "";
+            image.style.width = "460px";
+        }
+    });
+}
+resizeImage();
+
+window.addEventListener("resize", (e) => {
+    resizeImage();
+});
