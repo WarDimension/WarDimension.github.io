@@ -70,22 +70,26 @@ function setImageAttribute(){
     img.forEach(image => {
         let aspectRatio = (image.offsetWidth / image.offsetHeight).toFixed(1);
         image.setAttribute("aspectRatio", aspectRatio);
-        image.style.height = "280px";
+        image.style = "height: 280px";
+        if(aspectRatio == NaN){
+            setImageAttribute();
+            return;
+        }
     });
+    resizeImage();
 }
 
 function resizeImage(){
     const img = document.querySelectorAll("img");
     img.forEach(image => {
         let aspectRatio = (image.offsetWidth / image.offsetHeight).toFixed(1);
-        image.style.height = "280px";
+        image.style = "height: 280px";
         if(aspectRatio != image.getAttribute("aspectRatio")){
             image.style.height = "";
             image.style.width = "460px";
         }
     });
 }
-resizeImage();
 
 window.addEventListener("resize", (e) => {
     resizeImage();
