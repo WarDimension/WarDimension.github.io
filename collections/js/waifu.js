@@ -77,10 +77,10 @@ function setImageAttribute(){
 
 function resizeImage(){
     const img = document.querySelectorAll("img");
-    if(JSON.stringify(img).match(NaN)){
-        setImageAttribute();
-    }
     img.forEach(image => {
+        if(image.getAttribute("aspectRatio") == NaN){
+            setImageAttribute();
+        }
         let aspectRatio = (image.offsetWidth / image.offsetHeight).toFixed(1);
         image.style = "height: 280px";
         if(aspectRatio != image.getAttribute("aspectRatio")){
