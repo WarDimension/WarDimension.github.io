@@ -78,8 +78,8 @@ function setImageAttribute(){
 function resizeImage(){
     const img = document.querySelectorAll("img");
     img.forEach(image => {
-        if(aspectRatio == NaN){
-            setImageAttribute(image.getAttribute("aspectRatio") == NaN);
+        if(image.getAttribute("aspectRatio") == NaN){
+            setImageAttribute();
         }
         let aspectRatio = (image.offsetWidth / image.offsetHeight).toFixed(1);
         image.style = "height: 280px";
