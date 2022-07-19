@@ -48,7 +48,6 @@ function showWaifuList(){
         }
     });
     document.querySelector(".container").innerHTML = content;
-    setImageAttribute();
 }
 
 function url(){
@@ -64,32 +63,3 @@ if(url()["s"]){
 }
 
 showWaifuList();
-
-function setImageAttribute(){
-    const img = document.querySelectorAll("img");
-    img.forEach(image => {
-        let aspectRatio = (image.offsetWidth / image.offsetHeight).toFixed(1);
-        image.setAttribute("aspectRatio", aspectRatio);
-        image.style = "height: 280px";
-    });
-    resizeImage();
-}
-
-function resizeImage(){
-    const img = document.querySelectorAll("img");
-    img.forEach(image => {
-        if(image.getAttribute("aspectRatio") == NaN){
-            setImageAttribute();
-        }
-        let aspectRatio = (image.offsetWidth / image.offsetHeight).toFixed(1);
-        image.style = "height: 280px";
-        if(aspectRatio != image.getAttribute("aspectRatio")){
-            image.style.height = "";
-            image.style.width = "460px";
-        }
-    });
-}
-
-window.addEventListener("resize", (e) => {
-    resizeImage();
-});
