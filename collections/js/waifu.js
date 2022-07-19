@@ -48,7 +48,6 @@ function showWaifuList(){
         }
     });
     document.querySelector(".container").innerHTML = content;
-    img = document.querySelectorAll("img");
     setImageAttribute();
 }
 
@@ -66,9 +65,8 @@ if(url()["s"]){
 
 showWaifuList();
 
-let img = document.querySelectorAll("img");
-
 function setImageAttribute(){
+    const img = document.querySelectorAll("img");
     img.forEach(image => {
         let aspectRatio = (image.offsetWidth / image.offsetHeight).toFixed(1);
         image.setAttribute("aspectRatio", aspectRatio);
@@ -77,6 +75,7 @@ function setImageAttribute(){
 }
 
 function resizeImage(){
+    const img = document.querySelectorAll("img");
     img.forEach(image => {
         let aspectRatio = (image.offsetWidth / image.offsetHeight).toFixed(1);
         image.style.height = "280px";
