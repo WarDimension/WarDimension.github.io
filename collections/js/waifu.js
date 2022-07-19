@@ -48,6 +48,7 @@ function showWaifuList(){
         }
     });
     document.querySelector(".container").innerHTML = content;
+    img = document.querySelectorAll("img");
     setImageAttribute();
 }
 
@@ -65,7 +66,7 @@ if(url()["s"]){
 
 showWaifuList();
 
-const img = document.querySelectorAll("img");
+let img = document.querySelectorAll("img");
 
 function setImageAttribute(){
     img.forEach(image => {
