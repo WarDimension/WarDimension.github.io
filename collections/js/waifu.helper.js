@@ -64,7 +64,7 @@ function getDetails(item){
             if(detail.value != ""){
                 details += i == 0 ? "" : `,
                 `;
-                details += `"${detail.className}": "${detail.value}"`;
+                details += `"${detail.className}": "${detail.value.replace("[img]", "").replace("[/img]", "")}"`;
                 i++;
             }
         });
@@ -92,6 +92,10 @@ function list(listWrapper){
 
 const result = document.querySelector(".result");
 //const wrapList = document.querySelector(".wrap-list");
+
+const wrapList = {
+    "checked": false
+}
 
 function updateResult(){
     const listWrapper = document.querySelectorAll(".list-wrapper");
