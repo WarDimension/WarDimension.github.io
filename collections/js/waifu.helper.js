@@ -99,9 +99,9 @@ function updateResult(){
     result.value = "";
     result.value +=
 `${wrapList.checked ? `
-        "waifu": [` : ","}
+        "waifu": [` : ""}
             ${list(listWrapper)}${wrapList.checked ? `
-        ]` : ""}`;
+        ]` : ","}`;
 }
 
 updateResult();
