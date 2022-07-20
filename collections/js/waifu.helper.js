@@ -98,7 +98,7 @@ function updateResult(){
 
     result.value = "";
     result.value +=
-`${wrapList.checked ? `
+`${wrapList.checked ? `,
         "waifu": [` : ""}
             ${list(listWrapper)}${wrapList.checked ? `
         ]` : ","}`;
