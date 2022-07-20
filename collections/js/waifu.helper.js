@@ -91,11 +91,7 @@ function list(listWrapper){
 }
 
 const result = document.querySelector(".result");
-//const wrapList = document.querySelector(".wrap-list");
-
-const wrapList = {
-    "checked": false
-}
+const wrapList = document.querySelector(".wrap-list");
 
 function updateResult(){
     const listWrapper = document.querySelectorAll(".list-wrapper");
