@@ -273,6 +273,24 @@ const series = [
                 "AniListLink": "https://anilist.co/anime/97832/citrus/",
                 "MyAnimeListLink": "https://myanimelist.net/anime/34382/Citrus"
             }
+        ],
+        "waifu": [
+            {
+                "native": "藍原芽衣",
+                "romaji": "Aihara Mei",
+                "img": "https://i.imgur.com/Ht5ZZM9.gif",
+                "AniListLink": "https://anilist.co/character/83209/Aihara-Mei",
+                "MyAnimeListLink": "https://myanimelist.net/character/83209/Mei_Aihara",
+                "MyWaifuListLink": "https://mywaifulist.moe/waifu/mei-aihara-citrus"
+            },
+            {
+                "native": "藍原柚子",
+                "romaji": "Aihara Yuzu",
+                "img": "https://i.imgur.com/BKL5UPf.gif",
+                "AniListLink": "https://anilist.co/character/83367/Aihara-Yuzu",
+                "MyAnimeListLink": "https://myanimelist.net/character/83367/Yuzu_Aihara",
+                "MyWaifuListLink": "https://mywaifulist.moe/waifu/yuzu-aihara-citrus"
+            }
         ]
     },
     {
@@ -359,6 +377,14 @@ const series = [
         ],
         "waifu": [
             {
+                "native": "枝元陽",
+                "romaji": "Edamoto Haru",
+                "img": "https://i.imgur.com/s0DyAkg.png",
+                "AniListLink": "https://anilist.co/character/208267/Edamoto-Haru",
+                "MyAnimeListLink": "https://myanimelist.net/character/199552/Haru_Edamoto",
+                "MyWaifuListLink": "https://mywaifulist.moe/waifu/haru-edamoto-bloom-into-you"
+            },
+            {
                 "native": "箱崎理子",
                 "romaji": "Hakozaki Riko",
                 "img": "https://i.imgur.com/LLyTJYQ.gif",
@@ -373,6 +399,13 @@ const series = [
                 "AniListLink": "https://anilist.co/character/128103/Hyuuga-Akari",
                 "MyAnimeListLink": "https://myanimelist.net/character/164049/Akari_Hyuuga",
                 "MyWaifuListLink": "https://mywaifulist.moe/waifu/akari-hyuuga-bloom-into-you"
+            },
+            {
+                "native": "五十嵐みどり",
+                "romaji": "Igarashi Midori",
+                "img": "https://i.imgur.com/efj5NXU.gif",
+                "AniListLink": "https://anilist.co/character/154102/Igarashi--Midori",
+                "MyAnimeListLink": "https://myanimelist.net/character/179203/Midori_Igarashi"
             },
             {
                 "native": "叶こよみ",
@@ -407,6 +440,12 @@ const series = [
                 "MyWaifuListLink": "https://mywaifulist.moe/waifu/koito-yuu"
             },
             {
+                "native": "七海澪",
+                "romaji": "Nanami Mio",
+                "img": "https://i.imgur.com/klux42A.png",
+                "AniListLink": "https://anilist.co/character/154100/Nanami-Mio"
+            },
+            {
                 "native": "七海燈子",
                 "romaji": "Nanami Touko",
                 "img": "https://i.imgur.com/rRpjnbw.gif",
@@ -423,11 +462,28 @@ const series = [
                 "MyWaifuListLink": "https://mywaifulist.moe/waifu/sayaka-saeki"
             },
             {
+                "native": "桜木詩織",
+                "romaji": "Sakuragi Shiori",
+                "img": "https://i.imgur.com/BcOczN4.gif"
+            },
+            {
                 "native": "芹澤",
                 "romaji": "Serizawa",
                 "img": "https://i.imgur.com/d4TDPgw.gif",
                 "AniListLink": "https://anilist.co/character/142096/Serizawa",
                 "MyAnimeListLink": "https://myanimelist.net/character/179204/Serizawa"
+            },
+            {
+                "native": "園村菜月",
+                "romaji": "Sonomura Natsuki",
+                "img": "https://i.imgur.com/Du0ezXs.gif",
+                "AniListLink": "https://anilist.co/character/154096/Sonomura--Natsuki",
+                "MyAnimeListLink": "https://myanimelist.net/character/179206/Natsuki_Sonomura"
+            },
+            {
+                "native": "スイミングプールの女の子",
+                "romaji": "Suimingupuuru no Onnanoko - The Girl from the Swimming Pool",
+                "img": "https://i.imgur.com/9ziZSpH.jpg"
             },
             {
                 "native": "燈子の母",
@@ -438,12 +494,26 @@ const series = [
                 "MyAnimeListLink": "https://myanimelist.net/character/181909/Touko_039_s_Mother"
             },
             {
+                "native": "吉田愛果",
+                "romaji": "Yoshida Manaka",
+                "img": "https://i.imgur.com/2yviNTv.gif",
+                "AniListLink": "https://anilist.co/character/154097/Yoshida--Manaka",
+                "MyAnimeListLink": "https://myanimelist.net/character/201502/Manaka_Yoshida"
+            },
+            {
                 "native": "侑の母",
                 "romaji": "Yuu no Haha - Yuu's Mom",
                 "img": "https://i.imgur.com/jRDvVL3.gif",
                 "tags": ["Yuu's Mother", "Koito's Mom", "Koito's Mother", "Rei's Mom", "Rei's Mother"],
                 "AniListLink": "https://anilist.co/character/154092/Yuu-no-Haha",
                 "MyAnimeListLink": "https://myanimelist.net/character/181908/Yuu_039_s_Mother"
+            },
+            {
+                "native": "柚木千枝",
+                "romaji": "Yuzuki Chie",
+                "img": "https://i.imgur.com/vxeIumm.gif",
+                "AniListLink": "https://anilist.co/character/154099/Yuzuki-Chie",
+                "MyAnimeListLink": "https://myanimelist.net/character/179205/Chie_Yuzuki"
             }
         ]
     },
