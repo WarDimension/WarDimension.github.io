@@ -52,7 +52,7 @@ if(localStorage.getItem("uno_player_name") != null){
     changeName(localStorage.getItem("uno_player_name"));
 }
 
-var ai_names = ["WarDimension", "プラン", players[0] + "'s Clone", "C:\\User\\" + players[0], "AI-chan", "I'm a human, I swear", "I'm fine", "AI FTW", "._.)", "UNO_BOT", "Markivider", "Javascript AI", "_anon", "_blank", "1010011010", "666", "EEE", "SLAP LIKE NOW", "アニメ", "weebs69", "Davie404", "Barbara", "UNO_Master", "Baby Yoda", "NO U", "I have +4", "Anonymous"];
+var ai_names = ["WarDimension", "プラン", players[0] + "'s Clone", "C:\\User\\" + players[0], "AI-chan", "I'm a human, I swear", "I'm fine", "AI FTW", "._.)", "UNO_BOT", "Markivider", "Javascript AI", "_anon", "_blank", "1010011010", "666", "EEE", "SLAP LIKE NOW", "アニメ", "weebs69", "Davie404", "Barbara", "UNO_Master", "Baby Yoda", "NO U", "I have +4, LOL", "Anonymous"];
 
 var current_card = "";
 
