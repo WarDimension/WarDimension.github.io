@@ -18,7 +18,7 @@ body{
     font-size: 11.9;
 }
 input{
-    vertical-align: baseline;
+    vertical-align: middle;
 }
 input.tags{
     width: 336px;
