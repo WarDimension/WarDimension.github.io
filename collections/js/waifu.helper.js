@@ -65,7 +65,7 @@ function getDetails(item){
             if(value != ""){
                 details += i == 0 ? "" : `,
                 `;
-                details += `"${className}": "${value.replace("[img]", "").replace("[/img]", "")}"`;
+                details += `"${detail.className}": "${value.replace("[img]", "").replace("[/img]", "")}"`;
                 i++;
             }
         });
