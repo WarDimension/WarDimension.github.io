@@ -1,10 +1,10 @@
 var blog = document.getElementsByClassName("blog");
 
 if(url()["rocksmith"]){
-    blog[0].src = "https://wardimension-chart.blogspot.com/search/label/%7BArtist%7D WarDimension+(Game) Rocksmith 2014";
+    blog[0].src = "https://wardimension-chart.blogspot.com/search/label/%5BArtist%5D WarDimension+(Game) Rocksmith 2014";
 }
 else if(url()["album"]){
-    blog[0].src = `https://wardimension-chart.blogspot.com/search/label/%7BArtist%7D WarDimension+[Album] ${url()["album"]}+(Game) Rocksmith 2014`;
+    blog[0].src = `https://wardimension-chart.blogspot.com/search/label/%5BArtist%5D WarDimension+%7BAlbum%7D ${url()["album"]}+(Game) Rocksmith 2014`;
 }
 else if(["experimental", "chart", "tab"].indexOf(url()["b"]) >= 0){
     blog[0].src = `https://wardimension-${url()["b"]}.blogspot.com/`;
