@@ -34,7 +34,7 @@ function showList(){
     let regex = new RegExp("^(?=.*" + search.value.replaceAll(" ", ")(?=.*") + ").*$", "i");
     series.forEach(show => {
         content = "";
-        let isShowExist = show.name.match(regex) || (show.tags != undefined && show.tags.join(" ").match(regex) || JSON.stringify(show.list).match(regex));
+        let isShowExist = show.name.match(regex) || (show.tags != undefined && show.tags.join(" ").match(regex) || show.list.map(item => {return item.title}).join(" ").match(regex));
         if((search.value == null || isShowExist) && (JSON.stringify(show.list).match(new RegExp(database.value + "Link", "m")) || !hideCheckbox.checked)){
             content += `<p>${show.name}</p>`;
             showListItems(show.list);
