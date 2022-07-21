@@ -62,7 +62,7 @@ function getDetails(item){
         let i = 0;
         detailsElement.forEach(detail => {
             let value = detail.className == "tags" ? JSON.stringify(detail.value.split("|")) : detail.value;
-            if(value != ""){
+            if(value != "" && value != '[""]'){
                 details += i == 0 ? "" : `,
                 `;
                 details += `"${detail.className}": "${value.replace("[img]", "").replace("[/img]", "")}"`;
