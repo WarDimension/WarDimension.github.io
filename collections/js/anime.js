@@ -302,6 +302,12 @@ const series = [
                 "MyWaifuListLink": "https://mywaifulist.moe/waifu/yuzu-aihara-citrus"
             },
             {
+                "native": "イチカ",
+                "romaji": "Ichika",
+                "img": "https://thicc.mywaifulist.moe/waifus/34578/6b9e43ec2ee62b55eff72fde9cb81f4ae53a4f1e2475a805deba4de09061c4aa.png",
+                "MyWaifuListLink": "https://mywaifulist.moe/waifu/ichika-2"
+            },
+            {
                 "native": "仮名",
                 "romaji": "Kana",
                 "img": "https://otakotaku.com/asset/img/character/2019/02/kana-5c5e4506936d7p.jpg",
@@ -337,6 +343,12 @@ const series = [
                 "AniListLink": "https://anilist.co/character/88668/Momokino-Himeko",
                 "MyAnimeListLink": "https://myanimelist.net/character/100243/Himeko_Momokino",
                 "MyWaifuListLink": "https://mywaifulist.moe/waifu/himeko-momokino"
+            },
+            {
+                "native": "野村寧音",
+                "romaji": "Nomura Nene",
+                "img": "https://thicc.mywaifulist.moe/waifus/34582/8d55a4dac2f965e4d21606c531bb9ee6a465e7691aae98075b74c195c88b1e68.png",
+                "MyWaifuListLink": "https://mywaifulist.moe/waifu/nene-nomura"
             },
             {
                 "native": "白帆鈴蘭",
