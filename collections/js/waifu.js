@@ -19,7 +19,8 @@ function getFirstLink(girl){
 function showGirls(show, waifu, showAll = false){
     isFound = false;
     let contentTemp = "";
-    let regex = new RegExp(search.value, "i");
+    let regex = new RegExp("^(?=.*" + search.value.replace(" ", ")(?=.*") + ").*$", "i");
+    console.log(regex);
     contentTemp += "<ol>";
     waifu.forEach(girl => {
         let isGirlExist = girl.native.match(regex) || girl.romaji?.match(regex) || (girl.tags != undefined && JSON.stringify(girl.tags).match(regex));
@@ -35,7 +36,7 @@ function showGirls(show, waifu, showAll = false){
     if(isFound){
         content += `<p>${show.name}</p>` + contentTemp + "</ol>";
     }
-    else if((show.name.match(regex) || (show.tags != undefined && JSON.stringify(show.tags).match(regex))) && (!hideCheckbox.checked || (JSON.stringify(waifu).match(new RegExp(database.value + "Link", "m"))))){
+    else if((show.name.match(regex) || (show.tags != undefined && show.tags.join(" ").match(regex))) && (!hideCheckbox.checked || (JSON.stringify(waifu).match(new RegExp(database.value + "Link", "m"))))){
         showGirls(show, waifu, true);
     }
 }
