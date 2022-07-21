@@ -33,7 +33,7 @@ addList();
 function removeList(removeButton){
     removeButton.parentElement.remove();
 
-    if(document.querySelectorAll(".list-wrapper:not(.alt)").length == 1){
+    if(document.querySelectorAll(".list-wrapper").length == 1){
         document.querySelector(".remove-list").setAttribute("hidden", "");
     }
 }
