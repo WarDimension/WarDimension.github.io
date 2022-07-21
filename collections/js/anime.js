@@ -294,7 +294,7 @@ const series = [
             {
                 "native": "谷口はるみ",
                 "romaji": "Taniguchi Harumi",
-                "tags": ["Harumin"],
+                "tags": ["はるみん","Harumin"],
                 "img": "https://s4.anilist.co/file/anilistcdn/character/large/b83387-UImdNRsseICO.jpg",
                 "AniListLink": "https://anilist.co/character/83387/Taniguchi-Harumi",
                 "MyAnimeListLink": "https://myanimelist.net/character/83387/Harumi_Taniguchi",
