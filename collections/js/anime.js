@@ -602,7 +602,7 @@ const series = [
                 "native": "燈子の母",
                 "romaji": "Touko no Haha",
                 "img": "https://i.imgur.com/kgeia40.gif",
-                "tags": ["Touko's Mom","Touko's Mother","Nanami's Mom","Nanami's Mother"],
+                "tags": ["七海","Nanami","Touko's Mom","Touko's Mother"],
                 "AniListLink": "https://anilist.co/character/154095/Touko-no-Haha",
                 "MyAnimeListLink": "https://myanimelist.net/character/181909/Touko_039_s_Mother"
             },
@@ -617,7 +617,7 @@ const series = [
                 "native": "侑の母",
                 "romaji": "Yuu no Haha",
                 "img": "https://i.imgur.com/jRDvVL3.gif",
-                "tags": ["Yuu's Mom","Yuu's Mother","Koito's Mom","Koito's Mother","怜の母","Rei's Mom","Rei's Mother"],
+                "tags": ["小糸","Koito","Yuu's Mom","Yuu's Mother","怜の母","Rei's Mom","Rei's Mother"],
                 "AniListLink": "https://anilist.co/character/154092/Yuu-no-Haha",
                 "MyAnimeListLink": "https://myanimelist.net/character/181908/Yuu_039_s_Mother"
             },
