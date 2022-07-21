@@ -290,6 +290,15 @@ const series = [
                 "AniListLink": "https://anilist.co/character/83367/Aihara-Yuzu",
                 "MyAnimeListLink": "https://myanimelist.net/character/83367/Yuzu_Aihara",
                 "MyWaifuListLink": "https://mywaifulist.moe/waifu/yuzu-aihara-citrus"
+            },
+            {
+                "native": "谷口はるみ",
+                "romaji": "Taniguchi Harumi",
+                "tags": ["Harumin"],
+                "img": "https://s4.anilist.co/file/anilistcdn/character/large/b83387-UImdNRsseICO.jpg",
+                "AniListLink": "https://anilist.co/character/83387/Taniguchi-Harumi",
+                "MyAnimeListLink": "https://myanimelist.net/character/83387/Harumi_Taniguchi",
+                "MyWaifuListLink": "https://mywaifulist.moe/waifu/harumi-taniguchi-citrus"
             }
         ]
     },
