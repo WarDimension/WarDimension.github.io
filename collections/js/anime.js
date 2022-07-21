@@ -310,6 +310,7 @@ const series = [
             {
                 "native": "マナミ",
                 "romaji": "Manami",
+                "img": "https://i.imgur.com/sKxeyBc.jpg",
                 "MyAnimeListLink": "https://myanimelist.net/character/158189/Manami"
             },
             {
