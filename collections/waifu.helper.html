@@ -29,6 +29,10 @@
         <div class="wrapper" label="Romaji">
           <input class="romaji" type="text" oninput="updateResult()"/>
         </div>
+        <div class="wrapper" label="Tags">
+          <input class="tags" type="text" oninput="updateResult()"/>
+          <button class="add-tag" onclick="addTag();updateResult()">+</button><button class="remove-tag" onclick="removeTag();updateResult()">-</button>
+        </div>
         <span>Image</span>
         <div class="wrapper" label="URL">
           <input class="img" type="text" oninput="updateResult()"/>
