@@ -292,6 +292,22 @@ const series = [
                 "MyWaifuListLink": "https://mywaifulist.moe/waifu/yuzu-aihara-citrus"
             },
             {
+                "native": "水沢まつり",
+                "romaji": "Mizusawa Matsuri",
+                "img": "https://s4.anilist.co/file/anilistcdn/character/large/b88667-1uLbk7yHhnz6.jpg",
+                "AniListLink": "https://anilist.co/character/88667/Mizusawa-Matsuri",
+                "MyAnimeListLink": "https://myanimelist.net/character/106149/Matsuri_Mizusawa",
+                "MyWaifuListLink": "https://mywaifulist.moe/waifu/matsuri-mizusawa"
+            },
+            {
+                "native": "桃木野姫子",
+                "romaji": "Momokino Himeko",
+                "img": "https://s4.anilist.co/file/anilistcdn/character/large/b88668-Hbg8rf8f6Iwv.png",
+                "AniListLink": "https://anilist.co/character/88668/Momokino-Himeko",
+                "MyAnimeListLink": "https://myanimelist.net/character/100243/Himeko_Momokino",
+                "MyWaifuListLink": "https://mywaifulist.moe/waifu/himeko-momokino"
+            },
+            {
                 "native": "谷口はるみ",
                 "romaji": "Taniguchi Harumi",
                 "tags": ["はるみん","Harumin"],
