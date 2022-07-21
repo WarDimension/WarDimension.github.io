@@ -362,6 +362,12 @@ const series = [
                 "AniListLink": "https://anilist.co/character/83387/Taniguchi-Harumi",
                 "MyAnimeListLink": "https://myanimelist.net/character/83387/Harumi_Taniguchi",
                 "MyWaifuListLink": "https://mywaifulist.moe/waifu/harumi-taniguchi-citrus"
+            },
+            {
+                "native": "谷口みつ子",
+                "romaji": "Taniguchi Mitsuko",
+                "img": "https://thicc.mywaifulist.moe/waifus/19539/ed17a0e168a60b028dc424f3e00348d464414460397c1c02300a6f0a86a8ca8f.jpeg",
+                "MyWaifuListLink": "https://mywaifulist.moe/waifu/mitsuko-taniguchi"
             }
         ]
     },
