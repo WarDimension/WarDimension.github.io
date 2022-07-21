@@ -311,6 +311,7 @@ const series = [
                 "native": "イチカ",
                 "romaji": "Ichika",
                 "img": "https://thicc.mywaifulist.moe/waifus/34578/6b9e43ec2ee62b55eff72fde9cb81f4ae53a4f1e2475a805deba4de09061c4aa.png",
+                "MyAnimeListLink": "https://myanimelist.net/character/148200/Ichika",
                 "MyWaifuListLink": "https://mywaifulist.moe/waifu/ichika-2"
             },
             {
@@ -354,6 +355,7 @@ const series = [
                 "native": "野村寧音",
                 "romaji": "Nomura Nene",
                 "img": "https://thicc.mywaifulist.moe/waifus/34582/8d55a4dac2f965e4d21606c531bb9ee6a465e7691aae98075b74c195c88b1e68.png",
+                "MyAnimeListLink": "https://myanimelist.net/character/142717/Nene_Nomura",
                 "MyWaifuListLink": "https://mywaifulist.moe/waifu/nene-nomura"
             },
             {
@@ -366,6 +368,7 @@ const series = [
                 "native": "白帆鈴蘭",
                 "romaji": "Shiraho Suzuran",
                 "img": "https://thicc.mywaifulist.moe/waifus/19559/3889d10d13bd67958f975ea533e88bf9c03ba49b9fc4f4da90ecc865fbd75228.png",
+                "MyAnimeListLink": "https://myanimelist.net/character/148194/Suzuran_Shiraho",
                 "MyWaifuListLink": "https://mywaifulist.moe/waifu/shiraho-suzuran"
             },
             {
@@ -397,6 +400,7 @@ const series = [
                 "native": "谷口みつ子",
                 "romaji": "Taniguchi Mitsuko",
                 "img": "https://thicc.mywaifulist.moe/waifus/19539/ed17a0e168a60b028dc424f3e00348d464414460397c1c02300a6f0a86a8ca8f.jpeg",
+                "MyAnimeListLink": "https://myanimelist.net/character/142718/Mitsuko_Taniguchi",
                 "MyWaifuListLink": "https://mywaifulist.moe/waifu/mitsuko-taniguchi"
             }
         ]
