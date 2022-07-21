@@ -19,7 +19,7 @@ function getFirstLink(girl){
 function showGirls(show, waifu, showAll = false){
     isFound = false;
     let contentTemp = "";
-    let regex = new RegExp("^(?=.*" + search.value.replace(" ", ")(?=.*") + ").*$", "i");
+    let regex = new RegExp("^(?=.*" + search.value.replaceAll(" ", ")(?=.*") + ").*$", "i");
     console.log(regex);
     contentTemp += "<ol>";
     waifu.forEach(girl => {

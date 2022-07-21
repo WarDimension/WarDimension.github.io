@@ -31,7 +31,7 @@ function showListItems(list){
 
 function showList(){
     document.querySelector(".container").innerHTML = "";
-    let regex = new RegExp(search.value, "mi");
+    let regex = new RegExp("^(?=.*" + search.value.replaceAll(" ", ")(?=.*") + ").*$", "i");
     series.forEach(show => {
         content = "";
         let isShowExist = show.name.match(regex) || (show.tags != undefined && show.tags.join(" ").match(regex) || JSON.stringify(show.list).match(regex));
