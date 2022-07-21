@@ -302,6 +302,12 @@ const series = [
                 "MyWaifuListLink": "https://mywaifulist.moe/waifu/yuzu-aihara-citrus"
             },
             {
+                "native": "氷上さやか",
+                "romaji": "Hikami Sayaka",
+                "img": "https://thicc.mywaifulist.moe/waifus/34586/3dbbfd170d5b3315ff55fe306a2b3427db12f5aab2a1af04a93dbdcedf85c3f1.jpeg",
+                "MyWaifuListLink": "https://mywaifulist.moe/waifu/sayaka-hikami"
+            },
+            {
                 "native": "イチカ",
                 "romaji": "Ichika",
                 "img": "https://thicc.mywaifulist.moe/waifus/34578/6b9e43ec2ee62b55eff72fde9cb81f4ae53a4f1e2475a805deba4de09061c4aa.png",
@@ -349,6 +355,12 @@ const series = [
                 "romaji": "Nomura Nene",
                 "img": "https://thicc.mywaifulist.moe/waifus/34582/8d55a4dac2f965e4d21606c531bb9ee6a465e7691aae98075b74c195c88b1e68.png",
                 "MyWaifuListLink": "https://mywaifulist.moe/waifu/nene-nomura"
+            },
+            {
+                "native": "桜庭雅",
+                "romaji": "Sakuraba Miyabi",
+                "img": "https://thicc.mywaifulist.moe/waifus/34584/8818dca93a28ca8ab10e2f5614b5d7249d89cfe31378799a41ce3e34cdecee72.jpeg",
+                "MyWaifuListLink": "https://mywaifulist.moe/waifu/miyabi-sakuraba"
             },
             {
                 "native": "白帆鈴蘭",
