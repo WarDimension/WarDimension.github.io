@@ -285,6 +285,15 @@ const series = [
                 "MyWaifuListLink": "https://mywaifulist.moe/waifu/mei-aihara-citrus"
             },
             {
+                "native": "藍原梅",
+                "romaji": "Aihara Ume",
+                "tags": ["柚子の母","Yuzu no Haha","芽衣の継母","Mei no Mamahaha","Yuzu's Mom","Mei's Stepmom","Yuzu's Mother","Mei's Stepmother"],
+                "img": "https://s4.anilist.co/file/anilistcdn/character/large/b212201-RQkOC4hspR7M.png",
+                "AniListLink": "https://anilist.co/character/212201/Aihara-Ume",
+                "MyAnimeListLink": "https://myanimelist.net/character/155595/Ume_Aihara",
+                "MyWaifuListLink": "https://mywaifulist.moe/waifu/ume-aihara"
+            },
+            {
                 "native": "藍原柚子",
                 "romaji": "Aihara Yuzu",
                 "img": "https://i.imgur.com/BKL5UPf.gif",
@@ -316,6 +325,14 @@ const series = [
                 "AniListLink": "https://anilist.co/character/88668/Momokino-Himeko",
                 "MyAnimeListLink": "https://myanimelist.net/character/100243/Himeko_Momokino",
                 "MyWaifuListLink": "https://mywaifulist.moe/waifu/himeko-momokino"
+            },
+            {
+                "native": "橘ニナ",
+                "romaji": "Tachibana Nina",
+                "img": "https://s4.anilist.co/file/anilistcdn/character/large/b180722-aCUAfNImVns5.jpg",
+                "AniListLink": "https://anilist.co/character/180722/Tachibana-Nina",
+                "MyAnimeListLink": "https://myanimelist.net/character/142716/Nina_Tachibana",
+                "MyWaifuListLink": "https://mywaifulist.moe/waifu/nina-tachibana"
             },
             {
                 "native": "橘サラ",
@@ -532,7 +549,7 @@ const series = [
                 "native": "燈子の母",
                 "romaji": "Touko no Haha - Touko's Mom",
                 "img": "https://i.imgur.com/kgeia40.gif",
-                "tags": ["Touko's Mother", "Nanami's Mom", "Nanami's Mother"],
+                "tags": ["Touko's Mother","Nanami's Mom","Nanami's Mother"],
                 "AniListLink": "https://anilist.co/character/154095/Touko-no-Haha",
                 "MyAnimeListLink": "https://myanimelist.net/character/181909/Touko_039_s_Mother"
             },
@@ -547,7 +564,7 @@ const series = [
                 "native": "侑の母",
                 "romaji": "Yuu no Haha - Yuu's Mom",
                 "img": "https://i.imgur.com/jRDvVL3.gif",
-                "tags": ["Yuu's Mother", "Koito's Mom", "Koito's Mother", "Rei's Mom", "Rei's Mother"],
+                "tags": ["Yuu's Mother","Koito's Mom","Koito's Mother","怜の母","Rei's Mom","Rei's Mother"],
                 "AniListLink": "https://anilist.co/character/154092/Yuu-no-Haha",
                 "MyAnimeListLink": "https://myanimelist.net/character/181908/Yuu_039_s_Mother"
             },
