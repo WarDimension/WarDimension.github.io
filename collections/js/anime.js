@@ -292,6 +292,15 @@ const series = [
                 "MyWaifuListLink": "https://mywaifulist.moe/waifu/yuzu-aihara-citrus"
             },
             {
+                "native": "丸田加代",
+                "romaji": "Maruta Kayo",
+                "tags": ["Glasses Senpai"],
+                "img": "https://s4.anilist.co/file/anilistcdn/character/large/b139548-ZaWNcOlOLkVR.png",
+                "AniListLink": "https://anilist.co/character/139548/Maruta-Kayo",
+                "MyAnimeListLink": "https://myanimelist.net/character/150993/Kayo_Maruta",
+                "MyWaifuListLink": "https://mywaifulist.moe/waifu/kayo-maruta"
+            },
+            {
                 "native": "水沢まつり",
                 "romaji": "Mizusawa Matsuri",
                 "img": "https://s4.anilist.co/file/anilistcdn/character/large/b88667-1uLbk7yHhnz6.jpg",
