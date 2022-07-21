@@ -30,9 +30,10 @@ function showListItems(list){
 }
 
 function showList(){
-    content = "";
+    document.querySelector(".container").innerHTML = "";
     let regex = new RegExp(search.value, "mi");
     series.forEach(show => {
+        content = "";
         let isShowExist = show.name.match(regex) || (show.tags != undefined && JSON.stringify(show.tags).match(regex) || JSON.stringify(show.list).match(regex));
         if((search.value == null || isShowExist) && (JSON.stringify(show.list).match(new RegExp(database.value + "Link", "m")) || !hideCheckbox.checked)){
             content += `<p>${show.name}</p>`;
@@ -42,8 +43,8 @@ function showList(){
                 showListItems(show.alt);
             }
         }
+        document.querySelector(".container").innerHTML += content;
     });
-    document.querySelector(".container").innerHTML = content;
 }
 
 function url(){
