@@ -302,6 +302,12 @@ const series = [
                 "MyWaifuListLink": "https://mywaifulist.moe/waifu/yuzu-aihara-citrus"
             },
             {
+                "native": "仮名",
+                "romaji": "Kana",
+                "img": "https://otakotaku.com/asset/img/character/2019/02/kana-5c5e4506936d7p.jpg",
+                "MyAnimeListLink": "https://myanimelist.net/character/158188/Kana"
+            },
+            {
                 "native": "丸田加代",
                 "romaji": "Maruta Kayo",
                 "tags": ["Glasses Senpai"],
