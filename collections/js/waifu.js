@@ -41,13 +41,14 @@ function showGirls(show, waifu, showAll = false){
 }
 
 function showWaifuList(){
-    content = "";
+    document.querySelector(".container").innerHTML = "";
     series.forEach(show => {
+        content = "";
         if(show.waifu != undefined){
             showGirls(show, show.waifu);
         }
+        document.querySelector(".container").innerHTML += content;
     });
-    document.querySelector(".container").innerHTML = content;
 }
 
 function url(){
