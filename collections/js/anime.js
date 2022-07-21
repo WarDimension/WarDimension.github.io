@@ -304,7 +304,7 @@ const series = [
     },
     {
         "name": "Higurashi no Naku Koro ni",
-        "tags": ["ひぐらしのなく頃に","When They Cry","うら☆ひぐ","Ura Higu"],
+        "tags": ["ひぐらしのなく頃に","When They Cry","うら☆ひぐ","うらひぐ","Ura Higu"],
         "list": [
             {
                 "title": "Higurashi no Naku Koro ni",
