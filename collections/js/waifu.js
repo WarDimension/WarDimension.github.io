@@ -27,7 +27,7 @@ function showGirls(show, waifu, showAll = false){
             let link = girl[database.value + "Link"] != undefined ? `<a href="${girl[database.value + "Link"]}" target="_blank">` : getFirstLink(girl);
             let romaji = girl.romaji != undefined ? `<span>${girl.romaji}</span>` : "";
             let image = girl.img != undefined ? `<img src="${girl.img}"/>` : "";
-            contentTemp += `${link}<li>${image}<div>${girl.native}</div>${romaji}</li>`;
+            contentTemp += `${link}<li ${image == "" ? ` style="width: fit-content; padding: 0 20px"` : ""}>${image}<div>${girl.native}</div>${romaji}</li>`;
             contentTemp += link != "" ? "</a>" : "";
             isFound = true;
         }
