@@ -267,6 +267,7 @@ const series = [
     },
     {
         "name": "citrus",
+        "tags": ["シトラス"],
         "list": [
             {
                 "title": "citrus",
@@ -315,6 +316,14 @@ const series = [
                 "AniListLink": "https://anilist.co/character/88668/Momokino-Himeko",
                 "MyAnimeListLink": "https://myanimelist.net/character/100243/Himeko_Momokino",
                 "MyWaifuListLink": "https://mywaifulist.moe/waifu/himeko-momokino"
+            },
+            {
+                "native": "橘サラ",
+                "romaji": "Tachibana Sara",
+                "img": "https://s4.anilist.co/file/anilistcdn/character/large/b180721-gj4Y1RDpuX1K.jpg",
+                "AniListLink": "https://anilist.co/character/180721/Tachibana-Sara",
+                "MyAnimeListLink": "https://myanimelist.net/character/142714/Sara_Tachibana",
+                "MyWaifuListLink": "https://mywaifulist.moe/waifu/sara-tachibana"
             },
             {
                 "native": "谷口はるみ",
