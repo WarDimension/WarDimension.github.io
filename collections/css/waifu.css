@@ -31,3 +31,6 @@ img{
     max-width: calc(100vw - 40px);
     margin-bottom: 2px;
 }
+li span::before, li span::after{
+    content: "";
+}
