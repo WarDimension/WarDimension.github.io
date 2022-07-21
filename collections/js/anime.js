@@ -308,6 +308,12 @@ const series = [
                 "MyAnimeListLink": "https://myanimelist.net/character/158188/Kana"
             },
             {
+                "native": "マナミ",
+                "romaji": "Manami",
+                "img": "https://cdn-us.anidb.net/images/main/216698.jpg",
+                "MyAnimeListLink": "https://myanimelist.net/character/158189/Manami"
+            },
+            {
                 "native": "丸田加代",
                 "romaji": "Maruta Kayo",
                 "tags": ["Glasses Senpai"],
