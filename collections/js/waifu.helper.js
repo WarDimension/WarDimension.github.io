@@ -93,6 +93,7 @@ function list(listWrapper){
 
 const result = document.querySelector(".result");
 const wrapList = document.querySelector(".wrap-list");
+const tags = document.querySelector(".tags");
 
 function updateResult(){
     const listWrapper = document.querySelectorAll(".list-wrapper");
