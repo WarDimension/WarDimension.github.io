@@ -542,7 +542,7 @@ const series = [
             },
             {
                 "native": "スイミングプールの女の子",
-                "romaji": "Suimingupuuru no Onnanoko",
+                "romaji": "SUIMINGUPUURU no Onnanoko",
                 "img": "https://i.imgur.com/9ziZSpH.jpg",
                 "tags": ["Swimming Pool no Onnanoko","The Girl from the Swimming Pool"]
             },
