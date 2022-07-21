@@ -339,6 +339,12 @@ const series = [
                 "MyWaifuListLink": "https://mywaifulist.moe/waifu/himeko-momokino"
             },
             {
+                "native": "白帆鈴蘭",
+                "romaji": "Shiraho Suzuran",
+                "img": "https://thicc.mywaifulist.moe/waifus/19559/3889d10d13bd67958f975ea533e88bf9c03ba49b9fc4f4da90ecc865fbd75228.png",
+                "MyWaifuListLink": "https://mywaifulist.moe/waifu/shiraho-suzuran"
+            },
+            {
                 "native": "橘ニナ",
                 "romaji": "Tachibana Nina",
                 "img": "https://s4.anilist.co/file/anilistcdn/character/large/b180722-aCUAfNImVns5.jpg",
