@@ -59,6 +59,15 @@ let favorites = [
                 ]
             },
             {
+                "subCategory": "Studio",
+                "rankedList": [
+                    {
+                        "title": "SHAFT",
+                        "link": "https://www.shaft-web.co.jp/"
+                    }
+                ]
+            },
+            {
                 "subCategory": "Waifu",
                 "rankedList": [
                     {
