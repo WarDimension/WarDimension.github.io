@@ -148,6 +148,31 @@ let favorites = [
         ]
     },
     {
+        "category": "Korean Drama",
+        "list": [
+            {
+                "rankedList": [
+                    {
+                        "title": "Oh My Ghost",
+                        "link": "https://mydramalist.com/14213-oh-my-ghostess"
+                    },
+                    {
+                        "title": "Pasta",
+                        "link": "https://mydramalist.com/46-pasta"
+                    },
+                    {
+                        "title": "49 Days",
+                        "link": "https://mydramalist.com/288-49-days-2011"
+                    },
+                    {
+                        "title": "The Girl Who Sees Scents",
+                        "link": "https://mydramalist.com/13103-the-girl-who-sees-scents"
+                    }
+                ]
+            }
+        ]
+    },
+    {
         "category": "Light Novel",
         "list": [
             {
