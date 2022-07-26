@@ -227,7 +227,7 @@ const series = [
                 "MyAnimeListLink": "https://myanimelist.net/anime/24751/Akuma_no_Riddle__Shousha_wa_Dare_Nukiuchi_Test"
             }
         ]
-    },
+    },//Add Alice to Zouroku
     {
         "name": "Amaama to Inazuma",
         "tags": ["甘々と稲妻","Sweetness & Lightning"],
