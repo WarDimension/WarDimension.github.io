@@ -1,3 +1,5 @@
+// Horror Movie Detention
+
 let favorites = [
     {
         "category": "Anime",
