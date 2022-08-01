@@ -1,0 +1,99 @@
+#snippet_thumbnail_id_4860722594879654658, #snippet_thumbnail_id_1859770945072143897, .osu{
+    cursor: url("https://wardimension.github.io/cursors/osu!.cur") 26.5 26.5, auto;
+  }
+  :focus{
+    outline: 2px solid #000;
+  }
+  ::-webkit-scrollbar{
+    width: 5px;
+    height: 5px;
+  }
+  ::-webkit-scrollbar-thumb{
+      background: #666;
+  }
+  ::-webkit-scrollbar-thumb:hover{
+    background: #444;
+  }
+  .post-outer-container{
+    background: #fff;
+    padding: 20px;
+    position: relative;
+    -webkit-box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.06);
+    -moz-box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.06);
+    box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.06);
+  }
+  .post-outer-container:before, .post-outer-container:after{
+    z-index: -1;
+    position: absolute;
+    content: "";
+    bottom: 15px;
+    left: 10px;
+    width: 50%;
+    top: 80%;
+    max-width:300px;
+    background: #777;
+    -webkit-box-shadow: 0 15px 10px #777;
+    -moz-box-shadow: 0 15px 10px #777;
+    box-shadow: 0 15px 10px #777;
+    -webkit-transform: rotate(-3deg);
+    -moz-transform: rotate(-3deg);
+    -o-transform: rotate(-3deg);
+    -ms-transform: rotate(-3deg);
+    transform: rotate(-3deg);
+  }
+  .post-outer-container:after{
+    -webkit-transform: rotate(3deg);
+    -moz-transform: rotate(3deg);
+    -o-transform: rotate(3deg);
+    -ms-transform: rotate(3deg);
+    transform: rotate(3deg);
+    right: 10px;
+    left: auto;
+  }
+  html, body, iframe{
+    max-width: 100%;
+    overflow-y: overlay;
+  }
+  
+  /* code viewer */
+  .cscode{
+    background: #1e1e1e;
+    color: #fff;
+    padding: 20px;
+    height: 480px;
+    -moz-box-shadow: inset 0 0 10px #000000;
+    -webkit-box-shadow: inset 0 0 10px #000000;
+    box-shadow: inset 0 0 10px #000000;
+    margin-top: 2px;
+  }
+  .class{
+    color: #35afb0;
+  }
+  .mthd{
+    color: #dcdcaa;
+  }
+  .intPtr{
+    color: #86c691;
+  }
+  .if{
+    color: #d8a0df;
+  }
+  .var{
+    color: #72dcfe;
+  }
+  .key{
+    color: #569cd6;
+  }
+  .int{
+    color: #b5cea8;
+  }
+  .str{
+    color: #d69d85;
+  }
+  .darker{
+    filter: brightness(0.5);
+  }
+  .cmnt{
+    color: #4c8b41
+  }
+  /*end of code viewer*/
