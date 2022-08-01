@@ -1,0 +1,47 @@
+<script>
+  function replace(rex,str){
+    var result;
+    str.replace(rex, function(m,res){
+      result = res;
+    });
+    return result;
+  }
+
+  function getBlog(str){
+    var blog = replace(/-(\w+)\.blogspot/,str);
+    var post = replace(/\.com\/(.+)\./,str);
+
+    //get offsetHeaight
+    var headerHeight = document.getElementsByClassName("centered-top-container")[0].offsetHeight;
+
+    var mainContentHeight = document.getElementsByClassName("main_content_container")[0].offsetHeight;
+
+    var offsetHeight = headerHeight + mainContentHeight;
+
+    return [blog,post,offsetHeight];
+  }
+
+  const url = new URL(window.location);
+  top.postMessage(getBlog(url.toString()),"*");
+
+  window.addEventListener("resize", (e) => {
+    top.postMessage(getBlog(url.toString()),"*");
+  });
+
+  function inIframe () {
+    try {
+        return window.self !== window.top;
+    } catch (e) {
+        return true;
+    }
+  }
+
+  if(!inIframe()){
+    var b = getBlog(url.toString())[0];
+    var p = "";
+    if(getBlog(url.toString())[1] != undefined){
+      p += `&p=${getBlog(url.toString())[1]}`;
+    }
+    window.location.replace(`https://wardimension.github.io/blog?b=${b}${p}`);
+  }
+</script>
