@@ -1,0 +1,96 @@
+<html lang="en">
+  <head>
+    <title>WarDimension Official - Music</title>
+    <link rel="stylesheet" type="text/css" href="./css/theme.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/song.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="preload" href="./fonts/28_Days_Later.ttf" as="font" type="font/ttf"/>
+    <meta id="vp" name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+    <meta charset="utf-8"/>
+    <meta name="description" content="Available on: iTunes, Apple Music, Deezer, Google Play Music, Spotify, YouTube Music, Amazon Music, and more."/>
+    <meta name="og:title" property="og:title" content="WarDimension Official - Music"/>
+    <meta name="og:type" property="og:type" content="website"/>
+    <meta name="og:description" property="og:description" content="Available on: iTunes, Apple Music, Deezer, Google Play Music, Spotify, YouTube Music, Amazon Music, and more."/>
+    <meta name="og:image" property="og:image" content="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/intermediary/f/db9b0a59-1832-436d-be35-c4da781cf1c8/dd0nweg-838ec8bb-2e88-444f-83f6-164f222f453e.png"/>
+    <link href="https://wardimension.github.io/" rel="canonical"/>
+    <script type="text/javascript" src="./js/viewport.js"></script>
+    <script type="text/javascript" src="../js/fun.js" defer></script>
+    <script type="text/javascript" src="./js/global.js" defer></script>
+    <script type="text/javascript" src="./js/original.js" defer></script>
+    <script type="text/javascript" src="./js/cover.js" defer></script>
+    <script type="text/javascript" src="./js/song.js" defer></script>
+    <script type="text/javascript" src="./js/context-menu.js" defer></script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-THCN8CM');</script>
+    <!-- End Google Tag Manager -->
+  </head>
+  <body id="top">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THCN8CM"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <a class="skip" href="#0">skip to main content</a>
+    <div class="header">
+      <a href="https://wardimension.github.io/" tabindex="-1">
+        <img class="wd-logo" src="./images/WarDimension_White.png" alt="WarDimension Logo"/>
+      </a>
+    </div>
+    <center><div class="menu-container">
+      <a class="menu-button" href="https://wardimension.github.io">HOME</a>
+      <a class="menu-button active">MUSIC</a>
+      <a class="menu-button" href="blog">BLOG</a>
+    </div></center>
+    <div class="song-menu-container"><div class="song-menu">
+      <a id="original" class="song-button active" tabindex="-1" href="#" onclick="originalSong();">ORIGINAL</a>
+      <a id="cover" class="song-button" href="#" onclick="coverSong();">COVER</a>
+      <a id="sort-button" class="song-sort-button" href="#" onclick="songSort();">▼</a>
+      <div class="controls-info-container">
+        <span class="material-icons keyboard">keyboard</span><span class="material-icons">keyboard_arrow_up</span><span class="material-icons">keyboard_arrow_down</span><span class="material-icons">keyboard_arrow_left</span><span class="material-icons">keyboard_arrow_right</span><span class="material-icons">keyboard_return</span><p>esc</p>
+      </div>
+    </div></div>
+    <div id="content-container"></div>
+    <div id="music-player">
+      <p id="player-song-name"></p>
+      <button id="close-player-button" onclick="closePlayer()" tabindex="-1">
+        <i class="material-icons">close</i>
+      </button>
+      <p class="time-text" id="current-time-text">0:00</p>
+      <div id="player-button-container">
+        <button class="player-button" id="shuffle-button" onclick="setShuffle()" tabindex="-1">
+          <span class="player-button-content" tabindex="-1">
+            <i class="material-icons">shuffle</i>
+          </span>
+        </button>
+        <button class="player-button" id="prev-button" onclick="prevSong()" tabindex="-1">
+          <span class="player-button-content" tabindex="-1">
+            <i class="material-icons">skip_previous</i>
+          </span>
+        </button>
+        <button class="player-button" id="play-button" onclick="playSong()" tabindex="-1">
+          <span class="player-button-content" tabindex="-1">
+            <i class="material-icons">play_arrow</i>
+          </span>
+        </button>
+        <button class="player-button" id="next-button" onclick="nextSong()" tabindex="-1">
+          <span class="player-button-content" tabindex="-1">
+            <i class="material-icons">skip_next</i>
+          </span>
+        </button>
+        <button class="player-button" id="repeat-button" onclick="setRepeat()" tabindex="-1">
+          <span class="player-button-content" tabindex="-1">
+            <i class="material-icons">repeat</i>
+          </span>
+        </button>
+      </div>
+      <p class="time-text" id="duration-text">0:00</p>
+      <input id="time-slider" type="range" min="0" max="1000" value="0" tabindex="-1" onchange="seekTo()" oninput="setSeek()"/>
+      <div id="player" tabindex="-1"></div>
+    </div>
+    <div class="context-menu"></div>
+  </body>
+</html>

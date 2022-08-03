@@ -1,0 +1,366 @@
+@font-face {
+  font-family: "8 Days Later";
+  src: url("../fonts/28_Days_Later.ttf") format("truetype");
+}
+*{
+  font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+  box-sizing: border-box;
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1.1);
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  scroll-behavior: smooth;
+}
+@keyframes disco{
+  0%{
+    filter: hue-rotate(0deg);
+  }
+  0%{
+    filter: hue-rotate(360deg);
+  }
+}
+:focus-visible{
+  outline: 2px solid #000;
+}
+.menu-button:focus{
+  outline-color: #fff;
+}
+html, body, iframe {
+  max-width: 100%;
+  overflow-x: hidden;
+  overflow-y: overlay;
+}
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-thumb {
+  background: #666;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}
+body{
+  margin: 0;
+  background: #eeeeee;
+}
+.dev-console-info{
+  position: relative;
+  top: -60px;
+  color: #aaa;
+}
+.dev-console-info.help{
+  text-decoration: none;
+}
+.dev-console-info.help:focus, .dev-console-info.help:hover{
+  color: #000;
+  outline: none;
+}
+.dev-console-info.help:focus::before, .dev-console-info.help:hover::before{
+  content: "- "
+}
+.dev-console-info.help:focus::after, .dev-console-info.help:hover::after{
+  content: " -"
+}
+#player{
+  pointer-events: none;
+}
+h3{
+  margin-top: 25px;
+  margin-bottom: 5px;
+}
+.header{
+  background: #000;
+  width: 100%;
+  padding: 10px 25px;
+}
+.wd-logo{
+  width: 200px;
+}
+.skip, .skip-content{
+  position: absolute;
+  min-width: 180px;
+  text-align: center;
+  top: 125px;
+  left: -200px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #000;
+  padding: 5px 15px;
+  opacity: 0;
+  white-space: nowrap;
+  pointer-events: none;
+  background: #eee;
+}
+#main{
+  position: absolute;
+  top: -22px;
+  bottom: -72px;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+}
+.skip:focus, .skip-content:focus{
+  left: 20px;
+  opacity: 1;
+  pointer-events: none;
+}
+.skip-content{
+  min-width: 85px;
+  top: auto;
+  left: auto;
+  bottom: 20px;
+  right: 20px;
+  background: #fff;
+}
+.skip-content:focus{
+  left: auto;
+}
+.menu-container{
+  position: absolute;
+  top: 50px;
+  right: 25px;
+}
+.menu-button{
+  font-family: "8 Days Later";
+  color: #fff;
+  text-decoration: none;
+  font-size: 20px;
+  padding: 6px 18px;
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+}
+.menu-button:hover, .active{
+  background: #fff;
+  color: #000;
+}
+.active{
+  cursor: default;
+}
+.content{
+  position: relative;
+  width: 1580px;
+  margin: 135px auto;
+  background: #fff;
+  -webkit-box-shadow:0 8px 6px -6px black;
+  -moz-box-shadow:0 8px 6px -6px black;
+  box-shadow:0 8px 6px -6px black;
+}
+.embed-container{
+  position: relative;
+  padding-bottom: 28.125%;
+  height: 0;
+  overflow: hidden;
+  width: 50%;
+  display: inline-block;
+}
+.embed-container iframe, .embed-container object, .embed-container embed{
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+}
+#trailer{
+  filter: grayscale(1);
+  cursor: pointer;
+}
+#trailer:hover{
+  filter: grayscale(1) sepia(0.5) hue-rotate(200deg);
+}
+#trailer:focus{
+  outline-width: 4px;
+}
+.platform-container{
+  position: absolute;
+  width: 50%;
+  display: inline-block;
+  text-align: center;
+  font-size: 18px;
+  padding: 20px;
+  top: calc(50% - 25px);
+  transform: translateY(-50%);
+}
+.platform-icon{
+  display: inline-block;
+  background: url("../images/platform_icon.png");
+  width: 25px;
+  height: 25px;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+.i-deezer{
+  background-position: -27px 0;
+}
+.i-google-play{
+  background-position: -54px 0;
+}
+.i-spotify{
+  background-position: -81px 0;
+}
+.i-youtube{
+  background-position: 0 -27px;
+}
+.i-youtube-music{
+  background-position: -27px -27px;
+}
+.i-amazon{
+  background-position: -54px -27px;
+}
+.i-bandlab{
+  background-position: -81px -27px;
+}
+.i-soundcloud{
+  background-position: 0 -54px;
+}
+.i-rocksmith{
+  background-position: -27px -54px;
+}
+.i-wd-music{
+  background-position: -54px -54px;
+}
+.i-wd-rhythm{
+  background-position: -81px -54px;
+}
+.i-wd-gaming{
+  background-position: 0 -81px;
+}
+.i-twitter{
+  background-position: -27px -81px;
+}
+.i-instagram{
+  background-position: -54px -81px;
+}
+.i-facebook{
+  background-position: -81px -81px;
+}
+.i-osu{
+  background-position: 0 -108px;
+}
+.platform-url{
+  text-decoration:none;
+  color: #000;
+  padding: 6px;
+  background: #fff;
+  cursor: pointer;
+  display:inline-block;
+  margin: 2px;
+}
+.platform-url:hover{
+  background: #eee;
+  outline: solid 1px #eee;
+  transition: all 0.1s cubic-bezier(.25,.8,.25,1);
+}
+@media only screen and (orientation: portrait), only screen and (max-width: 1600px){
+  #main{
+    top: 0;
+    bottom: 0;
+  }
+  .header{
+    padding: 20px 0;
+    box-sizing: border-box;
+    text-align:center;
+  }
+  .wd-logo{
+    height: 210px;
+    width: auto;
+    margin: auto;
+  }
+  .menu-container{
+    position: static;
+    margin-top: 20px;
+  }
+  .menu-button{
+    color: #000;
+  }
+  .menu-button:hover, .active{
+    background: #000;
+    color: #fff;
+  }
+  .content{
+    margin-top: 60px;
+    width: 1004px;
+  }
+  .embed-container{
+    padding-bottom: 56.25%;
+    width: 100%;
+  }
+  .platform-container{
+    position: static;
+    width: 100%;
+    padding: 0 20px 4% 20px;
+    transform: translateY(0%);
+  }
+  .skip{
+    top: 270px;
+  }
+  .menu-button:focus{
+    outline-color: #000;
+  }
+}
+@media only screen and (max-width: 1024px){
+  .content{
+    width: 780px;
+  }
+  .wd-logo{
+    height: 190px;
+  }
+  .skip{
+    top: 250px;
+  }
+}
+@media only screen and (max-width: 800px){
+  .wd-logo{
+    height: 212px;
+  }
+  .content{
+    width: 620px;
+  }
+  .skip{
+    top: 320px;
+    margin: auto;
+    left: -20px;
+    right: 0;
+    width: 180px;
+  }
+  .skip:focus{
+    left: 0;
+  }
+  .skip-content{
+    top: calc(100% + 20px);
+    bottom: auto;
+    left: -20px;
+    right: 0;
+    margin: auto;
+    width: 100px;
+    background: #eee;
+  }
+  .skip-content:focus{
+    left: 0;
+  }
+}
+@media only screen and (max-width: 640px){
+  .content{
+    width: 95vw;
+  }
+  .skip-content{
+    top: calc(100% + 20px);
+  }
+}
+@media only screen and (max-width: 500px){
+  .wd-logo{
+    height: 195px;
+  }
+  .skip{
+    top: 303px;
+  }
+}
