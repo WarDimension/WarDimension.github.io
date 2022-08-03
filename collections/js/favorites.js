@@ -265,6 +265,11 @@ let favorites = [
                         "title": "Kimiko",
                         "subTitle": "nano.RIPE",
                         "link": "https://twitter.com/nanoripekimiko"
+                    },
+                    {
+                        "title": "Watabiki Miwa",
+                        "subTitle": "Chara",
+                        "link": "https://open.spotify.com/artist/2v3eFzDOUnyWP1drW2dPTp"
                     }
                 ]
             },
