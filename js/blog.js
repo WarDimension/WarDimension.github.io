@@ -24,3 +24,6 @@ window.addEventListener("message", function(e) {
         setParams(`?b=${b}${p}`);
     }
 });
+
+//TEST
+const url1= new URL(window.location); url1.href =url1.href.replace(/\?b=|&p=/g,"/"); history.replaceState(null, document.title, url1);
