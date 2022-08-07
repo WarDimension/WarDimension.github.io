@@ -28,6 +28,6 @@ window.addEventListener("message", function(e) {
 //TEST
 function replaceURL(){
     const url= new URL(window.location);
-    url.href =url.href.replace(/\?b=|&p=/g,"/");
+    url.href =url.href.replace(/\?|&/g, "").replace(/b=|p=/g,"/");
     history.replaceState(null, document.title, url);
 }
