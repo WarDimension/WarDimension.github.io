@@ -15,12 +15,46 @@ else if(["experimental", "chart", "tab"].indexOf(url()["b"]) >= 0){
 
 window.addEventListener("message", function(e) {
     if (["https://wardimension-experimental.blogspot.com","https://wardimension-chart.blogspot.com","https://wardimension-tab.blogspot.com"].indexOf(e.origin) >= 0){
-        var b = e.data[0];
-        var p = "";
-        if(e.data[1] != undefined){
-            p = `&p=${e.data[1]}`;
+
+        const url = new URL(window.location);
+        const blog = getBlog(/blog\/(\w+)\/?(.+)?/,url);
+
+        url.href = url.href.replace(/\/$/, "");
+
+        if(blog.subBlog != undefined){
+            url.href = url.href.replace(blog.subBlog, e.data[0]);
+        }
+        else{
+            url.href += "/" + e.data[0];
+        }
+
+        if(blog.post != undefined){
+            url.href = url.href.replace(blog.post, e.data[1]);
+        }
+        else{
+            url.href += e.data[1] != undefined ? "/" + e.data[1] : "";
         }
         document.getElementsByClassName("blog")[0].style.height = e.data[2] + 200;
-        setParams(`?b=${b}${p}`);
+        replaceHistory(url);
     }
 });
+
+function getBlog(regex,url){
+    url = url.toString();
+    var result = {};
+    url.replace(regex, function(match,subBlog,post){
+        result.subBlog = subBlog;
+        result.post = post;
+    });
+    return result;
+}
+
+function cleanURL(){
+    const url= new URL(window.location);
+    url.href = url.href.replace(/\?|&/g, "").replace(/b=|p=/g,"/");
+    replaceHistory(url);
+}
+
+function replaceHistory(newURL){
+    history.replaceState(null, document.title, newURL);
+}
