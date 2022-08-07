@@ -17,6 +17,12 @@
             }
             if(params.blog != undefined){
                 window.location.replace(`https://wardimension.github.io/blog?b=${params.blog}${post}`);
+                replaceURL();
+            }
+            function replaceURL(){
+                const url= new URL(window.location);
+                url.href =url.href.replace(/\?|&/g, "").replace(/b=|p=/g,"/");
+                history.replaceState(null, document.title, url);
             }
         </script>
     </head>
