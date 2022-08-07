@@ -19,7 +19,7 @@ window.addEventListener("message", function(e) {
 
         const url = new URL("https://wardimension.github.io/blog/");
 
-        url.href += "/" + e.data[0];
+        url.href += e.data[0];
         url.href += e.data[1] != undefined ? "/" + e.data[1] : "";
         replaceHistory(url);
         
