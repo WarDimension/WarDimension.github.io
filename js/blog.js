@@ -18,25 +18,29 @@ window.addEventListener("message", function(e) {
     if (["https://wardimension-experimental.blogspot.com","https://wardimension-chart.blogspot.com","https://wardimension-tab.blogspot.com"].indexOf(e.origin) >= 0){
 
         const url = new URL(window.location);
-        const blog = getBlog(/blog\/(\w+)\/?(.+)?/,url);
 
-        url.href = url.href.replace(/\/$/, "");
-
-        if(blog.subBlog != undefined){
-            url.href = url.href.replace(blog.subBlog, e.data[0]);
+        if(!url.href.includes("b=")){
+            const blog = getBlog(/blog\/(\w+)\/?(.+)?/,url);
+    
+            url.href = url.href.replace(/\/$/, "");
+    
+            if(blog.subBlog != undefined){
+                url.href = url.href.replace(blog.subBlog, e.data[0]);
+            }
+            else{
+                url.href += "/" + e.data[0];
+            }
+    
+            if(blog.post != undefined){
+                url.href = url.href.replace(blog.post, e.data[1]);
+            }
+            else{
+                url.href += e.data[1] != undefined ? "/" + e.data[1] : "";
+            }
+            replaceHistory(url);
         }
-        else{
-            url.href += "/" + e.data[0];
-        }
-
-        if(blog.post != undefined){
-            url.href = url.href.replace(blog.post, e.data[1]);
-        }
-        else{
-            url.href += e.data[1] != undefined ? "/" + e.data[1] : "";
-        }
+        
         document.getElementsByClassName("blog")[0].style.height = e.data[2] + 200;
-        replaceHistory(url);
     }
 });
 
