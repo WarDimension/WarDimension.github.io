@@ -11,6 +11,8 @@ else if(["experimental", "chart", "tab"].indexOf(url()["b"]) >= 0){
     if(url()["p"]!=undefined&&url()["p"]!=""){
         blog[0].src += `${decodeURIComponent(url()["p"])}.html`;
     }
+
+    replaceURL();
 }
 
 window.addEventListener("message", function(e) {
@@ -26,4 +28,8 @@ window.addEventListener("message", function(e) {
 });
 
 //TEST
-const url1= new URL(window.location); url1.href =url1.href.replace(/\?b=|&p=/g,"/"); history.replaceState(null, document.title, url1);
+function replaceURL(){
+    const url= new URL(window.location);
+    url.href =url.href.replace(/\?b=|&p=/g,"/");
+    history.replaceState(null, document.title, url);
+}
