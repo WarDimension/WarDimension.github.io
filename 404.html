@@ -14,7 +14,7 @@
             const blog = getBlog(/blog\/(\w+)\/?(.+)?/,url);
             if(blog.subBlog != undefined){
                 let b = blog.subBlog;
-                let p = blog.post != undefined ? `&p=${params.post}` : "";
+                let p = blog.post != undefined ? `&p=${blog.post}` : "";
                 window.location.replace(`https://wardimension.github.io/blog?b=${b}${p}`);
             }
         </script>
