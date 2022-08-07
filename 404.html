@@ -10,7 +10,7 @@
                 return result;
             }
             const url = new URL(window.location);
-            let params = replace(/blog\/(\w+)\/(.+)/,url.toString());
+            let params = replace(/blog\/(\w+)\/?(.+)/,url.toString());
             let post = "";
             if(params.post != undefined){
                 post = "&p=" + params.post;
