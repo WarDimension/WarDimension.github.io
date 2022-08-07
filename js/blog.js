@@ -26,8 +26,8 @@ window.addEventListener("message", function(e) {
 });
 
 //TEST
-(function replaceURL(){
+function replaceURL(){
     const url= new URL(window.location);
     url.href =url.href.replace(/\?b=|&p=/g,"/");
     history.replaceState(null, document.title, url);
-}());
+}
