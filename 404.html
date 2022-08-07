@@ -1,4 +1,25 @@
 <html>
+    <head>
+        <script>
+            function replace(rex,str){
+                var result = {};
+                str.replace(rex, function(m,blog,post){
+                    result.blog = blog;
+                    result.post = post;
+                });
+                return result;
+            }
+            const url = new URL(window.location);
+            let params = replace(/blog\/(\w+)\/(.+)/,url.toString());
+            let post = "";
+            if(params.post != undefined){
+                post = "&p=" + params.post;
+            }
+            if(params.blog != undefined){
+                window.location.replace(`https://wardimension.github.io/blog?b=${params.blog}${post}`);
+            }
+        </script>
+    </head>
     <body>
         <p>404 TEST</p>
     </body>
