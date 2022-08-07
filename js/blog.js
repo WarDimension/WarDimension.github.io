@@ -17,19 +17,19 @@ else if(["experimental", "chart", "tab"].indexOf(url()["b"]) >= 0){
 
 window.addEventListener("message", function(e) {
     if (["https://wardimension-experimental.blogspot.com","https://wardimension-chart.blogspot.com","https://wardimension-tab.blogspot.com"].indexOf(e.origin) >= 0){
-        var b = e.data[0];
+        var b = !window.location.href.includes(e.data[0]) ? "?b=" + e.data[0]: "";
         var p = "";
-        if(e.data[1] != undefined){
+        if(e.data[1] != undefined && !window.location.href.includes(e.data[0])){
             p = `&p=${e.data[1]}`;
-        }
+        }//NOT CONSISTENT, LOL - JUST FOR TEST
         document.getElementsByClassName("blog")[0].style.height = e.data[2] + 200;
-        setParams(`?b=${b}${p}`);
+        setParams(`${b}${p}`);
     }
 });
 
 //TEST
-function replaceURL(){
+(function replaceURL(){
     const url= new URL(window.location);
     url.href =url.href.replace(/\?b=|&p=/g,"/");
     history.replaceState(null, document.title, url);
-}
+}());
