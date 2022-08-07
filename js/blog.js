@@ -30,9 +30,9 @@ window.addEventListener("message", function(e) {
             else{
                 url.href += "/" + e.data[0];
             }
-    
+
             if(blog.post != undefined){
-                url.href = url.href.replace(blog.post, e.data[1]);
+                url.href = e.data[1] != undefined ? url.href.replace(blog.post, e.data[1]) : url.href.replace("/" + blog.post, "");
             }
             else{
                 url.href += e.data[1] != undefined ? "/" + e.data[1] : "";
