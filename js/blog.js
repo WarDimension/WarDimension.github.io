@@ -11,23 +11,16 @@ else if(["experimental", "chart", "tab"].indexOf(url()["b"]) >= 0){
     if(url()["p"]!=undefined&&url()["p"]!=""){
         blog[0].src += `${decodeURIComponent(url()["p"])}.html`;
     }
-
-    replaceURL();
 }
 
 window.addEventListener("message", function(e) {
     if (["https://wardimension-experimental.blogspot.com","https://wardimension-chart.blogspot.com","https://wardimension-tab.blogspot.com"].indexOf(e.origin) >= 0){
-        var b = !window.location.href.includes(e.data[0]) ? `?b=${e.data[0]}`: "";
-        var p = e.data[1] != undefined && !window.location.href.includes(e.data[1]) ? `&p=${e.data[1]}` : "";
+        var b = e.data[0];
+        var p = "";
+        if(e.data[1] != undefined){
+            p = `&p=${e.data[1]}`;
+        }
         document.getElementsByClassName("blog")[0].style.height = e.data[2] + 200;
-        setParams(`${b}${p}`);
-        replaceURL(); //Change the above to set the format directly
+        setParams(`?b=${b}${p}`);
     }
 });
-
-//TEST
-function replaceURL(){
-    const url= new URL(window.location);
-    url.href =url.href.replace(/\?|&/g, "").replace(/b=|p=/g,"/");
-    history.replaceState(null, document.title, url);
-}
