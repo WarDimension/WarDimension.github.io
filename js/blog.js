@@ -11,6 +11,7 @@ else if(["experimental", "chart", "tab"].indexOf(url()["b"]) >= 0){
     if(url()["p"]!=undefined&&url()["p"]!=""){
         blog[0].src += `${decodeURIComponent(url()["p"])}.html`;
     }
+    cleanURL();
 }
 
 window.addEventListener("message", function(e) {
