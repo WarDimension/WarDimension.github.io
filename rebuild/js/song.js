@@ -34,7 +34,7 @@ function onYouTubeIframeAPIReady() {
 }
 
 function titleToId(title){
-  return title.replaceAll(".", "");
+  return title.replaceAll(".", "").replaceAll("/", "-");
 }
 
 var degree = 0;
