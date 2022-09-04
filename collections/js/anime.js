@@ -52,7 +52,7 @@ const series = [
                 "MyAnimeListLink": "https://myanimelist.net/anime/36039/AICO__Incarnation"
             }
         ]
-    },
+    },//Action Heroine Cheer Fruits
     {
         "name": "Adachi to Shimamura",
         "tags": ["安達としまむら","AdaShima","Adachi and Shimamura"],
