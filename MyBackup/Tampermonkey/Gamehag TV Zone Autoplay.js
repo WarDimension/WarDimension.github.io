@@ -33,4 +33,24 @@
         childList: true,
         subtree: true
     });
+
+    //Banner
+    const prerollObserver = new MutationObserver(function(mutationList){
+        for(let mutation of mutationList){
+            setTimeout(function () {
+                const cpmsvideoclosebanner = document.querySelector(".cpmsvideoclosebanner");
+                if(cpmsvideoclosebanner != null){
+                    cpmsvideoclosebanner.click();
+                }
+            }, 5000);
+        }
+    });
+
+    const preroll = document.querySelector("#preroll");
+
+    prerollObserver.observe(preroll, {
+        attributes: true,
+        childList: true,
+        subtree: true
+    });
 })();
