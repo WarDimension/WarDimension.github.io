@@ -48,6 +48,15 @@ let favorites = [
                 ]
             },
             {
+                "subCategory": "Sci-Fi",
+                "rankedList": [
+                    {
+                        "title": "Steins;Gate",
+                        "link": "./watch-order?s=シュタインズ・ゲート"
+                    }
+                ]
+            },
+            {
                 "subCategory": "Yuri",
                 "rankedList": [
                     {
