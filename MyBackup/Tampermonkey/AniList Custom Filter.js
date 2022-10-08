@@ -38,6 +38,7 @@
         padding: 8px 20px;
         user-select: none;
         width: fit-content;
+        max-width: 88.5vw;
         margin: auto;
         margin-bottom: 20px;
         box-shadow: 0 14px 30px rgba(var(--color-shadow-blue),.1),0 4px 4px rgba(var(--color-shadow-blue),.04);
