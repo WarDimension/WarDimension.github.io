@@ -153,8 +153,6 @@
     }
 
     function updateWDFilter(){
-        updateCards(`[status="None"]`, true);
-
         WDCheckbox.forEach(checkbox => {
             if(checkbox.checked){
                 updateCards(`[status="${checkbox.id}"]`, true);
