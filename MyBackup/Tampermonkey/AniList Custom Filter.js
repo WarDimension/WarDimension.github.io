@@ -22,7 +22,8 @@
         <label class="wd-label" for="Completed"><input id="Completed" class="wd-checkbox" type="checkbox" checked/>Completed</label>
         <label class="wd-label" for="Rewatching"><input id="Rewatching" class="wd-checkbox" type="checkbox" checked/>Rewatching</label>
         <label class="wd-label" for="Paused"><input id="Paused" class="wd-checkbox" type="checkbox" checked/>Paused</label>
-        <label class="wd-label" for="Dropped"><input id="Dropped" class="wd-checkbox" type="checkbox" checked/>Dropped</label><br/>
+        <label class="wd-label" for="Dropped"><input id="Dropped" class="wd-checkbox" type="checkbox" checked/>Dropped</label>
+        <label class="wd-label" for="None"><input id="None" class="wd-checkbox" type="checkbox" checked/>None</label><br/>
         <label class="wd-left-label">Episodes count:<input class="wd-input" type="number" placeholder="∞" min="1"/>-<input class="wd-input" type="number" placeholder="∞" min="1"/></label>
     `;
 
@@ -96,6 +97,10 @@
             let episodeCount = info.innerHTML.match(/(\d+) episodes/) || info.parentElement.innerHTML.match(/Ep (\d+)/);
             episodeCount != null ? info.innerHTML.match("episodes") ? episodeCount = episodeCount[1] : episodeCount = episodeCount[1] - 1 : info.innerHTML.match("Movie") ? episodeCount = 1 : episodeCount = 0;
             info.setAttribute("episodes-count", episodeCount);
+
+            if(info.parentElement.parentElement.querySelector("[status]") == null){
+                info.setAttribute("status", "None");
+            }
         });
     }
 
@@ -122,6 +127,9 @@
     function updateWDInfoFilter(){
         updateInfo();
         const infos = document.querySelectorAll(".info");
+
+        let episodeFilter = [];
+
         infos.forEach(info => {
             if(info.parentElement.parentElement.style.position != "absolute"){
                 const episodesCount = info.getAttribute("episodes-count") * 1;
@@ -133,14 +141,20 @@
                                                  (in1 > in2 && (episodesCount < in2 || episodesCount > in1)))) ||
                       (in2 == 0 && episodesCount < in1) ||
                       (in1 == 0 && episodesCount > in2)){
-                        updateCards(`[episodes-count="${episodesCount}"]`, false);
+                        if(!episodeFilter.includes(`[episodes-count="${episodesCount}"]`)){
+                            episodeFilter.push(`[episodes-count="${episodesCount}"]`);
+                        }
                     }
                 }
             }
         });
+
+        updateCards(episodeFilter.join(","), false);
     }
 
     function updateWDFilter(){
+        updateCards(`[status="None"]`, true);
+
         WDCheckbox.forEach(checkbox => {
             if(checkbox.checked){
                 updateCards(`[status="${checkbox.id}"]`, true);
