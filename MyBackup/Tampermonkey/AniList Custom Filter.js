@@ -22,7 +22,8 @@
         <label class="wd-label" for="Completed"><input id="Completed" class="wd-checkbox" type="checkbox" checked/>Completed</label>
         <label class="wd-label" for="Rewatching"><input id="Rewatching" class="wd-checkbox" type="checkbox" checked/>Rewatching</label>
         <label class="wd-label" for="Paused"><input id="Paused" class="wd-checkbox" type="checkbox" checked/>Paused</label>
-        <label class="wd-label" for="Dropped"><input id="Dropped" class="wd-checkbox" type="checkbox" checked/>Dropped</label>
+        <label class="wd-label" for="Dropped"><input id="Dropped" class="wd-checkbox" type="checkbox" checked/>Dropped</label><br/>
+        <label class="wd-left-label">Episodes count:<input class="wd-input" type="number" placeholder="∞" min="1"/>-<input class="wd-input" type="number" placeholder="∞" min="1"/></label>
     `;
 
     const secondaryFilters = document.querySelector(".secondary-filters");
@@ -52,13 +53,29 @@
         display: inline-block;
         margin: 5px 10px;
         cursor: pointer;
+    }
+    .wd-left-label{
+        display: inline-block;
+        margin: 5px 10px;
+    }
+    .wd-input[type=number]{
+        opacity: .5;
+        width: 60px;
+        font-size: 10pt;
+        margin: 0 10px;
+        padding: 2px 5px;
+    }
+    .wd-input[type=number]::placeholder{
+        position: relative;
+        color: #000;
+        font-size: 20pt;
+        top: 5px;
     }`;
 
     document.head.appendChild(WDStyle);
 
     const WDCheckbox = document.querySelectorAll(".wd-checkbox");
-
-    let WDFilter = [];
+    const WDInput = document.querySelectorAll(".wd-input");
 
     WDCheckbox.forEach(checkbox => {
         checkbox.addEventListener("change", e => {
@@ -66,40 +83,80 @@
         });
     });
 
+    WDInput.forEach(input => {
+        input.addEventListener("input", e => {
+            updateWDFilter();
+        });
+    });
+
+    function updateInfo(){
+        const infos = document.querySelectorAll(".info:not([episodes-count])");
+
+        infos.forEach(info => {
+            let episodeCount = info.innerHTML.match(/(\d+) episodes/);
+            episodeCount != null ? episodeCount = episodeCount[1] : episodeCount = 1;
+            info.setAttribute("episodes-count", episodeCount);
+        });
+    }
+
     function updateCards(query, isVisible){
-        const statuses = document.querySelectorAll(query);
+        if(query == ""){
+            return;
+        }
+
+        const elementsToFilter = document.querySelectorAll(query);
         if(isVisible){
-            statuses.forEach(status => {
-                status.parentElement.parentElement.style.position = "";
-                status.parentElement.parentElement.style.left = "";
+            elementsToFilter.forEach(element => {
+                element.parentElement.parentElement.style.position = "";
+                element.parentElement.parentElement.style.left = "";
             });
         }
         else{
-            statuses.forEach(status => {
-                status.parentElement.parentElement.style.position = "absolute";
-                status.parentElement.parentElement.style.left = "-500px";
+            elementsToFilter.forEach(element => {
+                element.parentElement.parentElement.style.position = "absolute";
+                element.parentElement.parentElement.style.left = "-1000px";
             });
         }
     }
 
+    function updateWDInfoFilter(){
+        updateInfo();
+        const infos = document.querySelectorAll(".info");
+        infos.forEach(info => {
+            if(info.parentElement.parentElement.style.position != "absolute"){
+                const episodesCount = info.getAttribute("episodes-count") * 1;
+                const in1 = WDInput[0].value * 1;
+                const in2 = WDInput[1].value * 1;
+
+                if(in1 != 0 || in2 != 0){
+                    if((in1 != 0 && in2 != 0 && ((in1 <= in2 && (episodesCount < in1 || episodesCount > in2)) ||
+                                                 (in1 > in2 && (episodesCount < in2 || episodesCount > in1)))) ||
+                      (in2 == 0 && episodesCount < in1) ||
+                      (in1 == 0 && episodesCount > in2)){
+                        updateCards(`[episodes-count="${episodesCount}"]`, false);
+                    }
+                }
+            }
+        });
+    }
+
     function updateWDFilter(){
-        WDFilter = [];
         WDCheckbox.forEach(checkbox => {
             if(checkbox.checked){
                 updateCards(`[status="${checkbox.id}"]`, true);
             }
             else{
                 updateCards(`[status="${checkbox.id}"]`, false);
-
-                WDFilter.push(`[status="${checkbox.id}"]`);
             }
         });
+
+        updateWDInfoFilter();
     }
 
     const observer = new MutationObserver(function(mutationList){
         for(let mutation of mutationList){
             if(mutation.type == "childList"){
-                updateCards(WDFilter.join(","), false);
+                updateWDFilter();
             }
         }
     });
