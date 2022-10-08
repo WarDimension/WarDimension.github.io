@@ -93,8 +93,8 @@
         const infos = document.querySelectorAll(".info:not([episodes-count])");
 
         infos.forEach(info => {
-            let episodeCount = info.innerHTML.match(/(\d+) episodes/);
-            episodeCount != null ? episodeCount = episodeCount[1] : episodeCount = 1;
+            let episodeCount = info.innerHTML.match(/(\d+) episodes/) || info.parentElement.innerHTML.match(/Ep (\d+)/);
+            episodeCount != null ? info.innerHTML.match("episodes") ? episodeCount = episodeCount[1] : episodeCount = episodeCount[1] - 1 : info.innerHTML.match("Movie") ? episodeCount = 1 : episodeCount = 0;
             info.setAttribute("episodes-count", episodeCount);
         });
     }
