@@ -4,7 +4,7 @@
 // @version      0.1
 // @description  Custom filter for AniList search
 // @author       WarDimension
-// @match        https://anilist.co/search/anime
+// @match        https://anilist.co/search/anime*
 // @icon         https://www.google.com/s2/favicons?domain=anilist.co
 // @grant        none
 // ==/UserScript==
