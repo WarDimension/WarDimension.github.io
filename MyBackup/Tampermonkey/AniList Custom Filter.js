@@ -167,6 +167,8 @@
 
         filterIndex = !filterIndex;
 
+        updateInfo();
+
         WDCheckbox.forEach(checkbox => {
             if(checkbox.checked){
                 updateCards(`.list-status[status="${checkbox.id}"]`, true);
