@@ -132,7 +132,7 @@
 
         if(in1 != 0 || in2 != 0){
             updateInfo();
-            const infos = document.querySelectorAll(".info[wd-hidden='false']");
+            const infos = document.querySelectorAll(".info:not([wd-hidden='true'])");
 
             let episodeFilter = [];
 
