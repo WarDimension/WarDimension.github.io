@@ -126,7 +126,7 @@
         });
     }
 
-    let filterIndex = true;
+    let filterIndex = true; //to prevent info filter from checking the already loaded items
 
     function updateWDInfoFilter(){
         const in1 = WDInput[0].value * 1;
