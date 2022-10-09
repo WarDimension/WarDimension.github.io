@@ -126,13 +126,15 @@
         });
     }
 
+    let filterIndex = true;
+
     function updateWDInfoFilter(){
         const in1 = WDInput[0].value * 1;
         const in2 = WDInput[1].value * 1;
 
         if(in1 != 0 || in2 != 0){
             updateInfo();
-            const infos = document.querySelectorAll(".info:not([wd-hidden='true'])");
+            const infos = document.querySelectorAll(`.info:not([filterIndex="${filterIndex}"])`);
 
             let episodeFilter = [];
 
@@ -147,6 +149,8 @@
                         episodeFilter.push(`[episodes-count="${episodesCount}"]`);
                     }
                 }
+
+                info.setAttribute("filterIndex", filterIndex);
             });
 
             updateCards(episodeFilter.join(","), false);
@@ -155,6 +159,8 @@
 
     function updateWDFilter(){
         WDFilter = [];
+
+        filterIndex = !filterIndex;
 
         WDCheckbox.forEach(checkbox => {
             if(checkbox.checked){
