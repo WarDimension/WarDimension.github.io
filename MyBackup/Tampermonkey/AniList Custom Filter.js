@@ -146,7 +146,7 @@
                   (in2 == 0 && episodesCount < in1) ||
                   (in1 == 0 && episodesCount > in2)){
                     if(!episodeFilter.includes(`[episodes-count="${episodesCount}"]`)){
-                        episodeFilter.push(`[episodes-count="${episodesCount}"]`);
+                        episodeFilter.push(`[episodes-count="${episodesCount}"]:not([wd-hidden='true'])`);
                     }
                 }
 
@@ -154,6 +154,9 @@
             });
 
             updateCards(episodeFilter.join(","), false);
+        }
+        else{
+            filterIndex = !filterIndex;
         }
     }
 
@@ -164,12 +167,12 @@
 
         WDCheckbox.forEach(checkbox => {
             if(checkbox.checked){
-                updateCards(`.list-status[status="${checkbox.id}"]`, true);
+                updateCards(`.list-status[status="${checkbox.id}"]:not([wd-hidden='false'])`, true);
             }
             else{
-                updateCards(`.list-status[status="${checkbox.id}"]`, false);
+                updateCards(`.list-status[status="${checkbox.id}"]:not([wd-hidden='true'])`, false);
 
-                WDFilter.push(`.list-status[status="${checkbox.id}"]`);
+                WDFilter.push(`.list-status[status="${checkbox.id}"]:not([wd-hidden='true'])`);
             }
         });
 
