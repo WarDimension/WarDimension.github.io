@@ -78,6 +78,8 @@
     const WDCheckbox = document.querySelectorAll(".wd-checkbox");
     const WDInput = document.querySelectorAll(".wd-input");
 
+    let WDFilter = [];
+
     WDCheckbox.forEach(checkbox => {
         checkbox.addEventListener("change", e => {
             updateWDFilter();
@@ -99,7 +101,7 @@
             info.setAttribute("episodes-count", episodeCount);
 
             if(info.parentElement.parentElement.querySelector("[status]") == null){
-                info.setAttribute("status", "None");
+                info.parentElement.parentElement.querySelector(".title").innerHTML += "<div class='list-status' status='None'></div>";
             }
         });
     }
@@ -110,55 +112,58 @@
         }
 
         const elementsToFilter = document.querySelectorAll(query);
-        if(isVisible){
-            elementsToFilter.forEach(element => {
+        elementsToFilter.forEach(element => {
+            if(isVisible){
                 element.parentElement.parentElement.style.position = "";
                 element.parentElement.parentElement.style.left = "";
-            });
-        }
-        else{
-            elementsToFilter.forEach(element => {
+                element.parentElement.parentElement.querySelector(".info").setAttribute("wd-hidden", "false");
+            }
+            else{
                 element.parentElement.parentElement.style.position = "absolute";
                 element.parentElement.parentElement.style.left = "-1000px";
-            });
-        }
+                element.parentElement.parentElement.querySelector(".info").setAttribute("wd-hidden", "true");
+            }
+        });
     }
 
     function updateWDInfoFilter(){
-        updateInfo();
-        const infos = document.querySelectorAll(".info");
+        const in1 = WDInput[0].value * 1;
+        const in2 = WDInput[1].value * 1;
 
-        let episodeFilter = [];
+        if(in1 != 0 || in2 != 0){
+            updateInfo();
+            const infos = document.querySelectorAll(".info:not([wd-hidden='true'])");
 
-        infos.forEach(info => {
-            if(info.parentElement.parentElement.style.position != "absolute"){
+            let episodeFilter = [];
+
+            infos.forEach(info => {
                 const episodesCount = info.getAttribute("episodes-count") * 1;
-                const in1 = WDInput[0].value * 1;
-                const in2 = WDInput[1].value * 1;
 
-                if(in1 != 0 || in2 != 0){
-                    if((in1 != 0 && in2 != 0 && ((in1 <= in2 && (episodesCount < in1 || episodesCount > in2)) ||
-                                                 (in1 > in2 && (episodesCount < in2 || episodesCount > in1)))) ||
-                      (in2 == 0 && episodesCount < in1) ||
-                      (in1 == 0 && episodesCount > in2)){
-                        if(!episodeFilter.includes(`[episodes-count="${episodesCount}"]`)){
-                            episodeFilter.push(`[episodes-count="${episodesCount}"]`);
-                        }
+                if((in1 != 0 && in2 != 0 && ((in1 <= in2 && (episodesCount < in1 || episodesCount > in2)) ||
+                                             (in1 > in2 && (episodesCount < in2 || episodesCount > in1)))) ||
+                  (in2 == 0 && episodesCount < in1) ||
+                  (in1 == 0 && episodesCount > in2)){
+                    if(!episodeFilter.includes(`[episodes-count="${episodesCount}"]`)){
+                        episodeFilter.push(`[episodes-count="${episodesCount}"]`);
                     }
                 }
-            }
-        });
+            });
 
-        updateCards(episodeFilter.join(","), false);
+            updateCards(episodeFilter.join(","), false);
+        }
     }
 
     function updateWDFilter(){
+        WDFilter = [];
+
         WDCheckbox.forEach(checkbox => {
             if(checkbox.checked){
-                updateCards(`[status="${checkbox.id}"]`, true);
+                updateCards(`.list-status[status="${checkbox.id}"]`, true);
             }
             else{
-                updateCards(`[status="${checkbox.id}"]`, false);
+                updateCards(`.list-status[status="${checkbox.id}"]`, false);
+
+                WDFilter.push(`.list-status[status="${checkbox.id}"]`);
             }
         });
 
@@ -168,7 +173,8 @@
     const observer = new MutationObserver(function(mutationList){
         for(let mutation of mutationList){
             if(mutation.type == "childList"){
-                updateWDFilter();
+                updateCards(WDFilter.join(","), false);
+                updateWDInfoFilter();
             }
         }
     });
