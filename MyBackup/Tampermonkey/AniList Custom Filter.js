@@ -113,6 +113,8 @@
 
         const elementsToFilter = document.querySelectorAll(query);
         elementsToFilter.forEach(element => {
+            element.setAttribute("filterIndex", filterIndex);
+
             if(isVisible){
                 element.parentElement.parentElement.style.position = "";
                 element.parentElement.parentElement.style.left = "";
@@ -167,12 +169,12 @@
 
         WDCheckbox.forEach(checkbox => {
             if(checkbox.checked){
-                updateCards(`.list-status[status="${checkbox.id}"]:not([wd-hidden='false'])`, true);
+                updateCards(`.list-status[status="${checkbox.id}"]`, true);
             }
             else{
-                updateCards(`.list-status[status="${checkbox.id}"]:not([wd-hidden='true'])`, false);
+                updateCards(`.list-status[status="${checkbox.id}"]`, false);
 
-                WDFilter.push(`.list-status[status="${checkbox.id}"]:not([wd-hidden='true'])`);
+                WDFilter.push(`.list-status[status="${checkbox.id}"]:not([filterIndex="${filterIndex}"])`);
             }
         });
 
