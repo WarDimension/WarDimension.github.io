@@ -70,6 +70,15 @@ let favorites = [
                 ]
             },
             {
+                "subCategory": "Yuri, but...",
+                "rankedList": [
+                    {
+                        "title": "Maria-sama ga Miteru",
+                        "link": "./watch-order?s=マリア様がみてる"
+                    }
+                ]
+            },
+            {
                 "subCategory": "Studio",
                 "rankedList": [
                     {
