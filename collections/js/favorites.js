@@ -29,6 +29,10 @@ let favorites = [
                         "link": "./watch-order?s=ひぐらしのなく頃に"
                     },
                     {
+                        "title": "C Danchi",
+                        "link": "./watch-order?s=C団地"
+                    },
+                    {
                         "title": "Mayoiga",
                         "link": "./watch-order?s=迷家-マヨイガ-"
                     },
