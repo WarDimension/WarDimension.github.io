@@ -668,37 +668,37 @@ const songsData = [
         "title": "喉が渇きました、飲み物が欲しい",
         "romanized": "Nodo ga Kawakimashita, Nomimono ga Hoshii",
         "length": "2:23",
-        "youtubeID": "666"
+        "youtubeID": "k55Lv5ykgVU"
       },
       {
         "title": "喉が渇きました、飲み物が欲しい -Instrumental-",
         "romanized": "Nodo ga Kawakimashita, Nomimono ga Hoshii -Instrumental-",
         "length": "2:23",
-        "youtubeID": "666"
+        "youtubeID": "SP6eBT1iLB4"
       },
       {
         "title": "川で釣りました、魚がいっぱい",
         "romanized": "Kawa de Tsurimashita, Sakana ga Ippai",
         "length": "3:00",
-        "youtubeID": "666"
+        "youtubeID": "Fz39U5KjaKQ"
       },
       {
         "title": "川で釣りました、魚がいっぱい -Instrumental-",
         "romanized": "Kawa de Tsurimashita, Sakana ga Ippai -Instrumental-",
         "length": "3:00",
-        "youtubeID": "666"
+        "youtubeID": "CRWM0mPizlQ"
       },
       {
         "title": "明けましておめでとうございます。今年もよろしくお願いします。",
         "romanized": "Akemashite omedetou gozaimasu. Kotoshi mo yoroshiku onegaishimasu.",
         "length": "1:02",
-        "youtubeID": "666"
+        "youtubeID": "aMPbvsmlu7s"
       },
       {
         "title": "明けましておめでとうございます。今年もよろしくお願いします。 -Instrumental-",
         "romanized": "Akemashite omedetou gozaimasu. Kotoshi mo yoroshiku onegaishimasu. -Instrumental-",
         "length": "1:02",
-        "youtubeID": "666"
+        "youtubeID": "fczyAzOtk6c"
       }
     ]
   }
