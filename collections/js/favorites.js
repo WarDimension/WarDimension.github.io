@@ -105,6 +105,16 @@ let favorites = [
                         "link": "./waifu?s=山村クミ子"
                     }
                 ]
+            },
+            {
+                "subCategory": "Queen",
+                "rankedList": [
+                    {
+                        "title": "Zaizen Tokiko",
+                        "subTitle": "THE iDOLM@STER Cinderella Girls",
+                        "link": "./waifu?s=財前時子"
+                    }
+                ]
             }
         ]
     },
