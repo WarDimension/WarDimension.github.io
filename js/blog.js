@@ -7,7 +7,7 @@ if(["experimental", "chart", "tab"].indexOf(url()["b"]) >= 0){
     }
 
     if(url()["search"]){
-        let search = JSON.parse(decodeURI(url()["search"]));
+        let search = JSON.parse(decodeURI(url()["search"].replaceAll("%27", '"')));
 
         blog[0].src = `https://wardimension-${url()["b"]}.blogspot.com/search/label/${search.join("+")}`;
     }
