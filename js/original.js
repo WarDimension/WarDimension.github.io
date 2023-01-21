@@ -644,7 +644,8 @@ const songsData = [
       "deezer": "https://www.deezer.com/album/340814337",
       "spotify": "https://open.spotify.com/album/3XMeN6wxDUtFiLXXCalqY5?si=Kab0hMOgQ1yQxgccT-Kmkw",
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_kUQ_oJC55UmZUwV00PKrSfJK5haezvg3M",
-      "amazon": "https://www.amazon.com/music/player/albums/B0B82L6LFV"
+      "amazon": "https://www.amazon.com/music/player/albums/B0B82L6LFV",
+      "cloneHero": "Test"
     }],
     "track": [
       {
