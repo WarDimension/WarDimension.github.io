@@ -668,7 +668,8 @@ const songsData = [
       "deezer": "https://www.deezer.com/album/391659087",
       "spotify": "https://open.spotify.com/album/21RyXRVHeZ8F91Uh1celSW?si=MnlajCYSSz-fUB5d2HX4cw",
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_n5OzWJCWwPGMaUBtCvk0gJJMZN3EYkhNU",
-      "amazon": "https://www.amazon.com/music/player/albums/B0BRDBFH79"
+      "amazon": "https://www.amazon.com/music/player/albums/B0BRDBFH79",
+      "rocksmith": "https://wardimension.github.io/blog?album=Itsudemo、Dokodemo、Nandemoii"
     }],
     "track": [
       {
