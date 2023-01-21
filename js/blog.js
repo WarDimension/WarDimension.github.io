@@ -1,15 +1,15 @@
 var blog = document.getElementsByClassName("blog");
 
-if(url()["rocksmith"]){
-    blog[0].src = "https://wardimension-chart.blogspot.com/search/label/%5BArtist%5D WarDimension+(Game) Rocksmith 2014";
-}
-else if(url()["album"]){
-    blog[0].src = `https://wardimension-chart.blogspot.com/search/label/%5BArtist%5D WarDimension+%7BAlbum%7D ${url()["album"]}+(Game) Rocksmith 2014`;
-}
-else if(["experimental", "chart", "tab"].indexOf(url()["b"]) >= 0){
+if(["experimental", "chart", "tab"].indexOf(url()["b"]) >= 0){
     blog[0].src = `https://wardimension-${url()["b"]}.blogspot.com/`;
     if(url()["p"]!=undefined&&url()["p"]!=""){
         blog[0].src += `${decodeURIComponent(url()["p"])}.html`;
+    }
+
+    if(url()["search"]){
+        let search = JSON.parse(decodeURI(url()["search"]));
+
+        blog[0].src = `https://wardimension-${url()["b"]}.blogspot.com/search/label/${search.join("+")}`;
     }
 }
 
