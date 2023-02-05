@@ -103,7 +103,7 @@ body{
 }
 footer{
     position: relative;
-    bottom: calc(-61px - 157px);
+    bottom: calc(-61px - 157px - 16px); /*61px is the height, 157px is body after height, 16px is just a brute force (it suddenly have gap, idk why)*/
 }
 body::after{
     content: "";
