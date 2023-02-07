@@ -176,6 +176,10 @@ let favorites = [
                     {
                         "title": "The Adventures of Tintin: The Secret of the Unicorn",
                         "link": "https://www.youtube.com/playlist?list=PL2RRP5DCQpv5Olyj754GFGhScONqLLxO6"
+                    },
+                    {
+                        "title": "Forgotton Anne",
+                        "link": "https://store.steampowered.com/app/542050/Forgotton_Anne/"
                     }
                 ]
             }
