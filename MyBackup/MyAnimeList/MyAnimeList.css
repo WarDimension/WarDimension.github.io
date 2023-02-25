@@ -103,7 +103,7 @@ body{
 }
 footer{
     position: relative;
-    bottom: calc(-61px - 157px - 16px); /*61px is the height, 157px is body after height, 16px is just a brute force (it suddenly have gap, idk why)*/
+    bottom: calc(-61px - 157px);
 }
 body::after{
     content: "";
@@ -145,7 +145,7 @@ footer::before{
     position: fixed;
     display: block;
     left: calc(50vw - 1058px / 2);
-    bottom: -280px;
+    bottom: -215px;
     background: url("https://i.imgur.com/yd011qx.jpg");
     width: 1058px;
     height: 595px;
