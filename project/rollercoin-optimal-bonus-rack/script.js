@@ -1,5 +1,12 @@
 const miners = [
     {
+        "name": "Cerberus II",
+        "power": 145.530,
+        "bonus": 0.55,
+        "cells": 2,
+        "qty": 1
+    },
+    {
         "name": "Chattanooga Choo",
         "power": 20.230,
         "bonus": 0,
@@ -70,6 +77,13 @@ const miners = [
         "qty": 3
     },
     {
+        "name": "Mergedge II",
+        "power": 8.925,
+        "bonus": 0.14,
+        "cells": 2,
+        "qty": 1
+    },
+    {
         "name": "Nuc",
         "power": 26.000,
         "bonus": 0.5,
@@ -89,6 +103,20 @@ const miners = [
         "bonus": 0.1,
         "cells": 1,
         "qty": 9
+    },
+    {
+        "name": "RollerArc S1 II",
+        "power": 0.420,
+        "bonus": 0.11,
+        "cells": 1,
+        "qty": 1
+    },
+    {
+        "name": "RollerArc S1 III",
+        "power": 1.050,
+        "bonus": 0.11,
+        "cells": 1,
+        "qty": 2
     },
     {
         "name": "RollerMiner R4",
@@ -123,6 +151,13 @@ const miners = [
         "power": 2.730,
         "bonus": 0.5,
         "cells": 1,
+        "qty": 1
+    },
+    {
+        "name": "Shifter II",
+        "power": 92.400,
+        "bonus": 1.05,
+        "cells": 2,
         "qty": 1
     },
     {
