@@ -12,6 +12,7 @@
     
 }
 div{
+    position: relative;
     display: inline-block;
     vertical-align: middle;
 }
@@ -30,4 +31,10 @@ img{
 }
 .single{
     width: 126px;
+}
+.rarity{
+    position: absolute;
+    top: 0;
+    width: 22px;
+    height: 16px;
 }

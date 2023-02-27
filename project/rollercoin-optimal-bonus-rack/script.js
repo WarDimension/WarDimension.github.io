@@ -1,7 +1,8 @@
 const miners = [
     {
-        "name": "Cerberus II",
+        "name": "Cerberus",
         "img": "https://static.rollercoin.com/static/img/market/miners/631f7b828238ed283a2353a5.gif?v=1.0.3",
+        "rarity": "II",
         "power": 145.530,
         "bonus": 0.55,
         "cells": 2,
@@ -88,8 +89,9 @@ const miners = [
         "qty": 3
     },
     {
-        "name": "Mergedge II",
+        "name": "Mergedge",
         "img": "https://static.rollercoin.com/static/img/market/miners/631f7b6d8238ed283a2352a1.gif?v=1.0.3",
+        "rarity": "II",
         "power": 8.925,
         "bonus": 0.14,
         "cells": 2,
@@ -120,16 +122,18 @@ const miners = [
         "qty": 9
     },
     {
-        "name": "RollerArc S1 II",
+        "name": "RollerArc S1",
         "img": "https://static.rollercoin.com/static/img/market/miners/631f79648238ed283a233a82.gif?v=1.0.3",
+        "rarity": "II",
         "power": 0.420,
         "bonus": 0.11,
         "cells": 1,
         "qty": 1
     },
     {
-        "name": "RollerArc S1 III",
+        "name": "RollerArc S1",
         "img": "https://static.rollercoin.com/static/img/market/miners/631f79658238ed283a233a8f.gif?v=1.0.3",
+        "rarity": "III",
         "power": 1.050,
         "bonus": 0.11,
         "cells": 1,
@@ -176,8 +180,9 @@ const miners = [
         "qty": 1
     },
     {
-        "name": "Shifter II",
+        "name": "Shifter",
         "img": "https://static.rollercoin.com/static/img/market/miners/631f78b98238ed283a2332a3.gif?v=1.0.3",
+        "rarity": "II",
         "power": 92.400,
         "bonus": 1.05,
         "cells": 2,
@@ -254,7 +259,7 @@ const table = document.querySelector(".miner-table");
 
 for(let i = 0; i < newMiners.length; i++){
     if(newMiners[i].doubleMiner){
-        let power1, power2, unit1, unit2;
+        let power1, power2, unit1, unit2, rarity1 = "", rarity2 = "";
 
         if(newMiners[i].miners[0].power >= 1){
             power1 = newMiners[i].miners[0].power;
@@ -274,17 +279,35 @@ for(let i = 0; i < newMiners.length; i++){
             unit2 = "GH/s";
         }
 
+        switch(newMiners[i].miners[0].rarity){
+            case "II":
+                rarity1 = `<img class="rarity" src="https://rollercoin.com/static/img/storage/rarity_icons/level_2.png?v=1.0.0"/>`;
+                break;
+            case "III":
+                rarity1 = `<img class="rarity" src="https://rollercoin.com/static/img/storage/rarity_icons/level_3.png?v=1.0.0"/>`;
+                break;
+        }
+
+        switch(newMiners[i].miners[1].rarity){
+            case "II":
+                rarity2 = `<img class="rarity" src="https://rollercoin.com/static/img/storage/rarity_icons/level_2.png?v=1.0.0"/>`;
+                break;
+            case "III":
+                rarity2 = `<img class="rarity" src="https://rollercoin.com/static/img/storage/rarity_icons/level_3.png?v=1.0.0"/>`;
+                break;
+        }
+
         let row = table.insertRow(i+1);
         let cell1 = row.insertCell(0);
         let cell2 = row.insertCell(1);
         let cell3 = row.insertCell(2);
         
-        cell1.innerHTML = `<div><img src="${newMiners[i].miners[0].img}"/>${newMiners[i].miners[0].name}</div><span>➕</span><div><img src="${newMiners[i].miners[1].img}"/>${newMiners[i].miners[1].name}</div>`;
+        cell1.innerHTML = `<div><img src="${newMiners[i].miners[0].img}"/>${rarity1}${newMiners[i].miners[0].name}</div><span>➕</span><div><img src="${newMiners[i].miners[1].img}"/>${rarity2}${newMiners[i].miners[1].name}</div>`;
         cell2.innerHTML = `${power1} ${unit1}<span>➕</span>${power2} ${unit2}`;
         cell3.innerHTML = `${newMiners[i].miners[0].bonus}%<span>➕</span>${newMiners[i].miners[1].bonus}%`;
     }
     else{
-        let power, unit;
+        let power, unit, rarity = "";
 
         if(newMiners[i].power >= 1){
             power = newMiners[i].power;
@@ -295,12 +318,21 @@ for(let i = 0; i < newMiners.length; i++){
             unit = "GH/s";
         }
 
+        switch(newMiners[i].rarity){
+            case "II":
+                rarity = `<img class="rarity" src="https://rollercoin.com/static/img/storage/rarity_icons/level_2.png?v=1.0.0"/>`;
+                break;
+            case "III":
+                rarity = `<img class="rarity" src="https://rollercoin.com/static/img/storage/rarity_icons/level_3.png?v=1.0.0"/>`;
+                break;
+        }
+
         let row = table.insertRow(i+1);
         let cell1 = row.insertCell(0);
         let cell2 = row.insertCell(1);
         let cell3 = row.insertCell(2);
 
-        cell1.innerHTML = `<div><img class="single" src="${newMiners[i].img}"/>${newMiners[i].name}</div>`;
+        cell1.innerHTML = `<div><img class="single" src="${newMiners[i].img}"/>${rarity}${newMiners[i].name}</div>`;
         cell2.innerHTML = power + " " + unit;
         cell3.innerHTML = newMiners[i].bonus + "%";
     }
