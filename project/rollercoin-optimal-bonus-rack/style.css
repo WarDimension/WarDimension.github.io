@@ -8,13 +8,21 @@
 }
 .miner-table td{
     padding: 8px 16px;
+    text-align: center;
 }
-.miner-table td:nth-child(2), .miner-table td:nth-child(3){
-    text-align: right;
+div{
+    display: inline-block;
+    vertical-align: middle;
 }
 span{
     opacity: 0.35;
     font-size: 12px;
     padding: 0 8px;
     margin: auto;
+}
+img{
+    display: block;
+    width: 126px;
+    height: 60px;
+    object-fit: none;
 }

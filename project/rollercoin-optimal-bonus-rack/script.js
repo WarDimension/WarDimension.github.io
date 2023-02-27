@@ -176,6 +176,7 @@ const miners = [
     },
     {
         "name": "Turkey Aid 2023",
+        "img": "https://static.rollercoin.com/static/img/market/miners/63e4fe2b547cfab9a240e681.gif?v=1.0.3",
         "power": 0.100,
         "bonus": 0,
         "cells": 2,
@@ -252,7 +253,7 @@ for(let i = 0; i < newMiners.length; i++){
         let cell2 = row.insertCell(1);
         let cell3 = row.insertCell(2);
         
-        cell1.innerHTML = `${newMiners[i].miners[0].name}<span>➕</span>${newMiners[i].miners[1].name}`;
+        cell1.innerHTML = `<div><img src="${newMiners[i].miners[0].img}"/>${newMiners[i].miners[0].name}</div><span>➕</span><div><img src="${newMiners[i].miners[1].name}"/>${newMiners[i].miners[1].name}</div>`;
         cell2.innerHTML = `${power1} ${unit1}<span>➕</span>${power2} ${unit2}`;
         cell3.innerHTML = `${newMiners[i].miners[0].bonus}%<span>➕</span>${newMiners[i].miners[1].bonus}%`;
     }
@@ -273,7 +274,7 @@ for(let i = 0; i < newMiners.length; i++){
         let cell2 = row.insertCell(1);
         let cell3 = row.insertCell(2);
 
-        cell1.innerHTML = newMiners[i].name;
+        cell1.innerHTML = `<div><img src="${newMiners[i].img}"/>${newMiners[i].name}</div>`;
         cell2.innerHTML = power + " " + unit;
         cell3.innerHTML = newMiners[i].bonus + "%";
     }
