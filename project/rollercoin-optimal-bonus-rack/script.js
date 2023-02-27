@@ -252,9 +252,9 @@ for(let i = 0; i < newMiners.length; i++){
         let cell2 = row.insertCell(1);
         let cell3 = row.insertCell(2);
         
-        cell1.innerHTML = `${newMiners[i].miners[0].name} + ${newMiners[i].miners[1].name}`;
-        cell2.innerHTML = `${power1} ${unit1} + ${power2} ${unit2}`;
-        cell3.innerHTML = `${newMiners[i].miners[0].bonus}% + ${newMiners[i].miners[1].bonus}%`;
+        cell1.innerHTML = `${newMiners[i].miners[0].name}<span>➕</span>${newMiners[i].miners[1].name}`;
+        cell2.innerHTML = `${power1} ${unit1}<span>➕</span>${power2} ${unit2}`;
+        cell3.innerHTML = `${newMiners[i].miners[0].bonus}%<span>➕</span>${newMiners[i].miners[1].bonus}%`;
     }
     else{
         let power, unit;

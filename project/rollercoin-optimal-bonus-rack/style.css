@@ -12,3 +12,9 @@
 .miner-table td:nth-child(2), .miner-table td:nth-child(3){
     text-align: right;
 }
+span{
+    opacity: 0.35;
+    font-size: 12px;
+    padding: 0 8px;
+    margin: auto;
+}
