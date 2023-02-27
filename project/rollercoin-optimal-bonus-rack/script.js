@@ -1,10 +1,157 @@
 const miners = [
     {
-        "name": "test1",
-        "power": 1000,
-        "bonus": 5,
+        "name": "Chattanooga Choo",
+        "power": 20.230,
+        "bonus": 0,
+        "cells": 2,
+        "qty": 1
+    },
+    {
+        "name": "CP-106",
+        "power": 11.106,
+        "bonus": 0.5,
+        "cells": 1,
+        "qty": 1
+    },
+    {
+        "name": "Crimson Bloom",
+        "power": 40.000,
+        "bonus": 1,
+        "cells": 2,
+        "qty": 1
+    },
+    {
+        "name": "Deepdiver",
+        "power": 12.500,
+        "bonus": 0.25,
+        "cells": 2,
+        "qty": 3
+    },
+    {
+        "name": "Disco-Roll",
+        "power": 36.300,
+        "bonus": 0,
+        "cells": 2,
+        "qty": 1
+    },
+    {
+        "name": "Doggie-Woogie",
+        "power": 0.010,
+        "bonus": 0,
+        "cells": 1,
+        "qty": 1
+    },
+    {
+        "name": "Hasher’s Egg",
+        "power": 21.600,
+        "bonus": 0,
+        "cells": 1,
+        "qty": 1
+    },
+    {
+        "name": "JBS-200",
+        "power": 13.000,
+        "bonus": 0.5,
+        "cells": 1,
+        "qty": 4
+    },
+    {
+        "name": "Jungle King",
+        "power": 16.800,
+        "bonus": 0.5,
+        "cells": 2,
+        "qty": 1
+    },
+    {
+        "name": "Mergedge",
+        "power": 3.825,
+        "bonus": 0,
+        "cells": 2,
+        "qty": 3
+    },
+    {
+        "name": "Nuc",
+        "power": 26.000,
+        "bonus": 0.5,
+        "cells": 1,
+        "qty": 1
+    },
+    {
+        "name": "Radio Gaga",
+        "power": 15.400,
+        "bonus": 0,
         "cells": 2,
         "qty": 2
+    },
+    {
+        "name": "RollerArc S1",
+        "power": 0.150,
+        "bonus": 0.1,
+        "cells": 1,
+        "qty": 9
+    },
+    {
+        "name": "RollerMiner R4",
+        "power": 6.000,
+        "bonus": 0.5,
+        "cells": 1,
+        "qty": 1
+    },
+    {
+        "name": "RollerMiner S4",
+        "power": 1.160,
+        "bonus": 0.25,
+        "cells": 1,
+        "qty": 1
+    },
+    {
+        "name": "RollerMiner S5+",
+        "power": 4.000,
+        "bonus": 0.5,
+        "cells": 1,
+        "qty": 3
+    },
+    {
+        "name": "RollerMiner S7",
+        "power": 1.320,
+        "bonus": 0.25,
+        "cells": 1,
+        "qty": 2
+    },
+    {
+        "name": "Rolleron 741",
+        "power": 2.730,
+        "bonus": 0.5,
+        "cells": 1,
+        "qty": 1
+    },
+    {
+        "name": "The Black Pearl",
+        "power": 50.000,
+        "bonus": 0.5,
+        "cells": 2,
+        "qty": 1
+    },
+    {
+        "name": "The Thrill Rider",
+        "power": 13.000,
+        "bonus": 0,
+        "cells": 2,
+        "qty": 1
+    },
+    {
+        "name": "Turkey Aid 2023",
+        "power": 0.100,
+        "bonus": 0,
+        "cells": 2,
+        "qty": 1
+    },
+    {
+        "name": "Vyzzarys",
+        "power": 22.400,
+        "bonus": 0,
+        "cells": 2,
+        "qty": 1
     }
 ];
 
