@@ -1,0 +1,14 @@
+.miner-table{
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.miner-table, .miner-table td{
+    border: 1px solid;
+}
+.miner-table td{
+    padding: 8px 16px;
+}
+.miner-table td:nth-child(2), .miner-table td:nth-child(3){
+    text-align: right;
+}
