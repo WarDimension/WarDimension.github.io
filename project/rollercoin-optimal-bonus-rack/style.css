@@ -9,6 +9,7 @@
 .miner-table td{
     padding: 8px 16px;
     text-align: center;
+    
 }
 div{
     display: inline-block;
@@ -22,7 +23,11 @@ span{
 }
 img{
     display: block;
-    width: 126px;
+    width: 70px;
     height: 60px;
     object-fit: none;
+    margin: auto;
+}
+.single{
+    width: 126px;
 }

@@ -1,6 +1,7 @@
 const miners = [
     {
         "name": "Cerberus II",
+        "img": "https://static.rollercoin.com/static/img/market/miners/631f7b828238ed283a2353a5.gif?v=1.0.3",
         "power": 145.530,
         "bonus": 0.55,
         "cells": 2,
@@ -8,6 +9,7 @@ const miners = [
     },
     {
         "name": "Chattanooga Choo",
+        "img": "https://static.rollercoin.com/static/img/market/miners/63bffdd0d2e89bab14ff95bd.gif?v=1.0.3",
         "power": 20.230,
         "bonus": 0,
         "cells": 2,
@@ -15,6 +17,7 @@ const miners = [
     },
     {
         "name": "CP-106",
+        "img": "https://static.rollercoin.com/static/img/market/miners/610a9b31bf6b53744c87cedc.gif?v=1.0.3",
         "power": 11.106,
         "bonus": 0.5,
         "cells": 1,
@@ -22,6 +25,7 @@ const miners = [
     },
     {
         "name": "Crimson Bloom",
+        "img": "https://static.rollercoin.com/static/img/market/miners/61f9356a8b46ce6889390250.gif?v=1.0.3",
         "power": 40.000,
         "bonus": 1,
         "cells": 2,
@@ -29,6 +33,7 @@ const miners = [
     },
     {
         "name": "Deepdiver",
+        "img": "https://static.rollercoin.com/static/img/market/miners/62a722279b5a37db46c0bca5.gif?v=1.0.3",
         "power": 12.500,
         "bonus": 0.25,
         "cells": 2,
@@ -36,6 +41,7 @@ const miners = [
     },
     {
         "name": "Disco-Roll",
+        "img": "https://static.rollercoin.com/static/img/market/miners/63930d86380ccf549d7f5c29.gif?v=1.0.3",
         "power": 36.300,
         "bonus": 0,
         "cells": 2,
@@ -43,6 +49,7 @@ const miners = [
     },
     {
         "name": "Doggie-Woogie",
+        "img": "https://static.rollercoin.com/static/img/market/miners/63930d86380ccf549d7f5c27.gif?v=1.0.3",
         "power": 0.010,
         "bonus": 0,
         "cells": 1,
@@ -50,6 +57,7 @@ const miners = [
     },
     {
         "name": "Hasher’s Egg",
+        "img": "https://static.rollercoin.com/static/img/market/miners/631b5619a775e04d9a28546d.gif?v=1.0.3",
         "power": 21.600,
         "bonus": 0,
         "cells": 1,
@@ -57,6 +65,7 @@ const miners = [
     },
     {
         "name": "JBS-200",
+        "img": "https://static.rollercoin.com/static/img/market/miners/610a9ae2bf6b53744c860a30.gif?v=1.0.3",
         "power": 13.000,
         "bonus": 0.5,
         "cells": 1,
@@ -64,6 +73,7 @@ const miners = [
     },
     {
         "name": "Jungle King",
+        "img": "https://static.rollercoin.com/static/img/market/miners/62d687ba81b1c8e692c19e43.gif?v=1.0.3",
         "power": 16.800,
         "bonus": 0.5,
         "cells": 2,
@@ -71,6 +81,7 @@ const miners = [
     },
     {
         "name": "Mergedge",
+        "img": "https://static.rollercoin.com/static/img/market/miners/631b5619a775e04d9a28546b.gif?v=1.0.3",
         "power": 3.825,
         "bonus": 0,
         "cells": 2,
@@ -78,6 +89,7 @@ const miners = [
     },
     {
         "name": "Mergedge II",
+        "img": "https://static.rollercoin.com/static/img/market/miners/631f7b6d8238ed283a2352a1.gif?v=1.0.3",
         "power": 8.925,
         "bonus": 0.14,
         "cells": 2,
@@ -85,6 +97,7 @@ const miners = [
     },
     {
         "name": "Nuc",
+        "img": "https://static.rollercoin.com/static/img/market/miners/61532146db5008102f9f77f8.gif?v=1.0.3",
         "power": 26.000,
         "bonus": 0.5,
         "cells": 1,
@@ -92,6 +105,7 @@ const miners = [
     },
     {
         "name": "Radio Gaga",
+        "img": "https://static.rollercoin.com/static/img/market/miners/63930d86380ccf549d7f5c28.gif?v=1.0.3",
         "power": 15.400,
         "bonus": 0,
         "cells": 2,
@@ -99,6 +113,7 @@ const miners = [
     },
     {
         "name": "RollerArc S1",
+        "img": "https://static.rollercoin.com/static/img/market/miners/61b9cce478d63d64cd626fe5.gif?v=1.0.3",
         "power": 0.150,
         "bonus": 0.1,
         "cells": 1,
@@ -106,6 +121,7 @@ const miners = [
     },
     {
         "name": "RollerArc S1 II",
+        "img": "https://static.rollercoin.com/static/img/market/miners/631f79648238ed283a233a82.gif?v=1.0.3",
         "power": 0.420,
         "bonus": 0.11,
         "cells": 1,
@@ -113,6 +129,7 @@ const miners = [
     },
     {
         "name": "RollerArc S1 III",
+        "img": "https://static.rollercoin.com/static/img/market/miners/631f79658238ed283a233a8f.gif?v=1.0.3",
         "power": 1.050,
         "bonus": 0.11,
         "cells": 1,
@@ -120,6 +137,7 @@ const miners = [
     },
     {
         "name": "RollerMiner R4",
+        "img": "https://static.rollercoin.com/static/img/market/miners/5a0b08abd1d9ee5894f36f30.gif?v=1.0.3",
         "power": 6.000,
         "bonus": 0.5,
         "cells": 1,
@@ -127,6 +145,7 @@ const miners = [
     },
     {
         "name": "RollerMiner S4",
+        "img": "https://static.rollercoin.com/static/img/market/miners/59f05bdda8fa9b726b0742ca.gif?v=1.0.3",
         "power": 1.160,
         "bonus": 0.25,
         "cells": 1,
@@ -134,6 +153,7 @@ const miners = [
     },
     {
         "name": "RollerMiner S5+",
+        "img": "https://static.rollercoin.com/static/img/market/miners/5a0b08a9d1d9ee5894f36f2f.gif?v=1.0.3",
         "power": 4.000,
         "bonus": 0.5,
         "cells": 1,
@@ -141,6 +161,7 @@ const miners = [
     },
     {
         "name": "RollerMiner S7",
+        "img": "https://static.rollercoin.com/static/img/market/miners/5a0b022dd1d9ee5894f36f2d.gif?v=1.0.3",
         "power": 1.320,
         "bonus": 0.25,
         "cells": 1,
@@ -148,6 +169,7 @@ const miners = [
     },
     {
         "name": "Rolleron 741",
+        "img": "https://static.rollercoin.com/static/img/market/miners/5a0b08a7d1d9ee5894f36f2e.gif?v=1.0.3",
         "power": 2.730,
         "bonus": 0.5,
         "cells": 1,
@@ -155,6 +177,7 @@ const miners = [
     },
     {
         "name": "Shifter II",
+        "img": "https://static.rollercoin.com/static/img/market/miners/631f78b98238ed283a2332a3.gif?v=1.0.3",
         "power": 92.400,
         "bonus": 1.05,
         "cells": 2,
@@ -162,6 +185,7 @@ const miners = [
     },
     {
         "name": "The Black Pearl",
+        "img": "https://static.rollercoin.com/static/img/market/miners/62553dd842a0cd1b7dd592eb.gif?v=1.0.3",
         "power": 50.000,
         "bonus": 0.5,
         "cells": 2,
@@ -169,6 +193,7 @@ const miners = [
     },
     {
         "name": "The Thrill Rider",
+        "img": "https://static.rollercoin.com/static/img/market/miners/631b5617a775e04d9a28543c.gif?v=1.0.3",
         "power": 13.000,
         "bonus": 0,
         "cells": 2,
@@ -184,6 +209,7 @@ const miners = [
     },
     {
         "name": "Vyzzarys",
+        "img": "https://static.rollercoin.com/static/img/market/miners/631b5619a775e04d9a285471.gif?v=1.0.3",
         "power": 22.400,
         "bonus": 0,
         "cells": 2,
@@ -253,7 +279,7 @@ for(let i = 0; i < newMiners.length; i++){
         let cell2 = row.insertCell(1);
         let cell3 = row.insertCell(2);
         
-        cell1.innerHTML = `<div><img src="${newMiners[i].miners[0].img}"/>${newMiners[i].miners[0].name}</div><span>➕</span><div><img src="${newMiners[i].miners[1].name}"/>${newMiners[i].miners[1].name}</div>`;
+        cell1.innerHTML = `<div><img src="${newMiners[i].miners[0].img}"/>${newMiners[i].miners[0].name}</div><span>➕</span><div><img src="${newMiners[i].miners[1].img}"/>${newMiners[i].miners[1].name}</div>`;
         cell2.innerHTML = `${power1} ${unit1}<span>➕</span>${power2} ${unit2}`;
         cell3.innerHTML = `${newMiners[i].miners[0].bonus}%<span>➕</span>${newMiners[i].miners[1].bonus}%`;
     }
@@ -274,7 +300,7 @@ for(let i = 0; i < newMiners.length; i++){
         let cell2 = row.insertCell(1);
         let cell3 = row.insertCell(2);
 
-        cell1.innerHTML = `<div><img src="${newMiners[i].img}"/>${newMiners[i].name}</div>`;
+        cell1.innerHTML = `<div><img class="single" src="${newMiners[i].img}"/>${newMiners[i].name}</div>`;
         cell2.innerHTML = power + " " + unit;
         cell3.innerHTML = newMiners[i].bonus + "%";
     }
