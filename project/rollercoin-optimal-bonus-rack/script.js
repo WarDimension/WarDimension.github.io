@@ -83,7 +83,7 @@ const miners = [
     {
         "name": "Jungle King",
         "img": "https://static.rollercoin.com/static/img/market/miners/631f7af18238ed283a234cd7.gif?v=1.0.3",
-        "rarity": "II",
+        "rarity": "III",
         "power": 93.240,
         "bonus": 0.55,
         "cells": 2,
