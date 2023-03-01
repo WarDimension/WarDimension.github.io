@@ -334,6 +334,15 @@ for(let i = 0; i < newMiners.length; i++){
             case "III":
                 rarity = `<img class="rarity" src="https://rollercoin.com/static/img/storage/rarity_icons/level_3.png?v=1.0.0"/>`;
                 break;
+            case "IV":
+                rarity = `<img class="rarity" src="https://rollercoin.com/static/img/storage/rarity_icons/level_4.png?v=1.0.0"/>`;
+                break;
+            case "V":
+                rarity = `<img class="rarity" src="https://rollercoin.com/static/img/storage/rarity_icons/level_5.png?v=1.0.0"/>`;
+                break;
+            case "VI":
+                rarity = `<img class="rarity" src="https://rollercoin.com/static/img/storage/rarity_icons/level_6.png?v=1.0.0"/>`;
+                break;
         }
 
         let row = table.insertRow(i+1);
