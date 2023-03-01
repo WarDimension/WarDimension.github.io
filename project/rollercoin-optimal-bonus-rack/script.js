@@ -81,6 +81,15 @@ const miners = [
         "qty": 1
     },
     {
+        "name": "Jungle King",
+        "img": "https://static.rollercoin.com/static/img/market/miners/631f7af18238ed283a234cd7.gif?v=1.0.3",
+        "rarity": "II",
+        "power": 93.240,
+        "bonus": 0.55,
+        "cells": 2,
+        "qty": 1
+    },
+    {
         "name": "Mergedge",
         "img": "https://static.rollercoin.com/static/img/market/miners/631b5619a775e04d9a28546b.gif?v=1.0.3",
         "power": 3.825,
