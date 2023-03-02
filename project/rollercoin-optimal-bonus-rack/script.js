@@ -46,7 +46,7 @@ const miners = [
         "power": 36.300,
         "bonus": 0,
         "cells": 2,
-        "qty": 1
+        "qty": 2
     },
     {
         "name": "Doggie-Woogie",
