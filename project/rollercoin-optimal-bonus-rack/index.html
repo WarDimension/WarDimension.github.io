@@ -10,14 +10,15 @@
     </head>
     <body>
         <div class="option">
-            <p>Sort by:</p>
-            <input type="radio" name="sort" id="name"onclick="sortMiners('name')"><label for="name">Miner Name</label>
-            <input type="radio" name="sort" id="power" checked onclick="sortMiners('power')"><label for="power">Power</label>
-            <input type="radio" name="sort" id="bonus" onclick="sortMiners('bonus')"><label for="bonus">Bonus Power</label>
-            <p>(
+            <p>Sort by:
+                <input type="radio" name="sort" id="name"onclick="sortMiners('name')"><label for="name">Miner Name</label>
+                <input type="radio" name="sort" id="power" checked onclick="sortMiners('power')"><label for="power">Power</label>
+                <input type="radio" name="sort" id="bonus" onclick="sortMiners('bonus')"><label for="bonus">Bonus Power</label>
+            </p>
+            <p>Mode: 
                 <input type="radio" name="mode" id="crazy"checked onclick="mode('crazy')"><label for="crazy">Bonus Rack Mode</label>
                 <input type="radio" name="mode" id="normal" onclick="mode('normal')"><label for="normal">Normal Mode</label>
-            )</p>            
+            </p>         
         </div>
         <table class="miner-table">
             <tr>
