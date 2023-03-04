@@ -286,15 +286,50 @@ for(let i = 0; i < smallMiners.length; i += 2){
 
 const table = document.querySelector(".miner-table");
 
-function printTable(){
-    table.innerHTML = `
-        <tr>
-            <th>Miner Name</th>
-            <th>Power</th>
-            <th>Bonus Power</th>
-        </tr>
-    `;
+function normal(){
+    for(let i = 0; i < miners.length; i++){
+        let power, unit, rarity = "";
 
+        if(miners[i].power >= 1){
+            power = miners[i].power;
+            unit = "TH/s";
+        }
+        else{
+            power = miners[i].power * 1000;
+            unit = "GH/s";
+        }
+
+        switch(miners[i].rarity){
+            case "II":
+                rarity = `<img class="rarity" src="https://rollercoin.com/static/img/storage/rarity_icons/level_2.png?v=1.0.0"/>`;
+                break;
+            case "III":
+                rarity = `<img class="rarity" src="https://rollercoin.com/static/img/storage/rarity_icons/level_3.png?v=1.0.0"/>`;
+                break;
+            case "IV":
+                rarity = `<img class="rarity" src="https://rollercoin.com/static/img/storage/rarity_icons/level_4.png?v=1.0.0"/>`;
+                break;
+            case "V":
+                rarity = `<img class="rarity" src="https://rollercoin.com/static/img/storage/rarity_icons/level_5.png?v=1.0.0"/>`;
+                break;
+            case "VI":
+                rarity = `<img class="rarity" src="https://rollercoin.com/static/img/storage/rarity_icons/level_6.png?v=1.0.0"/>`;
+                break;
+        }
+
+        let row = table.insertRow(i+1);
+        let cell1 = row.insertCell(0);
+        let cell2 = row.insertCell(1);
+        let cell3 = row.insertCell(2);
+
+        cell1.innerHTML = `<div><img class="single" src="${miners[i].img}"/>${rarity}${miners[i].name}</div>`;
+        cell2.innerHTML = power + " " + unit;
+        cell3.innerHTML = miners[i].bonus + "%";
+    }
+
+}
+
+function crazy(){
     for(let i = 0; i < newMiners.length; i++){
         if(newMiners[i].doubleMiner){
             let power1, power2, unit1, unit2, rarity1 = "", rarity2 = "", bonus1, bonus2;
@@ -391,19 +426,40 @@ function printTable(){
     }
 }
 
-function sortMiners(sortBy){
-    switch(sortBy){
-        case "name":
-            newMiners.sort((a, b) => a.name.localeCompare(b.name));
+function printTable(isCrazy){
+    table.innerHTML = `
+        <tr>
+            <th>Miner Name</th>
+            <th>Power</th>
+            <th>Bonus Power</th>
+        </tr>
+    `;
+
+    switch(isCrazy){
+        case true:
+            crazy();
             break;
-        case "power":
-            newMiners.sort((a, b) => b.power-a.power);
-            break;
-        case "bonus":
-            newMiners.sort((a, b) => b.bonus-a.bonus);
+        case false:
+            normal();
             break;
     }
 
-    printTable();
+}
+
+function sortMiners(sortBy){
+    switch(sortBy){
+        case "name":
+            miners.sort((a, b) => a.name.localeCompare(b.name));
+            printTable(false);
+            break;
+        case "power":
+            newMiners.sort((a, b) => b.power-a.power);
+            printTable(true);
+            break;
+        case "bonus":
+            miners.sort((a, b) => b.bonus-a.bonus);
+            printTable(false);
+            break;
+    }
 }
 sortMiners("power");
