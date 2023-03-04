@@ -244,7 +244,7 @@ let smallMiners = [];
 
 miners.forEach(miner => {
     let newMiner = {...miner};
-    newMiner.newBonus = "<strike>" + newMiner.bonus + "</strike>";
+    newMiner.newBonus = newMiner.bonus == 0 ? 0 : "<strike>" + newMiner.bonus + "</strike>";
     newMiner.bonus = 0;
 
     switch(miner.cells){
