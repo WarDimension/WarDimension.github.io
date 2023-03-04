@@ -1,6 +1,5 @@
 .miner-table{
     margin: auto;
-    margin-top: 50px;
     margin-bottom: 50px;
 }
 .miner-table, .miner-table td{
@@ -15,6 +14,13 @@ div{
     position: relative;
     display: inline-block;
     vertical-align: middle;
+}
+.option{
+    position: static;
+    display: block;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 20px;
 }
 span{
     opacity: 0.35;

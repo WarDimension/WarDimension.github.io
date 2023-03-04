@@ -9,6 +9,12 @@
         <script type="text/javascript" src="script.js" defer></script>
     </head>
     <body>
+        <div class="option">
+            <p>Sort by:</p>
+            <input type="radio" name="sort" id="name"><label for="name" onclick="sortMiners('name')">Miner Name</label>
+            <input type="radio" name="sort" id="power" checked onclick="sortMiners('power')"><label for="power">Power</label>
+            <input type="radio" name="sort" id="bonus"><label for="bonus" onclick="sortMiners('bonus')">Bonus Power</label>
+        </div>
         <table class="miner-table">
             <tr>
                 <th>Miner Name</th>
