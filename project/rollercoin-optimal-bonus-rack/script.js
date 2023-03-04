@@ -198,6 +198,14 @@ const miners = [
         "qty": 1
     },
     {
+        "name": "Shrumee",
+        "img": "https://static.rollercoin.com/static/img/market/miners/61532146db5008102f9f77f4.gif?v=1.0.3",
+        "power": 22.000,
+        "bonus": 0.5,
+        "cells": 1,
+        "qty": 1
+    },
+    {
         "name": "The Black Pearl",
         "img": "https://static.rollercoin.com/static/img/market/miners/62553dd842a0cd1b7dd592eb.gif?v=1.0.3",
         "power": 50.000,
