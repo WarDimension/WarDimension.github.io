@@ -426,7 +426,7 @@ function crazy(){
     }
 }
 
-function printTable(isCrazy){
+function printTable(){
     table.innerHTML = `
         <tr>
             <th>Miner Name</th>
@@ -446,20 +446,41 @@ function printTable(isCrazy){
 
 }
 
+let _sortBy = "power";
+let isCrazy = true;
+
 function sortMiners(sortBy){
-    switch(sortBy){
+    _sortBy = sortBy;
+
+    let myMiners = miners;
+
+    if(isCrazy){
+        myMiners = newMiners;
+    }
+
+    switch(_sortBy){
         case "name":
-            miners.sort((a, b) => a.name.localeCompare(b.name));
-            printTable(false);
+            myMiners.sort((a, b) => a.name.localeCompare(b.name));
             break;
         case "power":
-            newMiners.sort((a, b) => b.power-a.power);
-            printTable(true);
+            myMiners.sort((a, b) => b.power-a.power);
             break;
         case "bonus":
-            miners.sort((a, b) => b.bonus-a.bonus);
-            printTable(false);
+            myMiners.sort((a, b) => b.bonus-a.bonus);
             break;
     }
+    printTable();
 }
-sortMiners("power");
+sortMiners(_sortBy);
+
+function mode(mode){
+    switch(mode){
+        case "crazy":
+            isCrazy = true;
+            break;
+        case "normal":
+            isCrazy = false;
+            break;
+    }
+    sortMiners(_sortBy);
+}

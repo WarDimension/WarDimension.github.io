@@ -11,9 +11,13 @@
     <body>
         <div class="option">
             <p>Sort by:</p>
-            <input type="radio" name="sort" id="name"><label for="name" onclick="sortMiners('name')">Miner Name</label>
+            <input type="radio" name="sort" id="name"onclick="sortMiners('name')"><label for="name">Miner Name</label>
             <input type="radio" name="sort" id="power" checked onclick="sortMiners('power')"><label for="power">Power</label>
-            <input type="radio" name="sort" id="bonus"><label for="bonus" onclick="sortMiners('bonus')">Bonus Power</label>
+            <input type="radio" name="sort" id="bonus" onclick="sortMiners('bonus')"><label for="bonus">Bonus Power</label>
+            <p>(
+                <input type="radio" name="mode" id="crazy"checked onclick="mode('crazy')"><label for="bonus-rack">Bonus Rack Mode</label>
+                <input type="radio" name="mode" id="normal" onclick="mode('normal')"><label for="normal">Normal Mode</label>
+            )</p>            
         </div>
         <table class="miner-table">
             <tr>
