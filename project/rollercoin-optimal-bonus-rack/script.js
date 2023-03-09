@@ -178,7 +178,7 @@ const miners = [
         "power": 1.320,
         "bonus": 0.25,
         "cells": 1,
-        "qty": 2
+        "qty": 3
     },
     {
         "name": "Rolleron 741",
