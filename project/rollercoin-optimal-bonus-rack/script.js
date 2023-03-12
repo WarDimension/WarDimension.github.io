@@ -14,7 +14,7 @@ const miners = [
         "power": 20.230,
         "bonus": 0,
         "cells": 2,
-        "qty": 1
+        "qty": 2
     },
     {
         "name": "CP-106",
