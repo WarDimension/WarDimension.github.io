@@ -710,5 +710,26 @@ const songsData = [
         "youtubeID": "fczyAzOtk6c"
       }
     ]
+  },
+  {
+    "title": "Evil Within Me",
+    "alt": "evil-within-me",
+    "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/db9b0a59-1832-436d-be35-c4da781cf1c8/dfroyer-bf2acfc9-a556-418b-9f58-2ed1e9ba420c.png/v1/fill/w_400,h_400,q_80,strp/evil_within_me_by_wardimension_dfroyer-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDAwIiwicGF0aCI6IlwvZlwvZGI5YjBhNTktMTgzMi00MzZkLWJlMzUtYzRkYTc4MWNmMWM4XC9kZnJveWVyLWJmMmFjZmM5LWE1NTYtNDE4Yi05ZjU4LTJlZDFlOWJhNDIwYy5wbmciLCJ3aWR0aCI6Ijw9NDAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.3AooHmlwAdwBbFtFLnHVx-aASaban8k07xHb2yqNfnA",
+    "url": [{
+      "deezer": "https://www.deezer.com/album/417071267",
+      "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_mBUY1XvVwqErMBhoRZI3b_fAmIDBWtgOE"
+    }],
+    "track": [
+      {
+        "title": "Evil Within Me",
+        "length": "3:03",
+        "youtubeID": "CBlTf8QUzyg"
+      },
+      {
+        "title": "Evil Within Me -Instrumental-",
+        "length": "3:03",
+        "youtubeID": "LuF8mIIG0b4"
+      }
+    ]
   }
 ];
