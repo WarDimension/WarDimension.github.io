@@ -718,7 +718,9 @@ const songsData = [
     "url": [{
       "itunes": "https://music.apple.com/album/evil-within-me-single/1677134469",
       "deezer": "https://www.deezer.com/album/417071267",
-      "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_mBUY1XvVwqErMBhoRZI3b_fAmIDBWtgOE"
+      "spotify": "https://open.spotify.com/album/6DKsAnsvE71qo05XV7PbNo?si=_itYgeDNQQOtKGTozbDsRg",
+      "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_mBUY1XvVwqErMBhoRZI3b_fAmIDBWtgOE",
+      "amazon": "https://www.amazon.com/music/player/albums/B0BYG18DWZ"
     }],
     "track": [
       {
