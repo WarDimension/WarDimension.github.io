@@ -264,6 +264,9 @@ h3{
 .i-spotify{
   background-position: -81px 0;
 }
+.i-fanbox{
+  background-position: -108px 0;
+}
 .i-youtube{
   background-position: 0 -27px;
 }
@@ -275,6 +278,9 @@ h3{
 }
 .i-bandlab{
   background-position: -81px -27px;
+}
+.i-deviantart{
+  background-position: -108px -27px;
 }
 .i-soundcloud{
   background-position: 0 -54px;
@@ -288,6 +294,9 @@ h3{
 .i-wd-rhythm{
   background-position: -81px -54px;
 }
+.i-patreon{
+  background-position: -108px -54px;
+}
 .i-wd-gaming{
   background-position: 0 -81px;
 }
@@ -300,6 +309,9 @@ h3{
 .i-facebook{
   background-position: -81px -81px;
 }
+.i-coffee{
+  background-position: -108px -81px;
+}
 .i-osu{
   background-position: 0 -108px;
 }
@@ -308,6 +320,12 @@ h3{
 }
 .i-more{
   background-position: -54px -108px;
+}
+.i-pixiv{
+  background-position: -81px -108px;
+}
+.i-paypal{
+  background-position: -108px -108px;
 }
 .platform-url{
   text-decoration:none;
