@@ -187,8 +187,65 @@ h3{
   text-align: center;
   font-size: 18px;
   padding: 20px;
-  top: calc(50% - 25px);
+  top: 50%;
   transform: translateY(-50%);
+}
+.platform-container h3:first-of-type{
+  margin-top: 0;
+}
+.more{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 2;
+  width: 850px;
+  min-height: 200px;
+  max-width: 95vw;
+  max-height: 95vh;
+  background: #fff;
+  text-align: center;
+  padding: 25px 100px 50px 100px;
+  transform: translate(-50%, -50%);
+  font-size: 18px;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+  overflow-y: overlay;
+  overflow-x: hidden;
+}
+.more-content{
+  position: relative;
+  top: -15px;
+}
+.more h3:first-of-type{
+  margin-top: 0;
+}
+.close-more-container{
+  width: calc(100% + 80px);
+  top: -10px;
+  text-align: right;
+  position: sticky;
+}
+.more .close-more{
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 35px;
+  padding: 5px;
+}
+.more .close-more:hover{
+  background: #eee;
+  outline: solid 1px #eee;
+  transition: all 0.1s cubic-bezier(.25,.8,.25,1);
+}
+.blur{
+  position: fixed;
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(2px) brightness(80%);
 }
 .platform-icon{
   display: inline-block;
@@ -248,6 +305,9 @@ h3{
 }
 .i-clone-hero{
   background-position: -27px -108px;
+}
+.i-more{
+  background-position: -54px -108px;
 }
 .platform-url{
   text-decoration:none;

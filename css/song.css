@@ -21,8 +21,8 @@
 .platform-container{
   width: 75%;
   right: 0;
-  padding: 0 250px;
-  top: calc(50% - 25px);
+  padding: 0 250px 25px 250px;
+  top: 50%;
   transform: translateY(-50%);
 }
 .album-container{
