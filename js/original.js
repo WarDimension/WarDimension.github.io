@@ -720,12 +720,7 @@ const songsData = [
       "deezer": "https://www.deezer.com/album/417071267",
       "spotify": "https://open.spotify.com/album/6DKsAnsvE71qo05XV7PbNo?si=_itYgeDNQQOtKGTozbDsRg",
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_mBUY1XvVwqErMBhoRZI3b_fAmIDBWtgOE",
-      "amazon": "https://www.amazon.com/music/player/albums/B0BYG18DWZ",
-      "more": [{
-        "url": [{
-          "joox": "test"
-        }]
-      }]
+      "amazon": "https://www.amazon.com/music/player/albums/B0BYG18DWZ"
     }],
     "track": [
       {
@@ -741,3 +736,19 @@ const songsData = [
     ]
   }
 ];
+
+/*
+
+more example:
+
+    "url": [{
+      "spotify": "url",
+      "youtubeMusic": "url",
+      "more": [{
+        "url": [{
+          "joox": "url"
+        }]
+      }]
+    }]
+    
+*/
