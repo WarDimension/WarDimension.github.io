@@ -65,6 +65,14 @@ const miners = [
         "qty": 1
     },
     {
+        "name": "Helipop",
+        "img": "https://static.rollercoin.com/static/img/market/miners/63930d86380ccf549d7f5c2a.gif?v=1.0.3",
+        "power": 78.500,
+        "bonus": 0,
+        "cells": 2,
+        "qty": 1
+    },
+    {
         "name": "JBS-200",
         "img": "https://static.rollercoin.com/static/img/market/miners/610a9ae2bf6b53744c860a30.gif?v=1.0.3",
         "power": 13.000,
@@ -203,6 +211,14 @@ const miners = [
         "power": 22.000,
         "bonus": 0.5,
         "cells": 1,
+        "qty": 1
+    },
+    {
+        "name": "Tape-Side-A",
+        "img": "https://static.rollercoin.com/static/img/market/miners/63930d86380ccf549d7f5c2e.gif?v=1.0.3",
+        "power": 188.000,
+        "bonus": 0,
+        "cells": 2,
         "qty": 1
     },
     {
