@@ -612,7 +612,7 @@ function updateTimeSlider(){
 function platform(url, sprite, name){
   if(name == "バカ！"){
     return `${url ?
-        `<a class="platform-url more-button" onclick="openMore('${sprite.title}');" onkeypress="openMore('${sprite.title}');" tabindex="1">
+        `<a class="platform-url more-button" onclick="openMore(\`${sprite.title}\`);" onkeypress="openMore(\`${sprite.title}\`);" tabindex="1">
           <i class="platform-icon i-more"></i>More
         </a>` : ""
       }
