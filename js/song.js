@@ -610,6 +610,15 @@ function updateTimeSlider(){
 //END of Music Player
 
 function platform(url, sprite, name){
+  if(name == "バカ！"){
+    return `${url ?
+        `<a class="platform-url more-button" onclick="openMore();" onkeypress="openMore();" tabindex="1">
+          <i class="platform-icon i-more"></i>More
+        </a>` : ""
+      }
+    `
+  }
+
   return `
     ${url ?
       `<a class="platform-url" href="${url}"  target="_blank">
@@ -637,9 +646,11 @@ function platformTemplate(song){
     ${platform(song.url[0].amazon, "amazon", "Amazon Music")}
     ${platform(song.url[0].bandLab, "bandlab", "BandLab")}
     ${platform(song.url[0].soundCloud, "soundcloud", "SoundCloud")}
+    ${platform(song.url[0].joox, "joox", "JOOX")}
     ${platform(song.url[0].rocksmith, "rocksmith", "Rocksmith")}
     ${platform(song.url[0].osu, "osu", "osu!")}
     ${platform(song.url[0].cloneHero, "clone-hero", "Clone Hero")}
+    ${platform(song.url[0].more, "https://www.youtube.com/watch?v=dQw4w9WgXcQ", "バカ！")}
   `;
 }
 
@@ -867,7 +878,7 @@ function track(e){
     trackHighlight();
     index = 0;
   }
-  else if(trackExist && !target.closest("#track-container") && !target.closest("#music-player") && !(["platform-url", "skip", "skip-content", "material-icons"].includes(target.className))){
+  else if(trackExist && !target.closest("#track-container") && !target.closest("#music-player") && !(["platform-url", "skip", "skip-content", "material-icons", "blur"].includes(target.className))){
     songDisplay();
     if(target.className != "song-button"){
       if(sortNewest){

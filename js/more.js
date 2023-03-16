@@ -7,6 +7,7 @@ function openMore(){
     tabableTemp = tabable;
     tabable = ".more-content > a, .close-more";
     setMoreTabIndex("1");
+    event.stopPropagation();
 }
 
 function closeMore(){
