@@ -673,8 +673,12 @@ const songsData = [
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_n5OzWJCWwPGMaUBtCvk0gJJMZN3EYkhNU",
       "amazon": "https://www.amazon.com/music/player/albums/B0BRDBFH79",
       "joox": "https://www.joox.com/album/m41kphghGpEwt88Y+qCX4w==",
-      "boomplay": "https://www.boomplay.com/albums/61821859",
-      "rocksmith": "https://wardimension.github.io/blog?b=chart&search=['Artist: WarDimension', 'Album: Itsudemo、Dokodemo、Nandemoii', 'Game: Rocksmith 2014']"
+      "rocksmith": "https://wardimension.github.io/blog?b=chart&search=['Artist: WarDimension', 'Album: Itsudemo、Dokodemo、Nandemoii', 'Game: Rocksmith 2014']",
+      "more": [{
+        "url": [{
+          "boomplay": "https://www.boomplay.com/albums/61821859"
+        }]
+      }]
     }],
     "track": [
       {
@@ -726,7 +730,11 @@ const songsData = [
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_mBUY1XvVwqErMBhoRZI3b_fAmIDBWtgOE",
       "amazon": "https://www.amazon.com/music/player/albums/B0BYG18DWZ",
       "joox": "https://www.joox.com/id/album/u5GThFPDM2HT3lGmo8XBjA==",
-      "boomplay": "https://www.boomplay.com/albums/66116974"
+      "more": [{
+        "url": [{
+          "boomplay": "https://www.boomplay.com/albums/66116974"
+        }]
+      }]
     }],
     "track": [
       {
