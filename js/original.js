@@ -127,7 +127,7 @@ const songsData = [
     ]
   },
   {
-    "title": "&#2384;",
+    "title": "ॐ",
     "alt": "om",
     "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/db9b0a59-1832-436d-be35-c4da781cf1c8/dd0nw5r-26508513-69a1-40ce-843e-a8544b6a614a.png/v1/fill/w_400,h_400,q_80,strp/om_by_wardimension_dd0nw5r-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDAwIiwicGF0aCI6IlwvZlwvZGI5YjBhNTktMTgzMi00MzZkLWJlMzUtYzRkYTc4MWNmMWM4XC9kZDBudzVyLTI2NTA4NTEzLTY5YTEtNDBjZS04NDNlLWE4NTQ0YjZhNjE0YS5wbmciLCJ3aWR0aCI6Ijw9NDAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.YqfJ3okSuqNtBAs08zYhmLrxAH-jJJ1CRSdZ7WaVwM4",
     "url": [{
@@ -146,25 +146,25 @@ const songsData = [
     }],
     "track": [
       {
-        "title": "&#2384;",
+        "title": "ॐ",
         "romanized": "Om",
         "length": "4:00",
         "youtubeID": "4kfgD6XoHpQ"
       },
       {
-        "title": "&#2384; (Without Intro)",
+        "title": "ॐ (Without Intro)",
         "romanized": "Om (Without Intro)",
         "length": "3:04",
         "youtubeID": "0SrjIAecioI"
       },
       {
-        "title": "&#2384; -Instrumental-",
+        "title": "ॐ -Instrumental-",
         "romanized": "Om -Instrumental-",
         "length": "4:00",
         "youtubeID": "0gPnqE6Eh50"
       },
       {
-        "title": "&#2384; (Without Intro) -Instrumental-",
+        "title": "ॐ (Without Intro) -Instrumental-",
         "romanized": "Om (Without Intro) -Instrumental-",
         "length": "3:04",
         "youtubeID": "H5qvfUICySQ"
