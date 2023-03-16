@@ -71,8 +71,10 @@ function prevFocus(element) {
   return getFocus(element,-1);
 }
 
+let tabable = "input, button, select, textarea, a[href], .content, .track-name, #trailer, iframe, .sixsixsix, .more-button";
+
 function getFocus(element,cond){
-  var universe = document.querySelectorAll("input, button, select, textarea, a[href], .content, .track-name, #trailer, iframe, .sixsixsix");
+  var universe = document.querySelectorAll(tabable);
   var list = Array.prototype.filter.call(universe, function(item) {return item.tabIndex >= "0"});
   var index = list.indexOf(element);
   if(index + cond < 0){

@@ -68,7 +68,7 @@
         <a class="platform-url" href="https://wardimension.github.io/blog?b=chart&search=['Artist: WarDimension', 'Game: Rocksmith 2014']"  target="_blank">
           <i class="platform-icon i-rocksmith"></i>Rocksmith
         </a>
-        <a class="platform-url" onclick="document.querySelector('.blur').style.display = 'block';">
+        <a class="platform-url more-button" onclick="openMore();" onkeypress="openMore();" tabindex="1">
           <i class="platform-icon i-more"></i>More
         </a>
         <h3>YouTube</h3>
@@ -97,7 +97,7 @@
     <div class="blur" style="display: none;" onclick="this.style.display = 'none';">
       <div class="more" onclick="event.stopPropagation();">
         <div class="close-more-container">
-          <i class="material-icons close-more" onclick="document.querySelector('.blur').style.display = 'none';">close</i>
+          <i class="material-icons close-more" onclick="closeMore();" onkeypress="closeMore();">close</i>
         </div>
         <div class="more-content">
           <h3>Music</h3>
