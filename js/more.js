@@ -26,6 +26,26 @@ function buildMoreSongs(songTitle){
     
     content.querySelector(".more-button").remove();
 
+    let platforms = content.querySelectorAll("a");
+    let firstRhythmGame;
+
+    for(let i = platforms.length - 1; i >= 0; i--){
+        console.log(platforms[i].innerHTML);
+        if(["Rocksmith", "Clone Hero", "osu!"].some(x => platforms[i].innerHTML.includes(x))) {
+            firstRhythmGame = platforms[i];
+        }
+    }
+
+    if(firstRhythmGame != undefined){
+        let musicH3 = document.createElement("h3");
+        musicH3.innerHTML = "Music";
+        content.prepend(musicH3);
+
+        let rhythmGamesH3 = document.createElement("h3");
+        rhythmGamesH3.innerHTML = "Rhythm Games";
+        content.insertBefore(rhythmGamesH3, firstRhythmGame);
+    }
+
 }
 
 function closeMore(){
