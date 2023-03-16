@@ -722,7 +722,9 @@ const songsData = [
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_mBUY1XvVwqErMBhoRZI3b_fAmIDBWtgOE",
       "amazon": "https://www.amazon.com/music/player/albums/B0BYG18DWZ",
       "more": [{
-        "joox": "test"
+        "url": [{
+          "joox": "test"
+        }]
       }]
     }],
     "track": [

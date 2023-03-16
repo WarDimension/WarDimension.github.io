@@ -612,7 +612,7 @@ function updateTimeSlider(){
 function platform(url, sprite, name){
   if(name == "バカ！"){
     return `${url ?
-        `<a class="platform-url more-button" onclick="openMore();" onkeypress="openMore();" tabindex="1">
+        `<a class="platform-url more-button" onclick="openMore('${sprite.title}');" onkeypress="openMore('${sprite.title}');" tabindex="1">
           <i class="platform-icon i-more"></i>More
         </a>` : ""
       }
@@ -650,7 +650,7 @@ function platformTemplate(song){
     ${platform(song.url[0].rocksmith, "rocksmith", "Rocksmith")}
     ${platform(song.url[0].osu, "osu", "osu!")}
     ${platform(song.url[0].cloneHero, "clone-hero", "Clone Hero")}
-    ${platform(song.url[0].more, "https://www.youtube.com/watch?v=dQw4w9WgXcQ", "バカ！")}
+    ${platform(song.url[0].more, song, "バカ！")}
   `;
 }
 
