@@ -520,7 +520,8 @@ const songsData = [
       "deezer": "https://www.deezer.com/album/275653712",
       "spotify": "https://open.spotify.com/album/2jzbkOlmMHOiUni19zMcIS",
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_lTGBsB2uNP-JKhJPYPjbhMRrOrgRfrafw",
-      "amazon": "https://www.amazon.com/music/player/albums/B09MM9GQYP"
+      "amazon": "https://www.amazon.com/music/player/albums/B09MM9GQYP",
+      "joox": "https://www.joox.com/album/hNXzq7ScZzkWyreXh9GOQA=="
     }],
     "track": [
       {
@@ -645,6 +646,7 @@ const songsData = [
       "spotify": "https://open.spotify.com/album/3XMeN6wxDUtFiLXXCalqY5?si=Kab0hMOgQ1yQxgccT-Kmkw",
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_kUQ_oJC55UmZUwV00PKrSfJK5haezvg3M",
       "amazon": "https://www.amazon.com/music/player/albums/B0B82L6LFV",
+      "joox": "https://www.joox.com/album/ejrjvdkNUMtT48kRF_4LYg==",
       "cloneHero": "https://wardimension.github.io/blog?b=chart&search=['Artist: WarDimension', 'Album: Broken Record %2F Inception', 'Game: Clone Hero']"
     }],
     "track": [
@@ -670,6 +672,7 @@ const songsData = [
       "spotify": "https://open.spotify.com/album/21RyXRVHeZ8F91Uh1celSW?si=MnlajCYSSz-fUB5d2HX4cw",
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_n5OzWJCWwPGMaUBtCvk0gJJMZN3EYkhNU",
       "amazon": "https://www.amazon.com/music/player/albums/B0BRDBFH79",
+      "joox": "https://www.joox.com/album/m41kphghGpEwt88Y+qCX4w==",
       "rocksmith": "https://wardimension.github.io/blog?b=chart&search=['Artist: WarDimension', 'Album: Itsudemo、Dokodemo、Nandemoii', 'Game: Rocksmith 2014']"
     }],
     "track": [
@@ -720,7 +723,8 @@ const songsData = [
       "deezer": "https://www.deezer.com/album/417071267",
       "spotify": "https://open.spotify.com/album/6DKsAnsvE71qo05XV7PbNo?si=_itYgeDNQQOtKGTozbDsRg",
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_mBUY1XvVwqErMBhoRZI3b_fAmIDBWtgOE",
-      "amazon": "https://www.amazon.com/music/player/albums/B0BYG18DWZ"
+      "amazon": "https://www.amazon.com/music/player/albums/B0BYG18DWZ",
+      "joox": "https://www.joox.com/id/album/u5GThFPDM2HT3lGmo8XBjA=="
     }],
     "track": [
       {
@@ -750,5 +754,5 @@ more example:
         }]
       }]
     }]
-    
+
 */
