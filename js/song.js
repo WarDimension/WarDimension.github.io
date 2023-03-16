@@ -648,6 +648,7 @@ function platformTemplate(song){
     ${platform(song.url[0].soundCloud, "soundcloud", "SoundCloud")}
     ${platform(song.url[0].joox, "joox", "JOOX")}
     ${platform(song.url[0].boomplay, "boomplay", "Boomplay")}
+    ${platform(song.url[0].anghami, "anghami", "anghami")}
     ${platform(song.url[0].rocksmith, "rocksmith", "Rocksmith")}
     ${platform(song.url[0].osu, "osu", "osu!")}
     ${platform(song.url[0].cloneHero, "clone-hero", "Clone Hero")}
