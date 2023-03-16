@@ -55,10 +55,12 @@ body{
 }
 .dev-console-info{
   position: relative;
-  top: -60px;
+  top: -85px;
   color: #aaa;
 }
 .dev-console-info.help{
+  position: relative;
+  top: -35px;
   text-decoration: none;
 }
 .dev-console-info.help:focus, .dev-console-info.help:hover{
@@ -70,6 +72,11 @@ body{
 }
 .dev-console-info.help:focus::after, .dev-console-info.help:hover::after{
   content: " -"
+}
+.dev-console-info.help:focus + .dev-console-info, .dev-console-info.help:hover + .dev-console-info{
+  top: -95px;
+  font-size: 15px;
+  color: #222;
 }
 #player{
   pointer-events: none;
