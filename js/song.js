@@ -648,6 +648,10 @@ function platformTemplate(song){
     ${platform(song.url[0].soundCloud, "soundcloud", "SoundCloud")}
     ${platform(song.url[0].joox, "joox", "JOOX")}
     ${platform(song.url[0].flo, "flo", "FLO")}
+    ${platform(song.url[0].vibe, "vibe", "NAVER VIBE")}
+    ${platform(song.url[0].bugs, "bugs", "Bugs!")}
+    ${platform(song.url[0].netease, "netease", "NetEase Music")}
+    ${platform(song.url[0].kuwo, "kuwo", "Kuwo")}
     ${platform(song.url[0].boomplay, "boomplay", "Boomplay")}
     ${platform(song.url[0].anghami, "anghami", "anghami")}
     ${platform(song.url[0].zingmp3, "zingmp3", "Zing mp3")}
