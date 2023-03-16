@@ -521,7 +521,8 @@ const songsData = [
       "spotify": "https://open.spotify.com/album/2jzbkOlmMHOiUni19zMcIS",
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_lTGBsB2uNP-JKhJPYPjbhMRrOrgRfrafw",
       "amazon": "https://www.amazon.com/music/player/albums/B09MM9GQYP",
-      "joox": "https://www.joox.com/album/hNXzq7ScZzkWyreXh9GOQA=="
+      "joox": "https://www.joox.com/album/hNXzq7ScZzkWyreXh9GOQA==",
+      "anghami": "https://play.anghami.com/album/1024168059"
     }],
     "track": [
       {
@@ -583,7 +584,8 @@ const songsData = [
       "deezer": "https://www.deezer.com/album/327400167",
       "spotify": "https://open.spotify.com/album/7iM4MBXURVLQPzV9sU5rHu?si=j3DmGSWdSJiGdP_LG0h2NQ",
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_krj8XHkMkdspm0AjxYOBxAEaCpfFd8RJ8",
-      "amazon": "https://www.amazon.com/music/player/albums/B0B42SGC4B"
+      "amazon": "https://www.amazon.com/music/player/albums/B0B42SGC4B",
+      "anghami": "https://play.anghami.com/album/1029143514"
     }],
     "track": [
       {
@@ -647,6 +649,7 @@ const songsData = [
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_kUQ_oJC55UmZUwV00PKrSfJK5haezvg3M",
       "amazon": "https://www.amazon.com/music/player/albums/B0B82L6LFV",
       "joox": "https://www.joox.com/album/ejrjvdkNUMtT48kRF_4LYg==",
+      "anghami": "https://play.anghami.com/album/1030608328",
       "cloneHero": "https://wardimension.github.io/blog?b=chart&search=['Artist: WarDimension', 'Album: Broken Record %2F Inception', 'Game: Clone Hero']"
     }],
     "track": [
@@ -676,7 +679,8 @@ const songsData = [
       "rocksmith": "https://wardimension.github.io/blog?b=chart&search=['Artist: WarDimension', 'Album: Itsudemo、Dokodemo、Nandemoii', 'Game: Rocksmith 2014']",
       "more": [{
         "url": [{
-          "boomplay": "https://www.boomplay.com/albums/61821859"
+          "boomplay": "https://www.boomplay.com/albums/61821859",
+          "anghami": "https://play.anghami.com/album/1034993982"
         }]
       }]
     }],
@@ -732,7 +736,8 @@ const songsData = [
       "joox": "https://www.joox.com/id/album/u5GThFPDM2HT3lGmo8XBjA==",
       "more": [{
         "url": [{
-          "boomplay": "https://www.boomplay.com/albums/66116974"
+          "boomplay": "https://www.boomplay.com/albums/66116974",
+          "anghami": "https://play.anghami.com/album/1037233715"
         }]
       }]
     }],
