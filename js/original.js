@@ -8,15 +8,14 @@ const songsData = [
       "googlePlay": "https://play.google.com/store/music/album?id=Bx2khbzglch2k53gaph2a5txe2i",
       "spotify": "https://open.spotify.com/album/3WAX7N3BOU42zPZeqw6DR3",
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_lXgyWybrogtK35zeAvapBoYzlSEhpQRLE",
-      "amazon": "https://www.amazon.com/music/player/albums/B079CW27VN",
-      "more": [{
-        "url": [{
-          "youtube": "https://www.youtube.com/watch?v=PB9NKVEYVGk",
-          "soundCloud": "https://soundcloud.com/wardimension/sets/nightmare",
-          "rocksmith": "https://wardimension.github.io/blog?b=chart&search=['Artist: WarDimension', 'Album: Nightmare', 'Game: Rocksmith 2014']"
-        }]
-      }]
-    }],
+      "amazon": "https://www.amazon.com/music/player/albums/B079CW27VN"
+      },
+      {
+        "youtube": "https://www.youtube.com/watch?v=PB9NKVEYVGk",
+        "soundCloud": "https://soundcloud.com/wardimension/sets/nightmare",
+        "netease": "",
+        "rocksmith": "https://wardimension.github.io/blog?b=chart&search=['Artist: WarDimension', 'Album: Nightmare', 'Game: Rocksmith 2014']"
+      }],
     "track": [
       {
         "title": "Nightmare",
@@ -39,13 +38,12 @@ const songsData = [
       "googlePlay": "https://play.google.com/store/music/album?id=Bsrds6nhmjjtjfgt4fnhfzhywfm",
       "spotify": "https://open.spotify.com/album/41rRnGetiwSJqA2DvPigvc",
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_nWYcbbuKkXWcjx507xQM9VJln5jtT3znQ",
-      "amazon": "https://www.amazon.com/music/player/albums/B07BHF8JWG",
-      "more": [{
-        "url": [{
-          "youtube": "https://www.youtube.com/watch?v=9_5evlRwc5A",
-          "soundCloud": "https://soundcloud.com/wardimension/abandoned"
-        }]
-      }]
+      "amazon": "https://www.amazon.com/music/player/albums/B07BHF8JWG"
+    },
+    {
+      "youtube": "https://www.youtube.com/watch?v=9_5evlRwc5A",
+      "soundCloud": "https://soundcloud.com/wardimension/abandoned",
+      "netease": ""
     }],
     "track": [
       {
@@ -65,12 +63,11 @@ const songsData = [
       "googlePlay": "https://play.google.com/store/music/album?id=Bxo7szbrrae5uk6wgyzhy5gtzi4",
       "spotify": "https://open.spotify.com/album/0svQYsVqzHe2aRXmlnH2KE",
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_nqIQrGsNxxU6KTEpu0rQVRogIFGnwtY7o",
-      "amazon": "https://www.amazon.com/music/player/albums/B07BHKP9YT",
-      "more": [{
-        "url": [{
-          "soundCloud": "https://soundcloud.com/wardimension/lets-do-it"
-        }]
-      }]
+      "amazon": "https://www.amazon.com/music/player/albums/B07BHKP9YT"
+    },
+    {
+      "soundCloud": "https://soundcloud.com/wardimension/lets-do-it",
+      "netease": ""
     }],
     "track": [
       {
@@ -90,13 +87,12 @@ const songsData = [
       "googlePlay": "http://play.google.com/store/music/album?id=B5m6iaph56ok5ubw66ytjuarfxm",
       "spotify": "https://open.spotify.com/album/4jMZzRKQIQUSKmb36r8bdi",
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_ngbTWfAhv0pPJyAkV1yCMy4RSPqoAVIq8",
-      "amazon": "https://www.amazon.com/music/player/albums/B07DY5LJ4H",
-      "more": [{
-        "url": [{
-          "soundCloud": "https://soundcloud.com/wardimension/sets/fruitydimension",
-          "osu": "https://osu.ppy.sh/beatmapsets?s=any&q=%22Neko%20da%20-%20EP%22"
-        }]
-      }]
+      "amazon": "https://www.amazon.com/music/player/albums/B07DY5LJ4H"
+    },
+    {
+      "soundCloud": "https://soundcloud.com/wardimension/sets/fruitydimension",
+      "netease": "",
+      "osu": "https://osu.ppy.sh/beatmapsets?s=any&q=%22WarDimension%20-%20FruityDimension%22"
     }],
     "track": [
       {
@@ -136,13 +132,12 @@ const songsData = [
       "googlePlay": "https://play.google.com/store/music/album?id=Bbzuzvn6qokux5xvogiljt6pw6a",
       "spotify": "https://open.spotify.com/album/1tqkRMhkZryFa1rZbFdrV4",
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_nLp99MftlDnTU0g-8i5WX1acavz-kbsMw",
-      "amazon": "https://www.amazon.com/music/player/albums/B07FK8WN57",
-      "more": [{
-        "url": [{
-          "soundCloud": "https://soundcloud.com/wardimension/sets/cxlclm2wunur",
-          "rocksmith": "https://wardimension.github.io/blog?b=chart&search=['Artist: WarDimension', 'Album: Om', 'Game: Rocksmith 2014']"
-        }]
-      }]
+      "amazon": "https://www.amazon.com/music/player/albums/B07FK8WN57"
+    },
+    {
+      "soundCloud": "https://soundcloud.com/wardimension/sets/cxlclm2wunur",
+      "netease": "",
+      "rocksmith": "https://wardimension.github.io/blog?b=chart&search=['Artist: WarDimension', 'Album: Om', 'Game: Rocksmith 2014']"
     }],
     "track": [
       {
@@ -180,12 +175,11 @@ const songsData = [
       "googlePlay": "https://play.google.com/store/music/album?id=B6fokvgicwiabwbmrbrkjdynzla",
       "spotify": "https://open.spotify.com/album/0PBOg2kVA8XWCN1SiH0u69",
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_kd8QzOX73fXWIlrDffjkdDlJEKEpTzLM0",
-      "amazon": "https://www.amazon.com/music/player/albums/B07HBCH7BM",
-      "more": [{
-        "url": [{
-          "soundCloud": "https://soundcloud.com/wardimension/nohope"
-        }]
-      }]
+      "amazon": "https://www.amazon.com/music/player/albums/B07HBCH7BM"
+    },
+    {
+      "soundCloud": "https://soundcloud.com/wardimension/nohope",
+      "netease": ""
     }],
     "track": [
       {
@@ -204,13 +198,12 @@ const songsData = [
       "googlePlay": "https://play.google.com/store/music/album?id=Blkjf3nbm5bessmmwrba4ef37m4",
       "spotify": "https://open.spotify.com/album/6ZWMwloBk5ke2Jyfsm7Ix4",
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_mPLcT60QoFNTP6RFsNmCMT-SDqr5uJCoQ",
-      "amazon": "https://www.amazon.com/music/player/albums/B07H9GB6MR",
-      "more": [{
-        "url": [{
-          "soundCloud": "https://soundcloud.com/wardimension/sets/hyouka",
-          "rocksmith": "https://wardimension.github.io/blog?b=chart&search=['Artist: WarDimension', 'Album: Hyouka', 'Game: Rocksmith 2014']"
-        }]
-      }]
+      "amazon": "https://www.amazon.com/music/player/albums/B07H9GB6MR"
+    },
+    {
+      "soundCloud": "https://soundcloud.com/wardimension/sets/hyouka",
+      "netease": "",
+      "rocksmith": "https://wardimension.github.io/blog?b=chart&search=['Artist: WarDimension', 'Album: Hyouka', 'Game: Rocksmith 2014']"
     }],
     "track": [
       {
@@ -234,13 +227,12 @@ const songsData = [
       "googlePlay": "https://play.google.com/store/music/album?id=Blhtd2yeecbc57q4zz64rzqccte",
       "spotify": "https://open.spotify.com/album/4RFOcMBbcXLdIBXY5MpkDJ",
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_l3m8d3HT5Ai49qhDTLKYAu0Jxl26O9jMk",
-      "amazon": "https://www.amazon.com/music/player/albums/B07N359FPM",
-      "more": [{
-        "url": [{
-          "soundCloud": "https://soundcloud.com/wardimension/sets/vboo",
-          "rocksmith": "https://wardimension.github.io/blog?b=chart&search=['Artist: WarDimension', 'Album: Vboo', 'Game: Rocksmith 2014']"
-        }]
-      }]
+      "amazon": "https://www.amazon.com/music/player/albums/B07N359FPM"
+    },
+    {
+      "soundCloud": "https://soundcloud.com/wardimension/sets/vboo",
+      "netease": "",
+      "rocksmith": "https://wardimension.github.io/blog?b=chart&search=['Artist: WarDimension', 'Album: Vboo', 'Game: Rocksmith 2014']"
     }],
     "track": [
       {
@@ -314,13 +306,12 @@ const songsData = [
       "googlePlay": "https://play.google.com/store/music/album?id=Byxjdogbce3ykshrr46s6cf6gha",
       "spotify": "https://open.spotify.com/album/6Mj29kVSrR5cUwgGF0HThQ",
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_kiuXgQTZcTi0c9gC34_Ec3Lye6MwZ_FFw",
-      "amazon": "https://www.amazon.com/music/player/albums/B07NZ92B4G",
-      "more": [{
-        "url": [{
-          "rocksmith": "https://wardimension.github.io/blog?b=chart&search=['Artist: WarDimension', 'Album: Neko da', 'Game: Rocksmith 2014']",
-          "osu": "https://osu.ppy.sh/beatmapsets?s=any&q=%22Neko%20da%20-%20EP%22"
-        }]
-      }]
+      "amazon": "https://www.amazon.com/music/player/albums/B07NZ92B4G"
+    },
+    {
+      "netease": "",
+      "rocksmith": "https://wardimension.github.io/blog?b=chart&search=['Artist: WarDimension', 'Album: Neko da', 'Game: Rocksmith 2014']",
+      "osu": "https://osu.ppy.sh/beatmapsets?s=any&q=%22WarDimension%20-%20Neko%20da%22"
     }],
     "track": [
       {
@@ -364,13 +355,12 @@ const songsData = [
       "googlePlay": "https://play.google.com/store/music/album?id=Bnt6efpi42stsd3pkjzqt2jm4ra",
       "spotify": "https://open.spotify.com/album/7cYdhAfrl5z92fa9ddGMpW",
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_nsRJ9w9SFCy3fZr5wXzOuaZrT9tzxLveA",
-      "amazon": "https://www.amazon.com/music/player/albums/B07THS4L2B",
-      "more": [{
-        "url": [{
-          "bandLab": "https://www.bandlab.com/wardimension/collections/54611ac3-28d6-e911-b5e9-28187831ee7a",
-          "rocksmith": "https://wardimension.github.io/blog?b=chart&search=['Artist: WarDimension', 'Album: BandLab', 'Game: Rocksmith 2014']"
-        }]
-      }]
+      "amazon": "https://www.amazon.com/music/player/albums/B07THS4L2B"
+    },
+    {
+      "bandLab": "https://www.bandlab.com/wardimension/collections/54611ac3-28d6-e911-b5e9-28187831ee7a",
+      "netease": "",
+      "rocksmith": "https://wardimension.github.io/blog?b=chart&search=['Artist: WarDimension', 'Album: BandLab', 'Game: Rocksmith 2014']"
     }],
     "track": [
       {
@@ -452,6 +442,9 @@ const songsData = [
       "spotify": "https://open.spotify.com/album/3K3ubsFVCYkEuumc9PtCgV",
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_mZlWh62vzRJkjELtpl4_LslGKOHd3t17c",
       "amazon": "https://www.amazon.com/music/player/albums/B086KVQHQG"
+    },
+    {
+      "netease": ""
     }],
     "track": [
       {
@@ -507,6 +500,9 @@ const songsData = [
       "spotify": "https://open.spotify.com/album/1FaG61R7faoyEvRiOudPni",
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_mOXoBNn5gLapbT9UIO8iz4Pe4js8n1pEg",
       "amazon": "https://www.amazon.com/music/player/albums/B08LN14DCN"
+    },
+    {
+      "netease": ""
     }],
     "track": [
       {
@@ -560,17 +556,16 @@ const songsData = [
       "deezer": "https://www.deezer.com/album/275653712",
       "spotify": "https://open.spotify.com/album/2jzbkOlmMHOiUni19zMcIS",
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_lTGBsB2uNP-JKhJPYPjbhMRrOrgRfrafw",
-      "amazon": "https://www.amazon.com/music/player/albums/B09MM9GQYP",
-      "more": [{
-        "url": [{
-          "joox": "https://www.joox.com/album/hNXzq7ScZzkWyreXh9GOQA==",
-          "flo": "https://www.music-flo.com/detail/album/edohihded/albumtrack",
-          "vibe": "https://vibe.naver.com/album/7154572",
-          "bugs": "https://music.bugs.co.kr/album/17542669",
-          "anghami": "https://play.anghami.com/album/1024168059",
-          "zingmp3": "https://zingmp3.vn/album/Single-WarDimension/6BZ00696.html"
-        }]
-      }]
+      "amazon": "https://www.amazon.com/music/player/albums/B09MM9GQYP"
+    },
+    {
+      "joox": "https://www.joox.com/album/hNXzq7ScZzkWyreXh9GOQA==",
+      "flo": "https://www.music-flo.com/detail/album/edohihded/albumtrack",
+      "vibe": "https://vibe.naver.com/album/7154572",
+      "bugs": "https://music.bugs.co.kr/album/17542669",
+      "netease": "",
+      "anghami": "https://play.anghami.com/album/1024168059",
+      "zingmp3": "https://zingmp3.vn/album/Single-WarDimension/6BZ00696.html"
     }],
     "track": [
       {
@@ -632,16 +627,15 @@ const songsData = [
       "deezer": "https://www.deezer.com/album/327400167",
       "spotify": "https://open.spotify.com/album/7iM4MBXURVLQPzV9sU5rHu?si=j3DmGSWdSJiGdP_LG0h2NQ",
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_krj8XHkMkdspm0AjxYOBxAEaCpfFd8RJ8",
-      "amazon": "https://www.amazon.com/music/player/albums/B0B42SGC4B",
-      "more": [{
-        "url": [{
-          "flo": "https://www.music-flo.com/detail/album/edhlzhnnn/albumtrack",
-          "vibe": "https://vibe.naver.com/album/7883055",
-          "bugs": "https://music.bugs.co.kr/album/18177073",
-          "anghami": "https://play.anghami.com/album/1029143514",
-          "zingmp3": "https://zingmp3.vn/album/Single-WarDimension/6BUWW76B.html"
-        }]
-      }]
+      "amazon": "https://www.amazon.com/music/player/albums/B0B42SGC4B"
+    },
+    {
+      "flo": "https://www.music-flo.com/detail/album/edhlzhnnn/albumtrack",
+      "vibe": "https://vibe.naver.com/album/7883055",
+      "bugs": "https://music.bugs.co.kr/album/18177073",
+      "netease": "",
+      "anghami": "https://play.anghami.com/album/1029143514",
+      "zingmp3": "https://zingmp3.vn/album/Single-WarDimension/6BUWW76B.html"
     }],
     "track": [
       {
@@ -703,18 +697,17 @@ const songsData = [
       "deezer": "https://www.deezer.com/album/340814337",
       "spotify": "https://open.spotify.com/album/3XMeN6wxDUtFiLXXCalqY5?si=Kab0hMOgQ1yQxgccT-Kmkw",
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_kUQ_oJC55UmZUwV00PKrSfJK5haezvg3M",
-      "amazon": "https://www.amazon.com/music/player/albums/B0B82L6LFV",
-      "more": [{
-        "url": [{
-          "joox": "https://www.joox.com/album/ejrjvdkNUMtT48kRF_4LYg==",
-          "flo": "https://www.music-flo.com/detail/album/edhyazolz/albumtrack",
-          "vibe": "https://vibe.naver.com/album/8015495",
-          "bugs": "https://music.bugs.co.kr/album/18939106",
-          "anghami": "https://play.anghami.com/album/1030608328",
-          "zingmp3": "https://zingmp3.vn/album/Broken-Record-Inception-Single-WarDimension/6BUFI6F8.html",
-          "cloneHero": "https://wardimension.github.io/blog?b=chart&search=['Artist: WarDimension', 'Album: Broken Record %2F Inception', 'Game: Clone Hero']"
-        }]
-      }]
+      "amazon": "https://www.amazon.com/music/player/albums/B0B82L6LFV"
+    },
+    {
+      "joox": "https://www.joox.com/album/ejrjvdkNUMtT48kRF_4LYg==",
+      "flo": "https://www.music-flo.com/detail/album/edhyazolz/albumtrack",
+      "vibe": "https://vibe.naver.com/album/8015495",
+      "bugs": "https://music.bugs.co.kr/album/18939106",
+      "netease": "",
+      "anghami": "https://play.anghami.com/album/1030608328",
+      "zingmp3": "https://zingmp3.vn/album/Broken-Record-Inception-Single-WarDimension/6BUFI6F8.html",
+      "cloneHero": "https://wardimension.github.io/blog?b=chart&search=['Artist: WarDimension', 'Album: Broken Record %2F Inception', 'Game: Clone Hero']"
     }],
     "track": [
       {
@@ -738,19 +731,18 @@ const songsData = [
       "deezer": "https://www.deezer.com/album/391659087",
       "spotify": "https://open.spotify.com/album/21RyXRVHeZ8F91Uh1celSW?si=MnlajCYSSz-fUB5d2HX4cw",
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_n5OzWJCWwPGMaUBtCvk0gJJMZN3EYkhNU",
-      "amazon": "https://www.amazon.com/music/player/albums/B0BRDBFH79",
-      "more": [{
-        "url": [{
-          "joox": "https://www.joox.com/album/m41kphghGpEwt88Y+qCX4w==",
-          "flo": "https://www.music-flo.com/detail/album/eaaddaihz/albumtrack",
-          "vibe": "https://vibe.naver.com/album/9135469",
-          "bugs": "https://music.bugs.co.kr/album/30599151",
-          "boomplay": "https://www.boomplay.com/albums/61821859",
-          "anghami": "https://play.anghami.com/album/1034993982",
-          "zingmp3": "https://zingmp3.vn/album/Single-WarDimension/SB7F8CAE.html",
-          "rocksmith": "https://wardimension.github.io/blog?b=chart&search=['Artist: WarDimension', 'Album: Itsudemo、Dokodemo、Nandemoii', 'Game: Rocksmith 2014']"
-        }]
-      }]
+      "amazon": "https://www.amazon.com/music/player/albums/B0BRDBFH79"
+    },
+    {
+      "joox": "https://www.joox.com/album/m41kphghGpEwt88Y+qCX4w==",
+      "flo": "https://www.music-flo.com/detail/album/eaaddaihz/albumtrack",
+      "vibe": "https://vibe.naver.com/album/9135469",
+      "bugs": "https://music.bugs.co.kr/album/30599151",
+      "netease": "",
+      "boomplay": "https://www.boomplay.com/albums/61821859",
+      "anghami": "https://play.anghami.com/album/1034993982",
+      "zingmp3": "https://zingmp3.vn/album/Single-WarDimension/SB7F8CAE.html",
+      "rocksmith": "https://wardimension.github.io/blog?b=chart&search=['Artist: WarDimension', 'Album: Itsudemo、Dokodemo、Nandemoii', 'Game: Rocksmith 2014']"
     }],
     "track": [
       {
@@ -800,16 +792,15 @@ const songsData = [
       "deezer": "https://www.deezer.com/album/417071267",
       "spotify": "https://open.spotify.com/album/6DKsAnsvE71qo05XV7PbNo?si=_itYgeDNQQOtKGTozbDsRg",
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_mBUY1XvVwqErMBhoRZI3b_fAmIDBWtgOE",
-      "amazon": "https://www.amazon.com/music/player/albums/B0BYG18DWZ",
-      "more": [{
-        "url": [{
-          "joox": "https://www.joox.com/id/album/u5GThFPDM2HT3lGmo8XBjA==",
-          "flo": "https://www.music-flo.com/detail/album/eanalehyn/albumtrack",
-          "boomplay": "https://www.boomplay.com/albums/66116974",
-          "anghami": "https://play.anghami.com/album/1037233715",
-          "zingmp3": "https://zingmp3.vn/album/Evil-Within-Me-Single-WarDimension/6B9ZCZ69.html"
-        }]
-      }]
+      "amazon": "https://www.amazon.com/music/player/albums/B0BYG18DWZ"
+    },
+    {
+      "joox": "https://www.joox.com/id/album/u5GThFPDM2HT3lGmo8XBjA==",
+      "flo": "https://www.music-flo.com/detail/album/eanalehyn/albumtrack",
+      "netease": "",
+      "boomplay": "https://www.boomplay.com/albums/66116974",
+      "anghami": "https://play.anghami.com/album/1037233715",
+      "zingmp3": "https://zingmp3.vn/album/Evil-Within-Me-Single-WarDimension/6B9ZCZ69.html"
     }],
     "track": [
       {

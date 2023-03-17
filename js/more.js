@@ -21,10 +21,8 @@ function buildMoreSongs(songTitle){
         return song.title == songTitle;
     });
     
-    content.innerHTML = platformTemplate(song);
-    content.innerHTML += platformTemplate(song.url[0].more[0]);
-    
-    content.querySelector(".more-button").remove();
+    content.innerHTML = platformTemplate(song, 0, "おっぱい");
+    content.innerHTML += platformTemplate(song, 1, "おっぱい");
 
     let platforms = content.querySelectorAll("a");
     let firstRhythmGame;

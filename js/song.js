@@ -611,12 +611,15 @@ function updateTimeSlider(){
 
 function platform(url, sprite, name){
   if(name == "バカ！"){
-    return `${url ?
+    return `${sprite.url[1] ?
         `<a class="platform-url more-button" onclick="openMore(\`${sprite.title}\`);" onkeypress="openMore(\`${sprite.title}\`);" tabindex="1">
           <i class="platform-icon i-more"></i>More
         </a>` : ""
       }
     `
+  }
+  else if(name == "おっぱい"){
+    return "";
   }
 
   return `
@@ -628,7 +631,7 @@ function platform(url, sprite, name){
   `
 }
 
-function platformTemplate(song){
+function platformTemplate(song, index = 0, ばか = "バカ！"){
   if(!song.url){
     return `
       <a class="platform-url coming-soon">
@@ -638,27 +641,27 @@ function platformTemplate(song){
   }
 
   return `
-    ${platform(song.url[0].itunes, "itunes", "iTunes/Apple Music")}
-    ${platform(song.url[0].deezer, "deezer", "Deezer")}
-    ${platform(song.url[0].spotify, "spotify", "Spotify")}
-    ${platform(song.url[0].youtube, "youtube", "YouTube")}
-    ${platform(song.url[0].youtubeMusic, "youtube-music", "YouTube Music")}
-    ${platform(song.url[0].amazon, "amazon", "Amazon Music")}
-    ${platform(song.url[0].bandLab, "bandlab", "BandLab")}
-    ${platform(song.url[0].soundCloud, "soundcloud", "SoundCloud")}
-    ${platform(song.url[0].joox, "joox", "JOOX")}
-    ${platform(song.url[0].flo, "flo", "FLO")}
-    ${platform(song.url[0].vibe, "vibe", "NAVER VIBE")}
-    ${platform(song.url[0].bugs, "bugs", "Bugs!")}
-    ${platform(song.url[0].netease, "netease", "NetEase Music")}
-    ${platform(song.url[0].kuwo, "kuwo", "Kuwo")}
-    ${platform(song.url[0].boomplay, "boomplay", "Boomplay")}
-    ${platform(song.url[0].anghami, "anghami", "anghami")}
-    ${platform(song.url[0].zingmp3, "zingmp3", "Zing mp3")}
-    ${platform(song.url[0].rocksmith, "rocksmith", "Rocksmith")}
-    ${platform(song.url[0].osu, "osu", "osu!")}
-    ${platform(song.url[0].cloneHero, "clone-hero", "Clone Hero")}
-    ${platform(song.url[0].more, song, "バカ！")}
+    ${platform(song.url[index].itunes, "itunes", "iTunes/Apple Music")}
+    ${platform(song.url[index].deezer, "deezer", "Deezer")}
+    ${platform(song.url[index].spotify, "spotify", "Spotify")}
+    ${platform(song.url[index].youtube, "youtube", "YouTube")}
+    ${platform(song.url[index].youtubeMusic, "youtube-music", "YouTube Music")}
+    ${platform(song.url[index].amazon, "amazon", "Amazon Music")}
+    ${platform(song.url[index].bandLab, "bandlab", "BandLab")}
+    ${platform(song.url[index].soundCloud, "soundcloud", "SoundCloud")}
+    ${platform(song.url[index].joox, "joox", "JOOX")}
+    ${platform(song.url[index].flo, "flo", "FLO")}
+    ${platform(song.url[index].vibe, "vibe", "NAVER VIBE")}
+    ${platform(song.url[index].bugs, "bugs", "Bugs!")}
+    ${platform(song.url[index].netease, "netease", "NetEase Music")}
+    ${platform(song.url[index].kuwo, "kuwo", "Kuwo")}
+    ${platform(song.url[index].boomplay, "boomplay", "Boomplay")}
+    ${platform(song.url[index].anghami, "anghami", "anghami")}
+    ${platform(song.url[index].zingmp3, "zingmp3", "Zing mp3")}
+    ${platform(song.url[index].rocksmith, "rocksmith", "Rocksmith")}
+    ${platform(song.url[index].osu, "osu", "osu!")}
+    ${platform(song.url[index].cloneHero, "clone-hero", "Clone Hero")}
+    ${platform(song.url[index], song, ばか)}
   `;
 }
 
