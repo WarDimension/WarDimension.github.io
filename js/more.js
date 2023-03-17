@@ -20,6 +20,8 @@ function buildMoreSongs(songTitle){
     let song = songsData.find(song => {
         return song.title == songTitle;
     });
+
+    blurEl.querySelector(".song-title").innerHTML = song.title;
     
     content.innerHTML = platformTemplate(song, 0, "おっぱい");
     content.innerHTML += platformTemplate(song, 1, "おっぱい");

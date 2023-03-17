@@ -206,12 +206,10 @@ h3{
   top: 50%;
   z-index: 2;
   width: 850px;
-  min-height: 200px;
   max-width: 95vw;
   max-height: 95vh;
-  background: #fff;
+  background: #000;
   text-align: center;
-  padding: 25px 100px 50px 100px;
   transform: translate(-50%, -50%);
   font-size: 18px;
   box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
@@ -220,27 +218,47 @@ h3{
   overflow-y: overlay;
   overflow-x: hidden;
 }
+.more::-webkit-scrollbar-track{
+  margin-top: 45px;
+}
 .more-content{
-  position: relative;
-  top: -15px;
+  background: #fff;
+  padding: 20px 100px;
 }
 .more h3:first-of-type{
   margin-top: 0;
 }
 .close-more-container{
-  width: calc(100% + 80px);
-  top: -10px;
-  text-align: right;
   position: sticky;
+  width: 100%;
+  height: 43px;
+  top: -1px;
+  left: 0;
+  z-index: 3;
+  background: #000;
+  text-align: center;
+  overflow: hidden;
+}
+.close-more-container p{
+  display: inline-block;
+  margin: 0;
+  padding: 2.5px 0;
+  font-size: 25px;
+  color: #fff;
+  font-weight: bold;
 }
 .more .close-more{
+  position: absolute;
+  right: 0;
+  background: #fff;
   cursor: pointer;
   font-weight: bold;
   font-size: 35px;
   padding: 5px;
 }
-.more .close-more:hover{
-  background: #eee;
+.more .close-more:hover, .more .close-more:focus{
+  background: #bd3030;
+  color: #fff;
   outline: solid 1px #eee;
   transition: all 0.1s cubic-bezier(.25,.8,.25,1);
 }
