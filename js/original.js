@@ -564,7 +564,11 @@ const songsData = [
       "more": [{
         "url": [{
           "joox": "https://www.joox.com/album/hNXzq7ScZzkWyreXh9GOQA==",
-          "anghami": "https://play.anghami.com/album/1024168059"
+          "flo": "https://www.music-flo.com/detail/album/edohihded/albumtrack",
+          "vibe": "https://vibe.naver.com/album/7154572",
+          "bugs": "https://music.bugs.co.kr/album/17542669",
+          "anghami": "https://play.anghami.com/album/1024168059",
+          "zingmp3": "https://zingmp3.vn/album/Single-WarDimension/6BZ00696.html"
         }]
       }]
     }],
@@ -631,7 +635,11 @@ const songsData = [
       "amazon": "https://www.amazon.com/music/player/albums/B0B42SGC4B",
       "more": [{
         "url": [{
-          "anghami": "https://play.anghami.com/album/1029143514"
+          "flo": "https://www.music-flo.com/detail/album/edhlzhnnn/albumtrack",
+          "vibe": "https://vibe.naver.com/album/7883055",
+          "bugs": "https://music.bugs.co.kr/album/18177073",
+          "anghami": "https://play.anghami.com/album/1029143514",
+          "zingmp3": "https://zingmp3.vn/album/Single-WarDimension/6BUWW76B.html"
         }]
       }]
     }],
@@ -699,7 +707,11 @@ const songsData = [
       "more": [{
         "url": [{
           "joox": "https://www.joox.com/album/ejrjvdkNUMtT48kRF_4LYg==",
+          "flo": "https://www.music-flo.com/detail/album/edhyazolz/albumtrack",
+          "vibe": "https://vibe.naver.com/album/8015495",
+          "bugs": "https://music.bugs.co.kr/album/18939106",
           "anghami": "https://play.anghami.com/album/1030608328",
+          "zingmp3": "https://zingmp3.vn/album/Broken-Record-Inception-Single-WarDimension/6BUFI6F8.html",
           "cloneHero": "https://wardimension.github.io/blog?b=chart&search=['Artist: WarDimension', 'Album: Broken Record %2F Inception', 'Game: Clone Hero']"
         }]
       }]
@@ -730,8 +742,12 @@ const songsData = [
       "more": [{
         "url": [{
           "joox": "https://www.joox.com/album/m41kphghGpEwt88Y+qCX4w==",
+          "flo": "https://www.music-flo.com/detail/album/eaaddaihz/albumtrack",
+          "vibe": "https://vibe.naver.com/album/9135469",
+          "bugs": "https://music.bugs.co.kr/album/30599151",
           "boomplay": "https://www.boomplay.com/albums/61821859",
           "anghami": "https://play.anghami.com/album/1034993982",
+          "zingmp3": "https://zingmp3.vn/album/Single-WarDimension/SB7F8CAE.html",
           "rocksmith": "https://wardimension.github.io/blog?b=chart&search=['Artist: WarDimension', 'Album: Itsudemo、Dokodemo、Nandemoii', 'Game: Rocksmith 2014']"
         }]
       }]
@@ -788,8 +804,10 @@ const songsData = [
       "more": [{
         "url": [{
           "joox": "https://www.joox.com/id/album/u5GThFPDM2HT3lGmo8XBjA==",
+          "flo": "https://www.music-flo.com/detail/album/eanalehyn/albumtrack",
           "boomplay": "https://www.boomplay.com/albums/66116974",
-          "anghami": "https://play.anghami.com/album/1037233715"
+          "anghami": "https://play.anghami.com/album/1037233715",
+          "zingmp3": "https://zingmp3.vn/album/Evil-Within-Me-Single-WarDimension/6B9ZCZ69.html"
         }]
       }]
     }],
