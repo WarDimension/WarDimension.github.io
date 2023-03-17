@@ -240,6 +240,7 @@ const songsData = [
       "soundCloud": "https://soundcloud.com/wardimension/sets/vboo",
       "netease": "https://music.163.com/#/album?id=88731795",
       "kuwo": "https://www.kuwo.cn/album_detail/13550179",
+      "anghami": "https://play.anghami.com/album/1024557792",
       "rocksmith": "https://wardimension.github.io/blog?b=chart&search=['Artist: WarDimension', 'Album: Vboo', 'Game: Rocksmith 2014']"
     }],
     "track": [
@@ -319,6 +320,7 @@ const songsData = [
     {
       "netease": "https://music.163.com/#/album?id=88775066",
       "kuwo": "https://www.kuwo.cn/album_detail/13570071",
+      "anghami": "https://play.anghami.com/album/1024556210",
       "rocksmith": "https://wardimension.github.io/blog?b=chart&search=['Artist: WarDimension', 'Album: Neko da', 'Game: Rocksmith 2014']",
       "osu": "https://osu.ppy.sh/beatmapsets?s=any&q=%22WarDimension%20-%20Neko%20da%22"
     }],
@@ -370,6 +372,7 @@ const songsData = [
       "bandLab": "https://www.bandlab.com/wardimension/collections/54611ac3-28d6-e911-b5e9-28187831ee7a",
       "netease": "https://music.163.com/#/album?id=88944440",
       "kuwo": "https://www.kuwo.cn/album_detail/13637777",
+      "anghami": "https://play.anghami.com/album/1024550308",
       "rocksmith": "https://wardimension.github.io/blog?b=chart&search=['Artist: WarDimension', 'Album: BandLab', 'Game: Rocksmith 2014']"
     }],
     "track": [
@@ -455,7 +458,8 @@ const songsData = [
     },
     {
       "netease": "https://music.163.com/#/album?id=89222444",
-      "kuwo": "https://www.kuwo.cn/album_detail/13803904"
+      "kuwo": "https://www.kuwo.cn/album_detail/13803904",
+      "anghami": "https://play.anghami.com/album/1024479276"
     }],
     "track": [
       {
@@ -514,7 +518,8 @@ const songsData = [
     },
     {
       "netease": "https://music.163.com/#/album?id=97161169",
-      "kuwo": "https://www.kuwo.cn/album_detail/16208750"
+      "kuwo": "https://www.kuwo.cn/album_detail/16208750",
+      "anghami": "https://play.anghami.com/album/1024877490"
     }],
     "track": [
       {
