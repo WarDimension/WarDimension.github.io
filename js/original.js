@@ -14,6 +14,7 @@ const songsData = [
         "youtube": "https://www.youtube.com/watch?v=PB9NKVEYVGk",
         "soundCloud": "https://soundcloud.com/wardimension/sets/nightmare",
         "netease": "https://music.163.com/#/album?id=88333642",
+        "kuwo": "https://www.kuwo.cn/album_detail/13449879",
         "rocksmith": "https://wardimension.github.io/blog?b=chart&search=['Artist: WarDimension', 'Album: Nightmare', 'Game: Rocksmith 2014']"
       }],
     "track": [
@@ -43,7 +44,8 @@ const songsData = [
     {
       "youtube": "https://www.youtube.com/watch?v=9_5evlRwc5A",
       "soundCloud": "https://soundcloud.com/wardimension/abandoned",
-      "netease": "https://music.163.com/#/album?id=88366723"
+      "netease": "https://music.163.com/#/album?id=88366723",
+      "kuwo": "https://www.kuwo.cn/album_detail/13453604"
     }],
     "track": [
       {
@@ -67,7 +69,8 @@ const songsData = [
     },
     {
       "soundCloud": "https://soundcloud.com/wardimension/lets-do-it",
-      "netease": "https://music.163.com/#/album?id=88366726"
+      "netease": "https://music.163.com/#/album?id=88366726",
+      "kuwo": "https://www.kuwo.cn/album_detail/13453616"
     }],
     "track": [
       {
@@ -92,6 +95,7 @@ const songsData = [
     {
       "soundCloud": "https://soundcloud.com/wardimension/sets/fruitydimension",
       "netease": "https://music.163.com/#/album?id=88435570",
+      "kuwo": "https://www.kuwo.cn/album_detail/13461949",
       "osu": "https://osu.ppy.sh/beatmapsets?s=any&q=%22WarDimension%20-%20FruityDimension%22"
     }],
     "track": [
@@ -137,6 +141,7 @@ const songsData = [
     {
       "soundCloud": "https://soundcloud.com/wardimension/sets/cxlclm2wunur",
       "netease": "https://music.163.com/#/album?id=88448393",
+      "kuwo": "https://www.kuwo.cn/album_detail/13464122",
       "rocksmith": "https://wardimension.github.io/blog?b=chart&search=['Artist: WarDimension', 'Album: Om', 'Game: Rocksmith 2014']"
     }],
     "track": [
@@ -179,7 +184,8 @@ const songsData = [
     },
     {
       "soundCloud": "https://soundcloud.com/wardimension/nohope",
-      "netease": "https://music.163.com/#/album?id=88469377"
+      "netease": "https://music.163.com/#/album?id=88469377",
+      "kuwo": "https://www.kuwo.cn/album_detail/13508352"
     }],
     "track": [
       {
@@ -203,6 +209,7 @@ const songsData = [
     {
       "soundCloud": "https://soundcloud.com/wardimension/sets/hyouka",
       "netease": "https://music.163.com/#/album?id=88470690",
+      "kuwo": "https://www.kuwo.cn/album_detail/13508687",
       "rocksmith": "https://wardimension.github.io/blog?b=chart&search=['Artist: WarDimension', 'Album: Hyouka', 'Game: Rocksmith 2014']"
     }],
     "track": [
@@ -232,6 +239,7 @@ const songsData = [
     {
       "soundCloud": "https://soundcloud.com/wardimension/sets/vboo",
       "netease": "https://music.163.com/#/album?id=88731795",
+      "kuwo": "https://www.kuwo.cn/album_detail/13550179",
       "rocksmith": "https://wardimension.github.io/blog?b=chart&search=['Artist: WarDimension', 'Album: Vboo', 'Game: Rocksmith 2014']"
     }],
     "track": [
@@ -310,6 +318,7 @@ const songsData = [
     },
     {
       "netease": "https://music.163.com/#/album?id=88775066",
+      "kuwo": "https://www.kuwo.cn/album_detail/13570071",
       "rocksmith": "https://wardimension.github.io/blog?b=chart&search=['Artist: WarDimension', 'Album: Neko da', 'Game: Rocksmith 2014']",
       "osu": "https://osu.ppy.sh/beatmapsets?s=any&q=%22WarDimension%20-%20Neko%20da%22"
     }],
@@ -360,6 +369,7 @@ const songsData = [
     {
       "bandLab": "https://www.bandlab.com/wardimension/collections/54611ac3-28d6-e911-b5e9-28187831ee7a",
       "netease": "https://music.163.com/#/album?id=88944440",
+      "kuwo": "https://www.kuwo.cn/album_detail/13637777",
       "rocksmith": "https://wardimension.github.io/blog?b=chart&search=['Artist: WarDimension', 'Album: BandLab', 'Game: Rocksmith 2014']"
     }],
     "track": [
@@ -444,7 +454,8 @@ const songsData = [
       "amazon": "https://www.amazon.com/music/player/albums/B086KVQHQG"
     },
     {
-      "netease": "https://music.163.com/#/album?id=89222444"
+      "netease": "https://music.163.com/#/album?id=89222444",
+      "kuwo": "https://www.kuwo.cn/album_detail/13803904"
     }],
     "track": [
       {
@@ -502,7 +513,8 @@ const songsData = [
       "amazon": "https://www.amazon.com/music/player/albums/B08LN14DCN"
     },
     {
-      "netease": "https://music.163.com/#/album?id=97161169"
+      "netease": "https://music.163.com/#/album?id=97161169",
+      "kuwo": "https://www.kuwo.cn/album_detail/16208750"
     }],
     "track": [
       {
@@ -564,6 +576,7 @@ const songsData = [
       "vibe": "https://vibe.naver.com/album/7154572",
       "bugs": "https://music.bugs.co.kr/album/17542669",
       "netease": "https://music.163.com/#/album?id=136653732",
+      "kuwo": "https://www.kuwo.cn/album_detail/24642104",
       "anghami": "https://play.anghami.com/album/1024168059",
       "zingmp3": "https://zingmp3.vn/album/Single-WarDimension/6BZ00696.html"
     }],
@@ -634,6 +647,7 @@ const songsData = [
       "vibe": "https://vibe.naver.com/album/7883055",
       "bugs": "https://music.bugs.co.kr/album/18177073",
       "netease": "https://music.163.com/#/album?id=146507551",
+      "kuwo": "https://www.kuwo.cn/album_detail/29191413",
       "anghami": "https://play.anghami.com/album/1029143514",
       "zingmp3": "https://zingmp3.vn/album/Single-WarDimension/6BUWW76B.html"
     }],
@@ -705,6 +719,7 @@ const songsData = [
       "vibe": "https://vibe.naver.com/album/8015495",
       "bugs": "https://music.bugs.co.kr/album/18939106",
       "netease": "https://music.163.com/#/album?id=148894969",
+      "kuwo": "https://www.kuwo.cn/album_detail/30265055",
       "anghami": "https://play.anghami.com/album/1030608328",
       "zingmp3": "https://zingmp3.vn/album/Broken-Record-Inception-Single-WarDimension/6BUFI6F8.html",
       "cloneHero": "https://wardimension.github.io/blog?b=chart&search=['Artist: WarDimension', 'Album: Broken Record %2F Inception', 'Game: Clone Hero']"
@@ -739,6 +754,7 @@ const songsData = [
       "vibe": "https://vibe.naver.com/album/9135469",
       "bugs": "https://music.bugs.co.kr/album/30599151",
       "netease": "https://music.163.com/#/album?id=157580402",
+      "kuwo": "https://www.kuwo.cn/album_detail/34137075",
       "boomplay": "https://www.boomplay.com/albums/61821859",
       "anghami": "https://play.anghami.com/album/1034993982",
       "zingmp3": "https://zingmp3.vn/album/Single-WarDimension/SB7F8CAE.html",
@@ -798,6 +814,7 @@ const songsData = [
       "joox": "https://www.joox.com/id/album/u5GThFPDM2HT3lGmo8XBjA==",
       "flo": "https://www.music-flo.com/detail/album/eanalehyn/albumtrack",
       "netease": "https://music.163.com/#/album?id=161772496",
+      "kuwo": "https://www.kuwo.cn/album_detail/36245960",
       "boomplay": "https://www.boomplay.com/albums/66116974",
       "anghami": "https://play.anghami.com/album/1037233715",
       "zingmp3": "https://zingmp3.vn/album/Evil-Within-Me-Single-WarDimension/6B9ZCZ69.html"
