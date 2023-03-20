@@ -121,6 +121,7 @@ var cl_dsp_settings = `
     [default] default settings [esc] exit
 `;
 
+// You probably noticed that the HTML tags didn't get stripped... Yeah, that was intentional...
 function setSettings(command){
     if(/^(\w+ ?= ?#?\w+)|(\d+ #?\w+)$/.test(command) || command == "default"){
         var max_players_temp = max_players;
