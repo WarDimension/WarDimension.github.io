@@ -72,6 +72,7 @@ function effect(effect = true){
 
 var skip = document.getElementsByClassName("skip");
 
+//hey... you found the code, it's cheating tho, but good job... here's a very secret video for you: https://youtube.com/clip/UgkxcBtAVHSNYBsZXEd7eKj9WL9lImAzK_Ji
 function doYouWishToAscend(){
   if(hellGate.value.match(/ascend$/i)){
     localStorage.setItem("ascend1", "true");
