@@ -17,6 +17,14 @@ const miners = [
         "qty": 2
     },
     {
+        "name": "Clover-n’-Over",
+        "img": "https://static.rollercoin.com/static/img/market/miners/62324419a258d5816074aeb1.gif?v=1.0.3",
+        "power": 530.000,
+        "bonus": 2.5,
+        "cells": 2,
+        "qty": 1
+    },
+    {
         "name": "CP-106",
         "img": "https://static.rollercoin.com/static/img/market/miners/610a9b31bf6b53744c87cedc.gif?v=1.0.3",
         "power": 11.106,
