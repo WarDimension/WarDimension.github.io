@@ -128,6 +128,7 @@ const songsData = [
   },
   {
     "title": "ॐ",
+    "romanized": "Om",
     "alt": "om",
     "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/db9b0a59-1832-436d-be35-c4da781cf1c8/dd0nw5r-26508513-69a1-40ce-843e-a8544b6a614a.png/v1/fill/w_400,h_400,q_80,strp/om_by_wardimension_dd0nw5r-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDAwIiwicGF0aCI6IlwvZlwvZGI5YjBhNTktMTgzMi00MzZkLWJlMzUtYzRkYTc4MWNmMWM4XC9kZDBudzVyLTI2NTA4NTEzLTY5YTEtNDBjZS04NDNlLWE4NTQ0YjZhNjE0YS5wbmciLCJ3aWR0aCI6Ijw9NDAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.YqfJ3okSuqNtBAs08zYhmLrxAH-jJJ1CRSdZ7WaVwM4",
     "url": [{
@@ -444,6 +445,7 @@ const songsData = [
   },
   {
     "title": "ミクと遊ぶ ft. 初音ミク",
+    "romanized": "Miku to Asobu ft. Hatsune Miku",
     "alt": "miku-to-asobu",
     "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/db9b0a59-1832-436d-be35-c4da781cf1c8/ddtquor-b9106bbe-350e-47a4-bee0-28b7431c58f4.png/v1/fill/w_400,h_400,q_80,strp/miku_to_asobu_by_wardimension_ddtquor-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDAwIiwicGF0aCI6IlwvZlwvZGI5YjBhNTktMTgzMi00MzZkLWJlMzUtYzRkYTc4MWNmMWM4XC9kZHRxdW9yLWI5MTA2YmJlLTM1MGUtNDdhNC1iZWUwLTI4Yjc0MzFjNThmNC5wbmciLCJ3aWR0aCI6Ijw9NDAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.beYcqy7rv4y4hVMQj4PlmXfim1BDG5ihdKoGdDBx6_I",
     "imgCur": "miku_leek",
@@ -566,6 +568,7 @@ const songsData = [
   },
   {
     "title": "白いメロディー",
+    "romanized": "Shiroi Melody",
     "alt": "shiroi-melody",
     "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/db9b0a59-1832-436d-be35-c4da781cf1c8/deuyimk-4f9b728e-7492-4870-b8b9-ee4bb748a5f2.jpg/v1/fill/w_400,h_400,q_75,strp/shiroi_melody_by_wardimension_deuyimk-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDAwIiwicGF0aCI6IlwvZlwvZGI5YjBhNTktMTgzMi00MzZkLWJlMzUtYzRkYTc4MWNmMWM4XC9kZXV5aW1rLTRmOWI3MjhlLTc0OTItNDg3MC1iOGI5LWVlNGJiNzQ4YTVmMi5qcGciLCJ3aWR0aCI6Ijw9NDAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.WjrOBy0j3kxkWGNwbEWEf9YkH7kBeH0a8cji9Da1KM8",
     "url": [{
@@ -576,6 +579,7 @@ const songsData = [
       "amazon": "https://www.amazon.com/music/player/albums/B09MM9GQYP"
     },
     {
+      "soundCloud": "",
       "joox": "https://www.joox.com/album/hNXzq7ScZzkWyreXh9GOQA==",
       "flo": "https://www.music-flo.com/detail/album/edohihded/albumtrack",
       "vibe": "https://vibe.naver.com/album/7154572",
@@ -638,6 +642,7 @@ const songsData = [
   },
   {
     "title": "Μαύρη Μελωδία",
+    "romanized": "Mavri Melodia",
     "alt": "mavri-melodia",
     "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/db9b0a59-1832-436d-be35-c4da781cf1c8/df6spn2-d7d6b0e8-b057-4d81-9a97-c4398fb53bbb.jpg/v1/fill/w_400,h_400,q_75,strp/mavri_melodia_by_wardimension_df6spn2-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDAwIiwicGF0aCI6IlwvZlwvZGI5YjBhNTktMTgzMi00MzZkLWJlMzUtYzRkYTc4MWNmMWM4XC9kZjZzcG4yLWQ3ZDZiMGU4LWIwNTctNGQ4MS05YTk3LWM0Mzk4ZmI1M2JiYi5qcGciLCJ3aWR0aCI6Ijw9NDAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.9ygth97yEU1X-RKIL14SheqsB9pt8QxlolDOo-DjeRM",
     "url": [{
@@ -648,6 +653,7 @@ const songsData = [
       "amazon": "https://www.amazon.com/music/player/albums/B0B42SGC4B"
     },
     {
+      "soundCloud": "",
       "flo": "https://www.music-flo.com/detail/album/edhlzhnnn/albumtrack",
       "vibe": "https://vibe.naver.com/album/7883055",
       "bugs": "https://music.bugs.co.kr/album/18177073",
@@ -719,6 +725,7 @@ const songsData = [
       "amazon": "https://www.amazon.com/music/player/albums/B0B82L6LFV"
     },
     {
+      "soundCloud": "",
       "joox": "https://www.joox.com/album/ejrjvdkNUMtT48kRF_4LYg==",
       "flo": "https://www.music-flo.com/detail/album/edhyazolz/albumtrack",
       "vibe": "https://vibe.naver.com/album/8015495",
@@ -744,6 +751,7 @@ const songsData = [
   },
   {
     "title": "いつでも、どこでも、何でもいい",
+    "romanized": "Itsudemo, Dokodemo, Nandemoii",
     "alt": "itsudemo-dokodemo-nandemoii",
     "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/db9b0a59-1832-436d-be35-c4da781cf1c8/dfkmj89-094a8df4-1534-45a7-8c0c-173d2bf0da78.png/v1/fill/w_400,h_400,q_80,strp/itsudemo__dokodemo__nandemoii_by_wardimension_dfkmj89-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDAwIiwicGF0aCI6IlwvZlwvZGI5YjBhNTktMTgzMi00MzZkLWJlMzUtYzRkYTc4MWNmMWM4XC9kZmttajg5LTA5NGE4ZGY0LTE1MzQtNDVhNy04YzBjLTE3M2QyYmYwZGE3OC5wbmciLCJ3aWR0aCI6Ijw9NDAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.PuJVYOlFDsmRmG842REGC0Ss-_437QpoWjlooRvN1dQ",
     "url": [{
@@ -754,6 +762,7 @@ const songsData = [
       "amazon": "https://www.amazon.com/music/player/albums/B0BRDBFH79"
     },
     {
+      "soundCloud": "",
       "joox": "https://www.joox.com/album/m41kphghGpEwt88Y+qCX4w==",
       "flo": "https://www.music-flo.com/detail/album/eaaddaihz/albumtrack",
       "vibe": "https://vibe.naver.com/album/9135469",
@@ -816,6 +825,7 @@ const songsData = [
       "amazon": "https://www.amazon.com/music/player/albums/B0BYG18DWZ"
     },
     {
+      "soundCloud": "",
       "joox": "https://www.joox.com/id/album/u5GThFPDM2HT3lGmo8XBjA==",
       "flo": "https://www.music-flo.com/detail/album/eanalehyn/albumtrack",
       "netease": "https://music.163.com/#/album?id=161772496",

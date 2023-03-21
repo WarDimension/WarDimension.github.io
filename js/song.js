@@ -676,7 +676,7 @@ function songTemplate(song, index, songsData){
     <div class="content" id="${index}" tabIndex="0">
       <div class="album-container">
         <img ${song.imgCur ? `style="cursor: url('../cursors/${song.imgCur}.cur'), auto"` : ""} class="song-img" src="${song.img}" alt="${song.title} Album Art" ${song.img1 ? `onmouseover="src='${song.img1}'" onmouseout="src='${song.img}'"` : ""}/><!--
-        --><b class="song-title-disk"><span class="disk" id="${diskId}" ${diskId == diskTempId ? `style="transform: rotate(${degree}deg);"` : ""}></span><p class="song-title">${song.title}</p></b>
+        --><b class="song-title-disk"><span class="disk" id="${diskId}" ${diskId == diskTempId ? `style="transform: rotate(${degree}deg);"` : ""}></span><p class="song-title">${song.title}</p>${song.romanized ? `<span class="album-tooltip">${song.romanized}</span>` : ``}</b>
       </div>
       <div class="platform-container">
         <h3 class="available-on">Available on</h3>
