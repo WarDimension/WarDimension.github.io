@@ -219,7 +219,7 @@ h3{
 }
 .more-content{
   background: #fff;
-  padding: 20px 100px;
+  padding: 20px min(100px, 5%);
 }
 .more h3:first-of-type{
   margin-top: 0;
