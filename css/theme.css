@@ -435,6 +435,9 @@ h3{
   }
   .menu-button:focus{
     outline-color: #000;
+  } 
+  .platform-container h3:first-of-type{
+    margin-top: 10px;
   }
 }
 @media only screen and (max-width: 1024px){
