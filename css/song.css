@@ -204,6 +204,7 @@
   z-index: 2;
   white-space: nowrap;
   padding: 8px 20px;
+  box-shadow: 0 1px 3px #222;
 }
 .track-name:hover > .track-tooltip, .song-title:hover + .album-tooltip{
   opacity: 1;
@@ -414,6 +415,10 @@ button:focus{
   }
   .skip-content:focus{
     left: 20px;
+  }
+  .album-tooltip{
+    white-space: normal;
+    bottom: 38%;
   }
 }
 @media only screen and (max-width: 1024px){
