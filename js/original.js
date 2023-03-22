@@ -43,7 +43,7 @@ const songsData = [
     },
     {
       "youtube": "https://www.youtube.com/watch?v=9_5evlRwc5A",
-      "soundCloud": "https://soundcloud.com/wardimension/abandoned",
+      "soundCloud": "https://soundcloud.com/wardimension/sets/abandoned",
       "netease": "https://music.163.com/#/album?id=88366723",
       "kuwo": "https://www.kuwo.cn/album_detail/13453604"
     }],
@@ -68,7 +68,7 @@ const songsData = [
       "amazon": "https://www.amazon.com/music/player/albums/B07BHKP9YT"
     },
     {
-      "soundCloud": "https://soundcloud.com/wardimension/lets-do-it",
+      "soundCloud": "https://soundcloud.com/wardimension/sets/lets-do-it",
       "netease": "https://music.163.com/#/album?id=88366726",
       "kuwo": "https://www.kuwo.cn/album_detail/13453616"
     }],
@@ -184,7 +184,7 @@ const songsData = [
       "amazon": "https://www.amazon.com/music/player/albums/B07HBCH7BM"
     },
     {
-      "soundCloud": "https://soundcloud.com/wardimension/nohope",
+      "soundCloud": "https://soundcloud.com/wardimension/sets/nohope",
       "netease": "https://music.163.com/#/album?id=88469377",
       "kuwo": "https://www.kuwo.cn/album_detail/13508352"
     }],
