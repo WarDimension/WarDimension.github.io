@@ -140,7 +140,7 @@ const songsData = [
       "amazon": "https://www.amazon.com/music/player/albums/B07FK8WN57"
     },
     {
-      "soundCloud": "https://soundcloud.com/wardimension/sets/cxlclm2wunur",
+      "soundCloud": "https://soundcloud.com/wardimension/sets/ang-ung-mang",
       "netease": "https://music.163.com/#/album?id=88448393",
       "kuwo": "https://www.kuwo.cn/album_detail/13464122",
       "rocksmith": "https://wardimension.github.io/blog?b=chart&search=['Artist: WarDimension', 'Album: Om', 'Game: Rocksmith 2014']"
