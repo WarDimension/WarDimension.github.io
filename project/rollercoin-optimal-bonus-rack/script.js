@@ -73,6 +73,15 @@ const miners = [
         "qty": 1
     },
     {
+        "name": "Entminer",
+        "img": "https://static.rollercoin.com/static/img/market/miners/631f7b9d8238ed283a2354ea.gif?v=1.0.3",
+        "rarity": "II",
+        "power": 57.750,
+        "bonus": 0.55,
+        "cells": 2,
+        "qty": 1
+    },
+    {
         "name": "Hasher’s Egg",
         "img": "https://static.rollercoin.com/static/img/market/miners/631b5619a775e04d9a28546d.gif?v=1.0.3",
         "power": 21.600,
