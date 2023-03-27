@@ -277,6 +277,14 @@ const miners = [
         "bonus": 0,
         "cells": 2,
         "qty": 1
+    },
+    {
+        "name": "YMCA Game",
+        "img": "https://static.rollercoin.com/static/img/market/miners/63930d86380ccf549d7f5c2b.gif?v=1.0.3",
+        "power": 114.000,
+        "bonus": 0,
+        "cells": 2,
+        "qty": 1
     }
 ];
 
