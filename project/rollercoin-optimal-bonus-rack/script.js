@@ -239,6 +239,14 @@ const miners = [
         "qty": 1
     },
     {
+        "name": "Snowster-9001",
+        "img": "https://static.rollercoin.com/static/img/market/miners/6398e9e195b70ff678b1e56a.gif?v=1.0.3",
+        "power": 35.400,
+        "bonus": 0,
+        "cells": 2,
+        "qty": 1
+    },
+    {
         "name": "Tape-Side-A",
         "img": "https://static.rollercoin.com/static/img/market/miners/63930d86380ccf549d7f5c2e.gif?v=1.0.3",
         "power": 188.000,
