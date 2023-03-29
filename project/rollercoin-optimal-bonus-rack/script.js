@@ -360,9 +360,24 @@ for(let i = 0; i < smallMiners.length; i += 2){
 
 const table = document.querySelector(".miner-table");
 
+function getRarityIcon(rarity){
+    switch(rarity){
+        case "II":
+            return `<img class="rarity" src="https://rollercoin.com/static/img/storage/rarity_icons/level_2.png?v=1.0.0"/>`;
+        case "III":
+            return `<img class="rarity" src="https://rollercoin.com/static/img/storage/rarity_icons/level_3.png?v=1.0.0"/>`;
+        case "IV":
+            return `<img class="rarity" src="https://rollercoin.com/static/img/storage/rarity_icons/level_4.png?v=1.0.0"/>`;
+        case "V":
+            return `<img class="rarity" src="https://rollercoin.com/static/img/storage/rarity_icons/level_5.png?v=1.0.0"/>`;
+        case "VI":
+            return `<img class="rarity" src="https://rollercoin.com/static/img/storage/rarity_icons/level_6.png?v=1.0.0"/>`;
+    }
+}
+
 function normal(){
     for(let i = 0; i < miners.length; i++){
-        let power, unit, rarity = "";
+        let power, unit, rarity = getRarityIcon(miners[i].rarity);
 
         if(miners[i].power >= 1){
             power = miners[i].power;
@@ -371,24 +386,6 @@ function normal(){
         else{
             power = miners[i].power * 1000;
             unit = "GH/s";
-        }
-
-        switch(miners[i].rarity){
-            case "II":
-                rarity = `<img class="rarity" src="https://rollercoin.com/static/img/storage/rarity_icons/level_2.png?v=1.0.0"/>`;
-                break;
-            case "III":
-                rarity = `<img class="rarity" src="https://rollercoin.com/static/img/storage/rarity_icons/level_3.png?v=1.0.0"/>`;
-                break;
-            case "IV":
-                rarity = `<img class="rarity" src="https://rollercoin.com/static/img/storage/rarity_icons/level_4.png?v=1.0.0"/>`;
-                break;
-            case "V":
-                rarity = `<img class="rarity" src="https://rollercoin.com/static/img/storage/rarity_icons/level_5.png?v=1.0.0"/>`;
-                break;
-            case "VI":
-                rarity = `<img class="rarity" src="https://rollercoin.com/static/img/storage/rarity_icons/level_6.png?v=1.0.0"/>`;
-                break;
         }
 
         let row = table.insertRow(i+1);
@@ -406,7 +403,7 @@ function normal(){
 function crazy(){
     for(let i = 0; i < newMiners.length; i++){
         if(newMiners[i].doubleMiner){
-            let power1, power2, unit1, unit2, rarity1 = "", rarity2 = "", bonus1, bonus2;
+            let power1, power2, unit1, unit2, rarity1 = getRarityIcon(newMiners[i].miners[0].rarity), rarity2 = getRarityIcon(newMiners[i].miners[1].rarity), bonus1, bonus2;
     
             bonus1 = newMiners[i].miners[0].newBonus != undefined ? newMiners[i].miners[0].newBonus : newMiners[i].miners[0].bonus;
             bonus2 = newMiners[i].miners[1].newBonus != undefined ? newMiners[i].miners[1].newBonus : newMiners[i].miners[1].bonus;
@@ -427,42 +424,6 @@ function crazy(){
             else{
                 power2 = newMiners[i].miners[1].power * 1000;
                 unit2 = "GH/s";
-            }
-    
-            switch(newMiners[i].miners[0].rarity){
-                case "II":
-                    rarity1 = `<img class="rarity" src="https://rollercoin.com/static/img/storage/rarity_icons/level_2.png?v=1.0.0"/>`;
-                    break;
-                case "III":
-                    rarity1 = `<img class="rarity" src="https://rollercoin.com/static/img/storage/rarity_icons/level_3.png?v=1.0.0"/>`;
-                    break;
-                case "IV":
-                    rarity1 = `<img class="rarity" src="https://rollercoin.com/static/img/storage/rarity_icons/level_4.png?v=1.0.0"/>`;
-                    break;
-                case "V":
-                    rarity1 = `<img class="rarity" src="https://rollercoin.com/static/img/storage/rarity_icons/level_5.png?v=1.0.0"/>`;
-                    break;
-                case "VI":
-                    rarity1 = `<img class="rarity" src="https://rollercoin.com/static/img/storage/rarity_icons/level_6.png?v=1.0.0"/>`;
-                    break;
-            }
-    
-            switch(newMiners[i].miners[1].rarity){
-                case "II":
-                    rarity2 = `<img class="rarity" src="https://rollercoin.com/static/img/storage/rarity_icons/level_2.png?v=1.0.0"/>`;
-                    break;
-                case "III":
-                    rarity2 = `<img class="rarity" src="https://rollercoin.com/static/img/storage/rarity_icons/level_3.png?v=1.0.0"/>`;
-                    break;
-                case "IV":
-                    rarity2 = `<img class="rarity" src="https://rollercoin.com/static/img/storage/rarity_icons/level_4.png?v=1.0.0"/>`;
-                    break;
-                case "V":
-                    rarity2 = `<img class="rarity" src="https://rollercoin.com/static/img/storage/rarity_icons/level_5.png?v=1.0.0"/>`;
-                    break;
-                case "VI":
-                    rarity2 = `<img class="rarity" src="https://rollercoin.com/static/img/storage/rarity_icons/level_6.png?v=1.0.0"/>`;
-                    break;
             }
     
             let row = table.insertRow(i+1);
