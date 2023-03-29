@@ -272,6 +272,14 @@ const miners = [
         "qty": 1
     },
     {
+        "name": "The Minertaur",
+        "img": "https://static.rollercoin.com/static/img/market/miners/62553d7b42a0cd1b7dd45438.gif?v=1.0.3",
+        "power": 100.000,
+        "bonus": 1,
+        "cells": 2,
+        "qty": 1
+    },
+    {
         "name": "The Thrill Rider",
         "img": "https://static.rollercoin.com/static/img/market/miners/631b5617a775e04d9a28543c.gif?v=1.0.3",
         "power": 13.000,
