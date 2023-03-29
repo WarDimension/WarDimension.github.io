@@ -436,6 +436,15 @@ function crazy(){
                 case "III":
                     rarity1 = `<img class="rarity" src="https://rollercoin.com/static/img/storage/rarity_icons/level_3.png?v=1.0.0"/>`;
                     break;
+                case "IV":
+                    rarity1 = `<img class="rarity" src="https://rollercoin.com/static/img/storage/rarity_icons/level_4.png?v=1.0.0"/>`;
+                    break;
+                case "V":
+                    rarity1 = `<img class="rarity" src="https://rollercoin.com/static/img/storage/rarity_icons/level_5.png?v=1.0.0"/>`;
+                    break;
+                case "VI":
+                    rarity1 = `<img class="rarity" src="https://rollercoin.com/static/img/storage/rarity_icons/level_6.png?v=1.0.0"/>`;
+                    break;
             }
     
             switch(newMiners[i].miners[1].rarity){
@@ -444,6 +453,15 @@ function crazy(){
                     break;
                 case "III":
                     rarity2 = `<img class="rarity" src="https://rollercoin.com/static/img/storage/rarity_icons/level_3.png?v=1.0.0"/>`;
+                    break;
+                case "IV":
+                    rarity2 = `<img class="rarity" src="https://rollercoin.com/static/img/storage/rarity_icons/level_4.png?v=1.0.0"/>`;
+                    break;
+                case "V":
+                    rarity2 = `<img class="rarity" src="https://rollercoin.com/static/img/storage/rarity_icons/level_5.png?v=1.0.0"/>`;
+                    break;
+                case "VI":
+                    rarity2 = `<img class="rarity" src="https://rollercoin.com/static/img/storage/rarity_icons/level_6.png?v=1.0.0"/>`;
                     break;
             }
     
