@@ -170,7 +170,7 @@ const miners = [
         "power": 0.420,
         "bonus": 0.11,
         "cells": 1,
-        "qty": 3
+        "qty": 1
     },
     {
         "name": "RollerArc S1",
@@ -179,7 +179,16 @@ const miners = [
         "power": 1.050,
         "bonus": 0.11,
         "cells": 1,
-        "qty": 2
+        "qty": 1
+    },
+    {
+        "name": "RollerArc S1",
+        "img": "https://static.rollercoin.com/static/img/market/miners/631f79668238ed283a233a9c.gif?v=1.0.3",
+        "rarity": "IV",
+        "power": 3.045,
+        "bonus": 0.12,
+        "cells": 1,
+        "qty": 1
     },
     {
         "name": "RollerMiner R4",
