@@ -377,18 +377,24 @@ function getRarityIcon(rarity){
     return "";
 }
 
+function unitConversion(power){
+    let unit = "TH/s";
+
+    if(power >= 1000){
+        power /= 1000;
+        unit = "PH/s";
+    }
+    else if(power < 1){
+        power *= 1000;
+        unit = "GH/s";
+    }
+
+    return power + " " + unit;
+}
+
 function normal(){
     for(let i = 0; i < miners.length; i++){
-        let power, unit, rarity = getRarityIcon(miners[i].rarity);
-
-        if(miners[i].power >= 1){
-            power = miners[i].power;
-            unit = "TH/s";
-        }
-        else{
-            power = miners[i].power * 1000;
-            unit = "GH/s";
-        }
+        let rarity = getRarityIcon(miners[i].rarity);
 
         let row = table.insertRow(i+1);
         let cell1 = row.insertCell(0);
@@ -396,7 +402,7 @@ function normal(){
         let cell3 = row.insertCell(2);
 
         cell1.innerHTML = `<div><img class="single" src="${miners[i].img}"/>${rarity}${miners[i].name}</div>`;
-        cell2.innerHTML = power + " " + unit;
+        cell2.innerHTML = unitConversion(miners[i].power);
         cell3.innerHTML = miners[i].bonus + "%";
     }
 
@@ -410,64 +416,19 @@ function crazy(){
             bonus1 = newMiners[i].miners[0].newBonus != undefined ? newMiners[i].miners[0].newBonus : newMiners[i].miners[0].bonus;
             bonus2 = newMiners[i].miners[1].newBonus != undefined ? newMiners[i].miners[1].newBonus : newMiners[i].miners[1].bonus;
     
-            if(newMiners[i].miners[0].power >= 1){
-                power1 = newMiners[i].miners[0].power;
-                unit1 = "TH/s";
-            }
-            else{
-                power1 = newMiners[i].miners[0].power * 1000;
-                unit1 = "GH/s";
-            }
-    
-            if(newMiners[i].miners[1].power >= 1){
-                power2 = newMiners[i].miners[1].power;
-                unit2 = "TH/s";
-            }
-            else{
-                power2 = newMiners[i].miners[1].power * 1000;
-                unit2 = "GH/s";
-            }
-    
             let row = table.insertRow(i+1);
             let cell1 = row.insertCell(0);
             let cell2 = row.insertCell(1);
             let cell3 = row.insertCell(2);
             
             cell1.innerHTML = `<div><img src="${newMiners[i].miners[0].img}"/>${rarity1}${newMiners[i].miners[0].name}</div><span>➕</span><div><img src="${newMiners[i].miners[1].img}"/>${rarity2}${newMiners[i].miners[1].name}</div>`;
-            cell2.innerHTML = `${power1} ${unit1}<span>➕</span>${power2} ${unit2}`;
+            cell2.innerHTML = `${unitConversion(newMiners[i].miners[0].power)}<span>➕</span>${unitConversion(newMiners[i].miners[1].power)}`;
             cell3.innerHTML = `${bonus1}%<span>➕</span>${bonus2}%`;
         }
         else{
-            let power, unit, rarity = "", bonus;
+            let rarity = getRarityIcon(newMiners[i].rarity), bonus;
     
             bonus = newMiners[i].newBonus != undefined ? newMiners[i].newBonus : newMiners[i].bonus;
-    
-            if(newMiners[i].power >= 1){
-                power = newMiners[i].power;
-                unit = "TH/s";
-            }
-            else{
-                power = newMiners[i].power * 1000;
-                unit = "GH/s";
-            }
-    
-            switch(newMiners[i].rarity){
-                case "II":
-                    rarity = `<img class="rarity" src="https://rollercoin.com/static/img/storage/rarity_icons/level_2.png?v=1.0.0"/>`;
-                    break;
-                case "III":
-                    rarity = `<img class="rarity" src="https://rollercoin.com/static/img/storage/rarity_icons/level_3.png?v=1.0.0"/>`;
-                    break;
-                case "IV":
-                    rarity = `<img class="rarity" src="https://rollercoin.com/static/img/storage/rarity_icons/level_4.png?v=1.0.0"/>`;
-                    break;
-                case "V":
-                    rarity = `<img class="rarity" src="https://rollercoin.com/static/img/storage/rarity_icons/level_5.png?v=1.0.0"/>`;
-                    break;
-                case "VI":
-                    rarity = `<img class="rarity" src="https://rollercoin.com/static/img/storage/rarity_icons/level_6.png?v=1.0.0"/>`;
-                    break;
-            }
     
             let row = table.insertRow(i+1);
             let cell1 = row.insertCell(0);
@@ -475,7 +436,7 @@ function crazy(){
             let cell3 = row.insertCell(2);
     
             cell1.innerHTML = `<div><img class="single" src="${newMiners[i].img}"/>${rarity}${newMiners[i].name}</div>`;
-            cell2.innerHTML = power + " " + unit;
+            cell2.innerHTML = unitConversion(newMiners[i].power);
             cell3.innerHTML = bonus + "%";
         }
     }
