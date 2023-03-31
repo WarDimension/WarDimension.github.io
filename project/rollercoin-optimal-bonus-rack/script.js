@@ -231,6 +231,14 @@ const miners = [
         "qty": 1
     },
     {
+        "name": "Roy and Silo",
+        "img": "https://static.rollercoin.com/static/img/market/miners/6398e9e195b70ff678b1e569.gif?v=1.0.3",
+        "power": 48.000,
+        "bonus": 0,
+        "cells": 2,
+        "qty": 1
+    },
+    {
         "name": "Shifter",
         "img": "https://static.rollercoin.com/static/img/market/miners/631f78b98238ed283a2332a3.gif?v=1.0.3",
         "rarity": "II",
