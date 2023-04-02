@@ -41,6 +41,14 @@ const miners = [
         "qty": 1
     },
     {
+        "name": "Crimson Spark",
+        "img": "https://static.rollercoin.com/static/img/market/miners/61f9356a8b46ce6889390252.gif?v=1.0.3",
+        "power": 20.000,
+        "bonus": 0.5,
+        "cells": 1,
+        "qty": 1
+    },
+    {
         "name": "Deepdiver",
         "img": "https://static.rollercoin.com/static/img/market/miners/62a722279b5a37db46c0bca5.gif?v=1.0.3",
         "power": 12.500,
