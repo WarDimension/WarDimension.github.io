@@ -46,7 +46,7 @@ const miners = [
         "power": 20.000,
         "bonus": 0.5,
         "cells": 1,
-        "qty": 1
+        "qty": 2
     },
     {
         "name": "Deepdiver",
