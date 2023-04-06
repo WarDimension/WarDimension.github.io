@@ -247,6 +247,14 @@ const miners = [
         "qty": 1
     },
     {
+        "name": "Shaolin Temple",
+        "img": "https://static.rollercoin.com/static/img/market/miners/63ca6f1d547cfab9a2c51bc2.gif?v=1.0.3",
+        "power": 112.850,
+        "bonus": 0,
+        "cells": 2,
+        "qty": 1
+    },
+    {
         "name": "Shifter",
         "img": "https://static.rollercoin.com/static/img/market/miners/631f78b98238ed283a2332a3.gif?v=1.0.3",
         "rarity": "II",
