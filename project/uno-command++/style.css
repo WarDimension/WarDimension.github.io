@@ -39,7 +39,7 @@ body{
 .container p{
     margin: 3px;
 }
-.container .card{
+.container .card, .container .inline{
     display: inline-block;
     text-align: center;
 }
@@ -72,6 +72,11 @@ body{
 .container .color-wild{
     animation: wild;
     animation: wild 5s ease infinite;
+}
+.container .announcement{
+    padding: 3px;
+    width: 100%;
+    background: #222;
 }
 @keyframes wild{
   0%{
