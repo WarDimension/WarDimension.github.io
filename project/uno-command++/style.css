@@ -1,7 +1,7 @@
 *{
     font-family: "Courier New", Courier, monospace;
     box-sizing: border-box;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 ::-webkit-scrollbar {
     width: 5px;
@@ -11,6 +11,9 @@
 }
 ::-webkit-scrollbar-thumb:hover {
     background: #444;
+}
+::-webkit-scrollbar-track{
+  margin: 3px;
 }
 body{
     background: #ddd;
@@ -25,18 +28,33 @@ body{
     transform: translate(-50%, -50%);
 }
 .container *{
-    display: inline-block;
     font-size: initial;
-    background: #000;
     color: #fff;
 }
+.container div{
+    display: inline-block;
+    overflow-y: overlay;
+    background: #000;
+}
 .container p{
-    display: block;
     margin: 3px;
-    background: none;
 }
 .container .card{
     display: inline-block;
+    text-align: center;
+}
+.container .player-display .card{
+    position: relative;
+    overflow: visible;
+    margin-bottom: 23px;
+}
+.container .player-display .card::before{
+    content: var(--num);
+    position: absolute;
+    bottom: -15px;
+    width: 100%;
+    color: #ddd;
+    font-size: 8pt;
 }
 .container .color-green{
     background: #328A10;
@@ -89,6 +107,11 @@ body{
     width: 1024px;
     border-top: double 3px #444;
 }
+.player-input-container{
+    position: relative;
+    width: 100%;
+    font-size: 0;
+}
 .player-input{
     bottom: 0;
     padding: 3px;
@@ -103,5 +126,6 @@ body{
 }
 .player-name{
     position: absolute;
+    display: inline-block;
     margin: 3px;
 }

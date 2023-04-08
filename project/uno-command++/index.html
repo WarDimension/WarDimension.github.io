@@ -25,13 +25,15 @@
         </div>
         <div class="player-display">
             <p class="card">cards:</p>
-            <p class="card color-green" style="--num: 1;">[4]</p>
-            <p class="card color-red" style="--num: 2;">[4]</p>
-            <p class="card color-yellow" style="--num: 3;">[4]</p>
-            <p class="card color-blue" style="--num: 4;">[4]</p>
-            <p class="card color-wild" style="--num: 5;">[+4]</p>
-            <p class="player-name">player_1&gt;</p>
-            <textarea class="player-input" style="height: 24px" onblur="this.focus();" onkeydown="playerInputDown(event)" onkeyup="playerInputUp(event)" autofocus></textarea>
+            <p class="card color-green" style="--num: '1';">[4]</p>
+            <p class="card color-red" style="--num: '2';">[4]</p>
+            <p class="card color-yellow" style="--num: '3';">[4]</p>
+            <p class="card color-blue" style="--num: '4';">[4]</p>
+            <p class="card color-wild" style="--num: '5';">[+4]</p>
+            <div class="player-input-container">
+                <p class="player-name">player_1&gt;</p>
+                <textarea class="player-input" style="height: 24px" onblur="this.focus();" onkeydown="playerInputDown(event)" onkeyup="playerInputUp(event)" autofocus></textarea>
+            </div>
         </div>
     </div>
 </body>
