@@ -1,0 +1,39 @@
+*{
+    font-family: "Courier New", Courier, monospace;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar-thumb {
+    background: #666;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #444;
+}
+body{
+    background: #ddd;
+}
+
+.container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1920px;
+    transform: translate(-50%, -50%);
+}
+.main-display{
+    display: inline-block;
+    height: 768px;
+    width: 1024px;
+    background: #000;
+    border-left: solid 1px #ddd;
+    border-right: solid 1px #ddd;
+}
+.move-history-display, .player-display{
+    display: inline-block;
+    height: 768px;
+    width: 300px;
+    background: #000;
+}
