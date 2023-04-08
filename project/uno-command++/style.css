@@ -31,6 +31,11 @@ body{
     background: #000;
     color: #fff;
 }
+.container p{
+    display: block;
+    margin: 3px;
+    background: none;
+}
 .main-display{
     height: 468px;
     width: 724px;
@@ -46,7 +51,6 @@ body{
     border-top: double 3px #444;
 }
 .player-input{
-    position: absolute;
     bottom: 0;
     padding: 3px;
     resize: none;
@@ -57,4 +61,8 @@ body{
     background: #222;
     outline: none;
     border: none;
+}
+.player-name{
+    position: absolute;
+    margin: 3px;
 }
