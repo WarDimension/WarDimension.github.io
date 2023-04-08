@@ -10,3 +10,25 @@ window.addEventListener("resize", (e) => {
     mvp.setAttribute("content","width=device-width, initial-scale=1.0, user-scalable=no");
   }
 });
+
+const playerInput = document.querySelector(".player-input");
+
+function playerInputDown(e){
+    if(e.key == 'Enter'){
+        playerInput.style.height = '44px';
+        playerInput.value = '';
+    }
+}
+
+function playerInputUp(e){
+    if(e.key == 'Enter'){
+        playerInput.style.height = '24px';
+        playerInput.value = '';
+    }
+}
+
+window.addEventListener("keydown", (e) => {
+    if(e.key == "Tab"){
+        e.preventDefault();
+    }
+});
