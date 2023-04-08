@@ -44,7 +44,7 @@ body{
 .player-display{
     display: inline-block;
     height: 300px;
-    width: 1324px;
+    width: 1024px;
     background: #000;
     border-top: solid 1px #666;
 }
