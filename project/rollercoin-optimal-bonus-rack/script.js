@@ -95,7 +95,7 @@ const miners = [
         "power": 21.600,
         "bonus": 0,
         "cells": 1,
-        "qty": 1
+        "qty": 2
     },
     {
         "name": "Helipop",
