@@ -20,20 +20,31 @@ body{
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 1920px;
+    width: 1024px;
+    font-size: 0;
+    color: #fff;
     transform: translate(-50%, -50%);
+}
+.container *{
+    font-size: initial;
 }
 .main-display{
     display: inline-block;
-    height: 768px;
-    width: 1024px;
+    height: 468px;
+    width: 724px;
     background: #000;
-    border-left: solid 1px #ddd;
-    border-right: solid 1px #ddd;
 }
-.move-history-display, .player-display{
+.move-history-display{
     display: inline-block;
-    height: 768px;
+    height: 468px;
     width: 300px;
     background: #000;
+    border-left: solid 1px #666;
+}
+.player-display{
+    display: inline-block;
+    height: 300px;
+    width: 1324px;
+    background: #000;
+    border-top: solid 1px #666;
 }
