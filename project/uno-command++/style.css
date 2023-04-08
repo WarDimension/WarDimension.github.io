@@ -15,7 +15,6 @@
 body{
     background: #ddd;
 }
-
 .container{
     position: absolute;
     top: 50%;
@@ -35,6 +34,46 @@ body{
     display: block;
     margin: 3px;
     background: none;
+}
+.container .card{
+    display: inline-block;
+}
+.container .color-green{
+    background: #328A10;
+}
+.container .color-red{
+    background: #C40C00;
+}
+.container .color-yellow{
+    background: #E7D004;
+    color: #000;
+}
+.container .color-blue{
+    background: #0849A3;
+}
+.container .color-wild{
+    animation: wild;
+    animation: wild 5s ease infinite;
+}
+@keyframes wild{
+  0%{
+    background: #328A10;
+  }
+  25%{
+    background: #C40C00;
+    color: #fff;
+  }
+  50%{
+    background: #E7D004;
+    color: #000;
+  }
+  75%{
+    background: #0849A3;
+    color: #fff;
+  }
+  100%{
+    background: #328A10;
+  }
 }
 .main-display{
     height: 468px;
