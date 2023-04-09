@@ -36,6 +36,9 @@ body{
     overflow-y: overlay;
     background: #000;
 }
+.container .player-input-container{
+    padding: 3px;
+}
 .container p{
     margin: 3px;
 }
