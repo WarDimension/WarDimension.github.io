@@ -105,6 +105,9 @@ function resetPlayers(){
 let AINames = ["WarDimension", "プラン", players[0].name + "'s Clone", "C:\\User\\" + players[0].name, "AI-chan", "I'm a human, I swear", "I'm fine", "AI FTW", "._.)", "UNO_BOT", "Markivider", "Javascript AI", "_anon", "_blank", "1010011010", "666", "EEE", "SLAP LIKE NOW", "アニメ", "weebs69", "Davie404", "Barbara", "UNO_Master", "Baby Yoda", "NO U", "I have +4, LOL", "Anonymous"];
 
 function randomAI(){
+    AINames[2] = players[0].name + "'s Clone";
+    AINames[3] = "C:\\User\\" + players[0].name;
+
     for(let i = 1; i < maxPlayers; i++){
         let AIName = AINames[Math.floor(Math.random() * AINames.length)];
 
