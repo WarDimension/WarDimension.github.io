@@ -36,22 +36,25 @@ body{
     overflow-y: overlay;
     background: #000;
 }
-.container .player-input-container{
+.player-input-container{
+    position: relative;
+    width: 100%;
     padding: 3px;
+    font-size: 0;
 }
 .container p{
     margin: 3px;
 }
-.container .card, .container .inline{
+.card, .inline{
     display: inline-block;
     text-align: center;
 }
-.container .player-display .card, .container .player-display .inline{
+.player-display .card, .player-display .inline{
     position: relative;
     overflow: visible;
     margin-bottom: 23px;
 }
-.container .player-display .card::before{
+.player-display .card::before{
     content: var(--num);
     position: absolute;
     bottom: -15px;
@@ -59,24 +62,24 @@ body{
     color: #ddd;
     font-size: 8pt;
 }
-.container .color-green{
+.color-green{
     background: #328A10;
 }
-.container .color-red{
+.color-red{
     background: #C40C00;
 }
-.container .color-yellow{
+.color-yellow{
     background: #E7D004;
     color: #000;
 }
-.container .color-blue{
+.color-blue{
     background: #0849A3;
 }
-.container .color-wild{
+.color-wild{
     animation: wild;
     animation: wild 5s ease infinite;
 }
-.container .announcement{
+.announcement{
     padding: 3px;
     width: 100%;
     background: #222;
@@ -114,11 +117,6 @@ body{
     height: 300px;
     width: 1024px;
     border-top: double 3px #444;
-}
-.player-input-container{
-    position: relative;
-    width: 100%;
-    font-size: 0;
 }
 .player-input{
     bottom: 0;

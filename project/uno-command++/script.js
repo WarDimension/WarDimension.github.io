@@ -45,6 +45,58 @@ let background = "default";
 
 // SETTINGS END
 
+// UPDATE DISPLAY
+
+const playerCardsContainer = document.querySelector(".player-cards-container");
+function displayPlayerCards(playerIndex, isHidden = false){
+    let cards = players[playerIndex].cards;
+    let cardsHTML = "";
+
+    if(isHidden){
+        for(let i = 0; i < cards.length; i++){
+            cardsHTML += `<p class="card" style="--num: '${i + 1}';">[?]</p>`;
+        }
+        return cardsHTML;
+    }
+
+    for(let i = 0; i < cards.length; i++){
+        cardsHTML += `<p class="card color-${cards[i].color}" style="--num: '${i + 1}';">[${cards[i].name}]</p>`;
+    }
+    return cardsHTML;
+}
+
+const playerNameHTML = document.querySelector(".player-name");
+function updateNameDisplay(playerIndex){
+    playerNameHTML.innerHTML = players[playerIndex].name + ">";
+    playerInput.style.textIndent = playerNameHTML.scrollWidth + 10 + "px";
+}
+
+function updatePlayerDisplay(playerIndex, showCards){
+    playerCardsContainer.innerHTML = `<p class="inline">cards [${players[playerIndex].cards.length}]:</p>`;
+    switch(showCards){
+        case "hidden":
+            playerCardsContainer.innerHTML += displayPlayerCards(playerIndex, true);
+            break;
+        case "none":
+            playerCardsContainer.style = "none";
+            break;
+        default:
+            playerCardsContainer.innerHTML += displayPlayerCards(playerIndex);
+            playerCardsContainer.style = "block";
+            break;
+    }
+
+    updateNameDisplay(playerIndex);
+}
+
+function updateDisplay(playerIndex = 0, showCards){
+    updatePlayerDisplay(playerIndex, showCards);
+}
+
+// UPDATE DISPLAY END
+
+// CARDS
+
 const cards = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "skip", "reverse", "+2", "wild", "+4"];
 const colors = ["green", "red", "yellow", "blue"];
 
@@ -90,6 +142,10 @@ function randomPlayersCards(){
     }
 }
 
+// CARDS END
+
+// PLAYERS
+
 let players = [{
     "name": "player_1",
     "cards": []
@@ -121,14 +177,15 @@ function randomAI(){
     }
 }
 
+// PLAYERS END
+
 // PRE PLAY
 
 function PRE_PLAY(){
     resetPlayers();
     randomAI();
     randomPlayersCards();
-
-    console.log(players);
+    updateDisplay();
 }
 
 // PRE PLAY END
