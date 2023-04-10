@@ -57,6 +57,14 @@ const miners = [
         "qty": 3
     },
     {
+        "name": "Demon Speeding",
+        "img": "https://static.rollercoin.com/static/img/market/miners/6422f238f1cff2d95bf745a0.gif?v=1.0.3",
+        "power": 0.010,
+        "bonus": 0,
+        "cells": 1,
+        "qty": 1
+    },
+    {
         "name": "Disco-Roll",
         "img": "https://static.rollercoin.com/static/img/market/miners/63930d86380ccf549d7f5c29.gif?v=1.0.3",
         "power": 36.300,
