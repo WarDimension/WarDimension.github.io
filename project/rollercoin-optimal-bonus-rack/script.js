@@ -1,5 +1,13 @@
 const miners = [
     {
+        "name": "8blessed",
+        "img": "https://static.rollercoin.com/static/img/market/miners/6231c296a258d58160cdf676.gif?v=1.0.3",
+        "power": 33.000,
+        "bonus": 0,
+        "cells": 2,
+        "qty": 1
+    },
+    {
         "name": "Cerberus",
         "img": "https://static.rollercoin.com/static/img/market/miners/631f7b828238ed283a2353a5.gif?v=1.0.3",
         "rarity": "II",
@@ -177,7 +185,7 @@ const miners = [
         "power": 0.150,
         "bonus": 0.1,
         "cells": 1,
-        "qty": 12
+        "qty": 14
     },
     {
         "name": "RollerArc S1",
