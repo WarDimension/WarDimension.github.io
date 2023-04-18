@@ -18,7 +18,7 @@ vocal.addEventListener("change", function (e) {
                 lyrics.push({"time": match[1] * 1, "length": match[2] * 1, "lyric": match[3]});
             }
 
-            let phrase = "", srtTime;
+            let phrase = "", srtTime, isFirstSyllable = true, firstSyllableIndex, srtIndex = 1;
 
             for(let i = 0; i < lyrics.length; i++){
                 if(lyrics[i].lyric.includes("+")){
@@ -46,22 +46,28 @@ vocal.addEventListener("change", function (e) {
                         break;
                 }
 
-                srtTime = sec2time(lyrics[i].time) + " --> " + sec2time(endTime);
-
-                result +=`${i+1}\n${srtTime}\n${phrase}\n\n`;
+                if(isFirstSyllable){
+                    firstSyllableIndex = i;
+                    isFirstSyllable = false;
+                }
 
                 switch(lyrics[i].join){
                     case "":
                         phrase += " ";
                         break;
                     case "+":
+                        srtTime = sec2time(lyrics[firstSyllableIndex].time) + " --> " + sec2time(endTime);
+        
+                        result +=`${srtIndex}\n${srtTime}\n${phrase}\n\n`;
+
                         phrase = "";
+                        srtIndex++;
+
+                        isFirstSyllable = true;
                         break;
                 }
             }
         }
-        console.clear();
-        console.log(result);
         downloadToFile(result, vocal.files[0].name.replace(/.\w+$/, ".srt"), "text/plain");
     }
     reader.readAsText(vocal.files[0]);
