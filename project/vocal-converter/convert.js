@@ -1,56 +1,68 @@
 const vocal = document.querySelector(".vocal");
 const result = document.querySelector(".result");
 
-let srt = "";
+function parseUnicode(str){
+    return str.replace("&apos;", "'");
+}
 
 vocal.addEventListener("change", function (e) {
     const reader = new FileReader();
     reader.onload = function(){
         const rVocal = reader.result;
+        let result = "";
 
         if(vocal.files[0].name.includes(".xml")){
-            let lyrics = rVocal.match(/time.*"/g);
-    
-            let firstLine = true;
-    
-            let i = 1;
-    
-            let lyric = "";
-    
-            lyrics.forEach(syllable => {
-                if(firstLine){
-                    let time = syllable.match(/\d+.\d+/);
-    
-                    time = sec2time(time[0]);
-    
-                    srt += `${i}\n${time} --> `;
-    
-                    firstLine = false;
-    
-                    lyric = "";
-                }
-    
-                lrc = syllable.match(/lyric="\w+[-+=]?"/);
-                lyric += lrc[0].replace(/lyric="(\w+)[-+=]?"/, "$1");
+            let lyrics = [], match, regex = /time="(.*)" note.*length="(.*)" lyric="(.*)"/g;
 
-                if(lrc[0].match(/"\w+"/)){
-                    lyric += " ";
+            while(match = regex.exec(rVocal)){
+                lyrics.push({"time": match[1] * 1, "length": match[2] * 1, "lyric": match[3]});
+            }
+
+            let phrase = "", srtTime;
+
+            for(let i = 0; i < lyrics.length; i++){
+                if(lyrics[i].lyric.includes("+")){
+                    lyrics[i].lyric = lyrics[i].lyric.replace("+", "");
+                    lyrics[i].join = "+";
                 }
-    
-                if(syllable.includes("+")){
-                    let time = syllable.match(/\d+.\d+/);
-    
-                    time = sec2time(time[0]);
-    
-                    srt += `${time}\n${lyric}\n\n`;
-    
-                    firstLine = true;
-    
-                    i++;
+                else if(lyrics[i].lyric.includes("-") && lyrics[i].lyric != "-"){
+                    lyrics[i].lyric = lyrics[i].lyric.replace(/-/, "");
+                    lyrics[i].join = "-";
                 }
-            });
+                else{
+                    lyrics[i].join = "";
+                }
+
+                phrase += parseUnicode(lyrics[i].lyric);
+
+                let endTime;
+
+                switch(lyrics[i].join){
+                    case "+":
+                        endTime = lyrics[i].time + lyrics[i].length;
+                        break;
+                    default:
+                        endTime = lyrics[i+1].time;
+                        break;
+                }
+
+                srtTime = sec2time(lyrics[i].time) + " --> " + sec2time(endTime);
+
+                result +=`${i+1}\n${srtTime}\n${phrase}\n\n`;
+
+                switch(lyrics[i].join){
+                    case "":
+                        phrase += " ";
+                        break;
+                    case "+":
+                        phrase = "";
+                        break;
+                }
+            }
         }
-        downloadToFile(srt, vocal.files[0].name.replace(/.\w+$/, ".srt"), "text/plain");
+        console.clear();
+        console.log(result);
+        downloadToFile(result, vocal.files[0].name.replace(/.\w+$/, ".srt"), "text/plain");
     }
     reader.readAsText(vocal.files[0]);
 }, false);
