@@ -5,6 +5,10 @@ function parseUnicode(str){
     return str.replace("&apos;", "'");
 }
 
+let isSyllableMode = true;
+let originalDelay = 3;
+let targetDelay = 2.85;
+
 vocal.addEventListener("change", function (e) {
     const reader = new FileReader();
     reader.onload = function(){
@@ -15,7 +19,7 @@ vocal.addEventListener("change", function (e) {
             let lyrics = [], match, regex = /time="(.*)" note.*length="(.*)" lyric="(.*)"/g;
 
             while(match = regex.exec(rVocal)){
-                lyrics.push({"time": match[1] * 1, "length": match[2] * 1, "lyric": match[3]});
+                lyrics.push({"time": match[1] * 1 - originalDelay + targetDelay, "length": match[2] * 1, "lyric": match[3]});
             }
 
             let phrase = "", srtTime, isFirstSyllable = true, firstSyllableIndex, srtIndex = 1;
@@ -50,24 +54,28 @@ vocal.addEventListener("change", function (e) {
                     firstSyllableIndex = i;
                     isFirstSyllable = false;
                 }
+                
+                if(lyrics[i].join == "+" || isSyllableMode){
+                    srtTime = sec2time(lyrics[firstSyllableIndex].time) + " --> " + sec2time(endTime);
+    
+                    result +=`${srtIndex}\n${srtTime}\n${phrase}\n\n`;
+                    srtIndex++;
+
+                    isFirstSyllable = true;
+                }
 
                 switch(lyrics[i].join){
                     case "":
                         phrase += " ";
                         break;
                     case "+":
-                        srtTime = sec2time(lyrics[firstSyllableIndex].time) + " --> " + sec2time(endTime);
-        
-                        result +=`${srtIndex}\n${srtTime}\n${phrase}\n\n`;
-
                         phrase = "";
-                        srtIndex++;
-
-                        isFirstSyllable = true;
                         break;
                 }
             }
         }
+        console.clear();
+        console.log(result);
         downloadToFile(result, vocal.files[0].name.replace(/.\w+$/, ".srt"), "text/plain");
     }
     reader.readAsText(vocal.files[0]);
