@@ -185,7 +185,7 @@ const miners = [
         "power": 0.150,
         "bonus": 0.1,
         "cells": 1,
-        "qty": 15
+        "qty": 16
     },
     {
         "name": "RollerArc S1",
