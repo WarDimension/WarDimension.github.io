@@ -827,7 +827,7 @@ const songsData = [
     },
     {
       "soundCloud": "https://soundcloud.com/wardimension/sets/evil-within-me",
-      "joox": "https://www.joox.com/id/album/u5GThFPDM2HT3lGmo8XBjA==",
+      "joox": "https://www.joox.com/album/u5GThFPDM2HT3lGmo8XBjA==",
       "flo": "https://www.music-flo.com/detail/album/eanalehyn/albumtrack",
       "netease": "https://music.163.com/#/album?id=161772496",
       "kuwo": "https://www.kuwo.cn/album_detail/36245960",
@@ -853,20 +853,19 @@ const songsData = [
     "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/db9b0a59-1832-436d-be35-c4da781cf1c8/dfuu5wk-29013c26-a902-4786-9e2c-9fdbd6d677f9.png/v1/fill/w_400,h_400/psychedelic_by_wardimension_dfuu5wk-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDAwIiwicGF0aCI6IlwvZlwvZGI5YjBhNTktMTgzMi00MzZkLWJlMzUtYzRkYTc4MWNmMWM4XC9kZnV1NXdrLTI5MDEzYzI2LWE5MDItNDc4Ni05ZTJjLTlmZGJkNmQ2NzdmOS5wbmciLCJ3aWR0aCI6Ijw9NDAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.AdqBRBLBkTWMy0CdzcgopfwG9Zjj-AQF76vGt-yO5_M",
     "url": [{
       "itunes": "https://music.apple.com/album/psychedelic-single/1661316481",
-      "deezer": "",
-      "spotify": "",
-      "youtubeMusic": "",
-      "amazon": ""
+      "deezer": "https://www.deezer.com/album/389799597",
+      "spotify": "https://open.spotify.com/album/2TDnG060mW3FUK9k3upfwd",
+      "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_nbza0y0FD9BE05dplym9xawcypYLgnMq0",
+      "amazon": "https://www.amazon.com/music/player/albums/B0BQZ688MK"
     },
     {
       "soundCloud": "",
-      "joox": "",
-      "flo": "",
-      "netease": "",
-      "kuwo": "",
-      "boomplay": "",
-      "anghami": "",
-      "zingmp3": ""
+      "joox": "https://www.joox.com/album/y6eAay0ZJaj0Dm5+TFQUqA==",
+      "flo": "https://www.music-flo.com/detail/album/eadyoneie/albumtrack",
+      "netease": "https://music.163.com/#/album?id=157106891",
+      "kuwo": "https://www.kuwo.cn/album_detail/33986954",
+      "boomplay": "https://www.boomplay.com/albums/61819672",
+      "zingmp3": "https://zingmp3.vn/album/Psychedelic-Single-WarDimension/6B7FZ0DE.html"
     }],
     "track": [
       {
