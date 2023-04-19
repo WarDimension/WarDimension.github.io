@@ -656,7 +656,6 @@ function platformTemplate(song, index = 0, ばか = "バカ！"){
     ${platform(song.url[index].netease, "netease", "NetEase Music")}
     ${platform(song.url[index].kuwo, "kuwo", "Kuwo")}
     ${platform(song.url[index].boomplay, "boomplay", "Boomplay")}
-    ${platform(song.url[index].anghami, "anghami", "anghami")}
     ${platform(song.url[index].zingmp3, "zingmp3", "Zing mp3")}
     ${platform(song.url[index].rocksmith, "rocksmith", "Rocksmith")}
     ${platform(song.url[index].osu, "osu", "osu!")}
