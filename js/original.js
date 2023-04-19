@@ -847,5 +847,43 @@ const songsData = [
         "youtubeID": "LuF8mIIG0b4"
       }
     ]
+  },
+  {
+    "title": "Psychedelic",
+    "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/db9b0a59-1832-436d-be35-c4da781cf1c8/dfuu5wk-29013c26-a902-4786-9e2c-9fdbd6d677f9.png/v1/fill/w_400,h_400/psychedelic_by_wardimension_dfuu5wk-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDAwIiwicGF0aCI6IlwvZlwvZGI5YjBhNTktMTgzMi00MzZkLWJlMzUtYzRkYTc4MWNmMWM4XC9kZnV1NXdrLTI5MDEzYzI2LWE5MDItNDc4Ni05ZTJjLTlmZGJkNmQ2NzdmOS5wbmciLCJ3aWR0aCI6Ijw9NDAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.AdqBRBLBkTWMy0CdzcgopfwG9Zjj-AQF76vGt-yO5_M",
+    "url": [{
+      "itunes": "",
+      "deezer": "",
+      "spotify": "",
+      "youtubeMusic": "",
+      "amazon": ""
+    },
+    {
+      "soundCloud": "",
+      "joox": "",
+      "flo": "",
+      "netease": "",
+      "kuwo": "",
+      "boomplay": "",
+      "anghami": "",
+      "zingmp3": ""
+    }],
+    "track": [
+      {
+        "title": "",
+        "length": "",
+        "youtubeID": ""
+      },
+      {
+        "title": "",
+        "length": "",
+        "youtubeID": ""
+      },
+      {
+        "title": "",
+        "length": "",
+        "youtubeID": ""
+      }
+    ]
   }
 ];
