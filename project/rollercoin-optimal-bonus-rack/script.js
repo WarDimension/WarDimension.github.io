@@ -5,7 +5,7 @@ const miners = [
         "power": 33.000,
         "bonus": 0,
         "cells": 2,
-        "qty": 1
+        "qty": 2
     },
     {
         "name": "Cerberus",
