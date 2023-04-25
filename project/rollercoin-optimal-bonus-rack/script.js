@@ -168,7 +168,7 @@ const miners = [
         "img": "https://static.rollercoin.com/static/img/market/miners/60c9bc0965dce86c86c372fe.gif?v=1.0.3",
         "power": 25.000,
         "bonus": 0.5,
-        "cells": 2,
+        "cells": 1,
         "qty": 1
     },
     {
