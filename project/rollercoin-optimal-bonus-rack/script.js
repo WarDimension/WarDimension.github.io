@@ -152,7 +152,7 @@ const miners = [
         "power": 3.825,
         "bonus": 0,
         "cells": 2,
-        "qty": 3
+        "qty": 4
     },
     {
         "name": "Mergedge",
@@ -193,7 +193,7 @@ const miners = [
         "power": 0.150,
         "bonus": 0.1,
         "cells": 1,
-        "qty": 17
+        "qty": 18
     },
     {
         "name": "RollerArc S1",
