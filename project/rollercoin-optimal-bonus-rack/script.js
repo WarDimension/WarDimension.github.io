@@ -180,6 +180,14 @@ const miners = [
         "qty": 2
     },
     {
+        "name": "Petroglyph",
+        "img": "https://static.rollercoin.com/static/img/market/miners/62444c9142a0cd1b7d749f2a.gif?v=1.0.3",
+        "power": 25.000,
+        "bonus": 0.25,
+        "cells": 2,
+        "qty": 1
+    },
+    {
         "name": "Radio Gaga",
         "img": "https://static.rollercoin.com/static/img/market/miners/63930d86380ccf549d7f5c28.gif?v=1.0.3",
         "power": 15.400,
