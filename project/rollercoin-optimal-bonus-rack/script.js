@@ -185,7 +185,7 @@ const miners = [
         "power": 25.000,
         "bonus": 0.25,
         "cells": 2,
-        "qty": 1
+        "qty": 2
     },
     {
         "name": "Radio Gaga",
@@ -201,7 +201,7 @@ const miners = [
         "power": 0.150,
         "bonus": 0.1,
         "cells": 1,
-        "qty": 18
+        "qty": 19
     },
     {
         "name": "RollerArc S1",
@@ -268,7 +268,7 @@ const miners = [
         "power": 1.320,
         "bonus": 0.25,
         "cells": 1,
-        "qty": 7
+        "qty": 8
     },
     {
         "name": "Rolleron 741",
@@ -282,6 +282,14 @@ const miners = [
         "name": "Roy and Silo",
         "img": "https://static.rollercoin.com/static/img/market/miners/6398e9e195b70ff678b1e569.gif?v=1.0.3",
         "power": 48.000,
+        "bonus": 0,
+        "cells": 2,
+        "qty": 1
+    },
+    {
+        "name": "RPMiner",
+        "img": "https://static.rollercoin.com/static/img/market/miners/6422f238f1cff2d95bf745a1.gif?v=1.0.3",
+        "power": 15.400,
         "bonus": 0,
         "cells": 2,
         "qty": 1
