@@ -295,6 +295,14 @@ const miners = [
         "qty": 1
     },
     {
+        "name": "Rust Runner",
+        "img": "https://static.rollercoin.com/static/img/market/miners/64491a76547cfab9a2c49655.gif?v=1.0.3",
+        "power": 64.600,
+        "bonus": 0,
+        "cells": 2,
+        "qty": 1
+    },
+    {
         "name": "Shaolin Temple",
         "img": "https://static.rollercoin.com/static/img/market/miners/63ca6f1d547cfab9a2c51bc2.gif?v=1.0.3",
         "power": 112.850,
