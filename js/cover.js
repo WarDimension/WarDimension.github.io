@@ -8,7 +8,7 @@ const coversData = [
     "imgCur": "miku_leek",
     "url": [{
       "youtube": "https://www.youtube.com/playlist?list=PLjU3ePCiIkWnmvop0AXGm4KcyuPAF6GGT",
-      "rocksmith": "https://wardimension.github.io/blog?album=Virtual Boy"
+      "rocksmith": "https://wardimension.github.io/blog?b=chart&search=['Artist: WarDimension', 'Album: Virtual Boy', 'Game: Rocksmith 2014']"
     }],
     "track": [
       {
@@ -41,7 +41,7 @@ const coversData = [
     "url": [{
       "youtube": "https://www.youtube.com/playlist?list=PLjU3ePCiIkWlSWJ2OCrd8xNypfuWzuXzi",
       "bandLab": "https://www.bandlab.com/wardimension/collections/e3355859-cdd6-e911-b5e9-28187831ee7a",
-      "rocksmith": "https://wardimension.github.io/blog?album=Basket Case"
+      "rocksmith": "https://wardimension.github.io/blog?b=chart&search=['Artist: WarDimension', 'Album: Basket Case', 'Game: Rocksmith 2014']"
     }],
     "track": [
       {
