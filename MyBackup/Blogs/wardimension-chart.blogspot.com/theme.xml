@@ -3737,14 +3737,14 @@ html, body, iframe{
                     <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog' visible='true'>
                       <b:widget-settings>
                         <b:widget-setting name='showDateHeader'>false</b:widget-setting>
-                        <b:widget-setting name='style.textcolor'>#25a186</b:widget-setting>
+                        <b:widget-setting name='style.textcolor'>#ffffff</b:widget-setting>
                         <b:widget-setting name='showShareButtons'>true</b:widget-setting>
                         <b:widget-setting name='showCommentLink'>true</b:widget-setting>
-                        <b:widget-setting name='style.urlcolor'>#e5f0ee</b:widget-setting>
+                        <b:widget-setting name='style.urlcolor'>#ffffff</b:widget-setting>
                         <b:widget-setting name='showAuthor'>false</b:widget-setting>
                         <b:widget-setting name='style.linkcolor'>#ffffff</b:widget-setting>
                         <b:widget-setting name='style.unittype'>TextAndImage</b:widget-setting>
-                        <b:widget-setting name='style.bgcolor'>#000000</b:widget-setting>
+                        <b:widget-setting name='style.bgcolor'>#ffffff</b:widget-setting>
                         <b:widget-setting name='timestampLabel'/>
                         <b:widget-setting name='reactionsLabel'/>
                         <b:widget-setting name='showAuthorProfile'>false</b:widget-setting>
@@ -3754,7 +3754,7 @@ html, body, iframe{
                         <b:widget-setting name='showTimestamp'>true</b:widget-setting>
                         <b:widget-setting name='postsPerAd'>2</b:widget-setting>
                         <b:widget-setting name='showBacklinks'>false</b:widget-setting>
-                        <b:widget-setting name='style.bordercolor'>#000000</b:widget-setting>
+                        <b:widget-setting name='style.bordercolor'>#ffffff</b:widget-setting>
                         <b:widget-setting name='showInlineAds'>true</b:widget-setting>
                         <b:widget-setting name='showReactions'>false</b:widget-setting>
                       </b:widget-settings>
@@ -4566,10 +4566,36 @@ html, body, iframe{
           </b:with>
         </b:includable>
             </b:widget>
+            <b:widget id='HTML3' locked='false' title='' type='HTML' visible='true'>
+              <b:widget-settings>
+                <b:widget-setting name='content'><![CDATA[<script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="WarDimension" data-color="#FFDD00" data-emoji=""  data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script>]]></b:widget-setting>
+              </b:widget-settings>
+              <b:includable id='main'>
+  <b:include name='widget-title'/>
+  <div class='widget-content'>
+    <data:content/>
+  </div>
+</b:includable>
+            </b:widget>
             <b:widget id='HTML2' locked='false' title='' type='HTML' visible='true'>
               <b:widget-settings>
                 <b:widget-setting name='content'>&lt;div class=&quot;invitation-codes invitation-codes-badge1&quot; data-type=&quot;badge1&quot; data-product=&quot;&quot;&gt;&lt;a class=&quot;&quot; href=&quot;https://invitation.codes/&quot; data-type=&quot;badge1&quot;&gt;Use my referral codes&lt;/a&gt;&lt;/div&gt;
 &lt;script async defer src=&quot;//invitation.codes/embed/user/KUD5ziJrl/embed.js&quot;&gt;&lt;/script&gt;</b:widget-setting>
+              </b:widget-settings>
+              <b:includable id='main'>
+  <b:include name='widget-title'/>
+  <div class='widget-content'>
+    <data:content/>
+  </div>
+</b:includable>
+            </b:widget>
+            <b:widget id='HTML4' locked='false' title='' type='HTML' visible='true'>
+              <b:widget-settings>
+                <b:widget-setting name='content'>&lt;!--Start rollercoin.com code--&gt;
+						&lt;a href=&quot;https://rollercoin.com/?r=laby5hsb&quot;&gt;
+							&lt;img src=&quot;//rollercoin.com/static/img/public_img/gen2/w250h250.gif&quot; alt=&quot;250h250&quot;/&gt;
+						&lt;/a&gt;
+						&lt;!--End rollercoin.com code--&gt;</b:widget-setting>
               </b:widget-settings>
               <b:includable id='main'>
   <b:include name='widget-title'/>

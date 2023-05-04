@@ -1,123 +1,123 @@
 #snippet_thumbnail_id_4857548447233520591, .ravioli{
-    cursor: url("https://wardimension.github.io/cursors/Ravioli_Ravioli_GiveMetheFormuoliPointer.cur"), auto;
-  }
-  #snippet_thumbnail_id_8670416163760420640, #snippet_thumbnail_id_3238911600666139107, .miku{
-    cursor: url("https://wardimension.github.io/cursors/miku_leek.cur"), auto;
-  }
-  #snippet_thumbnail_id_4686496267104497257, #snippet_thumbnail_id_5238857645884992396, #snippet_thumbnail_id_2477135100396793408, .neko{
-    cursor: url("https://wardimension.github.io/cursors/Bongo_Cat_Cursor.cur"), auto;
-  }
-  
-  /* POST */
-  
-  .parent{
-    text-align: center;
-  }
-  .images{
-    width: 640px;
-    height: 640px;
-  }
-  .dl{
-    display: block;
-  }
-  .des-left{
-    display: inline-block;
-    width: 49%;
-    text-align: right;
-    padding-right: 8px;
-    vertical-align: top;
-  }
-  .des-right{
-    display: inline-block;
-    width: 49%;
-    text-align: left;
-    padding-left: 8px;
-    vertical-align: top;
-  }
-  .des-mid{
-    display: inline-block;
-    width: 3px;
-    height: 32px;
-    background: #ddd;
-    vertical-align: middle;
-  }
-  .sub{
-    margin: 10px;
-    display: block;
-  }
-  .YOUTUBE-iframe-video{
-    width: 640px;
-    height: 360px;
-    border: 0;
-  }
-  
-  /* END OF POST */
-  
-  
-  
-  /* GENERAL */
-  
-  
-  *{
-    box-sizing: border-box;
-  }
-  html, body, iframe{
-    max-width: 100%;
-    overflow-x: hidden;
-    overflow-y: overlay;
-  }
-  
-  /* END OF GENERAL*/
-  
-  
-  
-  /* OTHER */
-  
-  :focus{
-    outline: 2px solid #000;
-  }
-  ::-webkit-scrollbar{
-    width: 5px;
-  }
-  ::-webkit-scrollbar-thumb{
-      background: #666;
-  }
-  ::-webkit-scrollbar-thumb:hover{
-    background: #444;
-  }
-  .post-outer-container{
-    background: #fff;
-    padding: 20px;
-    position: relative;
-    -webkit-box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.06);
-    -moz-box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.06);
-    box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.06);
-  }
-  .post-outer-container:before, .post-outer-container:after{
-    z-index: -1;
-    position: absolute;
-    content: "";
-    bottom: 15px;
-    left: 10px;
-    width: 50%;
-    top: 80%;
-    max-width:300px;
-    background: #777;
-    -webkit-box-shadow: 0 15px 10px #777;
-    -moz-box-shadow: 0 15px 10px #777;
-    box-shadow: 0 15px 10px #777;
-    -webkit-transform: rotate(-3deg);
-    -moz-transform: rotate(-3deg);
-    -o-transform: rotate(-3deg);
-    -ms-transform: rotate(-3deg);
-    transform: rotate(-3deg);
-  }
-  .post-outer-container:after{
-    -webkit-transform: rotate(3deg);
-    -moz-transform: rotate(3deg);
-    -o-transform: rotate(3deg);
-    -ms-transform: rotate(3deg);
-    transform: rotate(3deg);
-    right: 10px;
-    left: auto;
-  }
+  cursor: url("https://wardimension.github.io/cursors/Ravioli_Ravioli_GiveMetheFormuoliPointer.cur"), auto;
+}
+#snippet_thumbnail_id_8670416163760420640, #snippet_thumbnail_id_3238911600666139107, .miku{
+  cursor: url("https://wardimension.github.io/cursors/miku_leek.cur"), auto;
+}
+#snippet_thumbnail_id_4686496267104497257, #snippet_thumbnail_id_5238857645884992396, #snippet_thumbnail_id_2477135100396793408, .neko{
+  cursor: url("https://wardimension.github.io/cursors/Bongo_Cat_Cursor.cur"), auto;
+}
+
+/* POST */
+
+.parent{
+  text-align: center;
+}
+.images{
+  width: 640px;
+  height: 640px;
+}
+.dl{
+  display: block;
+}
+.des-left{
+  display: inline-block;
+  width: 49%;
+  text-align: right;
+  padding-right: 8px;
+  vertical-align: top;
+}
+.des-right{
+  display: inline-block;
+  width: 49%;
+  text-align: left;
+  padding-left: 8px;
+  vertical-align: top;
+}
+.des-mid{
+  display: inline-block;
+  width: 3px;
+  height: 32px;
+  background: #ddd;
+  vertical-align: middle;
+}
+.sub{
+  margin: 10px;
+  display: block;
+}
+.YOUTUBE-iframe-video{
+  width: 640px;
+  height: 360px;
+  border: 0;
+}
+
+/* END OF POST */
+
+
+
+/* GENERAL */
+
+
+*{
+  box-sizing: border-box;
+}
+html, body, iframe{
+  max-width: 100%;
+  overflow-x: hidden;
+  overflow-y: overlay;
+}
+
+/* END OF GENERAL*/
+
+
+
+/* OTHER */
+
+:focus{
+  outline: 2px solid #000;
+}
+::-webkit-scrollbar{
+  width: 5px;
+}
+::-webkit-scrollbar-thumb{
+    background: #666;
+}
+::-webkit-scrollbar-thumb:hover{
+  background: #444;
+}
+.post-outer-container{
+  background: #fff;
+  padding: 20px;
+  position: relative;
+  -webkit-box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.06);
+  -moz-box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.06);
+  box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.06);
+}
+.post-outer-container:before, .post-outer-container:after{
+  z-index: -1;
+  position: absolute;
+  content: "";
+  bottom: 15px;
+  left: 10px;
+  width: 50%;
+  top: 80%;
+  max-width:300px;
+  background: #777;
+  -webkit-box-shadow: 0 15px 10px #777;
+  -moz-box-shadow: 0 15px 10px #777;
+  box-shadow: 0 15px 10px #777;
+  -webkit-transform: rotate(-3deg);
+  -moz-transform: rotate(-3deg);
+  -o-transform: rotate(-3deg);
+  -ms-transform: rotate(-3deg);
+  transform: rotate(-3deg);
+}
+.post-outer-container:after{
+  -webkit-transform: rotate(3deg);
+  -moz-transform: rotate(3deg);
+  -o-transform: rotate(3deg);
+  -ms-transform: rotate(3deg);
+  transform: rotate(3deg);
+  right: 10px;
+  left: auto;
+}
