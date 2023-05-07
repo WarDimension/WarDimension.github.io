@@ -152,7 +152,7 @@ const miners = [
         "power": 3.825,
         "bonus": 0,
         "cells": 2,
-        "qty": 5
+        "qty": 6
     },
     {
         "name": "Mergedge",
@@ -201,7 +201,7 @@ const miners = [
         "power": 0.150,
         "bonus": 0.1,
         "cells": 1,
-        "qty": 20
+        "qty": 21
     },
     {
         "name": "RollerArc S1",
@@ -363,6 +363,14 @@ const miners = [
         "name": "The Thrill Rider",
         "img": "https://static.rollercoin.com/static/img/market/miners/631b5617a775e04d9a28543c.gif?v=1.0.3",
         "power": 13.000,
+        "bonus": 0,
+        "cells": 2,
+        "qty": 1
+    },
+    {
+        "name": "ToxiFilter 99",
+        "img": "https://static.rollercoin.com/static/img/market/miners/645230ae7dd1aacd1ea9bd00.gif?v=1.0.3",
+        "power": 16.000,
         "bonus": 0,
         "cells": 2,
         "qty": 1
