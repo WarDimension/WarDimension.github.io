@@ -20,7 +20,7 @@
         <label class="wd-label" for="Watching"><input id="Watching" class="wd-checkbox" type="checkbox" checked/>Watching</label>
         <label class="wd-label" for="Planning"><input id="Planning" class="wd-checkbox" type="checkbox" checked/>Plan to watch</label>
         <label class="wd-label" for="Completed"><input id="Completed" class="wd-checkbox" type="checkbox" checked/>Completed</label>
-        <label class="wd-label" for="Rewatching"><input id="Rewatching" class="wd-checkbox" type="checkbox" checked/>Rewatching</label>
+        <label class="wd-label" for="Repeating"><input id="Repeating" class="wd-checkbox" type="checkbox" checked/>Rewatching</label>
         <label class="wd-label" for="Paused"><input id="Paused" class="wd-checkbox" type="checkbox" checked/>Paused</label>
         <label class="wd-label" for="Dropped"><input id="Dropped" class="wd-checkbox" type="checkbox" checked/>Dropped</label>
         <label class="wd-label" for="None"><input id="None" class="wd-checkbox" type="checkbox" checked/>None</label><br/>
