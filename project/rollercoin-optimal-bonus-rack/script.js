@@ -188,6 +188,14 @@ const miners = [
         "qty": 2
     },
     {
+        "name": "Power Symbol",
+        "img": "https://static.rollercoin.com/static/img/market/miners/644bb225648294b4642f368d.gif?v=1.0.3",
+        "power": 0.100,
+        "bonus": 0,
+        "cells": 1,
+        "qty": 1
+    },
+    {
         "name": "Radio Gaga",
         "img": "https://static.rollercoin.com/static/img/market/miners/63930d86380ccf549d7f5c28.gif?v=1.0.3",
         "power": 15.400,
@@ -364,6 +372,14 @@ const miners = [
         "img": "https://static.rollercoin.com/static/img/market/miners/631b5617a775e04d9a28543c.gif?v=1.0.3",
         "power": 13.000,
         "bonus": 0,
+        "cells": 2,
+        "qty": 1
+    },
+    {
+        "name": "Think-Tronik",
+        "img": "https://static.rollercoin.com/static/img/market/miners/62444ef542a0cd1b7d7eaee4.gif?v=1.0.3",
+        "power": 180.000,
+        "bonus": 1,
         "cells": 2,
         "qty": 1
     },
