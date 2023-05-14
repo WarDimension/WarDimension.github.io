@@ -209,7 +209,7 @@ const miners = [
         "power": 0.150,
         "bonus": 0.1,
         "cells": 1,
-        "qty": 22
+        "qty": 23
     },
     {
         "name": "RollerArc S1",
@@ -252,7 +252,7 @@ const miners = [
         "power": 6.000,
         "bonus": 0.5,
         "cells": 1,
-        "qty": 1
+        "qty": 2
     },
     {
         "name": "RollerMiner S4",
@@ -260,7 +260,7 @@ const miners = [
         "power": 1.160,
         "bonus": 0.25,
         "cells": 1,
-        "qty": 1
+        "qty": 2
     },
     {
         "name": "RollerMiner S5+",
@@ -333,6 +333,14 @@ const miners = [
         "power": 22.000,
         "bonus": 0.5,
         "cells": 1,
+        "qty": 1
+    },
+    {
+        "name": "Smelt Smith",
+        "img": "https://static.rollercoin.com/static/img/market/miners/645b8a87eccd3c43207474ce.gif?v=1.0.3",
+        "power": 21.000,
+        "bonus": 0,
+        "cells": 2,
         "qty": 1
     },
     {
