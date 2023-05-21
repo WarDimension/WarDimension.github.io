@@ -2,10 +2,20 @@ const miners = [
     {
         "name": "8blessed",
         "img": "https://static.rollercoin.com/static/img/market/miners/6231c296a258d58160cdf676.gif?v=1.0.3",
+        "rarity": "I",
         "power": 33.000,
         "bonus": 0,
         "cells": 2,
         "qty": 2
+    },
+    {
+        "name": "Cerberus",
+        "img": "https://static.rollercoin.com/static/img/market/miners/631b561aa775e04d9a28548c.gif?v=1.0.3",
+        "rarity": "I",
+        "power": 63.000,
+        "bonus": 0,
+        "cells": 2,
+        "qty": 1
     },
     {
         "name": "Cerberus",
@@ -19,6 +29,7 @@ const miners = [
     {
         "name": "Chattanooga Choo",
         "img": "https://static.rollercoin.com/static/img/market/miners/63bffdd0d2e89bab14ff95bd.gif?v=1.0.3",
+        "rarity": "I",
         "power": 20.230,
         "bonus": 0,
         "cells": 2,
@@ -27,6 +38,7 @@ const miners = [
     {
         "name": "Clover-n’-Over",
         "img": "https://static.rollercoin.com/static/img/market/miners/62324419a258d5816074aeb1.gif?v=1.0.3",
+        "rarity": "I",
         "power": 530.000,
         "bonus": 2.5,
         "cells": 2,
@@ -35,6 +47,7 @@ const miners = [
     {
         "name": "CP-106",
         "img": "https://static.rollercoin.com/static/img/market/miners/610a9b31bf6b53744c87cedc.gif?v=1.0.3",
+        "rarity": "I",
         "power": 11.106,
         "bonus": 0.5,
         "cells": 1,
@@ -43,6 +56,7 @@ const miners = [
     {
         "name": "Crimson Bloom",
         "img": "https://static.rollercoin.com/static/img/market/miners/61f9356a8b46ce6889390250.gif?v=1.0.3",
+        "rarity": "I",
         "power": 40.000,
         "bonus": 1,
         "cells": 2,
@@ -51,6 +65,7 @@ const miners = [
     {
         "name": "Crimson Spark",
         "img": "https://static.rollercoin.com/static/img/market/miners/61f9356a8b46ce6889390252.gif?v=1.0.3",
+        "rarity": "I",
         "power": 20.000,
         "bonus": 0.5,
         "cells": 1,
@@ -59,6 +74,7 @@ const miners = [
     {
         "name": "Deepdiver",
         "img": "https://static.rollercoin.com/static/img/market/miners/62a722279b5a37db46c0bca5.gif?v=1.0.3",
+        "rarity": "I",
         "power": 12.500,
         "bonus": 0.25,
         "cells": 2,
@@ -67,6 +83,7 @@ const miners = [
     {
         "name": "Demon Speeding",
         "img": "https://static.rollercoin.com/static/img/market/miners/6422f238f1cff2d95bf745a0.gif?v=1.0.3",
+        "rarity": "I",
         "power": 0.010,
         "bonus": 0,
         "cells": 1,
@@ -75,6 +92,7 @@ const miners = [
     {
         "name": "Disco-Roll",
         "img": "https://static.rollercoin.com/static/img/market/miners/63930d86380ccf549d7f5c29.gif?v=1.0.3",
+        "rarity": "I",
         "power": 36.300,
         "bonus": 0,
         "cells": 2,
@@ -83,6 +101,7 @@ const miners = [
     {
         "name": "Doggie-Woogie",
         "img": "https://static.rollercoin.com/static/img/market/miners/63930d86380ccf549d7f5c27.gif?v=1.0.3",
+        "rarity": "I",
         "power": 0.010,
         "bonus": 0,
         "cells": 1,
@@ -91,6 +110,7 @@ const miners = [
     {
         "name": "Entminer",
         "img": "https://static.rollercoin.com/static/img/market/miners/631b5619a775e04d9a28546f.gif?v=1.0.3",
+        "rarity": "I",
         "power": 22.000,
         "bonus": 0,
         "cells": 2,
@@ -108,6 +128,7 @@ const miners = [
     {
         "name": "Hasher’s Egg",
         "img": "https://static.rollercoin.com/static/img/market/miners/631b5619a775e04d9a28546d.gif?v=1.0.3",
+        "rarity": "I",
         "power": 21.600,
         "bonus": 0,
         "cells": 1,
@@ -116,6 +137,7 @@ const miners = [
     {
         "name": "Helipop",
         "img": "https://static.rollercoin.com/static/img/market/miners/63930d86380ccf549d7f5c2a.gif?v=1.0.3",
+        "rarity": "I",
         "power": 78.500,
         "bonus": 0,
         "cells": 2,
@@ -124,6 +146,7 @@ const miners = [
     {
         "name": "JBS-200",
         "img": "https://static.rollercoin.com/static/img/market/miners/610a9ae2bf6b53744c860a30.gif?v=1.0.3",
+        "rarity": "I",
         "power": 13.000,
         "bonus": 0.5,
         "cells": 1,
@@ -132,6 +155,7 @@ const miners = [
     {
         "name": "Jungle King",
         "img": "https://static.rollercoin.com/static/img/market/miners/62d687ba81b1c8e692c19e43.gif?v=1.0.3",
+        "rarity": "I",
         "power": 16.800,
         "bonus": 0.5,
         "cells": 2,
@@ -149,10 +173,11 @@ const miners = [
     {
         "name": "Mergedge",
         "img": "https://static.rollercoin.com/static/img/market/miners/631b5619a775e04d9a28546b.gif?v=1.0.3",
+        "rarity": "I",
         "power": 3.825,
         "bonus": 0,
         "cells": 2,
-        "qty": 6
+        "qty": 7
     },
     {
         "name": "Mergedge",
@@ -166,6 +191,7 @@ const miners = [
     {
         "name": "Milly Mini",
         "img": "https://static.rollercoin.com/static/img/market/miners/60c9bc0965dce86c86c372fe.gif?v=1.0.3",
+        "rarity": "I",
         "power": 25.000,
         "bonus": 0.5,
         "cells": 1,
@@ -174,6 +200,7 @@ const miners = [
     {
         "name": "Nuc",
         "img": "https://static.rollercoin.com/static/img/market/miners/61532146db5008102f9f77f8.gif?v=1.0.3",
+        "rarity": "I",
         "power": 26.000,
         "bonus": 0.5,
         "cells": 1,
@@ -182,6 +209,7 @@ const miners = [
     {
         "name": "Petroglyph",
         "img": "https://static.rollercoin.com/static/img/market/miners/62444c9142a0cd1b7d749f2a.gif?v=1.0.3",
+        "rarity": "I",
         "power": 25.000,
         "bonus": 0.25,
         "cells": 2,
@@ -190,6 +218,7 @@ const miners = [
     {
         "name": "Power Symbol",
         "img": "https://static.rollercoin.com/static/img/market/miners/644bb225648294b4642f368d.gif?v=1.0.3",
+        "rarity": "I",
         "power": 0.100,
         "bonus": 0,
         "cells": 1,
@@ -198,6 +227,7 @@ const miners = [
     {
         "name": "Radio Gaga",
         "img": "https://static.rollercoin.com/static/img/market/miners/63930d86380ccf549d7f5c28.gif?v=1.0.3",
+        "rarity": "I",
         "power": 15.400,
         "bonus": 0,
         "cells": 2,
@@ -206,10 +236,11 @@ const miners = [
     {
         "name": "RollerArc S1",
         "img": "https://static.rollercoin.com/static/img/market/miners/61b9cce478d63d64cd626fe5.gif?v=1.0.3",
+        "rarity": "I",
         "power": 0.150,
         "bonus": 0.1,
         "cells": 1,
-        "qty": 23
+        "qty": 25
     },
     {
         "name": "RollerArc S1",
@@ -241,6 +272,7 @@ const miners = [
     {
         "name": "RollerArc SX",
         "img": "https://static.rollercoin.com/static/img/market/miners/61b9cce478d63d64cd626fe4.gif?v=1.0.3",
+        "rarity": "I",
         "power": 1,
         "bonus": 1,
         "cells": 2,
@@ -249,6 +281,7 @@ const miners = [
     {
         "name": "RollerMiner R4",
         "img": "https://static.rollercoin.com/static/img/market/miners/5a0b08abd1d9ee5894f36f30.gif?v=1.0.3",
+        "rarity": "I",
         "power": 6.000,
         "bonus": 0.5,
         "cells": 1,
@@ -257,6 +290,7 @@ const miners = [
     {
         "name": "RollerMiner S4",
         "img": "https://static.rollercoin.com/static/img/market/miners/59f05bdda8fa9b726b0742ca.gif?v=1.0.3",
+        "rarity": "I",
         "power": 1.160,
         "bonus": 0.25,
         "cells": 1,
@@ -265,6 +299,7 @@ const miners = [
     {
         "name": "RollerMiner S5+",
         "img": "https://static.rollercoin.com/static/img/market/miners/5a0b08a9d1d9ee5894f36f2f.gif?v=1.0.3",
+        "rarity": "I",
         "power": 4.000,
         "bonus": 0.5,
         "cells": 1,
@@ -273,6 +308,7 @@ const miners = [
     {
         "name": "RollerMiner S7",
         "img": "https://static.rollercoin.com/static/img/market/miners/5a0b022dd1d9ee5894f36f2d.gif?v=1.0.3",
+        "rarity": "I",
         "power": 1.320,
         "bonus": 0.25,
         "cells": 1,
@@ -281,6 +317,7 @@ const miners = [
     {
         "name": "Rolleron 741",
         "img": "https://static.rollercoin.com/static/img/market/miners/5a0b08a7d1d9ee5894f36f2e.gif?v=1.0.3",
+        "rarity": "I",
         "power": 2.730,
         "bonus": 0.5,
         "cells": 1,
@@ -289,6 +326,7 @@ const miners = [
     {
         "name": "Roy and Silo",
         "img": "https://static.rollercoin.com/static/img/market/miners/6398e9e195b70ff678b1e569.gif?v=1.0.3",
+        "rarity": "I",
         "power": 48.000,
         "bonus": 0,
         "cells": 2,
@@ -297,6 +335,7 @@ const miners = [
     {
         "name": "RPMiner",
         "img": "https://static.rollercoin.com/static/img/market/miners/6422f238f1cff2d95bf745a1.gif?v=1.0.3",
+        "rarity": "I",
         "power": 15.400,
         "bonus": 0,
         "cells": 2,
@@ -305,6 +344,7 @@ const miners = [
     {
         "name": "Rust Runner",
         "img": "https://static.rollercoin.com/static/img/market/miners/64491a76547cfab9a2c49655.gif?v=1.0.3",
+        "rarity": "I",
         "power": 64.600,
         "bonus": 0,
         "cells": 2,
@@ -313,6 +353,7 @@ const miners = [
     {
         "name": "Shaolin Temple",
         "img": "https://static.rollercoin.com/static/img/market/miners/63ca6f1d547cfab9a2c51bc2.gif?v=1.0.3",
+        "rarity": "I",
         "power": 112.850,
         "bonus": 0,
         "cells": 2,
@@ -330,6 +371,7 @@ const miners = [
     {
         "name": "Shrumee",
         "img": "https://static.rollercoin.com/static/img/market/miners/61532146db5008102f9f77f4.gif?v=1.0.3",
+        "rarity": "I",
         "power": 22.000,
         "bonus": 0.5,
         "cells": 1,
@@ -338,6 +380,7 @@ const miners = [
     {
         "name": "Smelt Smith",
         "img": "https://static.rollercoin.com/static/img/market/miners/645b8a87eccd3c43207474ce.gif?v=1.0.3",
+        "rarity": "I",
         "power": 21.000,
         "bonus": 0,
         "cells": 2,
@@ -346,6 +389,7 @@ const miners = [
     {
         "name": "Snowster-9001",
         "img": "https://static.rollercoin.com/static/img/market/miners/6398e9e195b70ff678b1e56a.gif?v=1.0.3",
+        "rarity": "I",
         "power": 35.400,
         "bonus": 0,
         "cells": 2,
@@ -354,6 +398,7 @@ const miners = [
     {
         "name": "Tape-Side-A",
         "img": "https://static.rollercoin.com/static/img/market/miners/63930d86380ccf549d7f5c2e.gif?v=1.0.3",
+        "rarity": "I",
         "power": 188.000,
         "bonus": 0,
         "cells": 2,
@@ -362,6 +407,7 @@ const miners = [
     {
         "name": "The Black Pearl",
         "img": "https://static.rollercoin.com/static/img/market/miners/62553dd842a0cd1b7dd592eb.gif?v=1.0.3",
+        "rarity": "I",
         "power": 50.000,
         "bonus": 0.5,
         "cells": 2,
@@ -370,6 +416,7 @@ const miners = [
     {
         "name": "The Minertaur",
         "img": "https://static.rollercoin.com/static/img/market/miners/62553d7b42a0cd1b7dd45438.gif?v=1.0.3",
+        "rarity": "I",
         "power": 100.000,
         "bonus": 1,
         "cells": 2,
@@ -378,6 +425,7 @@ const miners = [
     {
         "name": "The Thrill Rider",
         "img": "https://static.rollercoin.com/static/img/market/miners/631b5617a775e04d9a28543c.gif?v=1.0.3",
+        "rarity": "I",
         "power": 13.000,
         "bonus": 0,
         "cells": 2,
@@ -386,6 +434,7 @@ const miners = [
     {
         "name": "Think-Tronik",
         "img": "https://static.rollercoin.com/static/img/market/miners/62444ef542a0cd1b7d7eaee4.gif?v=1.0.3",
+        "rarity": "I",
         "power": 180.000,
         "bonus": 1,
         "cells": 2,
@@ -394,6 +443,7 @@ const miners = [
     {
         "name": "ToxiFilter 99",
         "img": "https://static.rollercoin.com/static/img/market/miners/645230ae7dd1aacd1ea9bd00.gif?v=1.0.3",
+        "rarity": "I",
         "power": 16.000,
         "bonus": 0,
         "cells": 2,
@@ -402,6 +452,7 @@ const miners = [
     {
         "name": "Turkey Aid 2023",
         "img": "https://static.rollercoin.com/static/img/market/miners/63e4fe2b547cfab9a240e681.gif?v=1.0.3",
+        "rarity": "I",
         "power": 0.100,
         "bonus": 0,
         "cells": 2,
@@ -410,6 +461,7 @@ const miners = [
     {
         "name": "Vyzzarys",
         "img": "https://static.rollercoin.com/static/img/market/miners/631b5619a775e04d9a285471.gif?v=1.0.3",
+        "rarity": "I",
         "power": 22.400,
         "bonus": 0,
         "cells": 2,
@@ -418,6 +470,7 @@ const miners = [
     {
         "name": "YMCA Game",
         "img": "https://static.rollercoin.com/static/img/market/miners/63930d86380ccf549d7f5c2b.gif?v=1.0.3",
+        "rarity": "I",
         "power": 114.000,
         "bonus": 0,
         "cells": 2,
@@ -429,6 +482,8 @@ let newMiners = [];
 let smallMiners = [];
 
 miners.forEach(miner => {
+    miner.name += `<span hidden>${miner.rarity}</span>`;
+
     let newMiner = {...miner};
     newMiner.newBonus = newMiner.bonus == 0 ? 0 : "<strike>" + newMiner.bonus + "</strike>";
     newMiner.bonus = 0;
