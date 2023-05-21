@@ -482,7 +482,7 @@ let newMiners = [];
 let smallMiners = [];
 
 miners.forEach(miner => {
-    miner.name += `<span hidden>${miner.rarity}</span>`;
+    miner.name += `<span hidden>${getRarity(miner.rarity)}</span>`;
 
     let newMiner = {...miner};
     newMiner.newBonus = newMiner.bonus == 0 ? 0 : "<strike>" + newMiner.bonus + "</strike>";
@@ -529,6 +529,8 @@ const table = document.querySelector(".miner-table");
 
 function getRarityIcon(rarity){
     switch(rarity){
+        case "I":
+            return "";
         case "II":
             return `<img class="rarity" src="https://rollercoin.com/static/img/storage/rarity_icons/level_2.png?v=1.0.0"/>`;
         case "III":
@@ -539,11 +541,28 @@ function getRarityIcon(rarity){
             return `<img class="rarity" src="https://rollercoin.com/static/img/storage/rarity_icons/level_5.png?v=1.0.0"/>`;
         case "VI":
             return `<img class="rarity" src="https://rollercoin.com/static/img/storage/rarity_icons/level_6.png?v=1.0.0"/>`;
-        case "1Star":
+        case "Star":
             return `<img class="rarity" src="https://rollercoin.com/static/images/level_star.4ff18517e5e8eed42060..png"/>`;
     }
+}
 
-    return "";
+function getRarity(rarity){
+    switch(rarity){
+        case "I":
+            return 0;
+        case "Star":
+            return 1;
+        case "II":
+            return 2;
+        case "III":
+            return 3;
+        case "IV":
+            return 4;
+        case "V":
+            return 5;
+        case "VI":
+            return 6;
+    }
 }
 
 function unitConversion(power){
