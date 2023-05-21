@@ -539,7 +539,7 @@ function getRarityIcon(rarity){
             return `<img class="rarity" src="https://rollercoin.com/static/img/storage/rarity_icons/level_5.png?v=1.0.0"/>`;
         case "VI":
             return `<img class="rarity" src="https://rollercoin.com/static/img/storage/rarity_icons/level_6.png?v=1.0.0"/>`;
-        case "Star":
+        case "1Star":
             return `<img class="rarity" src="https://rollercoin.com/static/images/level_star.4ff18517e5e8eed42060..png"/>`;
     }
 
