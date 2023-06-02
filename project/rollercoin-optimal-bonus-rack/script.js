@@ -36,6 +36,15 @@ const miners = [
         "qty": 2
     },
     {
+        "name": "Classic Fury",
+        "img": "https://static.rollercoin.com/static/img/market/miners/6422effbb78c58eb24801eb9.gif?v=1.0.3",
+        "rarity": "I",
+        "power": 418.000,
+        "bonus": 0,
+        "cells": 2,
+        "qty": 1
+    },
+    {
         "name": "Clover-n’-Over",
         "img": "https://static.rollercoin.com/static/img/market/miners/62324419a258d5816074aeb1.gif?v=1.0.3",
         "rarity": "I",
@@ -171,6 +180,15 @@ const miners = [
         "qty": 1
     },
     {
+        "name": "Mergedge Mk. I",
+        "img": "https://static.rollercoin.com/static/img/market/miners/646ddba0260e7d19c91846b9.gif?v=1.0.3",
+        "rarity": "I",
+        "power": 4.860,
+        "bonus": 0,
+        "cells": 1,
+        "qty": 1
+    },
+    {
         "name": "Mergedge",
         "img": "https://static.rollercoin.com/static/img/market/miners/631b5619a775e04d9a28546b.gif?v=1.0.3",
         "rarity": "I",
@@ -204,7 +222,7 @@ const miners = [
         "power": 26.000,
         "bonus": 0.5,
         "cells": 1,
-        "qty": 2
+        "qty": 3
     },
     {
         "name": "Petroglyph",
@@ -240,7 +258,7 @@ const miners = [
         "power": 0.150,
         "bonus": 0.1,
         "cells": 1,
-        "qty": 26
+        "qty": 29
     },
     {
         "name": "RollerArc S1",
@@ -312,7 +330,7 @@ const miners = [
         "power": 1.320,
         "bonus": 0.25,
         "cells": 1,
-        "qty": 9
+        "qty": 10
     },
     {
         "name": "Rolleron 741",
@@ -321,7 +339,7 @@ const miners = [
         "power": 2.730,
         "bonus": 0.5,
         "cells": 1,
-        "qty": 2
+        "qty": 3
     },
     {
         "name": "Roy and Silo",
