@@ -144,6 +144,15 @@ const miners = [
         "qty": 3
     },
     {
+        "name": "Heartbeat",
+        "img": "https://static.rollercoin.com/static/img/market/miners/63e61425547cfab9a27bcc78.gif?v=1.0.3",
+        "rarity": "I",
+        "power": 176.000,
+        "bonus": 0,
+        "cells": 2,
+        "qty": 1
+    },
+    {
         "name": "Helipop",
         "img": "https://static.rollercoin.com/static/img/market/miners/63930d86380ccf549d7f5c2a.gif?v=1.0.3",
         "rarity": "I",
