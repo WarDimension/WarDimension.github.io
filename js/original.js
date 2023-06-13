@@ -884,5 +884,25 @@ const songsData = [
         "youtubeID": "wB57gT0lGSA"
       }
     ]
+  },
+  {
+    "title": "夢の響き",
+    "romanized": "Yume no Hibiki",
+    "alt": "yume-no-hibiki",
+    "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/db9b0a59-1832-436d-be35-c4da781cf1c8/dfzoe4l-df798fcd-f8f5-409b-badc-2c645f054acb.png/v1/fill/w_400,h_400,q_80,strp/yume_no_hibiki_by_wardimension_dfzoe4l-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDAwIiwicGF0aCI6IlwvZlwvZGI5YjBhNTktMTgzMi00MzZkLWJlMzUtYzRkYTc4MWNmMWM4XC9kZnpvZTRsLWRmNzk4ZmNkLWY4ZjUtNDA5Yi1iYWRjLTJjNjQ1ZjA1NGFjYi5wbmciLCJ3aWR0aCI6Ijw9NDAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.USxhiOdSETc35PexlpJ9KvjFFFr6UZPAXv422FZmN8Q",
+    "track": [
+      {
+        "title": "夢の響き",
+        "romanized": "Yume no Hibiki",
+        "length": "4:00",
+        "youtubeID": "666"
+      },
+      {
+        "title": "夢の響き -Instrumental-",
+        "romanized": "Yume no Hibiki -Instrumental-",
+        "length": "4:00",
+        "youtubeID": "666"
+      }
+    ]
   }
 ];
