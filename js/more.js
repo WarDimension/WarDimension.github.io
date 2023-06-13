@@ -1,10 +1,9 @@
 const blurEl = document.querySelector('.blur');
 
-let tabableTemp;
+let tabableTemp = tabable;
 
 function openMore(songTitle = ""){
     blurEl.style.display = 'block';
-    tabableTemp = tabable;
     tabable = ".more-content > a, .close-more";
     setMoreTabIndex("1");
     event.stopPropagation();
