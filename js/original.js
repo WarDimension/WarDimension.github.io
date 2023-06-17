@@ -893,15 +893,15 @@ const songsData = [
     "alt": "yume-no-hibiki",
     "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/db9b0a59-1832-436d-be35-c4da781cf1c8/dfzoe4l-df798fcd-f8f5-409b-badc-2c645f054acb.png/v1/fill/w_400,h_400,q_80,strp/yume_no_hibiki_by_wardimension_dfzoe4l-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDAwIiwicGF0aCI6IlwvZlwvZGI5YjBhNTktMTgzMi00MzZkLWJlMzUtYzRkYTc4MWNmMWM4XC9kZnpvZTRsLWRmNzk4ZmNkLWY4ZjUtNDA5Yi1iYWRjLTJjNjQ1ZjA1NGFjYi5wbmciLCJ3aWR0aCI6Ijw9NDAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.USxhiOdSETc35PexlpJ9KvjFFFr6UZPAXv422FZmN8Q",
     "url": [{
-      "itunes": "",
+      "itunes": "https://music.apple.com/album/%E5%A4%A2%E3%81%AE%E9%9F%BF%E3%81%8D-single/1692357069",
       "deezer": "https://www.deezer.com/album/452946835",
       "spotify": "https://open.spotify.com/album/2mV951YMxgtmIlhrFVS36k",
       "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_knRq3SWPeh8PLkIw_nSzxHuIJm6sjD6Lo",
-      "amazon": ""
+      "amazon": "https://www.amazon.com/music/player/albums/B0C7W68GQJ"
     },
     {
       "soundCloud": "",
-      "joox": "",
+      "joox": "https://www.joox.com/album/2UCTOHy4OGjnkSzXDWfW2A==",
       "flo": "https://www.music-flo.com/detail/album/414715570/albumtrack",
       "netease": "https://music.163.com/#/album?id=167613103",
       "kuwo": "https://www.kuwo.cn/album_detail/38998773",
