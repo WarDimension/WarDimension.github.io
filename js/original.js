@@ -829,6 +829,7 @@ const songsData = [
       "soundCloud": "https://soundcloud.com/wardimension/sets/evil-within-me",
       "joox": "https://www.joox.com/album/u5GThFPDM2HT3lGmo8XBjA==",
       "flo": "https://www.music-flo.com/detail/album/eanalehyn/albumtrack",
+      "bugs": "https://music.bugs.co.kr/album/31242648",
       "netease": "https://music.163.com/#/album?id=161772496",
       "kuwo": "https://www.kuwo.cn/album_detail/36245960",
       "boomplay": "https://www.boomplay.com/albums/66116974",
@@ -862,6 +863,7 @@ const songsData = [
       "soundCloud": "",
       "joox": "https://www.joox.com/album/y6eAay0ZJaj0Dm5+TFQUqA==",
       "flo": "https://www.music-flo.com/detail/album/eadyoneie/albumtrack",
+      "bugs": "https://music.bugs.co.kr/album/30548900",
       "netease": "https://music.163.com/#/album?id=157106891",
       "kuwo": "https://www.kuwo.cn/album_detail/33986954",
       "boomplay": "https://www.boomplay.com/albums/61819672",
@@ -890,18 +892,34 @@ const songsData = [
     "romanized": "Yume no Hibiki",
     "alt": "yume-no-hibiki",
     "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/db9b0a59-1832-436d-be35-c4da781cf1c8/dfzoe4l-df798fcd-f8f5-409b-badc-2c645f054acb.png/v1/fill/w_400,h_400,q_80,strp/yume_no_hibiki_by_wardimension_dfzoe4l-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDAwIiwicGF0aCI6IlwvZlwvZGI5YjBhNTktMTgzMi00MzZkLWJlMzUtYzRkYTc4MWNmMWM4XC9kZnpvZTRsLWRmNzk4ZmNkLWY4ZjUtNDA5Yi1iYWRjLTJjNjQ1ZjA1NGFjYi5wbmciLCJ3aWR0aCI6Ijw9NDAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.USxhiOdSETc35PexlpJ9KvjFFFr6UZPAXv422FZmN8Q",
+    "url": [{
+      "itunes": "",
+      "deezer": "https://www.deezer.com/album/452946835",
+      "spotify": "https://open.spotify.com/album/2mV951YMxgtmIlhrFVS36k",
+      "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_knRq3SWPeh8PLkIw_nSzxHuIJm6sjD6Lo",
+      "amazon": ""
+    },
+    {
+      "soundCloud": "",
+      "joox": "",
+      "flo": "https://www.music-flo.com/detail/album/414715570/albumtrack",
+      "netease": "https://music.163.com/#/album?id=167613103",
+      "kuwo": "https://www.kuwo.cn/album_detail/38998773",
+      "boomplay": "https://www.boomplay.com/albums/71806768",
+      "zingmp3": "https://zingmp3.vn/album/Single-WarDimension/6BBZO007.html"
+    }],
     "track": [
       {
         "title": "夢の響き",
         "romanized": "Yume no Hibiki",
         "length": "4:00",
-        "youtubeID": "666"
+        "youtubeID": "3qjGtmJQ7JY"
       },
       {
         "title": "夢の響き -Instrumental-",
         "romanized": "Yume no Hibiki -Instrumental-",
         "length": "4:00",
-        "youtubeID": "666"
+        "youtubeID": "WnioXecYUIY"
       }
     ]
   }
