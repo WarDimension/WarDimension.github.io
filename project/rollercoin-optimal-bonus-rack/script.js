@@ -6,7 +6,7 @@ const miners = [
         "power": 33.000,
         "bonus": 0,
         "cells": 2,
-        "qty": 2
+        "qty": 3
     },
     {
         "name": "Cerberus",
@@ -33,7 +33,7 @@ const miners = [
         "power": 20.230,
         "bonus": 0,
         "cells": 2,
-        "qty": 2
+        "qty": 3
     },
     {
         "name": "Classic Fury",
@@ -60,7 +60,7 @@ const miners = [
         "power": 11.106,
         "bonus": 0.5,
         "cells": 1,
-        "qty": 1
+        "qty": 2
     },
     {
         "name": "Crimson Bloom",
@@ -204,7 +204,7 @@ const miners = [
         "power": 3.825,
         "bonus": 0,
         "cells": 2,
-        "qty": 7
+        "qty": 8
     },
     {
         "name": "Mergedge",
@@ -231,7 +231,7 @@ const miners = [
         "power": 26.000,
         "bonus": 0.5,
         "cells": 1,
-        "qty": 3
+        "qty": 4
     },
     {
         "name": "Petroglyph",
@@ -267,7 +267,7 @@ const miners = [
         "power": 0.150,
         "bonus": 0.1,
         "cells": 1,
-        "qty": 29
+        "qty": 33
     },
     {
         "name": "RollerArc S1",
@@ -306,13 +306,22 @@ const miners = [
         "qty": 1
     },
     {
+        "name": "RollerMiner G1",
+        "img": "https://static.rollercoin.com/static/img/market/miners/646ddb26260e7d19c91846b8.gif?v=1.0.3",
+        "rarity": "I",
+        "power": 3.500,
+        "bonus": 0,
+        "cells": 1,
+        "qty": 1
+    },
+    {
         "name": "RollerMiner R4",
         "img": "https://static.rollercoin.com/static/img/market/miners/5a0b08abd1d9ee5894f36f30.gif?v=1.0.3",
         "rarity": "I",
         "power": 6.000,
         "bonus": 0.5,
         "cells": 1,
-        "qty": 2
+        "qty": 3
     },
     {
         "name": "RollerMiner S4",
@@ -409,6 +418,15 @@ const miners = [
         "img": "https://static.rollercoin.com/static/img/market/miners/645b8a87eccd3c43207474ce.gif?v=1.0.3",
         "rarity": "I",
         "power": 21.000,
+        "bonus": 0,
+        "cells": 2,
+        "qty": 1
+    },
+    {
+        "name": "Smokin' Hotrod",
+        "img": "https://static.rollercoin.com/static/img/market/miners/6422f238f1cff2d95bf745a2.gif?v=1.0.3",
+        "rarity": "I",
+        "power": 36.300,
         "bonus": 0,
         "cells": 2,
         "qty": 1
