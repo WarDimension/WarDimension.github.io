@@ -74,7 +74,7 @@ let favorites = [
                 ]
             },
             {
-                "subCategory": "Yuri, but...",
+                "subCategory": "Yuri, but... Not really...",
                 "rankedList": [
                     {
                         "title": "Maria-sama ga Miteru",
@@ -98,6 +98,11 @@ let favorites = [
                         "title": "Koito Yuu",
                         "subTitle": "Yagate Kimi ni Naru",
                         "link": "./waifu?s=小糸侑"
+                    },
+                    {
+                        "title": "Iwakura Mitsumi",
+                        "subTitle": "Skip to Loafer",
+                        "link": "./waifu?s=岩倉美津未"
                     },
                     {
                         "title": "Yamamura Kumiko - Josee",
