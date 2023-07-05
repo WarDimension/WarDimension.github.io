@@ -913,13 +913,13 @@ const songsData = [
         "title": "夢の響き",
         "romanized": "Yume no Hibiki",
         "length": "4:00",
-        "youtubeID": "3qjGtmJQ7JY"
+        "youtubeID": "_GWFtoxl4wQ" //old: 3qjGtmJQ7JY
       },
       {
         "title": "夢の響き -Instrumental-",
         "romanized": "Yume no Hibiki -Instrumental-",
         "length": "4:00",
-        "youtubeID": "WnioXecYUIY"
+        "youtubeID": "yh21WiMdvMw" //old: WnioXecYUIY
       }
     ]
   }
