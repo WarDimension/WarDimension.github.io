@@ -43,6 +43,15 @@ let favorites = [
                 ]
             },
             {
+                "subCategory": "Non-Yuri Romance",
+                "rankedList": [
+                    {
+                        "title": "Yahari Ore no Seishun Love Come wa Machigatteiru.",
+                        "link": "./watch-order?s=やはり俺の青春ラブコメはまちがっている。"
+                    }
+                ]
+            },
+            {
                 "subCategory": "Psychological",
                 "rankedList": [
                     {
