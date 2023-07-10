@@ -132,7 +132,7 @@ const songsData = [
     "alt": "om",
     "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/db9b0a59-1832-436d-be35-c4da781cf1c8/dd0nw5r-26508513-69a1-40ce-843e-a8544b6a614a.png/v1/fill/w_400,h_400,q_80,strp/om_by_wardimension_dd0nw5r-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDAwIiwicGF0aCI6IlwvZlwvZGI5YjBhNTktMTgzMi00MzZkLWJlMzUtYzRkYTc4MWNmMWM4XC9kZDBudzVyLTI2NTA4NTEzLTY5YTEtNDBjZS04NDNlLWE4NTQ0YjZhNjE0YS5wbmciLCJ3aWR0aCI6Ijw9NDAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.YqfJ3okSuqNtBAs08zYhmLrxAH-jJJ1CRSdZ7WaVwM4",
     "url": [{
-      "itunes": "https://music.apple.com/album/%E0%A5%90-ep/1411653135",
+      "itunes": "https://music.apple.com/album/ॐ-ep/1411653135",
       "deezer": "https://www.deezer.com/album/68198331",
       "googlePlay": "https://play.google.com/store/music/album?id=Bbzuzvn6qokux5xvogiljt6pw6a",
       "spotify": "https://open.spotify.com/album/1tqkRMhkZryFa1rZbFdrV4",
@@ -450,7 +450,7 @@ const songsData = [
     "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/db9b0a59-1832-436d-be35-c4da781cf1c8/ddtquor-b9106bbe-350e-47a4-bee0-28b7431c58f4.png/v1/fill/w_400,h_400,q_80,strp/miku_to_asobu_by_wardimension_ddtquor-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDAwIiwicGF0aCI6IlwvZlwvZGI5YjBhNTktMTgzMi00MzZkLWJlMzUtYzRkYTc4MWNmMWM4XC9kZHRxdW9yLWI5MTA2YmJlLTM1MGUtNDdhNC1iZWUwLTI4Yjc0MzFjNThmNC5wbmciLCJ3aWR0aCI6Ijw9NDAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.beYcqy7rv4y4hVMQj4PlmXfim1BDG5ihdKoGdDBx6_I",
     "imgCur": "miku_leek",
     "url": [{
-      "itunes": "https://music.apple.com/album/%E3%83%9F%E3%82%AF%E3%81%A8%E9%81%8A%E3%81%B6/1505344620",
+      "itunes": "https://music.apple.com/album/ミクと遊ぶ/1505344620",
       "itunes": "hey-apple!!!--where's-my-album",
       "deezer": "https://www.deezer.com/album/138990552",
       "googlePlay": "https://play.google.com/store/music/album?id=Bo2qapsrqetyh6mwub4y53orlba",
@@ -893,19 +893,19 @@ const songsData = [
     "alt": "yume-no-hibiki",
     "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/db9b0a59-1832-436d-be35-c4da781cf1c8/dfzoe4l-df798fcd-f8f5-409b-badc-2c645f054acb.png/v1/fill/w_400,h_400,q_80,strp/yume_no_hibiki_by_wardimension_dfzoe4l-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDAwIiwicGF0aCI6IlwvZlwvZGI5YjBhNTktMTgzMi00MzZkLWJlMzUtYzRkYTc4MWNmMWM4XC9kZnpvZTRsLWRmNzk4ZmNkLWY4ZjUtNDA5Yi1iYWRjLTJjNjQ1ZjA1NGFjYi5wbmciLCJ3aWR0aCI6Ijw9NDAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.USxhiOdSETc35PexlpJ9KvjFFFr6UZPAXv422FZmN8Q",
     "url": [{
-      "itunes": "https://music.apple.com/album/%E5%A4%A2%E3%81%AE%E9%9F%BF%E3%81%8D-single/1692357069",
-      "deezer": "https://www.deezer.com/album/452946835",
-      "spotify": "https://open.spotify.com/album/2mV951YMxgtmIlhrFVS36k",
-      "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_knRq3SWPeh8PLkIw_nSzxHuIJm6sjD6Lo",
-      "amazon": "https://www.amazon.com/music/player/albums/B0C7W68GQJ"
+      "itunes": "https://music.apple.com/album/夢の響き-single/1696009226", //old: 1692357069
+      "deezer": "https://www.deezer.com/album/462088575", //old: 452946835
+      "spotify": "https://open.spotify.com/album/45JPPPRYPPmbPiWiiGa02I", //old: 2mV951YMxgtmIlhrFVS36k
+      "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_mQQNipoOPyt0MheXINAEF8OGY6frVR7NA", //old: OLAK5uy_knRq3SWPeh8PLkIw_nSzxHuIJm6sjD6Lo
+      "amazon": "https://www.amazon.com/music/player/albums/B0CB6VDJJ1" //old: B0C7W68GQJ
     },
     {
       "soundCloud": "",
       "joox": "https://www.joox.com/album/2UCTOHy4OGjnkSzXDWfW2A==",
-      "flo": "https://www.music-flo.com/detail/album/414715570/albumtrack",
+      "flo": "https://www.music-flo.com/detail/album/415296150/albumtrack", //old: 414715570
       "netease": "https://music.163.com/#/album?id=167613103",
-      "kuwo": "https://www.kuwo.cn/album_detail/38998773",
-      "boomplay": "https://www.boomplay.com/albums/71806768",
+      "kuwo": "https://www.kuwo.cn/album_detail/38998773", //old: 
+      "boomplay": "https://www.boomplay.com/albums/73094029", //old: 71806768
       "zingmp3": "https://zingmp3.vn/album/Single-WarDimension/6BBZO007.html"
     }],
     "track": [
