@@ -168,7 +168,7 @@ const miners = [
         "power": 13.000,
         "bonus": 0.5,
         "cells": 1,
-        "qty": 4
+        "qty": 5
     },
     {
         "name": "Jungle King",
@@ -195,7 +195,16 @@ const miners = [
         "power": 4.860,
         "bonus": 0,
         "cells": 1,
-        "qty": 1
+        "qty": 2
+    },
+    {
+        "name": "Mergedge Mk. IV",
+        "img": "https://static.rollercoin.com/static/img/market/miners/646ddbed260e7d19c91846ba.gif?v=1.0.3",
+        "rarity": "I",
+        "power": 6.450,
+        "bonus": 0,
+        "cells": 2,
+        "qty": 2
     },
     {
         "name": "Mergedge",
@@ -213,7 +222,7 @@ const miners = [
         "power": 8.925,
         "bonus": 0.14,
         "cells": 2,
-        "qty": 1
+        "qty": 2
     },
     {
         "name": "Milly Mini",
@@ -312,7 +321,7 @@ const miners = [
         "power": 3.500,
         "bonus": 0,
         "cells": 1,
-        "qty": 1
+        "qty": 3
     },
     {
         "name": "RollerMiner R4",
@@ -330,7 +339,7 @@ const miners = [
         "power": 1.160,
         "bonus": 0.25,
         "cells": 1,
-        "qty": 2
+        "qty": 3
     },
     {
         "name": "RollerMiner S5+",
@@ -375,7 +384,7 @@ const miners = [
         "power": 15.400,
         "bonus": 0,
         "cells": 2,
-        "qty": 1
+        "qty": 2
     },
     {
         "name": "Rust Runner",
