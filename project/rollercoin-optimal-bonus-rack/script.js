@@ -81,6 +81,15 @@ const miners = [
         "qty": 2
     },
     {
+        "name": "Chupacabra",
+        "img": "https://static.rollercoin.com/static/img/market/miners/5f9ae5284ac419fdd08d0584.gif?v=1.0.3",
+        "rarity": "I",
+        "power": 14.000,
+        "bonus": 1,
+        "cells": 1,
+        "qty": 1
+    },
+    {
         "name": "Deepdiver",
         "img": "https://static.rollercoin.com/static/img/market/miners/62a722279b5a37db46c0bca5.gif?v=1.0.3",
         "rarity": "I",
@@ -189,11 +198,29 @@ const miners = [
         "qty": 1
     },
     {
+        "name": "Katsuhito",
+        "img": "https://static.rollercoin.com/static/img/market/miners/64a69674af7caabb3d1151f8.gif?v=1.0.3",
+        "rarity": "I",
+        "power": 0.010,
+        "bonus": 0,
+        "cells": 1,
+        "qty": 1
+    },
+    {
         "name": "Mergedge Mk. I",
         "img": "https://static.rollercoin.com/static/img/market/miners/646ddba0260e7d19c91846b9.gif?v=1.0.3",
         "rarity": "I",
         "power": 4.860,
         "bonus": 0,
+        "cells": 1,
+        "qty": 2
+    },
+    {
+        "name": "Mergedge Mk. I",
+        "img": "https://static.rollercoin.com/static/img/market/miners/646de74209672fd5f06e22bd.gif?v=1.0.3",
+        "rarity": "II",
+        "power": 12.810,
+        "bonus": 0.08,
         "cells": 1,
         "qty": 2
     },
@@ -219,10 +246,10 @@ const miners = [
         "name": "Mergedge",
         "img": "https://static.rollercoin.com/static/img/market/miners/631f7b6d8238ed283a2352a1.gif?v=1.0.3",
         "rarity": "II",
-        "power": 8.925,
+        "power": 10.080,
         "bonus": 0.14,
         "cells": 2,
-        "qty": 2
+        "qty": 3
     },
     {
         "name": "Milly Mini",
@@ -321,7 +348,7 @@ const miners = [
         "power": 3.500,
         "bonus": 0,
         "cells": 1,
-        "qty": 3
+        "qty": 4
     },
     {
         "name": "RollerMiner R4",
@@ -339,7 +366,7 @@ const miners = [
         "power": 1.160,
         "bonus": 0.25,
         "cells": 1,
-        "qty": 3
+        "qty": 4
     },
     {
         "name": "RollerMiner S5+",
@@ -519,6 +546,15 @@ const miners = [
         "power": 22.400,
         "bonus": 0,
         "cells": 2,
+        "qty": 1
+    },
+    {
+        "name": "XLZ-01",
+        "img": "https://static.rollercoin.com/static/img/market/miners/618d1dda8f5ef2744b7d2386.gif?v=1.0.3",
+        "rarity": "I",
+        "power": 22.000,
+        "bonus": 0.5,
+        "cells": 1,
         "qty": 1
     },
     {
