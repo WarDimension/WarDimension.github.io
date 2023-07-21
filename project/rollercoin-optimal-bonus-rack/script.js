@@ -21,7 +21,7 @@ const miners = [
         "name": "Cerberus",
         "img": "https://static.rollercoin.com/static/img/market/miners/631f7b828238ed283a2353a5.gif?v=1.0.3",
         "rarity": "II",
-        "power": 145.530,
+        "power": 165.375,
         "bonus": 0.55,
         "cells": 2,
         "qty": 1
@@ -192,7 +192,7 @@ const miners = [
         "name": "Jungle King",
         "img": "https://static.rollercoin.com/static/img/market/miners/631f7af18238ed283a234cd7.gif?v=1.0.3",
         "rarity": "III",
-        "power": 93.240,
+        "power": 115.815,
         "bonus": 0.55,
         "cells": 2,
         "qty": 1
@@ -318,7 +318,7 @@ const miners = [
         "name": "RollerArc S1",
         "img": "https://static.rollercoin.com/static/img/market/miners/631f79658238ed283a233a8f.gif?v=1.0.3",
         "rarity": "III",
-        "power": 1.050,
+        "power": 1.155,
         "bonus": 0.11,
         "cells": 1,
         "qty": 1
@@ -435,7 +435,7 @@ const miners = [
         "name": "Shifter",
         "img": "https://static.rollercoin.com/static/img/market/miners/631f78b98238ed283a2332a3.gif?v=1.0.3",
         "rarity": "II",
-        "power": 92.400,
+        "power": 105.000,
         "bonus": 1.05,
         "cells": 2,
         "qty": 1
