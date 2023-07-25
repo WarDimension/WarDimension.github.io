@@ -261,6 +261,15 @@ const miners = [
         "qty": 1
     },
     {
+        "name": "Missionaries",
+        "img": "https://static.rollercoin.com/static/img/market/miners/64a696afaf7caabb3d1151f9.gif?v=1.0.3",
+        "rarity": "I",
+        "power": 40.000,
+        "bonus": 0,
+        "cells": 2,
+        "qty": 1
+    },
+    {
         "name": "Nuc",
         "img": "https://static.rollercoin.com/static/img/market/miners/61532146db5008102f9f77f8.gif?v=1.0.3",
         "rarity": "I",
@@ -303,7 +312,7 @@ const miners = [
         "power": 0.150,
         "bonus": 0.1,
         "cells": 1,
-        "qty": 33
+        "qty": 37
     },
     {
         "name": "RollerArc S1",
@@ -348,7 +357,7 @@ const miners = [
         "power": 3.500,
         "bonus": 0,
         "cells": 1,
-        "qty": 4
+        "qty": 6
     },
     {
         "name": "RollerMiner R4",
@@ -536,6 +545,15 @@ const miners = [
         "rarity": "I",
         "power": 0.100,
         "bonus": 0,
+        "cells": 2,
+        "qty": 1
+    },
+    {
+        "name": "Uniminer-42",
+        "img": "https://static.rollercoin.com/static/img/market/miners/6244499b42a0cd1b7d67ca1e.gif?v=1.0.3",
+        "rarity": "I",
+        "power": 50.000,
+        "bonus": 0.5,
         "cells": 2,
         "qty": 1
     },
