@@ -860,7 +860,7 @@ const songsData = [
       "amazon": "https://www.amazon.com/music/player/albums/B0BQZ688MK"
     },
     {
-      "soundCloud": "",
+      "soundCloud": "https://soundcloud.com/wardimension/sets/psychedelic",
       "joox": "https://www.joox.com/album/y6eAay0ZJaj0Dm5+TFQUqA==",
       "flo": "https://www.music-flo.com/detail/album/eadyoneie/albumtrack",
       "bugs": "https://music.bugs.co.kr/album/30548900",
@@ -900,7 +900,7 @@ const songsData = [
       "amazon": "https://www.amazon.com/music/player/albums/B0CB6VDJJ1" //old: B0C7W68GQJ
     },
     {
-      "soundCloud": "",
+      "soundCloud": "https://soundcloud.com/wardimension/sets/yume-no-hibiki",
       "joox": "https://www.joox.com/album/2UCTOHy4OGjnkSzXDWfW2A==",
       "flo": "https://www.music-flo.com/detail/album/415296150/albumtrack", //old: 414715570
       "netease": "https://music.163.com/#/album?id=167613103",
