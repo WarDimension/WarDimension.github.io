@@ -60,7 +60,7 @@ const miners = [
         "power": 11.106,
         "bonus": 0.5,
         "cells": 1,
-        "qty": 2
+        "qty": 5
     },
     {
         "name": "Crimson Bloom",
@@ -69,7 +69,7 @@ const miners = [
         "power": 40.000,
         "bonus": 1,
         "cells": 2,
-        "qty": 1
+        "qty": 2
     },
     {
         "name": "Crimson Spark",
@@ -78,7 +78,7 @@ const miners = [
         "power": 20.000,
         "bonus": 0.5,
         "cells": 1,
-        "qty": 2
+        "qty": 4
     },
     {
         "name": "Chupacabra",
@@ -126,6 +126,15 @@ const miners = [
         "qty": 1
     },
     {
+        "name": "Earthbind",
+        "img": "https://static.rollercoin.com/static/img/market/miners/earthbind.gif?v=1",
+        "rarity": "I",
+        "power": 210.000,
+        "bonus": 0,
+        "cells": 2,
+        "qty": 1
+    },
+    {
         "name": "Entminer",
         "img": "https://static.rollercoin.com/static/img/market/miners/631b5619a775e04d9a28546f.gif?v=1.0.3",
         "rarity": "I",
@@ -141,6 +150,15 @@ const miners = [
         "power": 57.750,
         "bonus": 0.55,
         "cells": 2,
+        "qty": 1
+    },
+    {
+        "name": "Fortune’s Charm",
+        "img": "https://static.rollercoin.com/static/img/market/miners/fortunes_charm.gif?v=1",
+        "rarity": "I",
+        "power": 20.000,
+        "bonus": 0.5,
+        "cells": 1,
         "qty": 1
     },
     {
@@ -240,7 +258,7 @@ const miners = [
         "power": 3.825,
         "bonus": 0,
         "cells": 2,
-        "qty": 8
+        "qty": 9
     },
     {
         "name": "Mergedge",
@@ -267,7 +285,7 @@ const miners = [
         "power": 40.000,
         "bonus": 0,
         "cells": 2,
-        "qty": 1
+        "qty": 2
     },
     {
         "name": "Nuc",
@@ -312,7 +330,7 @@ const miners = [
         "power": 0.150,
         "bonus": 0.1,
         "cells": 1,
-        "qty": 37
+        "qty": 21
     },
     {
         "name": "RollerArc S1",
@@ -348,7 +366,7 @@ const miners = [
         "power": 1,
         "bonus": 1,
         "cells": 2,
-        "qty": 1
+        "qty": 2
     },
     {
         "name": "RollerMiner G1",
@@ -357,7 +375,7 @@ const miners = [
         "power": 3.500,
         "bonus": 0,
         "cells": 1,
-        "qty": 6
+        "qty": 7
     },
     {
         "name": "RollerMiner R4",
@@ -366,7 +384,7 @@ const miners = [
         "power": 6.000,
         "bonus": 0.5,
         "cells": 1,
-        "qty": 3
+        "qty": 4
     },
     {
         "name": "RollerMiner S4",
@@ -402,7 +420,16 @@ const miners = [
         "power": 2.730,
         "bonus": 0.5,
         "cells": 1,
-        "qty": 3
+        "qty": 4
+    },
+    {
+        "name": "Rolleron Miner 761",
+        "img": "https://static.rollercoin.com/static/img/market/miners/rolleron_miner_761.gif?v=1",
+        "rarity": "I",
+        "power": 6.500,
+        "bonus": 0.5,
+        "cells": 2,
+        "qty": 1
     },
     {
         "name": "Roy and Silo",
