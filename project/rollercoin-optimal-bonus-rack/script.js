@@ -428,7 +428,7 @@ const miners = [
         "rarity": "I",
         "power": 6.500,
         "bonus": 0.5,
-        "cells": 2,
+        "cells": 1,
         "qty": 1
     },
     {
