@@ -733,8 +733,8 @@ function normal(){
         cell2.innerHTML = unitConversion(miners[i].power);
         cell3.innerHTML = miners[i].bonus + "%";
 
-        total.power += newMiners[i].power;
-        total.bonus += newMiners[i].bonus;
+        total.power += miners[i].power;
+        total.bonus += miners[i].bonus;
     }
 
     let row = table.insertRow(miners.length+1);
