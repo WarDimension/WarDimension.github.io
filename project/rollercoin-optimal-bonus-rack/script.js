@@ -734,7 +734,7 @@ function normal(){
         cell3.innerHTML = miners[i].bonus + "%";
     }
 
-    let row = table.insertRow(newMiners.length+1);
+    let row = table.insertRow(miners.length+1);
     let cell1 = row.insertCell(0);
     let cell2 = row.insertCell(1);
     let cell3 = row.insertCell(2);
