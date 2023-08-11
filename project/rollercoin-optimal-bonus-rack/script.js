@@ -731,14 +731,12 @@ function normal(){
 
 }
 
-let total = {
-    "power": 0,
-    "bonus": 0
-};
-
-let first = true;
-
 function crazy(){
+    let total = {
+        "power": 0,
+        "bonus": 0
+    };
+
     for(let i = 0; i < newMiners.length; i++){
         if(newMiners[i].doubleMiner){
             let power1, power2, unit1, unit2, rarity1 = getRarityIcon(newMiners[i].miners[0].rarity), rarity2 = getRarityIcon(newMiners[i].miners[1].rarity), bonus1, bonus2;
@@ -770,15 +768,18 @@ function crazy(){
             cell3.innerHTML = bonus + "%";
         }
 
-        if(first){
-            total.power += newMiners[i].power;
-            total.bonus += newMiners[i].bonus;
-        }
+        total.power += newMiners[i].power;
+        total.bonus += newMiners[i].bonus;
     }
 
-    if(first){
-        console.table(total);
-    }
+    let row = table.insertRow(newMiners.length+1);
+    let cell1 = row.insertCell(0);
+    let cell2 = row.insertCell(1);
+    let cell3 = row.insertCell(2);
+
+    cell1.innerHTML = "TOTAL";
+    cell2.innerHTML = unitConversion(total.power.toFixed() * 1);
+    cell3.innerHTML = total.bonus.toFixed(2) * 1 + "%";
 }
 
 function printTable(){
