@@ -771,7 +771,7 @@ function crazy(){
         }
 
         if(first){
-            total.power += newMiners[i].bonus;
+            total.power += newMiners[i].power;
             total.bonus += newMiners[i].bonus;
         }
     }
