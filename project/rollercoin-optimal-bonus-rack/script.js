@@ -731,6 +731,13 @@ function normal(){
 
 }
 
+let total = {
+    "power": 0,
+    "bonus": 0
+};
+
+let first = true;
+
 function crazy(){
     for(let i = 0; i < newMiners.length; i++){
         if(newMiners[i].doubleMiner){
@@ -762,6 +769,15 @@ function crazy(){
             cell2.innerHTML = unitConversion(newMiners[i].power);
             cell3.innerHTML = bonus + "%";
         }
+
+        if(first){
+            total.power += newMiners[i].bonus;
+            total.bonus += newMiners[i].bonus;
+        }
+    }
+
+    if(first){
+        console.table(total);
     }
 }
 
