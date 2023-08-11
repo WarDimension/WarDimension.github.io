@@ -732,6 +732,9 @@ function normal(){
         cell1.innerHTML = `<div><img class="single" src="${miners[i].img}"/>${rarity}${miners[i].name}</div>`;
         cell2.innerHTML = unitConversion(miners[i].power);
         cell3.innerHTML = miners[i].bonus + "%";
+
+        total.power += newMiners[i].power;
+        total.bonus += newMiners[i].bonus;
     }
 
     let row = table.insertRow(miners.length+1);
