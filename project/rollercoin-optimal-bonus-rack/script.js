@@ -716,6 +716,11 @@ function unitConversion(power){
 }
 
 function normal(){
+    let total = {
+        "power": 0,
+        "bonus": 0
+    };
+
     for(let i = 0; i < miners.length; i++){
         let rarity = getRarityIcon(miners[i].rarity);
 
@@ -729,6 +734,14 @@ function normal(){
         cell3.innerHTML = miners[i].bonus + "%";
     }
 
+    let row = table.insertRow(newMiners.length+1);
+    let cell1 = row.insertCell(0);
+    let cell2 = row.insertCell(1);
+    let cell3 = row.insertCell(2);
+
+    cell1.innerHTML = "TOTAL";
+    cell2.innerHTML = unitConversion(total.power.toFixed() * 1);
+    cell3.innerHTML = total.bonus.toFixed(2) * 1 + "%";
 }
 
 function crazy(){
