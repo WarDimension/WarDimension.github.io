@@ -87,7 +87,7 @@ const miners = [
         "power": 14.000,
         "bonus": 1,
         "cells": 1,
-        "qty": 1
+        "qty": 2
     },
     {
         "name": "Deepdiver",
@@ -96,7 +96,7 @@ const miners = [
         "power": 12.500,
         "bonus": 0.25,
         "cells": 2,
-        "qty": 3
+        "qty": 4
     },
     {
         "name": "Demon Speeding",
@@ -231,7 +231,7 @@ const miners = [
         "power": 4.860,
         "bonus": 0,
         "cells": 1,
-        "qty": 2
+        "qty": 3
     },
     {
         "name": "Mergedge Mk. I",
@@ -330,7 +330,7 @@ const miners = [
         "power": 0.150,
         "bonus": 0.1,
         "cells": 1,
-        "qty": 13
+        "qty": 14
     },
     {
         "name": "RollerArc S1",
@@ -411,7 +411,7 @@ const miners = [
         "power": 1.320,
         "bonus": 0.25,
         "cells": 1,
-        "qty": 10
+        "qty": 11
     },
     {
         "name": "Rolleron 741",
@@ -420,7 +420,7 @@ const miners = [
         "power": 2.730,
         "bonus": 0.5,
         "cells": 1,
-        "qty": 4
+        "qty": 5
     },
     {
         "name": "Rolleron Miner 761",
@@ -456,6 +456,15 @@ const miners = [
         "power": 64.600,
         "bonus": 0,
         "cells": 2,
+        "qty": 1
+    },
+    {
+        "name": "Scarabey",
+        "img": "https://static.rollercoin.com/static/img/market/miners/scarabey.gif?v=1",
+        "rarity": "I",
+        "power": 8.000,
+        "bonus": 1,
+        "cells": 1,
         "qty": 1
     },
     {
