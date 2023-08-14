@@ -90,6 +90,15 @@ const miners = [
         "qty": 2
     },
     {
+        "name": "Country Loading...",
+        "img": "https://static.rollercoin.com/static/img/market/miners/country_loading.gif?v=1",
+        "rarity": "I",
+        "power": 50.500,
+        "bonus": 0,
+        "cells": 2,
+        "qty": 1
+    },
+    {
         "name": "Deepdiver",
         "img": "https://static.rollercoin.com/static/img/market/miners/62a722279b5a37db46c0bca5.gif?v=1.0.3",
         "rarity": "I",
@@ -522,6 +531,15 @@ const miners = [
         "qty": 1
     },
     {
+        "name": "Subminerine",
+        "img": "https://static.rollercoin.com/static/img/market/miners/subminerine.gif?v=1",
+        "rarity": "I",
+        "power": 15.000,
+        "bonus": 0.25,
+        "cells": 2,
+        "qty": 1
+    },
+    {
         "name": "Tape-Side-A",
         "img": "https://static.rollercoin.com/static/img/market/miners/63930d86380ccf549d7f5c2e.gif?v=1.0.3",
         "rarity": "I",
@@ -581,6 +599,15 @@ const miners = [
         "rarity": "I",
         "power": 0.100,
         "bonus": 0,
+        "cells": 2,
+        "qty": 1
+    },
+    {
+        "name": "TurtleCoin",
+        "img": "https://static.rollercoin.com/static/img/market/miners/turtlecoin.gif?v=1",
+        "rarity": "I",
+        "power": 20.000,
+        "bonus": 0.25,
         "cells": 2,
         "qty": 1
     },
