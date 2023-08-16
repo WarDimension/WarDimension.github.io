@@ -9,6 +9,10 @@ let favorites = [
                     {
                         "title": "Yagate Kimi ni Naru",
                         "link": "./watch-order?s=やがて君になる"
+                    },
+                    {
+                        "title": "Sora yori mo Tooi Basho",
+                        "link": "./watch-order?s=宇宙よりも遠い場所"
                     }
                 ]
             },
@@ -107,6 +111,11 @@ let favorites = [
                         "title": "Koito Yuu",
                         "subTitle": "Yagate Kimi ni Naru",
                         "link": "./waifu?s=小糸侑"
+                    },
+                    {
+                        "title": "Yukishita Mayuki",
+                        "subTitle": "Goukaku no Tame no! Yasashii Sankaku Kankei Nyuumon",
+                        "link": "./waifu?s=雪下真幸"
                     },
                     {
                         "title": "Iwakura Mitsumi",
@@ -241,6 +250,14 @@ let favorites = [
         "category": "Manga",
         "list": [
             {
+                "": [
+                    {
+                        "title": "Goukaku no Tame no! Yasashii Sankaku Kankei Nyuumon",
+                        "link": "https://anilist.co/manga/114970/Goukaku-no-Tame-no-Yasashii-Sankaku-Kankei-Nyuumon/"
+                    }
+                ]
+            },
+            {
                 "rankedList": [
                     {
                         "title": "Yagate Kimi ni Naru",
@@ -261,8 +278,16 @@ let favorites = [
                 "subCategory": "Yuri",
                 "rankedList": [
                     {
+                        "title": "Goukaku no Tame no! Yasashii Sankaku Kankei Nyuumon",
+                        "link": "https://anilist.co/manga/114970/Goukaku-no-Tame-no-Yasashii-Sankaku-Kankei-Nyuumon/"
+                    },
+                    {
                         "title": "Yagate Kimi ni Naru",
                         "link": "https://anilist.co/manga/86218/Yagate-Kimi-ni-Naru/"
+                    },
+                    {
+                        "title": "Kyou mo Onnanoko wo Kouryaku shita.",
+                        "link": "https://anilist.co/manga/99852/Kyou-mo-Onnanoko-wo-Kouryaku-shita/"
                     }
                 ]
             }
