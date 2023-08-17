@@ -262,11 +262,11 @@ let favorites = [
                 ]
             },
             {
-                "subCategory": "Psychological",
+                "subCategory": "Cute Girls Doing Cute Things",
                 "rankedList": [
                     {
-                        "title": "Aku no Hana",
-                        "link": "https://anilist.co/manga/54705/Aku-no-Hana/"
+                        "title": "Urara Meirochou",
+                        "link": "https://anilist.co/manga/87031/Urara-Meirochou/"
                     }
                 ]
             },
