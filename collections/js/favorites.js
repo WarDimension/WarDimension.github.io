@@ -222,12 +222,12 @@ let favorites = [
                         "link": "https://mydramalist.com/46-pasta"
                     },
                     {
-                        "title": "49 Days",
-                        "link": "https://mydramalist.com/288-49-days-2011"
-                    },
-                    {
                         "title": "The Girl Who Sees Scents",
                         "link": "https://mydramalist.com/13103-the-girl-who-sees-scents"
+                    },
+                    {
+                        "title": "49 Days",
+                        "link": "https://mydramalist.com/288-49-days-2011"
                     }
                 ]
             }
