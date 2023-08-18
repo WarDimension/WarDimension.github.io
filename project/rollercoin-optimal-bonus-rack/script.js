@@ -279,6 +279,15 @@ const miners = [
         "qty": 3
     },
     {
+        "name": "Merry Dancers",
+        "img": "https://static.rollercoin.com/static/img/market/miners/merry_dancers.gif?v=1",
+        "rarity": "I",
+        "power": 22.400,
+        "bonus": 0,
+        "cells": 2,
+        "qty": 1
+    },
+    {
         "name": "Milly Mini",
         "img": "https://static.rollercoin.com/static/img/market/miners/60c9bc0965dce86c86c372fe.gif?v=1.0.3",
         "rarity": "I",
@@ -387,13 +396,22 @@ const miners = [
         "qty": 7
     },
     {
+        "name": "RollerMiner G1",
+        "img": "https://static.rollercoin.com/static/img/market/miners/rollerminer_g1.gif?v=1",
+        "rarity": "II",
+        "power": 9.240,
+        "bonus": 0.08,
+        "cells": 1,
+        "qty": 1
+    },
+    {
         "name": "RollerMiner R4",
         "img": "https://static.rollercoin.com/static/img/market/miners/5a0b08abd1d9ee5894f36f30.gif?v=1.0.3",
         "rarity": "I",
         "power": 6.000,
         "bonus": 0.5,
         "cells": 1,
-        "qty": 4
+        "qty": 5
     },
     {
         "name": "RollerMiner S4",
@@ -430,6 +448,15 @@ const miners = [
         "bonus": 0.5,
         "cells": 1,
         "qty": 5
+    },
+    {
+        "name": "Rolleron 741",
+        "img": "https://static.rollercoin.com/static/img/market/miners/rolleron_741.gif?v=1",
+        "rarity": "II",
+        "power": 7.245,
+        "bonus": 0.53,
+        "cells": 1,
+        "qty": 1
     },
     {
         "name": "Rolleron Miner 761",
