@@ -118,6 +118,16 @@ let favorites = [
                         "link": "./waifu?s=雪下真幸"
                     },
                     {
+                        "title": "Zaizen Tokiko",
+                        "subTitle": "THE iDOLM@STER Cinderella Girls",
+                        "link": "./waifu?s=財前時子"
+                    },
+                    {
+                        "title": "Yuuka",
+                        "subTitle": "Honto no Kanojo",
+                        "link": "./waifu?s=ユカ"
+                    },
+                    {
                         "title": "Iwakura Mitsumi",
                         "subTitle": "Skip to Loafer",
                         "link": "./waifu?s=岩倉美津未"
@@ -136,6 +146,11 @@ let favorites = [
                         "title": "Zaizen Tokiko",
                         "subTitle": "THE iDOLM@STER Cinderella Girls",
                         "link": "./waifu?s=財前時子"
+                    },
+                    {
+                        "title": "Yuuka",
+                        "subTitle": "Honto no Kanojo",
+                        "link": "./waifu?s=ユカ"
                     }
                 ]
             }
