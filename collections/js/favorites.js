@@ -263,6 +263,10 @@ let favorites = [
                     {
                         "title": "Yagate Kimi ni Naru",
                         "link": "https://anilist.co/manga/86218/Yagate-Kimi-ni-Naru/"
+                    },
+                    {
+                        "title": "Urara Meirochou",
+                        "link": "https://anilist.co/manga/87031/Urara-Meirochou/"
                     }
                 ]
             },
@@ -285,6 +289,10 @@ let favorites = [
                     {
                         "title": "Yagate Kimi ni Naru",
                         "link": "https://anilist.co/manga/86218/Yagate-Kimi-ni-Naru/"
+                    },
+                    {
+                        "title": "Lonely Girl ni Sakaraenai",
+                        "link": "https://anilist.co/manga/112621/Lonely-Girl-ni-Sakaraenai/"
                     },
                     {
                         "title": "Kyou mo Onnanoko wo Kouryaku shita.",
