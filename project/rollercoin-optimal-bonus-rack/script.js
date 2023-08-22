@@ -303,7 +303,7 @@ const miners = [
         "power": 40.000,
         "bonus": 0,
         "cells": 2,
-        "qty": 2
+        "qty": 3
     },
     {
         "name": "Nuc",
@@ -322,6 +322,15 @@ const miners = [
         "bonus": 0.25,
         "cells": 2,
         "qty": 2
+    },
+    {
+        "name": "Pit Boss",
+        "img": "https://static.rollercoin.com/static/img/market/miners/pit_boss.gif?v=1",
+        "rarity": "I",
+        "power": 55.250,
+        "bonus": 0,
+        "cells": 2,
+        "qty": 1
     },
     {
         "name": "Power Symbol",
@@ -348,7 +357,7 @@ const miners = [
         "power": 0.150,
         "bonus": 0.1,
         "cells": 1,
-        "qty": 3
+        "qty": 1
     },
     {
         "name": "RollerArc S1",
@@ -438,7 +447,7 @@ const miners = [
         "power": 1.320,
         "bonus": 0.25,
         "cells": 1,
-        "qty": 9
+        "qty": 7
     },
     {
         "name": "Rolleron 741",
