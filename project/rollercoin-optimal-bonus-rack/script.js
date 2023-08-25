@@ -150,7 +150,7 @@ const miners = [
         "power": 22.000,
         "bonus": 0,
         "cells": 2,
-        "qty": 1
+        "qty": 2
     },
     {
         "name": "Entminer",
@@ -159,6 +159,15 @@ const miners = [
         "power": 57.750,
         "bonus": 0.55,
         "cells": 2,
+        "qty": 1
+    },
+    {
+        "name": "Fang Symbol",
+        "img": "https://static.rollercoin.com/static/img/market/miners/fang_symbol.gif?v=1",
+        "rarity": "I",
+        "power": 0.100,
+        "bonus": 0,
+        "cells": 1,
         "qty": 1
     },
     {
@@ -204,7 +213,7 @@ const miners = [
         "power": 13.000,
         "bonus": 0.5,
         "cells": 1,
-        "qty": 5
+        "qty": 7
     },
     {
         "name": "Jungle King",
@@ -267,7 +276,7 @@ const miners = [
         "power": 3.825,
         "bonus": 0,
         "cells": 2,
-        "qty": 9
+        "qty": 8
     },
     {
         "name": "Mergedge",
@@ -429,7 +438,7 @@ const miners = [
         "power": 1.160,
         "bonus": 0.25,
         "cells": 1,
-        "qty": 4
+        "qty": 3
     },
     {
         "name": "RollerMiner S5+",
@@ -447,7 +456,7 @@ const miners = [
         "power": 1.320,
         "bonus": 0.25,
         "cells": 1,
-        "qty": 7
+        "qty": 4
     },
     {
         "name": "Rolleron 741",
@@ -510,7 +519,7 @@ const miners = [
         "power": 8.000,
         "bonus": 1,
         "cells": 1,
-        "qty": 1
+        "qty": 2
     },
     {
         "name": "Shaolin Temple",
