@@ -222,7 +222,7 @@ const miners = [
         "power": 16.800,
         "bonus": 0.5,
         "cells": 2,
-        "qty": 1
+        "qty": 2
     },
     {
         "name": "Jungle King",
@@ -429,7 +429,16 @@ const miners = [
         "power": 6.000,
         "bonus": 0.5,
         "cells": 1,
-        "qty": 5
+        "qty": 3
+    },
+    {
+        "name": "RollerMiner R4",
+        "img": "https://static.rollercoin.com/static/img/market/miners/rollerminer_r4.gif?v=1",
+        "rarity": "II",
+        "power": 15.750,
+        "bonus": 0.53,
+        "cells": 1,
+        "qty": 1
     },
     {
         "name": "RollerMiner S4",
@@ -465,7 +474,7 @@ const miners = [
         "power": 2.730,
         "bonus": 0.5,
         "cells": 1,
-        "qty": 5
+        "qty": 4
     },
     {
         "name": "Rolleron 741",
