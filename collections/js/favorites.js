@@ -267,6 +267,10 @@ let favorites = [
                     {
                         "title": "Urara Meirochou",
                         "link": "https://anilist.co/manga/87031/Urara-Meirochou/"
+                    },
+                    {
+                        "title": "Okuru Kotoba",
+                        "link": "https://anilist.co/manga/99982/Okuru-Kotoba/"
                     }
                 ]
             },
@@ -276,6 +280,15 @@ let favorites = [
                     {
                         "title": "Urara Meirochou",
                         "link": "https://anilist.co/manga/87031/Urara-Meirochou/"
+                    }
+                ]
+            },
+            {
+                "subCategory": "Psychological",
+                "rankedList": [
+                    {
+                        "title": "Okuru Kotoba",
+                        "link": "https://anilist.co/manga/99982/Okuru-Kotoba/"
                     }
                 ]
             },
