@@ -9,6 +9,24 @@ const miners = [
         "qty": 3
     },
     {
+        "name": "ASICbit",
+        "img": "https://static.rollercoin.com/static/img/market/miners/asicbit.gif?v=1693832990115",
+        "rarity": "I",
+        "power": 2.400,
+        "bonus": 0,
+        "cells": 1,
+        "qty": 1
+    },
+    {
+        "name": "Bergedge",
+        "img": "https://static.rollercoin.com/static/img/market/miners/bergedge.gif?v=1693295324897",
+        "rarity": "I",
+        "power": 3.600,
+        "bonus": 0,
+        "cells": 2,
+        "qty": 2
+    },
+    {
         "name": "Cerberus",
         "img": "https://static.rollercoin.com/static/img/market/miners/631b561aa775e04d9a28548c.gif?v=1.0.3",
         "rarity": "I",
@@ -171,6 +189,15 @@ const miners = [
         "qty": 1
     },
     {
+        "name": "Flamin-Go",
+        "img": "https://static.rollercoin.com/static/img/market/miners/flamin_go.gif?v=1",
+        "rarity": "I",
+        "power": 50.000,
+        "bonus": 0.5,
+        "cells": 2,
+        "qty": 1
+    },
+    {
         "name": "Fortune’s Charm",
         "img": "https://static.rollercoin.com/static/img/market/miners/fortunes_charm.gif?v=1",
         "rarity": "I",
@@ -276,7 +303,7 @@ const miners = [
         "power": 3.825,
         "bonus": 0,
         "cells": 2,
-        "qty": 8
+        "qty": 4
     },
     {
         "name": "Mergedge",
@@ -582,6 +609,15 @@ const miners = [
         "power": 35.400,
         "bonus": 0,
         "cells": 2,
+        "qty": 1
+    },
+    {
+        "name": "Star Symbol",
+        "img": "https://static.rollercoin.com/static/img/market/miners/star_symbol.gif?v=1",
+        "rarity": "I",
+        "power": 0.100,
+        "bonus": 0,
+        "cells": 1,
         "qty": 1
     },
     {
