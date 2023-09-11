@@ -15,7 +15,7 @@ const miners = [
         "power": 2.400,
         "bonus": 0,
         "cells": 1,
-        "qty": 1
+        "qty": 2
     },
     {
         "name": "Bergedge",
@@ -41,6 +41,15 @@ const miners = [
         "rarity": "II",
         "power": 165.375,
         "bonus": 0.55,
+        "cells": 2,
+        "qty": 1
+    },
+    {
+        "name": "Chaise Longue",
+        "img": "https://static.rollercoin.com/static/img/market/miners/chaise_longue.gif?v=1",
+        "rarity": "I",
+        "power": 25.000,
+        "bonus": 0.25,
         "cells": 2,
         "qty": 1
     },
@@ -303,7 +312,7 @@ const miners = [
         "power": 3.825,
         "bonus": 0,
         "cells": 2,
-        "qty": 4
+        "qty": 2
     },
     {
         "name": "Mergedge",
@@ -492,7 +501,7 @@ const miners = [
         "power": 1.320,
         "bonus": 0.25,
         "cells": 1,
-        "qty": 4
+        "qty": 3
     },
     {
         "name": "Rolleron 741",
