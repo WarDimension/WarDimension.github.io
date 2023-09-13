@@ -7,7 +7,7 @@ const songsData = [
       "deezer": "https://www.deezer.com/album/55904362",
       "googlePlay": "https://play.google.com/store/music/album?id=Bx2khbzglch2k53gaph2a5txe2i",
       "spotify": "https://open.spotify.com/album/3WAX7N3BOU42zPZeqw6DR3",
-      "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_lXgyWybrogtK35zeAvapBoYzlSEhpQRLE",
+      "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_m1-coWkgQs3i9kAw1ONIU37qaSE0XVvwk",
       "amazon": "https://www.amazon.com/music/player/albums/B079CW27VN"
       },
       {
@@ -26,7 +26,7 @@ const songsData = [
       {
         "title": "Nightmare -Instrumental-",
         "length": "2:48",
-        "youtubeID": "8GAST5giSpM"
+        "youtubeID": "GkKLgQa3nUk"
       }
     ]
   },
@@ -38,7 +38,7 @@ const songsData = [
       "deezer": "https://www.deezer.com/album/59088612",
       "googlePlay": "https://play.google.com/store/music/album?id=Bsrds6nhmjjtjfgt4fnhfzhywfm",
       "spotify": "https://open.spotify.com/album/41rRnGetiwSJqA2DvPigvc",
-      "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_nWYcbbuKkXWcjx507xQM9VJln5jtT3znQ",
+      "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_m_oiuYfojafofwfVNbnCM0GylZRgjGMdM",
       "amazon": "https://www.amazon.com/music/player/albums/B07BHF8JWG"
     },
     {
@@ -64,7 +64,7 @@ const songsData = [
       "deezer": "https://www.deezer.com/album/59088622",
       "googlePlay": "https://play.google.com/store/music/album?id=Bxo7szbrrae5uk6wgyzhy5gtzi4",
       "spotify": "https://open.spotify.com/album/0svQYsVqzHe2aRXmlnH2KE",
-      "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_nqIQrGsNxxU6KTEpu0rQVRogIFGnwtY7o",
+      "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_mcUb3w7iwGu-39cKZkyU-7plCAcQQaQ-k",
       "amazon": "https://www.amazon.com/music/player/albums/B07BHKP9YT"
     },
     {
@@ -76,7 +76,7 @@ const songsData = [
       {
         "title": "Let's do it..",
         "length": "2:16",
-        "youtubeID": "FFEgITIxM-8"
+        "youtubeID": "t6LX09FrkDc"
       }
     ]
   },
@@ -89,7 +89,7 @@ const songsData = [
       "deezer": "https://www.deezer.com/album/68426701",
       "googlePlay": "http://play.google.com/store/music/album?id=B5m6iaph56ok5ubw66ytjuarfxm",
       "spotify": "https://open.spotify.com/album/4jMZzRKQIQUSKmb36r8bdi",
-      "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_ngbTWfAhv0pPJyAkV1yCMy4RSPqoAVIq8",
+      "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_lNS8sm3P0zY-36OmpRzuoELj7XsBH4DjE",
       "amazon": "https://www.amazon.com/music/player/albums/B07DY5LJ4H"
     },
     {
@@ -102,27 +102,27 @@ const songsData = [
       {
         "title": "BriGHtFuture",
         "length": "1:58",
-        "youtubeID": "nubu2Z8ysZ4"
+        "youtubeID": "SpDQdiUTnEE"
       },
       {
         "title": "Sound of Hope",
         "length": "2:05",
-        "youtubeID": "AuopebdhnMM"
+        "youtubeID": "L2VJcLiNyEM"
       },
       {
         "title": "Kurai",
         "length": "2:13",
-        "youtubeID": "qk02aTPkkxU"
+        "youtubeID": "6nM_qTpdKYc"
       },
       {
         "title": "Ambiguity",
         "length": "1:12",
-        "youtubeID": "ZtQTwEWkypQ"
+        "youtubeID": "ykA_AL5MAOY"
       },
       {
         "title": "Curse",
         "length": "1:37",
-        "youtubeID": "dfQBrCBswtY"
+        "youtubeID": "WWFvnEdKvlg"
       }
     ]
   },
@@ -136,7 +136,7 @@ const songsData = [
       "deezer": "https://www.deezer.com/album/68198331",
       "googlePlay": "https://play.google.com/store/music/album?id=Bbzuzvn6qokux5xvogiljt6pw6a",
       "spotify": "https://open.spotify.com/album/1tqkRMhkZryFa1rZbFdrV4",
-      "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_nLp99MftlDnTU0g-8i5WX1acavz-kbsMw",
+      "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_kYw_3SOLe8tyP9-jneZ-16sDI4x0erCfc",
       "amazon": "https://www.amazon.com/music/player/albums/B07FK8WN57"
     },
     {
@@ -150,25 +150,25 @@ const songsData = [
         "title": "ॐ",
         "romanized": "Om",
         "length": "4:00",
-        "youtubeID": "4kfgD6XoHpQ"
+        "youtubeID": "0ylAFj5Jn6I"
       },
       {
         "title": "ॐ (Without Intro)",
         "romanized": "Om (Without Intro)",
         "length": "3:04",
-        "youtubeID": "0SrjIAecioI"
+        "youtubeID": "9CCfP_7JKKc"
       },
       {
         "title": "ॐ -Instrumental-",
         "romanized": "Om -Instrumental-",
         "length": "4:00",
-        "youtubeID": "0gPnqE6Eh50"
+        "youtubeID": "kU6FVhO7AXo"
       },
       {
         "title": "ॐ (Without Intro) -Instrumental-",
         "romanized": "Om (Without Intro) -Instrumental-",
         "length": "3:04",
-        "youtubeID": "H5qvfUICySQ"
+        "youtubeID": "8QR7e0j960o"
       }
     ]
   },
@@ -180,7 +180,7 @@ const songsData = [
       "deezer": "https://www.deezer.com/album/73130572",
       "googlePlay": "https://play.google.com/store/music/album?id=B6fokvgicwiabwbmrbrkjdynzla",
       "spotify": "https://open.spotify.com/album/0PBOg2kVA8XWCN1SiH0u69",
-      "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_kd8QzOX73fXWIlrDffjkdDlJEKEpTzLM0",
+      "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_mLSIfMhgWq36Eb7f4P5l9pBwcuZ40oXU8",
       "amazon": "https://www.amazon.com/music/player/albums/B07HBCH7BM"
     },
     {
@@ -192,7 +192,7 @@ const songsData = [
       {
         "title": "NoHope_",
         "length": "2:00",
-        "youtubeID": "qM9s1TsNxos"
+        "youtubeID": "x-rBMXwa1_s"
       }
     ]
   },
@@ -204,7 +204,7 @@ const songsData = [
       "deezer": "https://www.deezer.com/album/73005342",
       "googlePlay": "https://play.google.com/store/music/album?id=Blkjf3nbm5bessmmwrba4ef37m4",
       "spotify": "https://open.spotify.com/album/6ZWMwloBk5ke2Jyfsm7Ix4",
-      "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_mPLcT60QoFNTP6RFsNmCMT-SDqr5uJCoQ",
+      "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_mX-M8p1nSPrqKc-_TEZp59oHTTYZ-g61Y",
       "amazon": "https://www.amazon.com/music/player/albums/B07H9GB6MR"
     },
     {
@@ -217,12 +217,12 @@ const songsData = [
       {
         "title": "Hyouka",
         "length": "1:13",
-        "youtubeID": "UgrUFFwM078"
+        "youtubeID": "B7Y3IFym4lw"
       },
       {
         "title": "Hyouka -Instrumental-",
         "length": "1:13",
-        "youtubeID": "FmiOI9k9um0"
+        "youtubeID": "ySTIE8FbQRw"
       }
     ]
   },
@@ -234,7 +234,7 @@ const songsData = [
       "deezer": "https://www.deezer.com/album/86688942",
       "googlePlay": "https://play.google.com/store/music/album?id=Blhtd2yeecbc57q4zz64rzqccte",
       "spotify": "https://open.spotify.com/album/4RFOcMBbcXLdIBXY5MpkDJ",
-      "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_l3m8d3HT5Ai49qhDTLKYAu0Jxl26O9jMk",
+      "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_lMjdiV5BE0-SAiMCa4EU_aF3d1cB3rfn4",
       "amazon": "https://www.amazon.com/music/player/albums/B07N359FPM"
     },
     {
@@ -249,59 +249,59 @@ const songsData = [
         "title": "花火",
         "romanized": "Hanabi",
         "length": "2:30",
-        "youtubeID": "MQ-YCMmyrH8"
+        "youtubeID": "KGvUIY24SSY"
       },
       {
         "title": "花火 -Instrumental-",
         "romanized": "Hanabi -Instrumental-",
         "length": "2:30",
-        "youtubeID": "U3EEdi7tKJI"
+        "youtubeID": "oLa935_z5PI"
       },
       {
         "title": "自宅",
         "romanized": "Jitaku",
         "length": "2:10",
-        "youtubeID": "8V3fdtPxMd4"
+        "youtubeID": "qllgj-K2Mj8"
       },
       {
         "title": "自宅 -Instrumental-",
         "romanized": "Jitaku -Instrumental-",
         "length": "2:10",
-        "youtubeID": "-69tzSwUIjg"
+        "youtubeID": "BbIz4TA0Pv4"
       },
       {
         "title": "Imaginary World",
         "length": "2:40",
-        "youtubeID": "l11M3kN25bM"
+        "youtubeID": "OCAho4ZV_-4"
       },
       {
         "title": "Imaginary World -Instrumental-",
         "length": "2:40",
-        "youtubeID": "TftzWKb0xns"
+        "youtubeID": "GuFG9n-Pk7s"
       },
       {
         "title": "Imaginary World (偽のメロディ Version)",
         "romanized": "Imaginary World (Nise no Melody Version)",
         "length": "2:24",
-        "youtubeID": "RZmAfz9cAAk"
+        "youtubeID": "NFHuPKEcTGc"
       },
       {
         "title": "Imaginary World (偽のメロディ Version) -Instrumental-",
         "romanized": "Imaginary World (Nise no Melody Version) -Instrumental-",
         "length": "2:24",
-        "youtubeID": "4m9meBJ5FBQ"
+        "youtubeID": "H-llazh4wdM"
       },
       {
         "title": "秋は",
         "romanized": "Aki wa",
         "length": "2:16",
-        "youtubeID": "eYeAU7UbmKA"
+        "youtubeID": "5DeKM8gM8dY"
       },
       {
         "title": "秋は -Instrumental-",
         "romanized": "Aki wa -Instrumental-",
         "length": "1:57",
-        "youtubeID": "N5J8tpYO_QY"
+        "youtubeID": "YrLhBAazonw"
       }
     ]
   },
@@ -315,7 +315,7 @@ const songsData = [
       "deezer": "https://www.deezer.com/album/88337072",
       "googlePlay": "https://play.google.com/store/music/album?id=Byxjdogbce3ykshrr46s6cf6gha",
       "spotify": "https://open.spotify.com/album/6Mj29kVSrR5cUwgGF0HThQ",
-      "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_kiuXgQTZcTi0c9gC34_Ec3Lye6MwZ_FFw",
+      "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_klmIc4bRiN1ajUWzEdc7xKFIMT_MQHa78",
       "amazon": "https://www.amazon.com/music/player/albums/B07NZ92B4G"
     },
     {
@@ -329,32 +329,32 @@ const songsData = [
       {
         "title": "Miaw",
         "length": "1:32",
-        "youtubeID": "1-L38iqsMzE"
+        "youtubeID": "5DZC3pOVssA"
       },
       {
         "title": "Miaw -Instrumental-",
         "length": "1:32",
-        "youtubeID": "704af0JNYms"
+        "youtubeID": "Hq5BKz3iMBo"
       },
       {
         "title": "Nyaa",
         "length": "1:40",
-        "youtubeID": "39felW8XM8g"
+        "youtubeID": "R_GW5YF0-Cc"
       },
       {
         "title": "Nyaa -Instrumental-",
         "length": "1:40",
-        "youtubeID": "Qi0rPJ9A08M"
+        "youtubeID": "LMz9IbKIgRg"
       },
       {
         "title": "goro goro",
         "length": "2:00",
-        "youtubeID": "kQ_mEEyH1rs"
+        "youtubeID": "IXAOBVLdPfg"
       },
       {
         "title": "goro goro -Instrumental-",
         "length": "2:00",
-        "youtubeID": "1P0N7zSP6sU"
+        "youtubeID": "EU020TdPVuI"
       }
     ]
   },
@@ -366,7 +366,7 @@ const songsData = [
       "deezer": "https://www.deezer.com/album/106191142",
       "googlePlay": "https://play.google.com/store/music/album?id=Bnt6efpi42stsd3pkjzqt2jm4ra",
       "spotify": "https://open.spotify.com/album/7cYdhAfrl5z92fa9ddGMpW",
-      "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_nsRJ9w9SFCy3fZr5wXzOuaZrT9tzxLveA",
+      "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_npYwSSCLiK0EC3bYlK-SHsi7g2vJciJyw",
       "amazon": "https://www.amazon.com/music/player/albums/B07THS4L2B"
     },
     {
@@ -380,66 +380,66 @@ const songsData = [
       {
         "title": "The Day After Tomorrow",
         "length": "1:05",
-        "youtubeID": "CvFwKIaS_eQ"
+        "youtubeID": "wWwyQd_oNgI"
       },
       {
         "title": "In the Middle of Nowhere",
         "length": "1:14",
-        "youtubeID": "pdogKwV8K70"
+        "youtubeID": "HcA6Colhgic"
       },
       {
         "title": "Sunday Morning",
         "length": "0:40",
-        "youtubeID": "SDR5lvupYeo"
+        "youtubeID": "kG7XVVn9-A8"
       },
       {
         "title": "化け物",
         "romanized": "Bakemono",
         "length": "1:28",
-        "youtubeID": "_Exf2anhXNo"
+        "youtubeID": "7dt6SMMYjN8"
       },
       {
         "title": "ルーパー",
         "romanized": "Looper",
         "length": "1:13",
-        "youtubeID": "kV7w7fxn9c0"
+        "youtubeID": "rHlyhLqE-yo"
       },
       {
         "title": "Dark Forest",
         "length": "2:18",
-        "youtubeID": "X3FF1HxVPZ8"
+        "youtubeID": "-g2TCDwxtGM"
       },
       {
         "title": "It's My Fault",
         "length": "2:19",
-        "youtubeID": "H_W7qBagrXs"
+        "youtubeID": "HySuOa3MRNU"
       },
       {
         "title": "死",
         "romanized": "Shi",
         "length": "1:41",
-        "youtubeID": "gcnQNHVWLEw"
+        "youtubeID": "zoFVqwebg0c"
       },
       {
         "title": "Every Second",
         "length": "1:17",
-        "youtubeID": "0-9W0X8Zo6Q"
+        "youtubeID": "4J9USJFI4XQ"
       },
       {
         "title": "遊ぼう",
         "romanized": "Asobou",
         "length": "0:55",
-        "youtubeID": "YwcD9iUcIIY"
+        "youtubeID": "HvjEdlPDlqE"
       },
       {
         "title": "Mental Breakdown",
         "length": "1:14",
-        "youtubeID": "WjsWmel6hWA"
+        "youtubeID": "fykT8xYTe-s"
       },
       {
         "title": "My Secret Place",
         "length": "1:39",
-        "youtubeID": "gcEsEDDnb8k"
+        "youtubeID": "gTrZL30QIrE"
       }
     ]
   },
@@ -455,7 +455,7 @@ const songsData = [
       "deezer": "https://www.deezer.com/album/138990552",
       "googlePlay": "https://play.google.com/store/music/album?id=Bo2qapsrqetyh6mwub4y53orlba",
       "spotify": "https://open.spotify.com/album/3K3ubsFVCYkEuumc9PtCgV",
-      "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_mZlWh62vzRJkjELtpl4_LslGKOHd3t17c",
+      "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_l8yzJnsdagZY77s_r4Nk4CDfyOQzxnn2w",
       "amazon": "https://www.amazon.com/music/player/albums/B086KVQHQG"
     },
     {
@@ -468,42 +468,42 @@ const songsData = [
         "title": "yes you can! ft. 初音ミク",
         "romanized": "yes you can! ft. Hatsune Miku",
         "length": "1:20",
-        "youtubeID": "fkvHcJeP4JU"
+        "youtubeID": "C5aXDZ3KW5k"
       },
       {
         "title": "yes you can! -Instrumental-",
         "length": "1:20",
-        "youtubeID": "at1JU2SIW2o"
+        "youtubeID": "nIA8T6_RdAs"
       },
       {
         "title": "ミクは寝たい ft. 初音ミク",
         "romanized": "Miku wa Netai ft. Hatsune Miku",
         "length": "2:03",
-        "youtubeID": "tSx91tD3oyM"
+        "youtubeID": "RhbSavQKujU"
       },
       {
         "title": "ミクは寝たい -Instrumental-",
         "romanized": "Miku wa Netai -Instrumental-",
         "length": "2:03",
-        "youtubeID": "BkJZex31JKM"
+        "youtubeID": "xSi4JmKxJck"
       },
       {
         "title": "ら・ら・ら ft. 初音ミク",
         "romanized": "La La La ft. Hatsune Miku",
         "length": "2:04",
-        "youtubeID": "MDTNmlz_6fo"
+        "youtubeID": "F-smrPYUEZI"
       },
       {
         "title": "天地開闢 ft. 初音ミク",
         "romanized": "Tenchi-kaibyaku ft. Hatsune Miku",
         "length": "2:15",
-        "youtubeID": "UQ9TTmBOgWk"
+        "youtubeID": "SO1TsEBtx5Y"
       },
       {
         "title": "天地開闢 -Instrumental-",
         "romanized": "Tenchi-kaibyaku -Instrumental-",
         "length": "2:15",
-        "youtubeID": "mnhTGgIFPYI"
+        "youtubeID": "bsgjY6Hddy8"
       }
     ]
   },
@@ -515,7 +515,7 @@ const songsData = [
       "itunes": "https://music.apple.com/album/dengungan/1536842696",
       "deezer": "https://www.deezer.com/album/181137082",
       "spotify": "https://open.spotify.com/album/1FaG61R7faoyEvRiOudPni",
-      "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_mOXoBNn5gLapbT9UIO8iz4Pe4js8n1pEg",
+      "youtubeMusic": "https://music.youtube.com/playlist?list=OLAK5uy_nfrZOHZz0ikTkxGFVoziAdO53JBtxTyzg",
       "amazon": "https://www.amazon.com/music/player/albums/B08LN14DCN"
     },
     {
@@ -527,42 +527,42 @@ const songsData = [
       {
         "title": "Maybe tomorrow will be better...",
         "length": "2:44",
-        "youtubeID": "FzxnV_R8eBM"
+        "youtubeID": "y1fAIjBm0-M"
       },
       {
         "title": "Looking for Hope",
         "length": "2:19",
-        "youtubeID": "4fvRwYWoJKE"
+        "youtubeID": "26yJolAePa0"
       },
       {
         "title": "Memories",
         "length": "2:11",
-        "youtubeID": "qp61J-Cm4yk"
+        "youtubeID": "Xx85srIm8Q8"
       },
       {
         "title": "Intersection",
         "length": "3:00",
-        "youtubeID": "NpHDr-MmYyE"
+        "youtubeID": "ReEYCBvyH_4"
       },
       {
         "title": "Wandering",
         "length": "1:24",
-        "youtubeID": "MKZpiaYuBR4"
+        "youtubeID": "86FfeCZs0To"
       },
       {
         "title": "Rainy Day",
         "length": "1:24",
-        "youtubeID": "nkJrMxsJaXY"
+        "youtubeID": "XFJbdBEQNu4"
       },
       {
         "title": "The Night Sky",
         "length": "1:29",
-        "youtubeID": "nMrjvY5pS3c"
+        "youtubeID": "4xEmMCJeFPk"
       },
       {
         "title": "Another Time",
         "length": "1:18",
-        "youtubeID": "OXBWRj2KMH0"
+        "youtubeID": "kMlvkKelX20"
       }
     ]
   },
