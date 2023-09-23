@@ -6,7 +6,7 @@ const miners = [
         "power": 33.000,
         "bonus": 0,
         "cells": 2,
-        "qty": 3
+        "qty": 4
     },
     {
         "name": "ASICbit",
@@ -15,7 +15,16 @@ const miners = [
         "power": 2.400,
         "bonus": 0,
         "cells": 1,
-        "qty": 2
+        "qty": 1
+    },
+    {
+        "name": "ASICbit",
+        "img": "https://static.rollercoin.com/static/img/market/miners/asicbit.gif?v=1693832990126",
+        "rarity": "III",
+        "power": 16.590,
+        "bonus": 0.2,
+        "cells": 1,
+        "qty": 1
     },
     {
         "name": "Bergedge",
@@ -24,7 +33,16 @@ const miners = [
         "power": 3.600,
         "bonus": 0,
         "cells": 2,
-        "qty": 2
+        "qty": 1
+    },
+    {
+        "name": "Bergedge",
+        "img": "https://static.rollercoin.com/static/img/market/miners/bergedge.gif",
+        "rarity": "I",
+        "power": 9.450,
+        "bonus": 0.08,
+        "cells": 2,
+        "qty": 1
     },
     {
         "name": "Cerberus",
@@ -121,6 +139,15 @@ const miners = [
         "img": "https://static.rollercoin.com/static/img/market/miners/country_loading.gif?v=1",
         "rarity": "I",
         "power": 50.500,
+        "bonus": 0,
+        "cells": 2,
+        "qty": 1
+    },
+    {
+        "name": "Dawn-To-Dusk",
+        "img": "https://static.rollercoin.com/static/img/market/miners/dawn_to_dusk.gif?v=1",
+        "rarity": "I",
+        "power": 64.800,
         "bonus": 0,
         "cells": 2,
         "qty": 1
@@ -238,6 +265,24 @@ const miners = [
         "img": "https://static.rollercoin.com/static/img/market/miners/63930d86380ccf549d7f5c2a.gif?v=1.0.3",
         "rarity": "I",
         "power": 78.500,
+        "bonus": 0,
+        "cells": 2,
+        "qty": 1
+    },
+    {
+        "name": "Inclusion Miner",
+        "img": "https://static.rollercoin.com/static/img/market/miners/inclusion_miner.gif?v=1",
+        "rarity": "I",
+        "power": 71.400,
+        "bonus": 0,
+        "cells": 2,
+        "qty": 1
+    },
+    {
+        "name": "Indonesia Pass",
+        "img": "https://static.rollercoin.com/static/img/market/miners/indonesia_pass.gif?v=1",
+        "rarity": "I",
+        "power": 360.000,
         "bonus": 0,
         "cells": 2,
         "qty": 1
@@ -492,7 +537,16 @@ const miners = [
         "power": 4.000,
         "bonus": 0.5,
         "cells": 1,
-        "qty": 3
+        "qty": 1
+    },
+    {
+        "name": "RollerMiner S5+",
+        "img": "https://static.rollercoin.com/static/img/market/miners/rollerminer_s5plus.gif?v=1",
+        "rarity": "II",
+        "power": 10.500,
+        "bonus": 0.53,
+        "cells": 1,
+        "qty": 1
     },
     {
         "name": "RollerMiner S7",
@@ -662,6 +716,15 @@ const miners = [
         "rarity": "I",
         "power": 100.000,
         "bonus": 1,
+        "cells": 2,
+        "qty": 1
+    },
+    {
+        "name": "The Protector",
+        "img": "https://static.rollercoin.com/static/img/market/miners/the_protector.gif?v=1695238418486",
+        "rarity": "I",
+        "power": 36.000,
+        "bonus": 0,
         "cells": 2,
         "qty": 1
     },
