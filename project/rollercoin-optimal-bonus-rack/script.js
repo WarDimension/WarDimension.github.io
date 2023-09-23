@@ -38,7 +38,7 @@ const miners = [
     {
         "name": "Bergedge",
         "img": "https://static.rollercoin.com/static/img/market/miners/bergedge.gif",
-        "rarity": "I",
+        "rarity": "II",
         "power": 9.450,
         "bonus": 0.08,
         "cells": 2,
