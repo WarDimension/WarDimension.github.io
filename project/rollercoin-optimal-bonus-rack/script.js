@@ -45,6 +45,15 @@ const miners = [
         "qty": 1
     },
     {
+        "name": "BitAce",
+        "img": "https://static.rollercoin.com/static/img/market/miners/bitace.gif",
+        "rarity": "I",
+        "power": 6.000,
+        "bonus": 0,
+        "cells": 1,
+        "qty": 1
+    },
+    {
         "name": "Cerberus",
         "img": "https://static.rollercoin.com/static/img/market/miners/631b561aa775e04d9a28548c.gif?v=1.0.3",
         "rarity": "I",
@@ -243,6 +252,24 @@ const miners = [
         "qty": 1
     },
     {
+        "name": "GPUbit",
+        "img": "https://static.rollercoin.com/static/img/market/miners/gpubit.gif",
+        "rarity": "I",
+        "power": 4.800,
+        "bonus": 0,
+        "cells": 1,
+        "qty": 1
+    },
+    {
+        "name": "GPUbit",
+        "img": "https://static.rollercoin.com/static/img/market/miners/gpubit.gif",
+        "rarity": "II",
+        "power": 12.600,
+        "bonus": 0.08,
+        "cells": 1,
+        "qty": 1
+    },
+    {
         "name": "Hasher’s Egg",
         "img": "https://static.rollercoin.com/static/img/market/miners/631b5619a775e04d9a28546d.gif?v=1.0.3",
         "rarity": "I",
@@ -357,7 +384,7 @@ const miners = [
         "power": 3.825,
         "bonus": 0,
         "cells": 2,
-        "qty": 2
+        "qty": 0
     },
     {
         "name": "Mergedge",
@@ -492,7 +519,7 @@ const miners = [
         "power": 3.500,
         "bonus": 0,
         "cells": 1,
-        "qty": 7
+        "qty": 4
     },
     {
         "name": "RollerMiner G1",
@@ -528,7 +555,7 @@ const miners = [
         "power": 1.160,
         "bonus": 0.25,
         "cells": 1,
-        "qty": 3
+        "qty": 1
     },
     {
         "name": "RollerMiner S5+",
@@ -555,7 +582,7 @@ const miners = [
         "power": 1.320,
         "bonus": 0.25,
         "cells": 1,
-        "qty": 3
+        "qty": 1
     },
     {
         "name": "Rolleron 741",
@@ -564,7 +591,7 @@ const miners = [
         "power": 2.730,
         "bonus": 0.5,
         "cells": 1,
-        "qty": 4
+        "qty": 1
     },
     {
         "name": "Rolleron 741",
