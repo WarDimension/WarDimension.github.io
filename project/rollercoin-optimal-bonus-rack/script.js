@@ -108,6 +108,15 @@ const miners = [
         "qty": 1
     },
     {
+        "name": "CommunityCatalyst",
+        "img": "https://static.rollercoin.com/static/img/market/miners/communitycatalyst.gif",
+        "rarity": "I",
+        "power": 56.400,
+        "bonus": 0,
+        "cells": 2,
+        "qty": 1
+    },
+    {
         "name": "CP-106",
         "img": "https://static.rollercoin.com/static/img/market/miners/610a9b31bf6b53744c87cedc.gif?v=1.0.3",
         "rarity": "I",
@@ -375,7 +384,7 @@ const miners = [
         "power": 6.450,
         "bonus": 0,
         "cells": 2,
-        "qty": 2
+        "qty": 0
     },
     {
         "name": "Mergedge",
@@ -832,6 +841,15 @@ const miners = [
         "img": "https://static.rollercoin.com/static/img/market/miners/63930d86380ccf549d7f5c2b.gif?v=1.0.3",
         "rarity": "I",
         "power": 114.000,
+        "bonus": 0,
+        "cells": 2,
+        "qty": 1
+    },
+    {
+        "name": "Your Friend Turing",
+        "img": "https://static.rollercoin.com/static/img/market/miners/your_friend_turing.gif",
+        "rarity": "I",
+        "power": 42.000,
         "bonus": 0,
         "cells": 2,
         "qty": 1
