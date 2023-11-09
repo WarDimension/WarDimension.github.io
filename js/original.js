@@ -509,7 +509,7 @@ const songsData = [
   },
   {
     "title": "Dengungan",
-    "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/db9b0a59-1832-436d-be35-c4da781cf1c8/de7cy3o-53183edd-80a7-448c-8077-55e56c1bbaf5.png/v1/fill/w_400,h_400,q_80,strp/dengungan_by_wardimension_de7cy3o-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3siaGVpZ2h0IjoiPD00MDAiLCJwYXRoIjoiXC9mXC9kYjliMGE1OS0xODMyLTQzNmQtYmUzNS1jNGRhNzgxY2YxYzhcL2RlN2N5M28tNTMxODNlZGQtODBhNy00NDhjLTgwNzctNTVlNTZjMWJiYWY1LnBuZyIsIndpZHRoIjoiPD00MDAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.noESeqz2mQuitqb4xQa9DdenJyQM4O5T0AUR4uX38ZY",
+    "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/db9b0a59-1832-436d-be35-c4da781cf1c8/de7cy3o-53183edd-80a7-448c-8077-55e56c1bbaf5.png/v1/fit/w_400,h_400,q_70,strp/dengungan_by_wardimension_de7cy3o-375w-2x.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDAwIiwicGF0aCI6IlwvZlwvZGI5YjBhNTktMTgzMi00MzZkLWJlMzUtYzRkYTc4MWNmMWM4XC9kZTdjeTNvLTUzMTgzZWRkLTgwYTctNDQ4Yy04MDc3LTU1ZTU2YzFiYmFmNS5wbmciLCJ3aWR0aCI6Ijw9NDAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.ar649ncbFegaK48u91tmdVzYtXSqjx1PZjR62Y7TD-k",
     "imgCur": "treble_clef",
     "url": [{
       "itunes": "https://music.apple.com/album/dengungan/1536842696",
