@@ -33,7 +33,7 @@ const miners = [
         "power": 3.600,
         "bonus": 0,
         "cells": 2,
-        "qty": 1
+        "qty": 0
     },
     {
         "name": "Bergedge",
@@ -42,7 +42,7 @@ const miners = [
         "power": 9.450,
         "bonus": 0.08,
         "cells": 2,
-        "qty": 1
+        "qty": 0
     },
     {
         "name": "BitAce",
@@ -123,7 +123,7 @@ const miners = [
         "power": 11.106,
         "bonus": 0.5,
         "cells": 1,
-        "qty": 5
+        "qty": 4
     },
     {
         "name": "Crimson Bloom",
@@ -330,7 +330,7 @@ const miners = [
         "power": 13.000,
         "bonus": 0.5,
         "cells": 1,
-        "qty": 7
+        "qty": 3
     },
     {
         "name": "Jungle King",
@@ -519,7 +519,7 @@ const miners = [
         "power": 1,
         "bonus": 1,
         "cells": 2,
-        "qty": 2
+        "qty": 1
     },
     {
         "name": "RollerMiner G1",
@@ -528,7 +528,7 @@ const miners = [
         "power": 3.500,
         "bonus": 0,
         "cells": 1,
-        "qty": 4
+        "qty": 2
     },
     {
         "name": "RollerMiner G1",
