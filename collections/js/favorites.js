@@ -118,6 +118,11 @@ let favorites = [
                         "link": "./waifu?s=雪下真幸"
                     },
                     {
+                        "title": "Aizawa Kaori",
+                        "subTitle": "Kami Eshi JK to OL Fujoshi",
+                        "link": "./waifu?s=相沢香織"
+                    },
+                    {
                         "title": "Iwakura Mitsumi",
                         "subTitle": "Skip to Loafer",
                         "link": "./waifu?s=岩倉美津未"
