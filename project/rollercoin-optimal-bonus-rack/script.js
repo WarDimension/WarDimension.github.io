@@ -27,6 +27,15 @@ const miners = [
         "qty": 1
     },
     {
+        "name": "Awaken",
+        "img": "https://static.rollercoin.com/static/img/market/miners/awaken.gif",
+        "rarity": "I",
+        "power": 195.000,
+        "bonus": 0,
+        "cells": 2,
+        "qty": 1
+    },
+    {
         "name": "Bergedge",
         "img": "https://static.rollercoin.com/static/img/market/miners/bergedge.gif?v=1693295324897",
         "rarity": "I",
@@ -49,6 +58,15 @@ const miners = [
         "img": "https://static.rollercoin.com/static/img/market/miners/bitace.gif",
         "rarity": "I",
         "power": 6.000,
+        "bonus": 0,
+        "cells": 1,
+        "qty": 1
+    },
+    {
+        "name": "Black Cat",
+        "img": "https://static.rollercoin.com/static/img/market/miners/black_cat.gif",
+        "rarity": "I",
+        "power": 50.000,
         "bonus": 0,
         "cells": 1,
         "qty": 1
@@ -790,6 +808,15 @@ const miners = [
         "bonus": 0,
         "cells": 2,
         "qty": 2
+    },
+    {
+        "name": "Tron",
+        "img": "https://static.rollercoin.com/static/img/market/miners/tron.gif",
+        "rarity": "I",
+        "power": 98.000,
+        "bonus": 0,
+        "cells": 2,
+        "qty": 1
     },
     {
         "name": "Turkey Aid 2023",
