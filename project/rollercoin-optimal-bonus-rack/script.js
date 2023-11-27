@@ -756,6 +756,15 @@ const miners = [
         "qty": 1
     },
     {
+        "name": "Tetromino",
+        "img": "https://static.rollercoin.com/static/img/market/miners/tetromino.gif",
+        "rarity": "I",
+        "power": 490.250,
+        "bonus": 0.45,
+        "cells": 2,
+        "qty": 1
+    },
+    {
         "name": "The Black Pearl",
         "img": "https://static.rollercoin.com/static/img/market/miners/62553dd842a0cd1b7dd592eb.gif?v=1.0.3",
         "rarity": "I",
@@ -816,7 +825,7 @@ const miners = [
         "power": 98.000,
         "bonus": 0,
         "cells": 2,
-        "qty": 1
+        "qty": 2
     },
     {
         "name": "Turkey Aid 2023",
@@ -861,7 +870,7 @@ const miners = [
         "power": 22.000,
         "bonus": 0.5,
         "cells": 1,
-        "qty": 1
+        "qty": 2
     },
     {
         "name": "YMCA Game",
