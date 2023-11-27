@@ -297,6 +297,15 @@ const miners = [
         "qty": 1
     },
     {
+        "name": "Hamster’s Enemy",
+        "img": "https://static.rollercoin.com/static/img/market/miners/hamsters_enemy.gif",
+        "rarity": "I",
+        "power": 114.000,
+        "bonus": 0,
+        "cells": 2,
+        "qty": 1
+    },
+    {
         "name": "Hasher’s Egg",
         "img": "https://static.rollercoin.com/static/img/market/miners/631b5619a775e04d9a28546d.gif?v=1.0.3",
         "rarity": "I",
