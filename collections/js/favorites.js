@@ -191,12 +191,12 @@ let favorites = [
             {
                 "rankedList": [
                     {
-                        "title": "Clone Hero/Guitar Hero/Rock Band",
-                        "link": "https://clonehero.net/"
-                    },
-                    {
                         "title": "Rocksmith 2014",
                         "link": "https://store.steampowered.com/app/221680/Rocksmith_2014_Edition__Remastered/"
+                    },
+                    {
+                        "title": "Clone Hero/Guitar Hero/Rock Band",
+                        "link": "https://clonehero.net/"
                     },
                     {
                         "title": "osu!",
