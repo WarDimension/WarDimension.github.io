@@ -647,6 +647,7 @@ function platformTemplate(song, index = 0, ばか = "バカ！"){
     ${platform(song.url[index].youtube, "youtube", "YouTube")}
     ${platform(song.url[index].youtubeMusic, "youtube-music", "YouTube Music")}
     ${platform(song.url[index].amazon, "amazon", "Amazon Music")}
+    ${platform(song.url[index].bandcamp, "bandcamp", "Bandcamp")}
     ${platform(song.url[index].bandLab, "bandlab", "BandLab")}
     ${platform(song.url[index].soundCloud, "soundcloud", "SoundCloud")}
     ${platform(song.url[index].joox, "joox", "JOOX")}
