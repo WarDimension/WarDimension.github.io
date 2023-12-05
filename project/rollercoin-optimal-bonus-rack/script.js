@@ -15,7 +15,7 @@ const miners = [
         "power": 2.400,
         "bonus": 0,
         "cells": 1,
-        "qty": 1
+        "qty": 0
     },
     {
         "name": "ASICbit",
@@ -285,7 +285,7 @@ const miners = [
         "power": 4.800,
         "bonus": 0,
         "cells": 1,
-        "qty": 1
+        "qty": 0
     },
     {
         "name": "GPUbit",
@@ -555,7 +555,7 @@ const miners = [
         "power": 3.500,
         "bonus": 0,
         "cells": 1,
-        "qty": 2
+        "qty": 0
     },
     {
         "name": "RollerMiner G1",
