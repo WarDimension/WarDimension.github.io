@@ -1,5 +1,7 @@
 var blog = document.getElementsByClassName("blog");
 
+document.querySelector("html").scrollBehavior="auto";
+
 if(["experimental", "chart", "tab"].indexOf(url()["b"]) >= 0){
     blog[0].src = `https://wardimension-${url()["b"]}.blogspot.com/`;
     if(url()["p"]!=undefined&&url()["p"]!=""){
