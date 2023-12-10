@@ -183,8 +183,8 @@ function onPlayerStateChange(event){
   else if(event.data == YT.PlayerState.PLAYING){
     time = setInterval(updateTimeSlider,10);
     if(songName.innerHTML == ""){
-      var author = "「" + player.getVideoData().author + "」";
-      songName.innerHTML = author + player.getVideoData().title;
+      var author = "</span style='color: #666; display:block'>" + player.getVideoData().author + "</span>";
+      songName.innerHTML = player.getVideoData().title + author;
     }
     setPlayButton("PLAYING");
     durationText.innerHTML = player.getDuration().toString().toHHMMSS();
