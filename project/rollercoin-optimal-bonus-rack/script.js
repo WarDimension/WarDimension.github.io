@@ -72,6 +72,15 @@ const miners = [
         "qty": 1
     },
     {
+        "name": "Bloody Mary",
+        "img": "https://static.rollercoin.com/static/img/market/miners/bloody_mary.gif",
+        "rarity": "I",
+        "power": 37.500,
+        "bonus": 0,
+        "cells": 2,
+        "qty": 1
+    },
+    {
         "name": "Cerberus",
         "img": "https://static.rollercoin.com/static/img/market/miners/631b561aa775e04d9a28548c.gif?v=1.0.3",
         "rarity": "I",
@@ -358,6 +367,15 @@ const miners = [
         "bonus": 0.5,
         "cells": 1,
         "qty": 3
+    },
+    {
+        "name": "Jellier",
+        "img": "https://static.rollercoin.com/static/img/market/miners/jellier.gif",
+        "rarity": "I",
+        "power": 20.000,
+        "bonus": 0.5,
+        "cells": 1,
+        "qty": 1
     },
     {
         "name": "Jungle King",
@@ -694,7 +712,16 @@ const miners = [
     },
     {
         "name": "Shifter",
-        "img": "https://static.rollercoin.com/static/img/market/miners/631f78b98238ed283a2332a3.gif?v=1.0.3",
+        "img": "https://static.rollercoin.com/static/img/market/miners/shifter.gif",
+        "rarity": "I",
+        "power": 40.000,
+        "bonus": 1,
+        "cells": 2,
+        "qty": 1
+    },
+    {
+        "name": "Shifter",
+        "img": "https://static.rollercoin.com/static/img/market/miners/shifter.gif",
         "rarity": "II",
         "power": 105.000,
         "bonus": 1.05,
@@ -870,6 +897,15 @@ const miners = [
         "power": 22.400,
         "bonus": 0,
         "cells": 2,
+        "qty": 1
+    },
+    {
+        "name": "Whatta Duck",
+        "img": "https://static.rollercoin.com/static/img/market/miners/whatta_duck.gif",
+        "rarity": "I",
+        "power": 0.010,
+        "bonus": 0,
+        "cells": 1,
         "qty": 1
     },
     {
