@@ -22,5 +22,7 @@ window.addEventListener("message", function(e) {
         }
         document.getElementsByClassName("blog")[0].style.height = e.data[2] + 200;
         setParams(`?b=${b}${p}`);
+        
+        window.scrollTo(0, 0);
     }
 });
