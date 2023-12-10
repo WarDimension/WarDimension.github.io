@@ -203,9 +203,6 @@ function onPlayerStateChange(event){
   }
   else if(event.data == YT.PlayerState.PAUSED){
     clearInterval(time);
-
-    setSongDataToPlayer();
-    
     setPlayButton("PAUSED");
     playerState = "PAUSED";
   }
@@ -213,6 +210,9 @@ function onPlayerStateChange(event){
     clearInterval(time);
     timeSlider.value = "0";
     resetDiskRotation(diskTemp);
+
+    setSongDataToPlayer();
+
     setPlayButton("PAUSED");
     
     if(player.getVideoData().title != undefined && player.getVideoData().title == "") setPlayButton("ERROR");
