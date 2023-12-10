@@ -15,6 +15,8 @@ if(["experimental", "chart", "tab"].indexOf(url()["b"]) >= 0){
     }
 }
 
+var blogSrcTemp = "";
+
 window.addEventListener("message", function(e) {
     if (["https://wardimension-experimental.blogspot.com","https://wardimension-chart.blogspot.com","https://wardimension-tab.blogspot.com"].indexOf(e.origin) >= 0){
         var b = e.data[0];
@@ -25,6 +27,9 @@ window.addEventListener("message", function(e) {
         document.getElementsByClassName("blog")[0].style.height = e.data[2] + 200;
         setParams(`?b=${b}${p}`);
         
-        window.scrollTo(0, 0);
+        if(blogSrcTemp != blog[0].src){
+            window.scrollTo(0, 0);
+            blogSrcTemp = blog[0].src;
+        }
     }
 });
