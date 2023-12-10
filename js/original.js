@@ -925,7 +925,8 @@ const songsData = [
       "netease": "https://music.163.com/#/album?id=167613103",
       "kuwo": "https://www.kuwo.cn/album_detail/38998773", //old: 
       "boomplay": "https://www.boomplay.com/albums/73094029", //old: 71806768
-      "zingmp3": "https://zingmp3.vn/album/Single-WarDimension/6BBZO007.html"
+      "zingmp3": "https://zingmp3.vn/album/Single-WarDimension/6BBZO007.html",
+      "rocksmith": "https://wardimension.github.io/blog?b=chart&search=['Artist: WarDimension', 'Album: Yume no Hibiki', 'Game: Rocksmith 2014']"
     }],
     "track": [
       {
