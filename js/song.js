@@ -166,6 +166,13 @@ function setPlayButton(state){
   }
 }
 
+function setSongDataToPlayer(){
+  if(songName.innerHTML == ""){
+    var author = `<span style="color: #666; display:block">${player.getVideoData().author}</span>`;
+    songName.innerHTML = player.getVideoData().title + author;
+  }
+}
+
 function onPlayerStateChange(event){
   if(event.data == YT.PlayerState.ENDED){
     clearInterval(time);
@@ -182,10 +189,9 @@ function onPlayerStateChange(event){
   }
   else if(event.data == YT.PlayerState.PLAYING){
     time = setInterval(updateTimeSlider,10);
-    if(songName.innerHTML == ""){
-      var author = `<span style="color: #666; display:block">${player.getVideoData().author}</span>`;
-      songName.innerHTML = player.getVideoData().title + author;
-    }
+
+    setSongDataToPlayer();
+
     setPlayButton("PLAYING");
     durationText.innerHTML = player.getDuration().toString().toHHMMSS();
     playerState = "PLAYING";
@@ -197,6 +203,9 @@ function onPlayerStateChange(event){
   }
   else if(event.data == YT.PlayerState.PAUSED){
     clearInterval(time);
+
+    setSongDataToPlayer();
+    
     setPlayButton("PAUSED");
     playerState = "PAUSED";
   }
