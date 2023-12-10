@@ -906,7 +906,7 @@ const miners = [
         "power": 0.010,
         "bonus": 0,
         "cells": 1,
-        "qty": 1
+        "qty": 0
     },
     {
         "name": "XLZ-01",
