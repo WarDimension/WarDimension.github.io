@@ -166,7 +166,7 @@ function setPlayButton(state){
   }
 }
 
-function setSongDataToPlayer(){
+function setVideoDataToPlayer(){
   if(songName.innerHTML == ""){
     var author = `<span style="color: #666; display:block">${player.getVideoData().author}</span>`;
     songName.innerHTML = player.getVideoData().title + author;
@@ -190,7 +190,7 @@ function onPlayerStateChange(event){
   else if(event.data == YT.PlayerState.PLAYING){
     time = setInterval(updateTimeSlider,10);
 
-    setSongDataToPlayer();
+    setVideoDataToPlayer();
 
     setPlayButton("PLAYING");
     durationText.innerHTML = player.getDuration().toString().toHHMMSS();
@@ -210,9 +210,6 @@ function onPlayerStateChange(event){
     clearInterval(time);
     timeSlider.value = "0";
     resetDiskRotation(diskTemp);
-
-    setSongDataToPlayer();
-
     setPlayButton("PAUSED");
     
     if(player.getVideoData().title != undefined && player.getVideoData().title == "") setPlayButton("ERROR");
