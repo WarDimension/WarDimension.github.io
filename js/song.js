@@ -195,7 +195,6 @@ function onPlayerStateChange(event){
   }
   else if(event.data == YT.PlayerState.BUFFERING){
     clearInterval(time);
-    setVideoDataToPlayer();
     setPlayButton("BUFFERING");
     playerState = "BUFFERING";
   }
@@ -214,6 +213,7 @@ function onPlayerStateChange(event){
 
     playerState = "UNSTARTED";
   }
+  setVideoDataToPlayer();
 }
 
 var trackHighlightTemp;
