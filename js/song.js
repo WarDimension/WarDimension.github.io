@@ -167,7 +167,7 @@ function setPlayButton(state){
 }
 
 function setVideoDataToPlayer(){
-  if(songName.innerHTML == "" && player.getVideoData().title == ""){
+  if(songName.innerHTML == "" && !(player.getVideoData().title != undefined && player.getVideoData().title == "")){
     var author = `<span style="color: #666; display:block">${player.getVideoData().author}</span>`;
     songName.innerHTML = player.getVideoData().title + author;
   }
