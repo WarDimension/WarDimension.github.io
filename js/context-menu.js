@@ -63,7 +63,7 @@ window.addEventListener("contextmenu", (e) => {
         cm.style.top = e.y + cm.offsetHeight > window.innerHeight ? window.innerHeight - cm.offsetHeight : e.y;
         cm.style.left = e.x + cm.offsetWidth > window.innerWidth ? window.innerWidth - cm.offsetWidth : e.x;
     }
-    else if(className == "cm"){
+    else if(className == "cm" || className == "cm-list"){
         e.preventDefault();
         cmAction(e);
     }
