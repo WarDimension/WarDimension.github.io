@@ -63,6 +63,10 @@ window.addEventListener("contextmenu", (e) => {
         cm.style.top = e.y + cm.offsetHeight > window.innerHeight ? window.innerHeight - cm.offsetHeight : e.y;
         cm.style.left = e.x + cm.offsetWidth > window.innerWidth ? window.innerWidth - cm.offsetWidth : e.x;
     }
+    else if(className = "cm"){
+        e.preventDefault();
+        cmAction(e);
+    }
     else{
         showContextMenu(false);
     }
@@ -85,6 +89,10 @@ function isEqual(a,b){
 var ascend = ["0","0","0","0","0","0","0","0","0","0"];
 
 window.addEventListener("click", (e) => {
+    cmAction(e);
+});
+
+function cmAction(e){
     var target = e.target;
     var className = target.className;
     if(className != "cm" && className != "cm-list"){
@@ -101,4 +109,4 @@ window.addEventListener("click", (e) => {
             window.open("https://wardimension.github.io/666","_top");
         }
     }
-});
+}
