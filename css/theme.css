@@ -35,7 +35,7 @@
 .menu-button:focus{
   outline-color: #fff;
 }
-html, body, iframe {
+html, iframe {
   max-width: 100%;
   overflow-x: hidden;
   overflow-y: overlay;
@@ -51,6 +51,8 @@ html, body, iframe {
 }
 body{
   margin: 0;
+  max-width: 100%;
+  overflow: hidden;
   background: #eeeeee;
 }
 .dev-console-info{
