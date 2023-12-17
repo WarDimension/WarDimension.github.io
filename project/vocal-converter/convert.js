@@ -7,7 +7,7 @@ function parseUnicode(str){
 
 let isSyllableMode = true;
 let originalDelay = 3;
-let targetDelay = 2.85;
+let targetDelay = 0;
 
 vocal.addEventListener("change", function (e) {
     const reader = new FileReader();
