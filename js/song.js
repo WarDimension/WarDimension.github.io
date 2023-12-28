@@ -276,19 +276,26 @@ function getContentIndexFromAlbumIndex(type){
 }
 
 function openInNew(){
-  if(!url()["album"] && currentTrack.type != undefined){
+
+  if((!url()["album"] || currentTrack.albumIndex != selectedAlbum.index || currentTrack.type != selectedAlbum.type) && currentTrack.type != undefined){
     let contentIndex = getContentIndexFromAlbumIndex(currentTrack.type);
+
     if(currentTrack.type == "cover" && originalButton.className.includes("active")){
       coverButton.click();
     }
     else if(currentTrack.type == "original" && coverButton.className.includes("active")){
       originalButton.click();
     }
-    document.getElementById(contentIndex = getContentIndexFromAlbumIndex(currentTrack.type)).click();
+
+    while(!url()["album"] ||currentTrack.albumIndex != selectedAlbum.index){
+      document.getElementById(contentIndex = getContentIndexFromAlbumIndex(currentTrack.type)).click();
+    }
+
     removeHash();
   }
   else if(currentTrack.type == undefined){
     window.open(`https://www.youtube.com/watch?v=${currentTrack.youtubeID}`,"_blank");
+
     if(playerState == "PLAYING" || playerState == "BUFFERING"){
       player.pauseVideo();
     }
