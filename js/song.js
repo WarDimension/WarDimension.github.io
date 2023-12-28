@@ -259,6 +259,39 @@ function setSong(videoId,title = "",trackIndex,setCurrentTrack = false){
   trackHighlight();
 }
 
+function getContentIndexFromAlbumIndex(type){
+  switch(type){
+    case "original":
+      return (songsData.length - 1) - currentTrack.albumIndex;
+      break;
+    case "cover":
+      return (coversData.length - 1) - currentTrack.albumIndex;
+      break;
+    default:
+      return 0;
+  }
+}
+
+function openInNew(){
+  if(!url()["album"] && currentTrack.type != undefined){
+    let contentIndex = getContentIndexFromAlbumIndex(currentTrack.type);
+    if(currentTrack.type == "cover" && originalButton.className.includes("active")){
+      coverButton.click();
+    }
+    else if(currentTrack.type == "original" && coverButton.className.includes("active")){
+      originalButton.click();
+    }
+    document.getElementById(contentIndex = getContentIndexFromAlbumIndex(currentTrack.type)).click();
+    removeHash();
+  }
+  else if(currentTrack.type == undefined){
+    window.open(`https://www.youtube.com/watch?v=${currentTrack.youtubeID}`,"_blank");
+    if(playerState == "PLAYING" || playerState == "BUFFERING"){
+      player.pauseVideo();
+    }
+  }
+}
+
 function closePlayer(){
   player.pauseVideo();
   clearInterval(time);

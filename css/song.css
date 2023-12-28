@@ -348,13 +348,17 @@ i{
   transform: translateX(-50%);
   max-width: 90%;
 }
-#close-player-button{
+#close-player-button, #open-in-new-button{
   background: none;
   color: #fff;
   border: none;
   position: absolute;
   right: 5px;
-  top: 5px;
+  top: 6px;
+}#open-in-new-button{
+  /*right: 35px;*/
+  left: 5px;
+  right: auto;
 }
 button{
   transition-duration: 0.1s;
