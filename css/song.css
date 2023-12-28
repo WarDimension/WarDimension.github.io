@@ -354,9 +354,8 @@ i{
   border: none;
   position: absolute;
   right: 5px;
-  top: 6px;
+  top: 8px;
 }#open-in-new-button{
-  /*right: 35px;*/
   left: 5px;
   right: auto;
 }
