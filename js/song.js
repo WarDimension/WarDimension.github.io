@@ -141,6 +141,8 @@ var repeatButton = document.getElementById("repeat-button");
 
 var closePlayerButton = document.getElementById("close-player-button");
 
+var openInNewButton = document.getElementById("open-in-new-button");
+
 var playerState;
 
 var playButtonState;
@@ -245,6 +247,7 @@ function setSong(videoId,title = "",trackIndex,setCurrentTrack = false){
   shuffleButton.tabIndex = "0";
   repeatButton.tabIndex = "0";
   closePlayerButton.tabIndex = "0";
+  openInNewButton.tabIndex = "0";
   if(url()["album"]){
     setParams(`album=${url()["album"]}&id=${videoId}`);
   }else{
@@ -304,6 +307,7 @@ function closePlayer(){
   shuffleButton.tabIndex = "-1";
   repeatButton.tabIndex = "-1";
   closePlayerButton.tabIndex = "-1";
+  openInNewButton.tabIndex = "-1";
   shuffleHistory = [];
   currentTrack = {
     "youtubeID": undefined,
