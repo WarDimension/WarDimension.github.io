@@ -286,7 +286,7 @@ function openInNew(){
       originalButton.click();
     }
 
-    while(!url()["album"] ||currentTrack.albumIndex != selectedAlbum.index){
+    while(!url()["album"] || currentTrack.albumIndex != selectedAlbum.index){
       document.getElementById(contentIndex = getContentIndexFromAlbumIndex(currentTrack.type)).click();
     }
 
