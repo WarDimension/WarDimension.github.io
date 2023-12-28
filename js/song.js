@@ -276,7 +276,6 @@ function getContentIndexFromAlbumIndex(type){
 }
 
 function openInNew(){
-
   if((!url()["album"] || currentTrack.albumIndex != selectedAlbum.index || currentTrack.type != selectedAlbum.type) && currentTrack.type != undefined){
     let contentIndex = getContentIndexFromAlbumIndex(currentTrack.type);
 
