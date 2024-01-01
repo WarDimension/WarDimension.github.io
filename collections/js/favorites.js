@@ -406,6 +406,81 @@ let favorites = [
                 ]
             }
         ]
+    },
+    {
+        "category": "Social Media",
+        "list": [
+            {
+                "subCategory": "Twitch - Just Chatting",
+                "rankedList": [
+                    {
+                        "title": "Yoshimyan",
+                        "link": "https://www.twitch.tv/yoshimyan"
+                    }
+                ]
+            },
+            {
+                "subCategory": "YouTube - Animator",
+                "rankedList": [
+                    {
+                        "title": "Dong Chang",
+                        "link": "https://www.youtube.com/@DongChang"
+                    }
+                ]
+            },
+            {
+                "subCategory": "YouTube - Edutainment",
+                "rankedList": [
+                    {
+                        "title": "Vsauce",
+                        "link": "https://www.youtube.com/@Vsauce"
+                    },
+                    {
+                        "title": "The Science Asylum",
+                        "link": "https://www.youtube.com/@ScienceAsylum"
+                    },
+                    {
+                        "title": "3Blue1Brown",
+                        "link": "https://www.youtube.com/@3blue1brown"
+                    }
+                ]
+            },
+            {
+                "subCategory": "YouTube - Games",
+                "rankedList": [
+                    {
+                        "title": "Mr. Fruit",
+                        "link": "https://www.youtube.com/@Mr_Fruit"
+                    },
+                    {
+                        "title": "theRadBrad",
+                        "link": "https://www.youtube.com/@theRadBrad"
+                    },
+                    {
+                        "title": "Markiplier",
+                        "link": "https://www.youtube.com/@markiplier"
+                    }
+                ]
+            },
+            {
+                "subCategory": "YouTube - Music Education",
+                "rankedList": [
+                    {
+                        "title": "Signals Music Studio",
+                        "link": "https://www.youtube.com/@SignalsMusicStudio"
+                    }
+                ]
+            },
+            {
+                "subCategory": "YouTube - Musician",
+                "rankedList": [
+                    {
+                        "title": "Rob Scallon",
+                        "link": "https://www.youtube.com/@robscallon"
+                    }
+                ]
+            }
+        ]
     }
 ];
 
