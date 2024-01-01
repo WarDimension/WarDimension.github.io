@@ -131,6 +131,11 @@ let favorites = [
                         "title": "Yamamura Kumiko - Josee",
                         "subTitle": "Josee to Tora to Sakana-tachi",
                         "link": "./waifu?s=山村クミ子"
+                    },
+                    {
+                        "title": "Takimoto Hifumi",
+                        "subTitle": "NEW GAME!",
+                        "link": "./waifu?s=滝本ひふみ"
                     }
                 ]
             },
