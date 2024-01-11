@@ -420,6 +420,19 @@ let favorites = [
                 ]
             },
             {
+                "subCategory": "Twitch/YouTube - VTuber",
+                "rankedList": [
+                    {
+                        "title": "Kokoha An",
+                        "link": "https://www.twitch.tv/kokohaan"
+                    },
+                    {
+                        "title": "Oshu",
+                        "link": "https://www.twitch.tv/2taoxi"
+                    }
+                ]
+            },
+            {
                 "subCategory": "YouTube - Animator",
                 "rankedList": [
                     {
