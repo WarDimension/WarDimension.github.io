@@ -7,12 +7,11 @@ const songsData = [
       "deezer": "https://www.deezer.com/album/55904362",
       "googlePlay": "https://play.google.com/store/music/album?id=Bx2khbzglch2k53gaph2a5txe2i",
       "spotify": "https://open.spotify.com/album/3WAX7N3BOU42zPZeqw6DR3",
-      "youtubeMusic": "https://music.youtube.com/playlist?list=PLjU3ePCiIkWlmhOfQ1D6_6hTGN79t5Itw",
+      "youtube": "https://www.youtube.com/playlist?list=PLjU3ePCiIkWlmhOfQ1D6_6hTGN79t5Itw",
       "amazon": "https://www.amazon.com/music/player/albums/B079CW27VN",
       "bandcamp": "https://wardimension.bandcamp.com/album/nightmare"
       },
       {
-        "youtube": "https://www.youtube.com/watch?v=PB9NKVEYVGk",
         "soundCloud": "https://soundcloud.com/wardimension/sets/nightmare",
         "netease": "https://music.163.com/#/album?id=88333642",
         "kuwo": "https://www.kuwo.cn/album_detail/13449879",
@@ -39,12 +38,11 @@ const songsData = [
       "deezer": "https://www.deezer.com/album/59088612",
       "googlePlay": "https://play.google.com/store/music/album?id=Bsrds6nhmjjtjfgt4fnhfzhywfm",
       "spotify": "https://open.spotify.com/album/41rRnGetiwSJqA2DvPigvc",
-      "youtubeMusic": "https://music.youtube.com/playlist?list=PLjU3ePCiIkWknrfrZriLyVl0JGeM5phiF",
+      "youtube": "https://www.youtube.com/playlist?list=PLjU3ePCiIkWknrfrZriLyVl0JGeM5phiF",
       "amazon": "https://www.amazon.com/music/player/albums/B07BHF8JWG",
       "bandcamp": "https://wardimension.bandcamp.com/album/abandoned"
     },
     {
-      "youtube": "https://www.youtube.com/watch?v=9_5evlRwc5A",
       "soundCloud": "https://soundcloud.com/wardimension/sets/abandoned",
       "netease": "https://music.163.com/#/album?id=88366723",
       "kuwo": "https://www.kuwo.cn/album_detail/13453604"
@@ -66,7 +64,7 @@ const songsData = [
       "deezer": "https://www.deezer.com/album/59088622",
       "googlePlay": "https://play.google.com/store/music/album?id=Bxo7szbrrae5uk6wgyzhy5gtzi4",
       "spotify": "https://open.spotify.com/album/0svQYsVqzHe2aRXmlnH2KE",
-      "youtubeMusic": "https://music.youtube.com/playlist?list=PLjU3ePCiIkWnYXzxvtdlyQUzFkNLFJkPY",
+      "youtube": "https://www.youtube.com/playlist?list=PLjU3ePCiIkWnYXzxvtdlyQUzFkNLFJkPY",
       "amazon": "https://www.amazon.com/music/player/albums/B07BHKP9YT",
       "bandcamp": "https://wardimension.bandcamp.com/album/lets-do-it"
     },
@@ -92,7 +90,7 @@ const songsData = [
       "deezer": "https://www.deezer.com/album/68426701",
       "googlePlay": "http://play.google.com/store/music/album?id=B5m6iaph56ok5ubw66ytjuarfxm",
       "spotify": "https://open.spotify.com/album/4jMZzRKQIQUSKmb36r8bdi",
-      "youtubeMusic": "https://music.youtube.com/playlist?list=PLjU3ePCiIkWnFGGS3W96zh0Ny37d_JNQA",
+      "youtube": "https://www.youtube.com/playlist?list=PLjU3ePCiIkWnFGGS3W96zh0Ny37d_JNQA",
       "amazon": "https://www.amazon.com/music/player/albums/B07DY5LJ4H",
       "bandcamp": "https://wardimension.bandcamp.com/album/fruitydimension"
     },
@@ -140,7 +138,7 @@ const songsData = [
       "deezer": "https://www.deezer.com/album/68198331",
       "googlePlay": "https://play.google.com/store/music/album?id=Bbzuzvn6qokux5xvogiljt6pw6a",
       "spotify": "https://open.spotify.com/album/1tqkRMhkZryFa1rZbFdrV4",
-      "youtubeMusic": "https://music.youtube.com/playlist?list=PLjU3ePCiIkWmtXtwvyTdXogyTzKqqkr5b",
+      "youtube": "https://www.youtube.com/playlist?list=PLjU3ePCiIkWmtXtwvyTdXogyTzKqqkr5b",
       "amazon": "https://www.amazon.com/music/player/albums/B07FK8WN57",
       "bandcamp": "https://wardimension.bandcamp.com/album/-"
     },
@@ -185,7 +183,7 @@ const songsData = [
       "deezer": "https://www.deezer.com/album/73005342",
       "googlePlay": "https://play.google.com/store/music/album?id=Blkjf3nbm5bessmmwrba4ef37m4",
       "spotify": "https://open.spotify.com/album/6ZWMwloBk5ke2Jyfsm7Ix4",
-      "youtubeMusic": "https://music.youtube.com/playlist?list=PLjU3ePCiIkWlKJ27fH8RgFPLJ9To0pywb",
+      "youtube": "https://www.youtube.com/playlist?list=PLjU3ePCiIkWlKJ27fH8RgFPLJ9To0pywb",
       "amazon": "https://www.amazon.com/music/player/albums/B07H9GB6MR",
       "bandcamp": "https://wardimension.bandcamp.com/album/hyouka"
     },
@@ -216,7 +214,7 @@ const songsData = [
       "deezer": "https://www.deezer.com/album/73130572",
       "googlePlay": "https://play.google.com/store/music/album?id=B6fokvgicwiabwbmrbrkjdynzla",
       "spotify": "https://open.spotify.com/album/0PBOg2kVA8XWCN1SiH0u69",
-      "youtubeMusic": "https://music.youtube.com/playlist?list=PLjU3ePCiIkWmztmtnjqtEOHf78EdobM2_",
+      "youtube": "https://www.youtube.com/playlist?list=PLjU3ePCiIkWmztmtnjqtEOHf78EdobM2_",
       "amazon": "https://www.amazon.com/music/player/albums/B07HBCH7BM",
       "bandcamp": "https://wardimension.bandcamp.com/album/nohope"
     },
@@ -241,7 +239,7 @@ const songsData = [
       "deezer": "https://www.deezer.com/album/86688942",
       "googlePlay": "https://play.google.com/store/music/album?id=Blhtd2yeecbc57q4zz64rzqccte",
       "spotify": "https://open.spotify.com/album/4RFOcMBbcXLdIBXY5MpkDJ",
-      "youtubeMusic": "https://music.youtube.com/playlist?list=PLjU3ePCiIkWmCZDnKIRxeeRjR_ryLFG1W",
+      "youtube": "https://www.youtube.com/playlist?list=PLjU3ePCiIkWmCZDnKIRxeeRjR_ryLFG1W",
       "amazon": "https://www.amazon.com/music/player/albums/B07N359FPM",
       "bandcamp": "https://wardimension.bandcamp.com/album/vboo"
     },
@@ -323,7 +321,7 @@ const songsData = [
       "deezer": "https://www.deezer.com/album/88337072",
       "googlePlay": "https://play.google.com/store/music/album?id=Byxjdogbce3ykshrr46s6cf6gha",
       "spotify": "https://open.spotify.com/album/6Mj29kVSrR5cUwgGF0HThQ",
-      "youtubeMusic": "https://music.youtube.com/playlist?list=PLjU3ePCiIkWm-88UXF07RWS1L5Pwu2Sds",
+      "youtube": "https://www.youtube.com/playlist?list=PLjU3ePCiIkWm-88UXF07RWS1L5Pwu2Sds",
       "amazon": "https://www.amazon.com/music/player/albums/B07NZ92B4G",
       "bandcamp": "https://wardimension.bandcamp.com/album/neko-da"
     },
@@ -375,7 +373,7 @@ const songsData = [
       "deezer": "https://www.deezer.com/album/106191142",
       "googlePlay": "https://play.google.com/store/music/album?id=Bnt6efpi42stsd3pkjzqt2jm4ra",
       "spotify": "https://open.spotify.com/album/7cYdhAfrl5z92fa9ddGMpW",
-      "youtubeMusic": "https://music.youtube.com/playlist?list=PLjU3ePCiIkWk3Khh963UR3OuAYNq5E9cE",
+      "youtube": "https://www.youtube.com/playlist?list=PLjU3ePCiIkWk3Khh963UR3OuAYNq5E9cE",
       "amazon": "https://www.amazon.com/music/player/albums/B07THS4L2B",
       "bandcamp": "https://wardimension.bandcamp.com/album/bandlab"
     },
@@ -465,7 +463,7 @@ const songsData = [
       "deezer": "https://www.deezer.com/album/138990552",
       "googlePlay": "https://play.google.com/store/music/album?id=Bo2qapsrqetyh6mwub4y53orlba",
       "spotify": "https://open.spotify.com/album/3K3ubsFVCYkEuumc9PtCgV",
-      "youtubeMusic": "https://music.youtube.com/playlist?list=PLjU3ePCiIkWnt2hzVD0-rPWkCrtym66lM",
+      "youtube": "https://www.youtube.com/playlist?list=PLjU3ePCiIkWnt2hzVD0-rPWkCrtym66lM",
       "amazon": "https://www.amazon.com/music/player/albums/B086KVQHQG",
       "bandcamp": "https://wardimension.bandcamp.com/album/ft"
     },
@@ -526,7 +524,7 @@ const songsData = [
       "itunes": "https://music.apple.com/album/dengungan/1536842696",
       "deezer": "https://www.deezer.com/album/181137082",
       "spotify": "https://open.spotify.com/album/1FaG61R7faoyEvRiOudPni",
-      "youtubeMusic": "https://music.youtube.com/playlist?list=PLjU3ePCiIkWlGiGyGEiiH1H4xtr8CSG0r",
+      "youtube": "https://www.youtube.com/playlist?list=PLjU3ePCiIkWlGiGyGEiiH1H4xtr8CSG0r",
       "amazon": "https://www.amazon.com/music/player/albums/B08LN14DCN",
       "bandcamp": "https://wardimension.bandcamp.com/album/dengungan"
     },
@@ -587,7 +585,7 @@ const songsData = [
       "itunes": "https://music.apple.com/album/白いメロディー/1597478873",
       "deezer": "https://www.deezer.com/album/275653712",
       "spotify": "https://open.spotify.com/album/2jzbkOlmMHOiUni19zMcIS",
-      "youtubeMusic": "https://music.youtube.com/playlist?list=PLjU3ePCiIkWki5n3y0Sz_C2I_4zeueqId",
+      "youtube": "https://www.youtube.com/playlist?list=PLjU3ePCiIkWki5n3y0Sz_C2I_4zeueqId",
       "amazon": "https://www.amazon.com/music/player/albums/B09MM9GQYP",
       "bandcamp": "https://wardimension.bandcamp.com/album/--3"
     },
@@ -662,7 +660,7 @@ const songsData = [
       "itunes": "https://music.apple.com/album/μαύρη-μελωδία/1629625013",
       "deezer": "https://www.deezer.com/album/327400167",
       "spotify": "https://open.spotify.com/album/7iM4MBXURVLQPzV9sU5rHu?si=j3DmGSWdSJiGdP_LG0h2NQ",
-      "youtubeMusic": "https://music.youtube.com/playlist?list=PLjU3ePCiIkWkNJyqeyUBnYBTCWiNAP_LT",
+      "youtube": "https://www.youtube.com/playlist?list=PLjU3ePCiIkWkNJyqeyUBnYBTCWiNAP_LT",
       "amazon": "https://www.amazon.com/music/player/albums/B0B42SGC4B",
       "bandcamp": "https://wardimension.bandcamp.com/album/--4"
     },
@@ -735,7 +733,7 @@ const songsData = [
       "itunes": "https://music.apple.com/album/broken-record-inception-single/1637073483",
       "deezer": "https://www.deezer.com/album/340814337",
       "spotify": "https://open.spotify.com/album/3XMeN6wxDUtFiLXXCalqY5?si=Kab0hMOgQ1yQxgccT-Kmkw",
-      "youtubeMusic": "https://music.youtube.com/playlist?list=PLjU3ePCiIkWl81eF2-7bKommi6uS7JSM1",
+      "youtube": "https://www.youtube.com/playlist?list=PLjU3ePCiIkWl81eF2-7bKommi6uS7JSM1",
       "amazon": "https://www.amazon.com/music/player/albums/B0B82L6LFV",
       "bandcamp": "https://wardimension.bandcamp.com/album/broken-record-inception"
     },
@@ -773,7 +771,7 @@ const songsData = [
       "itunes": "https://music.apple.com/album/いつでも-どこでも-何でもいい-ep/1662124933",
       "deezer": "https://www.deezer.com/album/391659087",
       "spotify": "https://open.spotify.com/album/21RyXRVHeZ8F91Uh1celSW?si=MnlajCYSSz-fUB5d2HX4cw",
-      "youtubeMusic": "https://music.youtube.com/playlist?list=PLjU3ePCiIkWlAnaPfmWPTyux8L-7vG8om",
+      "youtube": "https://www.youtube.com/playlist?list=PLjU3ePCiIkWlAnaPfmWPTyux8L-7vG8om",
       "amazon": "https://www.amazon.com/music/player/albums/B0BRDBFH79",
       "bandcamp": "https://wardimension.bandcamp.com/album/--5"
     },
@@ -838,7 +836,7 @@ const songsData = [
       "itunes": "https://music.apple.com/album/evil-within-me-single/1677134469",
       "deezer": "https://www.deezer.com/album/417071267",
       "spotify": "https://open.spotify.com/album/6DKsAnsvE71qo05XV7PbNo?si=_itYgeDNQQOtKGTozbDsRg",
-      "youtubeMusic": "https://music.youtube.com/playlist?list=PLjU3ePCiIkWnxVClMzYbBBibNkukVnnLL",
+      "youtube": "https://www.youtube.com/playlist?list=PLjU3ePCiIkWnxVClMzYbBBibNkukVnnLL",
       "amazon": "https://www.amazon.com/music/player/albums/B0BYG18DWZ",
       "bandcamp": "https://wardimension.bandcamp.com/album/evil-within-me"
     },
@@ -873,7 +871,7 @@ const songsData = [
       "itunes": "https://music.apple.com/album/psychedelic-single/1661316481",
       "deezer": "https://www.deezer.com/album/389799597",
       "spotify": "https://open.spotify.com/album/2TDnG060mW3FUK9k3upfwd",
-      "youtubeMusic": "https://music.youtube.com/playlist?list=PLjU3ePCiIkWk5OruOT4T4aeDa4Myb-Wv4",
+      "youtube": "https://www.youtube.com/playlist?list=PLjU3ePCiIkWk5OruOT4T4aeDa4Myb-Wv4",
       "amazon": "https://www.amazon.com/music/player/albums/B0BQZ688MK",
       "bandcamp": "https://wardimension.bandcamp.com/album/psychedelic"
     },
@@ -914,7 +912,7 @@ const songsData = [
       "itunes": "https://music.apple.com/album/夢の響き-single/1696009226", //old: 1692357069
       "deezer": "https://www.deezer.com/album/462088575", //old: 452946835
       "spotify": "https://open.spotify.com/album/45JPPPRYPPmbPiWiiGa02I", //old: 2mV951YMxgtmIlhrFVS36k
-      "youtubeMusic": "https://music.youtube.com/playlist?list=PLjU3ePCiIkWkm-KLrOwab0HxiEEenwVBG", //old: OLAK5uy_knRq3SWPeh8PLkIw_nSzxHuIJm6sjD6Lo
+      "youtube": "https://www.youtube.com/playlist?list=PLjU3ePCiIkWkm-KLrOwab0HxiEEenwVBG", //old: OLAK5uy_knRq3SWPeh8PLkIw_nSzxHuIJm6sjD6Lo
       "amazon": "https://www.amazon.com/music/player/albums/B0CB6VDJJ1", //old: B0C7W68GQJ
       "bandcamp": "https://wardimension.bandcamp.com/album/--6"
     },
