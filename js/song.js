@@ -287,7 +287,8 @@ function openInNew(){
     }
 
     while(!url()["album"] || currentTrack.albumIndex != selectedAlbum.index){
-      document.getElementById(contentIndex = getContentIndexFromAlbumIndex(currentTrack.type)).click();
+      let contentIndex = sortNewest? getContentIndexFromAlbumIndex(currentTrack.type) : currentTrack.albumIndex;
+      document.getElementById(contentIndex).click();
     }
 
     removeHash();
