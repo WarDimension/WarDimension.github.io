@@ -241,6 +241,9 @@
   transition: all 0.5s cubic-bezier(.25,.8,.25,1);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+#music-player button{
+  cursor: pointer;
+}
 .time-text{
   display: inline-block;
   color: #fff;
