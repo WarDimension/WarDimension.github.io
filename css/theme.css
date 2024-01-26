@@ -200,7 +200,7 @@ h3{
 .platform-container h3:first-of-type{
   margin-top: 0;
 }
-.more{
+.more-container{
   position: absolute;
   left: 50%;
   top: 50%;
@@ -216,14 +216,14 @@ h3{
   overflow-y: overlay;
   overflow-x: hidden;
 }
-.more::-webkit-scrollbar-track{
+.more-container::-webkit-scrollbar-track{
   margin-top: 45px;
 }
 .more-content{
   background: #fff;
   padding: 20px min(100px, 5%);
 }
-.more h3:first-of-type{
+.more-container h3:first-of-type{
   margin-top: 0;
 }
 .close-more-container{
@@ -245,7 +245,7 @@ h3{
   color: #fff;
   font-weight: bold;
 }
-.more .close-more{
+.more-container .close-more{
   position: absolute;
   right: 0;
   background: #fff;
@@ -254,7 +254,7 @@ h3{
   font-size: 35px;
   padding: 5px;
 }
-.more .close-more:hover, .more .close-more:focus{
+.more-container .close-more:hover, .more-container .close-more:focus{
   background: #bd3030;
   color: #fff;
   outline: solid 1px #eee;
