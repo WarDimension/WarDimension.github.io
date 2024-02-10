@@ -11,12 +11,12 @@ document.addEventListener('onEventReceived', function(obj) {
     if(msg[msg.length-1].innerText.replaceAll(" ", "") == ""){
         let emotes = msg[msg.length-1].querySelectorAll(".emote");
         emotes.forEach(emote => {
-            emote.style.backgroundImage = emote.style.backgroundImage.replace("1.0", "3.0");
+            emote.style.backgroundImage = emote.style.backgroundImage.replace("1.0", "3.0").replace("1x", "3x");
             emote.style.display = "inline-block";
 
             let img = emote.firstChild;
 
-            img.src = img.src.replace("1.0", "3.0");
+            img.src = img.src.replace("1.0", "3.0").replace("1x", "3x");
 
             switch(emotes.length){
                 case 1:
