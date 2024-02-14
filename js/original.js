@@ -946,18 +946,36 @@ const songsData = [
     "romanized": "Uchuu no Naka de Hibiku Monogatari ft. Chis-A",
     "alt": "uchuu-no-naka-de-hibiku-monogatari",
     "img": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/db9b0a59-1832-436d-be35-c4da781cf1c8/dgijuli-e0b99e5d-b0c2-4fe6-80b1-6710fa47191b.png/v1/fit/w_400,h_400,q_70,strp/uchuu_no_naka_de_hibiku_monogatari_by_wardimension_dgijuli-375w-2x.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDAwIiwicGF0aCI6IlwvZlwvZGI5YjBhNTktMTgzMi00MzZkLWJlMzUtYzRkYTc4MWNmMWM4XC9kZ2lqdWxpLWUwYjk5ZTVkLWIwYzItNGZlNi04MGIxLTY3MTBmYTQ3MTkxYi5wbmciLCJ3aWR0aCI6Ijw9NDAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.Q9P0JWb_TCkOkS3mkVmdA98aJ7ec4A2hJ34UXFXZ97A",
+    "url": [{
+      "itunes": "https://music.apple.com/album/宇宙の中で響く物語-feat-知声-single/1720471068",
+      "deezer": "https://www.deezer.com/album/521532212",
+      "spotify": "https://open.spotify.com/album/3jGebinsIdpD4pyhVk4TJn",
+      "youtube": "https://www.youtube.com/playlist?list=PLjU3ePCiIkWm0500xTyQD13x7HQsWoKSt",
+      "amazon": "https://www.amazon.com/music/player/albums/B0CPTH5W59",
+      "bandcamp": "https://wardimension.bandcamp.com/album/ft-2"
+    },
+    {
+      "soundCloud": "https://soundcloud.com/wardimension/sets/uchuu-no-naka-de-hibiku-monogatari",
+      "joox": "https://www.joox.com/album/HPWpRS7RUf3cA2hxo4W2Nw==",
+      "flo": "https://www.music-flo.com/detail/album/419968132/albumtrack",
+      "bugs": "https://music.bugs.co.kr/album/33561683",
+      "netease": "https://music.163.com/#/album?id=180733354",
+      "kuwo": "https://www.kuwo.cn/album_detail/44794291",
+      "boomplay": "https://www.boomplay.com/albums/81516257",
+      "zingmp3": "https://zingmp3.vn/album/feat-Single-WarDimension/6BEW7WAB.html"
+    }],
     "track": [
       {
         "title": "宇宙の中で響く物語 ft. 知声",
         "romanized": "Uchuu no Naka de Hibiku Monogatari ft. Chis-A",
         "length": "2:00",
-        "youtubeID": "666"
+        "youtubeID": "MZ3aSNBuLcY"
       },
       {
         "title": "宇宙の中で響く物語 -Instrumental-",
         "romanized": "Uchuu no Naka de Hibiku Monogatari -Instrumental-",
         "length": "2:00",
-        "youtubeID": "666"
+        "youtubeID": "KCwyYiqteGw"
       }
     ]
   }
