@@ -962,7 +962,8 @@ const songsData = [
       "netease": "https://music.163.com/#/album?id=180733354",
       "kuwo": "https://www.kuwo.cn/album_detail/44794291",
       "boomplay": "https://www.boomplay.com/albums/81516257",
-      "zingmp3": "https://zingmp3.vn/album/feat-Single-WarDimension/6BEW7WAB.html"
+      "zingmp3": "https://zingmp3.vn/album/feat-Single-WarDimension/6BEW7WAB.html",
+      "rocksmith": "https://wardimension.github.io/blog?b=chart&search=['Artist: WarDimension', 'Album: Uchuu no Naka de Hibiku Monogatari ft. Chis-A', 'Game: Rocksmith 2014']"
     }],
     "track": [
       {
