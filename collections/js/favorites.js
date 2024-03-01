@@ -429,6 +429,26 @@ let favorites = [
                     {
                         "title": "Oshu",
                         "link": "https://www.twitch.tv/2taoxi"
+                    },
+                    {
+                        "title": "Ringo",
+                        "link": "https://www.twitch.tv/ringochan65"
+                    },
+                    {
+                        "title": "Waguri Maron",
+                        "link": "https://www.twitch.tv/maronwaguri"
+                    },
+                    {
+                        "title": "Haru_Haro",
+                        "link": "https://www.twitch.tv/haru_haro"
+                    },
+                    {
+                        "title": "Mochify",
+                        "link": "https://www.twitch.tv/mochify"
+                    },
+                    {
+                        "title": "Kumano Kanoko",
+                        "link": "https://www.twitch.tv/kumanokanoko"
                     }
                 ]
             },
@@ -438,6 +458,15 @@ let favorites = [
                     {
                         "title": "Dong Chang",
                         "link": "https://www.youtube.com/@DongChang"
+                    }
+                ]
+            },
+            {
+                "subCategory": "YouTube - Comedy",
+                "rankedList": [
+                    {
+                        "title": "Ryan George",
+                        "link": "https://www.youtube.com/@RyanGeorge"
                     }
                 ]
             },
