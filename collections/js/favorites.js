@@ -411,6 +411,15 @@ let favorites = [
         "category": "Social Media",
         "list": [
             {
+                "subCategory": "Twitch - Games",
+                "rankedList": [
+                    {
+                        "title": "Fea Taro",
+                        "link": "https://www.twitch.tv/arabulmaker"
+                    }
+                ]
+            },
+            {
                 "subCategory": "Twitch - Just Chatting",
                 "rankedList": [
                     {
