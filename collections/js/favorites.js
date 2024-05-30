@@ -436,6 +436,10 @@ let favorites = [
                         "link": "https://www.twitch.tv/kokohaan"
                     },
                     {
+                        "title": "emilymyc",
+                        "link": "https://www.twitch.tv/emilymyc"
+                    },
+                    {
                         "title": "Oshu",
                         "link": "https://www.twitch.tv/2taoxi"
                     },
