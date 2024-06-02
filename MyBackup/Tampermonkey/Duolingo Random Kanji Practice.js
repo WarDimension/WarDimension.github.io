@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Duolingo Random Kanji Practice
 // @namespace    http://tampermonkey.net/
-// @version      2024-05-16
+// @version      2024-06-02
 // @description  Duolingo will take over the world!
 // @author       WarDimension
 // @match        https://www.duolingo.com/*
