@@ -30,6 +30,7 @@
             const practiceText = root.querySelector("._36de1");
             if(practiceText){
                 if(practiceText.innerHTML.includes("Kanji!") && !injectComplete){
+                    let originalScroll = window.scrollY;
                     const randomButton = document.createElement("div");
                     randomButton.classList.add("aOH5N", "_1RpiQ");
                     randomButton.id = "random-kanji";
@@ -37,6 +38,7 @@
                     randomButton.style = "border: none; margin: auto";
                     randomButton.addEventListener("click", randomPractice, false);
                     insertAfter(practiceText, randomButton);
+                    window.scrollTo(0, originalScroll);
                     injectComplete = true;
                 }
                 else if(!practiceText.innerHTML.includes("Kanji!") && injectComplete){
