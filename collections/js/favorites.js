@@ -504,6 +504,10 @@ let favorites = [
                 "subCategory": "YouTube - Games",
                 "rankedList": [
                     {
+                        "title": "ゆきえもんちゃんねる。",
+                        "link": "https://www.youtube.com/@yukiemon-channel"
+                    },
+                    {
                         "title": "Mr. Fruit",
                         "link": "https://www.youtube.com/@Mr_Fruit"
                     },
