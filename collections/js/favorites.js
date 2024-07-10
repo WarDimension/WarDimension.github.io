@@ -275,6 +275,10 @@ let favorites = [
                         "link": "https://anilist.co/manga/86218/Yagate-Kimi-ni-Naru/"
                     },
                     {
+                        "title": "Kami Eshi JK to OL Fujoshi",
+                        "link": "https://anilist.co/manga/106785/Kami-Eshi-JK-to-OL-Fujoshi/"
+                    },
+                    {
                         "title": "Urara Meirochou",
                         "link": "https://anilist.co/manga/87031/Urara-Meirochou/"
                     },
@@ -312,6 +316,10 @@ let favorites = [
                     {
                         "title": "Yagate Kimi ni Naru",
                         "link": "https://anilist.co/manga/86218/Yagate-Kimi-ni-Naru/"
+                    },
+                    {
+                        "title": "Kami Eshi JK to OL Fujoshi",
+                        "link": "https://anilist.co/manga/106785/Kami-Eshi-JK-to-OL-Fujoshi/"
                     },
                     {
                         "title": "Lonely Girl ni Sakaraenai",
