@@ -38,7 +38,6 @@ function convertText(text){
                 break;
             case "}":
                 typingTarget.appendChild(newRuby);
-                newRuby.className = "kanji-group";
                 newRuby.id = id;
                 newRuby = document.createElement("ruby");
 
