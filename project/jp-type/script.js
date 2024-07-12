@@ -1,7 +1,11 @@
 const typingData = [
     {
         "text": "{古[ふる]}びたコトバ{繰[く]}り{返[かえ]}しつぶやいてみる\n{伸[の]}ばしたままの{爪[つめ]}{痕[あと]}はほら{消[き]}えないよ",
-        "source": "花残り月 by nano.RIPE"
+        "source": "{花[はな]}{残[のこ]}り{月[つき]} by nano.RIPE"
+    },
+    {
+        "text": "にゃにゃめにゃにゃじゅうにゃにゃどのにゃらびでにゃくにゃくいにゃにゃくにゃにゃはんにゃにゃだいにゃんにゃくにゃらべてにゃがにゃがめ",
+        "source": "化物語"
     }
 ];
 
@@ -16,6 +20,7 @@ function convertText(text){
     let newSpan = document.createElement("span");
     let newRT = document.createElement("rt");
     let newRuby = document.createElement("ruby");
+    let newText = document.createElement("p");
 
     charArray.forEach(char => {
         switch(char){
@@ -38,7 +43,7 @@ function convertText(text){
                 newRuby.appendChild(newRP2);
                 break;
             case "}":
-                typingTarget.appendChild(newRuby);
+                newText.appendChild(newRuby);
                 newRuby.id = id;
                 newRuby = document.createElement("ruby");
 
@@ -48,9 +53,9 @@ function convertText(text){
                 newSpan.innerHTML = "⏎";
                 newSpan.className = "kana base enter";
                 newSpan.id = id;
-                typingTarget.appendChild(newSpan);
+                newText.appendChild(newSpan);
                 newSpan = document.createElement("span");
-                typingTarget.appendChild(document.createElement("br"));
+                newText.appendChild(document.createElement("br"));
                 break;
             default:
                 switch(type){
@@ -70,7 +75,7 @@ function convertText(text){
                         newSpan.innerHTML = char;
                         newSpan.className = type;
                         newSpan.id = id;
-                        typingTarget.appendChild(newSpan);
+                        newText.appendChild(newSpan);
                         newSpan = document.createElement("span");
                         break;
                 }
@@ -82,10 +87,17 @@ function convertText(text){
         }
     });
 
-    typingTarget.appendChild(newRuby);
+    newText.appendChild(newRuby);
+
+    return newText;
 }
 
-convertText(typingData[0].text);
+function getRandomText(){
+    const randomIndex = Math.floor(Math.random() * typingData.length);
+    typingTarget.innerHTML = convertText(typingData[randomIndex].text).innerHTML;
+}
+
+getRandomText();
 
 function update(input){
     const arrayKanaText = typingTarget.querySelectorAll(".kana");
