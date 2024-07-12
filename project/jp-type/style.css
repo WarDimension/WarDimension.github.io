@@ -43,6 +43,7 @@ textarea{
     bottom: 4%;
     height: 40%;
     padding: 20px;
+    width: auto;
     font-size: 1.5em;
     background: #212121;
 }
