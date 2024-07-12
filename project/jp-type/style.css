@@ -50,11 +50,11 @@ textarea{
 p{
     margin-top: 15px;
     font-size: 1.8em;
-    text-align: justify;
     margin: 0;
 }
 p, textarea{
     color: #e0e0e0;
+    text-align: justify;
 }
 .flex-container{
     display: flex;
