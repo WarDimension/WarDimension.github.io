@@ -35,7 +35,6 @@ body{
 i.material-icons{
     font-size: 0.8em;
     margin-left: 0.1em;
-    vertical-align: text-bottom;
 }
 textarea{
     position: absolute;
