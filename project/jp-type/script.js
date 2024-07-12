@@ -88,72 +88,29 @@ function convertText(text){
 convertText(typingData[0].text);
 
 function update(input){
-    const arrayBaseText = typingTarget.querySelectorAll(".base");
     const arrayKanaText = typingTarget.querySelectorAll(".kana");
-
-    let incorrectCounter = 0;
-    let correctCounter = 0;
-    let currentID = 0;
-
-    let baseArrayValue = input.replaceAll("\n", "⏎").split("");
-
-    /*arrayBaseText.forEach((characterSpan, i) => {
-        if(characterSpan.id != currentID){
-            correctCounter = 0;
-            incorrectCounter = 0;
-        }
-
-        currentID = characterSpan.id;
-
-        if(characterSpan.className.includes("kanji")){
-            let kana = characterSpan.parentElement.querySelector("rt").innerText;
-            let kanji = characterSpan.parentElement.innerText.replace(kana, "");
-
-            baseArrayValue = baseArrayValue.join("").replace(kana, kanji).split("");
-        }
-        const character = baseArrayValue[i];
-
-        if(character == null){
-            characterSpan.classList.remove("correct");
-            characterSpan.classList.remove("incorrect");
-        }
-        else if(character === characterSpan.innerText){
-            characterSpan.classList.add("correct");
-            characterSpan.classList.remove("incorrect");
-
-            correctCounter++;
-        }
-        else{
-            characterSpan.classList.remove("correct");
-            characterSpan.classList.add("incorrect");
-
-            incorrectCounter++;
-        }
-
-        if(characterSpan.className.includes("kanji")){
-            characterSpan.parentElement.setAttribute("data-correct-counter", correctCounter);
-            characterSpan.parentElement.setAttribute("data-incorrect-counter", incorrectCounter);
-        }
-        else{
-            characterSpan.setAttribute("data-correct-counter", correctCounter);
-            characterSpan.setAttribute("data-incorrect-counter", incorrectCounter);
-        }
-    });*/
 
     let kanaArrayValue = input.replaceAll("\n", "⏎").split("");
 
+    let currentID = 0;
+    let correct = 0;
+    let incorrect = 0;
     let canReplace = true;
 
     arrayKanaText.forEach((characterSpan, i) => {
 
         if(characterSpan.className.includes("furigana")){
             if(characterSpan.parentElement.parentElement.id != currentID){
+                correct = 0;
+                incorrect = 0;
                 canReplace = true;
             }
             currentID = characterSpan.parentElement.parentElement.id;
         }
         else{
             if(characterSpan.id != currentID){
+                correct = 0;
+                incorrect = 0;
                 canReplace = true;
             }
             currentID = characterSpan.id;
@@ -169,103 +126,31 @@ function update(input){
 
         const character = kanaArrayValue[i];
 
-        //let correct = (characterSpan.getAttribute("data-correct-counter") > 0 || characterSpan.parentElement.parentElement.getAttribute("data-correct-counter") > 0) && (characterSpan.getAttribute("data-incorrect-counter") == 0 || characterSpan.parentElement.parentElement.getAttribute("data-incorrect-counter") == 0);
-
-        console.log(character);
-
         if(character == null){
             characterSpan.classList.remove("correct");
             characterSpan.classList.remove("incorrect");
+            
+            characterSpan.parentElement.parentElement.classList.remove("correct");
+            characterSpan.parentElement.parentElement.classList.remove("incorrect");
         }
         else if(character === characterSpan.innerText){
             characterSpan.classList.add("correct");
             characterSpan.classList.remove("incorrect");
+            correct++;
         }
         else{
             characterSpan.classList.remove("correct");
             characterSpan.classList.add("incorrect");
+            incorrect++;
+        }
+
+        if(characterSpan.className.includes("furigana") && characterSpan.nextElementSibling == null && character != null && correct > 0 && incorrect == 0){
+            characterSpan.parentElement.parentElement.classList.add("correct");
+            characterSpan.parentElement.parentElement.classList.remove("incorrect");
+        }
+        else if( incorrect > 0){
+            characterSpan.parentElement.parentElement.classList.remove("correct");
+            characterSpan.parentElement.parentElement.classList.add("incorrect");
         }
     });
 }
-
-
-/*function update(input){
-    const arrayBaseText = typingTarget.querySelectorAll(".base");
-    const arrayKanaText = typingTarget.querySelectorAll(".kana");
-
-    let incorrectCounter = 0;
-    let correctCounter = 0;
-    let currentID = 0;
-
-    let baseArrayValue = input.replaceAll("\n", "⏎").split("");
-
-    arrayBaseText.forEach((characterSpan, i) => {
-        if(characterSpan.id != currentID){
-            correctCounter = 0;
-            incorrectCounter = 0;
-        }
-
-        currentID = characterSpan.id;
-
-        if(characterSpan.className.includes("kanji")){
-            let kana = characterSpan.parentElement.querySelector("rt").innerText;
-            let kanji = characterSpan.parentElement.innerText.replace(kana, "");
-
-            baseArrayValue = baseArrayValue.join("").replace(kana, kanji).split("");
-        }
-        const character = baseArrayValue[i];
-
-        if(character == null){
-            characterSpan.classList.remove("correct");
-            characterSpan.classList.remove("incorrect");
-        }
-        else if(character === characterSpan.innerText){
-            characterSpan.classList.add("correct");
-            characterSpan.classList.remove("incorrect");
-
-            correctCounter++;
-        }
-        else{
-            characterSpan.classList.remove("correct");
-            characterSpan.classList.add("incorrect");
-
-            incorrectCounter++;
-        }
-
-        if(characterSpan.className.includes("kanji")){
-            characterSpan.parentElement.setAttribute("data-correct-counter", correctCounter);
-            characterSpan.parentElement.setAttribute("data-incorrect-counter", incorrectCounter);
-        }
-        else{
-            characterSpan.setAttribute("data-correct-counter", correctCounter);
-            characterSpan.setAttribute("data-incorrect-counter", incorrectCounter);
-        }
-    });
-
-    let kanaArrayValue = input.replaceAll("\n", "⏎").split("");
-
-    arrayKanaText.forEach((characterSpan, i) => {
-        const character = kanaArrayValue[i];
-
-        let correct = (characterSpan.getAttribute("data-correct-counter") > 0 || characterSpan.parentElement.parentElement.getAttribute("data-correct-counter") > 0) && (characterSpan.getAttribute("data-incorrect-counter") == 0 || characterSpan.parentElement.parentElement.getAttribute("data-incorrect-counter") == 0);
-
-        if(character == null && !correct){
-            characterSpan.classList.remove("correct");
-            characterSpan.classList.remove("incorrect");
-        }
-        else if(character === characterSpan.innerText || correct){
-            characterSpan.classList.add("correct");
-            characterSpan.classList.remove("incorrect");
-
-            if(correct && characterSpan.className.includes("furigana")){
-                let kana = characterSpan.parentElement.innerText;
-                let kanji = characterSpan.parentElement.parentElement.innerText.replace(kana, "");
-                kanaArrayValue = kanaArrayValue.join("").replace(kanji, kana).split("");
-            }
-        }
-        else if(!correct){
-            characterSpan.classList.remove("correct");
-            characterSpan.classList.add("incorrect");
-        }
-    });
-}*/
