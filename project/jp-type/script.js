@@ -97,6 +97,108 @@ function update(input){
 
     let baseArrayValue = input.replaceAll("\n", "⏎").split("");
 
+    /*arrayBaseText.forEach((characterSpan, i) => {
+        if(characterSpan.id != currentID){
+            correctCounter = 0;
+            incorrectCounter = 0;
+        }
+
+        currentID = characterSpan.id;
+
+        if(characterSpan.className.includes("kanji")){
+            let kana = characterSpan.parentElement.querySelector("rt").innerText;
+            let kanji = characterSpan.parentElement.innerText.replace(kana, "");
+
+            baseArrayValue = baseArrayValue.join("").replace(kana, kanji).split("");
+        }
+        const character = baseArrayValue[i];
+
+        if(character == null){
+            characterSpan.classList.remove("correct");
+            characterSpan.classList.remove("incorrect");
+        }
+        else if(character === characterSpan.innerText){
+            characterSpan.classList.add("correct");
+            characterSpan.classList.remove("incorrect");
+
+            correctCounter++;
+        }
+        else{
+            characterSpan.classList.remove("correct");
+            characterSpan.classList.add("incorrect");
+
+            incorrectCounter++;
+        }
+
+        if(characterSpan.className.includes("kanji")){
+            characterSpan.parentElement.setAttribute("data-correct-counter", correctCounter);
+            characterSpan.parentElement.setAttribute("data-incorrect-counter", incorrectCounter);
+        }
+        else{
+            characterSpan.setAttribute("data-correct-counter", correctCounter);
+            characterSpan.setAttribute("data-incorrect-counter", incorrectCounter);
+        }
+    });*/
+
+    let kanaArrayValue = input.replaceAll("\n", "⏎").split("");
+
+    let canReplace = true;
+
+    arrayKanaText.forEach((characterSpan, i) => {
+
+        if(characterSpan.className.includes("furigana")){
+            if(characterSpan.parentElement.parentElement.id != currentID){
+                canReplace = true;
+            }
+            currentID = characterSpan.parentElement.parentElement.id;
+        }
+        else{
+            if(characterSpan.id != currentID){
+                canReplace = true;
+            }
+            currentID = characterSpan.id;
+        }
+
+        if(characterSpan.className.includes("furigana") && canReplace){
+            let kana = characterSpan.parentElement.innerText;
+            let kanji = characterSpan.parentElement.parentElement.innerText.replace(kana, "");
+            kanaArrayValue = kanaArrayValue.join("").replace(kanji, kana).split("");
+
+            canReplace = false
+        }
+
+        const character = kanaArrayValue[i];
+
+        //let correct = (characterSpan.getAttribute("data-correct-counter") > 0 || characterSpan.parentElement.parentElement.getAttribute("data-correct-counter") > 0) && (characterSpan.getAttribute("data-incorrect-counter") == 0 || characterSpan.parentElement.parentElement.getAttribute("data-incorrect-counter") == 0);
+
+        console.log(character);
+
+        if(character == null){
+            characterSpan.classList.remove("correct");
+            characterSpan.classList.remove("incorrect");
+        }
+        else if(character === characterSpan.innerText){
+            characterSpan.classList.add("correct");
+            characterSpan.classList.remove("incorrect");
+        }
+        else{
+            characterSpan.classList.remove("correct");
+            characterSpan.classList.add("incorrect");
+        }
+    });
+}
+
+
+/*function update(input){
+    const arrayBaseText = typingTarget.querySelectorAll(".base");
+    const arrayKanaText = typingTarget.querySelectorAll(".kana");
+
+    let incorrectCounter = 0;
+    let correctCounter = 0;
+    let currentID = 0;
+
+    let baseArrayValue = input.replaceAll("\n", "⏎").split("");
+
     arrayBaseText.forEach((characterSpan, i) => {
         if(characterSpan.id != currentID){
             correctCounter = 0;
@@ -166,4 +268,4 @@ function update(input){
             characterSpan.classList.add("incorrect");
         }
     });
-}
+}*/
