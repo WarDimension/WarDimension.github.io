@@ -20,10 +20,10 @@ body{
   background: #444;
 }
 .correct{
-    color: green;
+    color: #15ac47;
 }
 .incorrect{
-    color: red;
+    color: #f20000;
 }
 .enter{
     font-size: 0.8em;
