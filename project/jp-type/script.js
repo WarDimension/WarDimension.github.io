@@ -55,7 +55,7 @@ function convertText(text){
                 type = "kana base";
                 break;
             case "\n":
-                newSpan.innerHTML = "⏎";
+                newSpan.innerHTML = "<i class='material-icons'>keyboard_return</i>";
                 newSpan.className = "kana base enter";
                 newSpan.id = id;
                 newText.appendChild(newSpan);
@@ -117,7 +117,6 @@ function update(input){
     if(input == "") typingTargetContiner.scrollTo(0, 0);
 
     arrayKanaText.forEach((characterSpan, i) => {
-
         if(characterSpan.className.includes("furigana")){
             if(characterSpan.parentElement.parentElement.id != currentID){
                 correct = 0;
@@ -153,7 +152,7 @@ function update(input){
             characterSpan.parentElement.parentElement.classList.remove("correct");
             characterSpan.parentElement.parentElement.classList.remove("incorrect");
         }
-        else if(character === characterSpan.innerText){
+        else if(character === characterSpan.innerText.replace("keyboard_return", "⏎")){
             characterSpan.classList.add("correct");
             characterSpan.classList.remove("incorrect");
             characterSpan.scrollIntoView({ block: "nearest" });
