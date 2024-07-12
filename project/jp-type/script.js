@@ -45,7 +45,7 @@ function convertText(text){
                 break;
             case "\n":
                 newSpan.innerHTML = "⏎";
-                newSpan.className = "base";
+                newSpan.className = "kana base enter";
                 newSpan.id = id;
                 typingTarget.appendChild(newSpan);
                 newSpan = document.createElement("span");
@@ -139,7 +139,7 @@ function update(input){
         }
     });
 
-    let kanaArrayValue = input.replaceAll("\n","").split("");
+    let kanaArrayValue = input.replaceAll("\n", "⏎").split("");
 
     arrayKanaText.forEach((characterSpan, i) => {
         const character = kanaArrayValue[i];
