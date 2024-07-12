@@ -176,7 +176,7 @@ function update(input){
             characterSpan.parentElement.parentElement.classList.add("correct");
             characterSpan.parentElement.parentElement.classList.remove("incorrect");
         }
-        else if( incorrect > 0){
+        else if(characterSpan.className.includes("furigana") && incorrect > 0){
             characterSpan.parentElement.parentElement.classList.remove("correct");
             characterSpan.parentElement.parentElement.classList.add("incorrect");
         }

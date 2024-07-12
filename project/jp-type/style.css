@@ -19,11 +19,18 @@ body{
 ::-webkit-scrollbar-thumb:hover {
   background: #444;
 }
+.furigana{
+    color: #e0e0e0;
+}
 .correct{
     color: #15ac47;
 }
 .incorrect{
     color: #f20000;
+    text-decoration: underline;
+}
+.furigana.incorrect{
+    text-decoration: none;
 }
 .enter{
     font-size: 0.8em;
