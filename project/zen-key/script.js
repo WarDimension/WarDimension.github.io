@@ -173,7 +173,6 @@ function update(input){
         }
 
         const character = kanaArrayValue[i];
-        const currentScroll = typingTargetContainer.scrollTop;
 
         if(arrayKanaText[i+1]){
             arrayKanaText[i+1].classList.remove("caret");
@@ -192,20 +191,14 @@ function update(input){
         else if(character === characterSpan.innerText.replace("keyboard_return", "⏎")){
             characterSpan.classList.add("correct");
             characterSpan.classList.remove("incorrect");
-            characterSpan.scrollIntoView({ block: "nearest" });
-            if(currentScroll != typingTargetContainer.scrollTop){
-                typingTargetContainer.scrollBy(0, 30);
-            }
+            characterSpan.scrollIntoView({ block: "center" });
             setCaret(arrayKanaText, i);
             correct++;
         }
         else{
             characterSpan.classList.remove("correct");
             characterSpan.classList.add("incorrect");
-            characterSpan.scrollIntoView({ block: "nearest" });
-            if(currentScroll != typingTargetContainer.scrollTop){
-                typingTargetContainer.scrollBy(0, 30);
-            }
+            characterSpan.scrollIntoView({ block: "center" });
             setCaret(arrayKanaText, i);
             incorrect++;
         }
