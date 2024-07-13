@@ -76,7 +76,7 @@ textarea{
     left: 50%;
     transform: translate(-50%, -50%);
 }
-.raw-text p{
+.label p{
     text-align: center;
     font-size: 1em;
     margin-top: 20px;
