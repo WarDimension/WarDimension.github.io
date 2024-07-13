@@ -1,4 +1,5 @@
 *{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     box-sizing: border-box;
     user-select: none;
     -moz-user-select: none;
@@ -20,7 +21,7 @@ body{
   background: #444;
 }
 .furigana{
-    color: #e0e0e0;
+    color: #707070;
 }
 .correct{
     color: #15ac47;
@@ -36,31 +37,49 @@ i.material-icons{
     font-size: 0.8em;
     margin-left: 0.1em;
 }
-textarea{
-    position: absolute;
-    resize: none;
-    left: 4%;
-    right: 4%;
-    bottom: 4%;
-    height: 40%;
-    padding: 20px;
-    width: 92%;
-    font-size: 1.5em;
-    background: #212121;
-}
 p{
     margin-top: 15px;
     font-size: 1.8em;
     margin: 0;
 }
 p, textarea{
-    color: #e0e0e0;
+    color: #707070;
     text-align: justify;
+    letter-spacing: 1px;
+}
+textarea{
+    position: relative;
+    resize: none;
+    left: 4%;
+    right: 4%;
+    bottom: 4%;
+    height: 20%;
+    padding: 5px;
+    width: 92%;
+    font-size: 1.5em;
+    background: #1b1b1b;
+    caret-color: rgba(27, 27, 27, 0);
+    text-align: center;
+    outline: none;
+    border: none;
 }
 .flex-container{
     display: flex;
     align-items: center;
-    height: calc(100% - 8% - 40% - 30px);
+    height: fit-content;
+    max-height: calc(100% - 8% - 20% - 30px);
+}
+.outer-container{
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.raw-text p{
+    text-align: center;
+    font-size: 1em;
+    margin-top: 20px;
 }
 .typing-target-container{ 
     position: relative;
@@ -73,7 +92,6 @@ p, textarea{
     overflow-y: scroll;
 }
 .fade-container{
-    margin-top: 2.5%;
     position: relative;
 }
 .fade-container::before, 
@@ -93,4 +111,38 @@ p, textarea{
 .fade-container::after{
     bottom: 0;
     background: linear-gradient(to top, rgba(27, 27, 27, 1), rgba(27, 27, 27, 0));
+}
+span{
+    position: relative;
+    display: inline-block;
+}
+.caret::after, .caret-right::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    left: -3;
+    border-left: solid 3px #e0e0e0;
+    animation: caret 1.06s infinite;
+}
+.caret-right::after{
+    border-left: none;
+    border-right: solid 3px #e0e0e0;
+    animation: caret 1.06s infinite;
+}
+
+@keyframes caret{
+    0%{
+        opacity: 1;
+    }
+    49%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 0;
+    }
+    99%{
+        opacity: 0;
+    }
 }

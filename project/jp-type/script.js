@@ -8,7 +8,7 @@ const typingData = [
         "source": "{化[ばけ]}{物[もの]}{語[がたり]}"
     },
     {
-        "text": "{斜[なな]}め{七[なな]}{十[じゅう]}{七[なな]}{度[ど]}の{並[なら]}びで{泣[な]}く{泣[な]}く{嘶[いな]}くナナハン{七[なな]}{台[だい]}{難[なん]}なく{並[なら]}べて{長[なが]}{眺[なが]}め",
+        "text": "{斜[なな]}め{七[なな]}{十[じゅう]}{七[なな]}{度[ど]}の{並[なら]}びで{泣[な]}く{泣[な]}く{嘶[いなな]}くナナハン{七[なな]}{台[だい]}{難[なん]}なく{並[なら]}べて{長[なが]}{眺[なが]}め",
         "source": "{早[はや]}{口[くち]}{言[こと]}{葉[ば]}"
     },
 ];
@@ -104,9 +104,28 @@ function getRandomText(){
 
 getRandomText();
 
+function setCaret(arrayElement, index){
+    if(arrayElement[index+1]){
+        arrayElement[index+1].classList.add("caret");
+        arrayElement[index].classList.remove("caret");
+    }
+    else{
+        arrayElement[index].classList.add("caret-right");
+    }
+}
+
+function setKanjiCaret(element){
+    if(element.className.includes("furigana") && element.className.includes("caret") && element.matches(":first-child")){
+        element.classList.remove("caret");
+        element.parentElement.parentElement.querySelector(".kanji").classList.add("caret");
+    }
+    else if(element.className.includes("furigana") && element.matches(":first-child")){
+        element.parentElement.parentElement.querySelector(".kanji").classList.remove("caret");
+    }
+}
+
 function update(input){
     const arrayKanaText = typingTarget.querySelectorAll(".kana");
-    const arrayCorrect = typingTarget.querySelector(".correct");
 
     let kanaArrayValue = input.replaceAll("\n", "⏎").split("");
 
@@ -115,7 +134,10 @@ function update(input){
     let incorrect = 0;
     let canReplace = true;
 
-    if(input == "") typingTargetContainer.scrollTo(0, 0);
+    if(input == ""){
+        typingTargetContainer.scrollTo(0, 0);
+        arrayKanaText[0].classList.add("caret");
+    }
 
     arrayKanaText.forEach((characterSpan, i) => {
         if(characterSpan.className.includes("furigana")){
@@ -146,6 +168,13 @@ function update(input){
         const character = kanaArrayValue[i];
         const currentScroll = typingTargetContainer.scrollTop;
 
+        if(arrayKanaText[i+1]){
+            arrayKanaText[i+1].classList.remove("caret");
+        }
+        else{
+            characterSpan.classList.remove("caret-right");
+        }
+
         if(character == null){
             characterSpan.classList.remove("correct");
             characterSpan.classList.remove("incorrect");
@@ -160,6 +189,7 @@ function update(input){
             if(currentScroll != typingTargetContainer.scrollTop){
                 typingTargetContainer.scrollBy(0, 30);
             }
+            setCaret(arrayKanaText, i);
             correct++;
         }
         else{
@@ -169,8 +199,11 @@ function update(input){
             if(currentScroll != typingTargetContainer.scrollTop){
                 typingTargetContainer.scrollBy(0, 30);
             }
+            setCaret(arrayKanaText, i);
             incorrect++;
         }
+
+        setKanjiCaret(characterSpan);
 
         if(characterSpan.className.includes("furigana") && characterSpan.nextElementSibling == null && character != null && correct > 0 && incorrect == 0){
             characterSpan.parentElement.parentElement.classList.add("correct");
@@ -182,3 +215,9 @@ function update(input){
         }
     });
 }
+
+update("");
+
+typingTarget.addEventListener("blur", function(){
+    textarea.focus();
+});

@@ -16,13 +16,18 @@
         <script type="text/javascript" src="script.js" defer></script>
     </head>
     <body>
-        <div class="fade-container">
-            <div class="flex-container">
-                <div class="typing-target-container">
-                    <p class="typing-target"></p>
+        <div class="outer-container">
+            <div class="fade-container">
+                <div class="flex-container">
+                    <div class="typing-target-container">
+                        <p class="typing-target"></p>
+                    </div>
                 </div>
             </div>
+            <div class="raw-text">
+                <p>raw text</p>
+            </div>
+            <textarea class="typing-input" placeholder="-" oninput="update(this.value)" onblur="this.focus()" autofocus></textarea>
         </div>
-        <textarea class="typing-input" oninput="update(this.value)"></textarea>
     </body>
 </html>
