@@ -131,7 +131,7 @@ function setKanjiCaret(element){
     }
 }
 
-function update(input){
+function update(input, e){
     const arrayKanaText = typingTarget.querySelectorAll(".kana");
 
     let kanaArrayValue = input.replaceAll("\n", "⏎").split("");
@@ -214,22 +214,30 @@ function update(input){
             characterSpan.parentElement.parentElement.classList.add("incorrect");
         }
     });
+
+    if(e.inputType === "insertLineBreak"){
+        typingComplete();
+    }
 }
 
 let reset = false;
+
+function typingComplete(){
+    const incorrectCount = typingTarget.querySelectorAll(".kana.incorrect").length;
+    const progressCount = typingTarget.querySelectorAll(".kana.correct, .kana.incorrect").length;
+    const kanaCount = typingTarget.querySelectorAll(".kana").length;
+
+    if(progressCount == kanaCount && incorrectCount == 0){
+        getRandomText();
+        reset = true;
+    }
+}
 
 typingInput.addEventListener("keydown", function(e) {
     this.setSelectionRange(this.value.length, this.value.length)
     
     if(e.code === "Enter"){
-        const incorrectCount = typingTarget.querySelectorAll(".kana.incorrect").length;
-        const progressCount = typingTarget.querySelectorAll(".kana.correct, .kana.incorrect").length;
-        const kanaCount = typingTarget.querySelectorAll(".kana").length;
-
-        if(progressCount == kanaCount && incorrectCount == 0){
-            getRandomText();
-            reset = true;
-        }
+        typingComplete();
     }
 
     this.scrollTo(0, this.scrollHeight);
