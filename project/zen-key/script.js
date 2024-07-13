@@ -14,7 +14,7 @@ const typingData = [
 ];
 
 const typingTarget = document.querySelector(".typing-target");
-const typingTargetContainer = document.querySelector(".typing-target-container");
+const flexContainer = document.querySelector(".flex-container");
 const typingInput = document.querySelector("textarea");
 
 function convertText(text){
@@ -151,7 +151,7 @@ function update(input, e){
     let canReplace = true;
 
     if(input == ""){
-        typingTargetContainer.scrollTo(0, 0);
+        flexContainer.scrollTo(0, 0);
         arrayKanaText[0].classList.add("caret");
     }
 
