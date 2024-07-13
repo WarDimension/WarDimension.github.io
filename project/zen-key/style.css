@@ -116,7 +116,6 @@ textarea{
     background: linear-gradient(to top, rgba(27, 27, 27, 1), rgba(27, 27, 27, 0));
 }
 span{
-    position: relative;
     display: inline-block;
 }
 .caret{
