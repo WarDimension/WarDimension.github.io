@@ -61,6 +61,7 @@ textarea{
     text-align: center;
     outline: none;
     border: none;
+    pointer-events: none;
 }
 .flex-container{
     display: flex;
