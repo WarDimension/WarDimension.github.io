@@ -237,7 +237,7 @@ function typingComplete(){
     if(progressCount == kanaCount && incorrectCount == 0){
         getRandomText();
         typingInput.value = "";
-        update("");
+        update("", {"inputType": null});
     }
 }
 
