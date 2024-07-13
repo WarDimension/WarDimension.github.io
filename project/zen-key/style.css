@@ -28,9 +28,11 @@ body{
 }
 .incorrect{
     color: #f20000;
+}
+.incorrect, .incorrect span{
     text-decoration: underline;
 }
-.furigana.incorrect{
+.furigana.correct, .furigana.incorrect{
     text-decoration: none;
 }
 i.material-icons{
