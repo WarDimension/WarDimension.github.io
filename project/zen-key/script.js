@@ -229,6 +229,8 @@ function update(input, e){
     }
 }
 
+update("", {"inputType": null});
+
 function typingComplete(){
     const incorrectCount = typingTarget.querySelectorAll(".kana.incorrect").length;
     const progressCount = typingTarget.querySelectorAll(".kana.correct, .kana.incorrect").length;
