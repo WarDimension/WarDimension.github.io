@@ -27,7 +27,9 @@
             <div class="label">
                 <p>raw input</p>
             </div>
-            <textarea class="typing-input" placeholder="-" oninput="update(this.value)" onblur="this.focus()" autofocus></textarea>
+            <div class="fade-container">
+                <textarea class="typing-input" placeholder="-" oninput="update(this.value)" onclick="this.setSelectionRange(this.value.length, this.value.length)" onblur="this.focus()" autofocus></textarea>
+            </div>
         </div>
     </body>
 </html>
