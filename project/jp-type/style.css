@@ -120,7 +120,7 @@ span{
     position: absolute;
     width: 100%;
     height: 100%;
-    bottom: 0;
+    top: 0;
     left: -3;
     border-left: solid 3px #e0e0e0;
     animation: caret 1.06s infinite;
