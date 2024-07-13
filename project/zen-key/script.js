@@ -131,6 +131,15 @@ function setKanjiCaret(element){
     }
 }
 
+function scrollNextIntoView(arrayElement, index){
+    if(arrayElement[index+1]){
+        arrayElement[index+1].scrollIntoView({ block: "center" });
+    }
+    else{
+        arrayElement[index].scrollIntoView({ block: "center" });
+    }
+}
+
 function update(input, e){
     const arrayKanaText = typingTarget.querySelectorAll(".kana");
 
@@ -191,14 +200,14 @@ function update(input, e){
         else if(character === characterSpan.innerText.replace("keyboard_return", "⏎")){
             characterSpan.classList.add("correct");
             characterSpan.classList.remove("incorrect");
-            characterSpan.scrollIntoView({ block: "center" });
+            scrollNextIntoView(arrayKanaText, i);
             setCaret(arrayKanaText, i);
             correct++;
         }
         else{
             characterSpan.classList.remove("correct");
             characterSpan.classList.add("incorrect");
-            characterSpan.scrollIntoView({ block: "center" });
+            scrollNextIntoView(arrayKanaText, i);
             setCaret(arrayKanaText, i);
             incorrect++;
         }
