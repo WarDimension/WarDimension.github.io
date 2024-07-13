@@ -217,6 +217,8 @@ function update(input, e){
 
     if(e.inputType === "insertLineBreak"){
         typingComplete();
+        typingInput.value = "";
+        update("");
     }
 }
 
