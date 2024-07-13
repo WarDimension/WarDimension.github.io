@@ -14,7 +14,7 @@ const typingData = [
 ];
 
 const typingTarget = document.querySelector(".typing-target");
-const typingTargetContiner = document.querySelector(".typing-target-container");
+const typingTargetContainer = document.querySelector(".typing-target-container");
 
 function convertText(text){
     charArray = text.split("");
@@ -106,6 +106,7 @@ getRandomText();
 
 function update(input){
     const arrayKanaText = typingTarget.querySelectorAll(".kana");
+    const arrayCorrect = typingTarget.querySelector(".correct");
 
     let kanaArrayValue = input.replaceAll("\n", "⏎").split("");
 
@@ -114,7 +115,7 @@ function update(input){
     let incorrect = 0;
     let canReplace = true;
 
-    if(input == "") typingTargetContiner.scrollTo(0, 0);
+    if(input == "") typingTargetContainer.scrollTo(0, 0);
 
     arrayKanaText.forEach((characterSpan, i) => {
         if(characterSpan.className.includes("furigana")){
@@ -143,7 +144,7 @@ function update(input){
         }
 
         const character = kanaArrayValue[i];
-        const currentScroll = typingTargetContiner.scrollTop;
+        const currentScroll = typingTargetContainer.scrollTop;
 
         if(character == null){
             characterSpan.classList.remove("correct");
@@ -156,8 +157,8 @@ function update(input){
             characterSpan.classList.add("correct");
             characterSpan.classList.remove("incorrect");
             characterSpan.scrollIntoView({ block: "nearest" });
-            if(currentScroll != typingTargetContiner.scrollTop){
-                typingTargetContiner.scrollBy(0, 30);
+            if(currentScroll != typingTargetContainer.scrollTop){
+                typingTargetContainer.scrollBy(0, 30);
             }
             correct++;
         }
@@ -165,8 +166,8 @@ function update(input){
             characterSpan.classList.remove("correct");
             characterSpan.classList.add("incorrect");
             characterSpan.scrollIntoView({ block: "nearest" });
-            if(currentScroll != typingTargetContiner.scrollTop){
-                typingTargetContiner.scrollBy(0, 30);
+            if(currentScroll != typingTargetContainer.scrollTop){
+                typingTargetContainer.scrollBy(0, 30);
             }
             incorrect++;
         }
