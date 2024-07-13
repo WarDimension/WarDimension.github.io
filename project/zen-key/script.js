@@ -57,7 +57,7 @@ function convertText(text){
                 break;
             case "\n":
                 newSpan.innerHTML = "<i class='material-icons'>keyboard_return</i>";
-                newSpan.className = "kana base enter";
+                newSpan.className = type;
                 newSpan.id = id;
                 newText.appendChild(newSpan);
                 newSpan = document.createElement("span");
