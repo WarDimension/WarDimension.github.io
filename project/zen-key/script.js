@@ -217,12 +217,8 @@ function update(input, e){
 
     if(e.inputType === "insertLineBreak"){
         typingComplete();
-        typingInput.value = "";
-        update("");
     }
 }
-
-let reset = false;
 
 function typingComplete(){
     const incorrectCount = typingTarget.querySelectorAll(".kana.incorrect").length;
@@ -231,24 +227,18 @@ function typingComplete(){
 
     if(progressCount == kanaCount && incorrectCount == 0){
         getRandomText();
-        reset = true;
+        typingInput.value = "";
+        update("");
     }
 }
 
 typingInput.addEventListener("keydown", function(e) {
-    this.setSelectionRange(this.value.length, this.value.length)
-    
-    if(e.code === "Enter"){
-        typingComplete();
-    }
-
+    this.setSelectionRange(this.value.length, this.value.length);
     this.scrollTo(0, this.scrollHeight);
 });
 
 typingInput.addEventListener("keyup", function(e) {    
-    if(e.code === "Enter" && reset == true){
-        typingInput.value = "";
-        update("");
-        reset = false;
+    if(e.code === "Enter"){
+        typingComplete();
     }
 });
