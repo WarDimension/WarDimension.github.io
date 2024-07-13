@@ -218,6 +218,8 @@ function update(input){
 
 update("");
 
-typingTarget.addEventListener("blur", function(){
-    textarea.focus();
+document.querySelector("textarea").addEventListener('keydown', function(event) {
+    if ([37, 38, 39, 40].includes(event.keyCode)) {
+        event.preventDefault();
+    }
 });
