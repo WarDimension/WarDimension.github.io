@@ -167,10 +167,7 @@ function update(input, e){
     }
 
     const arrayKanaText = typingTarget.querySelectorAll(".kana");
-    const arrayKanjiText = typingTarget.querySelectorAll(".kanji");
-
     let arrayInput = input.replaceAll("\n", "⏎").split("");
-    const arrayKanjiInput = getCorrectKanji().split("");
 
     let currentID = 0;
     let correct = 0;
@@ -251,6 +248,9 @@ function update(input, e){
             characterSpan.parentElement.parentElement.classList.add("incorrect");
         }
     });
+    
+    const arrayKanjiText = typingTarget.querySelectorAll(".kanji");
+    const arrayKanjiInput = getCorrectKanji().split("");
 
     arrayKanjiText.forEach((characterSpan, i) => {
         const character = arrayKanjiInput[i];
@@ -366,7 +366,7 @@ function typingComplete(){
 typingInput.addEventListener("keydown", function(e) {
     this.setSelectionRange(this.value.length, this.value.length);
     this.scrollTo(0, this.scrollHeight);
-    if(e.ctrlKey || e.metaKey){
+    if((e.ctrlKey || e.metaKey) && (e.key === "a" || e.key === "v")){
         e.preventDefault();
     }
 });
