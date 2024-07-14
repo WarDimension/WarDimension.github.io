@@ -143,7 +143,16 @@ function setCaret(arrayElement, index){
     }
 }
 
-function setKanjiCaret(element){
+function removeCaret(arrayElement, index){
+    if(arrayElement[index+1]){
+        arrayElement[index+1].classList.remove("caret");
+    }
+    else{
+        arrayElement[index].classList.remove("caret-right");
+    }
+}
+
+/*function setKanjiCaret(element){
     if(element.className.includes("furigana") && element.className.includes("caret") && element.matches(":first-child")){
         element.classList.remove("caret");
         element.parentElement.parentElement.querySelector(".kanji").classList.add("caret");
@@ -151,7 +160,7 @@ function setKanjiCaret(element){
     else if(element.className.includes("furigana") && element.matches(":first-child")){
         element.parentElement.parentElement.querySelector(".kanji").classList.remove("caret");
     }
-}
+}*/
 
 function scrollNextIntoView(arrayElement, index){
     if(arrayElement[index+1]){
@@ -201,10 +210,12 @@ function update(input, e){
                     arrayBase[j].classList.remove("incorrect");
                 }
             }
-            else if(currentRubyCheckInput[0] === char.innerText.replace("keyboard_return", "⏎")){
+            else if(currentRubyCheckInput[0] === char.innerText.replace("keyboard_return", "⏎") && !(ruby.classList.contains("correct") && arrayFurigana.length > 0)){
                 if(arrayFurigana.length > 0){
                     char.classList.add("correct");
                     char.classList.remove("incorrect");
+
+                    setCaret(arrayFurigana, j);
                 }
                 else{
                     ruby.classList.add("correct");
@@ -216,6 +227,8 @@ function update(input, e){
                 if(arrayFurigana.length > 0){
                     char.classList.remove("correct");
                     char.classList.add("incorrect");
+
+                    setCaret(arrayFurigana, j);
                 }
                 else{
                     ruby.classList.remove("correct");
@@ -272,6 +285,28 @@ function update(input, e){
             ruby.classList.add("correct");
             ruby.classList.remove("semi-correct");
             ruby.classList.remove("incorrect");
+        }
+
+        if(ruby.classList.contains("correct") || ((ruby.classList.contains("semi-correct") || ruby.classList.contains("incorrect")) && arrayFurigana.length == 0)){
+            setCaret(arrayRuby, i);
+        }
+        else if(kanaCorrect + kanaIncorrect > 0 && arrayFurigana.length > 0){
+            ruby.classList.remove("caret");
+        }
+        else{
+            removeCaret(arrayRuby, i);
+        }
+
+        let allCaret = typingTarget.querySelectorAll(".caret, .caret-right");
+
+        if(allCaret.length > 1){
+            allCaret.forEach(caret => {
+                allCaret = typingTarget.querySelectorAll(".caret, .caret-right");
+                if(caret.classList.contains("furigana") && allCaret.length > 1){
+                    caret.classList.remove("caret");
+                    caret.classList.remove("caret-right");
+                }
+            });
         }
     });
 
