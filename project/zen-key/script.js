@@ -142,15 +142,15 @@ function scrollNextIntoView(arrayElement, index){
 
 let startTime = null;
 
-let result = {
+let stats = {
     "CPM": 0,
     "SPM": 0,
     "correctKanji": 0,
     "totalKanji": 0
 };
 
-const resultReset = {
-    ...result
+const statsReset = {
+    ...stats
 };
 
 function update(input, e){
@@ -251,7 +251,7 @@ function update(input, e){
 update("", {"inputType": null});
 
 function startTyping(){
-    result = resultReset;
+    stats = statsReset;
     startTime = new Date();
     console.log("start");
 }
@@ -295,8 +295,8 @@ function countCorrectKanji(){
     const input = typingInput.value;
     const allKanji = Array.from(typingTarget.querySelectorAll(".kanji")).map(element => element.textContent).join("");
     const correctKanji = findLCS(input, allKanji);
-    result.correctKanji = correctKanji.length;
-    result.totalKanji = allKanji.length;
+    stats.correctKanji = correctKanji.length;
+    stats.totalKanji = allKanji.length;
 }
 
 function countSmallKana(str){
@@ -313,25 +313,31 @@ function computeCPM(input){
     const SPM = Math.round(((((kanaCount - smallKanaCount) / elapsedTime) * 60000) + Number.EPSILON) * 100) / 100;
 
     if(CPM != 0){
-        result.CPM = CPM;
-        result.SPM = SPM;
+        stats.CPM = CPM;
+        stats.SPM = SPM;
     }
 
-    console.log("CPM: " + result.CPM + ", SPM: " + result.SPM);
+    console.log("CPM: " + stats.CPM + ", SPM: " + stats.SPM);
 }
+
+let enterToConfirm = false;
 
 function typingComplete(){
     const incorrectCount = typingTarget.querySelectorAll(".kana.incorrect").length;
     const progressCount = typingTarget.querySelectorAll(".kana.correct, .kana.incorrect").length;
     const kanaCount = typingTarget.querySelectorAll(".kana").length;
 
-    if(progressCount == kanaCount && incorrectCount == 0){
+    if(progressCount == kanaCount && (incorrectCount == 0 || enterToConfirm)){
         countCorrectKanji();
-        console.log(result);
+        console.log(stats);
         getRandomText();
         typingInput.value = "";
         update("", {"inputType": null});
         startTime = null;
+        enterToConfirm = false;
+    }
+    else if(progressCount == kanaCount && enterToConfirm == false){
+        enterToConfirm = true;
     }
 }
 
