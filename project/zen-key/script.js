@@ -146,7 +146,9 @@ let stats = {
     "CPM": 0,
     "SPM": 0,
     "correctKanji": 0,
-    "totalKanji": 0
+    "totalKanji": 0,
+    "correctKana": 0,
+    "totalKana": 0
 };
 
 const statsReset = {
