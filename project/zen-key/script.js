@@ -247,6 +247,20 @@ function update(input, e){
                 currentRubyCheckInput = currentRubyCheckInput.slice(1);
             });
         }
+        else if(kanaCorrect > 0 && kanaIncorrect == 0 && arrayFurigana.length > 0){
+            arrayBase.forEach(char => {
+                char.classList.remove("incorrect");
+            });
+        }
+
+        if(i == 0){
+            console.log(kanjiIncorrect + " " + kanaIncorrect);
+        }
+
+        if(kanjiIncorrect > 0){
+            let incorrectDiff = kanaIncorrect - kanjiIncorrect;
+            currentRubyCheckInput = currentRubyCheckInput.slice(incorrectDiff);
+        }
 
         checkInput = currentRubyCheckInput;
 
@@ -270,7 +284,7 @@ function update(input, e){
     if(e.inputType === "insertLineBreak"){
         typingComplete();
     }
-    console.table(stats);
+    //console.table(stats);
 }
 
 update("", {"inputType": null});
