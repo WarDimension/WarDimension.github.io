@@ -231,6 +231,8 @@ function update(input, e){
         }
     });
 
+    computeCPM(arrayInput.join(""));
+
     if(e.inputType === "insertLineBreak"){
         typingComplete();
     }
@@ -244,10 +246,9 @@ function countSmallKana(str){
     return matches ? matches.length : 0;
 }  
 
-function computeCPM(){
-    const kana = typingTarget.querySelectorAll(".kana");
-    const kanaCount = kana.length;
-    const smallKanaCount = countSmallKana(Array.from(kana).map(element => element.textContent).join(""));
+function computeCPM(input){
+    const kanaCount = input.length;
+    const smallKanaCount = countSmallKana(input);
     const elapsedTime = new Date() - startTime;
     const CPM = Math.round((((kanaCount / elapsedTime) * 60000) + Number.EPSILON) * 100) / 100;
     const SPM = Math.round(((((kanaCount - smallKanaCount) / elapsedTime) * 60000) + Number.EPSILON) * 100) / 100;
@@ -260,7 +261,6 @@ function typingComplete(){
     const kanaCount = typingTarget.querySelectorAll(".kana").length;
 
     if(progressCount == kanaCount && incorrectCount == 0){
-        computeCPM();
         getRandomText();
         typingInput.value = "";
         update("", {"inputType": null});
