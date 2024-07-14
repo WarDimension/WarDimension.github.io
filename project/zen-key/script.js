@@ -248,7 +248,7 @@ function update(input, e){
             characterSpan.parentElement.parentElement.classList.add("incorrect");
         }
     });
-    
+
     const arrayKanjiText = typingTarget.querySelectorAll(".kanji");
     const arrayKanjiInput = getCorrectKanji().split("");
 
@@ -313,12 +313,8 @@ function getCorrectKanji(){
     const input = typingInput.value;
     const allKanji = Array.from(typingTarget.querySelectorAll(".kanji")).map(element => element.textContent).join("");
     const correctKanji = findLCS(input, allKanji);
+    stats.correctKanji = correctKanji.length;
     return correctKanji;
-}
-
-function countCorrectKanji(){
-    stats.correctKanji = getCorrectKanji().length;
-    stats.totalKanji = allKanji.length;
 }
 
 function countSmallKana(str){
