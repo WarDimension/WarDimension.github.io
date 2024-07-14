@@ -29,6 +29,7 @@ function convertText(text){
     let newText = document.createElement("p");
 
     charArray.forEach(char => {
+        newRuby.id = id;
         switch(char){
             case "{":
                 type = "kanji base";
@@ -50,7 +51,6 @@ function convertText(text){
                 break;
             case "}":
                 newText.appendChild(newRuby);
-                newRuby.id = id;
                 newRuby = document.createElement("ruby");
 
                 type = "kana base";
@@ -58,31 +58,30 @@ function convertText(text){
             case "\n":
                 newSpan.innerHTML = "<i class='material-icons'>keyboard_return</i>";
                 newSpan.className = type;
-                newSpan.id = id;
-                newText.appendChild(newSpan);
+                newRuby.appendChild(newSpan);
+                newSpan = document.createElement("span");
+                newText.appendChild(newRuby);
+                newRuby = document.createElement("ruby");
                 newSpan = document.createElement("span");
                 newText.appendChild(document.createElement("br"));
                 break;
             default:
+                newSpan.innerHTML = char;
+                newSpan.className = type;
                 switch(type){
                     case "kanji base":
-                        newSpan.innerHTML = char;
-                        newSpan.className = type;
                         newRuby.appendChild(newSpan);
                         newSpan = document.createElement("span");
                         break;
                     case "kana furigana":
-                        newSpan.innerHTML = char;
-                        newSpan.className = type;
                         newRT.appendChild(newSpan);
                         newSpan = document.createElement("span");
                         break;
                     default:
-                        newSpan.innerHTML = char;
-                        newSpan.className = type;
-                        newSpan.id = id;
-                        newText.appendChild(newSpan);
+                        newRuby.appendChild(newSpan);
                         newSpan = document.createElement("span");
+                        newText.appendChild(newRuby);
+                        newRuby = document.createElement("ruby");
                         break;
                 }
                 break;
@@ -166,6 +165,7 @@ function update(input, e){
         startTyping();
     }
 
+    /*
     const arrayKanaText = typingTarget.querySelectorAll(".kana");
     let arrayInput = input.replaceAll("\n", "⏎").split("");
 
@@ -263,7 +263,7 @@ function update(input, e){
 
     if(e.inputType === "insertLineBreak"){
         typingComplete();
-    }
+    }*/
 }
 
 update("", {"inputType": null});
