@@ -343,9 +343,12 @@ function typingComplete(){
     }
 }
 
-typingInput.addEventListener("keydown", function() {
+typingInput.addEventListener("keydown", function(e) {
     this.setSelectionRange(this.value.length, this.value.length);
     this.scrollTo(0, this.scrollHeight);
+    if(e.ctrlKey || e.metaKey){
+        e.preventDefault();
+    }
 });
 
 typingInput.addEventListener("keyup", function(e) {
