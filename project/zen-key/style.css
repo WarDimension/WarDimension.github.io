@@ -29,6 +29,9 @@ body{
 .incorrect{
     color: #f20000;
 }
+.semi-correct{
+    color: #b8860b;
+}
 .incorrect, .incorrect span{
     text-decoration: underline;
 }

@@ -98,6 +98,21 @@ function convertText(text){
     return newText;
 }
 
+let stats = {
+    "CPM": 0,
+    "SPM": 0,
+    "correctKanji": 0,
+    "totalKanji": 0,
+    "correctKana": 0,
+    "totalKana": 0,
+    "progress": 0,
+    "totalText": 0
+};
+
+const statsReset = {
+    ...stats
+};
+
 let previousRandom = -1;
 
 function getRandomText(){
@@ -107,6 +122,10 @@ function getRandomText(){
     }
     previousRandom = randomIndex;
     typingTarget.innerHTML = convertText(typingData[randomIndex].text).innerHTML;
+
+    stats.totalKanji = typingTarget.querySelectorAll(".kanji").length;
+    stats.totalKana = typingTarget.querySelectorAll(".kana").length;
+    stats.totalText = typingTarget.querySelectorAll(".base").length;
 }
 
 getRandomText();
@@ -142,27 +161,16 @@ function scrollNextIntoView(arrayElement, index){
 
 let startTime = null;
 
-let stats = {
-    "CPM": 0,
-    "SPM": 0,
-    "correctKanji": 0,
-    "totalKanji": 0,
-    "correctKana": 0,
-    "totalKana": 0
-};
-
-const statsReset = {
-    ...stats
-};
-
 function update(input, e){
     if(startTime == null && e.inputType != null){
         startTyping();
     }
 
     const arrayKanaText = typingTarget.querySelectorAll(".kana");
+    const arrayKanjiText = typingTarget.querySelectorAll(".kanji");
 
     let arrayInput = input.replaceAll("\n", "⏎").split("");
+    const arrayKanjiInput = getCorrectKanji().split("");
 
     let currentID = 0;
     let correct = 0;
@@ -214,6 +222,7 @@ function update(input, e){
             characterSpan.classList.remove("incorrect");
             
             characterSpan.parentElement.parentElement.classList.remove("correct");
+            characterSpan.parentElement.parentElement.classList.remove("semi-correct");
             characterSpan.parentElement.parentElement.classList.remove("incorrect");
         }
         else if(character === characterSpan.innerText.replace("keyboard_return", "⏎")){
@@ -234,12 +243,19 @@ function update(input, e){
         setKanjiCaret(characterSpan);
 
         if(characterSpan.className.includes("furigana") && characterSpan.nextElementSibling == null && character != null && correct > 0 && incorrect == 0){
-            characterSpan.parentElement.parentElement.classList.add("correct");
+            characterSpan.parentElement.parentElement.classList.add("semi-correct");
             characterSpan.parentElement.parentElement.classList.remove("incorrect");
         }
         else if(characterSpan.className.includes("furigana") && incorrect > 0){
-            characterSpan.parentElement.parentElement.classList.remove("correct");
+            characterSpan.parentElement.parentElement.classList.remove("semi-correct");
             characterSpan.parentElement.parentElement.classList.add("incorrect");
+        }
+    });
+
+    arrayKanjiText.forEach((characterSpan, i) => {
+        const character = arrayKanjiInput[i];
+        if(character === characterSpan.innerText){
+            characterSpan.parentElement.classList.replace("semi-correct", "correct");
         }
     });
 
@@ -293,11 +309,15 @@ function findLCS(s1, s2) {
     return lcs;
 }
 
-function countCorrectKanji(){
+function getCorrectKanji(){
     const input = typingInput.value;
     const allKanji = Array.from(typingTarget.querySelectorAll(".kanji")).map(element => element.textContent).join("");
     const correctKanji = findLCS(input, allKanji);
-    stats.correctKanji = correctKanji.length;
+    return correctKanji;
+}
+
+function countCorrectKanji(){
+    stats.correctKanji = getCorrectKanji().length;
     stats.totalKanji = allKanji.length;
 }
 
@@ -338,7 +358,7 @@ function typingComplete(){
         startTime = null;
         enterToConfirm = false;
     }
-    else if(progressCount == kanaCount && enterToConfirm == false){
+    else if(progressCount == kanaCount){
         enterToConfirm = true;
     }
 }
@@ -353,6 +373,6 @@ typingInput.addEventListener("keydown", function(e) {
 
 typingInput.addEventListener("keyup", function(e) {
     if(e.code === "Enter"){
-        typingComplete();
+        //typingComplete();
     }
 });
