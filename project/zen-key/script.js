@@ -124,6 +124,8 @@ function getRandomText(){
     previousRandom = randomIndex;
     typingTarget.innerHTML = convertText(typingData[randomIndex].text).innerHTML;
 
+    stats = statsReset;
+
     stats.totalKanji = typingTarget.querySelectorAll(".kanji").length;
     stats.totalKana = typingTarget.querySelectorAll(".kana").length;
     stats.totalText = typingTarget.querySelectorAll(".base").length;
@@ -167,8 +169,14 @@ function update(input, e){
         startTyping();
     }
 
+
     const arrayRuby = typingTarget.querySelectorAll(".typing-target-ruby");
     let checkInput = input.replace("\n", "⏎");
+
+    if(input == ""){
+        flexContainer.scrollTo(0, 0);
+        arrayRuby[0].classList.add("caret");
+    }
 
     arrayRuby.forEach((ruby, i) => {
         const arrayBase = ruby.querySelectorAll(".base");
@@ -203,7 +211,6 @@ function update(input, e){
                     ruby.classList.remove("incorrect");
                 }
                 kanaCorrect++;
-                if(kanaIncorrect > 0) kanaIncorrect--;
             }
             else{
                 if(arrayFurigana.length > 0){
@@ -215,7 +222,6 @@ function update(input, e){
                     ruby.classList.add("incorrect");
                 }
                 kanaIncorrect++;
-                if(kanaCorrect > 0) kanaCorrect--;
             }
 
             currentRubyCheckInput = currentRubyCheckInput.slice(1);
@@ -231,13 +237,11 @@ function update(input, e){
                     char.classList.add("correct");
                     char.classList.remove("incorrect");
                     kanjiCorrect++;
-                    if(kanjiIncorrect > 0) kanjiIncorrect--;
                 }
                 else{
                     char.classList.remove("correct");
                     char.classList.add("incorrect");
                     kanjiIncorrect++;
-                    if(kanjiCorrect > 0) kanjiCorrect--;
                 }
 
                 currentRubyCheckInput = currentRubyCheckInput.slice(1);
@@ -266,12 +270,12 @@ function update(input, e){
     if(e.inputType === "insertLineBreak"){
         typingComplete();
     }
+    console.table(stats);
 }
 
 update("", {"inputType": null});
 
 function startTyping(){
-    stats = statsReset;
     startTime = new Date();
     console.log("start");
 }
@@ -337,7 +341,7 @@ function computeCPM(input){
         stats.SPM = SPM;
     }
 
-    console.log("CPM: " + stats.CPM + ", SPM: " + stats.SPM);
+    //console.log("CPM: " + stats.CPM + ", SPM: " + stats.SPM);
 }
 
 let enterToConfirm = false;
@@ -349,7 +353,7 @@ function typingComplete(){
 
     if(progressCount == kanaCount && (incorrectCount == 0 || enterToConfirm)){
         countCorrectKanji();
-        console.log(stats);
+        //console.log(stats);
         getRandomText();
         typingInput.value = "";
         update("", {"inputType": null});
