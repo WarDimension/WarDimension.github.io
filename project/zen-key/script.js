@@ -253,10 +253,6 @@ function update(input, e){
             });
         }
 
-        if(i == 0){
-            console.log(kanjiIncorrect + " " + kanaIncorrect);
-        }
-
         if(kanjiIncorrect > 0){
             let incorrectDiff = kanaIncorrect - kanjiIncorrect;
             currentRubyCheckInput = currentRubyCheckInput.slice(incorrectDiff);
