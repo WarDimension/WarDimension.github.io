@@ -140,10 +140,17 @@ function scrollNextIntoView(arrayElement, index){
     }
 }
 
+let startTime = null;
+
 function update(input, e){
+    if(startTime == null && e.inputType != null){
+        startTime = new Date();
+        console.log("start");
+    }
+
     const arrayKanaText = typingTarget.querySelectorAll(".kana");
 
-    let kanaArrayValue = input.replaceAll("\n", "⏎").split("");
+    let arrayInput = input.replaceAll("\n", "⏎").split("");
 
     let currentID = 0;
     let correct = 0;
@@ -176,12 +183,12 @@ function update(input, e){
         if(characterSpan.className.includes("furigana") && canReplace){
             let kana = characterSpan.parentElement.innerText;
             let kanji = characterSpan.parentElement.parentElement.innerText.replace(kana, "");
-            kanaArrayValue = kanaArrayValue.join("").replace(kanji, kana).split("");
+            arrayInput = arrayInput.join("").replace(kanji, kana).split("");
 
             canReplace = false
         }
 
-        const character = kanaArrayValue[i];
+        const character = arrayInput[i];
 
         if(arrayKanaText[i+1]){
             arrayKanaText[i+1].classList.remove("caret");
@@ -231,15 +238,33 @@ function update(input, e){
 
 update("", {"inputType": null});
 
+function countSmallKana(str){
+    const smallKanaRegex = /[ぁぃぅぇぉゃゅょゎ]/g;
+    const matches = str.match(smallKanaRegex);
+    return matches ? matches.length : 0;
+}  
+
+function computeCPM(){
+    const kana = typingTarget.querySelectorAll(".kana");
+    const kanaCount = kana.length;
+    const smallKanaCount = countSmallKana(Array.from(kana).map(element => element.textContent).join(""));
+    const elapsedTime = new Date() - startTime;
+    const CPM = Math.round((((kanaCount / elapsedTime) * 60000) + Number.EPSILON) * 100) / 100;
+    const SPM = Math.round(((((kanaCount - smallKanaCount) / elapsedTime) * 60000) + Number.EPSILON) * 100) / 100;
+    console.log("CPM: " + CPM + ", SPM: " + SPM);
+}
+
 function typingComplete(){
     const incorrectCount = typingTarget.querySelectorAll(".kana.incorrect").length;
     const progressCount = typingTarget.querySelectorAll(".kana.correct, .kana.incorrect").length;
     const kanaCount = typingTarget.querySelectorAll(".kana").length;
 
     if(progressCount == kanaCount && incorrectCount == 0){
+        computeCPM();
         getRandomText();
         typingInput.value = "";
         update("", {"inputType": null});
+        startTime = null;
     }
 }
 
