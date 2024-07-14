@@ -260,6 +260,12 @@ function update(input, e){
             ruby.classList.remove("incorrect");
         }
     });
+
+    computeCPM(input);
+
+    if(e.inputType === "insertLineBreak"){
+        typingComplete();
+    }
 }
 
 update("", {"inputType": null});
