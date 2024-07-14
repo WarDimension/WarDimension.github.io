@@ -24,17 +24,20 @@ body{
     color: #707070;
     text-decoration: none !important;
 }
-.correct{
+.correct, .correct .furigana{
     color: #15ac47;
 }
 .incorrect{
     color: #f20000;
 }
-.semi-correct{
+.semi-correct, .semi-correct .incorrect{
     color: #b8860b;
 }
-.incorrect, .incorrect span{
+.space.incorrect span, .space.correct span{
     text-decoration: underline;
+}
+.enter{
+    display: block;
 }
 i.material-icons{
     font-size: 0.8em;

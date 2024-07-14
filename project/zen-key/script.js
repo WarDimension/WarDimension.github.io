@@ -79,6 +79,7 @@ function convertText(text){
                         newSpan = document.createElement("span");
                         break;
                     default:
+                        if(char === " " || char === "　") newRuby.classList.add("space");
                         newRuby.appendChild(newSpan);
                         newSpan = document.createElement("span");
                         newText.appendChild(newRuby);
@@ -173,143 +174,92 @@ function update(input, e){
         const arrayBase = ruby.querySelectorAll(".base");
         const arrayFurigana = ruby.querySelectorAll(".furigana");
 
-        let correct = 0;
-        let incorrect = 0;
+        let currentRubyCheckInput = checkInput;
+
+        let kanaCorrect = kanaIncorrect = 0;
         let arrayChar = arrayFurigana;
 
         if(arrayChar.length == 0) arrayChar = arrayBase;
 
         arrayChar.forEach((char, j) => {
-            if(checkInput[0] == null){
+            if(currentRubyCheckInput[0] == null){
                 char.classList.remove("correct");
                 char.classList.remove("incorrect");
+                ruby.classList.remove("correct");
                 ruby.classList.remove("semi-correct");
                 ruby.classList.remove("incorrect");
+                if(arrayBase[j]){
+                    arrayBase[j].classList.remove("correct");
+                    arrayBase[j].classList.remove("incorrect");
+                }
             }
-            else if(checkInput[0] === char.innerText.replace("keyboard_return", "⏎")){
-                char.classList.add("correct");
-                char.classList.remove("incorrect");
-                correct++;
-                if(incorrect > 0) incorrect--;
+            else if(currentRubyCheckInput[0] === char.innerText.replace("keyboard_return", "⏎")){
+                if(arrayFurigana.length > 0){
+                    char.classList.add("correct");
+                    char.classList.remove("incorrect");
+                }
+                else{
+                    ruby.classList.add("correct");
+                    ruby.classList.remove("incorrect");
+                }
+                kanaCorrect++;
+                if(kanaIncorrect > 0) kanaIncorrect--;
             }
             else{
-                char.classList.remove("correct");
-                char.classList.add("incorrect");
-                incorrect++;
-                if(correct > 0) correct--;
+                if(arrayFurigana.length > 0){
+                    char.classList.remove("correct");
+                    char.classList.add("incorrect");
+                }
+                else{
+                    ruby.classList.remove("correct");
+                    ruby.classList.add("incorrect");
+                }
+                kanaIncorrect++;
+                if(kanaCorrect > 0) kanaCorrect--;
             }
 
-            checkInput = checkInput.slice(1);
+            currentRubyCheckInput = currentRubyCheckInput.slice(1);
         });
 
-        if(arrayChar[0].className.includes("furigana") && correct == arrayChar.length){
+        let kanjiCorrect = kanjiIncorrect = 0;
+
+        if(kanaCorrect == 0 && kanaIncorrect > 0 && arrayFurigana.length > 0){
+            currentRubyCheckInput = checkInput;
+
+            arrayBase.forEach(char => {
+                if(currentRubyCheckInput[0] === char.innerText){
+                    char.classList.add("correct");
+                    char.classList.remove("incorrect");
+                    kanjiCorrect++;
+                    if(kanjiIncorrect > 0) kanjiIncorrect--;
+                }
+                else{
+                    char.classList.remove("correct");
+                    char.classList.add("incorrect");
+                    kanjiIncorrect++;
+                    if(kanjiCorrect > 0) kanjiCorrect--;
+                }
+
+                currentRubyCheckInput = currentRubyCheckInput.slice(1);
+            });
+        }
+
+        checkInput = currentRubyCheckInput;
+
+        if(arrayFurigana.length > 0 && kanaCorrect == arrayChar.length){
             ruby.classList.add("semi-correct");
             ruby.classList.remove("incorrect");
         }
-        else if(arrayChar[0].className.includes("furigana") && incorrect > 0){
+        else if(arrayFurigana.length > 0 && kanaIncorrect > 0){
             ruby.classList.add("incorrect");
         }
-    });
 
-    /*
-    const arrayKanaText = typingTarget.querySelectorAll(".kana");
-    let arrayInput = input.replaceAll("\n", "⏎").split("");
-
-    let currentID = 0;
-    let correct = 0;
-    let incorrect = 0;
-    let canReplace = true;
-
-    if(input == ""){
-        flexContainer.scrollTo(0, 0);
-        arrayKanaText[0].classList.add("caret");
-    }
-
-    arrayKanaText.forEach((characterSpan, i) => {
-        if(characterSpan.className.includes("furigana")){
-            if(characterSpan.parentElement.parentElement.id != currentID){
-                correct = 0;
-                incorrect = 0;
-                canReplace = true;
-            }
-            currentID = characterSpan.parentElement.parentElement.id;
-        }
-        else{
-            if(characterSpan.id != currentID){
-                correct = 0;
-                incorrect = 0;
-                canReplace = true;
-            }
-            currentID = characterSpan.id;
-        }
-
-        if(characterSpan.className.includes("furigana") && canReplace){
-            let kana = characterSpan.parentElement.innerText;
-            let kanji = characterSpan.parentElement.parentElement.innerText.replace(kana, "");
-            arrayInput = arrayInput.join("").replace(kanji, kana).split("");
-
-            canReplace = false
-        }
-
-        const character = arrayInput[i];
-
-        if(arrayKanaText[i+1]){
-            arrayKanaText[i+1].classList.remove("caret");
-        }
-        else{
-            characterSpan.classList.remove("caret-right");
-        }
-
-        if(character == null){
-            characterSpan.classList.remove("correct");
-            characterSpan.classList.remove("incorrect");
-            
-            characterSpan.parentElement.parentElement.classList.remove("correct");
-            characterSpan.parentElement.parentElement.classList.remove("semi-correct");
-            characterSpan.parentElement.parentElement.classList.remove("incorrect");
-        }
-        else if(character === characterSpan.innerText.replace("keyboard_return", "⏎")){
-            characterSpan.classList.add("correct");
-            characterSpan.classList.remove("incorrect");
-            scrollNextIntoView(arrayKanaText, i);
-            setCaret(arrayKanaText, i);
-            correct++;
-        }
-        else{
-            characterSpan.classList.remove("correct");
-            characterSpan.classList.add("incorrect");
-            scrollNextIntoView(arrayKanaText, i);
-            setCaret(arrayKanaText, i);
-            incorrect++;
-        }
-
-        setKanjiCaret(characterSpan);
-
-        if(characterSpan.className.includes("furigana") && characterSpan.nextElementSibling == null && character != null && correct > 0 && incorrect == 0){
-            characterSpan.parentElement.parentElement.classList.add("semi-correct");
-            characterSpan.parentElement.parentElement.classList.remove("incorrect");
-        }
-        else if(characterSpan.className.includes("furigana") && incorrect > 0){
-            characterSpan.parentElement.parentElement.classList.remove("semi-correct");
-            characterSpan.parentElement.parentElement.classList.add("incorrect");
+        if(arrayFurigana.length > 0 && kanjiCorrect == arrayBase.length){
+            ruby.classList.add("correct");
+            ruby.classList.remove("semi-correct");
+            ruby.classList.remove("incorrect");
         }
     });
-
-    const arrayKanjiText = typingTarget.querySelectorAll(".kanji");
-    const arrayKanjiInput = getCorrectKanji().split("");
-
-    arrayKanjiText.forEach((characterSpan, i) => {
-        const character = arrayKanjiInput[i];
-        if(character === characterSpan.innerText){
-            characterSpan.parentElement.classList.replace("semi-correct", "correct");
-        }
-    });
-
-    computeCPM(arrayInput.join(""));
-
-    if(e.inputType === "insertLineBreak"){
-        typingComplete();
-    }*/
 }
 
 update("", {"inputType": null});
