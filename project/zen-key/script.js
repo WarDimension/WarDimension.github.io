@@ -1,8 +1,8 @@
 const typingData = [
     {
-        "text": "{古[ふる]}びたコトバ{繰[く]}り{返[かえ]}しつぶやいてみる\n{伸[の]}ばしたままの{爪[つめ]}{痕[あと]}はほら{消[き]}えないよ",
+        "text": "{明日[あした]}　{古[ふる]}びたコトバ{繰[く]}り{返[かえ]}しつぶやいてみる\n{伸[の]}ばしたままの{爪[つめ]}{痕[あと]}はほら{消[き]}えないよ", //remember to remove {明日[あした]}
         "source": "{花[はな]}{残[のこ]}り{月[つき]} by nano.RIPE"
-    },
+    }/*,
     {
         "text": "にゃにゃめにゃにゃじゅうにゃにゃどのにゃらびでにゃくにゃくいにゃにゃくにゃにゃはんにゃにゃだいにゃんにゃくにゃらべてにゃがにゃがめ",
         "source": "{化[ばけ]}{物[もの]}{語[がたり]}"
@@ -10,7 +10,7 @@ const typingData = [
     {
         "text": "{斜[なな]}め{七[なな]}{十[じゅう]}{七[なな]}{度[ど]}の{並[なら]}びで{泣[な]}く{泣[な]}く{嘶[いなな]}くナナハン{七[なな]}{台[だい]}{難[なん]}なく{並[なら]}べて{長[なが]}{眺[なが]}め",
         "source": "{早[はや]}{口[くち]}{言[こと]}{葉[ば]}"
-    }
+    }*/
 ];
 
 const typingTarget = document.querySelector(".typing-target");
@@ -165,6 +165,51 @@ function update(input, e){
     if(startTime == null && e.inputType != null){
         startTyping();
     }
+
+    const arrayRuby = typingTarget.querySelectorAll(".typing-target-ruby");
+    let checkInput = input.replace("\n", "⏎");
+
+    arrayRuby.forEach((ruby, i) => {
+        const arrayBase = ruby.querySelectorAll(".base");
+        const arrayFurigana = ruby.querySelectorAll(".furigana");
+
+        let correct = 0;
+        let incorrect = 0;
+        let arrayChar = arrayFurigana;
+
+        if(arrayChar.length == 0) arrayChar = arrayBase;
+
+        arrayChar.forEach((char, j) => {
+            if(checkInput[0] == null){
+                char.classList.remove("correct");
+                char.classList.remove("incorrect");
+                ruby.classList.remove("semi-correct");
+                ruby.classList.remove("incorrect");
+            }
+            else if(checkInput[0] === char.innerText.replace("keyboard_return", "⏎")){
+                char.classList.add("correct");
+                char.classList.remove("incorrect");
+                correct++;
+                if(incorrect > 0) incorrect--;
+            }
+            else{
+                char.classList.remove("correct");
+                char.classList.add("incorrect");
+                incorrect++;
+                if(correct > 0) correct--;
+            }
+
+            checkInput = checkInput.slice(1);
+        });
+
+        if(arrayChar[0].className.includes("furigana") && correct == arrayChar.length){
+            ruby.classList.add("semi-correct");
+            ruby.classList.remove("incorrect");
+        }
+        else if(arrayChar[0].className.includes("furigana") && incorrect > 0){
+            ruby.classList.add("incorrect");
+        }
+    });
 
     /*
     const arrayKanaText = typingTarget.querySelectorAll(".kana");

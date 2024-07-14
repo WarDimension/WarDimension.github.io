@@ -22,6 +22,7 @@ body{
 }
 .furigana{
     color: #707070;
+    text-decoration: none !important;
 }
 .correct{
     color: #15ac47;
@@ -34,9 +35,6 @@ body{
 }
 .incorrect, .incorrect span{
     text-decoration: underline;
-}
-.furigana.correct, .furigana.incorrect{
-    text-decoration: none;
 }
 i.material-icons{
     font-size: 0.8em;
