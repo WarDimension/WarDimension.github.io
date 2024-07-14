@@ -310,6 +310,8 @@ function update(input, e){
                 }
             });
         }
+        
+        if(ruby.classList.contains("correct") || ruby.classList.contains("semi-correct") || ruby.classList.contains("incorrect")) scrollNextIntoView(arrayRuby, i);
     });
 
     computeCPM(input);
