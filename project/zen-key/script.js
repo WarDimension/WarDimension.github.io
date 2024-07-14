@@ -142,10 +142,20 @@ function scrollNextIntoView(arrayElement, index){
 
 let startTime = null;
 
+let result = {
+    "CPM": 0,
+    "SPM": 0,
+    "correctKanji": 0,
+    "totalKanji": 0
+};
+
+const resultReset = {
+    ...result
+};
+
 function update(input, e){
     if(startTime == null && e.inputType != null){
-        startTime = new Date();
-        console.log("start");
+        startTyping();
     }
 
     const arrayKanaText = typingTarget.querySelectorAll(".kana");
@@ -240,11 +250,60 @@ function update(input, e){
 
 update("", {"inputType": null});
 
+function startTyping(){
+    result = resultReset;
+    startTime = new Date();
+    console.log("start");
+}
+
+function findLCS(s1, s2) {
+    const memo = new Array(s1.length + 1).fill(null).map(() => new Array(s2.length + 1).fill(-1));
+
+    function lcsHelper(i, j) {
+        if (i === 0 || j === 0) return 0;
+
+        if (memo[i][j] !== -1) return memo[i][j];
+
+        if (s1[i - 1] === s2[j - 1])
+            memo[i][j] = 1 + lcsHelper(i - 1, j - 1);
+        else
+            memo[i][j] = Math.max(lcsHelper(i - 1, j), lcsHelper(i, j - 1));
+
+        return memo[i][j];
+    }
+
+    lcsHelper(s1.length, s2.length);
+
+    let i = s1.length, j = s2.length;
+    let lcs = "";
+
+    while (i > 0 && j > 0) {
+        if (s1[i - 1] === s2[j - 1]) {
+            lcs = s1[i - 1] + lcs;
+            i--;
+            j--;
+        } else if (memo[i - 1][j] > memo[i][j - 1])
+            i--;
+        else
+            j--;
+    }
+
+    return lcs;
+}
+
+function countCorrectKanji(){
+    const input = typingInput.value;
+    const allKanji = Array.from(typingTarget.querySelectorAll(".kanji")).map(element => element.textContent).join("");
+    const correctKanji = findLCS(input, allKanji);
+    result.correctKanji = correctKanji.length;
+    result.totalKanji = allKanji.length;
+}
+
 function countSmallKana(str){
-    const smallKanaRegex = /[ぁぃぅぇぉゃゅょゎ]/g;
+    const smallKanaRegex = /[ぁぃぅぇぉゃゅょっァィゥェォャュョッ]/g;
     const matches = str.match(smallKanaRegex);
     return matches ? matches.length : 0;
-}  
+}
 
 function computeCPM(input){
     const kanaCount = input.length;
@@ -252,7 +311,13 @@ function computeCPM(input){
     const elapsedTime = new Date() - startTime;
     const CPM = Math.round((((kanaCount / elapsedTime) * 60000) + Number.EPSILON) * 100) / 100;
     const SPM = Math.round(((((kanaCount - smallKanaCount) / elapsedTime) * 60000) + Number.EPSILON) * 100) / 100;
-    console.log("CPM: " + CPM + ", SPM: " + SPM);
+
+    if(CPM != 0){
+        result.CPM = CPM;
+        result.SPM = SPM;
+    }
+
+    console.log("CPM: " + result.CPM + ", SPM: " + result.SPM);
 }
 
 function typingComplete(){
@@ -261,6 +326,8 @@ function typingComplete(){
     const kanaCount = typingTarget.querySelectorAll(".kana").length;
 
     if(progressCount == kanaCount && incorrectCount == 0){
+        countCorrectKanji();
+        console.log(result);
         getRandomText();
         typingInput.value = "";
         update("", {"inputType": null});
@@ -268,12 +335,12 @@ function typingComplete(){
     }
 }
 
-typingInput.addEventListener("keydown", function(e) {
+typingInput.addEventListener("keydown", function() {
     this.setSelectionRange(this.value.length, this.value.length);
     this.scrollTo(0, this.scrollHeight);
 });
 
-typingInput.addEventListener("keyup", function(e) {    
+typingInput.addEventListener("keyup", function(e) {
     if(e.code === "Enter"){
         typingComplete();
     }
