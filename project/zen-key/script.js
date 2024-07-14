@@ -29,6 +29,7 @@ function convertText(text){
     let newText = document.createElement("p");
 
     charArray.forEach(char => {
+        newRuby.className = "typing-target-ruby";
         newRuby.id = id;
         switch(char){
             case "{":
