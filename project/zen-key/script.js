@@ -346,6 +346,12 @@ function update(input, e){
 
         if(arrayChar.length == 0) arrayChar = arrayBase;
 
+        const kanjiProgress = ruby.querySelectorAll(".kanji.correct, .kanji.incorrect");
+
+        if(kanjiProgress.length == arrayBase.length && arrayChar.length > arrayBase.length && arrayBase.length > 1){
+            arrayChar = arrayBase;
+        }
+
         arrayChar.forEach((char, j) => {
             if(currentRubyCheckInput[0] == null){
                 char.classList.remove("correct");
