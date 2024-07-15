@@ -111,6 +111,7 @@ let stats = {
     "correctFurigana": 0,
     "totalFurigana": 0,
     "progress": 0,
+    "progressPercentage": 0,
     "totalText": 0
 };
 
@@ -131,14 +132,47 @@ function updateStats(){
     stats.correctKanji = typingTarget.querySelectorAll(".correct .kanji").length;
     stats.correctKana = typingTarget.querySelectorAll(".correct .kana.base").length;
     stats.correctFurigana = typingTarget.querySelectorAll(".correct .furigana, .furigana.correct").length;
-    stats.progress = typingTarget.querySelectorAll("typing-target-ruby.correct").length;
+    stats.progress = typingTarget.querySelectorAll(".typing-target-ruby.correct, .typing-target-ruby.semi-correct, .typing-target-ruby.incorrect").length;
+    stats.progressPercentage = computePercentage();
+}
 
-    const kanjiMultiplier = 0.25 * (stats.correctKanji / stats.totalKanji);
-    const furiganaMultiplier = 0.25 * (stats.correctFurigana / stats.totalFurigana);
-    const kanaMultiplier = 0.5 * (stats.correctKana / stats.totalKana);
-    const totalPercentage = (kanjiMultiplier + furiganaMultiplier + kanaMultiplier) * 100;
+function computePercentage(){
+    let kanjiPercentage = 25 * (stats.correctKanji / stats.totalKanji);
+    let furiganaPercentage = 25 * (stats.correctFurigana / stats.totalFurigana);
+    let kanaPercentage = 50 * (stats.correctKana / stats.totalKana);
+    if(stats.totalKanji == 0){
+        kanjiPercentage = furiganaPercentage = 0;
+        kanaPercentage *= 2;
+    }
+    else if(stats.totalKana == 0){
+        kanaPercentage = 0;
+        kanjiPercentage *= furiganaPercentage *= 0;
+    }
+    const totalPercentage = kanjiPercentage + furiganaPercentage + kanaPercentage;
     const totalPercentageRound = Math.round((totalPercentage + Number.EPSILON) * 100) / 100;
-    console.log(totalPercentageRound + "%");
+
+    return totalPercentageRound;
+}
+
+function countSmallKana(str){
+    const smallKanaRegex = /[ぁぃぅぇぉゃゅょっァィゥェォャュョッ]/g;
+    const matches = str.match(smallKanaRegex);
+    return matches ? matches.length : 0;
+}
+
+function computeCPM(input){
+    const kanaCount = input.length;
+    const smallKanaCount = countSmallKana(input);
+    const elapsedTime = new Date() - startTime;
+    const CPM = Math.round((((kanaCount / elapsedTime) * 60000) + Number.EPSILON) * 100) / 100;
+    const SPM = Math.round(((((kanaCount - smallKanaCount) / elapsedTime) * 60000) + Number.EPSILON) * 100) / 100;
+
+    if(CPM != 0){
+        stats.CPM = CPM;
+        stats.SPM = SPM;
+    }
+
+    //console.log("CPM: " + stats.CPM + ", SPM: " + stats.SPM);
 }
 
 /*
@@ -279,7 +313,10 @@ function update(input, e){
             currentRubyCheckInput = checkInput;
 
             arrayBase.forEach(char => {
-                if(currentRubyCheckInput[0] === char.innerText){
+                if(currentRubyCheckInput[0] == null){
+                    char.classList.remove("incorrect");
+                }
+                else if(currentRubyCheckInput[0] === char.innerText){
                     char.classList.add("correct");
                     char.classList.remove("incorrect");
                     kanjiCorrect++;
@@ -317,6 +354,9 @@ function update(input, e){
         if(arrayFurigana.length > 0 && kanjiCorrect == arrayBase.length){
             ruby.classList.add("correct");
             ruby.classList.remove("semi-correct");
+            ruby.classList.remove("incorrect");
+        }
+        else if(kanjiCorrect > 0){
             ruby.classList.remove("incorrect");
         }
 
@@ -360,27 +400,6 @@ update("", {"inputType": null});
 function startTyping(){
     startTime = new Date();
     console.log("start");
-}
-
-function countSmallKana(str){
-    const smallKanaRegex = /[ぁぃぅぇぉゃゅょっァィゥェォャュョッ]/g;
-    const matches = str.match(smallKanaRegex);
-    return matches ? matches.length : 0;
-}
-
-function computeCPM(input){
-    const kanaCount = input.length;
-    const smallKanaCount = countSmallKana(input);
-    const elapsedTime = new Date() - startTime;
-    const CPM = Math.round((((kanaCount / elapsedTime) * 60000) + Number.EPSILON) * 100) / 100;
-    const SPM = Math.round(((((kanaCount - smallKanaCount) / elapsedTime) * 60000) + Number.EPSILON) * 100) / 100;
-
-    if(CPM != 0){
-        stats.CPM = CPM;
-        stats.SPM = SPM;
-    }
-
-    //console.log("CPM: " + stats.CPM + ", SPM: " + stats.SPM);
 }
 
 let enterToConfirm = false;
