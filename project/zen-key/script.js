@@ -293,7 +293,7 @@ function setCaret(){
             lastProgress.classList.remove("caret-right");
             grandParent.classList.add("caret-right");
         }
-        else if(grandParent.classList.contains("typing-target-ruby")){
+        else if(grandParent.classList.contains("typing-target-ruby") && !grandParent.classList.contains("incorrect")){
             const allKanji = grandParent.querySelectorAll(".kanji");
             const kanjiProgress = grandParent.querySelectorAll(".kanji.correct, .kanji.incorrect");
             const kanjiCorrect = grandParent.querySelectorAll(".kanji.correct");
