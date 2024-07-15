@@ -381,6 +381,7 @@ function applyInputToRuby(inputSegment, arrayRuby){
     inputSegment.forEach((input, i) => {
         const ruby = arrayRuby[i];
         const rubyElements = ruby.querySelectorAll(".kanji, .kana");
+        const baseElements = ruby.querySelectorAll(".base");
         const furiganaElements = ruby.querySelectorAll(".furigana");
 
         rubyElements.forEach(element => {
@@ -388,7 +389,6 @@ function applyInputToRuby(inputSegment, arrayRuby){
         });
 
         if(checkCharacterType(input[0]) === "kanji" || furiganaElements.length == 0){
-            const baseElements = ruby.querySelectorAll(".base");
             baseElements.forEach((base, j) => {
                 if(input[j] == null){
                     base.classList.remove("correct", "incorrect");
