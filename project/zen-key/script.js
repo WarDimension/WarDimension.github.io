@@ -1,6 +1,6 @@
 const typingData = [
     {
-        "text": "{古[ふる]}びたコトバ{繰[く]}り{返[かえ]}しつぶやいてみる\n{伸[の]}ばしたままの{爪[つめ]}{痕[あと]}はほら{消[き]}えないよ",
+        "text": "{明日[あした]}{古[ふる]}びたコトバ{繰[く]}り{返[かえ]}しつぶやいてみる\n{伸[の]}ばしたままの{爪[つめ]}{痕[あと]}はほら{消[き]}えないよ",
         "source": "{花[はな]}{残[のこ]}り{月[つき]} by nano.RIPE"
     },
     {
@@ -108,6 +108,8 @@ let stats = {
     "totalKanji": 0,
     "correctKana": 0,
     "totalKana": 0,
+    "correctFurigana": 0,
+    "totalFurigana": 0,
     "progress": 0,
     "totalText": 0
 };
@@ -115,6 +117,39 @@ let stats = {
 const statsReset = {
     ...stats
 };
+
+function setStats(){
+    stats = statsReset;
+
+    stats.totalKanji = typingTarget.querySelectorAll(".kanji").length;
+    stats.totalKana = typingTarget.querySelectorAll(".kana.base").length;
+    stats.totalFurigana = typingTarget.querySelectorAll(".furigana").length;
+    stats.totalText = typingTarget.querySelectorAll(".base").length;
+}
+
+function updateStats(){
+    stats.correctKanji = typingTarget.querySelectorAll(".correct .kanji").length;
+    stats.correctKana = typingTarget.querySelectorAll(".correct .kana.base").length;
+    stats.correctFurigana = typingTarget.querySelectorAll(".correct .furigana, .furigana.correct").length;
+    stats.progress = typingTarget.querySelectorAll("typing-target-ruby.correct").length;
+
+    const kanjiMultiplier = 0.25 * (stats.correctKanji / stats.totalKanji);
+    const furiganaMultiplier = 0.25 * (stats.correctFurigana / stats.totalFurigana);
+    const kanaMultiplier = 0.5 * (stats.correctKana / stats.totalKana);
+    const totalPercentage = (kanjiMultiplier + furiganaMultiplier + kanaMultiplier) * 100;
+    const totalPercentageRound = Math.round((totalPercentage + Number.EPSILON) * 100) / 100;
+    console.log(totalPercentageRound + "%");
+}
+
+/*
+SCORE NOTE
+
+Percentage:
+- correct kanji = 0.25 * (correct kanji / total kanji)
+- correct furigana = 0.25 * (correct furigana / total furigana)
+- correct kana = 0. * (correct kana / total furigana)
+- total = (correct kanji + correct furigana + correct kana) * 100%
+*/
 
 let previousRandom = -1;
 
@@ -125,12 +160,8 @@ function getRandomText(){
     }
     previousRandom = randomIndex;
     typingTarget.innerHTML = convertText(typingData[randomIndex].text).innerHTML;
-
-    stats = statsReset;
-
-    stats.totalKanji = typingTarget.querySelectorAll(".kanji").length;
-    stats.totalKana = typingTarget.querySelectorAll(".kana").length;
-    stats.totalText = typingTarget.querySelectorAll(".base").length;
+    
+    setStats();
 }
 
 getRandomText();
@@ -314,12 +345,14 @@ function update(input, e){
         if(ruby.classList.contains("correct") || ruby.classList.contains("semi-correct") || ruby.classList.contains("incorrect")) scrollNextIntoView(arrayRuby, i);
     });
 
+    updateStats();
+
     computeCPM(input);
 
     if(e.inputType === "insertLineBreak"){
         typingComplete();
     }
-    //console.table(stats);
+    console.table(stats);
 }
 
 update("", {"inputType": null});
@@ -327,49 +360,6 @@ update("", {"inputType": null});
 function startTyping(){
     startTime = new Date();
     console.log("start");
-}
-
-function findLCS(s1, s2) {
-    const memo = new Array(s1.length + 1).fill(null).map(() => new Array(s2.length + 1).fill(-1));
-
-    function lcsHelper(i, j) {
-        if (i === 0 || j === 0) return 0;
-
-        if (memo[i][j] !== -1) return memo[i][j];
-
-        if (s1[i - 1] === s2[j - 1])
-            memo[i][j] = 1 + lcsHelper(i - 1, j - 1);
-        else
-            memo[i][j] = Math.max(lcsHelper(i - 1, j), lcsHelper(i, j - 1));
-
-        return memo[i][j];
-    }
-
-    lcsHelper(s1.length, s2.length);
-
-    let i = s1.length, j = s2.length;
-    let lcs = "";
-
-    while (i > 0 && j > 0) {
-        if (s1[i - 1] === s2[j - 1]) {
-            lcs = s1[i - 1] + lcs;
-            i--;
-            j--;
-        } else if (memo[i - 1][j] > memo[i][j - 1])
-            i--;
-        else
-            j--;
-    }
-
-    return lcs;
-}
-
-function getCorrectKanji(){
-    const input = typingInput.value;
-    const allKanji = Array.from(typingTarget.querySelectorAll(".kanji")).map(element => element.textContent).join("");
-    const correctKanji = findLCS(input, allKanji);
-    stats.correctKanji = correctKanji.length;
-    return correctKanji;
 }
 
 function countSmallKana(str){
