@@ -311,6 +311,33 @@ function setCaret(){
     }
 }
 
+function checkCharacterType(char){
+    if(/[\u4E00-\u9FFF]/.test(char)){
+        return "kanji";
+    }
+    else if(/[\u3040-\u309F]/.test(char)){
+        return "hiragana";
+    }
+    else if(/[\u30A0-\u30FF]/.test(char)){
+        return "katakana";
+    }
+    else{
+        return "other";
+    }
+}
+
+function hiraganaToKatakana(hiragana){
+    const hiraganaCode = hiragana.charCodeAt(0);
+    if(hiraganaCode >= 0x3041 && hiraganaCode <= 0x3096){
+        return String.fromCharCode(hiraganaCode + 0x60);
+    }
+    return null;
+}
+
+function areSameSound(hiragana, katakana){
+    return hiraganaToKatakana(hiragana) === katakana;
+}
+
 function scrollNextIntoView(arrayElement, index){
     if(arrayElement[index+1]){
         arrayElement[index+1].scrollIntoView({ block: "center" });
@@ -336,110 +363,80 @@ function update(input, e){
     }
 
     arrayRuby.forEach((ruby, i) => {
-        const arrayBase = ruby.querySelectorAll(".base");
-        const arrayFurigana = ruby.querySelectorAll(".furigana");
+        const arrayKanji = ruby.querySelectorAll(".kanji");
+        const arrayKana = ruby.querySelectorAll(".kana");
 
         let currentRubyCheckInput = checkInput;
+        let charInputType = checkCharacterType(currentRubyCheckInput[0]);
+        let correct = semiCorrect = incorrect = 0;
+        let arrayChar = arrayKana;
 
-        let kanaCorrect = kanaIncorrect = 0;
-        let arrayChar = arrayFurigana;
+        if(charInputType === "kanji") arrayChar = arrayKanji;
 
-        if(arrayChar.length == 0) arrayChar = arrayBase;
+        if(currentRubyCheckInput[0] == null){
+        }
 
         arrayChar.forEach((char, j) => {
             if(currentRubyCheckInput[0] == null){
                 char.classList.remove("correct");
+                char.classList.remove("semi-correct");
                 char.classList.remove("incorrect");
                 ruby.classList.remove("correct");
                 ruby.classList.remove("semi-correct");
                 ruby.classList.remove("incorrect");
-                if(arrayBase[j]){
-                    arrayBase[j].classList.remove("correct");
-                    arrayBase[j].classList.remove("incorrect");
+                if(arrayKanji[j]){
+                    arrayKanji[j].classList.remove("correct");
+                    arrayKanji[j].classList.remove("semi-correct");
+                    arrayKanji[j].classList.remove("incorrect");
                 }
             }
-            else if(currentRubyCheckInput[0] === char.innerText.replace("keyboard_return", "⏎") && !(ruby.classList.contains("correct") && arrayFurigana.length > 0)){
-                if(arrayFurigana.length > 0){
-                    char.classList.add("correct");
+            else if(currentRubyCheckInput[0] === char.innerText.replace("keyboard_return", "⏎")){
+                char.classList.add("correct");
+                char.classList.remove("semi-correct");
+                char.classList.remove("incorrect");
+                if(arrayKanji[j]){
+                    arrayKanji[j].classList.remove("semi-correct");
+                    arrayKanji[j].classList.remove("incorrect");
+                }
+                correct++;
+            }
+            else if(charInputType.includes("kana")){
+                if(areSameSound(currentRubyCheckInput[0], char.innerText) || areSameSound(char.innerText, currentRubyCheckInput[0])){
+                    char.classList.remove("correct");
+                    char.classList.add("semi-correct");
                     char.classList.remove("incorrect");
-
-                    //setCaret(arrayFurigana, j);
+                    if(arrayKanji[j]){
+                        arrayKanji[j].classList.remove("correct");
+                        arrayKanji[j].classList.remove("semi-correct");
+                        arrayKanji[j].classList.remove("incorrect");
+                    }
                 }
-                else{
-                    ruby.classList.add("correct");
-                    ruby.classList.remove("incorrect");
-                }
-                kanaCorrect++;
             }
             else{
-                if(arrayFurigana.length > 0){
-                    char.classList.remove("correct");
-                    char.classList.add("incorrect");
-
-                    //setCaret(arrayFurigana, j);
+                char.classList.remove("correct");
+                char.classList.remove("semi-correct");
+                char.classList.add("incorrect");
+                if(charInputType === "kanji"){
+                    const arrayFurigana = ruby.querySelectorAll(".furigana.correct, .furigana.semi-correct");
+                    arrayFurigana.forEach(furigana => {
+                        furigana.classList.remove("correct");
+                        furigana.classList.remove("semi-correct");
+                    });
                 }
                 else{
-                    ruby.classList.remove("correct");
-                    ruby.classList.add("incorrect");
+                    if(arrayKanji[j]){
+                        arrayKanji[j].classList.remove("correct");
+                        arrayKanji[j].classList.remove("semi-correct");
+                        arrayKanji[j].classList.remove("incorrect");
+                    }
                 }
-                kanaIncorrect++;
+                incorrect++;
             }
 
             currentRubyCheckInput = currentRubyCheckInput.slice(1);
         });
 
-        let kanjiCorrect = kanjiIncorrect = 0;
-
-        if(kanaCorrect == 0 && kanaIncorrect > 0 && arrayFurigana.length > 0){
-            currentRubyCheckInput = checkInput;
-
-            arrayBase.forEach(char => {
-                if(currentRubyCheckInput[0] == null){
-                    char.classList.remove("incorrect");
-                }
-                else if(currentRubyCheckInput[0] === char.innerText){
-                    char.classList.add("correct");
-                    char.classList.remove("incorrect");
-                    kanjiCorrect++;
-                }
-                else{
-                    char.classList.remove("correct");
-                    char.classList.add("incorrect");
-                    kanjiIncorrect++;
-                }
-
-                currentRubyCheckInput = currentRubyCheckInput.slice(1);
-            });
-        }
-        else if(kanaCorrect > 0 && kanaIncorrect == 0 && arrayFurigana.length > 0){
-            arrayBase.forEach(char => {
-                char.classList.remove("incorrect");
-            });
-        }
-
-        if(kanjiIncorrect > 0){
-            let incorrectDiff = kanaIncorrect - kanjiIncorrect;
-            currentRubyCheckInput = currentRubyCheckInput.slice(incorrectDiff);
-        }
-
         checkInput = currentRubyCheckInput;
-
-        if(arrayFurigana.length > 0 && kanaCorrect == arrayChar.length){
-            ruby.classList.add("semi-correct");
-            ruby.classList.remove("incorrect");
-        }
-        else if(arrayFurigana.length > 0 && kanaIncorrect > 0){
-            ruby.classList.add("incorrect");
-        }
-
-        if(arrayFurigana.length > 0 && kanjiCorrect == arrayBase.length){
-            ruby.classList.add("correct");
-            ruby.classList.remove("semi-correct");
-            ruby.classList.remove("incorrect");
-        }
-        else if(kanjiCorrect > 0){
-            ruby.classList.remove("incorrect");
-        }
 
         if(ruby.classList.contains("correct") || ruby.classList.contains("semi-correct") || ruby.classList.contains("incorrect")) scrollNextIntoView(arrayRuby, i);
     });
