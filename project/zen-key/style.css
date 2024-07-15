@@ -29,7 +29,7 @@ body{
 }
 .incorrect{
     color: #f20000;
-}
+}/*
 .semi-correct, .semi-correct .incorrect{
     color: #b8860b;
 }
@@ -38,7 +38,7 @@ body{
 }
 .typing-target-ruby:not(.correct):not(.semi-correct):not(.incorrect) .kanji.incorrect ~ rt .furigana{
     color: #f20000;
-}
+}*/
 .space.incorrect span, .space.correct span{
     text-decoration: underline;
 }

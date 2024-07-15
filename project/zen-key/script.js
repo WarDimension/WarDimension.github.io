@@ -377,13 +377,96 @@ function getInputSegment(input, arrayRuby){
     return segment;
 }
 
+function applyInputToRuby(inputSegment, arrayRuby){
+    inputSegment.forEach((input, i) => {
+        const ruby = arrayRuby[i];
+        const rubyElements = ruby.querySelectorAll(".kanji, .kana");
+        const furiganaElements = ruby.querySelectorAll(".furigana");
+
+        rubyElements.forEach(element => {
+            element.classList.remove("correct", "incorrect");
+        });
+
+        if(checkCharacterType(input[0]) === "kanji" || furiganaElements.length == 0){
+            const baseElements = ruby.querySelectorAll(".base");
+            baseElements.forEach((base, j) => {
+                if(input[j] == null){
+                    base.classList.remove("correct", "incorrect");
+                }
+                else if(input[j] === base.innerText.replace("keyboard_return", "⏎")){
+                    base.classList.add("correct");
+                    base.classList.remove("incorrect");
+                }
+                else{
+                    base.classList.remove("correct");
+                    base.classList.add("incorrect");
+                }
+            });
+        }
+        else{
+            furiganaElements.forEach((furigana, j) => {
+                if(input[j] == null){
+                    furigana.classList.remove("correct", "incorrect");
+                }
+                else if(input[j] === furigana.innerText.replace("keyboard_return", "⏎")){
+                    furigana.classList.add("correct");
+                    furigana.classList.remove("incorrect");
+                }
+                else{
+                    furigana.classList.remove("correct");
+                    furigana.classList.add("incorrect");
+                }
+            });
+        }
+
+
+/*
+        else if(input.length == 1){
+            const base = ruby.querySelector(".base");
+            const baseChar = base.innerText.replace("keyboard_return", "⏎");
+
+            if(input === baseChar){
+                base.classList.add("correct");
+                base.classList.remove("incorrect");
+            }
+            else{
+                base.classList.remove("correct");
+                base.classList.add("incorrect");
+            }
+        }
+        else{
+            if(checkCharacterType(input[0]) === "kanji"){
+                const kanjiElements = ruby.querySelectorAll(".kanji");
+                kanjiElements.forEach((kanji, j) => {
+                    console.log(input[j]);
+                    if(input[j] == null){
+                        kanji.classList.remove("correct", "incorrect");
+                    }
+                    if(input[j] === kanji.innerText){
+                        kanji.classList.add("correct");
+                        kanji.classList.remove("incorrect");
+                    }
+                    else{
+                        kanji.classList.remove("correct");
+                        kanji.classList.add("incorrect");
+                    }
+                });
+            }
+        }*/
+
+
+
+
+    });
+}
+
 function update(input, e){
     if(startTime == null && e.inputType != null){
         startTyping();
     }
 
     const arrayRuby = typingTarget.querySelectorAll(".typing-target-ruby");
-    const checkInput = input.replace("\n", "⏎");
+    const checkInput = input.replaceAll("\n", "⏎");
 
     if(input == ""){
         flexContainer.scrollTo(0, 0);
@@ -392,7 +475,9 @@ function update(input, e){
 
     const inputSegment = getInputSegment(checkInput, arrayRuby);
 
-    console.log(inputSegment);
+    applyInputToRuby(inputSegment, arrayRuby);
+
+    //console.log(inputSegment);
 
     updateStats();
 
@@ -403,7 +488,7 @@ function update(input, e){
     if(e.inputType === "insertLineBreak"){
         typingComplete();
     }
-    console.table(stats);
+    //console.table(stats);
 }
 
 update("", {"inputType": null});
