@@ -363,15 +363,18 @@ function getInputSegment(input, arrayRuby){
                 segment.push(input.slice(0, kanjiElements.length));
                 input = input.slice(kanjiElements.length);
             }
-            else if(checkCharacterType(input[0]) === "kanji" || furiganaElements.length == 0){
+            else if(furiganaElements.length == 0){
                 segment.push(input[0]);
                 input = input.slice(1);
+            }
+            else if(checkCharacterType(input.slice(0, kanjiElements.length)) === "kanji"){
+                segment.push(input.slice(0, kanjiElements.length));
+                input = input.slice(kanjiElements.length);
             }
             else{
                 segment.push(input.slice(0, furiganaElements.length));
                 input = input.slice(furiganaElements.length);
             }
-            //NOTE IMPROVE THIS PART IF CAN, SO IT WILL ALSO DETECT KANJI IN NON 0 INDEX
         }
     });
 
