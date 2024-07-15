@@ -349,39 +349,50 @@ function scrollNextIntoView(arrayElement, index){
 
 let startTime = null;
 
+function getInputSegment(input, arrayRuby){
+    let segment = [];
+
+    arrayRuby.forEach(ruby => {
+        if(input == ""){
+            segment.push(null);
+        }
+        else{
+            const kanjiElements = ruby.querySelectorAll(".kanji");
+            const furiganaElements = ruby.querySelectorAll(".furigana");
+            if(checkCharacterType(input[0]) === "kanji" && kanjiElements.length > 0){
+                segment.push(input.slice(0, kanjiElements.length));
+                input = input.slice(kanjiElements.length);
+            }
+            else if(checkCharacterType(input[0]) === "kanji" || furiganaElements.length == 0){
+                segment.push(input[0]);
+                input = input.slice(1);
+            }
+            else{
+                segment.push(input.slice(0, furiganaElements.length));
+                input = input.slice(furiganaElements.length);
+            }
+        }
+    });
+
+    return segment;
+}
+
 function update(input, e){
     if(startTime == null && e.inputType != null){
         startTyping();
     }
 
     const arrayRuby = typingTarget.querySelectorAll(".typing-target-ruby");
-    let checkInput = input.replace("\n", "⏎");
+    const checkInput = input.replace("\n", "⏎");
 
     if(input == ""){
         flexContainer.scrollTo(0, 0);
         arrayRuby[0].classList.add("caret");
     }
 
-    let arrayCheckInput = [];
+    const inputSegment = getInputSegment(checkInput, arrayRuby);
 
-    arrayRuby.forEach((ruby, i) => {
-        const kanjiElements = ruby.querySelectorAll(".kanji");
-        const furiganaElements = ruby.querySelectorAll(".furigana");
-        if(checkCharacterType(checkInput[0]) === "kanji" && kanjiElements.length > 0){
-            arrayCheckInput.push(checkInput.slice(0, kanjiElements.length));
-            checkInput = checkInput.slice(kanjiElements.length);
-        }
-        else if(checkCharacterType(checkInput[0]) === "kanji" || furiganaElements.length == 0){
-            arrayCheckInput.push(checkInput[0]);
-            checkInput = checkInput.slice(1);
-        }
-        else{
-            arrayCheckInput.push(checkInput.slice(0, furiganaElements.length));
-            checkInput = checkInput.slice(furiganaElements.length);
-        }
-    });
-
-    console.log(arrayCheckInput);
+    console.log(inputSegment);
 
     updateStats();
 
