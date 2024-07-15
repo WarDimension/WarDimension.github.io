@@ -285,7 +285,9 @@ function setCaret(){
 
         const grandParent = lastProgress.parentElement.parentElement;
         if(lastProgress.innerText === "keyboard_return"){
-            document.getElementById(lastProgress.id * 1 + 1);
+            const lastProgressNext = document.getElementById(lastProgress.id * 1 + 1);
+            lastProgress.classList.remove("caret-right");
+            lastProgressNext.classList.add("caret");
         }
         else if(grandParent.classList.contains("correct")){
             lastProgress.classList.remove("caret-right");
