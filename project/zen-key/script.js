@@ -371,6 +371,7 @@ function getInputSegment(input, arrayRuby){
                 segment.push(input.slice(0, furiganaElements.length));
                 input = input.slice(furiganaElements.length);
             }
+            //NOTE IMPROVE THIS PART IF CAN, SO IT WILL ALSO DETECT KANJI IN NON 0 INDEX
         }
     });
 
