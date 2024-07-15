@@ -388,7 +388,9 @@ function applyInputToRuby(inputSegment, arrayRuby){
             element.classList.remove("correct", "incorrect");
         });
 
-        if(checkCharacterType(input[0]) === "kanji" || furiganaElements.length == 0){
+        if(input == null){
+        }
+        else if(checkCharacterType(input[0]) === "kanji" || furiganaElements.length == 0){
             baseElements.forEach((base, j) => {
                 if(input[j] == null){
                     base.classList.remove("correct", "incorrect");
@@ -477,7 +479,7 @@ function update(input, e){
 
     applyInputToRuby(inputSegment, arrayRuby);
 
-    //console.log(inputSegment);
+    console.log(inputSegment);
 
     updateStats();
 
