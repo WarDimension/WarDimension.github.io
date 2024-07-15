@@ -441,29 +441,7 @@ function update(input, e){
         else if(kanjiCorrect > 0){
             ruby.classList.remove("incorrect");
         }
-/*
-        if(ruby.classList.contains("correct") || ((ruby.classList.contains("semi-correct") || ruby.classList.contains("incorrect")) && arrayFurigana.length == 0)){
-            setCaret(arrayRuby, i);
-        }
-        else if(kanaCorrect + kanaIncorrect > 0 && arrayFurigana.length > 0){
-            ruby.classList.remove("caret");
-        }
-        else{
-            removeCaret(arrayRuby, i);
-        }
 
-        let allCaret = typingTarget.querySelectorAll(".caret, .caret-right");
-
-        if(allCaret.length > 1){
-            allCaret.forEach(caret => {
-                allCaret = typingTarget.querySelectorAll(".caret, .caret-right");
-                if(caret.classList.contains("furigana") && allCaret.length > 1){
-                    caret.classList.remove("caret");
-                    caret.classList.remove("caret-right");
-                }
-            });
-        }
-*/
         if(ruby.classList.contains("correct") || ruby.classList.contains("semi-correct") || ruby.classList.contains("incorrect")) scrollNextIntoView(arrayRuby, i);
     });
 
