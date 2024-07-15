@@ -394,7 +394,7 @@ function applyInputToRuby(inputSegment, arrayRuby){
 
         if(input == null){
         }
-        else if(checkCharacterType(input[0]) === "kanji" || furiganaElements.length == 0){
+        else if(checkCharacterType(input.slice(0, baseElements.length)) === "kanji" || furiganaElements.length == 0){
             baseElements.forEach((base, j) => {
                 if(input[j] == null){
                     base.classList.remove("correct", "incorrect");
