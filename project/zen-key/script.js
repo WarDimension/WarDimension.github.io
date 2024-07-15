@@ -327,7 +327,6 @@ function update(input, e){
         startTyping();
     }
 
-
     const arrayRuby = typingTarget.querySelectorAll(".typing-target-ruby");
     let checkInput = input.replace("\n", "⏎");
 
