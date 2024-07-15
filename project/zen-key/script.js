@@ -296,8 +296,10 @@ function setCaret(){
         else if(grandParent.classList.contains("typing-target-ruby")){
             const allKanji = grandParent.querySelectorAll(".kanji");
             const kanjiProgress = grandParent.querySelectorAll(".kanji.correct, .kanji.incorrect");
+            const kanjiCorrect = grandParent.querySelectorAll(".kanji.correct");
+            const kanjiIncorrect = grandParent.querySelectorAll(".kanji.incorrect");
 
-            if(kanjiProgress.length > 0 && allKanji.length != kanjiProgress.length){
+            if((kanjiProgress.length > 0 && allKanji.length != kanjiProgress.length) || (kanjiCorrect.length > 0 && kanjiIncorrect.length > 0)){
                 const lastKanjiProgress = kanjiProgress[kanjiProgress.length - 1];
                 lastProgress.classList.remove("caret-right");
                 lastKanjiProgress.classList.add("caret-right");
