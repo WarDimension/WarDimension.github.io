@@ -229,6 +229,84 @@ function removeCaret(arrayElement, index){
     }
 }*/
 
+
+/*
+function setCaret(){
+    const ruby = typingTarget.querySelectorAll(".typing-target-ruby");
+    const caretElements = typingTarget.querySelectorAll(".caret, .caret-right");
+
+    caretElements.forEach(caretElement => {
+        caretElement.classList.remove("caret");
+        caretElement.classList.remove("caret-right");
+    });
+
+    if(stats.progress > 0){
+        const rubyProgress = ruby[stats.progress - 1];
+        rubyProgress.classList.add("caret-right");
+
+        const furigana = rubyProgress.querySelectorAll(".furigana");
+        const arrayFuriganaProgress = rubyProgress.querySelectorAll(".furigana.correct, .furigana.incorrect");
+        const furiganaProgress = arrayFuriganaProgress[arrayFuriganaProgress.length - 1];
+
+        if(furigana.length > arrayFuriganaProgress.length && !rubyProgress.classList.contains("correct")){
+            rubyProgress.classList.remove("caret-right");
+            furiganaProgress.classList.add("caret-right");
+        }
+    }
+    else if(true){
+
+    }
+    else{
+        ruby[0].classList.add("caret");
+/*
+        const arrayFuriganaProgress = ruby[0].querySelectorAll(".furigana.correct, .furigana.incorrect");
+
+        if(arrayFuriganaProgress.length > 0){
+            const furiganaProgress = arrayFuriganaProgress[arrayFuriganaProgress.length - 1];
+            furiganaProgress.classList.add("caret-right");
+            ruby[0].classList.remove("caret");
+        }
+    }
+}*/
+
+function setCaret(){
+    const caretElements = typingTarget.querySelectorAll(".caret, .caret-right");
+
+    caretElements.forEach(caretElement => {
+        caretElement.classList.remove("caret");
+        caretElement.classList.remove("caret-right");
+    });
+
+    const progressElements = typingTarget.querySelectorAll(".correct, .incorrect");
+
+    if(progressElements.length > 0){
+        const lastProgress = progressElements[progressElements.length - 1];
+        lastProgress.classList.add("caret-right");
+
+        const grandParent = lastProgress.parentElement.parentElement;
+        if(lastProgress.innerText === "keyboard_return"){
+            document.getElementById(lastProgress.id * 1 + 1);
+        }
+        else if(grandParent.classList.contains("correct")){
+            lastProgress.classList.remove("caret-right");
+            grandParent.classList.add("caret-right");
+        }
+        else if(grandParent.classList.contains("typing-target-ruby")){
+            const allKanji = grandParent.querySelectorAll(".kanji");
+            const kanjiProgress = grandParent.querySelectorAll(".kanji.correct, .kanji.incorrect");
+
+            if(kanjiProgress.length > 0 && allKanji.length != kanjiProgress.length){
+                const lastKanjiProgress = kanjiProgress[kanjiProgress.length - 1];
+                lastProgress.classList.remove("caret-right");
+                lastKanjiProgress.classList.add("caret-right");
+            }
+        }
+    }
+    else{
+        typingTarget.querySelector("ruby").classList.add("caret");
+    }
+}
+
 function scrollNextIntoView(arrayElement, index){
     if(arrayElement[index+1]){
         arrayElement[index+1].scrollIntoView({ block: "center" });
@@ -386,6 +464,8 @@ function update(input, e){
     });
 
     updateStats();
+
+    setCaret();
 
     computeCPM(input);
 
