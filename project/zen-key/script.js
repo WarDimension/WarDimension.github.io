@@ -283,7 +283,7 @@ function setCaret(){
         const lastProgress = progressElements[progressElements.length - 1];
         lastProgress.classList.add("caret-right");
 
-        const grandParent = lastProgress.parentElement.parentElement;
+        /*const grandParent = lastProgress.parentElement.parentElement;
         if(lastProgress.innerText === "keyboard_return"){
             const lastProgressNext = document.getElementById(lastProgress.id * 1 + 1);
             lastProgress.classList.remove("caret-right");
@@ -304,7 +304,7 @@ function setCaret(){
                 lastProgress.classList.remove("caret-right");
                 lastKanjiProgress.classList.add("caret-right");
             }
-        }
+        }*/
     }
     else{
         typingTarget.querySelector("ruby").classList.add("caret");
