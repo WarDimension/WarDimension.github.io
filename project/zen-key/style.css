@@ -29,7 +29,7 @@ body{
 .typing-target-ruby .kanji:not(.correct):not(.incorrect) ~ .converted .furigana:not(.correct):not(.incorrect){
     color: #707070;
 }
-.incorrect, .semi-incorrect .kanji, .typing-target-ruby .incorrect ~ .converted .furigana{
+.incorrect, .semi-incorrect .kanji, .typing-target-ruby .incorrect ~ .converted .furigana, .incorrect-extra{
     color: #f20000 !important;
 }
 .semi-correct{
