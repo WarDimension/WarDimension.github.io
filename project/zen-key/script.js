@@ -283,7 +283,7 @@ function setCaret(){
         lastProgress.classList.add("caret-right");
 
         if(lastProgress.innerText === "keyboard_return"){
-            const lastProgressNext = document.getElementById(lastProgress.id * 1 + 1);
+            const lastProgressNext = document.getElementById(lastProgress.parentElement.id * 1 + 1);
             lastProgress.classList.remove("caret-right");
             lastProgressNext.classList.add("caret");
         }
