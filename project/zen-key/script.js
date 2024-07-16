@@ -450,9 +450,9 @@ setExtraInputElement();
 
 function setExtraInput(extraInput){
     const extraInputElement = typingTarget.querySelector(".extra-input");
-    extraInputElement.innerText = extraInput;
+    extraInputElement.innerHTML = "<span>" + extraInput + "</span>";
 
-    if(extraInputElement.innerText == null){
+    if(extraInputElement.innerText == ""){
         extraInputElement.classList.remove(".incorrect-extra");
     }
     else{
