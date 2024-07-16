@@ -19,10 +19,10 @@ const typingTarget = document.querySelector(".typing-target");
 const flexContainer = document.querySelector(".flex-container");
 const typingInput = document.querySelector("textarea");
 
+let id = 0;
+
 function convertText(text){
     charArray = text.split("");
-
-    let id = 0;
     let type = "kana base";
 
     let newSpan = document.createElement("span");
