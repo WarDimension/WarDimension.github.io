@@ -448,9 +448,9 @@ function setExtraInputElement(){
 }
 setExtraInputElement();
 
-function setExtraInput(input){
+function setExtraInput(extraInput){
     const extraInputElement = typingTarget.querySelector(".extra-input");
-    extraInputElement.innerText = checkInput.replace(inputSegment.join(""), "");
+    extraInputElement.innerText = extraInput;
 
     if(extraInputElement.innerText == null){
         extraInputElement.classList.remove(".incorrect-extra");
@@ -474,7 +474,7 @@ function update(input, e){
 
     const inputSegment = getInputSegment(checkInput, arrayRuby);
 
-    setExtraInput(input);
+    setExtraInput(checkInput.replace(inputSegment.join(""), ""));
 
     applyInputToRuby(inputSegment, arrayRuby);
 
