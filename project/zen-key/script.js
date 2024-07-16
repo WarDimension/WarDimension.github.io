@@ -441,10 +441,23 @@ function applyInputToRuby(inputSegment, arrayRuby){
     });
 }
 
+function setExtraInputElement(){
+    const newExtraInputElement = document.createElement("ruby");
+    newExtraInputElement.classList.add("extra-input");
+    typingTarget.appendChild(newExtraInputElement);
+}
+setExtraInputElement();
+
 function setExtraInput(input){
-    const extraInputElement = document.createElement("ruby");
-    extraInputElement.classList.add("extra-input");
-    typingTarget.appendChild();
+    const extraInputElement = typingTarget.querySelector(".extra-input");
+    extraInputElement.innerText = checkInput.replace(inputSegment.join(""), "");
+
+    if(extraInputElement.innerText == null){
+        extraInputElement.classList.remove(".incorrect-extra");
+    }
+    else{
+        extraInputElement.classList.add(".incorrect-extra");
+    }
 }
 
 function update(input, e){
@@ -461,9 +474,7 @@ function update(input, e){
 
     const inputSegment = getInputSegment(checkInput, arrayRuby);
 
-    console.log(e);
-
-    //if(checkInput !== inputSegment.join("")) setExtraInput(checkInput.replace(inputSegment.join(""), ""));
+    setExtraInput(input);
 
     applyInputToRuby(inputSegment, arrayRuby);
 
