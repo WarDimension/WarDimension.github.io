@@ -387,14 +387,20 @@ function applyInputToRuby(inputSegment, arrayRuby){
         const rubyElements = ruby.querySelectorAll(".kanji, .kana");
         const baseElements = ruby.querySelectorAll(".base");
         const furiganaElements = ruby.querySelectorAll(".furigana");
+        const furiganaRT = ruby.querySelector("rt");
 
         rubyElements.forEach(element => {
             element.classList.remove("correct", "incorrect");
         });
+        ruby.classList.remove("semi-correct", "semi-incorrect");
+
+        if(furiganaRT) furiganaRT.classList.remove("converted");
 
         if(input == null){
         }
         else if(checkCharacterType(input.slice(0, baseElements.length)) === "kanji" || furiganaElements.length == 0){
+            if(furiganaRT) furiganaRT.classList.add("converted");
+
             baseElements.forEach((base, j) => {
                 if(input[j] == null){
                     base.classList.remove("correct", "incorrect");
@@ -421,8 +427,11 @@ function applyInputToRuby(inputSegment, arrayRuby){
                 else{
                     furigana.classList.remove("correct");
                     furigana.classList.add("incorrect");
+                    ruby.classList.add("semi-incorrect");
                 }
             });
+
+            if(input === furiganaRT.innerText) ruby.classList.add("semi-correct");
         }
     });
 }

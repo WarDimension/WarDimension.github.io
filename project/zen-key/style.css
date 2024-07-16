@@ -21,15 +21,21 @@ body{
   background: #444;
 }
 .furigana{
-    color: #707070;
     text-decoration: none !important;
 }
-.correct, .correct .furigana{
+.correct, .correct .furigana, .typing-target-ruby .converted .furigana{
     color: #15ac47;
 }
-.incorrect{
-    color: #f20000;
-}/*
+.typing-target-ruby .kanji:not(.correct):not(.incorrect) ~ .converted .furigana:not(.correct):not(.incorrect){
+    color: #707070;
+}
+.incorrect, .semi-incorrect .kanji, .typing-target-ruby .incorrect ~ .converted .furigana{
+    color: #f20000 !important;
+}
+.semi-correct .kanji{
+    color: #b8860b;
+}
+/*
 .semi-correct, .semi-correct .incorrect{
     color: #b8860b;
 }
