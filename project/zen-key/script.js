@@ -424,45 +424,6 @@ function applyInputToRuby(inputSegment, arrayRuby){
                 }
             });
         }
-
-
-/*
-        else if(input.length == 1){
-            const base = ruby.querySelector(".base");
-            const baseChar = base.innerText.replace("keyboard_return", "⏎");
-
-            if(input === baseChar){
-                base.classList.add("correct");
-                base.classList.remove("incorrect");
-            }
-            else{
-                base.classList.remove("correct");
-                base.classList.add("incorrect");
-            }
-        }
-        else{
-            if(checkCharacterType(input[0]) === "kanji"){
-                const kanjiElements = ruby.querySelectorAll(".kanji");
-                kanjiElements.forEach((kanji, j) => {
-                    console.log(input[j]);
-                    if(input[j] == null){
-                        kanji.classList.remove("correct", "incorrect");
-                    }
-                    if(input[j] === kanji.innerText){
-                        kanji.classList.add("correct");
-                        kanji.classList.remove("incorrect");
-                    }
-                    else{
-                        kanji.classList.remove("correct");
-                        kanji.classList.add("incorrect");
-                    }
-                });
-            }
-        }*/
-
-
-
-
     });
 }
 
@@ -482,8 +443,6 @@ function update(input, e){
     const inputSegment = getInputSegment(checkInput, arrayRuby);
 
     applyInputToRuby(inputSegment, arrayRuby);
-
-    console.log(inputSegment);
 
     updateStats();
 
