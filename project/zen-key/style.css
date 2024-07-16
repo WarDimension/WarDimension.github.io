@@ -45,7 +45,7 @@ body{
 .typing-target-ruby:not(.correct):not(.semi-correct):not(.incorrect) .kanji.incorrect ~ rt .furigana{
     color: #f20000;
 }*/
-.space.incorrect span, .space.correct span{
+.space span.incorrect, .space span.correct{
     text-decoration: underline;
 }
 .enter{
@@ -133,6 +133,7 @@ textarea{
 }
 span{
     display: inline-block;
+    white-space: pre;
 }
 .caret{
     box-shadow: -5px 0 0 -2px rgba(224, 224, 224, 1);
