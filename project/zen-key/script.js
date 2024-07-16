@@ -274,7 +274,7 @@ function setCaret(){
         caretElement.classList.remove("caret", "caret-right");
     });
 
-    const progressElements = typingTarget.querySelectorAll(".correct, .semi-correct, .incorrect");
+    const progressElements = typingTarget.querySelectorAll(".correct, .semi-correct, .incorrect, .incorrect-extra");
 
     if(progressElements.length > 0){
         const lastProgress = progressElements[progressElements.length - 1];
@@ -448,19 +448,34 @@ function setExtraInputElement(){
 }
 setExtraInputElement();
 
-function setExtraInput(e){
+function setExtraInput(extraInput){
     const extraInputElement = typingTarget.querySelector(".extra-input");
-    const extraInputSpan = extraInputElement.querySelectorAll("span");
 
+    extraInputElement.innerHTML = extraInput.split("").map(char => {
+        if([" ", "　"].includes(char)){
+            return `<span class="space incorrect-extra">${char}</span>`;
+        }
+        else{
+            return `<span class="incorrect-extra">${char}</span>`;
+        }
+    }).join("");
+    //const extraInputSpan = extraInputElement.querySelectorAll("span");
+
+    /*
     console.log(e);
 
-    if(e.inputType == "deleteContentBackward"){
+    if(e.inputType === "deleteContentBackward"){
         extraInputSpan[extraInputSpan.length - 1].remove();
     }
     else if(e.data != null){
-        extraInputElement.innerHTML += "<span>" + e.data + "</span>";
+        if(e.data === " " || e.data === "　"){
+            extraInputElement.innerHTML += "<span class='space'>" + e.data + "</span>";
+        }
+        else{
+            extraInputElement.innerHTML += "<span>" + e.data + "</span>";
+        }
     }
-    //extraInputElement.classList.add(".incorrect-extra");
+    //extraInputElement.classList.add(".incorrect-extra");*/
 }
 
 function update(input, e){
@@ -477,7 +492,7 @@ function update(input, e){
 
     const inputSegment = getInputSegment(checkInput, arrayRuby);
 
-    if(checkInput !== inputSegment.join("") || typingTarget.querySelector(".extra-input").innerText !== "") setExtraInput(e);
+    if(checkInput !== inputSegment.join("") || typingTarget.querySelector(".extra-input").innerText !== "") setExtraInput(checkInput.replace(inputSegment.join(""), ""));
 
     applyInputToRuby(inputSegment, arrayRuby);
 
