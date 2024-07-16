@@ -96,8 +96,6 @@ function convertText(text){
         }
     });
 
-    newText.appendChild(newRuby);
-
     return newText;
 }
 
@@ -443,6 +441,12 @@ function applyInputToRuby(inputSegment, arrayRuby){
     });
 }
 
+function setExtraInput(input){
+    const extraInputElement = document.createElement("ruby");
+    extraInputElement.classList.add("extra-input");
+    typingTarget.appendChild();
+}
+
 function update(input, e){
     if(startTime == null && e.inputType != null){
         startTyping();
@@ -456,6 +460,10 @@ function update(input, e){
     }
 
     const inputSegment = getInputSegment(checkInput, arrayRuby);
+
+    console.log(e);
+
+    //if(checkInput !== inputSegment.join("")) setExtraInput(checkInput.replace(inputSegment.join(""), ""));
 
     applyInputToRuby(inputSegment, arrayRuby);
 
