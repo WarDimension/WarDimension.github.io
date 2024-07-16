@@ -273,15 +273,20 @@ function setCaret(){
     const caretElements = typingTarget.querySelectorAll(".caret, .caret-right");
 
     caretElements.forEach(caretElement => {
-        caretElement.classList.remove("caret");
-        caretElement.classList.remove("caret-right");
+        caretElement.classList.remove("caret", "caret-right");
     });
 
-    const progressElements = typingTarget.querySelectorAll(".correct, .incorrect");
+    const progressElements = typingTarget.querySelectorAll(".correct, .semi-correct, .incorrect");
 
     if(progressElements.length > 0){
         const lastProgress = progressElements[progressElements.length - 1];
         lastProgress.classList.add("caret-right");
+
+        if(lastProgress.innerText === "keyboard_return"){
+            const lastProgressNext = document.getElementById(lastProgress.id * 1 + 1);
+            lastProgress.classList.remove("caret-right");
+            lastProgressNext.classList.add("caret");
+        }
 
         /*const grandParent = lastProgress.parentElement.parentElement;
         if(lastProgress.innerText === "keyboard_return"){
@@ -334,8 +339,11 @@ function hiraganaToKatakana(hiragana){
     return null;
 }
 
-function areSameSound(hiragana, katakana){
-    return hiraganaToKatakana(hiragana) === katakana;
+function areSameSound(char1, char2){
+    if(hiraganaToKatakana(char1) === char2 || hiraganaToKatakana(char2) === char1 || char1.toLowerCase() === char2.toLowerCase()){
+        return true;
+    }
+    return false;
 }
 
 function scrollNextIntoView(arrayElement, index){
@@ -390,7 +398,7 @@ function applyInputToRuby(inputSegment, arrayRuby){
         const furiganaRT = ruby.querySelector("rt");
 
         rubyElements.forEach(element => {
-            element.classList.remove("correct", "incorrect");
+            element.classList.remove("correct", "semi-correct", "incorrect");
         });
         ruby.classList.remove("semi-correct", "semi-incorrect");
 
@@ -407,10 +415,11 @@ function applyInputToRuby(inputSegment, arrayRuby){
                 }
                 else if(input[j] === base.innerText.replace("keyboard_return", "⏎")){
                     base.classList.add("correct");
-                    base.classList.remove("incorrect");
+                }
+                else if(areSameSound(input[j], base.innerText)){
+                    base.classList.add("semi-correct");
                 }
                 else{
-                    base.classList.remove("correct");
                     base.classList.add("incorrect");
                 }
             });
@@ -422,10 +431,8 @@ function applyInputToRuby(inputSegment, arrayRuby){
                 }
                 else if(input[j] === furigana.innerText.replace("keyboard_return", "⏎")){
                     furigana.classList.add("correct");
-                    furigana.classList.remove("incorrect");
                 }
                 else{
-                    furigana.classList.remove("correct");
                     furigana.classList.add("incorrect");
                     ruby.classList.add("semi-incorrect");
                 }
@@ -446,7 +453,6 @@ function update(input, e){
 
     if(input == ""){
         flexContainer.scrollTo(0, 0);
-        arrayRuby[0].classList.add("caret");
     }
 
     const inputSegment = getInputSegment(checkInput, arrayRuby);
