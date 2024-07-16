@@ -442,22 +442,25 @@ function applyInputToRuby(inputSegment, arrayRuby){
 }
 
 function setExtraInputElement(){
-    const newExtraInputElement = document.createElement("ruby");
+    const newExtraInputElement = document.createElement("div");
     newExtraInputElement.classList.add("extra-input");
     typingTarget.appendChild(newExtraInputElement);
 }
 setExtraInputElement();
 
-function setExtraInput(extraInput){
+function setExtraInput(e){
     const extraInputElement = typingTarget.querySelector(".extra-input");
-    extraInputElement.innerHTML = "<span>" + extraInput + "</span>";
+    const extraInputSpan = extraInputElement.querySelectorAll("span");
 
-    if(extraInputElement.innerText == ""){
-        extraInputElement.classList.remove(".incorrect-extra");
+    console.log(e);
+
+    if(e.inputType == "deleteContentBackward"){
+        extraInputSpan[extraInputSpan.length - 1].remove();
     }
-    else{
-        extraInputElement.classList.add(".incorrect-extra");
+    else if(e.data != null){
+        extraInputElement.innerHTML += "<span>" + e.data + "</span>";
     }
+    //extraInputElement.classList.add(".incorrect-extra");
 }
 
 function update(input, e){
@@ -474,7 +477,7 @@ function update(input, e){
 
     const inputSegment = getInputSegment(checkInput, arrayRuby);
 
-    setExtraInput(checkInput.replace(inputSegment.join(""), ""));
+    if(checkInput !== inputSegment.join("") || typingTarget.querySelector(".extra-input").innerText !== "") setExtraInput(e);
 
     applyInputToRuby(inputSegment, arrayRuby);
 
