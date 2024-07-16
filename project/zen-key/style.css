@@ -32,7 +32,7 @@ body{
 .incorrect, .semi-incorrect .kanji, .typing-target-ruby .incorrect ~ .converted .furigana{
     color: #f20000 !important;
 }
-.semi-correct .kanji{
+.semi-correct{
     color: #b8860b;
 }
 /*
