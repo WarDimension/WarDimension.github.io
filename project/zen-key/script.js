@@ -62,6 +62,7 @@ function convertText(text){
             case "\n":
                 newSpan.innerHTML = "<i class='material-icons'>keyboard_return</i>";
                 newSpan.className = type;
+                newRuby.classList.add("enter");
                 newRuby.appendChild(newSpan);
                 newSpan = document.createElement("span");
                 newText.appendChild(newRuby);
@@ -396,12 +397,18 @@ function setInputToElement(element, input){
     if([" ", "　"].includes(input)){
         element.classList.add("space");
     }
+    else if(element.parentElement.classList.contains("space")){
+        element.parentElement.classList.remove("space");
+    }
 }
 
 function unsetInputToElement(element){
     element.innerHTML = element.getAttribute("data-original");
     if(![" ", "　"].includes(element.getAttribute("data-original"))){
         element.classList.remove("space");
+    }
+    else{
+        element.parentElement.classList.add("space");
     }
 }
 
