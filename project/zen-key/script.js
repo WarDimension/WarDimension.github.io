@@ -1,6 +1,6 @@
 const typingData = [
     {
-        "text": "Hisa {明日[あした]}　{古[ふる]}びたコトバ{繰[く]}り{返[かえ]}しつぶやいてみる\n{伸[の]}ばしたままの{爪[つめ]}{痕[あと]}はほら{消[き]}えないよ",
+        "text": "{古[ふる]}びたコトバ{繰[く]}り{返[かえ]}しつぶやいてみる\n{伸[の]}ばしたままの{爪[つめ]}{痕[あと]}はほら{消[き]}えないよ",
         "source": "{花[はな]}{残[のこ]}り{月[つき]} by nano.RIPE"
     },
     {
@@ -549,7 +549,7 @@ function update(input, e){
     if(e.inputType === "insertLineBreak"){
         typingComplete();
     }
-    //console.table(stats);
+    console.table(stats);
 }
 
 update("", {"inputType": null});
