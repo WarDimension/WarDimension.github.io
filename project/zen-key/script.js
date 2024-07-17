@@ -495,25 +495,8 @@ setExtraInputElement();
 function setExtraInput(extraInput){
     const extraInputElement = typingTarget.querySelector(".extra-input");
 
-    let word = "";
-
     extraInputElement.innerHTML = extraInput.split("").map((char, i) => {
         if([" ", "　"].includes(char)){
-        }
-        else if((extraInput[i - 1] == null || [" ", "　", "-"].includes(extraInput[i - 1]) || checkCharacterType(extraInput[i - 1]) !== "latin") && checkCharacterType(char) === "latin" || word.length > 0){
-            word += char;
-            if(extraInput[i + 1] == null || [" ", "　"].includes(extraInput[i + 1]) || char[char.length - 1] === "-" || checkCharacterType(char) !== "latin"){
-                char = word;
-                word = "";
-            }
-            else{
-                char = null;
-            }
-        }
-
-        if(char == null){
-        }
-        else if([" ", "　"].includes(char)){
             return `<span class="space incorrect-extra">${char}</span>`;
         }
         else{
