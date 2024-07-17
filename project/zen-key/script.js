@@ -282,7 +282,7 @@ function setCaret(){
         lastProgress.classList.add("caret-right");
 
         if(lastProgress.innerText === "keyboard_return"){
-            const lastProgressNext = document.getElementById(lastProgress.parentElement.id * 1 + 1);
+            const lastProgressNext = lastProgress.parentElement.nextSibling.nextSibling;
             lastProgress.classList.remove("caret-right");
             lastProgressNext.classList.add("caret");
         }
@@ -392,7 +392,7 @@ function getInputSegment(input, arrayRuby){
 }
 
 function setInputToElement(element, input){
-    element.innerHTML = input;
+    element.innerHTML = input.replace("⏎", "<i class='material-icons'>keyboard_return</i><br>");
     if([" ", "　"].includes(input)){
         element.classList.add("space");
     }
@@ -428,7 +428,7 @@ function applyInputToRuby(inputSegment, arrayRuby){
 
         if(input == null){
         }
-        else if(checkCharacterType(input) === "kanji" || furiganaElements.length == 0){
+        else if(checkCharacterType(input) === "kanji" || furiganaElements.length == 0 || input.includes("⏎")){
             if(furiganaRT) furiganaRT.classList.add("converted");
 
             if(input.length > baseElements.length && i < inputSegment.length - 1){
