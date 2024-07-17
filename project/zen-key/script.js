@@ -211,77 +211,7 @@ function getRandomText(){
     
     setStats();
 }
-
 getRandomText();
-/*
-function setCaret(arrayElement, index){
-    if(arrayElement[index+1]){
-        arrayElement[index+1].classList.add("caret");
-        arrayElement[index].classList.remove("caret");
-    }
-    else{
-        arrayElement[index].classList.add("caret-right");
-    }
-}
-
-function removeCaret(arrayElement, index){
-    if(arrayElement[index+1]){
-        arrayElement[index+1].classList.remove("caret");
-    }
-    else{
-        arrayElement[index].classList.remove("caret-right");
-    }
-}
-*/
-/*function setKanjiCaret(element){
-    if(element.className.includes("furigana") && element.className.includes("caret") && element.matches(":first-child")){
-        element.classList.remove("caret");
-        element.parentElement.parentElement.querySelector(".kanji").classList.add("caret");
-    }
-    else if(element.className.includes("furigana") && element.matches(":first-child")){
-        element.parentElement.parentElement.querySelector(".kanji").classList.remove("caret");
-    }
-}*/
-
-
-/*
-function setCaret(){
-    const ruby = typingTarget.querySelectorAll(".typing-target-ruby");
-    const caretElements = typingTarget.querySelectorAll(".caret, .caret-right");
-
-    caretElements.forEach(caretElement => {
-        caretElement.classList.remove("caret");
-        caretElement.classList.remove("caret-right");
-    });
-
-    if(stats.progress > 0){
-        const rubyProgress = ruby[stats.progress - 1];
-        rubyProgress.classList.add("caret-right");
-
-        const furigana = rubyProgress.querySelectorAll(".furigana");
-        const arrayFuriganaProgress = rubyProgress.querySelectorAll(".furigana.correct, .furigana.incorrect");
-        const furiganaProgress = arrayFuriganaProgress[arrayFuriganaProgress.length - 1];
-
-        if(furigana.length > arrayFuriganaProgress.length && !rubyProgress.classList.contains("correct")){
-            rubyProgress.classList.remove("caret-right");
-            furiganaProgress.classList.add("caret-right");
-        }
-    }
-    else if(true){
-
-    }
-    else{
-        ruby[0].classList.add("caret");
-/*
-        const arrayFuriganaProgress = ruby[0].querySelectorAll(".furigana.correct, .furigana.incorrect");
-
-        if(arrayFuriganaProgress.length > 0){
-            const furiganaProgress = arrayFuriganaProgress[arrayFuriganaProgress.length - 1];
-            furiganaProgress.classList.add("caret-right");
-            ruby[0].classList.remove("caret");
-        }
-    }
-}*/
 
 function setCaret(){
     const caretElements = typingTarget.querySelectorAll(".caret, .caret-right");
@@ -301,29 +231,6 @@ function setCaret(){
             lastProgress.classList.remove("caret-right");
             lastProgressNext.classList.add("caret");
         }
-
-        /*const grandParent = lastProgress.parentElement.parentElement;
-        if(lastProgress.innerText === "keyboard_return"){
-            const lastProgressNext = document.getElementById(lastProgress.id * 1 + 1);
-            lastProgress.classList.remove("caret-right");
-            lastProgressNext.classList.add("caret");
-        }
-        else if(grandParent.classList.contains("correct")){
-            lastProgress.classList.remove("caret-right");
-            grandParent.classList.add("caret-right");
-        }
-        else if(grandParent.classList.contains("typing-target-ruby") && !grandParent.classList.contains("incorrect")){
-            const allKanji = grandParent.querySelectorAll(".kanji");
-            const kanjiProgress = grandParent.querySelectorAll(".kanji.correct, .kanji.incorrect");
-            const kanjiCorrect = grandParent.querySelectorAll(".kanji.correct");
-            const kanjiIncorrect = grandParent.querySelectorAll(".kanji.incorrect");
-
-            if((kanjiProgress.length > 0 && allKanji.length != kanjiProgress.length) || (kanjiCorrect.length > 0 && kanjiIncorrect.length > 0)){
-                const lastKanjiProgress = kanjiProgress[kanjiProgress.length - 1];
-                lastProgress.classList.remove("caret-right");
-                lastKanjiProgress.classList.add("caret-right");
-            }
-        }*/
     }
     else{
         typingTarget.querySelector("ruby").classList.add("caret");
@@ -548,9 +455,15 @@ function update(input, e){
         flexContainer.scrollTo(0, 0);
     }
 
-    const inputSegment = getInputSegment(checkInput, arrayRuby);
+    let inputSegment = getInputSegment(checkInput, arrayRuby);
 
-    if(checkInput !== inputSegment.join("") || typingTarget.querySelector(".extra-input").innerText !== "") setExtraInput(checkInput.replace(inputSegment.join(""), ""));
+    //if(checkInput !== inputSegment.join("") || typingTarget.querySelector(".extra-input").innerText !== "") setExtraInput(checkInput.replace(inputSegment.join(""), ""));
+
+    if(e.inputType === "deleteContentBackward" && checkInput.length > inputSegment.join("").length){
+        const index = inputSegment.length - 1
+        inputSegment[index] = inputSegment[index].slice(0, inputSegment[index].length - 1);
+        typingInput.value = inputSegment.join("");
+    }
 
     applyInputToRuby(inputSegment, arrayRuby);
 
