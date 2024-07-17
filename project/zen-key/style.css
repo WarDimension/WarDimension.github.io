@@ -106,13 +106,26 @@ textarea{
     font-size: 1em;
     margin-top: 40px;
 }
-.typing-target-container{ 
+.typing-target-container, .raw-input-container.hiden{
     position: relative;
     margin: auto;
     width: fit-content;
     max-width: 92%;
     height: 100%;
     padding: 15px;
+}
+.raw-input-container.hiden{
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+}
+.raw-input-container.hiden textarea{
+    text-align: justify;
+    font-size: 1.8em;
+    width: 100%;
+}
+.raw-input-container.hiden .label{
+    position: absolute;
 }
 .fade-container{
     position: relative;

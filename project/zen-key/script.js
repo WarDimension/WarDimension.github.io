@@ -18,6 +18,7 @@ const typingData = [
 const typingTarget = document.querySelector(".typing-target");
 const flexContainer = document.querySelector(".flex-container");
 const typingInput = document.querySelector("textarea");
+const rawInput = document.querySelector(".raw-input-container");
 
 let id = 0;
 
@@ -100,6 +101,19 @@ function convertText(text){
 
     return newText;
 }
+
+function toggleRawInput(){
+    switch(rawInput.classList.contains("hiden")){
+        case true:
+            rawInput.classList.remove("hiden");
+            break;
+        default:
+            rawInput.classList.add("hiden");
+            break;
+    }
+}
+
+//toggleRawInput();
 
 let stats = {
     "CPM": 0,
