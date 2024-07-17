@@ -33,6 +33,7 @@ function convertText(text){
     charArray.forEach(char => {
         newRuby.className = "typing-target-ruby";
         newRuby.id = id;
+        newSpan.setAttribute("data-original", char.replace("\n", "<i class='material-icons'>keyboard_return</i>"));
         switch(char){
             case "{":
                 type = "kanji base";
@@ -390,6 +391,20 @@ function getInputSegment(input, arrayRuby){
     return segment;
 }
 
+function setInputToElement(element, input){
+    element.innerHTML = input;
+    if([" ", "　"].includes(input)){
+        element.classList.add("space");
+    }
+}
+
+function unsetInputToElement(element){
+    element.innerHTML = element.getAttribute("data-original");
+    if(![" ", "　"].includes(element.getAttribute("data-original"))){
+        element.classList.remove("space");
+    }
+}
+
 function applyInputToRuby(inputSegment, arrayRuby){
     inputSegment.forEach((input, i) => {
         const ruby = arrayRuby[i];
@@ -400,6 +415,7 @@ function applyInputToRuby(inputSegment, arrayRuby){
 
         rubyElements.forEach(element => {
             element.classList.remove("correct", "semi-correct", "incorrect");
+            unsetInputToElement(element);
         });
         ruby.classList.remove("semi-correct", "semi-incorrect");
 
@@ -414,13 +430,16 @@ function applyInputToRuby(inputSegment, arrayRuby){
                 if(input[j] == null){
                     base.classList.remove("correct", "incorrect");
                 }
-                else if(input[j] === base.innerText.replace("keyboard_return", "⏎")){
+                else if(input[j] === base.getAttribute("data-original").replace("<i class='material-icons'>keyboard_return</i>", "⏎")){
+                    unsetInputToElement(base);
                     base.classList.add("correct");
                 }
-                else if(areSameSound(input[j], base.innerText)){
+                else if(areSameSound(input[j], base.getAttribute("data-original"))){
+                    setInputToElement(base, input[j]);
                     base.classList.add("semi-correct");
                 }
                 else{
+                    setInputToElement(base, input[j]);
                     base.classList.add("incorrect");
                 }
             });
@@ -430,10 +449,12 @@ function applyInputToRuby(inputSegment, arrayRuby){
                 if(input[j] == null){
                     furigana.classList.remove("correct", "incorrect");
                 }
-                else if(input[j] === furigana.innerText.replace("keyboard_return", "⏎")){
+                else if(input[j] === furigana.getAttribute("data-original").replace("<i class='material-icons'>keyboard_return</i>", "⏎")){
+                    unsetInputToElement(furigana);
                     furigana.classList.add("correct");
                 }
                 else{
+                    setInputToElement(furigana, input[j]);
                     furigana.classList.add("incorrect");
                     ruby.classList.add("semi-incorrect");
                 }
