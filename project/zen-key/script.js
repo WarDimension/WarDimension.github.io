@@ -459,7 +459,7 @@ function update(input, e){
 
     //if(checkInput !== inputSegment.join("") || typingTarget.querySelector(".extra-input").innerText !== "") setExtraInput(checkInput.replace(inputSegment.join(""), ""));
 
-    if(e.inputType === "deleteContentBackward" && checkInput.length > inputSegment.join("").length){
+    if(e.inputType === "deleteContentBackward" && checkInput.length > inputSegment.join("").length - 1){
         const index = inputSegment.length - 1
         inputSegment[index] = inputSegment[index].slice(0, inputSegment[index].length - 1);
         typingInput.value = inputSegment.join("");
