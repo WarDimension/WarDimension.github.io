@@ -394,8 +394,9 @@ function getInputSegment(input, arrayRuby){
 
 function setInputToElement(element, input){
     element.innerHTML = input.replace("⏎", "<i class='material-icons'>keyboard_return</i><br>");
+
     if([" ", "　"].includes(input)){
-        element.classList.add("space");
+        element.parentElement.classList.add("space");
     }
     else if(element.parentElement.classList.contains("space")){
         element.parentElement.classList.remove("space");
@@ -404,8 +405,9 @@ function setInputToElement(element, input){
 
 function unsetInputToElement(element){
     element.innerHTML = element.getAttribute("data-original");
+
     if(![" ", "　"].includes(element.getAttribute("data-original"))){
-        element.classList.remove("space");
+        element.parentElement.classList.remove("space");
     }
     else{
         element.parentElement.classList.add("space");
@@ -435,7 +437,7 @@ function applyInputToRuby(inputSegment, arrayRuby){
 
         if(input == null){
         }
-        else if(checkCharacterType(input) === "kanji" || furiganaElements.length == 0 || input.includes("⏎")){
+        else if(checkCharacterType(input) === "kanji" || furiganaElements.length == 0 || [" ", "　", "⏎"].some(char => input.includes(char))){
             if(furiganaRT) furiganaRT.classList.add("converted");
 
             if(input.length > baseElements.length && i < inputSegment.length - 1){
