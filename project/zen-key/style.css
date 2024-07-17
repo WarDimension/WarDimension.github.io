@@ -46,7 +46,7 @@ body{
     color: #f20000;
 }*/
 .space, .space span.incorrect, .space span.correct{
-    text-decoration: underline;
+    text-decoration: underline !important;
 }
 .extra-input{
     display: inline;

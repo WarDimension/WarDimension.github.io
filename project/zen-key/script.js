@@ -316,7 +316,7 @@ function setCaret(){
 }
 
 function checkCharacterType(char){
-    if(/[\u4E00-\u9FFF]/.test(char)){
+    if(/[\u4E00-\u9FFF]/.test(char) || /[\u3000-\u303F]/.test(char)){
         return "kanji";
     }
     else if(/[\u3040-\u309F]/.test(char)){
@@ -364,7 +364,7 @@ function getInputSegment(input, arrayRuby){
 
     arrayRuby.forEach(ruby => {
         if(input == ""){
-            segment.push(null);
+            segment.push("");
         }
         else{
             const kanjiElements = ruby.querySelectorAll(".kanji");
@@ -405,8 +405,13 @@ function unsetInputToElement(element){
     }
 }
 
+function insertIntoArray(array, index, element){
+    return [...array.slice(0, index), element, ...array.slice(index)];
+}
+
 function applyInputToRuby(inputSegment, arrayRuby){
-    inputSegment.forEach((input, i) => {
+    for(let i = 0; i < inputSegment.length; i++){
+        const input = inputSegment[i];
         const ruby = arrayRuby[i];
         const rubyElements = ruby.querySelectorAll(".kanji, .kana");
         const baseElements = ruby.querySelectorAll(".base");
@@ -423,8 +428,12 @@ function applyInputToRuby(inputSegment, arrayRuby){
 
         if(input == null){
         }
-        else if(checkCharacterType(input.slice(0, baseElements.length)) === "kanji" || furiganaElements.length == 0){
+        else if(checkCharacterType(input) === "kanji" || furiganaElements.length == 0){
             if(furiganaRT) furiganaRT.classList.add("converted");
+
+            if(input.length > baseElements.length && i < inputSegment.length - 1){
+                inputSegment[i + 1] = input.slice(baseElements.length) + inputSegment[i + 1];
+            }
 
             baseElements.forEach((base, j) => {
                 if(input[j] == null){
@@ -462,7 +471,9 @@ function applyInputToRuby(inputSegment, arrayRuby){
 
             if(input === furiganaRT.innerText) ruby.classList.add("semi-correct");
         }
-    });
+    }
+    //inputSegment.forEach((input, i) => {
+    //});
 }
 
 function setExtraInputElement(){
