@@ -11,14 +11,18 @@ body{
     background: #1b1b1b;
     margin: 0;
 }
-::-webkit-scrollbar {
+::-webkit-scrollbar{
   width: 5px;
 }
-::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb{
   background: #666;
 }
-::-webkit-scrollbar-thumb:hover {
+::-webkit-scrollbar-thumb:hover{
   background: #444;
+}
+span{
+    display: inline-block;
+    white-space: pre;
 }
 .furigana{
     text-decoration: none !important;
@@ -130,10 +134,6 @@ textarea{
 .fade-container::after{
     bottom: 0;
     background: linear-gradient(to top, rgba(27, 27, 27, 1), rgba(27, 27, 27, 0));
-}
-span{
-    display: inline-block;
-    white-space: pre;
 }
 .caret{
     box-shadow: -5px 0 0 -2px rgba(224, 224, 224, 1);
