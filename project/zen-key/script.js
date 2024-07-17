@@ -1,6 +1,6 @@
 const typingData = [
     {
-        "text": "{古[ふる]}びたコトバ{繰[く]}り{返[かえ]}しつぶやいてみる\n{伸[の]}ばしたままの{爪[つめ]}{痕[あと]}はほら{消[き]}えないよ",
+        "text": "{明日[あした]} {古[ふる]}びたコトバ{繰[く]}り{返[かえ]}しつぶやいてみる\n{伸[の]}ばしたままの{爪[つめ]}{痕[あと]}はほら{消[き]}えないよ",
         "source": "{花[はな]}{残[のこ]}り{月[つき]} by nano.RIPE"
     },
     {
@@ -143,8 +143,8 @@ function setStats(){
 }
 
 function updateStats(){
-    stats.correctKanji = typingTarget.querySelectorAll(".correct .kanji").length;
-    stats.correctKana = typingTarget.querySelectorAll(".correct .kana.base").length;
+    stats.correctKanji = typingTarget.querySelectorAll(".kanji.correct").length;
+    stats.correctKana = typingTarget.querySelectorAll(".kana.base.correct").length;
     stats.correctFurigana = typingTarget.querySelectorAll(".correct .furigana, .furigana.correct").length;
     stats.progress = typingTarget.querySelectorAll(".typing-target-ruby.correct, .typing-target-ruby.semi-correct, .typing-target-ruby.incorrect").length;
     stats.progressPercentage = computePercentage();
