@@ -111,7 +111,7 @@ function convertText(text){
 
 let stats = {
     "keyPressed": 0,
-    "keyPerMinute": 0,
+    "KPM": 0,
     "correctKanji": 0,
     "semiCorrectKanji": 0,
     "totalKanji": 0,
@@ -161,9 +161,9 @@ function updateStats(){
 
 function computeSpeed(){
     const elapsedTime = new Date() - startTime;
-    const keyPerMinute = Math.round((((stats.keyPressed / elapsedTime) * 60000) + Number.EPSILON) * 100) / 100;
+    const KPM = Math.round((((stats.keyPressed / elapsedTime) * 60000) + Number.EPSILON) * 100) / 100;
 
-    stats.keyPerMinute = keyPerMinute;
+    stats.KPM = KPM;
 }
 
 function computePercentage(){
