@@ -112,8 +112,6 @@ function convertText(text){
 let stats = {
     "keyPressed": 0,
     "keyPerMinute": 0,
-    "moraCount": 0,
-    "moraPerMinute": 0,
     "correctKanji": 0,
     "semiCorrectKanji": 0,
     "totalKanji": 0,
@@ -164,10 +162,8 @@ function updateStats(){
 function computeSpeed(){
     const elapsedTime = new Date() - startTime;
     const keyPerMinute = Math.round((((stats.keyPressed / elapsedTime) * 60000) + Number.EPSILON) * 100) / 100;
-    const moraPerMinute = Math.round((((stats.moraCount / elapsedTime) * 60000) + Number.EPSILON) * 100) / 100;
 
     stats.keyPerMinute = keyPerMinute;
-    stats.moraPerMinute = moraPerMinute;
 }
 
 function computePercentage(){
@@ -398,6 +394,8 @@ function applyInputToRuby(inputSegment, arrayRuby){
     }
 }
 
+let moraCorrection = false;
+
 function update(input = "", e = {"inputType": null}){
     if(startTime == null && e.inputType != null){
         startTyping();
@@ -420,12 +418,6 @@ function update(input = "", e = {"inputType": null}){
     }
 
     applyInputToRuby(inputSegment, arrayRuby);
-
-    console.log(e)
-
-    if(e.data != null && e.inputType === "insertCompositionText" && checkCharacterType(e.data[e.data.length - 1]) === "hiragana"){
-        stats.moraCount++;
-    }
 
     updateStats();
 
