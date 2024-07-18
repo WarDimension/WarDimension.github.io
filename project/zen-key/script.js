@@ -1,8 +1,8 @@
 const typingData = [
     {
-        "text": "{明日[あした]}",
+        "text": "{明日[あした]}{明日[あした]}",
         "source": "Tomorrow"
-    },
+    }/*,
     {
         "text": "{古[ふる]}びたコトバ{繰[く]}り{返[かえ]}しつぶやいてみる\n{伸[の]}ばしたままの{爪[つめ]}{痕[あと]}はほら{消[き]}えないよ",
         "source": "{花[はな]}{残[のこ]}り{月[つき]} by nano.RIPE"
@@ -14,7 +14,7 @@ const typingData = [
     {
         "text": "{斜[なな]}め{七[なな]}{十[じゅう]}{七[なな]}{度[ど]}の{並[なら]}びで{泣[な]}く{泣[な]}く{嘶[いなな]}くナナハン{七[なな]}{台[だい]}{難[なん]}なく{並[なら]}べて{長[なが]}{眺[なが]}め",
         "source": "{早[はや]}{口[くち]}{言[こと]}{葉[ば]}"
-    }
+    }*/
 ];
 
 // TO DO: make stats progress works, then detect if progress is 100% and make the complete typing works, add the scroll into view on the typing target
@@ -127,8 +127,8 @@ let stats = {
     "totalKatakana": 0,
     "correctFurigana": 0,
     "totalFurigana": 0,
+    "correctPercentage": 0,
     "progress": 0,
-    "progressPercentage": 0,
     "totalText": 0
 };
 
@@ -153,17 +153,39 @@ function updateStats(){
     stats.semiCorrectHiragana = typingTarget.querySelectorAll(".hiragana .semi-correct").length;
     stats.correctKatakana = typingTarget.querySelectorAll(".katakana .correct").length;
     stats.semiCorrectKatakana = typingTarget.querySelectorAll(".katakana .semi-correct").length;
-    const correctFurigana = typingTarget.querySelectorAll(".furigana.correct").length;
-    const convertedFurigana = typingTarget.querySelectorAll(".converted .furigana").length;
-    const nonCorrectKanjiFurigana = typingTarget.querySelectorAll(".kanji:not(.correct) ~ .converted .furigana").length;
-    stats.correctFurigana = correctFurigana + convertedFurigana - nonCorrectKanjiFurigana;
+    //const correctFurigana = typingTarget.querySelectorAll(".furigana.correct").length;
+    //const convertedFurigana = typingTarget.querySelectorAll(".converted .furigana").length;
+    //const nonCorrectKanjiFurigana = typingTarget.querySelectorAll(".kanji:not(.correct) ~ .converted .furigana").length;
+    //stats.correctFurigana = correctFurigana + convertedFurigana - nonCorrectKanjiFurigana;
+    stats.correctFurigana = typingTarget.querySelectorAll(".furigana.correct").length;
     stats.progress = typingTarget.querySelectorAll(".base.correct, .base.semi-correct, .base.incorrect, .semi-correct .base").length;
-    stats.progressPercentage = computePercentage();
+    stats.correctPercentage = computePercentage();
 
     console.table(stats);
 }
 
 function computePercentage(){
+    /*
+    kanji = ((kanji + (semi / 2) / total) + (furigana / total)) / 2
+
+    */
+
+    /*let denominator = 3;
+    let kanji = (stats.correctKanji / stats.totalKanji) + ((stats.correctFurigana / stats.totalFurigana) / 2);
+
+    if(stats.totalKanji == 0){
+        denominator--;
+        kanji = 0;
+    }
+
+    let kana = (stats.correctHiragana / stats.totalHiragana) + ((stats.semiCorrectHiragana / stats.totalHiragana) / 2);
+
+    console.log(hiragana);*/
+
+    const total = ((stats.correctKanji + stats.correctHiragana + stats.correctKatakana) / (stats.totalKanji + stats.totalHiragana + stats.totalKatakana)) + (((stats.correctFurigana + stats.semiCorrectHiragana + stats.semiCorrectKatakana) / (stats.totalFurigana + stats.totalHiragana + stats.totalKatakana)) / 2);
+    const totalPercentageRound = Math.round(((total * 100) + Number.EPSILON) * 100) / 100;
+
+    /*
     let kanjiPercentage = 25 * (stats.correctKanji / stats.totalKanji);
     let furiganaPercentage = 25 * (stats.correctFurigana / stats.totalFurigana);
     let kanaPercentage = 50 * (stats.correctKana / stats.totalKana);
@@ -177,6 +199,8 @@ function computePercentage(){
     }
     const totalPercentage = kanjiPercentage + furiganaPercentage + kanaPercentage;
     const totalPercentageRound = Math.round((totalPercentage + Number.EPSILON) * 100) / 100;
+    */
+
 
     return totalPercentageRound;
 }
@@ -491,7 +515,7 @@ function update(input = "", e = {"inputType": null}){
     const arrayRuby = typingTarget.querySelectorAll(".typing-target-ruby");
     const checkInput = input.replaceAll("\n", "⏎");
 
-    if(input == ""){
+    if(input === ""){
         flexContainer.scrollTo(0, 0);
     }
 
