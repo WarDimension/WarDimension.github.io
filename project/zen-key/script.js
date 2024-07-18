@@ -120,10 +120,10 @@ let stats = {
     "semiCorrectKanji": 0,
     "totalKanji": 0,
     "correctHiragana": 0,
-    "semiCorrecHiragana": 0,
+    "semiCorrectHiragana": 0,
     "totalHiragana": 0,
     "correctKatakana": 0,
-    "semiCorrecKatakana": 0,
+    "semiCorrectKatakana": 0,
     "totalKatakana": 0,
     "correctFurigana": 0,
     "totalFurigana": 0,
@@ -147,13 +147,19 @@ function setStats(){
 
 function updateStats(){
     stats.correctKanji = typingTarget.querySelectorAll(".kanji.correct").length;
-    stats.correctKana = typingTarget.querySelectorAll(".kana.base.correct").length;
+    stats.semiCorrectKanji = typingTarget.querySelectorAll(".semi-correct .kanji").length;
+    stats.correctHiragana = typingTarget.querySelectorAll(".hiragana .correct").length;
+    stats.semiCorrectHiragana = typingTarget.querySelectorAll(".katakana .semi-correct").length;
+    stats.correctKatakana = typingTarget.querySelectorAll(".hiragana .correct").length;
+    stats.semiCorrectKatakana = typingTarget.querySelectorAll(".katakana .semi-correct").length;
     const correctFurigana = typingTarget.querySelectorAll(".furigana.correct").length;
     const convertedFurigana = typingTarget.querySelectorAll(".converted .furigana").length;
     const nonCorrectKanjiFurigana = typingTarget.querySelectorAll(".kanji:not(.correct) ~ .converted .furigana").length;
     stats.correctFurigana = correctFurigana + convertedFurigana - nonCorrectKanjiFurigana;
     stats.progress = typingTarget.querySelectorAll(".base.correct, .base.semi-correct, .base.incorrect, .semi-correct .base").length;
     stats.progressPercentage = computePercentage();
+
+    console.table(stats);
 }
 
 function computePercentage(){
@@ -492,9 +498,10 @@ function update(input = "", e = {"inputType": null}){
 
     //if(checkInput !== inputSegment.join("") || typingTarget.querySelector(".extra-input").innerText !== "") setExtraInput(checkInput.replace(inputSegment.join(""), ""));
 
-    if(e.inputType === "deleteContentBackward" && checkInput.length > inputSegment.join("").length - 1){
-        const index = inputSegment.length - 1
-        inputSegment[index] = inputSegment[index].slice(0, inputSegment[index].length - 1);
+    if(e.inputType === "バックスペース" && checkInput.length > inputSegment.join("").length){
+        console.log("in");
+        const index = inputSegment.length - 1;
+        inputSegment[index] = inputSegment[index].slice(0, inputSegment[index].length);
         typingInput.value = inputSegment.join("");
     }
 
@@ -538,6 +545,9 @@ typingInput.addEventListener("keydown", function(e) {
     }
     else if(e.code === "Enter" || e.code === "Space"){
         update(typingInput.value, {"inputType": "ばか"});
+    }
+    else if(e.code === "Backspace"){
+        update(typingInput.value, {"inputType": "バックスペース"});
     }
 });
 
