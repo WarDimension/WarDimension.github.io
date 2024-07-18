@@ -56,6 +56,7 @@ function convertText(text){
                 newRuby.appendChild(newRP2);
                 break;
             case "}":
+                newRuby.classList.add("kanji");
                 newText.appendChild(newRuby);
                 newRuby = document.createElement("ruby");
 
@@ -79,13 +80,20 @@ function convertText(text){
                     case "kanji base":
                         newRuby.appendChild(newSpan);
                         newSpan = document.createElement("span");
+                        newRuby.classList.add(checkCharacterType(char));
                         break;
                     case "kana furigana":
                         newRT.appendChild(newSpan);
                         newSpan = document.createElement("span");
+                        newRuby.classList.add(checkCharacterType(char));
                         break;
                     default:
-                        if(char === " " || char === "　") newRuby.classList.add("space");
+                        if(char === " " || char === "　"){
+                            newRuby.classList.add("space");
+                        }
+                        else{
+                            newRuby.classList.add(checkCharacterType(char));
+                        }
                         newRuby.appendChild(newSpan);
                         newSpan = document.createElement("span");
                         newText.appendChild(newRuby);
@@ -95,9 +103,7 @@ function convertText(text){
                 break;
         }
         
-        if(type === "kana base"){
-            id++;
-        }
+        if(type === "kana base") id++;
     });
 
     return newText;
