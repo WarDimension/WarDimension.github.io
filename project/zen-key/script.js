@@ -394,8 +394,6 @@ function applyInputToRuby(inputSegment, arrayRuby){
     }
 }
 
-let moraCorrection = false;
-
 function update(input = "", e = {"inputType": null}){
     if(startTime == null && e.inputType != null){
         startTyping();
