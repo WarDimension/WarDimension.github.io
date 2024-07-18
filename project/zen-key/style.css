@@ -30,7 +30,7 @@ span{
 .correct, .correct .furigana, .typing-target-ruby .converted .furigana{
     color: #15ac47;
 }
-.typing-target-ruby .kanji:not(.correct):not(.incorrect) ~ .converted .furigana:not(.correct):not(.incorrect){
+.typing-target-ruby .kanji:not(.correct, .incorrect) ~ .converted .furigana:not(.correct, .incorrect){
     color: #707070;
 }
 .incorrect, .semi-incorrect .kanji, .typing-target-ruby .incorrect ~ .converted .furigana, .extra-input{
