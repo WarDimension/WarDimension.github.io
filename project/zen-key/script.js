@@ -19,6 +19,7 @@ const typingTarget = document.querySelector(".typing-target");
 const flexContainer = document.querySelector(".flex-container");
 const typingInput = document.querySelector(".typing-input");
 const rawInput = document.querySelector(".raw-input-container");
+const source = document.querySelector(".source");
 
 let id = 0;
 
@@ -198,6 +199,7 @@ function getRandomText(){
     }
     previousRandom = randomIndex;
     typingTarget.innerHTML = convertText(typingData[randomIndex].text).innerHTML;
+    source.innerHTML = convertText(typingData[randomIndex].source).innerHTML;
     
     setStats();
 }
@@ -226,6 +228,7 @@ function setCaret(){
         typingTarget.querySelector("ruby").classList.add("caret");
     }
 }
+setCaret();
 
 function checkCharacterType(char){
     if(/[\u4E00-\u9FFF]/.test(char) || /[\u3000-\u303F]/.test(char)){
@@ -260,13 +263,10 @@ function areSameSound(char1, char2){
     return false;
 }
 
-function scrollNextIntoView(arrayElement, index){
-    if(arrayElement[index+1]){
-        arrayElement[index+1].scrollIntoView({ block: "center" });
-    }
-    else{
-        arrayElement[index].scrollIntoView({ block: "center" });
-    }
+function scrollIntoView(){
+    const caretElement = typingTarget.querySelector(".caret, .caret-right");
+
+    caretElement.scrollIntoView({ block: "center" });
 }
 
 let startTime = null;
@@ -401,7 +401,7 @@ function setExtraInputElement(){
     newExtraInputElement.classList.add("extra-input");
     typingTarget.appendChild(newExtraInputElement);
 }
-setExtraInputElement();
+//setExtraInputElement();
 
 function setExtraInput(extraInput){
     const extraInputElement = typingTarget.querySelector(".extra-input");
@@ -475,7 +475,6 @@ function update(input = "", e = {"inputType": null}){
     //typingComplete(checkInput, inputSegment.join(""));
     //console.table(stats);
 }
-update();
 
 function startTyping(){
     startTime = new Date();

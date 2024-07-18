@@ -21,12 +21,12 @@
                 <div class="flex-container">
                     <div class="typing-target-container">
                         <p class="typing-target"></p>
-                        <textarea class="typing-input" placeholder="-" oninput="update(this.value, event)" onclick="this.setSelectionRange(this.value.length, this.value.length)" onblur="this.focus()" autofocus></textarea>
+                        <textarea class="typing-input" placeholder="-" oninput="update(this.value, event)" onclick="this.setSelectionRange(this.value.length, this.value.length)" onblur="this.focus({ preventScroll: true })" autofocus></textarea>
                     </div>
                 </div>
             </div>
-            <div class="label">
-                <p>source</p>
+            <p class="source"></p>
+            <div class="source-container">
             </div>
         </div>
     </body>
