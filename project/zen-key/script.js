@@ -112,7 +112,6 @@ function toggleRawInput(){
             break;
     }
 }
-
 toggleRawInput();
 
 let stats = {
