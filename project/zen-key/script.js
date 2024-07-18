@@ -527,6 +527,7 @@ typingInput.addEventListener("keydown", function(e) {
 });
 
 typingInput.addEventListener("keyup", function(e) {
+    scrollIntoView();
     if(e.code === "Enter"){
         //typingComplete();
     }
