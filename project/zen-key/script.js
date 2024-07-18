@@ -1,9 +1,5 @@
 const typingData = [
     {
-        "text": "{明日[あした]}{明日[あした]}",
-        "source": "Tomorrow"
-    }/*,
-    {
         "text": "{古[ふる]}びたコトバ{繰[く]}り{返[かえ]}しつぶやいてみる\n{伸[の]}ばしたままの{爪[つめ]}{痕[あと]}はほら{消[き]}えないよ",
         "source": "{花[はな]}{残[のこ]}り{月[つき]} by nano.RIPE"
     },
@@ -14,7 +10,7 @@ const typingData = [
     {
         "text": "{斜[なな]}め{七[なな]}{十[じゅう]}{七[なな]}{度[ど]}の{並[なら]}びで{泣[な]}く{泣[な]}く{嘶[いなな]}くナナハン{七[なな]}{台[だい]}{難[なん]}なく{並[なら]}べて{長[なが]}{眺[なが]}め",
         "source": "{早[はや]}{口[くち]}{言[こと]}{葉[ば]}"
-    }*/
+    }
 ];
 
 // TO DO: make stats progress works, then detect if progress is 100% and make the complete typing works, add the scroll into view on the typing target
@@ -116,6 +112,7 @@ function convertText(text){
 let stats = {
     "CPM": 0,
     "SPM": 0,
+    "keyPressed": 0,
     "correctKanji": 0,
     "semiCorrectKanji": 0,
     "totalKanji": 0,
@@ -209,21 +206,6 @@ function countSmallKana(str){
     const smallKanaRegex = /[ぁぃぅぇぉゃゅょっァィゥェォャュョッ]/g;
     const matches = str.match(smallKanaRegex);
     return matches ? matches.length : 0;
-}
-
-function computeCPM(input){
-    const kanaCount = input.length;
-    const smallKanaCount = countSmallKana(input);
-    const elapsedTime = new Date() - startTime;
-    const CPM = Math.round((((kanaCount / elapsedTime) * 60000) + Number.EPSILON) * 100) / 100;
-    const SPM = Math.round(((((kanaCount - smallKanaCount) / elapsedTime) * 60000) + Number.EPSILON) * 100) / 100;
-
-    if(CPM != 0){
-        stats.CPM = CPM;
-        stats.SPM = SPM;
-    }
-
-    //console.log("CPM: " + stats.CPM + ", SPM: " + stats.SPM);
 }
 
 /*
@@ -337,8 +319,6 @@ function scrollIntoView(){
             break;
     }
 }
-
-let startTime = null;
 
 function getInputSegment(input, arrayRuby){
     let segment = [];
@@ -538,6 +518,10 @@ function update(input = "", e = {"inputType": null}){
 
     computeCPM(input);
 
+    stats.keyPressed++;
+
+    scrollIntoView();
+
     if((stats.progress == stats.totalText && stats.progressPercentage == 100 && (e.inputType === "ばか" || checkInput[checkInput.length - 1] === "⏎")) || (checkInput.length > inputSegment.join("").length && checkInput[checkInput.length - 1] === "⏎")){
         //countCorrectKanji();
         //console.log(stats);
@@ -551,12 +535,40 @@ function update(input = "", e = {"inputType": null}){
     //console.table(stats);
 }
 
+let startTime = null;
+
 function startTyping(){
     startTime = new Date();
     console.log("start");
 }
 
-let enterToConfirm = false;
+function computeCPM(input){
+    const kanaCount = input.length;
+    const smallKanaCount = countSmallKana(input);
+    const elapsedTime = new Date() - startTime;
+    const CPM = Math.round((((kanaCount / elapsedTime) * 60000) + Number.EPSILON) * 100) / 100;
+    const SPM = Math.round(((((kanaCount - smallKanaCount) / elapsedTime) * 60000) + Number.EPSILON) * 100) / 100;
+
+    if(CPM != 0){
+        stats.CPM = CPM;
+        stats.SPM = SPM;
+    }
+
+    //console.log("CPM: " + stats.CPM + ", SPM: " + stats.SPM);
+}
+
+function computeCPM(input){
+    const kanaCount = input.length;
+    const smallKanaCount = countSmallKana(input);
+    const elapsedTime = new Date() - startTime;
+    const CPM = Math.round((((kanaCount / elapsedTime) * 60000) + Number.EPSILON) * 100) / 100;
+    const SPM = Math.round(((((kanaCount - smallKanaCount) / elapsedTime) * 60000) + Number.EPSILON) * 100) / 100;
+
+    if(CPM != 0){
+        stats.CPM = CPM;
+        stats.SPM = SPM;
+    }
+}
 
 function typingComplete(){
     console.table(stats);
@@ -577,7 +589,6 @@ typingInput.addEventListener("keydown", function(e) {
 });
 
 typingInput.addEventListener("keyup", function(e) {
-    scrollIntoView();
     if(e.code === "Enter"){
         //typingComplete();
     }
