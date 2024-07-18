@@ -145,8 +145,11 @@ function setStats(){
 function updateStats(){
     stats.correctKanji = typingTarget.querySelectorAll(".kanji.correct").length;
     stats.correctKana = typingTarget.querySelectorAll(".kana.base.correct").length;
-    stats.correctFurigana = typingTarget.querySelectorAll(".correct .furigana, .furigana.correct").length;
-    stats.progress = typingTarget.querySelectorAll(".typing-target-ruby.correct, .typing-target-ruby.semi-correct, .typing-target-ruby.incorrect").length;
+    const correctFurigana = typingTarget.querySelectorAll(".furigana.correct").length;
+    const convertedFurigana = typingTarget.querySelectorAll(".converted .furigana").length;
+    const nonCorrectKanjiFurigana = typingTarget.querySelectorAll(".kanji:not(.correct) ~ .converted .furigana").length;
+    stats.correctFurigana = correctFurigana + convertedFurigana - nonCorrectKanjiFurigana;
+    stats.progress = typingTarget.querySelectorAll(".base.correct, .base.semi-correct, .base.incorrect, .semi-correct .base").length;
     stats.progressPercentage = computePercentage();
 }
 
