@@ -282,7 +282,14 @@ function areSameSound(char1, char2){
 function scrollIntoView(){
     const caretElement = typingTarget.querySelector(".caret, .caret-right");
 
-    caretElement.scrollIntoView({ block: "center" });
+    switch(caretElement.classList.contains("furigana")){
+        case true:
+            caretElement.parentElement.parentElement.querySelector(".kanji").scrollIntoView({ block: "center" });
+            break;
+        default:
+            caretElement.scrollIntoView({ block: "center" });
+            break;
+    }
 }
 
 let startTime = null;
