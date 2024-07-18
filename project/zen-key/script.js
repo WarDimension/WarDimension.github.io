@@ -480,7 +480,6 @@ function update(input, e){
     }
     console.table(stats);
 }
-
 update("", {"inputType": null});
 
 function startTyping(){
