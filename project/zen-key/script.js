@@ -24,7 +24,7 @@ const source = document.querySelector(".source");
 let id = 0;
 
 function convertText(text){
-    charArray = text.split("");
+    const charArray = text.split("");
     let type = "kana base";
 
     let newSpan = document.createElement("span");
@@ -113,6 +113,7 @@ let stats = {
     "CPM": 0,
     "SPM": 0,
     "keyPressed": 0,
+    "KPM": 0,
     "correctKanji": 0,
     "semiCorrectKanji": 0,
     "totalKanji": 0,
@@ -520,6 +521,8 @@ function update(input = "", e = {"inputType": null}){
 
     stats.keyPressed++;
 
+    computeKPM();
+
     scrollIntoView();
 
     if((stats.progress == stats.totalText && stats.progressPercentage == 100 && (e.inputType === "ばか" || checkInput[checkInput.length - 1] === "⏎")) || (checkInput.length > inputSegment.join("").length && checkInput[checkInput.length - 1] === "⏎")){
@@ -557,16 +560,12 @@ function computeCPM(input){
     //console.log("CPM: " + stats.CPM + ", SPM: " + stats.SPM);
 }
 
-function computeCPM(input){
-    const kanaCount = input.length;
-    const smallKanaCount = countSmallKana(input);
+function computeKPM(){
     const elapsedTime = new Date() - startTime;
-    const CPM = Math.round((((kanaCount / elapsedTime) * 60000) + Number.EPSILON) * 100) / 100;
-    const SPM = Math.round(((((kanaCount - smallKanaCount) / elapsedTime) * 60000) + Number.EPSILON) * 100) / 100;
+    const KPM = Math.round((((stats.keyPressed / elapsedTime) * 60000) + Number.EPSILON) * 100) / 100;
 
-    if(CPM != 0){
-        stats.CPM = CPM;
-        stats.SPM = SPM;
+    if(KPM != 0){
+        stats.KPM = KPM;
     }
 }
 
