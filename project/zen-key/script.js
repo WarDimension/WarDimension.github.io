@@ -1,6 +1,6 @@
 const typingData = [
     {
-        "text": "{明日[あした]} {古[ふる]}びたコトバ{繰[く]}り{返[かえ]}しつぶやいてみる\n{伸[の]}ばしたままの{爪[つめ]}{痕[あと]}はほら{消[き]}えないよ",
+        "text": "{古[ふる]}びたコトバ{繰[く]}り{返[かえ]}しつぶやいてみる\n{伸[の]}ばしたままの{爪[つめ]}{痕[あと]}はほら{消[き]}えないよ",
         "source": "{花[はな]}{残[のこ]}り{月[つき]} by nano.RIPE"
     },
     {
@@ -17,7 +17,7 @@ const typingData = [
 
 const typingTarget = document.querySelector(".typing-target");
 const flexContainer = document.querySelector(".flex-container");
-const typingInput = document.querySelector("textarea");
+const typingInput = document.querySelector(".typing-input");
 const rawInput = document.querySelector(".raw-input-container");
 
 let id = 0;
@@ -101,18 +101,6 @@ function convertText(text){
 
     return newText;
 }
-
-function toggleRawInput(){
-    switch(rawInput.classList.contains("hiden")){
-        case true:
-            rawInput.classList.remove("hiden");
-            break;
-        default:
-            rawInput.classList.add("hiden");
-            break;
-    }
-}
-toggleRawInput();
 
 let stats = {
     "CPM": 0,
@@ -445,7 +433,7 @@ function setExtraInput(extraInput){
     //extraInputElement.classList.add(".incorrect-extra");*/
 }
 
-function update(input, e){
+function update(input = "", e = {"inputType": null}){
     if(startTime == null && e.inputType != null){
         startTyping();
     }
@@ -475,12 +463,19 @@ function update(input, e){
 
     computeCPM(input);
 
-    if(e.inputType === "insertLineBreak"){
-        typingComplete();
+    if((stats.progress == stats.totalText && stats.progressPercentage == 100 && (e.inputType === "ばか" || checkInput[checkInput.length - 1] === "⏎")) || (checkInput.length > inputSegment.join("").length && checkInput[checkInput.length - 1] === "⏎")){
+        //countCorrectKanji();
+        //console.log(stats);
+        //getRandomText();
+        //typingInput.value = "";
+        //update("", {"inputType": null});
+        //startTime = null;
+        console.log("complete");
     }
-    console.table(stats);
+    //typingComplete(checkInput, inputSegment.join(""));
+    //console.table(stats);
 }
-update("", {"inputType": null});
+update();
 
 function startTyping(){
     startTime = new Date();
@@ -489,30 +484,25 @@ function startTyping(){
 
 let enterToConfirm = false;
 
-function typingComplete(){
-    const incorrectCount = typingTarget.querySelectorAll(".kana.incorrect").length;
-    const progressCount = typingTarget.querySelectorAll(".kana.correct, .kana.incorrect").length;
-    const kanaCount = typingTarget.querySelectorAll(".kana").length;
-
-    if(progressCount == kanaCount && (incorrectCount == 0 || enterToConfirm)){
-        countCorrectKanji();
+function typingComplete(input, inputSegment){
+    if((stats.progress == stats.totalText && stats.progressPercentage == 100) || (input.length > inputSegment.length && input[input.length - 1] === "⏎")){
+        //countCorrectKanji();
         //console.log(stats);
-        getRandomText();
-        typingInput.value = "";
-        update("", {"inputType": null});
-        startTime = null;
-        enterToConfirm = false;
-    }
-    else if(progressCount == kanaCount){
-        enterToConfirm = true;
+        //getRandomText();
+        //typingInput.value = "";
+        //update("", {"inputType": null});
+        //startTime = null;
+        console.log("complete");
     }
 }
 
 typingInput.addEventListener("keydown", function(e) {
     this.setSelectionRange(this.value.length, this.value.length);
-    this.scrollTo(0, this.scrollHeight);
     if((e.ctrlKey || e.metaKey) && (e.key === "a" || e.key === "v")){
         e.preventDefault();
+    }
+    else if(e.code === "Enter" || e.code === "Space"){
+        update(typingInput.value, {"inputType": "ばか"});
     }
 });
 
