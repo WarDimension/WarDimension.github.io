@@ -1,5 +1,9 @@
 const typingData = [
     {
+        "text": "{明日[あした]}",
+        "source": "Tomorrow"
+    },
+    {
         "text": "{古[ふる]}びたコトバ{繰[く]}り{返[かえ]}しつぶやいてみる\n{伸[の]}ばしたままの{爪[つめ]}{痕[あと]}はほら{消[き]}えないよ",
         "source": "{花[はな]}{残[のこ]}り{月[つき]} by nano.RIPE"
     },
@@ -113,9 +117,14 @@ let stats = {
     "CPM": 0,
     "SPM": 0,
     "correctKanji": 0,
+    "semiCorrectKanji": 0,
     "totalKanji": 0,
-    "correctKana": 0,
-    "totalKana": 0,
+    "correctHiragana": 0,
+    "semiCorrecHiragana": 0,
+    "totalHiragana": 0,
+    "correctKatakana": 0,
+    "semiCorrecKatakana": 0,
+    "totalKatakana": 0,
     "correctFurigana": 0,
     "totalFurigana": 0,
     "progress": 0,
