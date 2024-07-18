@@ -141,7 +141,7 @@ p, .typing-input{
     animation: caret 1.06s infinite;
 }
 .caret-right{
-    box-shadow: 3px 0 0 0 rgba(224, 224, 224, 1);
+    box-shadow: 5px 0 0 -2px rgba(224, 224, 224, 1);
     animation: caret-right 1.06s infinite;
 }
 @keyframes caret{
