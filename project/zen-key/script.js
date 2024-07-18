@@ -212,8 +212,24 @@ function setCaret(){
         caretElement.classList.remove("caret", "caret-right");
     });
 
-    const progressElements = typingTarget.querySelectorAll(".correct, .semi-correct, .incorrect, .incorrect-extra");
+    const progressElements = typingTarget.querySelectorAll(".correct, .semi-correct, .incorrect");
 
+    const lastProgress = progressElements[progressElements.length - 1];
+    const lastProgressNext = typingTarget.querySelector("ruby:not(.semi-correct, .semi-incorrect, .gray) .base:not(.correct, .semi-correct, .incorrect), rt:not(.converted) .furigana:not(.correct, .incorrect)");
+
+    if(progressElements.length > 0){
+        if((!lastProgress.nextSibling && lastProgress.classList.contains("furigana")) || (!lastProgress.parentElement.nextSibling && lastProgress.classList.contains("base"))){
+            lastProgress.classList.add("caret-right");
+        }
+        else{
+            lastProgressNext.classList.add("caret");
+        }
+    }
+    else{
+        lastProgressNext.classList.add("caret");
+    }
+
+    /*
     if(progressElements.length > 0){
         const lastProgress = progressElements[progressElements.length - 1];
         lastProgress.classList.add("caret-right");
@@ -226,7 +242,7 @@ function setCaret(){
     }
     else{
         typingTarget.querySelector("ruby").classList.add("caret");
-    }
+    }*/
 }
 setCaret();
 
@@ -342,7 +358,7 @@ function applyInputToRuby(inputSegment, arrayRuby){
             element.classList.remove("correct", "semi-correct", "incorrect");
             unsetInputToElement(element);
         });
-        ruby.classList.remove("semi-correct", "semi-incorrect");
+        ruby.classList.remove("semi-correct", "semi-incorrect", "gray");
 
         if(furiganaRT) furiganaRT.classList.remove("converted");
 
@@ -389,7 +405,12 @@ function applyInputToRuby(inputSegment, arrayRuby){
                 }
             });
 
-            if(input === furiganaRT.innerText) ruby.classList.add("semi-correct");
+            if(input === furiganaRT.innerText){
+                ruby.classList.add("semi-correct");
+            }
+            else if(input != "" && furiganaRT.innerText.includes(input)){
+                ruby.classList.add("gray");
+            }
         }
     }
     //inputSegment.forEach((input, i) => {
