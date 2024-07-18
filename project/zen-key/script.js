@@ -498,7 +498,7 @@ function update(input = "", e = {"inputType": null}){
         //typingInput.value = "";
         //update("", {"inputType": null});
         //startTime = null;
-        console.log("complete");
+        typingComplete();
     }
     //typingComplete(checkInput, inputSegment.join(""));
     //console.table(stats);
@@ -511,16 +511,9 @@ function startTyping(){
 
 let enterToConfirm = false;
 
-function typingComplete(input, inputSegment){
-    if((stats.progress == stats.totalText && stats.progressPercentage == 100) || (input.length > inputSegment.length && input[input.length - 1] === "⏎")){
-        //countCorrectKanji();
-        //console.log(stats);
-        //getRandomText();
-        //typingInput.value = "";
-        //update("", {"inputType": null});
-        //startTime = null;
-        console.log("complete");
-    }
+function typingComplete(){
+    console.table(stats);
+    console.log("complete");
 }
 
 typingInput.addEventListener("keydown", function(e) {
