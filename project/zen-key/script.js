@@ -113,7 +113,7 @@ function toggleRawInput(){
     }
 }
 
-//toggleRawInput();
+toggleRawInput();
 
 let stats = {
     "CPM": 0,
