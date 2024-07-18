@@ -588,8 +588,9 @@ typingInput.addEventListener("keydown", function(e) {
     }
 });
 
+/*
 typingInput.addEventListener("keyup", function(e) {
     if(e.code === "Enter"){
         //typingComplete();
     }
-});
+});*/
