@@ -39,16 +39,6 @@ span{
 .semi-correct{
     color: #b8860b;
 }
-/*
-.semi-correct, .semi-correct .incorrect{
-    color: #b8860b;
-}
-.typing-target-ruby:not(.correct):not(.semi-correct):not(.incorrect) .furigana.incorrect{
-    color: #707070;
-}
-.typing-target-ruby:not(.correct):not(.semi-correct):not(.incorrect) .kanji.incorrect ~ rt .furigana{
-    color: #f20000;
-}*/
 .space, .space span.incorrect, .space span.correct{
     text-decoration: underline !important;
 }
