@@ -221,21 +221,6 @@ function setCaret(){
     else{
         lastProgressNext.classList.add("caret");
     }
-
-    /*
-    if(progressElements.length > 0){
-        const lastProgress = progressElements[progressElements.length - 1];
-        lastProgress.classList.add("caret-right");
-
-        if(lastProgress.innerText === "keyboard_return"){
-            const lastProgressNext = lastProgress.parentElement.nextSibling.nextSibling;
-            lastProgress.classList.remove("caret-right");
-            lastProgressNext.classList.add("caret");
-        }
-    }
-    else{
-        typingTarget.querySelector("ruby").classList.add("caret");
-    }*/
 }
 setCaret();
 
@@ -411,45 +396,6 @@ function applyInputToRuby(inputSegment, arrayRuby){
             }
         }
     }
-    //inputSegment.forEach((input, i) => {
-    //});
-}
-
-function setExtraInputElement(){
-    const newExtraInputElement = document.createElement("div");
-    newExtraInputElement.classList.add("extra-input");
-    typingTarget.appendChild(newExtraInputElement);
-}
-//setExtraInputElement();
-
-function setExtraInput(extraInput){
-    const extraInputElement = typingTarget.querySelector(".extra-input");
-
-    extraInputElement.innerHTML = extraInput.split("").map((char, i) => {
-        if([" ", "　"].includes(char)){
-            return `<span class="space incorrect-extra">${char}</span>`;
-        }
-        else{
-            return `<span class="incorrect-extra">${char}</span>`;
-        }
-    }).join("");
-    //const extraInputSpan = extraInputElement.querySelectorAll("span");
-
-    /*
-    console.log(e);
-
-    if(e.inputType === "deleteContentBackward"){
-        extraInputSpan[extraInputSpan.length - 1].remove();
-    }
-    else if(e.data != null){
-        if(e.data === " " || e.data === "　"){
-            extraInputElement.innerHTML += "<span class='space'>" + e.data + "</span>";
-        }
-        else{
-            extraInputElement.innerHTML += "<span>" + e.data + "</span>";
-        }
-    }
-    //extraInputElement.classList.add(".incorrect-extra");*/
 }
 
 function update(input = "", e = {"inputType": null}){
@@ -465,8 +411,6 @@ function update(input = "", e = {"inputType": null}){
     }
 
     let inputSegment = getInputSegment(checkInput, arrayRuby);
-
-    //if(checkInput !== inputSegment.join("") || typingTarget.querySelector(".extra-input").innerText !== "") setExtraInput(checkInput.replace(inputSegment.join(""), ""));
 
     if(e.inputType === "バックスペース" && checkInput.length > inputSegment.join("").length){
         console.log("in");
