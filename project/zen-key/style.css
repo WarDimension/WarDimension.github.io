@@ -101,6 +101,9 @@ p, .typing-input{
     margin-top: 10px;
     text-align: center;
 }
+.source .furigana{
+    font-size: 1.2em;
+}
 .source::before{
     content: "「";
 }
