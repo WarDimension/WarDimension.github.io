@@ -139,8 +139,9 @@ const statsReset = {
 function setStats(){
     stats = statsReset;
 
-    stats.totalKanji = typingTarget.querySelectorAll(".kanji").length;
-    stats.totalKana = typingTarget.querySelectorAll(".kana.base").length;
+    stats.totalKanji = typingTarget.querySelectorAll(".kanji .kanji").length;
+    stats.totalHiragana = typingTarget.querySelectorAll(".hiragana").length;
+    stats.totalKatakana = typingTarget.querySelectorAll(".katakana").length;
     stats.totalFurigana = typingTarget.querySelectorAll(".furigana").length;
     stats.totalText = typingTarget.querySelectorAll(".base").length;
 }
@@ -149,8 +150,8 @@ function updateStats(){
     stats.correctKanji = typingTarget.querySelectorAll(".kanji.correct").length;
     stats.semiCorrectKanji = typingTarget.querySelectorAll(".semi-correct .kanji").length;
     stats.correctHiragana = typingTarget.querySelectorAll(".hiragana .correct").length;
-    stats.semiCorrectHiragana = typingTarget.querySelectorAll(".katakana .semi-correct").length;
-    stats.correctKatakana = typingTarget.querySelectorAll(".hiragana .correct").length;
+    stats.semiCorrectHiragana = typingTarget.querySelectorAll(".hiragana .semi-correct").length;
+    stats.correctKatakana = typingTarget.querySelectorAll(".katakana .correct").length;
     stats.semiCorrectKatakana = typingTarget.querySelectorAll(".katakana .semi-correct").length;
     const correctFurigana = typingTarget.querySelectorAll(".furigana.correct").length;
     const convertedFurigana = typingTarget.querySelectorAll(".converted .furigana").length;
