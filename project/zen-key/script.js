@@ -111,9 +111,9 @@ function convertText(text){
 
 let stats = {
     "keyPressed": 0,
-    "KPM": 0,
-    "characterCount": 0,
-    "CPM": 0,
+    "keyPerMinute": 0,
+    "moraCount": 0,
+    "moraPerMinute": 0,
     "correctKanji": 0,
     "semiCorrectKanji": 0,
     "totalKanji": 0,
@@ -163,11 +163,11 @@ function updateStats(){
 
 function computeSpeed(){
     const elapsedTime = new Date() - startTime;
-    const KPM = Math.round((((stats.keyPressed / elapsedTime) * 60000) + Number.EPSILON) * 100) / 100;
-    const CPM = Math.round((((stats.characterCount / elapsedTime) * 60000) + Number.EPSILON) * 100) / 100;
+    const keyPerMinute = Math.round((((stats.keyPressed / elapsedTime) * 60000) + Number.EPSILON) * 100) / 100;
+    const moraPerMinute = Math.round((((stats.moraCount / elapsedTime) * 60000) + Number.EPSILON) * 100) / 100;
 
-    stats.KPM = KPM;
-    stats.CPM = CPM;
+    stats.keyPerMinute = keyPerMinute;
+    stats.moraPerMinute = moraPerMinute;
 }
 
 function computePercentage(){
@@ -421,7 +421,11 @@ function update(input = "", e = {"inputType": null}){
 
     applyInputToRuby(inputSegment, arrayRuby);
 
-    if(e.data != null && checkCharacterType(e.data[e.data.length - 1]) !== "other") stats.characterCount++;
+    console.log(e)
+
+    if(e.data != null && e.inputType === "insertCompositionText" && checkCharacterType(e.data[e.data.length - 1]) === "hiragana"){
+        stats.moraCount++;
+    }
 
     updateStats();
 
@@ -429,7 +433,7 @@ function update(input = "", e = {"inputType": null}){
 
     scrollIntoView();
 
-    if((stats.progress == stats.totalText && stats.progressPercentage == 100 && (e.inputType === "ばか" || checkInput[checkInput.length - 1] === "⏎")) || (checkInput.length > inputSegment.join("").length && checkInput[checkInput.length - 1] === "⏎")){
+    if((stats.progress == stats.totalText && stats.correctPercentage == 100 && (e.inputType === "ばか" || checkInput[checkInput.length - 1] === "⏎")) || (checkInput.length > inputSegment.join("").length && checkInput[checkInput.length - 1] === "⏎")){
         //countCorrectKanji();
         //console.log(stats);
         //getRandomText();
