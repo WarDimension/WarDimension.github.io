@@ -110,10 +110,10 @@ function convertText(text){
 }
 
 let stats = {
-    "CPM": 0,
-    "SPM": 0,
     "keyPressed": 0,
     "KPM": 0,
+    "characterCount": 0,
+    "CPM": 0,
     "correctKanji": 0,
     "semiCorrectKanji": 0,
     "totalKanji": 0,
@@ -151,54 +151,28 @@ function updateStats(){
     stats.semiCorrectHiragana = typingTarget.querySelectorAll(".hiragana .semi-correct").length;
     stats.correctKatakana = typingTarget.querySelectorAll(".katakana .correct").length;
     stats.semiCorrectKatakana = typingTarget.querySelectorAll(".katakana .semi-correct").length;
-    //const correctFurigana = typingTarget.querySelectorAll(".furigana.correct").length;
-    //const convertedFurigana = typingTarget.querySelectorAll(".converted .furigana").length;
-    //const nonCorrectKanjiFurigana = typingTarget.querySelectorAll(".kanji:not(.correct) ~ .converted .furigana").length;
-    //stats.correctFurigana = correctFurigana + convertedFurigana - nonCorrectKanjiFurigana;
     stats.correctFurigana = typingTarget.querySelectorAll(".furigana.correct").length;
     stats.progress = typingTarget.querySelectorAll(".base.correct, .base.semi-correct, .base.incorrect, .semi-correct .base").length;
     stats.correctPercentage = computePercentage();
 
+    stats.keyPressed++;
+    computeSpeed();
+
     console.table(stats);
 }
 
+function computeSpeed(){
+    const elapsedTime = new Date() - startTime;
+    const KPM = Math.round((((stats.keyPressed / elapsedTime) * 60000) + Number.EPSILON) * 100) / 100;
+    const CPM = Math.round((((stats.characterCount / elapsedTime) * 60000) + Number.EPSILON) * 100) / 100;
+
+    stats.KPM = KPM;
+    stats.CPM = CPM;
+}
+
 function computePercentage(){
-    /*
-    kanji = ((kanji + (semi / 2) / total) + (furigana / total)) / 2
-
-    */
-
-    /*let denominator = 3;
-    let kanji = (stats.correctKanji / stats.totalKanji) + ((stats.correctFurigana / stats.totalFurigana) / 2);
-
-    if(stats.totalKanji == 0){
-        denominator--;
-        kanji = 0;
-    }
-
-    let kana = (stats.correctHiragana / stats.totalHiragana) + ((stats.semiCorrectHiragana / stats.totalHiragana) / 2);
-
-    console.log(hiragana);*/
-
     const total = ((stats.correctKanji + stats.correctHiragana + stats.correctKatakana) / (stats.totalKanji + stats.totalHiragana + stats.totalKatakana)) + (((stats.correctFurigana + stats.semiCorrectHiragana + stats.semiCorrectKatakana) / (stats.totalFurigana + stats.totalHiragana + stats.totalKatakana)) / 2);
     const totalPercentageRound = Math.round(((total * 100) + Number.EPSILON) * 100) / 100;
-
-    /*
-    let kanjiPercentage = 25 * (stats.correctKanji / stats.totalKanji);
-    let furiganaPercentage = 25 * (stats.correctFurigana / stats.totalFurigana);
-    let kanaPercentage = 50 * (stats.correctKana / stats.totalKana);
-    if(stats.totalKanji == 0){
-        kanjiPercentage = furiganaPercentage = 0;
-        kanaPercentage *= 2;
-    }
-    else if(stats.totalKana == 0){
-        kanaPercentage = 0;
-        kanjiPercentage *= furiganaPercentage *= 0;
-    }
-    const totalPercentage = kanjiPercentage + furiganaPercentage + kanaPercentage;
-    const totalPercentageRound = Math.round((totalPercentage + Number.EPSILON) * 100) / 100;
-    */
-
 
     return totalPercentageRound;
 }
@@ -208,16 +182,6 @@ function countSmallKana(str){
     const matches = str.match(smallKanaRegex);
     return matches ? matches.length : 0;
 }
-
-/*
-SCORE NOTE
-
-Percentage:
-- correct kanji = 0.25 * (correct kanji / total kanji)
-- correct furigana = 0.25 * (correct furigana / total furigana)
-- correct kana = 0. * (correct kana / total furigana)
-- total = (correct kanji + correct furigana + correct kana) * 100%
-*/
 
 let previousRandom = -1;
 
@@ -513,15 +477,11 @@ function update(input = "", e = {"inputType": null}){
 
     applyInputToRuby(inputSegment, arrayRuby);
 
+    if(e.data != null && checkCharacterType(e.data[e.data.length - 1]) !== "other") stats.characterCount++;
+
     updateStats();
 
     setCaret();
-
-    computeCPM(input);
-
-    stats.keyPressed++;
-
-    computeKPM();
 
     scrollIntoView();
 
@@ -543,30 +503,6 @@ let startTime = null;
 function startTyping(){
     startTime = new Date();
     console.log("start");
-}
-
-function computeCPM(input){
-    const kanaCount = input.length;
-    const smallKanaCount = countSmallKana(input);
-    const elapsedTime = new Date() - startTime;
-    const CPM = Math.round((((kanaCount / elapsedTime) * 60000) + Number.EPSILON) * 100) / 100;
-    const SPM = Math.round(((((kanaCount - smallKanaCount) / elapsedTime) * 60000) + Number.EPSILON) * 100) / 100;
-
-    if(CPM != 0){
-        stats.CPM = CPM;
-        stats.SPM = SPM;
-    }
-
-    //console.log("CPM: " + stats.CPM + ", SPM: " + stats.SPM);
-}
-
-function computeKPM(){
-    const elapsedTime = new Date() - startTime;
-    const KPM = Math.round((((stats.keyPressed / elapsedTime) * 60000) + Number.EPSILON) * 100) / 100;
-
-    if(KPM != 0){
-        stats.KPM = KPM;
-    }
 }
 
 function typingComplete(){
