@@ -151,8 +151,6 @@ function getRandomText(){
     previousRandom = randomIndex;
     typingTarget.innerHTML = convertText(typingData[randomIndex].text).innerHTML;
     source.innerHTML = convertText(typingData[randomIndex].source).innerHTML;
-    
-    setStats();
 }
 getRandomText();
 
@@ -241,6 +239,8 @@ function nextRound(){
     source.removeAttribute("hidden");
 
     result.setAttribute("hidden", "");
+    
+    setStats();
 }
 
 function setCaret(){
@@ -470,7 +470,7 @@ function update(input = "", e = {"inputType": null}){
 
     applyInputToRuby(inputSegment, arrayRuby);
 
-    stats.keyPressed++;
+    if(stats.state == state.TYPING) stats.keyPressed++;
 
     updateLiveStats();
 
