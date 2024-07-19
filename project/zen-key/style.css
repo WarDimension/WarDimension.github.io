@@ -107,8 +107,19 @@ p, .typing-input{
 .result{
     text-align: center;
 }
-.result > span:not(:first-child){
+.result > span > span:not(:first-child){
     margin-left: 25px;
+}
+.result .percentage{
+    font-size: 4em;
+}
+.result .continue{
+    font-size: 0.8em;
+    margin-top: 20px;
+}
+.result .material-icons{
+    margin: 0;
+    vertical-align: middle;
 }
 .typing-target-container{
     position: relative;
