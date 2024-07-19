@@ -124,6 +124,9 @@ let stats = {
     "correctFurigana": 0,
     "totalFurigana": 0,
     "correctPercentage": 0,
+    "overallCorrect": 0,
+    "overallIncorrect": 0,
+    "accuracy": 0,
     "progress": 0,
     "totalText": 0
 };
