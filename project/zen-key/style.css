@@ -104,6 +104,9 @@ p, .typing-input{
     margin-top: 0;
     margin-bottom: 20px;
 }
+.result{
+    text-align: center;
+}
 .typing-target-container{
     position: relative;
     margin: auto;
