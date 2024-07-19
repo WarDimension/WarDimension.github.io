@@ -225,7 +225,7 @@ function typingComplete(){
     const katakana = convertText("{片[かた]}{仮[か]}{名[な]}");
     const furigana = convertText("{振[ふ]}り{仮[が]}{名[な]}");
 
-    result.innerHTML = `${kanji}<br>${stats.correctKanji}/${stats.totalKanji}<br>${hiragana}<br>${stats.correctHiragana}/${stats.totalHiragana}<br>${katakana}<br>${stats.correctKatakana}/${stats.totalKatakana}`;
+    result.innerHTML = `<span>${kanji}<br>${stats.correctKanji}/${stats.totalKanji}</span><span>${hiragana}<br>${stats.correctHiragana}/${stats.totalHiragana}</span><span>${katakana}<br>${stats.correctKatakana}/${stats.totalKatakana}</span>`;
 
     stats.state = state.COMPLETE;
 }
