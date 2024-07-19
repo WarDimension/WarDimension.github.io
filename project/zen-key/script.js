@@ -423,6 +423,10 @@ function applyInputToRuby(inputSegment, arrayRuby){
             furiganaElements.forEach((furigana, j) => {
                 const furiganaText = furigana.getAttribute("data-original").replace("<i class='material-icons'>keyboard_return</i>", "⏎");
 
+                if(input.length > furiganaElements.length && i < inputSegment.length - 1){
+                    inputSegment[i + 1] = input.slice(furiganaElements.length) + inputSegment[i + 1];
+                }
+
                 if(input[j] == null){
                     furigana.classList.remove("correct", "incorrect");
                 }
@@ -437,7 +441,7 @@ function applyInputToRuby(inputSegment, arrayRuby){
                 }
             });
 
-            if(input === furiganaRT.innerText && !ruby.classList.contains("semi-incorrect")){
+            if(input.includes(furiganaRT.innerText) && !ruby.classList.contains("semi-incorrect")){
                 ruby.classList.add("semi-correct");
             }
             else if(input != "" && furiganaRT.innerText.includes(input)){
