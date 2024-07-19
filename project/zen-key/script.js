@@ -482,7 +482,7 @@ function update(input = "", e = {"inputType": null}){
 
     scrollIntoView();
 
-    if((stats.progress == stats.totalText && stats.correctPercentage == 100 && (e.inputType === "ばか" || checkInput[checkInput.length - 1] === "⏎")) || (checkInput.length > inputSegment.join("").length && checkInput[checkInput.length - 1] === "⏎")){
+    if(stats.progress == stats.totalText && stats.correctPercentage == 100 || (checkInput.length > inputSegment.join("").length && checkInput[checkInput.length - 1] === "⏎")){
         typingComplete();
     }
 }
@@ -493,7 +493,7 @@ typingInput.addEventListener("keydown", function(e) {
         e.preventDefault();
     }
     else if(e.code === "Enter"){
-        update(typingInput.value, {"inputType": "ばか"});
+        //update(typingInput.value, {"inputType": "ばか"});
     }
     else if(e.code === "Backspace"){
         update(typingInput.value, {"inputType": "バックスペース"});
@@ -502,7 +502,7 @@ typingInput.addEventListener("keydown", function(e) {
 
 typingInput.addEventListener("keyup", function(e) {
     if(e.code === "Space"){
-        update(typingInput.value, {"inputType": "ばか"});
+        //update(typingInput.value, {"inputType": "ばか"});
     }
 });
 
