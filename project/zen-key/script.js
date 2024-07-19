@@ -125,9 +125,6 @@ let stats = {
     "correctFurigana": 0,
     "totalFurigana": 0,
     "correctPercentage": 0,
-    "overallCorrect": 0,
-    "overallIncorrect": 0,
-    "accuracy": 0,
     "progress": 0,
     "totalText": 0
 };
@@ -156,7 +153,6 @@ function updateStats(){
     stats.correctFurigana = typingTarget.querySelectorAll(".furigana.correct").length;
     stats.progress = typingTarget.querySelectorAll(".base.correct, .base.semi-correct, .base.incorrect, .semi-correct .base").length;
     stats.correctPercentage = computePercentage();
-    stats.accuracy = computeAccuracy();
 
     computeSpeed();
 
@@ -186,15 +182,9 @@ function computePercentage(){
     return totalPercentageRound;
 }
 
-function computeAccuracy(){
-    if(stats.overallCorrect == 0 && stats.overallIncorrect == 0) return 100;
-
-    return 100 - (stats.overallIncorrect / stats.overallCorrect) * 100;
-}
-
 function updateLiveStats(){
     updateStats();
-    statsElement.innerText = `${stats.accuracy}%`;
+    statsElement.innerText = `${stats.correctPercentage}%`;
 }
 updateLiveStats();
 
