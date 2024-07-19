@@ -218,6 +218,7 @@ function countSmallKana(str){
 }
 
 function typingComplete(){
+    id = 0;
     startTime = null;
     typingInput.value = "";
 
