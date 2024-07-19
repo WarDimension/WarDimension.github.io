@@ -346,8 +346,6 @@ function getInputSegment(input, arrayRuby){
         }
     });
 
-    console.log(segment);
-
     return segment;
 }
 
