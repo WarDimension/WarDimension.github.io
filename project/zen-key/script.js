@@ -173,8 +173,6 @@ function updateStats(){
     stats.correctPercentage = computePercentage();
 
     computeSpeed();
-
-    console.table(stats);
 }
 
 let startTime = null;
@@ -182,7 +180,6 @@ let startTime = null;
 function startTyping(){
     startTime = new Date();
     stats.state = state.TYPING;
-    console.log("start");
 }
 
 function computeSpeed(){
@@ -233,7 +230,6 @@ function typingComplete(){
     result.innerHTML = `${kanji}<br>${stats.correctKanji}/${stats.totalKanji}<br>${hiragana}<br>${stats.correctHiragana}/${stats.totalHiragana}<br>${katakana}<br>${stats.correctKatakana}/${stats.totalKatakana}`;
 
     stats.state = state.COMPLETE;
-    console.log("complete");
 }
 
 function nextRound(){
@@ -468,7 +464,6 @@ function update(input = "", e = {"inputType": null}){
     let inputSegment = getInputSegment(checkInput, arrayRuby);
 
     if(e.inputType === "バックスペース" && checkInput.length > inputSegment.join("").length){
-        console.log("in");
         const index = inputSegment.length - 1;
         inputSegment[index] = inputSegment[index].slice(0, inputSegment[index].length);
         typingInput.value = inputSegment.join("");
