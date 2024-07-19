@@ -13,8 +13,6 @@ const typingData = [
     }
 ];
 
-// TO DO: make stats progress works, then detect if progress is 100% and make the complete typing works, add the scroll into view on the typing target
-
 const typingTarget = document.querySelector(".typing-target");
 const flexContainer = document.querySelector(".flex-container");
 const typingInput = document.querySelector(".typing-input");
