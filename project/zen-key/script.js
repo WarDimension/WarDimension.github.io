@@ -228,7 +228,7 @@ function typingComplete(){
 
     result.removeAttribute("hidden");
 
-    result.innerHTML = `${convertText("{漢[かん]}{字[じ]}")}\n${convertText("{平[ひら]}{仮[が]}{名[な]}")}\n${convertText("{片[かた]}{仮[か]}{名[な]}")}`;
+    result.innerHTML = `${convertText("{漢[かん]}{字[じ]}")}<br>${convertText("{平[ひら]}{仮[が]}{名[な]}")}<br>${convertText("{片[かた]}{仮[か]}{名[な]}")}`;
 
     stats.state = state.COMPLETE;
     console.log("complete");
