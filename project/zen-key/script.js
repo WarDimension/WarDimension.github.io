@@ -167,7 +167,7 @@ function updateStats(){
     stats.correctKatakana = typingTarget.querySelectorAll(".katakana .correct").length;
     stats.semiCorrectKatakana = typingTarget.querySelectorAll(".katakana .semi-correct").length;
     stats.correctFurigana = typingTarget.querySelectorAll(".furigana.correct").length;
-    stats.progress = typingTarget.querySelectorAll(".base.correct, .base.semi-correct, .base.incorrect, .semi-correct .base").length;
+    stats.progress = typingTarget.querySelectorAll(".base.correct, .base.semi-correct, .base.incorrect, .semi-correct .base, .semi-incorrect .base").length;
     stats.correctPercentage = computePercentage();
 
     computeSpeed();
@@ -199,6 +199,8 @@ function computePercentage(){
 function updateLiveStats(){
     updateStats();
     statsElement.innerText = `${stats.progress}/${stats.totalText} ${stats.correctPercentage}%`;
+
+    if(stats.progress == stats.totalText && stats.correctPercentage != 100) statsElement.innerHTML = "press <i class='material-icons'>keyboard_return</i> to complete";
 }
 updateLiveStats();
 
@@ -225,7 +227,7 @@ function typingComplete(){
     const katakana = convertText("{片[かた]}{仮[か]}{名[な]}");
     const furigana = convertText("{振[ふ]}り{仮[が]}{名[な]}");
 
-    result.innerHTML = `<span class="percentage">${stats.correctPercentage}%</span><br><span><span>${kanji}<br>${stats.correctKanji}/${stats.totalKanji}</span><span>${hiragana}<br>${stats.correctHiragana}/${stats.totalHiragana}</span><span>${katakana}<br>${stats.correctKatakana}/${stats.totalKatakana}</span></span><br><span class="continue">press <i class='material-icons'>keyboard_return</i> or click here to continue</span>`;
+    result.innerHTML = `<span class="percentage">${stats.correctPercentage}%</span><br><span><span>${kanji}<br>${stats.correctKanji}/${stats.totalKanji}</span><span>${hiragana}<br>${stats.correctHiragana}/${stats.totalHiragana}</span><span>${katakana}<br>${stats.correctKatakana}/${stats.totalKatakana}</span></span><br><span class="continue">press <i class="material-icons">keyboard_return</i> or click here to continue</span>`;
 
     stats.state = state.COMPLETE;
 }

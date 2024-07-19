@@ -117,7 +117,7 @@ p, .typing-input{
     font-size: 0.8em;
     margin-top: 20px;
 }
-.result .material-icons{
+.result .material-icons, .stats .material-icons{
     margin: 0;
     vertical-align: middle;
 }
