@@ -23,8 +23,6 @@ const source = document.querySelector(".source");
 const statsElement = document.querySelector(".stats");
 const result = document.querySelector(".result");
 
-let id = 0;
-
 function convertText(text){
     const charArray = text.split("");
     let type = "kana base";
@@ -36,7 +34,6 @@ function convertText(text){
 
     charArray.forEach(char => {
         newRuby.className = "typing-target-ruby";
-        newRuby.id = id;
         newSpan.setAttribute("data-original", char.replace("\n", "<i class='material-icons'>keyboard_return</i>"));
         switch(char){
             case "{":
@@ -144,7 +141,6 @@ const statsReset = {
 let previousRandom = -1;
 
 function getRandomText(){
-    id = 0;
     let randomIndex = Math.floor(Math.random() * typingData.length);
     while(randomIndex == previousRandom){
         randomIndex = Math.floor(Math.random() * typingData.length);
