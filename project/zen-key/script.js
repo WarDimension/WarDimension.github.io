@@ -107,9 +107,9 @@ function convertText(text){
 }
 
 const state = {
-    "UNSTARTED": 0,
-    "TYPING": 1,
-    "COMPLETE": 2
+    "UNSTARTED": "UNSTARTED",
+    "TYPING": "TYPING",
+    "COMPLETE": "COMPLETE"
 }
 
 let stats = {
@@ -454,7 +454,7 @@ function applyInputToRuby(inputSegment, arrayRuby){
 }
 
 function update(input = "", e = {"inputType": null}){
-    if(stats.state == state.UNSTARTED){
+    if(stats.state === state.UNSTARTED){
         startTyping();
     }
 
@@ -476,7 +476,7 @@ function update(input = "", e = {"inputType": null}){
 
     applyInputToRuby(inputSegment, arrayRuby);
 
-    if(stats.state == state.TYPING) stats.keyPressed++;
+    if(stats.state === state.TYPING) stats.keyPressed++;
 
     updateLiveStats();
 
@@ -506,7 +506,7 @@ document.addEventListener("keydown", function(e) {
     if((e.ctrlKey || e.metaKey) && (e.key === "a" || e.key === "v")){
         e.preventDefault();
     }
-    else if(e.code === "Enter" && stats.state == state.COMPLETE){
+    else if(e.code === "Enter" && stats.state === state.COMPLETE){
         nextRound();
     }
     else if(e.code === "Backspace"){
@@ -515,7 +515,7 @@ document.addEventListener("keydown", function(e) {
 });
 
 document.addEventListener("keyup", function(e) {
-    if(e.code === "Enter" && stats.state == state.UNSTARTED){
+    if(e.code === "Enter" && stats.state === state.UNSTARTED){
         typingInput.removeAttribute("hidden");
     }
 
@@ -523,7 +523,7 @@ document.addEventListener("keyup", function(e) {
 });
 
 document.addEventListener("click", function() {
-    if(stats.state == state.COMPLETE){
+    if(stats.state === state.COMPLETE){
         nextRound();
         typingInput.removeAttribute("hidden");
     }
