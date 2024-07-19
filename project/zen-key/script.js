@@ -20,6 +20,7 @@ const flexContainer = document.querySelector(".flex-container");
 const typingInput = document.querySelector(".typing-input");
 const rawInput = document.querySelector(".raw-input-container");
 const source = document.querySelector(".source");
+const statsElement = document.querySelector(".stats");
 
 let id = 0;
 
@@ -155,11 +156,18 @@ function updateStats(){
     stats.correctFurigana = typingTarget.querySelectorAll(".furigana.correct").length;
     stats.progress = typingTarget.querySelectorAll(".base.correct, .base.semi-correct, .base.incorrect, .semi-correct .base").length;
     stats.correctPercentage = computePercentage();
+    stats.accuracy = computeAccuracy();
 
-    stats.keyPressed++;
     computeSpeed();
 
     console.table(stats);
+}
+
+let startTime = null;
+
+function startTyping(){
+    startTime = new Date();
+    console.log("start");
 }
 
 function computeSpeed(){
@@ -173,8 +181,22 @@ function computePercentage(){
     const total = ((stats.correctKanji + stats.correctHiragana + stats.correctKatakana) / (stats.totalKanji + stats.totalHiragana + stats.totalKatakana)) + (((stats.correctFurigana + stats.semiCorrectHiragana + stats.semiCorrectKatakana) / (stats.totalFurigana + stats.totalHiragana + stats.totalKatakana)) / 2);
     const totalPercentageRound = Math.round(((total * 100) + Number.EPSILON) * 100) / 100;
 
+    if(isNaN(totalPercentageRound)) return 0;
+
     return totalPercentageRound;
 }
+
+function computeAccuracy(){
+    if(stats.overallCorrect == 0 && stats.overallIncorrect == 0) return 100;
+
+    return 100 - (stats.overallIncorrect / stats.overallCorrect) * 100;
+}
+
+function updateLiveStats(){
+    updateStats();
+    statsElement.innerText = stats.accuracy;
+}
+updateLiveStats();
 
 function countSmallKana(str){
     const smallKanaRegex = /[ぁぃぅぇぉゃゅょっァィゥェォャュョッ]/g;
@@ -420,7 +442,9 @@ function update(input = "", e = {"inputType": null}){
 
     applyInputToRuby(inputSegment, arrayRuby);
 
-    updateStats();
+    stats.keyPressed++;
+
+    updateLiveStats();
 
     setCaret();
 
@@ -437,13 +461,6 @@ function update(input = "", e = {"inputType": null}){
     }
     //typingComplete(checkInput, inputSegment.join(""));
     //console.table(stats);
-}
-
-let startTime = null;
-
-function startTyping(){
-    startTime = new Date();
-    console.log("start");
 }
 
 function typingComplete(){
