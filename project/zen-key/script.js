@@ -240,7 +240,8 @@ function nextRound(){
 
     result.setAttribute("hidden", "");
     result.innerHTML = "";
-    
+
+    setCaret();
     setStats();
     updateLiveStats();
 }
