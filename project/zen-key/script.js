@@ -220,6 +220,7 @@ function countSmallKana(str){
 }
 
 function typingComplete(){
+    startTime = null;
     typingInput.value = "";
     typingInput.setAttribute("hidden", "");
     stats.state = state.COMPLETE;
