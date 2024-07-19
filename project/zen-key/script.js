@@ -194,7 +194,7 @@ function computeAccuracy(){
 
 function updateLiveStats(){
     updateStats();
-    statsElement.innerText = stats.accuracy;
+    statsElement.innerText = `${stats.accuracy}%`;
 }
 updateLiveStats();
 
@@ -376,14 +376,16 @@ function applyInputToRuby(inputSegment, arrayRuby){
             }
 
             baseElements.forEach((base, j) => {
+                const baseText = base.getAttribute("data-original").replace("<i class='material-icons'>keyboard_return</i>", "⏎");
+
                 if(input[j] == null){
                     base.classList.remove("correct", "incorrect");
                 }
-                else if(input[j] === base.getAttribute("data-original").replace("<i class='material-icons'>keyboard_return</i>", "⏎")){
+                else if(input[j] === baseText){
                     unsetInputToElement(base);
                     base.classList.add("correct");
                 }
-                else if(areSameSound(input[j], base.getAttribute("data-original"))){
+                else if(areSameSound(input[j], baseText)){
                     setInputToElement(base, input[j]);
                     base.classList.add("semi-correct");
                 }
@@ -395,10 +397,12 @@ function applyInputToRuby(inputSegment, arrayRuby){
         }
         else{
             furiganaElements.forEach((furigana, j) => {
+                const furiganaText = furigana.getAttribute("data-original").replace("<i class='material-icons'>keyboard_return</i>", "⏎");
+
                 if(input[j] == null){
                     furigana.classList.remove("correct", "incorrect");
                 }
-                else if(input[j] === furigana.getAttribute("data-original").replace("<i class='material-icons'>keyboard_return</i>", "⏎")){
+                else if(input[j] === furiganaText){
                     unsetInputToElement(furigana);
                     furigana.classList.add("correct");
                 }
