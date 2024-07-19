@@ -223,7 +223,13 @@ function typingComplete(){
 
     result.removeAttribute("hidden");
 
-    result.innerHTML = `${convertText("{漢[かん]}{字[じ]}")}<br>${convertText("{平[ひら]}{仮[が]}{名[な]}")}<br>${convertText("{片[かた]}{仮[か]}{名[な]}")}`;
+    //${}
+    const kanji = convertText("{漢[かん]}{字[じ]}");
+    const hiragana = convertText("{平[ひら]}{仮[が]}{名[な]}");
+    const katakana = convertText("{片[かた]}{仮[か]}{名[な]}");
+    const furigana = convertText("{振[ふ]}り{仮[が]}{名[な]}");
+
+    result.innerHTML = `${kanji}<br>${stats.correctKanji}/${stats.totalKanji}<br>${hiragana}<br>${stats.correctHiragana}/${stats.totalHiragana}<br>${katakana}<br>${stats.correctKatakana}/${stats.totalKatakana}`;
 
     stats.state = state.COMPLETE;
     console.log("complete");
@@ -435,7 +441,7 @@ function applyInputToRuby(inputSegment, arrayRuby){
                 }
             });
 
-            if(input === furiganaRT.innerText){
+            if(input === furiganaRT.innerText && !ruby.classList.contains("semi-incorrect")){
                 ruby.classList.add("semi-correct");
             }
             else if(input != "" && furiganaRT.innerText.includes(input)){
