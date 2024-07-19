@@ -329,7 +329,7 @@ function getInputSegment(input, arrayRuby){
                 segment.push(input.slice(0, kanjiElements.length));
                 input = input.slice(kanjiElements.length);
             }
-            else if(furiganaElements.length == 0){
+            else if(furiganaElements.length == 0 || (furiganaElements.length > 0 && checkCharacterType(input.slice(0, furiganaElements.length)) === "kanji")){
                 segment.push(input[0]);
                 input = input.slice(1);
             }
@@ -343,6 +343,8 @@ function getInputSegment(input, arrayRuby){
             }
         }
     });
+
+    console.log(segment);
 
     return segment;
 }
@@ -392,12 +394,8 @@ function applyInputToRuby(inputSegment, arrayRuby){
 
         if(input == null){
         }
-        else if(checkCharacterType(input) === "kanji" || furiganaElements.length == 0 || [" ", "　", "⏎"].some(char => input.includes(char))){
+        else if(checkCharacterType(input[0]) === "kanji" || (input.length < furiganaElements.length && inputSegment[i + 1] !== "") || furiganaElements.length == 0 || [" ", "　", "⏎"].some(char => input.includes(char))){
             if(furiganaRT) furiganaRT.classList.add("converted");
-
-            if(input.length > baseElements.length && i < inputSegment.length - 1){
-                inputSegment[i + 1] = input.slice(baseElements.length) + inputSegment[i + 1];
-            }
 
             baseElements.forEach((base, j) => {
                 const baseText = base.getAttribute("data-original").replace("<i class='material-icons'>keyboard_return</i>", "⏎");
@@ -422,10 +420,6 @@ function applyInputToRuby(inputSegment, arrayRuby){
         else{
             furiganaElements.forEach((furigana, j) => {
                 const furiganaText = furigana.getAttribute("data-original").replace("<i class='material-icons'>keyboard_return</i>", "⏎");
-
-                if(input.length > furiganaElements.length && i < inputSegment.length - 1){
-                    inputSegment[i + 1] = input.slice(furiganaElements.length) + inputSegment[i + 1];
-                }
 
                 if(input[j] == null){
                     furigana.classList.remove("correct", "incorrect");
