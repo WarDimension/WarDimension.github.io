@@ -101,8 +101,6 @@ function convertText(text){
                 }
                 break;
         }
-        
-        if(type === "kana base") id++;
     });
 
     return newText.innerHTML;
