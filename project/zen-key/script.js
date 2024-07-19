@@ -108,7 +108,7 @@ function convertText(text){
         if(type === "kana base") id++;
     });
 
-    return newText;
+    return newText.innerHTML;
 }
 
 const state = {
@@ -149,8 +149,8 @@ function getRandomText(){
         randomIndex = Math.floor(Math.random() * typingData.length);
     }
     previousRandom = randomIndex;
-    typingTarget.innerHTML = convertText(typingData[randomIndex].text).innerHTML;
-    source.innerHTML = convertText(typingData[randomIndex].source).innerHTML;
+    typingTarget.innerHTML = convertText(typingData[randomIndex].text);
+    source.innerHTML = convertText(typingData[randomIndex].source);
 }
 getRandomText();
 
@@ -227,6 +227,8 @@ function typingComplete(){
     source.setAttribute("hidden", "");
 
     result.removeAttribute("hidden");
+
+    result.innerHTML = `${convertText("{漢[かん]}{字[じ]}")}\n${convertText("{平[ひら]}{仮[が]}{名[な]}")}\n${convertText("{片[かた]}{仮[か]}{名[な]}")}`;
 
     stats.state = state.COMPLETE;
     console.log("complete");
