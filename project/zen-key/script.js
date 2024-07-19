@@ -223,8 +223,11 @@ function typingComplete(){
     startTime = null;
     typingInput.value = "";
     typingInput.setAttribute("hidden", "");
+
+    typingTarget.setAttribute("hidden", "");
+    result.removeAttribute("hidden");
+
     stats.state = state.COMPLETE;
-    //console.table(stats);
     console.log("complete");
 }
 
@@ -472,12 +475,6 @@ function update(input = "", e = {"inputType": null}){
     scrollIntoView();
 
     if((stats.progress == stats.totalText && stats.correctPercentage == 100 && (e.inputType === "ばか" || checkInput[checkInput.length - 1] === "⏎")) || (checkInput.length > inputSegment.join("").length && checkInput[checkInput.length - 1] === "⏎")){
-        //countCorrectKanji();
-        //console.log(stats);
-        //getRandomText();
-        //typingInput.value = "";
-        //update("", {"inputType": null});
-        //startTime = null;
         typingComplete();
     }
 }
@@ -501,7 +498,7 @@ typingInput.addEventListener("keyup", function(e) {
     }
 });
 
-document.addEventListener("keyup", function(e) {
+document.addEventListener("keydown", function(e) {
     if(e.code === "Enter" && stats.state == state.COMPLETE){
         nextRound();
     }
