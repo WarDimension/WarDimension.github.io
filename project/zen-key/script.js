@@ -222,9 +222,12 @@ function countSmallKana(str){
 function typingComplete(){
     startTime = null;
     typingInput.value = "";
-    typingInput.setAttribute("hidden", "");
 
+    typingInput.setAttribute("hidden", "");
     typingTarget.setAttribute("hidden", "");
+    statsElement.setAttribute("hidden", "");
+    source.setAttribute("hidden", "");
+
     result.removeAttribute("hidden");
 
     stats.state = state.COMPLETE;
@@ -233,10 +236,11 @@ function typingComplete(){
 
 function nextRound(){
     getRandomText();
-    typingInput.removeAttribute("hidden");
-    //typingInput.value = "";
-    //update("", {"inputType": null});
-    //startTime = null;
+    typingTarget.removeAttribute("hidden");
+    statsElement.removeAttribute("hidden");
+    source.removeAttribute("hidden");
+
+    result.setAttribute("hidden", "");
 }
 
 function setCaret(){
@@ -502,13 +506,20 @@ document.addEventListener("keydown", function(e) {
     if(e.code === "Enter" && stats.state == state.COMPLETE){
         nextRound();
     }
+});
+
+document.addEventListener("keyup", function(e) {
+    if(e.code === "Enter" && stats.state == state.UNSTARTED){
+        typingInput.removeAttribute("hidden");
+    }
 
     typingInput.focus();
 });
 
-document.addEventListener("click", function(e) {
+document.addEventListener("click", function() {
     if(stats.state == state.COMPLETE){
         nextRound();
+        typingInput.removeAttribute("hidden");
     }
 
     typingInput.focus();
