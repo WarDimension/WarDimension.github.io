@@ -107,6 +107,9 @@ p, .typing-input{
 .result{
     text-align: center;
 }
+.result > span:not(:first-child){
+    margin-left: 25px;
+}
 .typing-target-container{
     position: relative;
     margin: auto;
