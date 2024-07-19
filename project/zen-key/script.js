@@ -159,6 +159,7 @@ function setStats(){
     stats.totalText = typingTarget.querySelectorAll(".base").length;
     stats.state = state.UNSTARTED;
 }
+setStats();
 
 function updateStats(){
     stats.correctKanji = typingTarget.querySelectorAll(".kanji.correct").length;
@@ -245,6 +246,7 @@ function nextRound(){
     result.innerHTML = "";
     
     setStats();
+    updateLiveStats();
 }
 
 function setCaret(){
@@ -488,15 +490,8 @@ function update(input = "", e = {"inputType": null}){
 }
 
 typingInput.addEventListener("keydown", function(e) {
-    this.setSelectionRange(this.value.length, this.value.length);
-    if((e.ctrlKey || e.metaKey) && (e.key === "a" || e.key === "v")){
-        e.preventDefault();
-    }
-    else if(e.code === "Enter"){
+    if(e.code === "Enter"){
         //update(typingInput.value, {"inputType": "ばか"});
-    }
-    else if(e.code === "Backspace"){
-        update(typingInput.value, {"inputType": "バックスペース"});
     }
 });
 
@@ -507,8 +502,15 @@ typingInput.addEventListener("keyup", function(e) {
 });
 
 document.addEventListener("keydown", function(e) {
-    if(e.code === "Enter" && stats.state == state.COMPLETE){
+    typingInput.setSelectionRange(typingInput.value.length, typingInput.value.length);
+    if((e.ctrlKey || e.metaKey) && (e.key === "a" || e.key === "v")){
+        e.preventDefault();
+    }
+    else if(e.code === "Enter" && stats.state == state.COMPLETE){
         nextRound();
+    }
+    else if(e.code === "Backspace"){
+        update(typingInput.value, {"inputType": "バックスペース"});
     }
 });
 
