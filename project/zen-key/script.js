@@ -467,7 +467,7 @@ typingInput.addEventListener("keydown", function(e) {
     if((e.ctrlKey || e.metaKey) && (e.key === "a" || e.key === "v")){
         e.preventDefault();
     }
-    else if(e.code === "Enter" || e.code === "Space"){
+    else if(e.code === "Enter"){
         update(typingInput.value, {"inputType": "ばか"});
     }
     else if(e.code === "Backspace"){
@@ -475,9 +475,8 @@ typingInput.addEventListener("keydown", function(e) {
     }
 });
 
-/*
 typingInput.addEventListener("keyup", function(e) {
-    if(e.code === "Enter"){
-        //typingComplete();
+    if(e.code === "Space"){
+        update(typingInput.value, {"inputType": "ばか"});
     }
-});*/
+});
