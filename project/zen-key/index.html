@@ -22,6 +22,7 @@
                 <div class="flex-container">
                     <div class="typing-target-container">
                         <p class="typing-target"></p>
+                        <p class="result" hidden>result</p>
                     </div>
                 </div>
                 <textarea class="typing-input" placeholder="-" oninput="update(this.value, event)" onclick="this.setSelectionRange(this.value.length, this.value.length)" onblur="this.focus({ preventScroll: true })" autofocus></textarea>

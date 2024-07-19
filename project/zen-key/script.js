@@ -21,6 +21,7 @@ const typingInput = document.querySelector(".typing-input");
 const rawInput = document.querySelector(".raw-input-container");
 const source = document.querySelector(".source");
 const statsElement = document.querySelector(".stats");
+const result = document.querySelector(".result");
 
 let id = 0;
 
@@ -110,6 +111,12 @@ function convertText(text){
     return newText;
 }
 
+const state = {
+    "UNSTARTED": 0,
+    "TYPING": 1,
+    "COMPLETE": 2
+}
+
 let stats = {
     "keyPressed": 0,
     "KPM": 0,
@@ -126,12 +133,28 @@ let stats = {
     "totalFurigana": 0,
     "correctPercentage": 0,
     "progress": 0,
-    "totalText": 0
+    "totalText": 0,
+    "state": state.UNSTARTED
 };
 
 const statsReset = {
     ...stats
 };
+
+let previousRandom = -1;
+
+function getRandomText(){
+    let randomIndex = Math.floor(Math.random() * typingData.length);
+    while(randomIndex == previousRandom){
+        randomIndex = Math.floor(Math.random() * typingData.length);
+    }
+    previousRandom = randomIndex;
+    typingTarget.innerHTML = convertText(typingData[randomIndex].text).innerHTML;
+    source.innerHTML = convertText(typingData[randomIndex].source).innerHTML;
+    
+    setStats();
+}
+getRandomText();
 
 function setStats(){
     stats = statsReset;
@@ -141,6 +164,7 @@ function setStats(){
     stats.totalKatakana = typingTarget.querySelectorAll(".katakana").length;
     stats.totalFurigana = typingTarget.querySelectorAll(".furigana").length;
     stats.totalText = typingTarget.querySelectorAll(".base").length;
+    stats.state = state.UNSTARTED;
 }
 
 function updateStats(){
@@ -163,6 +187,7 @@ let startTime = null;
 
 function startTyping(){
     startTime = new Date();
+    stats.state = state.TYPING;
     console.log("start");
 }
 
@@ -184,7 +209,7 @@ function computePercentage(){
 
 function updateLiveStats(){
     updateStats();
-    statsElement.innerText = `${stats.correctPercentage}%`;
+    statsElement.innerText = `${stats.progress}/${stats.totalText} ${stats.correctPercentage}%`;
 }
 updateLiveStats();
 
@@ -194,20 +219,21 @@ function countSmallKana(str){
     return matches ? matches.length : 0;
 }
 
-let previousRandom = -1;
-
-function getRandomText(){
-    let randomIndex = Math.floor(Math.random() * typingData.length);
-    while(randomIndex == previousRandom){
-        randomIndex = Math.floor(Math.random() * typingData.length);
-    }
-    previousRandom = randomIndex;
-    typingTarget.innerHTML = convertText(typingData[randomIndex].text).innerHTML;
-    source.innerHTML = convertText(typingData[randomIndex].source).innerHTML;
-    
-    setStats();
+function typingComplete(){
+    typingInput.value = "";
+    typingInput.setAttribute("hidden", "");
+    stats.state = state.COMPLETE;
+    //console.table(stats);
+    console.log("complete");
 }
-getRandomText();
+
+function nextRound(){
+    getRandomText();
+    typingInput.removeAttribute("hidden");
+    //typingInput.value = "";
+    //update("", {"inputType": null});
+    //startTime = null;
+}
 
 function setCaret(){
     const caretElements = typingTarget.querySelectorAll(".caret, .caret-right");
@@ -414,7 +440,7 @@ function applyInputToRuby(inputSegment, arrayRuby){
 }
 
 function update(input = "", e = {"inputType": null}){
-    if(startTime == null && e.inputType != null){
+    if(stats.state == state.UNSTARTED){
         startTyping();
     }
 
@@ -453,13 +479,6 @@ function update(input = "", e = {"inputType": null}){
         //startTime = null;
         typingComplete();
     }
-    //typingComplete(checkInput, inputSegment.join(""));
-    //console.table(stats);
-}
-
-function typingComplete(){
-    console.table(stats);
-    console.log("complete");
 }
 
 typingInput.addEventListener("keydown", function(e) {
@@ -479,4 +498,20 @@ typingInput.addEventListener("keyup", function(e) {
     if(e.code === "Space"){
         update(typingInput.value, {"inputType": "ばか"});
     }
+});
+
+document.addEventListener("keyup", function(e) {
+    if(e.code === "Enter" && stats.state == state.COMPLETE){
+        nextRound();
+    }
+
+    typingInput.focus();
+});
+
+document.addEventListener("click", function(e) {
+    if(stats.state == state.COMPLETE){
+        nextRound();
+    }
+
+    typingInput.focus();
 });
