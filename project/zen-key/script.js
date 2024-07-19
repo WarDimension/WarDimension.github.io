@@ -144,6 +144,7 @@ const statsReset = {
 let previousRandom = -1;
 
 function getRandomText(){
+    id = 0;
     let randomIndex = Math.floor(Math.random() * typingData.length);
     while(randomIndex == previousRandom){
         randomIndex = Math.floor(Math.random() * typingData.length);
@@ -218,7 +219,6 @@ function countSmallKana(str){
 }
 
 function typingComplete(){
-    id = 0;
     startTime = null;
     typingInput.value = "";
 
@@ -242,6 +242,7 @@ function nextRound(){
     source.removeAttribute("hidden");
 
     result.setAttribute("hidden", "");
+    result.innerHTML = "";
     
     setStats();
 }
