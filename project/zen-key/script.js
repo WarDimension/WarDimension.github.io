@@ -1,6 +1,6 @@
 const typingData = [
     {
-        "text": "あめにしもののに",
+        "text": "{明日[あした]}アバタあめにしもののに",
         "source": "TEST"
     }/*
     {
@@ -132,9 +132,9 @@ let stats = {
     "progress": 0,
     "totalText": 0,
     "state": state.UNSTARTED,
-    "バックスペース": 0,
     "overallCorrect": 0,
-    "overallIncorrect": 0
+    "overallIncorrect": 0,
+    "accuracy": 0
 };
 
 const statsReset = {
@@ -198,22 +198,20 @@ function scrollIntoView(){
 let progressElementsLengthTemp = 0;
 let wasIncorrect = false;
 let incorrectTemp = 0;
+
 function countOverall(){
-    const progressElements = typingTarget.querySelectorAll(".correct, .semi-correct, .incorrect");
+    const progressElements = typingTarget.querySelectorAll(".correct, .incorrect");
     const lastProgress = progressElements[progressElements.length - 1];
 
     if(progressElementsLengthTemp == progressElements.length && !wasIncorrect) return;
 
     if(lastProgress.classList.contains("correct")){
-        if(!(lastProgress.classList.contains("kanji") || lastProgress.classList.contains("furigana"))){
-            stats.overallCorrect++;
-        }
-        else if(lastProgress.classList.contains("kanji")){
-        }
+        stats.overallCorrect++;
 
         if(wasIncorrect && stats.overallIncorrect > 0){
-            progressElementsLengthTemp > progressElements.length ? stats.overallIncorrect -= 2 : stats.overallIncorrect--;
+            stats.overallIncorrect = progressElementsLengthTemp > progressElements.length ? (stats.overallIncorrect > 1 ? stats.overallIncorrect - 2 : 0) : stats.overallIncorrect - 1;
         }
+
         wasIncorrect = false;
     }
     else{
@@ -225,8 +223,16 @@ function countOverall(){
     }
 
     progressElementsLengthTemp = progressElements.length;
+    computeAccuracy();
+}
 
-    console.log("correct: " + stats.overallCorrect + " incorrect: " + stats.overallIncorrect);
+function computeAccuracy(){
+    const accuracy = (stats.overallCorrect / (stats.overallCorrect + stats.overallIncorrect)) * 100;
+    const accuracyRound = Math.round((accuracy + Number.EPSILON) * 100) / 100;
+
+    stats.accuracy = accuracyRound;
+
+    console.log(stats.accuracy);
 }
 
 let startTime = null;
@@ -536,7 +542,6 @@ function update(input = "", e = {"inputType": null}){
     const backspace = e.inputType === "deleteContentBackward" || e.inputType === "バックスペース" || e.inputType === "バックスペースEND";
 
     if(stats.state === state.TYPING && e.inputType === "deleteContentBackward"){
-        stats.バックスペース++;
         if(progressElementsLengthTemp > 0) progressElementsLengthTemp--;
         wasIncorrect = false;
     }
