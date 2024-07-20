@@ -1,5 +1,9 @@
 const typingData = [
     {
+        "text": "あめにしもののに",
+        "source": "TEST"
+    }/*
+    {
         "text": "{古[ふる]}びたコトバ{繰[く]}り{返[かえ]}しつぶやいてみる\n{伸[の]}ばしたままの{爪[つめ]}{痕[あと]}はほら{消[き]}えないよ",
         "source": "{花[はな]}{残[のこ]}り{月[つき]} by nano.RIPE"
     },
@@ -10,7 +14,7 @@ const typingData = [
     {
         "text": "{斜[なな]}め{七[なな]}{十[じゅう]}{七[なな]}{度[ど]}の{並[なら]}びで{泣[な]}く{泣[な]}く{嘶[いなな]}くナナハン{七[なな]}{台[だい]}{難[なん]}なく{並[なら]}べて{長[なが]}{眺[なが]}め",
         "source": "{早[はや]}{口[くち]}{言[こと]}{葉[ば]}"
-    }
+    }*/
 ];
 
 const typingTarget = document.querySelector(".typing-target");
@@ -127,7 +131,10 @@ let stats = {
     "correctPercentage": 0,
     "progress": 0,
     "totalText": 0,
-    "state": state.UNSTARTED
+    "state": state.UNSTARTED,
+    "バックスペース": 0,
+    "overallCorrect": 0,
+    "overallIncorrect": 0
 };
 
 const statsReset = {
@@ -138,7 +145,7 @@ let previousRandom = -1;
 
 function getRandomText(){
     let randomIndex = Math.floor(Math.random() * typingData.length);
-    while(randomIndex == previousRandom){
+    while(randomIndex == previousRandom && typingData.length > 1){
         randomIndex = Math.floor(Math.random() * typingData.length);
     }
     previousRandom = randomIndex;
@@ -171,6 +178,55 @@ function updateStats(){
     stats.correctPercentage = computePercentage();
 
     computeSpeed();
+}
+
+/*
+function scrollIntoView(){
+    const caretElement = typingTarget.querySelector(".caret, .caret-right");
+
+    switch(caretElement.classList.contains("furigana")){
+        case true:
+            caretElement.parentElement.parentElement.querySelector(".kanji").scrollIntoView({ block: "center" });
+            break;
+        default:
+            caretElement.scrollIntoView({ block: "center" });
+            break;
+    }
+}
+*/
+
+let progressElementsLengthTemp = 0;
+let wasIncorrect = false;
+let incorrectTemp = 0;
+function countOverall(){
+    const progressElements = typingTarget.querySelectorAll(".correct, .semi-correct, .incorrect");
+    const lastProgress = progressElements[progressElements.length - 1];
+
+    if(progressElementsLengthTemp == progressElements.length && !wasIncorrect) return;
+
+    if(lastProgress.classList.contains("correct")){
+        if(!(lastProgress.classList.contains("kanji") || lastProgress.classList.contains("furigana"))){
+            stats.overallCorrect++;
+        }
+        else if(lastProgress.classList.contains("kanji")){
+        }
+
+        if(wasIncorrect && stats.overallIncorrect > 0){
+            progressElementsLengthTemp > progressElements.length ? stats.overallIncorrect -= 2 : stats.overallIncorrect--;
+        }
+        wasIncorrect = false;
+    }
+    else{
+        wasIncorrect = true;
+
+        if(progressElementsLengthTemp == progressElements.length) return;
+
+        stats.overallIncorrect++;
+    }
+
+    progressElementsLengthTemp = progressElements.length;
+
+    console.log("correct: " + stats.overallCorrect + " incorrect: " + stats.overallIncorrect);
 }
 
 let startTime = null;
@@ -476,6 +532,17 @@ function update(input = "", e = {"inputType": null}){
     applyInputToRuby(inputSegment, arrayRuby);
 
     if(stats.state === state.TYPING) stats.keyPressed++;
+    
+    const backspace = e.inputType === "deleteContentBackward" || e.inputType === "バックスペース" || e.inputType === "バックスペースEND";
+
+    if(stats.state === state.TYPING && e.inputType === "deleteContentBackward"){
+        stats.バックスペース++;
+        if(progressElementsLengthTemp > 0) progressElementsLengthTemp--;
+        wasIncorrect = false;
+    }
+    else if(!backspace){
+        countOverall();
+    }
 
     updateLiveStats();
 
