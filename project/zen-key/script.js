@@ -114,7 +114,7 @@ const state = {
     "COMPLETE": "COMPLETE"
 }
 
-let stats = {
+const statsReset = {
     "keyPressed": 0,
     "KPM": 0,
     "correctKanji": 0,
@@ -137,8 +137,8 @@ let stats = {
     "accuracy": 0
 };
 
-const statsReset = {
-    ...stats
+let stats = {
+    ...statsReset
 };
 
 let previousRandom = -1;
@@ -155,7 +155,9 @@ function getRandomText(){
 getRandomText();
 
 function setStats(){
-    stats = statsReset;
+    stats = {
+        ...statsReset
+    };
 
     stats.totalKanji = typingTarget.querySelectorAll(".kanji .kanji").length;
     stats.totalHiragana = typingTarget.querySelectorAll(".hiragana").length;
@@ -537,7 +539,7 @@ function update(input = "", e = {"inputType": null}){
 
     applyInputToRuby(inputSegment, arrayRuby);
 
-    if(stats.state === state.TYPING) stats.keyPressed++;
+    stats.keyPressed++;
     
     const backspace = e.inputType === "deleteContentBackward" || e.inputType === "バックスペース" || e.inputType === "バックスペースEND";
 
