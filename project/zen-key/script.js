@@ -466,6 +466,12 @@ function update(input = "", e = {"inputType": null}){
         typingInput.value = inputSegment.join("");
         typingInput.removeAttribute("hidden");
     }
+    else if(e.inputType === "deleteContentBackward" && checkInput.length > inputSegment.join("").length){
+        typingInput.setAttribute("hidden", "");
+        inputSegment[inputSegment.length - 1] = "";
+        typingInput.value = inputSegment.join("");
+        typingInput.removeAttribute("hidden");
+    }
 
     applyInputToRuby(inputSegment, arrayRuby);
 
