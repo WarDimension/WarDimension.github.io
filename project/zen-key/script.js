@@ -195,8 +195,8 @@ function computePersistentCorrect(){
 
 function computeSpeed(){
     const elapsedTime = new Date() - startTime;
-    const KPM = Math.round((((stats.keyPressed / elapsedTime) * 60000) + Number.EPSILON) * 100) / 100;
-    const CPM = Math.round((((stats.persistentCorrect / elapsedTime) * 60000) + Number.EPSILON) * 100) / 100;
+    const KPM = (stats.keyPressed / elapsedTime) * 60000;
+    const CPM = (stats.persistentCorrect / elapsedTime) * 60000;
 
     stats.KPM = KPM;
     stats.CPM = CPM;
@@ -213,7 +213,12 @@ function computePercentage(){
 
 function updateLiveStats(){
     updateStats();
-    statsElement.innerHTML = `${stats.progress}/${stats.totalText} ${stats.correctPercentage}% ${stats.CPM}<span class="unit">CMP</span> ${stats.KPM}<span class="unit">KPM</span>`;
+
+    const CPM = Math.round(stats.CPM);
+    const KPM = Math.round(stats.KPM);
+    const correctPercentage = Math.round(stats.correctPercentage);
+
+    statsElement.innerHTML = `${stats.progress}/${stats.totalText} ${correctPercentage}% ${CPM}<span class="unit">CMP</span> ${KPM}<span class="unit">KPM</span>`;
 
     if(stats.progress == stats.totalText && stats.correctPercentage != 100) statsElement.innerHTML = "fix your mistake or press <i class='material-icons'>keyboard_return</i> to complete";
 }
@@ -242,7 +247,16 @@ function typingComplete(){
     const katakana = convertText("{片[かた]}{仮[か]}{名[な]}");
     const furigana = convertText("{振[ふ]}り{仮[が]}{名[な]}");//not used for now
 
-    result.innerHTML = `<span>${stats.CPM}<span class="unit">CMP</span> ${stats.KPM}<span class="unit">KPM</span></span><br><span class="percentage">${stats.correctPercentage}%</span><br><span><span>${kanji}<br>${stats.correctKanji}/${stats.totalKanji}</span><span>${hiragana}<br>${stats.correctHiragana}/${stats.totalHiragana}</span><span>${katakana}<br>${stats.correctKatakana}/${stats.totalKatakana}</span></span><br><span class="continue">press <i class="material-icons">keyboard_return</i> or click here to continue</span>`;
+    const CPM = Math.round(stats.CPM);
+    const decimalCPM = Math.round((stats.CPM + Number.EPSILON) * 100) / 100;
+
+    const KPM = Math.round(stats.KPM);
+    const decimalKPM = Math.round((stats.KPM + Number.EPSILON) * 100) / 100;
+
+    const correctPercentage = Math.round(stats.correctPercentage);
+    const decimalCorrectPercentage = Math.round((stats.correctPercentage + Number.EPSILON) * 100) / 100;
+
+    result.innerHTML = `<span><span title="${decimalCPM} CPM">${CPM}<span class="unit">CMP</span></span> <span title="${decimalKPM} KPM">${KPM}<span class="unit">KPM</span></span></span><br><span class="percentage" title="${decimalCorrectPercentage}%">${correctPercentage}%</span><br><span class="character-result"><span>${kanji}<br>${stats.correctKanji}/${stats.totalKanji}</span><span>${hiragana}<br>${stats.correctHiragana}/${stats.totalHiragana}</span><span>${katakana}<br>${stats.correctKatakana}/${stats.totalKatakana}</span></span><br><span class="continue">press <i class="material-icons">keyboard_return</i> or click here to continue</span>`;
 
     stats.state = state.COMPLETE;
 }

@@ -111,7 +111,7 @@ p, .typing-input{
 .result{
     text-align: center;
 }
-.result > span > span:not(:first-child, .unit){
+.result > .character-result > span:not(:first-child){
     margin-left: 25px;
 }
 .result .percentage{
