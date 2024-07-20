@@ -54,7 +54,10 @@ function convertText(text){
                 break;
             case "}":
                 newRuby.classList.add("kanji");
-                newText.appendChild(newRuby);
+                newSpan.removeAttribute("data-original");
+                newSpan.appendChild(newRuby);
+                newText.appendChild(newSpan);
+                newSpan = document.createElement("span");
                 newRuby = document.createElement("ruby");
 
                 type = "kana base";
@@ -65,7 +68,9 @@ function convertText(text){
                 newRuby.classList.add("enter");
                 newRuby.appendChild(newSpan);
                 newSpan = document.createElement("span");
-                newText.appendChild(newRuby);
+                newSpan.appendChild(newRuby);
+                newText.appendChild(newSpan);
+                newSpan = document.createElement("span");
                 newRuby = document.createElement("ruby");
                 newSpan = document.createElement("span");
                 newText.appendChild(document.createElement("br"));
@@ -93,7 +98,9 @@ function convertText(text){
                         }
                         newRuby.appendChild(newSpan);
                         newSpan = document.createElement("span");
-                        newText.appendChild(newRuby);
+                        newSpan.appendChild(newRuby);
+                        newText.appendChild(newSpan);
+                        newSpan = document.createElement("span");
                         newRuby = document.createElement("ruby");
                         break;
                 }
