@@ -240,7 +240,7 @@ function typingComplete(){
     const kanji = convertText("{漢[かん]}{字[じ]}");
     const hiragana = convertText("{平[ひら]}{仮[が]}{名[な]}");
     const katakana = convertText("{片[かた]}{仮[か]}{名[な]}");
-    const furigana = convertText("{振[ふ]}り{仮[が]}{名[な]}");
+    const furigana = convertText("{振[ふ]}り{仮[が]}{名[な]}");//not used for now
 
     result.innerHTML = `<span>${stats.CPM}<span class="unit">CMP</span> ${stats.KPM}<span class="unit">KPM</span></span><br><span class="percentage">${stats.correctPercentage}%</span><br><span><span>${kanji}<br>${stats.correctKanji}/${stats.totalKanji}</span><span>${hiragana}<br>${stats.correctHiragana}/${stats.totalHiragana}</span><span>${katakana}<br>${stats.correctKatakana}/${stats.totalKatakana}</span></span><br><span class="continue">press <i class="material-icons">keyboard_return</i> or click here to continue</span>`;
 
