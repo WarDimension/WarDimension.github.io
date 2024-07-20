@@ -269,6 +269,8 @@ function setCaret(){
     else{
         lastProgressNext.classList.add("caret");
     }
+
+    scrollIntoView();
 }
 setCaret();
 
@@ -454,16 +456,15 @@ function update(input = "", e = {"inputType": null}){
     const arrayRuby = typingTarget.querySelectorAll(".typing-target-ruby");
     const checkInput = input.replaceAll("\n", "⏎");
 
-    if(input === ""){
-        flexContainer.scrollTo(0, 0);
-    }
-
     let inputSegment = getInputSegment(checkInput, arrayRuby);
 
     if(e.inputType === "バックスペース" && checkInput.length > inputSegment.join("").length){
-        const index = inputSegment.length - 1;
-        inputSegment[index] = inputSegment[index].slice(0, inputSegment[index].length);
+        typingInput.setAttribute("hidden", "");
+    }
+    else if(e.inputType === "バックスペースEND" && checkInput.length > inputSegment.join("").length){
+        inputSegment[inputSegment.length - 1] = "";
         typingInput.value = inputSegment.join("");
+        typingInput.removeAttribute("hidden");
     }
 
     applyInputToRuby(inputSegment, arrayRuby);
@@ -473,8 +474,6 @@ function update(input = "", e = {"inputType": null}){
     updateLiveStats();
 
     setCaret();
-
-    scrollIntoView();
 
     if(stats.progress == stats.totalText && stats.correctPercentage == 100 || (checkInput.length > inputSegment.join("").length && checkInput[checkInput.length - 1] === "⏎")){
         typingComplete();
@@ -509,6 +508,9 @@ document.addEventListener("keydown", function(e) {
 document.addEventListener("keyup", function(e) {
     if(e.code === "Enter" && stats.state === state.UNSTARTED){
         typingInput.removeAttribute("hidden");
+    }
+    else if(e.code === "Backspace"){
+        update(typingInput.value, {"inputType": "バックスペースEND"});
     }
 
     typingInput.focus();
