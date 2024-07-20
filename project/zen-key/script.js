@@ -381,7 +381,7 @@ function scrollIntoView(){
             break;
     }
 }
-//DEBUG, TEST WITH "ア千田"
+
 function getInputSegment(input, arrayRuby){
     let segment = [];
 
