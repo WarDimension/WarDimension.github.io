@@ -1,8 +1,4 @@
 const typingData = [
-    /*{
-        "text": "{明日[あした]}アバタあめにしもののに",
-        "source": "TEST"
-    }*/
     {
         "text": "{古[ふる]}びたコトバ{繰[く]}り{返[かえ]}しつぶやいてみる\n{伸[の]}ばしたままの{爪[つめ]}{痕[あと]}はほら{消[き]}えないよ",
         "source": "{花[はな]}{残[のこ]}り{月[つき]} by nano.RIPE"
@@ -117,6 +113,8 @@ const state = {
 const statsReset = {
     "keyPressed": 0,
     "KPM": 0,
+    "persistentCorrect": 0,
+    "CPM": "",
     "correctKanji": 0,
     "semiCorrectKanji": 0,
     "totalKanji": 0,
@@ -131,10 +129,7 @@ const statsReset = {
     "correctPercentage": 0,
     "progress": 0,
     "totalText": 0,
-    "state": state.UNSTARTED,
-    "overallCorrect": 0,
-    "overallIncorrect": 0,
-    "accuracy": 0
+    "state": state.UNSTARTED
 };
 
 let stats = {
@@ -182,64 +177,6 @@ function updateStats(){
     computeSpeed();
 }
 
-/*
-function scrollIntoView(){
-    const caretElement = typingTarget.querySelector(".caret, .caret-right");
-
-    switch(caretElement.classList.contains("furigana")){
-        case true:
-            caretElement.parentElement.parentElement.querySelector(".kanji").scrollIntoView({ block: "center" });
-            break;
-        default:
-            caretElement.scrollIntoView({ block: "center" });
-            break;
-    }
-}
-*/
-
-let progressElementsLengthTemp = 0;
-let wasIncorrect = false;
-let incorrectTemp = 0;
-
-function countOverall(){
-    const progressElements = typingTarget.querySelectorAll(".correct, .incorrect");
-    const lastProgress = progressElements[progressElements.length - 1];
-
-    if(progressElementsLengthTemp == progressElements.length && !wasIncorrect) return;
-
-    if(lastProgress.classList.contains("correct")){
-        stats.overallCorrect++;
-
-        if(wasIncorrect && stats.overallIncorrect > 0){
-            stats.overallIncorrect = progressElementsLengthTemp > progressElements.length ? (stats.overallIncorrect > 1 ? stats.overallIncorrect - 2 : 0) : stats.overallIncorrect - 1;
-        }
-
-        wasIncorrect = false;
-    }
-    else{
-        wasIncorrect = true;
-
-        if(progressElementsLengthTemp == progressElements.length) return;
-
-        stats.overallIncorrect++;
-    }
-
-    console.log(stats.overallCorrect + " " + stats.overallIncorrect);
-    console.log(progressElementsLengthTemp + " " + progressElements.length);
-
-    progressElementsLengthTemp = progressElements.length;
-    computeAccuracy();
-}
-
-function computeAccuracy(){
-    const accuracy = (stats.overallCorrect / (stats.overallCorrect + stats.overallIncorrect)) * 100;
-    const accuracyRound = Math.round((accuracy + Number.EPSILON) * 100) / 100;
-
-    stats.accuracy = accuracyRound;
-
-    console.log(stats.accuracy);
-}
-
 let startTime = null;
 
 function startTyping(){
@@ -247,11 +184,22 @@ function startTyping(){
     stats.state = state.TYPING;
 }
 
+function computePersistentCorrect(){
+    const progressElements = typingTarget.querySelectorAll(".correct, .incorrect");
+    const lastProgress = progressElements[progressElements.length - 1];
+
+    if(lastProgress.classList.contains("correct")){
+        stats.persistentCorrect++;
+    }
+}
+
 function computeSpeed(){
     const elapsedTime = new Date() - startTime;
     const KPM = Math.round((((stats.keyPressed / elapsedTime) * 60000) + Number.EPSILON) * 100) / 100;
+    const CPM = Math.round((((stats.persistentCorrect / elapsedTime) * 60000) + Number.EPSILON) * 100) / 100;
 
     stats.KPM = KPM;
+    stats.CPM = CPM;
 }
 
 function computePercentage(){
@@ -546,13 +494,7 @@ function update(input = "", e = {"inputType": null}){
     
     const backspace = e.inputType === "deleteContentBackward" || e.inputType === "バックスペース" || e.inputType === "バックスペースEND";
 
-    if(stats.state === state.TYPING && e.inputType === "deleteContentBackward"){
-        if(progressElementsLengthTemp > 0) progressElementsLengthTemp--;
-        wasIncorrect = false;
-    }
-    else if(!backspace){
-        countOverall();
-    }
+    if(!backspace) computePersistentCorrect();
 
     updateLiveStats();
 
