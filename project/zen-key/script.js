@@ -224,6 +224,9 @@ function countOverall(){
         stats.overallIncorrect++;
     }
 
+    console.log(stats.overallCorrect + " " + stats.overallIncorrect);
+    console.log(progressElementsLengthTemp + " " + progressElements.length);
+
     progressElementsLengthTemp = progressElements.length;
     computeAccuracy();
 }
@@ -574,7 +577,7 @@ typingInput.addEventListener("keyup", function(e) {
 
 document.addEventListener("keydown", function(e) {
     typingInput.setSelectionRange(typingInput.value.length, typingInput.value.length);
-    if((e.ctrlKey || e.metaKey) && (e.key === "a" /*|| e.key === "v"*/)){
+    if((e.ctrlKey || e.metaKey) && (e.key === "a" || e.key === "v")){
         e.preventDefault();
     }
     else if(e.code === "Enter" && stats.state === state.COMPLETE){
