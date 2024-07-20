@@ -1,8 +1,8 @@
 const typingData = [
-    {
+    /*{
         "text": "{明日[あした]}アバタあめにしもののに",
         "source": "TEST"
-    }/*
+    }*/
     {
         "text": "{古[ふる]}びたコトバ{繰[く]}り{返[かえ]}しつぶやいてみる\n{伸[の]}ばしたままの{爪[つめ]}{痕[あと]}はほら{消[き]}えないよ",
         "source": "{花[はな]}{残[のこ]}り{月[つき]} by nano.RIPE"
@@ -14,7 +14,7 @@ const typingData = [
     {
         "text": "{斜[なな]}め{七[なな]}{十[じゅう]}{七[なな]}{度[ど]}の{並[なら]}びで{泣[な]}く{泣[な]}く{嘶[いなな]}くナナハン{七[なな]}{台[だい]}{難[なん]}なく{並[なら]}べて{長[なが]}{眺[なが]}め",
         "source": "{早[はや]}{口[くち]}{言[こと]}{葉[ば]}"
-    }*/
+    }
 ];
 
 const typingTarget = document.querySelector(".typing-target");
@@ -381,7 +381,7 @@ function scrollIntoView(){
             break;
     }
 }
-
+//DEBUG, TEST WITH "ア千田"
 function getInputSegment(input, arrayRuby){
     let segment = [];
 
@@ -392,11 +392,11 @@ function getInputSegment(input, arrayRuby){
         else{
             const kanjiElements = ruby.querySelectorAll(".kanji");
             const furiganaElements = ruby.querySelectorAll(".furigana");
-            if(checkCharacterType(input[0]) === "kanji" && kanjiElements.length > 0){
+            if(kanjiElements.length > 0 && (checkCharacterType(input.slice(0, kanjiElements.length)) === "kanji" || checkCharacterType(input.slice(0, furiganaElements.length)) === "kanji")){
                 segment.push(input.slice(0, kanjiElements.length));
                 input = input.slice(kanjiElements.length);
             }
-            else if(furiganaElements.length == 0 || (furiganaElements.length > 0 && checkCharacterType(input.slice(0, furiganaElements.length)) === "kanji")){
+            else if(furiganaElements.length == 0){
                 segment.push(input[0]);
                 input = input.slice(1);
             }
@@ -410,6 +410,8 @@ function getInputSegment(input, arrayRuby){
             }
         }
     });
+
+    console.log(segment);
 
     return segment;
 }
@@ -459,7 +461,7 @@ function applyInputToRuby(inputSegment, arrayRuby){
 
         if(input == null){
         }
-        else if(checkCharacterType(input[0]) === "kanji" || (input.length < furiganaElements.length && inputSegment[i + 1] !== "") || furiganaElements.length == 0 || [" ", "　", "⏎"].some(char => input.includes(char))){
+        else if(checkCharacterType(input) === "kanji" || (input.length < furiganaElements.length && inputSegment[i + 1] !== "") || furiganaElements.length == 0 || [" ", "　", "⏎"].some(char => input.includes(char))){
             if(furiganaRT) furiganaRT.classList.add("converted");
 
             baseElements.forEach((base, j) => {
@@ -572,7 +574,7 @@ typingInput.addEventListener("keyup", function(e) {
 
 document.addEventListener("keydown", function(e) {
     typingInput.setSelectionRange(typingInput.value.length, typingInput.value.length);
-    if((e.ctrlKey || e.metaKey) && (e.key === "a" || e.key === "v")){
+    if((e.ctrlKey || e.metaKey) && (e.key === "a" /*|| e.key === "v"*/)){
         e.preventDefault();
     }
     else if(e.code === "Enter" && stats.state === state.COMPLETE){
