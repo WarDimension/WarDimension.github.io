@@ -213,9 +213,9 @@ function computePercentage(){
 
 function updateLiveStats(){
     updateStats();
-    statsElement.innerText = `${stats.progress}/${stats.totalText} ${stats.correctPercentage}%`;
+    statsElement.innerHTML = `${stats.progress}/${stats.totalText} ${stats.correctPercentage}% ${stats.CPM}<span class="unit">CMP</span> ${stats.KPM}<span class="unit">KPM</span>`;
 
-    if(stats.progress == stats.totalText && stats.correctPercentage != 100) statsElement.innerHTML = "press <i class='material-icons'>keyboard_return</i> to complete";
+    if(stats.progress == stats.totalText && stats.correctPercentage != 100) statsElement.innerHTML = "fix your mistake or press <i class='material-icons'>keyboard_return</i> to complete";
 }
 updateLiveStats();
 
@@ -242,7 +242,7 @@ function typingComplete(){
     const katakana = convertText("{片[かた]}{仮[か]}{名[な]}");
     const furigana = convertText("{振[ふ]}り{仮[が]}{名[な]}");
 
-    result.innerHTML = `<span class="percentage">${stats.correctPercentage}%</span><br><span><span>${kanji}<br>${stats.correctKanji}/${stats.totalKanji}</span><span>${hiragana}<br>${stats.correctHiragana}/${stats.totalHiragana}</span><span>${katakana}<br>${stats.correctKatakana}/${stats.totalKatakana}</span></span><br><span class="continue">press <i class="material-icons">keyboard_return</i> or click here to continue</span>`;
+    result.innerHTML = `<span>${stats.CPM}<span class="unit">CMP</span> ${stats.KPM}<span class="unit">KPM</span></span><br><span class="percentage">${stats.correctPercentage}%</span><br><span><span>${kanji}<br>${stats.correctKanji}/${stats.totalKanji}</span><span>${hiragana}<br>${stats.correctHiragana}/${stats.totalHiragana}</span><span>${katakana}<br>${stats.correctKatakana}/${stats.totalKatakana}</span></span><br><span class="continue">press <i class="material-icons">keyboard_return</i> or click here to continue</span>`;
 
     stats.state = state.COMPLETE;
 }
@@ -489,12 +489,13 @@ function update(input = "", e = {"inputType": null}){
     }
 
     applyInputToRuby(inputSegment, arrayRuby);
-
-    stats.keyPressed++;
     
     const backspace = e.inputType === "deleteContentBackward" || e.inputType === "バックスペース" || e.inputType === "バックスペースEND";
 
-    if(!backspace) computePersistentCorrect();
+    if(!backspace){
+        stats.keyPressed++;
+        computePersistentCorrect();
+    }
 
     updateLiveStats();
 

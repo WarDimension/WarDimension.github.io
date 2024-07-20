@@ -104,10 +104,14 @@ p, .typing-input{
     margin-top: 0;
     margin-bottom: 20px;
 }
+.unit{
+    font-size: 0.65em;
+    margin-left: 0.2em;
+}
 .result{
     text-align: center;
 }
-.result > span > span:not(:first-child){
+.result > span > span:not(:first-child, .unit){
     margin-left: 25px;
 }
 .result .percentage{
