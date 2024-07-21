@@ -217,10 +217,12 @@ function computeSpeed(){
     const KPM = (stats.keyPressed / elapsedTime) * 60000;
     const CPM = (stats.persistentCorrect / elapsedTime) * 60000;
 
-    stats.avgKPM = (KPM + stats.lastKPM) / 2;
+    const denominator = stats.lastKPM == 0 ? 1 : 2;
+
+    stats.avgKPM = (KPM + stats.lastKPM) / denominator;
     stats.peakKPM = KPM > stats.lastKPM ? KPM : stats.lastKPM;
 
-    stats.avgCPM = (CPM + stats.lastCPM) / 2;
+    stats.avgCPM = (CPM + stats.lastCPM) / denominator;
     stats.peakCPM = CPM > stats.lastCPM ? CPM : stats.lastCPM;
 
     stats.lastKPM = KPM;
