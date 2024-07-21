@@ -33,7 +33,7 @@
             <p class="title">settings</p>
             <div class="context-menu-item"><input type="checkbox" id="cm-furigana" onclick="toggleFurigana(); event.stopPropagation()" checked><label class="cm-furigana-label" for="cm-furigana" data-furigana="振[ふ]り仮[が]名[な]" data-furigana-hidden="振り仮名"></label></div>
             <div class="context-menu-item"><input type="checkbox" id="cm-just-hiragana" onclick="toggleJustHiragana(); event.stopPropagation()"><label class="cm-just-hiragana-label" for="cm-just-hiragana" data-furigana-hidden="ひらがなだけ"></label></div>
-            <div class="context-menu-item"><label class="not-checkbox cm-restart-label" onclick="getRandomText(false); typingInput.value =''; typingInput.click()" data-furigana="リスタート" data-furigana-hidden="リスタート"></label></div>
+            <div class="context-menu-item"><label class="not-checkbox cm-restart-label" onclick="nextRound(false); typingInput.value =''; typingInput.click()" data-furigana="リスタート" data-furigana-hidden="リスタート"></label></div>
         </div>
     </body>
 </html>

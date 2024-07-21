@@ -104,6 +104,7 @@ function toggleFurigana(){
     });
 
     setContextMenu();
+    update(typingInput.value, {"inputType": "deleteContentBackward"});
 }
 
 let isJustHiragana = false;
@@ -112,6 +113,7 @@ function toggleJustHiragana(){
 
     if(stats.state !== state.COMPLETE){
         getRandomText(false);
+        update(typingInput.value, {"inputType": "deleteContentBackward"});
     }
     else{
         result.querySelector(".character-result").innerHTML = getCharacterResult();
@@ -326,8 +328,8 @@ function typingComplete(){
     stats.state = state.COMPLETE;
 }
 
-function nextRound(){
-    getRandomText();
+function nextRound(random = true){
+    getRandomText(random);
     typingTarget.removeAttribute("hidden");
     statsElement.removeAttribute("hidden");
     source.removeAttribute("hidden");
