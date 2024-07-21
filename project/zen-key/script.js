@@ -119,9 +119,13 @@ const state = {
 
 const statsReset = {
     "keyPressed": 0,
-    "KPM": 0,
+    "lastKPM": 0,
+    "peakKPM": 0,
+    "avgKPM": 0,
     "persistentCorrect": 0,
-    "CPM": "",
+    "lastCPM": 0,
+    "peakCPM": 0,
+    "avgCPM": 0,
     "correctKanji": 0,
     "semiCorrectKanji": 0,
     "totalKanji": 0,
@@ -133,6 +137,9 @@ const statsReset = {
     "totalKatakana": 0,
     "correctFurigana": 0,
     "totalFurigana": 0,
+    "correctLatin": 0,
+    "semiCorrectLatin": 0,
+    "totalLatin": 0,
     "correctPercentage": 0,
     "progress": 0,
     "totalText": 0,
@@ -165,6 +172,7 @@ function setStats(){
     stats.totalHiragana = typingTarget.querySelectorAll(".hiragana").length;
     stats.totalKatakana = typingTarget.querySelectorAll(".katakana").length;
     stats.totalFurigana = typingTarget.querySelectorAll(".furigana").length;
+    stats.totalLatin = typingTarget.querySelectorAll(".latin").length;
     stats.totalText = typingTarget.querySelectorAll(".base").length;
     stats.state = state.UNSTARTED;
 }
@@ -178,6 +186,8 @@ function updateStats(){
     stats.correctKatakana = typingTarget.querySelectorAll(".katakana .correct").length;
     stats.semiCorrectKatakana = typingTarget.querySelectorAll(".katakana .semi-correct").length;
     stats.correctFurigana = typingTarget.querySelectorAll(".furigana.correct").length;
+    stats.correctLatin = typingTarget.querySelectorAll(".latin .correct").length;
+    stats.semiCorrectLatin = typingTarget.querySelectorAll(".latin .semi-correct").length;
     stats.progress = typingTarget.querySelectorAll(".base.correct, .base.semi-correct, .base.incorrect, .semi-correct .base, .semi-incorrect .base").length;
     stats.correctPercentage = computePercentage();
 
@@ -201,12 +211,20 @@ function computePersistentCorrect(){
 }
 
 function computeSpeed(){
+    if(stats.keyPressed == 1) return;
+
     const elapsedTime = new Date() - startTime;
     const KPM = (stats.keyPressed / elapsedTime) * 60000;
     const CPM = (stats.persistentCorrect / elapsedTime) * 60000;
 
-    stats.KPM = KPM;
-    stats.CPM = CPM;
+    stats.avgKPM = (KPM + stats.lastKPM) / 2;
+    stats.peakKPM = KPM > stats.lastKPM ? KPM : stats.lastKPM;
+
+    stats.avgCPM = (CPM + stats.lastCPM) / 2;
+    stats.peakCPM = CPM > stats.lastCPM ? CPM : stats.lastCPM;
+
+    stats.lastKPM = KPM;
+    stats.lastCPM = CPM;
 }
 
 function computePercentage(){
@@ -221,11 +239,11 @@ function computePercentage(){
 function updateLiveStats(){
     updateStats();
 
-    const CPM = Math.round(stats.CPM);
-    const KPM = Math.round(stats.KPM);
+    const avgCPM = Math.round(stats.avgCPM);
+    const avgKPM = Math.round(stats.avgKPM);
     const correctPercentage = Math.round(stats.correctPercentage);
 
-    statsElement.innerHTML = `${stats.progress}/${stats.totalText} ${correctPercentage}% ${CPM}<span class="unit">CMP</span> ${KPM}<span class="unit">KPM</span>`;
+    statsElement.innerHTML = `${stats.progress}/${stats.totalText} ${correctPercentage}% ${avgCPM}<span class="unit">CMP</span> ${avgKPM}<span class="unit">KPM</span>`;
 
     if(stats.progress == stats.totalText && stats.correctPercentage != 100) statsElement.innerHTML = "fix your mistake or press <i class='material-icons'>keyboard_return</i> to complete";
 }
@@ -248,22 +266,32 @@ function typingComplete(){
 
     result.removeAttribute("hidden");
 
-    //${}
-    const kanji = convertText("{漢[かん]}{字[じ]}");
-    const hiragana = convertText("{平[ひら]}{仮[が]}{名[な]}");
-    const katakana = convertText("{片[かた]}{仮[か]}{名[な]}");
-    const furigana = convertText("{振[ふ]}り{仮[が]}{名[な]}");//not used for now
+    const avgCPM = Math.round(stats.avgCPM);
+    const avgDecimalCPM = Math.round((stats.avgCPM + Number.EPSILON) * 100) / 100;
 
-    const CPM = Math.round(stats.CPM);
-    const decimalCPM = Math.round((stats.CPM + Number.EPSILON) * 100) / 100;
+    const avgKPM = Math.round(stats.avgKPM);
+    const avgDecimalKPM = Math.round((stats.avgKPM + Number.EPSILON) * 100) / 100;
 
-    const KPM = Math.round(stats.KPM);
-    const decimalKPM = Math.round((stats.KPM + Number.EPSILON) * 100) / 100;
+    const decimalLastCPM = Math.round((stats.lastCPM + Number.EPSILON) * 100) / 100;
+    const decimalLastKPM = Math.round((stats.lastKPM + Number.EPSILON) * 100) / 100;
+
+    const decimalPeakCPM = Math.round((stats.peakCPM + Number.EPSILON) * 100) / 100;
+    const decimalPeakKPM = Math.round((stats.peakKPM + Number.EPSILON) * 100) / 100;
+
+    const CPM = `<span title="Last: ${decimalLastCPM}, Peak: ${decimalPeakCPM}, AVG: ${avgDecimalCPM}">${avgCPM}<span class="unit">CMP</span></span>`;
+    const KPM = `<span title="Last: ${decimalLastKPM}, Peak: ${decimalPeakKPM}, AVG: ${avgDecimalKPM}">${avgKPM}<span class="unit">KPM</span></span>`;
 
     const correctPercentage = Math.round(stats.correctPercentage);
     const decimalCorrectPercentage = Math.round((stats.correctPercentage + Number.EPSILON) * 100) / 100;
 
-    result.innerHTML = `<span><span title="${decimalCPM} CPM">${CPM}<span class="unit">CMP</span></span> <span title="${decimalKPM} KPM">${KPM}<span class="unit">KPM</span></span></span><br><span class="percentage" title="${decimalCorrectPercentage}%">${correctPercentage}%</span><br><span class="character-result"><span title="correct: ${stats.correctKanji}, semi-correct: ${stats.semiCorrectKanji} (振り仮名: ${stats.correctFurigana}/${stats.totalFurigana}), incorrect: ${stats.totalKanji - stats.correctKanji - stats.semiCorrectKanji}, total: ${stats.totalKanji}">${kanji}<br>${stats.correctKanji}/${stats.totalKanji}</span><span title="correct: ${stats.correctHiragana}, semi-correct: ${stats.semiCorrectHiragana}, incorrect: ${stats.totalHiragana - stats.correctHiragana - stats.semiCorrectHiragana}, total: ${stats.totalHiragana}">${hiragana}<br>${stats.correctHiragana}/${stats.totalHiragana}</span><span title="correct: ${stats.correctKatakana}, semi-correct: ${stats.semiCorrectKatakana}, incorrect: ${stats.totalKatakana - stats.correctKatakana - stats.semiCorrectKatakana}, total: ${stats.totalKatakana}">${katakana}<br>${stats.correctKatakana}/${stats.totalKatakana}</span></span><br><span class="continue">press <i class="material-icons">keyboard_return</i> or click here to continue</span>`;
+    const percentage = `<span class="percentage" title="${decimalCorrectPercentage}%">${correctPercentage}%</span>`;
+
+    const kanji = stats.totalKanji == 0 ? "" : `<span title="correct: ${stats.correctKanji}, semi-correct: ${stats.semiCorrectKanji} (振り仮名: ${stats.correctFurigana}/${stats.totalFurigana}), incorrect: ${stats.totalKanji - stats.correctKanji - stats.semiCorrectKanji}, total: ${stats.totalKanji}">${convertText("{漢[かん]}{字[じ]}")}<br>${stats.correctKanji}/${stats.totalKanji}</span>`;
+    const hiragana = stats.totalHiragana == 0 ? "" : `<span title="correct: ${stats.correctHiragana}, semi-correct: ${stats.semiCorrectHiragana}, incorrect: ${stats.totalHiragana - stats.correctHiragana - stats.semiCorrectHiragana}, total: ${stats.totalHiragana}">${convertText("{平[ひら]}{仮[が]}{名[な]}")}<br>${stats.correctHiragana}/${stats.totalHiragana}</span>`;
+    const katakana = stats.totalKatakana == 0 ? "" : `<span title="correct: ${stats.correctKatakana}, semi-correct: ${stats.semiCorrectKatakana}, incorrect: ${stats.totalKatakana - stats.correctKatakana - stats.semiCorrectKatakana}, total: ${stats.totalKatakana}">${convertText("{片[かた]}{仮[か]}{名[な]}")}<br>${stats.correctKatakana}/${stats.totalKatakana}</span>`;
+    const latin = stats.totalLatin == 0 ? "" : `<span title="correct: ${stats.correctLatin}, semi-correct: ${stats.semiCorrectLatin}, incorrect: ${stats.totalLatin - stats.correctLatin - stats.semiCorrectLatin}, total: ${stats.totalLatin}">${convertText("ローマ{字[じ]}}")}<br>${stats.correctLatin}/${stats.totalLatin}</span>`;
+
+    result.innerHTML = `<span>${CPM} ${KPM}</span><br>${percentage}<br><span class="character-result">${kanji}${hiragana}${katakana}${latin}</span><br><span class="continue">press <i class="material-icons">keyboard_return</i> or click here to continue</span>`;
 
     stats.state = state.COMPLETE;
 }
@@ -295,7 +323,7 @@ function setCaret(){
     const lastProgressNext = typingTarget.querySelector("ruby:not(.semi-correct, .semi-incorrect, .gray) .base:not(.correct, .semi-correct, .incorrect), rt:not(.converted) .furigana:not(.correct, .incorrect)");
 
     if(progressElements.length > 0){
-        if((!lastProgress.nextSibling && lastProgress.classList.contains("furigana")) || (!lastProgress.parentElement.nextSibling && lastProgress.classList.contains("base"))){
+        if((!lastProgress.nextSibling && lastProgress.classList.contains("furigana")) || (!lastProgress.parentElement.parentElement.nextSibling && lastProgress.classList.contains("base"))){
             lastProgress.classList.add("caret-right");
         }
         else{
