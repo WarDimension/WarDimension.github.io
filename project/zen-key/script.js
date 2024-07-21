@@ -1,15 +1,18 @@
 const typingData = [
     {
-        "text": "{古[ふる]}びたコトバ{繰[く]}り{返[かえ]}しつぶやいてみる\n{伸[の]}ばしたままの{爪[つめ]}{痕[あと]}はほら{消[き]}えないよ",
-        "source": "{花[はな]}{残[のこ]}り{月[つき]} by nano.RIPE"
+        "lang": "jp",
+        "text": "古[ふる]びたコトバ繰[く]り返[かえ]しつぶやいてみる\n伸[の]ばしたままの爪[つめ]痕[あと]はほら消[き]えないよ",
+        "source": "花[はな]残[のこ]り月[つき] by nano.RIPE"
     },
     {
+        "lang": "jp",
         "text": "にゃにゃめにゃにゃじゅうにゃにゃどのにゃらびでにゃくにゃくいにゃにゃくにゃにゃはんにゃにゃだいにゃんにゃくにゃらべてにゃがにゃがめ",
-        "source": "{化[ばけ]}{物[もの]}{語[がたり]}"
+        "source": "化[ばけ]物[もの]語[がたり]"
     },
     {
-        "text": "{斜[なな]}め{七[なな]}{十[じゅう]}{七[なな]}{度[ど]}の{並[なら]}びで{泣[な]}く{泣[な]}く{嘶[いなな]}くナナハン{七[なな]}{台[だい]}{難[なん]}なく{並[なら]}べて{長[なが]}{眺[なが]}め",
-        "source": "{早[はや]}{口[くち]}{言[こと]}{葉[ば]}"
+        "lang": "jp",
+        "text": "斜[なな]め七[なな]十[じゅう]七[なな]度[ど]の並[なら]びで泣[な]く泣[な]く嘶[いなな]くナナハン七[なな]台[だい]難[なん]なく並[なら]べて長[なが]眺[なが]め",
+        "source": "早[はや]口[くち]言[こと]葉[ば]"
     }
 ];
 
@@ -24,93 +27,65 @@ const contextMenu = document.querySelector(".context-menu");
 
 function convertText(text){
     const charArray = text.split("");
-    let type = "kana base";
 
-    let newSpan = document.createElement("span");
-    let newRT = document.createElement("rt");
-    let newRuby = document.createElement("ruby");
-    let newText = document.createElement("p");
-
+    let kanjiGroup = "";
+    let furiganaGroup = "";
+    let furigana = false;
+    let newText = "";
     charArray.forEach(char => {
-        newRuby.className = "typing-target-ruby";
-        newSpan.setAttribute("data-original", char.replace("\n", "<i class='material-icons'>keyboard_return</i>"));
-        switch(char){
-            case "{":
-                type = "kanji base";
-                break;
-            case "[":
-                const newRP1 = document.createElement("rp");
-                newRP1.innerHTML = "(";
-                newRuby.appendChild(newRP1);
-
-                type = "kana furigana";
-                break;
-            case "]":
-                newRuby.appendChild(newRT);
-                newRT = document.createElement("rt");
-
-                const newRP2 = document.createElement("rp");
-                newRP2.innerHTML = ")";
-                newRuby.appendChild(newRP2);
-                break;
-            case "}":
-                newRuby.classList.add("kanji");
-                newSpan.removeAttribute("data-original");
-                newSpan.appendChild(newRuby);
-                newText.appendChild(newSpan);
-                newSpan = document.createElement("span");
-                newRuby = document.createElement("ruby");
-
-                type = "kana base";
-                break;
-            case "\n":
-                newSpan.innerHTML = "<i class='material-icons'>keyboard_return</i>";
-                newSpan.className = type;
-                newRuby.classList.add("enter");
-                newRuby.appendChild(newSpan);
-                newSpan = document.createElement("span");
-                newSpan.appendChild(newRuby);
-                newText.appendChild(newSpan);
-                newSpan = document.createElement("span");
-                newRuby = document.createElement("ruby");
-                newSpan = document.createElement("span");
-                newText.appendChild(document.createElement("br"));
-                break;
-            default:
-                newSpan.innerHTML = char;
-                newSpan.className = type;
-                switch(type){
-                    case "kanji base":
-                        newRuby.appendChild(newSpan);
-                        newSpan = document.createElement("span");
-                        newRuby.classList.add(checkCharacterType(char));
-                        break;
-                    case "kana furigana":
-                        if(isFuriganaHidden) newSpan.style.opacity = 0;
-                        newRT.appendChild(newSpan);
-                        newSpan = document.createElement("span");
-                        newRuby.classList.add(checkCharacterType(char));
+        switch(checkCharacterType(char)){
+            case "kanji":
+                switch(char){
+                    case "　":
+                        newText += `<span><ruby class="typing-target-ruby space"><span class="kana base" data-original="${char}">${char}</span></ruby></span>`;
                         break;
                     default:
-                        if(char === " " || char === "　"){
-                            newRuby.classList.add("space");
-                        }
-                        else{
-                            newRuby.classList.add(checkCharacterType(char));
-                        }
-                        newRuby.appendChild(newSpan);
-                        newSpan = document.createElement("span");
-                        newSpan.appendChild(newRuby);
-                        newText.appendChild(newSpan);
-                        newSpan = document.createElement("span");
-                        newRuby = document.createElement("ruby");
+                        kanjiGroup += isJustHiragana ? "" : `<span class="kanji base" data-original="${char}">${char}</span>`;
                         break;
                 }
+                break;
+            case "hiragana":
+                switch(furigana){
+                    case true:
+                        const style = isFuriganaHidden ? "style ='opacity: 0'" : "";
+                        furiganaGroup += `<span class="kana furigana" data-original="${char}" ${style}>${char}</span>`;
+                        break;
+                    default:
+                        newText += `<span><ruby class="typing-target-ruby hiragana"><span class="kana base" data-original="${char}">${char}</span></ruby></span>`;
+                        break;
+                }
+                break;
+            case "katakana":
+                newText += isJustHiragana ? `<span><ruby class="typing-target-ruby hiragana"><span class="kana base" data-original="${katakanaToHiragana(char)}">${katakanaToHiragana(char)}</span></ruby></span>` : `<span><ruby class="typing-target-ruby katakana"><span class="kana base" data-original="${char}">${char}</span></ruby></span>`;
+                break;
+            case "latin":
+                switch(char){
+                    case "[":
+                        furigana = isJustHiragana ? false : true;
+                        break;
+                    case "]":
+                        furigana = false;
+                        newText += isJustHiragana ? "" : `<span><ruby class="typing-target-ruby kanji">${kanjiGroup}<rp>(</rp><rt>${furiganaGroup}</rt><rp>)</rp></ruby></span>`;
+                        kanjiGroup = furiganaGroup = "";
+                        break;
+                    case "\n":
+                        newText += `<span><ruby class="typing-target-ruby enter"><span class="kana base" data-original="<i class='material-icons'>keyboard_return</i>"><i class="material-icons">keyboard_return</i></span></ruby></span><br>`;
+                        break;
+                    case " ":
+                        newText += `<span><ruby class="typing-target-ruby space"><span class="kana base" data-original="${char}">${char}</span></ruby></span>`;
+                        break;
+                    default:
+                        newText += `<span><ruby class="typing-target-ruby latin"><span class="kana base" data-original="${char}">${char}</span></ruby></span>`;
+                        break;
+                }
+                break;
+            default:
+                newText += `<span><ruby class="typing-target-ruby other"><span class="kana base" data-original="${char}">${char}</span></ruby></span>`;
                 break;
         }
     });
 
-    return newText.innerHTML;
+    return newText;
 }
 
 let isFuriganaHidden = false;
@@ -131,10 +106,14 @@ function toggleFurigana(){
 
 let isJustHiragana = false;
 function toggleJustHiragana(){
-    if(stats.state !== state.COMPLETE){
-        
-    }
     isJustHiragana = !isJustHiragana;
+
+    if(stats.state !== state.COMPLETE){
+        getRandomText(false);
+    }
+    else{
+        result.querySelector(".character-result").innerHTML = getCharacterResult();
+    }
 }
 
 const state = {
@@ -178,9 +157,9 @@ let stats = {
 
 let previousRandom = -1;
 
-function getRandomText(){
-    let randomIndex = Math.floor(Math.random() * typingData.length);
-    while(randomIndex == previousRandom && typingData.length > 1){
+function getRandomText(random = true){
+    let randomIndex = random ? Math.floor(Math.random() * typingData.length) : previousRandom;
+    while(randomIndex == previousRandom && typingData.length > 1 && random){
         randomIndex = Math.floor(Math.random() * typingData.length);
     }
     previousRandom = randomIndex;
@@ -283,6 +262,16 @@ function countSmallKana(str){
     return matches ? matches.length : 0;
 }
 
+function getCharacterResult(){
+    const furigana = isJustHiragana ? "ふりがな" : "振り仮名";
+    const kanji = stats.totalKanji == 0 ? "" : `<span title="correct: ${stats.correctKanji}, semi-correct: ${stats.semiCorrectKanji} (${furigana}: ${stats.correctFurigana}/${stats.totalFurigana}), incorrect: ${stats.totalKanji - stats.correctKanji - stats.semiCorrectKanji}, total: ${stats.totalKanji}">${convertText("漢[かん]字[じ]")}<br>${stats.correctKanji}/${stats.totalKanji}</span>`;
+    const hiragana = stats.totalHiragana == 0 ? "" : `<span title="correct: ${stats.correctHiragana}, semi-correct: ${stats.semiCorrectHiragana}, incorrect: ${stats.totalHiragana - stats.correctHiragana - stats.semiCorrectHiragana}, total: ${stats.totalHiragana}">${convertText("平[ひら]仮[が]名[な]")}<br>${stats.correctHiragana}/${stats.totalHiragana}</span>`;
+    const katakana = stats.totalKatakana == 0 ? "" : `<span title="correct: ${stats.correctKatakana}, semi-correct: ${stats.semiCorrectKatakana}, incorrect: ${stats.totalKatakana - stats.correctKatakana - stats.semiCorrectKatakana}, total: ${stats.totalKatakana}">${convertText("片[かた]仮[か]名[な]")}<br>${stats.correctKatakana}/${stats.totalKatakana}</span>`;
+    const latin = stats.totalLatin == 0 ? "" : `<span title="correct: ${stats.correctLatin}, semi-correct: ${stats.semiCorrectLatin}, incorrect: ${stats.totalLatin - stats.correctLatin - stats.semiCorrectLatin}, total: ${stats.totalLatin}">${convertText("ローマ字[じ]")}<br>${stats.correctLatin}/${stats.totalLatin}</span>`;
+
+    return `${kanji}${hiragana}${katakana}${latin}`;
+}
+
 function typingComplete(){
     startTime = null;
     typingInput.value = "";
@@ -314,12 +303,7 @@ function typingComplete(){
 
     const percentage = `<span class="percentage" title="${decimalCorrectPercentage}%">${correctPercentage}%</span>`;
 
-    const kanji = stats.totalKanji == 0 ? "" : `<span title="correct: ${stats.correctKanji}, semi-correct: ${stats.semiCorrectKanji} (振り仮名: ${stats.correctFurigana}/${stats.totalFurigana}), incorrect: ${stats.totalKanji - stats.correctKanji - stats.semiCorrectKanji}, total: ${stats.totalKanji}">${convertText("{漢[かん]}{字[じ]}")}<br>${stats.correctKanji}/${stats.totalKanji}</span>`;
-    const hiragana = stats.totalHiragana == 0 ? "" : `<span title="correct: ${stats.correctHiragana}, semi-correct: ${stats.semiCorrectHiragana}, incorrect: ${stats.totalHiragana - stats.correctHiragana - stats.semiCorrectHiragana}, total: ${stats.totalHiragana}">${convertText("{平[ひら]}{仮[が]}{名[な]}")}<br>${stats.correctHiragana}/${stats.totalHiragana}</span>`;
-    const katakana = stats.totalKatakana == 0 ? "" : `<span title="correct: ${stats.correctKatakana}, semi-correct: ${stats.semiCorrectKatakana}, incorrect: ${stats.totalKatakana - stats.correctKatakana - stats.semiCorrectKatakana}, total: ${stats.totalKatakana}">${convertText("{片[かた]}{仮[か]}{名[な]}")}<br>${stats.correctKatakana}/${stats.totalKatakana}</span>`;
-    const latin = stats.totalLatin == 0 ? "" : `<span title="correct: ${stats.correctLatin}, semi-correct: ${stats.semiCorrectLatin}, incorrect: ${stats.totalLatin - stats.correctLatin - stats.semiCorrectLatin}, total: ${stats.totalLatin}">${convertText("ローマ{字[じ]}}")}<br>${stats.correctLatin}/${stats.totalLatin}</span>`;
-
-    result.innerHTML = `<span>${CPM} ${KPM}</span><br>${percentage}<br><span class="character-result">${kanji}${hiragana}${katakana}${latin}</span><br><span class="continue">press <i class="material-icons">keyboard_return</i> or click here to continue</span>`;
+    result.innerHTML = `<span>${CPM} ${KPM}</span><br>${percentage}<br><span class="character-result">${getCharacterResult()}</span><br><span class="continue">press <i class="material-icons">keyboard_return</i> or click here to continue</span>`;
 
     stats.state = state.COMPLETE;
 }
@@ -389,7 +373,15 @@ function hiraganaToKatakana(hiragana){
     if(hiraganaCode >= 0x3041 && hiraganaCode <= 0x3096){
         return String.fromCharCode(hiraganaCode + 0x60);
     }
-    return null;
+    return hiragana;
+}
+
+function katakanaToHiragana(katakana){
+    const katakanaCode = katakana.charCodeAt(0);
+    if(katakanaCode >= 0x30A1 && katakanaCode <= 0x30F6){
+        return String.fromCharCode(katakanaCode - 0x60);
+    }
+    return katakana;
 }
 
 function areSameSound(char1, char2){
