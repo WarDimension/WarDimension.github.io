@@ -91,17 +91,19 @@ function convertText(text){
 let isFuriganaHidden = false;
 function toggleFurigana(){
     const furiganaElements = document.querySelectorAll(".furigana");
+    isFuriganaHidden = !isFuriganaHidden;
     furiganaElements.forEach(furigana => {
         switch(isFuriganaHidden){
             case true:
-                furigana.removeAttribute("style");
+                contextMenu.querySelector(".cm-furigana-label").innerHTML = "振り仮名";
+                furigana.style.opacity = 0;
                 break;
             default:
-                furigana.style.opacity = 0;
+                contextMenu.querySelector(".cm-furigana-label").innerHTML = convertText("振[ふ]り仮[が]名[な]");
+                furigana.removeAttribute("style");
                 break;
         }
     });
-    isFuriganaHidden = !isFuriganaHidden;
 }
 
 let isJustHiragana = false;
@@ -120,10 +122,12 @@ function toggleJustHiragana(){
             contextMenu.querySelector(".cm-furigana-label").innerText = "ふりがな";
             break;
         default:
-            contextMenu.querySelector(".cm-furigana-label").innerText = "振り仮名";
+            contextMenu.querySelector(".cm-furigana-label").innerHTML = isFuriganaHidden ? "振り仮名" : convertText("振[ふ]り仮[が]名[な]");
             break;
     }
 }
+
+contextMenu.querySelector(".cm-furigana-label").innerHTML = convertText("振[ふ]り仮[が]名[な]");
 
 const state = {
     "UNSTARTED": "UNSTARTED",
