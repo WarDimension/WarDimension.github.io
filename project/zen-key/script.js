@@ -20,6 +20,7 @@ const rawInput = document.querySelector(".raw-input-container");
 const source = document.querySelector(".source");
 const statsElement = document.querySelector(".stats");
 const result = document.querySelector(".result");
+const contextMenu = document.querySelector(".context-menu");
 
 function convertText(text){
     const charArray = text.split("");
@@ -589,7 +590,7 @@ typingInput.addEventListener("keyup", function(e) {
     }
 });
 
-document.addEventListener("keydown", function(e) {
+window.addEventListener("keydown", function(e) {
     typingInput.setSelectionRange(typingInput.value.length, typingInput.value.length);
     if((e.ctrlKey || e.metaKey) && (e.key === "a" || e.key === "v")){
         e.preventDefault();
@@ -602,7 +603,7 @@ document.addEventListener("keydown", function(e) {
     }
 });
 
-document.addEventListener("keyup", function(e) {
+window.addEventListener("keyup", function(e) {
     if(e.code === "Enter" && stats.state === state.UNSTARTED){
         typingInput.removeAttribute("hidden");
     }
@@ -613,11 +614,41 @@ document.addEventListener("keyup", function(e) {
     typingInput.focus();
 });
 
-document.addEventListener("click", function() {
-    if(stats.state === state.COMPLETE){
+window.addEventListener("click", function() {
+    if(contextMenu.style.opacity == 1){
+        contextMenu.style.opacity = 0;
+        contextMenu.style.pointerEvents = "none";
+    }
+    else if(stats.state === state.COMPLETE){
         nextRound();
         typingInput.removeAttribute("hidden");
     }
 
     typingInput.focus();
+});
+
+window.addEventListener("contextmenu", function(e) {
+    e.preventDefault();
+
+    const { clientX: mouseX, clientY: mouseY } = e;
+    const { innerWidth: viewportWidth, innerHeight: viewportHeight } = window;
+
+    const menuWidth = contextMenu.offsetWidth;
+    const menuHeight = contextMenu.offsetHeight;
+
+    let left = mouseX;
+    let top = mouseY;
+
+    if(mouseX + menuWidth > viewportWidth){
+        left = viewportWidth - menuWidth - 10;
+    }
+
+    if(mouseY + menuHeight > viewportHeight){
+        top = viewportHeight - menuHeight - 10;
+    }
+
+    contextMenu.style.left = `${left}px`;
+    contextMenu.style.top = `${top}px`;
+    contextMenu.style.opacity = 1;
+    contextMenu.style.pointerEvents = "auto";
 });
