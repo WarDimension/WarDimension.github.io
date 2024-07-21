@@ -33,6 +33,10 @@ body{
     opacity: 0;
     pointer-events: none;
 }
+.context-menu .title{
+    margin-left: 5px;
+    margin-bottom: 2px;
+}
 .context-menu label{
     width: calc(100% - 22px);
     display: inline-block;
