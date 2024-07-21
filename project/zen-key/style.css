@@ -44,6 +44,9 @@ body{
     margin-left: 2px;
     cursor: pointer;
 }
+.context-menu label.not-checkbox{
+    width: 100%;
+}
 .context-menu-item:hover label{
     color: #0e0e0e;
     background: #7c7c7c;

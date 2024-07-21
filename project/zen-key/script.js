@@ -95,15 +95,15 @@ function toggleFurigana(){
     furiganaElements.forEach(furigana => {
         switch(isFuriganaHidden){
             case true:
-                contextMenu.querySelector(".cm-furigana-label").innerHTML = "振り仮名";
                 furigana.style.opacity = 0;
                 break;
             default:
-                contextMenu.querySelector(".cm-furigana-label").innerHTML = convertText("振[ふ]り仮[が]名[な]");
                 furigana.removeAttribute("style");
                 break;
         }
     });
+
+    setContextMenu();
 }
 
 let isJustHiragana = false;
@@ -117,17 +117,22 @@ function toggleJustHiragana(){
         result.querySelector(".character-result").innerHTML = getCharacterResult();
     }
 
-    switch(isJustHiragana){
-        case true:
-            contextMenu.querySelector(".cm-furigana-label").innerText = "ふりがな";
-            break;
-        default:
-            contextMenu.querySelector(".cm-furigana-label").innerHTML = isFuriganaHidden ? "振り仮名" : convertText("振[ふ]り仮[が]名[な]");
-            break;
-    }
+    setContextMenu();
 }
 
-contextMenu.querySelector(".cm-furigana-label").innerHTML = convertText("振[ふ]り仮[が]名[な]");
+function setContextMenu(){
+    const labelElements = contextMenu.querySelectorAll("label");
+
+    labelElements.forEach(label => {
+        if((!isFuriganaHidden || isJustHiragana) && label.getAttribute("data-furigana")){
+            label.innerHTML = convertText(label.getAttribute("data-furigana"));
+        }
+        else{
+            label.innerHTML = label.getAttribute("data-furigana-hidden");
+        }
+    });
+}
+setContextMenu();
 
 const state = {
     "UNSTARTED": "UNSTARTED",
@@ -591,18 +596,6 @@ function update(input = "", e = {"inputType": null}){
     }
 }
 
-typingInput.addEventListener("keydown", function(e) {
-    if(e.code === "Enter"){
-        //update(typingInput.value, {"inputType": "ばか"});
-    }
-});
-
-typingInput.addEventListener("keyup", function(e) {
-    if(e.code === "Space"){
-        //update(typingInput.value, {"inputType": "ばか"});
-    }
-});
-
 window.addEventListener("keydown", function(e) {
     typingInput.setSelectionRange(typingInput.value.length, typingInput.value.length);
     if((e.ctrlKey || e.metaKey) && (e.key === "a" || e.key === "v")){
@@ -631,6 +624,7 @@ window.addEventListener("click", function(e) {
     if(contextMenu.style.opacity == 1 && !(e.target.classList.contains("context-menu") || e.target.closest(".context-menu"))){
         contextMenu.style.opacity = 0;
         contextMenu.style.pointerEvents = "none";
+        typingInput.removeAttribute("hidden");
     }
     else if(stats.state === state.COMPLETE && contextMenu.style.opacity == 0){
         nextRound();
@@ -647,6 +641,8 @@ window.addEventListener("contextmenu", function(e) {
         e.target.click();
         return;
     }
+
+    typingInput.setAttribute("hidden", "");
 
     const { clientX: mouseX, clientY: mouseY } = e;
     const { innerWidth: viewportWidth, innerHeight: viewportHeight } = window;
