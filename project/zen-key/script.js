@@ -129,6 +129,14 @@ function toggleFurigana(){
     isFuriganaHidden = !isFuriganaHidden;
 }
 
+let isJustHiragana = false;
+function toggleJustHiragana(){
+    if(stats.state !== state.COMPLETE){
+        
+    }
+    isJustHiragana = !isJustHiragana;
+}
+
 const state = {
     "UNSTARTED": "UNSTARTED",
     "TYPING": "TYPING",
@@ -629,6 +637,11 @@ window.addEventListener("click", function() {
 
 window.addEventListener("contextmenu", function(e) {
     e.preventDefault();
+
+    if(e.target.classList.contains("context-menu") || e.target.closest(".context-menu")){
+        e.target.click();
+        return;
+    }
 
     const { clientX: mouseX, clientY: mouseY } = e;
     const { innerWidth: viewportWidth, innerHeight: viewportHeight } = window;
