@@ -627,12 +627,12 @@ window.addEventListener("keyup", function(e) {
     typingInput.focus();
 });
 
-window.addEventListener("click", function() {
-    if(contextMenu.style.opacity == 1){
+window.addEventListener("click", function(e) {
+    if(contextMenu.style.opacity == 1 && !(e.target.classList.contains("context-menu") || e.target.closest(".context-menu"))){
         contextMenu.style.opacity = 0;
         contextMenu.style.pointerEvents = "none";
     }
-    else if(stats.state === state.COMPLETE){
+    else if(stats.state === state.COMPLETE && contextMenu.style.opacity == 0){
         nextRound();
         typingInput.removeAttribute("hidden");
     }
