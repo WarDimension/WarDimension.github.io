@@ -85,6 +85,7 @@ function convertText(text){
                         newRuby.classList.add(checkCharacterType(char));
                         break;
                     case "kana furigana":
+                        if(isFuriganaHidden) newSpan.style.opacity = 0;
                         newRT.appendChild(newSpan);
                         newSpan = document.createElement("span");
                         newRuby.classList.add(checkCharacterType(char));
@@ -109,6 +110,22 @@ function convertText(text){
     });
 
     return newText.innerHTML;
+}
+
+let isFuriganaHidden = false;
+function toggleFurigana(){
+    const furiganaElements = document.querySelectorAll(".furigana");
+    furiganaElements.forEach(furigana => {
+        switch(isFuriganaHidden){
+            case true:
+                furigana.removeAttribute("style");
+                break;
+            default:
+                furigana.style.opacity = 0;
+                break;
+        }
+    });
+    isFuriganaHidden = !isFuriganaHidden;
 }
 
 const state = {
@@ -325,7 +342,7 @@ function setCaret(){
     const lastProgressNext = typingTarget.querySelector("ruby:not(.semi-correct, .semi-incorrect, .gray) .base:not(.correct, .semi-correct, .incorrect), rt:not(.converted) .furigana:not(.correct, .incorrect)");
 
     if(progressElements.length > 0){
-        if((!lastProgress.nextSibling && lastProgress.classList.contains("furigana")) || (!lastProgress.parentElement.parentElement.nextSibling && lastProgress.classList.contains("base"))){
+        if((!lastProgress.nextSibling && lastProgress.classList.contains("furigana")) || (lastProgress.classList.contains("furigana") && isFuriganaHidden) || (!lastProgress.parentElement.parentElement.nextSibling && lastProgress.classList.contains("base"))){
             lastProgress.classList.add("caret-right");
         }
         else{
@@ -492,15 +509,18 @@ function applyInputToRuby(inputSegment, arrayRuby){
 
                 if(input[j] == null){
                     furigana.classList.remove("correct", "incorrect");
+                    if(isFuriganaHidden) furigana.style.opacity = 0;
                 }
                 else if(input[j] === furiganaText){
                     unsetInputToElement(furigana);
                     furigana.classList.add("correct");
+                    if(isFuriganaHidden) furigana.removeAttribute("style");
                 }
                 else{
                     setInputToElement(furigana, input[j]);
                     furigana.classList.add("incorrect");
                     ruby.classList.add("semi-incorrect");
+                    if(isFuriganaHidden) furigana.removeAttribute("style");
                 }
             });
 
