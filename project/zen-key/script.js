@@ -114,6 +114,15 @@ function toggleJustHiragana(){
     else{
         result.querySelector(".character-result").innerHTML = getCharacterResult();
     }
+
+    switch(isJustHiragana){
+        case true:
+            contextMenu.querySelector(".cm-furigana-label").innerText = "ふりがな";
+            break;
+        default:
+            contextMenu.querySelector(".cm-furigana-label").innerText = "振り仮名";
+            break;
+    }
 }
 
 const state = {
