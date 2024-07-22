@@ -163,6 +163,8 @@ const statsReset = {
     "totalLatin": 0,
     "correctNumber": 0,
     "totalNumber": 0,
+    "correctOther": 0,
+    "totalOther": 0,
     "correctPercentage": 0,
     "progress": 0,
     "totalText": 0,
@@ -197,6 +199,7 @@ function setStats(){
     stats.totalFurigana = typingTarget.querySelectorAll(".furigana").length;
     stats.totalLatin = typingTarget.querySelectorAll(".latin").length;
     stats.totalNumber = typingTarget.querySelectorAll(".number").length;
+    stats.totalOther = typingTarget.querySelectorAll(".other, .space, .enter").length;
     stats.totalText = typingTarget.querySelectorAll(".base").length;
     stats.state = state.UNSTARTED;
 }
@@ -213,7 +216,8 @@ function updateStats(){
     stats.correctLatin = typingTarget.querySelectorAll(".latin .correct").length;
     stats.semiCorrectLatin = typingTarget.querySelectorAll(".latin .semi-correct").length;
     stats.correctNumber = typingTarget.querySelectorAll(".number .correct").length;
-    stats.progress = typingTarget.querySelectorAll(".base.correct, .base.semi-correct, .base.incorrect, .semi-correct .base, .semi-incorrect .base").length;
+    stats.correctOther = typingTarget.querySelectorAll(".other .correct, .space .correct, .enter .correct").length;
+    stats.progress = typingTarget.querySelectorAll(".base.correct, .base.semi-correct, .base.incorrect, .semi-correct .base, .semi-incorrect .base").length - typingTarget.querySelectorAll(".semi-incorrect.gray").length;
     stats.correctPercentage = computePercentage();
 
     computeSpeed();
@@ -289,8 +293,9 @@ function getCharacterResult(){
     const katakana = stats.totalKatakana == 0 ? "" : `<span title="correct: ${stats.correctKatakana}, semi-correct: ${stats.semiCorrectKatakana}, incorrect: ${stats.totalKatakana - stats.correctKatakana - stats.semiCorrectKatakana}, total: ${stats.totalKatakana}">${convertText("片[かた]仮[か]名[な]")}<br>${stats.correctKatakana}/${stats.totalKatakana}</span>`;
     const latin = stats.totalLatin == 0 ? "" : `<span title="correct: ${stats.correctLatin}, semi-correct: ${stats.semiCorrectLatin}, incorrect: ${stats.totalLatin - stats.correctLatin - stats.semiCorrectLatin}, total: ${stats.totalLatin}">${convertText("ローマ字[じ]")}<br>${stats.correctLatin}/${stats.totalLatin}</span>`;
     const number = stats.totalNumber == 0 ? "" : `<span title="correct: ${stats.correctNumber}, incorrect: ${stats.totalNumber - stats.correctNumber}, total: ${stats.totalNumber}">${convertText("数[すう]字[じ]")}<br>${stats.correctNumber}/${stats.totalNumber}</span>`;
+    const other = stats.totalOther == 0 ? "" : `<span title="correct: ${stats.correctOther}, incorrect: ${stats.totalOther - stats.correctOther}, total: ${stats.totalOther}">${convertText("その他[た]")}<br>${stats.correctOther}/${stats.totalOther}</span>`;
 
-    return `${kanji}${hiragana}${katakana}${latin}${number}`;
+    return `${kanji}${hiragana}${katakana}${latin}${number}${other}`;
 }
 
 function typingComplete(){
@@ -555,7 +560,7 @@ function applyInputToRuby(inputSegment, arrayRuby){
             if(input.includes(furiganaRT.innerText) && !ruby.classList.contains("semi-incorrect")){
                 ruby.classList.add("semi-correct");
             }
-            else if(input != "" && furiganaRT.innerText.includes(input)){
+            else if(input != "" && furiganaRT.innerText.includes(input) && furiganaRT.innerText !== input){
                 ruby.classList.add("gray");
             }
         }
