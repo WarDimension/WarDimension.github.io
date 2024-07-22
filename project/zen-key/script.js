@@ -442,10 +442,6 @@ function getInputSegment(input, arrayRuby){
                 segment.push(input[0]);
                 input = input.slice(1);
             }
-            else if(checkCharacterType(input.slice(0, kanjiElements.length)) === "kanji"){
-                segment.push(input.slice(0, kanjiElements.length));
-                input = input.slice(kanjiElements.length);
-            }
             else{
                 segment.push(input.slice(0, furiganaElements.length));
                 input = input.slice(furiganaElements.length);
