@@ -35,14 +35,7 @@ function convertText(text){
     charArray.forEach(char => {
         switch(checkCharacterType(char)){
             case "kanji":
-                switch(char){
-                    case "　":
-                        newText += `<span><ruby class="typing-target-ruby space"><span class="kana base" data-original="${char}">${char}</span></ruby></span>`;
-                        break;
-                    default:
-                        kanjiGroup += isJustHiragana ? "" : `<span class="kanji base" data-original="${char}">${char}</span>`;
-                        break;
-                }
+                kanjiGroup += isJustHiragana ? "" : `<span class="kanji base" data-original="${char}">${char}</span>`;
                 break;
             case "hiragana":
                 switch(furigana){
@@ -59,6 +52,12 @@ function convertText(text){
                 newText += isJustHiragana ? `<span><ruby class="typing-target-ruby hiragana"><span class="kana base" data-original="${katakanaToHiragana(char)}">${katakanaToHiragana(char)}</span></ruby></span>` : `<span><ruby class="typing-target-ruby katakana"><span class="kana base" data-original="${char}">${char}</span></ruby></span>`;
                 break;
             case "latin":
+                newText += `<span><ruby class="typing-target-ruby latin"><span class="kana base" data-original="${char}">${char}</span></ruby></span>`;
+                break;
+            case "number":
+                newText += `<span><ruby class="typing-target-ruby number"><span class="kana base" data-original="${char}">${char}</span></ruby></span>`;
+                break;
+            default:
                 switch(char){
                     case "[":
                         furigana = isJustHiragana ? false : true;
@@ -71,16 +70,13 @@ function convertText(text){
                     case "\n":
                         newText += `<span><ruby class="typing-target-ruby enter"><span class="kana base" data-original="<i class='material-icons'>keyboard_return</i>"><i class="material-icons">keyboard_return</i></span></ruby></span><br>`;
                         break;
-                    case " ":
+                    case "　": case " ":
                         newText += `<span><ruby class="typing-target-ruby space"><span class="kana base" data-original="${char}">${char}</span></ruby></span>`;
                         break;
                     default:
-                        newText += `<span><ruby class="typing-target-ruby latin"><span class="kana base" data-original="${char}">${char}</span></ruby></span>`;
+                        newText += `<span><ruby class="typing-target-ruby other"><span class="kana base" data-original="${char}">${char}</span></ruby></span>`;
                         break;
                 }
-                break;
-            default:
-                newText += `<span><ruby class="typing-target-ruby other"><span class="kana base" data-original="${char}">${char}</span></ruby></span>`;
                 break;
         }
     });
@@ -165,6 +161,8 @@ const statsReset = {
     "correctLatin": 0,
     "semiCorrectLatin": 0,
     "totalLatin": 0,
+    "correctNumber": 0,
+    "totalNumber": 0,
     "correctPercentage": 0,
     "progress": 0,
     "totalText": 0,
@@ -198,6 +196,7 @@ function setStats(){
     stats.totalKatakana = typingTarget.querySelectorAll(".katakana").length;
     stats.totalFurigana = typingTarget.querySelectorAll(".furigana").length;
     stats.totalLatin = typingTarget.querySelectorAll(".latin").length;
+    stats.totalNumber = typingTarget.querySelectorAll(".number").length;
     stats.totalText = typingTarget.querySelectorAll(".base").length;
     stats.state = state.UNSTARTED;
 }
@@ -213,6 +212,7 @@ function updateStats(){
     stats.correctFurigana = typingTarget.querySelectorAll(".furigana.correct").length;
     stats.correctLatin = typingTarget.querySelectorAll(".latin .correct").length;
     stats.semiCorrectLatin = typingTarget.querySelectorAll(".latin .semi-correct").length;
+    stats.correctNumber = typingTarget.querySelectorAll(".number .correct").length;
     stats.progress = typingTarget.querySelectorAll(".base.correct, .base.semi-correct, .base.incorrect, .semi-correct .base, .semi-incorrect .base").length;
     stats.correctPercentage = computePercentage();
 
@@ -255,7 +255,7 @@ function computeSpeed(){
 }
 
 function computePercentage(){
-    const total = ((stats.correctKanji + stats.correctHiragana + stats.correctKatakana) / (stats.totalKanji + stats.totalHiragana + stats.totalKatakana)) + (((stats.correctFurigana + stats.semiCorrectHiragana + stats.semiCorrectKatakana) / (stats.totalFurigana + stats.totalHiragana + stats.totalKatakana)) / 2);
+    const total = ((stats.correctKanji + stats.correctHiragana + stats.correctKatakana + stats.correctLatin + stats.correctNumber) / (stats.totalKanji + stats.totalHiragana + stats.totalKatakana + stats.totalLatin + stats.totalNumber)) + (((stats.correctFurigana + stats.semiCorrectHiragana + stats.semiCorrectKatakana + stats.semiCorrectLatin) / (stats.totalFurigana + stats.totalHiragana + stats.totalKatakana + stats.totalLatin)) / 2);
     const totalPercentageRound = Math.round(((total * 100) + Number.EPSILON) * 100) / 100;
 
     if(isNaN(totalPercentageRound)) return 0;
@@ -288,8 +288,9 @@ function getCharacterResult(){
     const hiragana = stats.totalHiragana == 0 ? "" : `<span title="correct: ${stats.correctHiragana}, semi-correct: ${stats.semiCorrectHiragana}, incorrect: ${stats.totalHiragana - stats.correctHiragana - stats.semiCorrectHiragana}, total: ${stats.totalHiragana}">${convertText("平[ひら]仮[が]名[な]")}<br>${stats.correctHiragana}/${stats.totalHiragana}</span>`;
     const katakana = stats.totalKatakana == 0 ? "" : `<span title="correct: ${stats.correctKatakana}, semi-correct: ${stats.semiCorrectKatakana}, incorrect: ${stats.totalKatakana - stats.correctKatakana - stats.semiCorrectKatakana}, total: ${stats.totalKatakana}">${convertText("片[かた]仮[か]名[な]")}<br>${stats.correctKatakana}/${stats.totalKatakana}</span>`;
     const latin = stats.totalLatin == 0 ? "" : `<span title="correct: ${stats.correctLatin}, semi-correct: ${stats.semiCorrectLatin}, incorrect: ${stats.totalLatin - stats.correctLatin - stats.semiCorrectLatin}, total: ${stats.totalLatin}">${convertText("ローマ字[じ]")}<br>${stats.correctLatin}/${stats.totalLatin}</span>`;
+    const number = stats.totalNumber == 0 ? "" : `<span title="correct: ${stats.correctNumber}, incorrect: ${stats.totalNumber - stats.correctNumber}, total: ${stats.totalNumber}">${convertText("数[すう]字[じ]")}<br>${stats.correctNumber}/${stats.totalNumber}</span>`;
 
-    return `${kanji}${hiragana}${katakana}${latin}`;
+    return `${kanji}${hiragana}${katakana}${latin}${number}`;
 }
 
 function typingComplete(){
@@ -371,7 +372,7 @@ function setCaret(){
 setCaret();
 
 function checkCharacterType(char){
-    if(/[\u4E00-\u9FFF]/.test(char) || /[\u3000-\u303F]/.test(char)){
+    if(/[\u4E00-\u9FFF]/.test(char)){
         return "kanji";
     }
     else if(/[\u3040-\u309F]/.test(char)){
@@ -380,12 +381,22 @@ function checkCharacterType(char){
     else if(/[\u30A0-\u30FF]/.test(char)){
         return "katakana";
     }
-    else if(/[\u0000-\u024F]/.test(char)){
+    else if(/[\u0041-\u005A\u0061-\u007A]/.test(char)){
         return "latin";
+    }
+    else if(/[\uFF41-\uFF5A]/.test(char)){
+        return "fullwidth-latin";
+    }
+    else if(/[\u0030-\u0039]/.test(char)){
+        return "number"
     }
     else{
         return "other";
     }
+}
+
+function isForceBase(char){
+    return checkCharacterType(char) !== "hiragana" && checkCharacterType(char) !== "fullwidth-latin";
 }
 
 function hiraganaToKatakana(hiragana){
@@ -434,7 +445,7 @@ function getInputSegment(input, arrayRuby){
         else{
             const kanjiElements = ruby.querySelectorAll(".kanji");
             const furiganaElements = ruby.querySelectorAll(".furigana");
-            if(kanjiElements.length > 0 && (checkCharacterType(input.slice(0, kanjiElements.length)) === "kanji" || checkCharacterType(input.slice(0, furiganaElements.length)) === "kanji")){
+            if(kanjiElements.length > 0 && (isForceBase(input.slice(0, kanjiElements.length)) || isForceBase(input.slice(0, furiganaElements.length)))){
                 segment.push(input.slice(0, kanjiElements.length));
                 input = input.slice(kanjiElements.length);
             }
@@ -497,7 +508,7 @@ function applyInputToRuby(inputSegment, arrayRuby){
 
         if(input == null){
         }
-        else if(checkCharacterType(input) === "kanji" || (input.length < furiganaElements.length && inputSegment[i + 1] !== "") || furiganaElements.length == 0 || [" ", "　", "⏎"].some(char => input.includes(char))){
+        else if(isForceBase(input) || (input.length < furiganaElements.length && inputSegment[i + 1] !== "") || furiganaElements.length == 0){
             if(furiganaRT) furiganaRT.classList.add("converted");
 
             baseElements.forEach((base, j) => {
