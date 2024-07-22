@@ -86,18 +86,22 @@ function convertText(text){
 
 let isFuriganaHidden = false;
 function toggleFurigana(){
-    const furiganaElements = document.querySelectorAll(".furigana");
+    const furiganaRT = typingTarget.querySelectorAll("rt");
+
     isFuriganaHidden = !isFuriganaHidden;
-    furiganaElements.forEach(furigana => {
-        switch(isFuriganaHidden){
-            case true:
+
+    switch(isFuriganaHidden){
+        case true:
+            furiganaRT.forEach(furigana => {
                 furigana.style.opacity = 0;
-                break;
-            default:
+            });
+            break;
+        default:
+            furiganaRT.forEach(furigana => {
                 furigana.removeAttribute("style");
-                break;
-        }
-    });
+            });
+            break;
+    }
 
     setContextMenu();
     update(typingInput.value, {"inputType": "deleteContentBackward"});
@@ -511,7 +515,10 @@ function applyInputToRuby(inputSegment, arrayRuby){
 
         if(furiganaRT) furiganaRT.classList.remove("converted");
 
-        if(isForceBase(input) || (input.length < furiganaElements.length && inputSegment[i + 1] !== "") || furiganaElements.length == 0){
+        if(input == "" && isFuriganaHidden && furiganaRT){
+            furiganaRT.style.opacity = 0;
+        }
+        else if(isForceBase(input) || (input.length < furiganaElements.length && inputSegment[i + 1] !== "") || furiganaElements.length == 0){
             if(furiganaRT) furiganaRT.classList.add("converted");
 
             baseElements.forEach((base, j) => {
@@ -519,7 +526,6 @@ function applyInputToRuby(inputSegment, arrayRuby){
 
                 if(input[j] == null){
                     base.classList.remove("correct", "incorrect");
-                    if(isFuriganaHidden && furiganaRT) furiganaElements[0].style.opacity = 0;
                 }
                 else if(input[j] === baseText){
                     unsetInputToElement(base);
@@ -536,6 +542,8 @@ function applyInputToRuby(inputSegment, arrayRuby){
             });
         }
         else{
+            furiganaRT.removeAttribute("style");
+
             furiganaElements.forEach((furigana, j) => {
                 const furiganaText = furigana.getAttribute("data-original").replace("<i class='material-icons'>keyboard_return</i>", "⏎");
 
