@@ -511,9 +511,7 @@ function applyInputToRuby(inputSegment, arrayRuby){
 
         if(furiganaRT) furiganaRT.classList.remove("converted");
 
-        if(input == null){
-        }
-        else if(isForceBase(input) || (input.length < furiganaElements.length && inputSegment[i + 1] !== "") || furiganaElements.length == 0){
+        if(isForceBase(input) || (input.length < furiganaElements.length && inputSegment[i + 1] !== "") || furiganaElements.length == 0){
             if(furiganaRT) furiganaRT.classList.add("converted");
 
             baseElements.forEach((base, j) => {
@@ -521,6 +519,7 @@ function applyInputToRuby(inputSegment, arrayRuby){
 
                 if(input[j] == null){
                     base.classList.remove("correct", "incorrect");
+                    if(isFuriganaHidden && furiganaRT) furiganaElements[0].style.opacity = 0;
                 }
                 else if(input[j] === baseText){
                     unsetInputToElement(base);
