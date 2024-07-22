@@ -217,7 +217,7 @@ function updateStats(){
     stats.semiCorrectLatin = typingTarget.querySelectorAll(".latin .semi-correct").length;
     stats.correctNumber = typingTarget.querySelectorAll(".number .correct").length;
     stats.correctOther = typingTarget.querySelectorAll(".other .correct, .space .correct, .enter .correct").length;
-    stats.progress = typingTarget.querySelectorAll(".base.correct, .base.semi-correct, .base.incorrect, .semi-correct .base, .semi-incorrect .base").length - typingTarget.querySelectorAll(".semi-incorrect.gray").length;
+    stats.progress = typingTarget.querySelectorAll(".base.correct, .base.semi-correct, .base.incorrect, .semi-correct .base, .semi-incorrect:not(.gray) .base").length;
     stats.correctPercentage = computePercentage();
 
     computeSpeed();
