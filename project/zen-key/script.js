@@ -396,7 +396,7 @@ function checkCharacterType(char){
 }
 
 function isForceBase(char){
-    return checkCharacterType(char) !== "hiragana" && checkCharacterType(char) !== "fullwidth-latin";
+    return checkCharacterType(char) !== "hiragana" && checkCharacterType(char) !== "katakana" && checkCharacterType(char) !== "fullwidth-latin";
 }
 
 function hiraganaToKatakana(hiragana){
