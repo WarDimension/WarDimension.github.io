@@ -278,7 +278,7 @@ function updateLiveStats(){
     const avgKPM = Math.round(stats.avgKPM);
     const correctPercentage = Math.round(stats.correctPercentage);
 
-    statsElement.innerHTML = `${stats.progress}/${stats.totalText} ${correctPercentage}% ${avgCPM}<span class="unit">CMP</span> ${avgKPM}<span class="unit">KPM</span>`;
+    statsElement.innerHTML = `${stats.progress}/${stats.totalText} ${correctPercentage}% ${avgCPM}<span class="unit">CPM</span> ${avgKPM}<span class="unit">KPM</span>`;
 
     if(stats.progress == stats.totalText && stats.correctPercentage != 100) statsElement.innerHTML = "fix your mistake or press <i class='material-icons'>keyboard_return</i> to complete";
 }
@@ -325,7 +325,7 @@ function typingComplete(){
     const decimalPeakCPM = Math.round((stats.peakCPM + Number.EPSILON) * 100) / 100;
     const decimalPeakKPM = Math.round((stats.peakKPM + Number.EPSILON) * 100) / 100;
 
-    const CPM = `<span title="Last: ${decimalLastCPM}, Peak: ${decimalPeakCPM}, AVG: ${avgDecimalCPM}">${avgCPM}<span class="unit">CMP</span></span>`;
+    const CPM = `<span title="Last: ${decimalLastCPM}, Peak: ${decimalPeakCPM}, AVG: ${avgDecimalCPM}">${avgCPM}<span class="unit">CPM</span></span>`;
     const KPM = `<span title="Last: ${decimalLastKPM}, Peak: ${decimalPeakKPM}, AVG: ${avgDecimalKPM}">${avgKPM}<span class="unit">KPM</span></span>`;
 
     const correctPercentage = Math.round(stats.correctPercentage);
