@@ -1,11 +1,6 @@
 const typingData = [
     {
         "lang": "jp",
-        "text": "古[ふる]びたコトバ繰[く]り返[かえ]しつぶやいてみる\n伸[の]ばしたままの爪[つめ]痕[あと]はほら消[き]えないよ",
-        "source": "花[はな]残[のこ]り月[つき] by nano.RIPE"
-    },
-    {
-        "lang": "jp",
         "text": "にゃにゃめにゃにゃじゅうにゃにゃどのにゃらびでにゃくにゃくいにゃにゃくにゃにゃはんにゃにゃだいにゃんにゃくにゃらべてにゃがにゃがめ",
         "source": "化[ばけ]物[もの]語[がたり]"
     },
@@ -13,6 +8,21 @@ const typingData = [
         "lang": "jp",
         "text": "斜[なな]め七[なな]十[じゅう]七[なな]度[ど]の並[なら]びで泣[な]く泣[な]く嘶[いなな]くナナハン七[なな]台[だい]難[なん]なく並[なら]べて長[なが]眺[なが]め",
         "source": "早[はや]口[くち]言[こと]葉[ば]"
+    },
+    {
+        "lang": "jp",
+        "text": "今日[きょう]の敵[てき]は、明日[あした]の友[とも]",
+        "source": "宮[みや]本[もと]武[む]蔵[さし]"
+    },
+    {
+        "lang": "jp",
+        "text": "明日[あした]は明日[あした]の風[かぜ]が吹[ふ]く",
+        "source": "諺[ことわざ]"
+    },
+    {
+        "lang": "jp",
+        "text": "開[あ]いた口[くち]が塞[ふさ]がらない",
+        "source": "諺[ことわざ]"
     }
 ];
 
@@ -86,7 +96,7 @@ function convertText(text){
 
 let isFuriganaHidden = false;
 function toggleFurigana(){
-    const furiganaRT = typingTarget.querySelectorAll("rt");
+    const furiganaRT = document.querySelectorAll("rt");
 
     isFuriganaHidden = !isFuriganaHidden;
 
@@ -244,7 +254,7 @@ function computePersistentCorrect(){
 }
 
 function computeSpeed(){
-    if(stats.keyPressed == 1) return;
+    if(stats.keyPressed < 2) return;
 
     const elapsedTime = new Date() - startTime;
     const KPM = (stats.keyPressed / elapsedTime) * 60000;
