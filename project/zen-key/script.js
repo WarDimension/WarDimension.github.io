@@ -528,7 +528,7 @@ function applyInputToRuby(inputSegment, arrayRuby){
         if(input == "" && isFuriganaHidden && furiganaRT){
             furiganaRT.style.opacity = 0;
         }
-        else if(isForceBase(input) || (input.length < furiganaElements.length && inputSegment[i + 1] !== "") || furiganaElements.length == 0){
+        else if(isForceBase(input) || (input.length < furiganaElements.length && !(inputSegment[i + 1] == "" || inputSegment[i + 1] == null)) || furiganaElements.length == 0){
             if(furiganaRT) furiganaRT.classList.add("converted");
 
             baseElements.forEach((base, j) => {
