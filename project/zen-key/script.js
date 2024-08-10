@@ -148,6 +148,7 @@ function toggleJustHiragana(){
 
     if(stats.state !== state.COMPLETE){
         getRandomText(false);
+        setStats();
         update(typingInput.value, {"inputType": "deleteContentBackward"});
     }
     else{
