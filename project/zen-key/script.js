@@ -23,6 +23,11 @@ const typingData = [
         "lang": "jp",
         "text": "開[あ]いた口[くち]が塞[ふさ]がらない",
         "source": "諺[ことわざ]"
+    },
+    {
+        "lang": "jp",
+        "text": "猫[ねこ]になってください",
+        "source": "-"
     }
 ];
 
