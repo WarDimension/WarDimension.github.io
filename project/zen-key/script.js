@@ -28,6 +28,11 @@ const typingData = [
         "lang": "jp",
         "text": "猫[ねこ]になってください",
         "source": "-"
+    },
+    {
+        "lang": "jp",
+        "text": "猫[ねこ]になりたい",
+        "source": "-"
     }
 ];
 
