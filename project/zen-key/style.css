@@ -91,6 +91,9 @@ p, .typing-input{
     text-align: justify;
     letter-spacing: 1px;
 }
+label{
+    line-height: 1.4em;
+}
 .typing-input{
     position: absolute;
     resize: none;
