@@ -546,6 +546,15 @@ let favorites = [
                         "link": "https://www.youtube.com/@robscallon"
                     }
                 ]
+            },
+            {
+                "subCategory": "YouTube - Radio",
+                "rankedList": [
+                    {
+                        "title": "Satou Mana's Oyasumi Radio",
+                        "link": "https://www.youtube.com/@おやすみラジオ"
+                    }
+                ]
             }
         ]
     }
