@@ -551,7 +551,7 @@ let favorites = [
                 "subCategory": "YouTube - Radio",
                 "rankedList": [
                     {
-                        "title": "Satou Mana's Oyasumi Radio",
+                        "title": "佐藤まな【おやすみラジオ】",
                         "link": "https://www.youtube.com/@おやすみラジオ"
                     }
                 ]
