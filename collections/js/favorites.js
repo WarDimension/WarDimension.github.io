@@ -553,6 +553,10 @@ let favorites = [
                     {
                         "title": "佐藤まな【おやすみラジオ】",
                         "link": "https://www.youtube.com/@おやすみラジオ"
+                    },
+                    {
+                        "title": "タチバナモモ",
+                        "link": "https://www.youtube.com/@momoUoxoUmomo"
                     }
                 ]
             }
