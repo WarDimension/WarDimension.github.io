@@ -431,6 +431,10 @@ let favorites = [
                 "subCategory": "Twitch - Just Chatting",
                 "rankedList": [
                     {
+                        "title": "まるごとみかん",
+                        "link": "https://www.twitch.tv/mikanchaaan"
+                    },
+                    {
                         "title": "Yoshimyan",
                         "link": "https://www.twitch.tv/yoshimyan"
                     }
@@ -460,16 +464,24 @@ let favorites = [
                         "link": "https://www.twitch.tv/maronwaguri"
                     },
                     {
+                        "title": "mofu_aki",
+                        "link": "https://www.twitch.tv/mofu_aki"
+                    },
+                    {
+                        "title": "ネオイパン",
+                        "link": "https://www.twitch.tv/oipaaan"
+                    },
+                    {
+                        "title": "きぃたまぉ",
+                        "link": "https://www.twitch.tv/kli_jam"
+                    },
+                    {
                         "title": "Haru_Haro",
                         "link": "https://www.twitch.tv/haru_haro"
                     },
                     {
                         "title": "Mochify",
                         "link": "https://www.twitch.tv/mochify"
-                    },
-                    {
-                        "title": "Kumano Kanoko",
-                        "link": "https://www.twitch.tv/kumanokanoko"
                     }
                 ]
             },
