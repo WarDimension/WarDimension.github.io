@@ -444,7 +444,7 @@ let favorites = [
                 "subCategory": "Twitch/YouTube - VTuber",
                 "rankedList": [
                     {
-                        "title": "Kokoha An",
+                        "title": "心羽あん",
                         "link": "https://www.twitch.tv/kokohaan"
                     },
                     {
@@ -452,15 +452,15 @@ let favorites = [
                         "link": "https://www.twitch.tv/emilymyc"
                     },
                     {
-                        "title": "Oshu",
+                        "title": "おしゅ_",
                         "link": "https://www.twitch.tv/2taoxi"
                     },
                     {
-                        "title": "Ringo",
+                        "title": "苹菓ーりんごー",
                         "link": "https://www.twitch.tv/ringochan65"
                     },
                     {
-                        "title": "Waguri Maron",
+                        "title": "和栗まろん",
                         "link": "https://www.twitch.tv/maronwaguri"
                     },
                     {
@@ -472,6 +472,10 @@ let favorites = [
                         "link": "https://www.twitch.tv/oipaaan"
                     },
                     {
+                        "title": "odaaaaant",
+                        "link": "https://www.twitch.tv/odaaaaant"
+                    },
+                    {
                         "title": "きぃたまぉ",
                         "link": "https://www.twitch.tv/kli_jam"
                     },
@@ -480,7 +484,7 @@ let favorites = [
                         "link": "https://www.twitch.tv/haru_haro"
                     },
                     {
-                        "title": "Mochify",
+                        "title": "もちふぃ",
                         "link": "https://www.twitch.tv/mochify"
                     }
                 ]
