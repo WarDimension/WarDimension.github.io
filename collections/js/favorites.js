@@ -123,6 +123,11 @@ let favorites = [
                         "link": "./waifu?s=相沢香織"
                     },
                     {
+                        "title": "Williams Alicia",
+                        "subTitle": "Rekishi ni Nokoru Akujo ni Naruzo",
+                        "link": "./waifu?s=Williams Alicia"
+                    },
+                    {
                         "title": "Iwakura Mitsumi",
                         "subTitle": "Skip to Loafer",
                         "link": "./waifu?s=岩倉美津未"
