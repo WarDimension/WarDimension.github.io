@@ -13,6 +13,10 @@ let favorites = [
                     {
                         "title": "Sora yori mo Tooi Basho",
                         "link": "./watch-order?s=宇宙よりも遠い場所"
+                    },
+                    {
+                        "title": "Giji Harem",
+                        "link": "./watch-order?s=疑似ハーレム"
                     }
                 ]
             },
@@ -49,6 +53,10 @@ let favorites = [
             {
                 "subCategory": "Non-Yuri Romance",
                 "rankedList": [
+                    {
+                        "title": "Giji Harem",
+                        "link": "./watch-order?s=疑似ハーレム"
+                    },
                     {
                         "title": "Yahari Ore no Seishun Love Come wa Machigatteiru.",
                         "link": "./watch-order?s=やはり俺の青春ラブコメはまちがっている。"
