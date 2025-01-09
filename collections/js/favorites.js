@@ -121,6 +121,11 @@ let favorites = [
                         "link": "./waifu?s=小糸侑"
                     },
                     {
+                        "title": "Kuronuma Sawako",
+                        "subTitle": "Kimi ni Todoke",
+                        "link": "./waifu?s=黒沼爽子"
+                    },
+                    {
                         "title": "Yukishita Mayuki",
                         "subTitle": "Goukaku no Tame no! Yasashii Sankaku Kankei Nyuumon",
                         "link": "./waifu?s=雪下真幸"
