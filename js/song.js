@@ -192,7 +192,7 @@ function onPlayerStateChange(event){
   else if(event.data == YT.PlayerState.PLAYING){
     time = setInterval(updateTimeSlider,10);
     setPlayButton("PLAYING");
-    durationText.innerHTML = player.getDuration().toString().toHHMMSS();
+    durationText.innerHTML = player.getVideoData().isLive ? "LIVE" : player.getDuration().toString().toHHMMSS();
     playerState = "PLAYING";
   }
   else if(event.data == YT.PlayerState.BUFFERING){
@@ -488,16 +488,17 @@ function playSong(){
   if(playerState == "UNSTARTED" && player.getVideoData().title != "" && url()["id"] != "") playButtonState == "PAUSED" ? setPlayButton("BUFFERING") : setPlayButton("PAUSED");
 }
 
-function seekTo(){
-  var currentTime = (timeSlider.value/timeSlider.max)*player.getDuration();
+function seekTo(play = true){
+  var newMaxLiveTime = maxLiveTime + (new Date().getTime()-startTime)/1000;
+  var duration = player.getVideoData().isLive ? newMaxLiveTime : player.getDuration();
+  var currentTime = (timeSlider.value/timeSlider.max)*duration;
   currentTimeText.innerHTML = (currentTime.toString().toHHMMSS());
-  player.seekTo(currentTime);
+  if(play) player.seekTo(currentTime);
 }
 
 function setSeek(){
   clearInterval(time);
-  var currentTime = (timeSlider.value/timeSlider.max)*player.getDuration();
-  currentTimeText.innerHTML = (currentTime.toString().toHHMMSS());
+  seekTo(false);
   updateDiskSpin(true);
 }
 
@@ -645,10 +646,22 @@ function getNextSong(){
 var timeSlider = document.getElementById("time-slider");
 
 var time;
+var maxLiveTime = 0;
+var startTime = 0;
 function updateTimeSlider(){
   player.setVolume(100);
   player.unMute();
-  var currentTime = Math.floor((player.getCurrentTime()/player.getDuration())*timeSlider.max);
+
+  if(startTime == 0){
+    startTime = new Date().getTime();
+    maxLiveTime = player.getCurrentTime();
+  }
+
+  var newMaxLiveTime = maxLiveTime + (new Date().getTime()-startTime)/1000;
+
+  var duration = player.getVideoData().isLive ? newMaxLiveTime : player.getDuration();
+  var currentTime = Math.floor((player.getCurrentTime()/duration)*timeSlider.max);
+
   if(!isNaN(currentTime)){
     timeSlider.value = currentTime.toString();
     currentTimeText.innerHTML = player.getCurrentTime().toString().toHHMMSS();
