@@ -494,6 +494,10 @@ let favorites = [
                         "link": "https://www.twitch.tv/odaaaaant"
                     },
                     {
+                        "title": "ちゃりちゃん_",
+                        "link": "https://www.twitch.tv/chqrico"
+                    },
+                    {
                         "title": "きぃたまぉ",
                         "link": "https://www.twitch.tv/kli_jam"
                     },
