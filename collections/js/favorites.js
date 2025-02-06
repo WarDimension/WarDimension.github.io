@@ -525,11 +525,29 @@ let favorites = [
                 ]
             },
             {
+                "subCategory": "YouTube - Camping",
+                "rankedList": [
+                    {
+                        "title": "Chibii",
+                        "link": "https://www.youtube.com/@chibii530"
+                    }
+                ]
+            },
+            {
                 "subCategory": "YouTube - Comedy",
                 "rankedList": [
                     {
                         "title": "Ryan George",
                         "link": "https://www.youtube.com/@RyanGeorge"
+                    }
+                ]
+            },
+            {
+                "subCategory": "YouTube - Daily Life",
+                "rankedList": [
+                    {
+                        "title": "みさきちゃんネル",
+                        "link": "https://www.youtube.com/@misakichan_nel"
                     }
                 ]
             },
@@ -557,6 +575,10 @@ let favorites = [
             {
                 "subCategory": "YouTube - Games",
                 "rankedList": [
+                    {
+                        "title": "ぴより隊長",
+                        "link": "https://www.youtube.com/@piyoricap"
+                    },
                     {
                         "title": "ゆきえもんちゃんねる。",
                         "link": "https://www.youtube.com/@yukiemon-channel"
