@@ -530,6 +530,10 @@ let favorites = [
                     {
                         "title": "Chibii",
                         "link": "https://www.youtube.com/@chibii530"
+                    },
+                    {
+                        "title": "UKI CAMP （川本うき）",
+                        "link": "https://www.youtube.com/@uki_ki_"
                     }
                 ]
             },
