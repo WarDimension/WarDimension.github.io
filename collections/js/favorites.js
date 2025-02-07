@@ -532,6 +532,10 @@ let favorites = [
                         "link": "https://www.youtube.com/@chibii530"
                     },
                     {
+                        "title": "やまくっく・やぎちゃん",
+                        "link": "https://www.youtube.com/@yagichan"
+                    },
+                    {
                         "title": "UKI CAMP （川本うき）",
                         "link": "https://www.youtube.com/@uki_ki_"
                     }
