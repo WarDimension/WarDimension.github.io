@@ -33,8 +33,45 @@ const typingData = [
         "lang": "jp",
         "text": "猫[ねこ]になりたい",
         "source": "-"
+    },
+    {
+        "lang": "jp",
+        "text": "一[ひと]人[り]で完[かん]結[けつ]してない世[せ]界[かい]は思[おも]ってたよりずっとうれしい",
+        "source": "黒[くろ]沼[ぬま]爽[さわ]子[こ]"
+    },
+    {
+        "lang": "jp",
+        "text": "超[ちょう]正[せい]攻[こう]法[ほう]だからね！",
+        "source": "矢[や]野[の]あやね"
+    },
+    {
+        "lang": "jp",
+        "text": "比[くら]べようがないのは他[ほか]の男[だん]子[し]と接[せっ]触[しょく]がないからでしょ",
+        "source": "胡桃[くるみ]沢[ざわ]梅[うめ]"
+    },
+    {
+        "lang": "jp",
+        "text": "近[きん]所[じょ]の子[こ]がなんだってんだ？",
+        "source": "吉[よし]田[だ]千[ち]鶴[づる]"
+    },
+    {
+        "lang": "jp",
+        "text": "俺[おれ]がベタ惚[ぼ]れなんだから",
+        "source": "風[かぜ]早[はや]翔[しょう]太[た]"
+    },
+    {
+        "lang": "jp",
+        "text": "鈍[にぶ]さに慣[な]れるな！",
+        "source": "胡桃[くるみ]沢[ざわ]梅[うめ]"
+    },
+    {
+        "lang": "jp",
+        "text": "雨[あめ]の日[ひ]も、風[かぜ]の日[ひ]も、吹[ふ]雪[ぶき]の日[ひ]だって！！",
+        "source": "胡桃[くるみ]沢[ざわ]梅[うめ]"
     }
 ];
+
+const testMode = false;
 
 const typingTarget = document.querySelector(".typing-target");
 const flexContainer = document.querySelector(".flex-container");
@@ -220,8 +257,13 @@ let previousRandom = -1;
 
 function getRandomText(random = true){
     let randomIndex = random ? Math.floor(Math.random() * typingData.length) : previousRandom;
-    while(randomIndex == previousRandom && typingData.length > 1 && random){
-        randomIndex = Math.floor(Math.random() * typingData.length);
+    if(testMode){
+        randomIndex = typingData.length - 1;
+    }
+    else{
+        while(randomIndex == previousRandom && typingData.length > 1 && random){
+            randomIndex = Math.floor(Math.random() * typingData.length);
+        }
     }
     previousRandom = randomIndex;
     typingTarget.innerHTML = convertText(typingData[randomIndex].text);

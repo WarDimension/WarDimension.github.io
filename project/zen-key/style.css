@@ -58,6 +58,7 @@ body{
 span{
     display: inline-block;
     white-space: pre;
+    text-align: center;
 }
 .furigana{
     text-decoration: none !important;
