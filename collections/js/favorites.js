@@ -58,6 +58,10 @@ let favorites = [
                         "link": "./watch-order?s=疑似ハーレム"
                     },
                     {
+                        "title": "Kimi ni Todoke",
+                        "link": "./watch-order?s=君に届け"
+                    },
+                    {
                         "title": "Yahari Ore no Seishun Love Come wa Machigatteiru.",
                         "link": "./watch-order?s=やはり俺の青春ラブコメはまちがっている。"
                     }
@@ -297,6 +301,10 @@ let favorites = [
                         "link": "https://anilist.co/manga/106785/Kami-Eshi-JK-to-OL-Fujoshi/"
                     },
                     {
+                        "title": "Kimi ni Todoke",
+                        "link": "https://anilist.co/manga/33378/Kimi-ni-Todoke/"
+                    },
+                    {
                         "title": "Urara Meirochou",
                         "link": "https://anilist.co/manga/87031/Urara-Meirochou/"
                     },
@@ -312,6 +320,15 @@ let favorites = [
                     {
                         "title": "Urara Meirochou",
                         "link": "https://anilist.co/manga/87031/Urara-Meirochou/"
+                    }
+                ]
+            },
+            {
+                "subCategory": "Non-Yuri Romance",
+                "rankedList": [
+                    {
+                        "title": "Kimi ni Todoke",
+                        "link": "https://anilist.co/manga/33378/Kimi-ni-Todoke/"
                     }
                 ]
             },
