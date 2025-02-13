@@ -145,6 +145,16 @@ let favorites = [
                         "link": "./waifu?s=Williams Alicia"
                     },
                     {
+                        "title": "Nanakura Rin",
+                        "subTitle": "Giji Harem",
+                        "link": "./waifu?s=七倉凛"
+                    },
+                    {
+                        "title": "Kurumizawa Ume",
+                        "subTitle": "Kimi ni Todoke",
+                        "link": "./waifu?s=胡桃沢梅"
+                    },
+                    {
                         "title": "Iwakura Mitsumi",
                         "subTitle": "Skip to Loafer",
                         "link": "./waifu?s=岩倉美津未"
