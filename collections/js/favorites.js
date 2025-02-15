@@ -15,6 +15,10 @@ let favorites = [
                         "link": "./watch-order?s=宇宙よりも遠い場所"
                     },
                     {
+                        "title": "Gimai Seikatsu",
+                        "link": "./watch-order?s=義妹生活"
+                    },
+                    {
                         "title": "Giji Harem",
                         "link": "./watch-order?s=疑似ハーレム"
                     }
@@ -53,6 +57,10 @@ let favorites = [
             {
                 "subCategory": "Non-Yuri Romance",
                 "rankedList": [
+                    {
+                        "title": "Gimai Seikatsu",
+                        "link": "./watch-order?s=義妹生活"
+                    },
                     {
                         "title": "Giji Harem",
                         "link": "./watch-order?s=疑似ハーレム"
