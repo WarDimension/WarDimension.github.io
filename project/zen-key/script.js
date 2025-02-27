@@ -160,8 +160,7 @@ function convertText(text){
             case "hiragana":
                 switch(furigana){
                     case true:
-                        const style = isFuriganaHidden ? "style ='opacity: 0'" : "";
-                        furiganaGroup += `<span class="kana furigana" data-original="${char}" ${style}>${char}</span>`;
+                        furiganaGroup += `<span class="kana furigana" data-original="${char}">${char}</span>`;
                         break;
                     default:
                         newText += `<span><ruby class="typing-target-ruby hiragana"><span class="kana base" data-original="${char}">${char}</span></ruby></span>`;
@@ -187,8 +186,9 @@ function convertText(text){
                         furigana = isJustHiragana ? false : true;
                         break;
                     case "]":
+                        const style = isFuriganaHidden ? "style ='opacity: 0'" : "";
                         furigana = false;
-                        newText += isJustHiragana ? "" : `<span><ruby class="typing-target-ruby ${isKanji ? "kanji" : "other"}">${kanjiGroup}<rp>(</rp><rt>${furiganaGroup}</rt><rp>)</rp></ruby></span>`;
+                        newText += isJustHiragana ? "" : `<span><ruby class="typing-target-ruby ${isKanji ? "kanji" : "other"}">${kanjiGroup}<rp>(</rp><rt ${style}>${furiganaGroup}</rt><rp>)</rp></ruby></span>`;
                         kanjiGroup = furiganaGroup = "";
                         break;
                     case "\n":
@@ -219,6 +219,7 @@ function convertText(text){
 let isFuriganaHidden = false;
 function toggleFurigana(){
     const furiganaRT = document.querySelectorAll("rt");
+    const furiganaHidden = document.querySelectorAll(".furigana-hidden");
 
     isFuriganaHidden = !isFuriganaHidden;
 
@@ -231,6 +232,10 @@ function toggleFurigana(){
         default:
             furiganaRT.forEach(furigana => {
                 furigana.removeAttribute("style");
+            });
+            furiganaHidden.forEach(furigana => {
+                furigana.removeAttribute("style");
+                furigana.classList.remove("furigana-hidden");
             });
             break;
     }
@@ -378,7 +383,7 @@ function computePersistentCorrect(){
     const progressElements = typingTarget.querySelectorAll(".correct, .incorrect");
     const lastProgress = progressElements[progressElements.length - 1];
 
-    if(lastProgress.classList.contains("correct")){
+    if(lastProgress.length > 0 && lastProgress.classList.contains("correct")){
         stats.persistentCorrect++;
     }
 }
@@ -689,18 +694,27 @@ function applyInputToRuby(inputSegment, arrayRuby){
 
                 if(input[j] == null){
                     furigana.classList.remove("correct", "incorrect");
-                    if(isFuriganaHidden) furigana.style.opacity = 0;
+                    if(isFuriganaHidden){
+                        furigana.style.opacity = 0;
+                        furigana.classList.add("furigana-hidden");
+                    }
                 }
                 else if(input[j] === furiganaText){
                     unsetInputToElement(furigana);
                     furigana.classList.add("correct");
-                    if(isFuriganaHidden) furigana.removeAttribute("style");
+                    if(isFuriganaHidden){
+                        furigana.removeAttribute("style");
+                        furigana.classList.remove("furigana-hidden");
+                    }
                 }
                 else{
                     setInputToElement(furigana, input[j]);
                     furigana.classList.add("incorrect");
                     ruby.classList.add("semi-incorrect");
-                    if(isFuriganaHidden) furigana.removeAttribute("style");
+                    if(isFuriganaHidden){
+                        furigana.removeAttribute("style");
+                        furigana.classList.remove("furigana-hidden");
+                    }
                 }
             });
 
