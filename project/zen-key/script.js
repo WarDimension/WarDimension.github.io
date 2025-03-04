@@ -128,10 +128,15 @@ const typingData = [
         "lang": "jp",
         "text": "少[しょう]女[じょ]漫[まん]画[が]もラブソングの歌[か]詞[し]も\n私[わたし]には、キラキラとまぶしくて\nでも\nどうしても届[とど]かなくて",
         "source": "小[こ]糸[いと]侑[ゆう]（やがて君[きみ]になる）"
+    },
+    {
+        "lang": "jp",
+        "text": "生[う]まれてきて、ごめんなさい。",
+        "source": "園[その]崎[ざき]詩[し]音[おん]（ひぐらしのなく頃[ころ]に解[かい]～目[め]明[あか]し編[へん]～）"
     }
 ];
 
-const testMode = 0;
+const testMode = 1;
 
 const typingTarget = document.querySelector(".typing-target");
 const flexContainer = document.querySelector(".flex-container");
