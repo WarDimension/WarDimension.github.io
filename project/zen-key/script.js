@@ -136,7 +136,7 @@ const typingData = [
     }
 ];
 
-const testMode = 1;
+const testMode = 0;
 
 const typingTarget = document.querySelector(".typing-target");
 const flexContainer = document.querySelector(".flex-container");
