@@ -612,6 +612,10 @@ let favorites = [
                     {
                         "title": "Dave McKeegan",
                         "link": "https://www.youtube.com/@DaveMcKeegan"
+                    },
+                    {
+                        "title": "Evildea",
+                        "link": "https://www.youtube.com/@Evildea"
                     }
                 ]
             },
