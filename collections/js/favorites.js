@@ -138,6 +138,11 @@ let favorites = [
                         "link": "./waifu?s=黒沼爽子"
                     },
                     {
+                        "title": "Sanjou Ruise",
+                        "subTitle": "Seiren",
+                        "link": "./waifu?s=三条るいせ"
+                    },
+                    {
                         "title": "Yukishita Mayuki",
                         "subTitle": "Goukaku no Tame no! Yasashii Sankaku Kankei Nyuumon",
                         "link": "./waifu?s=雪下真幸"
