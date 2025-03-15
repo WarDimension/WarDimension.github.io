@@ -138,6 +138,11 @@ let favorites = [
                         "link": "./waifu?s=黒沼爽子"
                     },
                     {
+                        "title": "Gasai Yuno",
+                        "subTitle": "Mirai Nikki",
+                        "link": "./waifu?s=我妻由乃"
+                    },
+                    {
                         "title": "Sanjou Ruise",
                         "subTitle": "Seiren",
                         "link": "./waifu?s=三条るいせ"
