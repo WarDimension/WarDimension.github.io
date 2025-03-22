@@ -148,6 +148,11 @@ let favorites = [
                         "link": "./waifu?s=三条るいせ"
                     },
                     {
+                        "title": "Chouno Hina",
+                        "subTitle": "Ao no Hako",
+                        "link": "./waifu?s=蝶野雛"
+                    },
+                    {
                         "title": "Yukishita Mayuki",
                         "subTitle": "Goukaku no Tame no! Yasashii Sankaku Kankei Nyuumon",
                         "link": "./waifu?s=雪下真幸"
