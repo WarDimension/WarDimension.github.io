@@ -133,6 +133,11 @@ let favorites = [
                         "link": "./waifu?s=小糸侑"
                     },
                     {
+                        "title": "Tinasha",
+                        "subTitle": "Unnamed Memory",
+                        "link": "./waifu?s=ティナーシャ"
+                    },
+                    {
                         "title": "Hori Kyouko",
                         "subTitle": "Horimiya",
                         "link": "./waifu?s=堀京子"
