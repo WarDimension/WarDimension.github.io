@@ -550,6 +550,10 @@ let favorites = [
                         "link": "https://www.twitch.tv/oipaaan"
                     },
                     {
+                        "title": "さしみ飯店",
+                        "link": "https://www.twitch.tv/sashimi_01c_"
+                    },
+                    {
                         "title": "odaaaaant",
                         "link": "https://www.twitch.tv/odaaaaant"
                     },
