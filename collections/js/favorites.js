@@ -623,6 +623,15 @@ let favorites = [
                 ]
             },
             {
+                "subCategory": "YouTube - Cooking",
+                "rankedList": [
+                    {
+                        "title": "おすぎ(管理栄養士)",
+                        "link": "https://www.youtube.com/@sugimeal"
+                    }
+                ]
+            },
+            {
                 "subCategory": "YouTube - Daily Life",
                 "rankedList": [
                     {
