@@ -7,6 +7,7 @@
 html, body {
     height: 100%;
     overflow: hidden;
+    -webkit-mask-image: linear-gradient(270deg,rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 20px, rgba(0, 0, 0, 1) 100%);
 }
 
 body {
@@ -17,7 +18,7 @@ body {
     font-size: {font_size};
     line-height: 1.5em;
     color: {text_color};
-    -webkit-mask-image: -webkit-gradient(linear, left 10%, left top, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+    -webkit-mask-image: linear-gradient(180deg,rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 15px, rgba(0, 0, 0, 1) 100%);
 }
 
 #log>div {
@@ -41,12 +42,12 @@ body {
 
 #log>div {
     position: relative;
-    right: 30px;
+    right: 40px;
     float: right;
     clear: right;
     display: block;
     width: fit-content;
-    max-width: calc(100% - 30px);
+    max-width: calc(100% - 80px);
 }
 
 #log>div.deleted {
