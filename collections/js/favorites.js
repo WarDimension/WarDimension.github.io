@@ -388,12 +388,12 @@ let favorites = [
                 "subCategory": "Yuri",
                 "rankedList": [
                     {
-                        "title": "Goukaku no Tame no! Yasashii Sankaku Kankei Nyuumon",
-                        "link": "https://anilist.co/manga/114970/Goukaku-no-Tame-no-Yasashii-Sankaku-Kankei-Nyuumon/"
-                    },
-                    {
                         "title": "Yagate Kimi ni Naru",
                         "link": "https://anilist.co/manga/86218/Yagate-Kimi-ni-Naru/"
+                    },
+                    {
+                        "title": "Goukaku no Tame no! Yasashii Sankaku Kankei Nyuumon",
+                        "link": "https://anilist.co/manga/114970/Goukaku-no-Tame-no-Yasashii-Sankaku-Kankei-Nyuumon/"
                     },
                     {
                         "title": "Kami Eshi JK to OL Fujoshi",
