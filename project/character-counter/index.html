@@ -225,6 +225,10 @@
                             break;
                         case "　":
                             result.innerHTML += "スペース: ";
+                            break;
+                        case char[0].match(/\s/g) != null ? char[0].match(/\s/g)[0] : "666":
+                            result.innerHTML += "Other Whitespace: ";
+                            break;
                         default:
                             result.innerHTML += char[0] + ": ";
                             break;
