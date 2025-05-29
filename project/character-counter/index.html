@@ -39,10 +39,10 @@
                 overflow-y: auto;
                 height: 94%;
             }
-            .case-container{
+            .settings-container{
                 margin-bottom: 10px;
             }
-            .case{
+            .case, .total-whitespace{
                 vertical-align: middle;
             }
             @media only screen and (max-width: 1160px){
@@ -72,8 +72,9 @@
     <body>
         <textarea class="text" onkeydown="keydown(event)" oninput="count()"></textarea>
         <div class="result">
-            <div class="case-container">
+            <div class="settings-container">
                 case sensitive<input class="case" type="checkbox" onchange="count()"/>
+                total whitespace<input class="total-whitespace" type="checkbox" onchange="count()"/>
             </div>
             character count:<br/>
             <div class="char-result">
@@ -84,6 +85,8 @@
             const text = document.querySelector(".text");
             const result = document.querySelector(".char-result");
             const caseCB = document.querySelector(".case");
+            const totalWhitespace = document.querySelector(".total-whitespace");
+            var total = 0;
 
             function keyLower(key){
                 key = key.toLowerCase();
@@ -205,6 +208,7 @@
                     }
                 }
 
+                total = 0;
                 newChars.forEach(char => {
                     switch(char[0]){
                         case "\n":
@@ -225,11 +229,19 @@
                     }
 
                     result.innerHTML += char.length + "<br/>";
+
+                    if(totalWhitespace.checked && char[0].toUpperCase() != "SHIFT"){
+                        total += char.length
+                    }
+                    else if(!/\s/g.test(char[0]) && char[0].toUpperCase() != "SHIFT"){
+                        total += char.length;
+                    }
                 });
+
+                total > 0 ? result.innerHTML = "Total: " + total + "<br/>" + result.innerHTML : "";
             }
             
             function keydown(e) {
-                console.log(e);
                 if (e.key == "Tab"){
                     e.preventDefault();
                     text.value += "\t";
