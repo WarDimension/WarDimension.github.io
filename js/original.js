@@ -989,7 +989,7 @@ const songsData = [
       //"deezer": "https://www.deezer.com/album/417071267",
       "spotify": "https://open.spotify.com/album/3cyAl0AI4E41olCuQBMlrw",
       "youtube": "https://www.youtube.com/playlist?list=PLjU3ePCiIkWmwfwq_BMLdM7kFh-thK7bw",
-      //"amazon": "https://www.amazon.com/music/player/albums/B0BYG18DWZ",
+      "amazon": "https://www.amazon.com/music/player/albums/B0FD593N9X",
       "bandcamp": "https://wardimension.bandcamp.com/album/glass-castle"
     },
     {
