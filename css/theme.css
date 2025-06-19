@@ -49,6 +49,24 @@ html, iframe {
 ::-webkit-scrollbar-thumb:hover {
   background: #444;
 }
+.hina-chan{
+  position: absolute;
+  top: calc(100% - 8px);
+  left: 75%;
+  width: 250px;
+  height: 200px;
+  background: url("https://panels.twitch.tv/panel-182311986-image-d29c67e7-f70f-47f5-a8e9-99f93abcb3ef");
+  background-size: 250px;
+  background-repeat: no-repeat;
+  transform: translateX(-50%);
+  z-index: 1;
+  -webkit-filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.75));
+  filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.75));
+}
+.hina-chan:hover{
+  -webkit-filter: drop-shadow(0px 2px 4px #DBAE3F);
+  filter: drop-shadow(0px 2px 4px #DBAE3F);
+}
 body{
   margin: 0;
   max-width: 100%;
@@ -396,6 +414,12 @@ h3{
   transition: all 0.1s cubic-bezier(.25,.8,.25,1);
 }
 @media only screen and (orientation: portrait), only screen and (max-width: 1600px){
+  .hina-chan{
+    background-size: 200px;
+    width: 200px;
+    height: 160px;
+    left: calc(100% - 145px);
+  }
   #main{
     top: 0;
     bottom: 0;
@@ -457,6 +481,12 @@ h3{
   }
 }
 @media only screen and (max-width: 800px){
+  .hina-chan{
+    left: 50%;
+  }
+  .dev-console-info-container{
+    margin-top: 220px;
+  }
   .wd-logo{
     height: 212px;
   }
