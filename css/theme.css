@@ -485,7 +485,7 @@ h3{
     left: 50%;
   }
   .dev-console-info-container{
-    margin-top: 220px;
+    margin-top: 270px;
   }
   .wd-logo{
     height: 212px;
@@ -504,7 +504,7 @@ h3{
     left: 0;
   }
   .skip-content{
-    top: calc(100% + 20px);
+    top: calc(100% + 165px);
     bottom: auto;
     left: -20px;
     right: 0;
@@ -519,9 +519,6 @@ h3{
 @media only screen and (max-width: 640px){
   .content{
     width: 95vw;
-  }
-  .skip-content{
-    top: calc(100% + 20px);
   }
 }
 @media only screen and (max-width: 500px){
