@@ -128,6 +128,11 @@ let favorites = [
                 "subCategory": "Waifu",
                 "rankedList": [
                     {
+                        "title": "Maomao",
+                        "subTitle": "Kusuriya no Hitorigoto",
+                        "link": "./waifu?s=猫猫"
+                    },
+                    {
                         "title": "Koito Yuu",
                         "subTitle": "Yagate Kimi ni Naru",
                         "link": "./waifu?s=小糸侑"
