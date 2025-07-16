@@ -1,4 +1,4 @@
-// Horror Movie Detention
+// Horror Movie Detention, Ringu Series
 
 let favorites = [
     {
