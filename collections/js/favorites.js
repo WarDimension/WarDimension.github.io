@@ -15,6 +15,10 @@ let favorites = [
                         "link": "./watch-order?s=宇宙よりも遠い場所"
                     },
                     {
+                        "title": "Kusuriya no Hitorigoto",
+                        "link": "./watch-order?s=薬屋のひとりごと"
+                    },
+                    {
                         "title": "Gimai Seikatsu",
                         "link": "./watch-order?s=義妹生活"
                     },
@@ -30,6 +34,15 @@ let favorites = [
                     {
                         "title": "Sora yori mo Tooi Basho",
                         "link": "./watch-order?s=宇宙よりも遠い場所"
+                    }
+                ]
+            },
+            {
+                "subCategory": "Drama",
+                "rankedList": [
+                    {
+                        "title": "Kusuriya no Hitorigoto",
+                        "link": "./watch-order?s=薬屋のひとりごと"
                     }
                 ]
             },
