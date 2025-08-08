@@ -166,6 +166,11 @@ let favorites = [
                         "link": "./waifu?s=黒沼爽子"
                     },
                     {
+                        "title": "Kirarazaka Marina",
+                        "subTitle": "Takopii no Genzai",
+                        "link": "./waifu?s=雲母坂まりな"
+                    },
+                    {
                         "title": "Gasai Yuno",
                         "subTitle": "Mirai Nikki",
                         "link": "./waifu?s=我妻由乃"
