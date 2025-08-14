@@ -166,6 +166,11 @@ let favorites = [
                         "link": "./waifu?s=黒沼爽子"
                     },
                     {
+                        "title": "Kimberlite Elena",
+                        "subTitle": "Kinsou no Vermeil ~Gakeppuchi Majutsushi wa Saikyou no Yakusai to Mahou Sekai wo Tsuki Susumu~",
+                        "link": "./waifu?s=エレナ・キンバーライト"
+                    },
+                    {
                         "title": "Kirarazaka Marina",
                         "subTitle": "Takopii no Genzai",
                         "link": "./waifu?s=雲母坂まりな"
