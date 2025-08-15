@@ -241,6 +241,11 @@ let favorites = [
                         "link": "./waifu?s=財前時子"
                     },
                     {
+                        "title": "Takamine Takane",
+                        "subTitle": "Haite Kudasai, Takamine-san",
+                        "link": "./waifu?s=鷹峰高嶺"
+                    },
+                    {
                         "title": "Yuuka",
                         "subTitle": "Honto no Kanojo",
                         "link": "./waifu?s=ユカ"
