@@ -229,6 +229,11 @@ let favorites = [
                         "title": "Takimoto Hifumi",
                         "subTitle": "NEW GAME!",
                         "link": "./waifu?s=滝本ひふみ"
+                    },
+                    {
+                        "title": "Temari Yuri",
+                        "subTitle": "Platinum End",
+                        "link": "./waifu?s=手毬由理"
                     }
                 ]
             },
