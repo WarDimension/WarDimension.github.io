@@ -134,6 +134,19 @@ let favorites = [
                     {
                         "title": "SHAFT",
                         "link": "https://www.shaft-web.co.jp/"
+                    },
+                    {
+                        "title": "MADHOUSE",
+                        "link": "https://www.madhouse.co.jp/"
+                    }
+                ]
+            },
+            {
+                "subCategory": "Voice Actor",
+                "rankedList": [
+                    {
+                        "title": "Noto Mamiko",
+                        "link": "https://anilist.co/staff/95040/Noto-Mamiko"
                     }
                 ]
             },
