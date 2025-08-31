@@ -1,5 +1,3 @@
-// Horror Movie Detention, Ringu Series
-
 let favorites = [
     {
         "category": "Anime",
@@ -17,6 +15,10 @@ let favorites = [
                     {
                         "title": "Kusuriya no Hitorigoto",
                         "link": "./watch-order?s=薬屋のひとりごと"
+                    },
+                    {
+                        "title": "Kimi ni Todoke",
+                        "link": "./watch-order?s=君に届け"
                     },
                     {
                         "title": "Gimai Seikatsu",
@@ -71,16 +73,16 @@ let favorites = [
                 "subCategory": "Non-Yuri Romance",
                 "rankedList": [
                     {
+                        "title": "Kimi ni Todoke",
+                        "link": "./watch-order?s=君に届け"
+                    },
+                    {
                         "title": "Gimai Seikatsu",
                         "link": "./watch-order?s=義妹生活"
                     },
                     {
                         "title": "Giji Harem",
                         "link": "./watch-order?s=疑似ハーレム"
-                    },
-                    {
-                        "title": "Kimi ni Todoke",
-                        "link": "./watch-order?s=君に届け"
                     },
                     {
                         "title": "Yahari Ore no Seishun Love Come wa Machigatteiru.",
@@ -324,7 +326,7 @@ let favorites = [
                         "link": "https://osu.ppy.sh/users/5326020"
                     },
                     {
-                        "title": "Resident Evil",
+                        "title": "Resident Evil Series",
                         "link": "https://store.steampowered.com/search/?term=resident+evil"
                     },
                     {
@@ -457,6 +459,35 @@ let favorites = [
                     {
                         "title": "Kyou mo Onnanoko wo Kouryaku shita.",
                         "link": "https://anilist.co/manga/99852/Kyou-mo-Onnanoko-wo-Kouryaku-shita/"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "category": "Movie",
+        "list": [
+            {
+                "rankedList": [
+                    {
+                        "title": "Resident Evil Series",
+                        "link": "https://www.imdb.com/find/?q=resident%20evil"
+                    },
+                    {
+                        "title": "The Adventures of Tintin: The Secret of the Unicorn",
+                        "link": "https://www.imdb.com/title/tt0983193/"
+                    },
+                    {
+                        "title": "Kokuhaku",
+                        "link": "https://www.imdb.com/title/tt1590089/"
+                    },
+                    {
+                        "title": "Ring Series",
+                        "link": "https://www.imdb.com/title/tt0235712/"
+                    },
+                    {
+                        "title": "Detention",
+                        "link": "https://www.imdb.com/title/tt10805432/"
                     }
                 ]
             }
