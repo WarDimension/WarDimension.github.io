@@ -261,6 +261,11 @@ let favorites = [
                         "link": "./waifu?s=財前時子"
                     },
                     {
+                        "title": "Bouquet Mireille",
+                        "subTitle": "Noir",
+                        "link": "./waifu?s=Bouquet Mireille"
+                    },
+                    {
                         "title": "Takamine Takane",
                         "subTitle": "Haite Kudasai, Takamine-san",
                         "link": "./waifu?s=鷹峰高嶺"
