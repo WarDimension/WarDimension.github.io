@@ -186,6 +186,11 @@ let favorites = [
                         "link": "./waifu?s=エレナ・キンバーライト"
                     },
                     {
+                        "title": "Kurogane Otoha",
+                        "subTitle": "Rock wa Lady no Tashinami Deshite",
+                        "link": "./waifu?s=黒鉄音羽"
+                    },
+                    {
                         "title": "Kirarazaka Marina",
                         "subTitle": "Takopii no Genzai",
                         "link": "./waifu?s=雲母坂まりな"
@@ -259,6 +264,11 @@ let favorites = [
                         "title": "Zaizen Tokiko",
                         "subTitle": "THE iDOLM@STER Cinderella Girls",
                         "link": "./waifu?s=財前時子"
+                    },
+                    {
+                        "title": "Kurogane Otoha",
+                        "subTitle": "Rock wa Lady no Tashinami Deshite",
+                        "link": "./waifu?s=黒鉄音羽"
                     },
                     {
                         "title": "Takamine Takane",
