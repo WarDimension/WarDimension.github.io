@@ -21,6 +21,10 @@ let favorites = [
                         "link": "./watch-order?s=君に届け"
                     },
                     {
+                        "title": "Sono Bisque Doll wa Koi wo Suru",
+                        "link": "./watch-order?s=その着せ替え人形は恋をする"
+                    },
+                    {
                         "title": "Gimai Seikatsu",
                         "link": "./watch-order?s=義妹生活"
                     },
@@ -75,6 +79,10 @@ let favorites = [
                     {
                         "title": "Kimi ni Todoke",
                         "link": "./watch-order?s=君に届け"
+                    },
+                    {
+                        "title": "Sono Bisque Doll wa Koi wo Suru",
+                        "link": "./watch-order?s=その着せ替え人形は恋をする"
                     },
                     {
                         "title": "Gimai Seikatsu",
@@ -169,6 +177,11 @@ let favorites = [
                         "title": "Tinasha",
                         "subTitle": "Unnamed Memory",
                         "link": "./waifu?s=ティナーシャ"
+                    },
+                    {
+                        "title": "Kitagawa Marin",
+                        "subTitle": "Sono Bisque Doll wa Koi wo Suru",
+                        "link": "./waifu?s=喜多川海夢"
                     },
                     {
                         "title": "Hori Kyouko",
