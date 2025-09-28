@@ -25,6 +25,10 @@ let favorites = [
                         "link": "./watch-order?s=その着せ替え人形は恋をする"
                     },
                     {
+                        "title": "Majo no Tabitabi",
+                        "link": "./watch-order?s=魔女の旅々"
+                    },
+                    {
                         "title": "Gimai Seikatsu",
                         "link": "./watch-order?s=義妹生活"
                     },
@@ -40,6 +44,10 @@ let favorites = [
                     {
                         "title": "Sora yori mo Tooi Basho",
                         "link": "./watch-order?s=宇宙よりも遠い場所"
+                    },
+                    {
+                        "title": "Majo no Tabitabi",
+                        "link": "./watch-order?s=魔女の旅々"
                     }
                 ]
             },
