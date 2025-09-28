@@ -21,12 +21,16 @@ let favorites = [
                         "link": "./watch-order?s=君に届け"
                     },
                     {
-                        "title": "Sono Bisque Doll wa Koi wo Suru",
-                        "link": "./watch-order?s=その着せ替え人形は恋をする"
-                    },
-                    {
                         "title": "Majo no Tabitabi",
                         "link": "./watch-order?s=魔女の旅々"
+                    },
+                    {
+                        "title": "Kaoru Hana wa Rin to Saku",
+                        "link": "./watch-order?s=薫る花は凛と咲く"
+                    },
+                    {
+                        "title": "Sono Bisque Doll wa Koi wo Suru",
+                        "link": "./watch-order?s=その着せ替え人形は恋をする"
                     },
                     {
                         "title": "Gimai Seikatsu",
