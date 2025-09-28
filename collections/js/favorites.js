@@ -376,6 +376,10 @@ let favorites = [
                     {
                         "title": "Forgotton Anne",
                         "link": "https://store.steampowered.com/app/542050/Forgotton_Anne/"
+                    },
+                    {
+                        "title": "Higurashi no Naku Koro ni",
+                        "link": "https://store.steampowered.com/search?term=higurashi"
                     }
                 ]
             }
