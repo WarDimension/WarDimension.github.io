@@ -291,6 +291,11 @@ let favorites = [
                         "link": "./waifu?s=財前時子"
                     },
                     {
+                        "title": "Sena Ajisai",
+                        "subTitle": "Watashi ga Koibito ni Nareru Wake Naijan, Murimuri! (※Muri ja Nakatta!?)",
+                        "link": "./waifu?s=瀬名紫陽花"
+                    },
+                    {
                         "title": "Kurogane Otoha",
                         "subTitle": "Rock wa Lady no Tashinami Deshite",
                         "link": "./waifu?s=黒鉄音羽"
