@@ -82,7 +82,7 @@ onmessage = function (message) {
                     </div>
                 `;
 
-                if(index % 100 == 0 && index != 0){
+                if (index % 100 == 0 && index != 0) {
                     postMessage({ task: "UpdatePalette", paletteContent });
                     paletteContent = "";
                 }
