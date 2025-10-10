@@ -28,6 +28,7 @@ const loading = document.getElementById("loading");
 
 function resetStuff() {
     loading.style.opacity = 1;
+    loading.style.pointerEvents = "auto";
 
     colorStats.colorCounts = {};
     colorStats.totalCount = 0;
@@ -79,6 +80,7 @@ worker.onmessage = function (message) {
             break;
         case "DrawPieChart":
             loading.style.opacity = 0;
+            loading.style.pointerEvents = "";
             break;
         case "GetMouseHoverColor":
             setPalette(message.data.rgba);
