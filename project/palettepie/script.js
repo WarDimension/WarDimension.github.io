@@ -1,5 +1,7 @@
 const worker = new Worker("worker.js");
 
+const rgbToHex = (r, g, b) => "#" + [r, g, b].map(x => x.toString(16).padStart(2, "0")).join("");
+
 const upload = document.getElementById("upload");
 
 let colorStats = {
@@ -84,8 +86,6 @@ chartCanvas.addEventListener("mousemove", (e) => {
         y: e.clientY - rect.top
     });
 });
-
-const rgbToHex = (r, g, b) => "#" + [r, g, b].map(x => x.toString(16).padStart(2, "0")).join("");
 
 function setPalette(color) {
     const rgba = color.split(",");
