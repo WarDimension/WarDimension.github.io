@@ -1,5 +1,5 @@
 let canvas;
-let paletteContent = "";
+let ctx;
 
 onmessage = function (message) {
     const colorStats = message.data.colorStats;
@@ -7,6 +7,7 @@ onmessage = function (message) {
     switch (message.data.task) {
         case "InitCanvas":
             canvas = message.data.offscreenCanvas;
+            ctx = canvas.getContext("2d");
             break;
         case "ProcessImage":
             const pixels = message.data.pixels;
@@ -44,8 +45,6 @@ onmessage = function (message) {
         case "DrawPieChart":
             let startAngle = -Math.PI / 2;
 
-            const ctx = canvas.getContext("2d");
-
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             paletteContent = "";
 
@@ -64,32 +63,16 @@ onmessage = function (message) {
                 ctx.stroke();
 
                 startAngle += angle;
-
-                const rgba = color.split(",");
-                rgba[3] = (rgba[3] * 1).toFixed(2);
-                rgba[3] = rgba[3] % 1 === 0 ? (rgba[3] * 1).toFixed(0) : rgba[3];
-
-                const hexColor = rgbToHex(rgba[0] * 1, rgba[1] * 1, rgba[2] * 1);
-
-                paletteContent += `
-                    <div class="palette-frame" style="border: solid 1px #bbb">
-                        <div class="palette" style="background: rgba(${color})">
-                        </div>
-                        <p>
-                            ${hexColor} (opacity: ${rgba[3]})<br>
-                            rgba(${rgba.join(", ")})
-                        </p>
-                    </div>
-                `;
-
-                if (index % 100 == 0 && index != 0) {
-                    postMessage({ task: "UpdatePalette", paletteContent });
-                    paletteContent = "";
-                }
             });
-            postMessage({ task: "DrawPieChart", paletteContent });
+            postMessage({ task: "DrawPieChart" });
+            break;
+        case "GetMouseHoverColor":
+            const x = message.data.x;
+            const y = message.data.y;
+            const pixel = ctx.getImageData(x, y, 1, 1).data;
+            const rgba = `${pixel[0]}, ${pixel[1]}, ${pixel[2]}, ${pixel[3] / 255}`;
+
+            postMessage({ task: "GetMouseHoverColor", rgba });
             break;
     }
 }
-
-const rgbToHex = (r, g, b) => "#" + [r, g, b].map(x => x.toString(16).padStart(2, "0")).join("");

@@ -30,7 +30,7 @@ function resetStuff() {
     colorStats.colorCounts = {};
     colorStats.totalCount = 0;
 
-    palette.innerHTML = "";
+    setPalette("0, 0, 0, 0");
 }
 
 upload.addEventListener("change", function (e) {
@@ -66,11 +66,42 @@ worker.onmessage = function (message) {
             drawPieChart();
             break;
         case "DrawPieChart":
-            palette.innerHTML += message.data.paletteContent;
             loading.style.opacity = 0;
             break;
-        case "UpdatePalette":
-            palette.innerHTML += message.data.paletteContent;
+        case "GetMouseHoverColor":
+            setPalette(message.data.rgba);
             break;
     }
 }
+
+chartCanvas.addEventListener("mousemove", (e) => {
+    const rect = chartCanvas.getBoundingClientRect();
+
+    worker.postMessage({
+        task: "GetMouseHoverColor",
+        colorStats,
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top
+    });
+});
+
+const rgbToHex = (r, g, b) => "#" + [r, g, b].map(x => x.toString(16).padStart(2, "0")).join("");
+
+function setPalette(color) {
+    const rgba = color.split(",");
+    rgba[3] = (rgba[3] * 1).toFixed(2);
+    rgba[3] = rgba[3] % 1 === 0 ? (rgba[3] * 1).toFixed(0) : rgba[3];
+
+    const hexColor = rgbToHex(rgba[0] * 1, rgba[1] * 1, rgba[2] * 1);
+
+    palette.innerHTML = `
+        <div class="palette-frame" style="border: solid 1px #bbb">
+            <div class="palette" style="background: rgba(${color})"></div>
+            <p>
+                ${hexColor} (opacity: ${rgba[3]})<br>
+                rgba(${rgba.join(", ")})
+            </p>
+        </div>
+    `;
+}
+setPalette("0, 0, 0, 0");
