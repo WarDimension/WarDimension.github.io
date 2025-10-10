@@ -8,29 +8,36 @@ let colorStats = {
 };
 
 function sortColors() {
-    worker.postMessage({task: "SortColors", colorStats: colorStats});
+    worker.postMessage({ task: "SortColors", colorStats });
 }
+
+const palette = document.getElementById("palette-container");
 
 const chartCanvas = document.getElementById("chart-canvas");
 const offscreenCanvas = chartCanvas.transferControlToOffscreen();
 
-worker.postMessage({task: "InitCanvas", offscreenCanvas: offscreenCanvas}, [offscreenCanvas]);
+worker.postMessage({ task: "InitCanvas", offscreenCanvas }, [offscreenCanvas]);
 
 function drawPieChart() {
-
-    worker.postMessage({task: "DrawPieChart", colorStats: colorStats});
+    worker.postMessage({ task: "DrawPieChart", colorStats });
 }
 
 const loading = document.getElementById("loading");
+
+function resetStuff() {
+    loading.style.opacity = 1;
+
+    colorStats.colorCounts = {};
+    colorStats.totalCount = 0;
+
+    palette.innerHTML = "";
+}
 
 upload.addEventListener("change", function (e) {
     const file = e.target.files[0];
     if (!file) return;
 
-    loading.style.opacity = 1;
-
-    colorStats.colorCounts = {};
-    colorStats.totalCount = 0;
+    resetStuff();
 
     const img = new Image();
     img.onload = function () {
@@ -43,7 +50,7 @@ upload.addEventListener("change", function (e) {
         const imageData = ctx.getImageData(0, 0, img.width, img.height);
         const pixels = imageData.data;
 
-        worker.postMessage({task: "ProcessImage", colorStats: colorStats, pixels: pixels});
+        worker.postMessage({ task: "ProcessImage", colorStats, pixels });
     }
     img.src = URL.createObjectURL(file);
 });
@@ -59,7 +66,11 @@ worker.onmessage = function (message) {
             drawPieChart();
             break;
         case "DrawPieChart":
+            palette.innerHTML += message.data.paletteContent;
             loading.style.opacity = 0;
+            break;
+        case "UpdatePalette":
+            palette.innerHTML += message.data.paletteContent;
             break;
     }
 }
