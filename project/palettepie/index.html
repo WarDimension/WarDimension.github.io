@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PalettePie</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+</head>
+<body>
+    <div id="content-container">
+        <div id="upload-container">
+            <label>image file</label>
+            <input type="file" id="upload" accept="image/*">
+        </div>
+        <div id="canvas-container">
+            <div id="img-canvas-container">
+                <canvas id="img-canvas"></canvas>
+            </div>
+            <canvas id="chart-canvas" width="400" height="400"></canvas>
+            <div id="loading" style="opacity: 0;">
+                <p>LOADING...</p>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="script.js"></script>
+</body>
+</html>
