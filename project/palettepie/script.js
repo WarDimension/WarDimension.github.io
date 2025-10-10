@@ -53,6 +53,16 @@ upload.addEventListener("change", function (e) {
         const pixels = imageData.data;
 
         worker.postMessage({ task: "ProcessImage", colorStats, pixels });
+
+        canvas.addEventListener("mousemove", (e) => {
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const pixel = ctx.getImageData(x, y, 1, 1).data;
+            const rgba = `${pixel[0]}, ${pixel[1]}, ${pixel[2]}, ${pixel[3] / 255}`;
+
+            setPalette(rgba);
+        });
     }
     img.src = URL.createObjectURL(file);
 });
@@ -105,3 +115,9 @@ function setPalette(color) {
     `;
 }
 setPalette("0, 0, 0, 0");
+
+window.addEventListener("mouseout", (e) => {
+    if (!e.relatedTarget) {
+        setPalette("0, 0, 0, 0");
+    }
+});
