@@ -102,13 +102,14 @@ worker.onmessage = function (message) {
 }
 
 chartCanvas.addEventListener("mousemove", (e) => {
-    const rect = chartCanvas.getBoundingClientRect();
+    requestAnimationFrame(() => {
+        const rect = chartCanvas.getBoundingClientRect();
 
-    worker.postMessage({
-        task: "GetMouseHoverColor",
-        colorStats,
-        x: e.clientX - rect.left,
-        y: e.clientY - rect.top
+        worker.postMessage({
+            task: "GetMouseHoverColor",
+            x: e.clientX - rect.left,
+            y: e.clientY - rect.top
+        });
     });
 });
 
