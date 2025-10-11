@@ -64,6 +64,10 @@ upload.addEventListener("change", function (e) {
 
             setPalette(rgba);
         });
+
+        canvas.addEventListener("mouseleave", () => {
+            setPalette("0, 0, 0, 0");
+        });
     }
     img.src = URL.createObjectURL(file);
 });
@@ -117,6 +121,10 @@ function setPalette(color) {
     `;
 }
 setPalette("0, 0, 0, 0");
+
+chartCanvas.addEventListener("mouseleave", () => {
+    setPalette("0, 0, 0, 0");
+});
 
 window.addEventListener("mouseout", (e) => {
     if (!e.relatedTarget) {
