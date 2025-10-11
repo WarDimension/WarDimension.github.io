@@ -115,3 +115,18 @@ label {
         color: black;
     }
 }
+
+@media (orientation: portrait) {
+    #content-container {
+        width: calc(831.61px / 2);
+    }
+
+    #info-text {
+        position: static;
+        margin: 0;
+        margin-bottom: 5px;
+        width: 100%;
+        text-align: center;
+        border: solid 1px #bbb;
+    }
+}
