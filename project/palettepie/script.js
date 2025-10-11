@@ -57,9 +57,17 @@ upload.addEventListener("change", function (e) {
 
         canvas.addEventListener("mousemove", (e) => {
             const rect = canvas.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            const pixel = ctx.getImageData(x, y, 1, 1).data;
+
+            const mouseX = e.clientX - rect.left;
+            const mouseY = e.clientY - rect.top;
+
+            const scaleX = canvas.width / rect.width;
+            const scaleY = canvas.height / rect.height;
+
+            const xCanvas = Math.floor(mouseX * scaleX);
+            const yCanvas = Math.floor(mouseY * scaleY);
+
+            const pixel = ctx.getImageData(xCanvas, yCanvas, 1, 1).data;
             const rgba = `${pixel[0]}, ${pixel[1]}, ${pixel[2]}, ${pixel[3] / 255}`;
 
             setPalette(rgba);
