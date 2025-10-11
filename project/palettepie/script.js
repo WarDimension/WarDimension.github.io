@@ -11,9 +11,7 @@ function screenScale() {
 }
 screenScale();
 
-window.addEventListener("resize", (e) => {
-    screenScale();
-});
+window.addEventListener("resize", screenScale);
 
 const worker = new Worker("worker.js");
 
