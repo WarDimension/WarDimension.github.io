@@ -141,3 +141,7 @@ window.addEventListener("mouseout", (e) => {
         setPalette("0, 0, 0, 0");
     }
 });
+
+window.addEventListener("click", (e) => {
+    navigator.clipboard.writeText(palette.innerText);
+});
