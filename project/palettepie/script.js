@@ -1,13 +1,23 @@
 function screenScale() {
-    const mvp = document.querySelector('meta[name="viewport"]');
+    const mvp = document.querySelector("meta[name='viewport']");
+    const container = document.getElementById("content-container");
 
-    if (screen.width < 900) {
-        mvp.setAttribute("content", "width=900, user-scalable=no");
-    } else if (screen.width > 1920) {
-        mvp.setAttribute("content", "width=1920, user-scalable=no");
-    } else {
-        mvp.setAttribute("content", "width=device-width, initial-scale=1.0, user-scalable=no");
+    const containerWidth = container.clientWidth;
+    const containerHeight = container.clientHeight;
+
+    let newvpWidth = screen.width;
+
+    if (containerHeight > screen.height) {
+        newvpWidth = (containerHeight / screen.height) * screen.width;
     }
+
+    if (containerWidth > newvpWidth) {
+        newvpWidth = containerWidth;
+    }
+
+    if (screen.width - containerWidth < 50) newvpWidth += 50;
+
+    mvp.setAttribute("content", `width=${newvpWidth}, user-scalable=no`);
 }
 screenScale();
 
