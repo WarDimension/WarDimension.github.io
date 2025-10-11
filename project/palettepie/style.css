@@ -97,6 +97,27 @@ label {
     animation: loading 1.4s cubic-bezier(.4, 0, .4, 1) infinite;
 }
 
+.copied-text {
+    position: absolute;
+    color: green;
+    font-weight: bold;
+    pointer-events: none;
+    font-size: 20px;
+    animation: floatUp 1s ease-out forwards;
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+}
+
 @keyframes loading {
     10% {
         border-color: white;

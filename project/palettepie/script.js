@@ -174,9 +174,24 @@ window.addEventListener("mouseout", (e) => {
     }
 });
 
+function showCopied(x, y) {
+    const text = document.createElement('span');
+    text.className = 'copied-text';
+    text.textContent = 'Copied!';
+
+    text.style.left = x + 'px';
+    text.style.top = y + 'px';
+
+    document.body.appendChild(text);
+
+    setTimeout(() => text.remove(), 1000);
+}
+
 window.addEventListener("click", (e) => {
-    setTimeout(() => {
-        navigator.clipboard.writeText(palette.innerText)
-            .then(() => console.log("Copied:", palette.innerText));
-    }, 30);
+    if (e.target.tagName.toLowerCase() === "canvas") {
+        setTimeout(() => {
+            navigator.clipboard.writeText(palette.innerText)
+                .then(() => showCopied(e.pageX, e.pageY));
+        }, 30);
+    }
 });
