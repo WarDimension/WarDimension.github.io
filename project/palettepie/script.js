@@ -1,6 +1,6 @@
-var mvp = document.getElementById("vp");
-
 function screenScale() {
+    const mvp = document.querySelector('meta[name="viewport"]');
+
     if (screen.width < 900) {
         mvp.setAttribute("content", "width=900, user-scalable=no");
     } else if (screen.width > 1920) {
