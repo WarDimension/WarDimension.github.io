@@ -4,7 +4,7 @@ let text = `この 森[もり]の 秘密[ひみつ]はなんだ？
 const textElement = document.querySelector(".text");
 
 text = text.replaceAll(
-  /(^| |\n|)([^\[\]\s]+)\[([^\[\]\s]+)\]/g,
+  /(\n|| )([^\[\]\n ]+)\[([^\[\]]+)\]/g,
   (match, prefix, base, ruby) =>
     (prefix === '\n' ? '<br>' : '') + `<ruby>${base}<rt>${ruby}</rt></ruby>`
 );
