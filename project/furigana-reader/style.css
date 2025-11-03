@@ -1,6 +1,7 @@
 *{
     font-family: "Roboto Mono JP", monospace;
     box-sizing: border-box;
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1.1);
 }
 body{
     background: #1b1b1b;
@@ -16,11 +17,14 @@ body{
   background: #444;
 }
 .container{
-    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
     width: fit-content;
+    height: fit-content;
     max-width: 1000px;
-    margin: auto;align-items: center;
-    height: 100%;
 }
 p{
     font-size: 1.8em;
@@ -32,4 +36,21 @@ p{
 }
 .furigana-hidden rt{
     opacity: 0;
+}
+.dropzone {
+  width: 340px;
+  height: 160px;
+  border: 2px dashed #adadad;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #aaa;
+  cursor: pointer;
+  margin: auto;
+}
+.dropzone.dragover {
+  border-color: #4caf50;
+  color: #4caf50;
+  background: #2f3a2f;
 }
