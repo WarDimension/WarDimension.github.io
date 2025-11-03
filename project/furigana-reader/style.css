@@ -46,6 +46,10 @@ body {
     word-break: keep-all;
 }
 
+ruby {
+    ruby-align: center;
+}
+
 .fade-container {
     position: relative;
 }
