@@ -7,7 +7,7 @@ function screenScale() {
 
     let screenWidth = screen.width;
     let screenHeight = screen.height;
-    const offset = 20;
+    const offset = 50;
 
     let newvpWidth = screenWidth;
 
