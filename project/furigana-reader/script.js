@@ -53,3 +53,31 @@ function handleFile(file) {
     };
     reader.readAsText(file);
 }
+
+let targetScroll = 0;
+let currentScroll = 0;
+let isTicking = false;
+
+function animateScroll() {
+    const ease = 0.25; // adjust 0.1–0.3 for smoothness vs. speed
+    currentScroll += (targetScroll - currentScroll) * ease;
+    textElement.scrollTop = currentScroll;
+    if (Math.abs(targetScroll - currentScroll) > 0.1) {
+        requestAnimationFrame(animateScroll);
+    } else {
+        isTicking = false;
+    }
+}
+
+window.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    targetScroll += e.deltaY;
+    targetScroll = Math.max(0, Math.min(
+        targetScroll,
+        textElement.scrollHeight - textElement.clientHeight
+    ));
+    if (!isTicking) {
+        isTicking = true;
+        requestAnimationFrame(animateScroll);
+    }
+}, { passive: false });
