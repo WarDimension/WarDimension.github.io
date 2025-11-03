@@ -1,0 +1,35 @@
+*{
+    font-family: "Roboto Mono JP", monospace;
+    box-sizing: border-box;
+}
+body{
+    background: #1b1b1b;
+    margin: 0;
+}
+::-webkit-scrollbar{
+  width: 5px;
+}
+::-webkit-scrollbar-thumb{
+  background: #666;
+}
+::-webkit-scrollbar-thumb:hover{
+  background: #444;
+}
+.container{
+    display: flex;
+    width: fit-content;
+    max-width: 1000px;
+    margin: auto;align-items: center;
+    height: 100%;
+}
+p{
+    font-size: 1.8em;
+    margin: 20px;
+    color: #adadad;
+    text-align: justify;
+    letter-spacing: 1px;
+    line-height: 1.8em;
+}
+.furigana-hidden rt{
+    opacity: 0;
+}
