@@ -1,0 +1,37 @@
+<html lang="jp">
+    <head>
+        <title>禅_key</title>
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
+        <meta id="vp" name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+        <meta name="description" content="Typing Game in Japanese"/>
+        <meta name="og:title" property="og:title" content="禅_key"/>
+        <meta name="og:type" property="og:type" content="website"/>
+        <meta name="og:description" property="og:description" content="Typing Game in Japanese"/>
+        <meta name="og:image" property="og:image" content="zen-key.png"/>
+        <link href="https://wardimension.github.io/" rel="canonical"/>
+        <script type="text/javascript" src="../../js/viewport.js"></script>
+        <!--script type="text/javascript" src="../../js/fun.js" defer></script-->
+        <script type="text/javascript" src="script.js" defer></script>
+    </head>
+    <body>
+        <div class="outer-container">
+            <p class="stats"></p>
+            <div class="typing-target-container">
+                <p class="typing-target"><span>君</span><span>の</span><span>名</span><span>は</span></p>
+                <p class="result" hidden>result</p>
+            </div>
+            <div class="fade-container">
+                <textarea class="typing-input" oninput="update(this.value, event)" onblur="this.focus({ preventScroll: true })" data-gramm="false" data-gramm_editor="false" data-enable-grammarly="false" spellCheck="false" autofocus></textarea>
+            </div>
+        </div>
+        <div class="context-menu">
+            <p class="title">settings</p>
+            <div class="context-menu-item"><input type="checkbox" id="cm-furigana" onclick="toggleFurigana(); event.stopPropagation()" checked><label class="cm-furigana-label" for="cm-furigana" data-furigana="振[ふ]り仮[が]名[な]" data-furigana-hidden="振り仮名"></label></div>
+            <div class="context-menu-item"><input type="checkbox" id="cm-just-hiragana" onclick="toggleJustHiragana(); event.stopPropagation()"><label class="cm-just-hiragana-label" for="cm-just-hiragana" data-furigana-hidden="ひらがなだけ"></label></div>
+            <div class="context-menu-item"><label class="not-checkbox cm-restart-label" onclick="nextRound(false); typingInput.value =''; typingInput.click()" data-furigana="リスタート" data-furigana-hidden="リスタート"></label></div>
+            <div class="context-menu-item"><label class="not-checkbox cm-new-round-label" onclick="nextRound(); typingInput.value =''; typingInput.click()" data-furigana="新[あたら]しいラウンド" data-furigana-hidden="新しいラウンド"></label></div>
+        </div>
+    </body>
+</html>

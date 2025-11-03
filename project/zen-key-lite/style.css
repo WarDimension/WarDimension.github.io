@@ -1,0 +1,213 @@
+*{
+    font-family: "Roboto Mono JP", monospace;
+    box-sizing: border-box;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+body{
+    background: #1b1b1b;
+    margin: 0;
+}
+::-webkit-scrollbar{
+  width: 5px;
+}
+::-webkit-scrollbar-thumb{
+  background: #666;
+}
+::-webkit-scrollbar-thumb:hover{
+  background: #444;
+}
+.context-menu{
+    position: absolute;
+    width: fit-content;
+    height: fit-content;
+    color: #2b2b2b;
+    background: #909090;
+    box-shadow: 0px 0px 5px 0px #707070;
+    padding: 5px;
+    font-weight: bold;
+    border-radius: 5px;
+    opacity: 0;
+    pointer-events: none;
+}
+.context-menu .title{
+    margin-left: 5px;
+    margin-bottom: 2px;
+}
+.context-menu label{
+    width: calc(100% - 22px);
+    display: inline-block;
+    padding: 4px 40px 4px 10px;
+    margin-left: 2px;
+    cursor: pointer;
+}
+.context-menu label.not-checkbox{
+    width: 100%;
+}
+.context-menu-item:hover label{
+    color: #0e0e0e;
+    background: #7c7c7c;
+}
+.context-menu input{
+    width: 13px;
+    height: 13px;
+}
+span{
+    display: inline-block;
+    white-space: pre;
+    text-align: center;
+}
+.furigana{
+    text-decoration: none !important;
+}
+.correct, .correct .furigana, .typing-target-ruby .converted .furigana{
+    color: #15ac47;
+}
+.typing-target-ruby .base:not(.correct, .incorrect) ~ .converted .furigana:not(.correct, .incorrect){
+    color: #707070;
+}
+.incorrect, .semi-incorrect .base, .typing-target-ruby .incorrect ~ .converted .furigana, .extra-input{
+    color: #f20000 !important;
+}
+.semi-correct{
+    color: #b8860b;
+}
+.space, .space span.incorrect, .space span.correct{
+    text-decoration: underline !important;
+}
+i.material-icons{
+    font-size: 0.8em;
+    margin-left: 0.1em;
+}
+p, .typing-input{
+    font-size: 1.8em;
+    margin: 0;
+    color: #707070;
+    text-align: justify;
+    letter-spacing: 1px;
+}
+label{
+    line-height: 1.4em;
+}
+.typing-input{
+    resize: none;
+    margin: auto;
+    width: 100%;
+    min-height: 40px;
+    max-height: 400px;
+    field-sizing: content;
+    padding: 8px;
+    background: none;
+    outline: none;
+    border: none;
+    text-align: center;
+    font-size: 1em;
+}
+.outer-container{
+    position: absolute;
+    width: 100%;
+    height: fit-content;
+    max-height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 4%;
+}
+.source, .stats{
+    margin-top: 20px;
+    font-size: 1.3em;
+    margin-top: 10px;
+    text-align: center;
+}
+.stats{
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+.unit{
+    font-size: 0.65em;
+    margin-left: 0.2em;
+}
+.result{
+    text-align: center;
+}
+.result > .character-result > span:not(:first-child){
+    margin-left: 25px;
+}
+.result .percentage{
+    font-size: 4em;
+}
+.result .continue{
+    font-size: 0.7em;
+    margin-top: 20px;
+}
+.result .material-icons, .stats .material-icons{
+    margin: 0;
+    vertical-align: middle;
+}
+.typing-target-container{
+    position: relative;
+    margin: auto;
+    width: fit-content;
+    max-width: 92%;
+    height: 100%;
+}
+.fade-container{
+    position: relative;
+}
+.fade-container::before, 
+.fade-container::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    left: 0;
+    height: 20px;
+    pointer-events: none;
+    z-index: 100;
+}
+.fade-container::before{
+    top: 0;
+    background: linear-gradient(to bottom, rgba(27, 27, 27, 1), rgba(27, 27, 27, 0));
+}
+.fade-container::after{
+    bottom: 0;
+    background: linear-gradient(to top, rgba(27, 27, 27, 1), rgba(27, 27, 27, 0));
+}
+.caret{
+    box-shadow: -5px 0 0 -2px rgba(224, 224, 224, 1);
+    animation: caret 1.06s infinite;
+}
+.caret-right{
+    box-shadow: 5px 0 0 -2px rgba(224, 224, 224, 1);
+    animation: caret-right 1.06s infinite;
+}
+@keyframes caret{
+    0%{
+        box-shadow: -5px 0 0 -2px rgba(224, 224, 224, 1);
+    }
+    49%{
+        box-shadow: -5px 0 0 -2px rgba(224, 224, 224, 1);
+    }
+    50%{
+        box-shadow: -5px 0 0 -2px rgba(224, 224, 224, 0);
+    }
+    99%{
+        box-shadow: -5px 0 0 -2px rgba(224, 224, 224, 0);
+    }
+}
+@keyframes caret-right{
+    0%{
+        box-shadow: 5px 0 0 -2px rgba(224, 224, 224, 1);
+    }
+    49%{
+        box-shadow: 5px 0 0 -2px rgba(224, 224, 224, 1);
+    }
+    50%{
+        box-shadow: 5px 0 0 -2px rgba(224, 224, 224, 0);
+    }
+    99%{
+        box-shadow: 5px 0 0 -2px rgba(224, 224, 224, 0);
+    }
+}
