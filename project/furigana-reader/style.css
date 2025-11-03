@@ -30,7 +30,7 @@ body {
     display: block;
     width: fit-content;
     height: fit-content;
-    max-width: 1000px;
+    max-width: 100%;
 }
 
 .text {
@@ -42,6 +42,7 @@ body {
     max-height: 500px;
     overflow-y: scroll;
     padding: 20px;
+    max-width: 1000px;
     word-break: keep-all;
 }
 
