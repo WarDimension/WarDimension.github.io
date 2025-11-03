@@ -1,3 +1,36 @@
+function screenScale() {
+    const mvp = document.querySelector("meta[name='viewport']");
+    const container = document.querySelector(".container");
+
+    const containerWidth = container.clientWidth;
+    const containerHeight = container.clientHeight;
+
+    let screenWidth = screen.width;
+    let screenHeight = screen.height;
+    const offset = 20;
+
+    let newvpWidth = screenWidth;
+
+    if (newvpWidth > 1920) {
+        const scale = 1920 / screenWidth;
+        newvpWidth = 1920;
+        screenWidth *= scale;
+        screenHeight *= scale;
+    }
+
+    newvpWidth = Math.max(newvpWidth, (containerHeight / screenHeight) * screenWidth);
+
+    newvpWidth = Math.max(newvpWidth, containerWidth);
+
+    if (screenWidth - containerWidth < 50) newvpWidth += offset;
+    if (screenHeight - containerHeight < 50) newvpWidth += (containerHeight / screenHeight) * offset;
+
+    mvp.setAttribute("content", `width=${newvpWidth}, user-scalable=no`);
+}
+screenScale();
+
+window.addEventListener("resize", screenScale);
+
 const textElement = document.querySelector(".text");
 
 function rubyConverter(text) {
