@@ -1,24 +1,30 @@
 <html lang="jp">
-    <head>
-        <title>ふりがな -reader-</title>
-        <link rel="stylesheet" type="text/css" href="style.css"/>
-        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
-        <meta id="vp" name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
-        <meta name="description" content="Reading Immersion with Furigana"/>
-        <meta name="og:title" property="og:title" content="ふりがな -reader-"/>
-        <meta name="og:type" property="og:type" content="website"/>
-        <meta name="og:description" property="og:description" content="Reading Immersion with Furigana"/>
-        <meta name="og:image" property="og:image" content="furigana-reader.png"/>
-        <link href="https://wardimension.github.io/" rel="canonical"/>
-        <script type="text/javascript" src="../../js/viewport.js"></script>
-        <!--script type="text/javascript" src="../../js/fun.js" defer></script-->
-        <script type="text/javascript" src="script.js" defer></script>
-    </head>
-    <body>
-        <div class="container">
-            <div class="dropzone">Drop a file or click to upload</div>
-            <input class="fileInput" type="file" hidden>
+
+<head>
+    <title>ふりがな -reader-</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <meta id="vp" name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta name="description" content="Reading Immersion with Furigana" />
+    <meta name="og:title" property="og:title" content="ふりがな -reader-" />
+    <meta name="og:type" property="og:type" content="website" />
+    <meta name="og:description" property="og:description" content="Reading Immersion with Furigana" />
+    <meta name="og:image" property="og:image" content="furigana-reader.png" />
+    <link href="https://wardimension.github.io/" rel="canonical" />
+    <script type="text/javascript" src="../../js/viewport.js"></script>
+    <!--script type="text/javascript" src="../../js/fun.js" defer></script-->
+    <script type="text/javascript" src="script.js" defer></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="dropzone">Drop a file or click to upload</div>
+        <input class="fileInput" type="file" accept=".txt,text/plain" hidden>
+        <div class="fade-container">
             <p class="text"></p>
         </div>
-    </body>
+        <div class="furigana-toggle" onclick="furiganaToggle();"><ruby>恋<rt>こい</rt></ruby></div>
+    </div>
+</body>
+
 </html>

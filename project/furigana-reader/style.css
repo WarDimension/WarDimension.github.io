@@ -1,22 +1,28 @@
-*{
+* {
     font-family: "Roboto Mono JP", monospace;
     box-sizing: border-box;
-    transition: all 0.3s cubic-bezier(.25,.8,.25,1.1);
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1.1);
+    color: #adadad;
 }
-body{
+
+body {
     background: #1b1b1b;
     margin: 0;
 }
-::-webkit-scrollbar{
-  width: 5px;
+
+::-webkit-scrollbar {
+    width: 5px;
 }
-::-webkit-scrollbar-thumb{
-  background: #666;
+
+::-webkit-scrollbar-thumb {
+    background: #666;
 }
-::-webkit-scrollbar-thumb:hover{
-  background: #444;
+
+::-webkit-scrollbar-thumb:hover {
+    background: #444;
 }
-.container{
+
+.container {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -26,31 +32,95 @@ body{
     height: fit-content;
     max-width: 1000px;
 }
-p{
+
+.text {
     font-size: 1.8em;
     margin: 20px;
-    color: #adadad;
     text-align: justify;
     letter-spacing: 1px;
     line-height: 1.8em;
+    max-height: 500px;
+    overflow-y: scroll;
+    padding: 20px;
 }
-.furigana-hidden rt{
+
+.fade-container {
+    position: relative;
+}
+
+.fade-container::before,
+.fade-container::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    left: 0;
+    height: 20px;
+    pointer-events: none;
+    z-index: 100;
+}
+
+.fade-container::before {
+    top: 0;
+    background: linear-gradient(to bottom, rgba(27, 27, 27, 1), rgba(27, 27, 27, 0));
+}
+
+.fade-container::after {
+    bottom: 0;
+    background: linear-gradient(to top, rgba(27, 27, 27, 1), rgba(27, 27, 27, 0));
+}
+
+.dropzone {
+    width: 340px;
+    height: 160px;
+    border: 2px dashed #adadad;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin: auto;
+}
+
+.dropzone.dragover,
+.dropzone:hover {
+    border-color: #4caf50;
+    color: #4caf50;
+    background: #2f3a2f;
+}
+
+.furigana-toggle {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    border: 2px dashed #adadad;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 32px;
+    margin: auto;
+}
+
+.furigana-toggle:hover,
+.furigana-toggle:hover * {
+    border-color: pink;
+    color: pink;
+    background: #3f2227;
+}
+
+.dropzone,
+.furigana-toggle {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.furigana-hidden rt {
     opacity: 0;
 }
-.dropzone {
-  width: 340px;
-  height: 160px;
-  border: 2px dashed #adadad;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #aaa;
-  cursor: pointer;
-  margin: auto;
-}
-.dropzone.dragover {
-  border-color: #4caf50;
-  color: #4caf50;
-  background: #2f3a2f;
+
+.furigana-hidden .furigana-toggle rt {
+    display: none;
 }
