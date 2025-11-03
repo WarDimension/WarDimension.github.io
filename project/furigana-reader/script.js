@@ -83,6 +83,7 @@ function handleFile(file) {
     const reader = new FileReader();
     reader.onload = e => {
         textElement.innerHTML = rubyConverter(e.target.result);
+        screenScale();
     };
     reader.readAsText(file);
 }
