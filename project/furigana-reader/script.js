@@ -7,7 +7,7 @@ function screenScale() {
 
     let screenWidth = screen.width;
     let screenHeight = screen.height;
-    const offset = 50;
+    const offset = 40;
 
     let newvpWidth = screenWidth;
 
@@ -115,3 +115,64 @@ window.addEventListener('wheel', (e) => {
         requestAnimationFrame(animateScroll);
     }
 }, { passive: false });
+
+let velocity = 0;
+
+let touchStartY = 0;
+let lastMoveTime = 0;
+let isTouching = false;
+
+function animateScroll() {
+    currentScroll += (targetScroll - currentScroll) * 0.16;
+    textElement.scrollTop = currentScroll;
+
+    if (Math.abs(targetScroll - currentScroll) > 0.25 || Math.abs(velocity) > 0.02) {
+        requestAnimationFrame(animateScroll);
+    } else {
+        isTicking = false;
+    }
+}
+
+window.addEventListener('touchstart', (e) => {
+    if (!e.touches[0]) return;
+    isTouching = true;
+    touchStartY = e.touches[0].clientY;
+    lastMoveTime = performance.now();
+    velocity = 0;
+}, { passive: true });
+
+window.addEventListener('touchmove', (e) => {
+    if (!e.touches[0]) return;
+    e.preventDefault();
+
+    const currentY = e.touches[0].clientY;
+    const now = performance.now();
+    const deltaY = touchStartY - currentY;
+    const dt = Math.max(now - lastMoveTime, 1);
+
+    velocity = deltaY / dt;
+    targetScroll += deltaY;
+    targetScroll = Math.max(0, Math.min(targetScroll, textElement.scrollHeight - textElement.clientHeight));
+
+    touchStartY = currentY;
+    lastMoveTime = now;
+
+    if (!isTicking) requestAnimationFrame(animateScroll);
+}, { passive: false });
+
+window.addEventListener('touchend', () => {
+    isTouching = false;
+
+    function momentum() {
+        targetScroll += velocity * 16;
+        targetScroll = Math.max(0, Math.min(targetScroll, textElement.scrollHeight - textElement.clientHeight));
+        velocity *= 0.94; // friction
+
+        if (Math.abs(velocity) > 0.02) {
+            if (!isTicking) requestAnimationFrame(animateScroll);
+            requestAnimationFrame(momentum);
+        }
+    }
+
+    requestAnimationFrame(momentum);
+}, { passive: true });
