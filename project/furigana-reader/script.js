@@ -143,11 +143,20 @@ window.addEventListener('touchstart', (e) => {
 
 window.addEventListener('touchmove', (e) => {
     if (!e.touches[0]) return;
-    e.preventDefault();
 
     const currentY = e.touches[0].clientY;
-    const now = performance.now();
     const deltaY = touchStartY - currentY;
+
+    // check if the div is at top or bottom
+    const atTop = textElement.scrollTop <= 0;
+    const atBottom = textElement.scrollTop >= textElement.scrollHeight - textElement.clientHeight;
+
+    // only prevent default if scrolling inside the div is possible
+    if (!(atTop && deltaY < 0) && !(atBottom && deltaY > 0)) {
+        e.preventDefault();
+    }
+
+    const now = performance.now();
     const dt = Math.max(now - lastMoveTime, 1);
 
     velocity = deltaY / dt;
