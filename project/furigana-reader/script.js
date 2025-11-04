@@ -143,7 +143,6 @@ window.addEventListener('touchstart', (e) => {
 
 window.addEventListener('touchmove', (e) => {
     if (!e.touches[0]) return;
-    e.preventDefault();
 
     const currentY = e.touches[0].clientY;
     const now = performance.now();
@@ -166,7 +165,7 @@ window.addEventListener('touchend', () => {
     function momentum() {
         targetScroll += velocity * 16;
         targetScroll = Math.max(0, Math.min(targetScroll, textElement.scrollHeight - textElement.clientHeight));
-        velocity *= 0.94; // friction
+        velocity *= 0.98; // friction
 
         if (Math.abs(velocity) > 0.02) {
             if (!isTicking) requestAnimationFrame(animateScroll);
