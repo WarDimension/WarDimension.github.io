@@ -143,6 +143,7 @@ window.addEventListener('touchstart', (e) => {
 
 window.addEventListener('touchmove', (e) => {
     if (!e.touches[0]) return;
+    e.preventDefault();
 
     const currentY = e.touches[0].clientY;
     const now = performance.now();
