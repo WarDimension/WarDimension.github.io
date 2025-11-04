@@ -5,25 +5,27 @@ function screenScale() {
     const containerWidth = container.clientWidth;
     const containerHeight = container.clientHeight;
 
-    let screenWidth = screen.width;
-    let screenHeight = screen.height;
+    const windowRatio = window.innerHeight / window.innerWidth
+
+    let width = screen.width;
+    let height = screen.width * windowRatio;
     const offset = 40;
 
-    let newvpWidth = screenWidth;
+    let newvpWidth = width;
 
     if (newvpWidth > 1920) {
-        const scale = 1920 / screenWidth;
+        const scale = 1920 / width;
         newvpWidth = 1920;
-        screenWidth *= scale;
-        screenHeight *= scale;
+        width *= scale;
+        height *= scale;
     }
 
-    newvpWidth = Math.max(newvpWidth, (containerHeight / screenHeight) * screenWidth);
+    newvpWidth = Math.max(newvpWidth, (containerHeight / height) * width);
 
     newvpWidth = Math.max(newvpWidth, containerWidth);
 
-    if (screenWidth - containerWidth < 50) newvpWidth += offset;
-    if (screenHeight - containerHeight < 50) newvpWidth += (containerHeight / screenHeight) * offset;
+    if (width - containerWidth < 50) newvpWidth += offset;
+    if (height - containerHeight < 50) newvpWidth += (containerHeight / height) * offset;
 
     mvp.setAttribute("content", `width=${newvpWidth}, user-scalable=no`);
 }
