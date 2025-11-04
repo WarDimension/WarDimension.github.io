@@ -115,25 +115,3 @@ window.addEventListener('wheel', (e) => {
         requestAnimationFrame(animateScroll);
     }
 }, { passive: false });
-
-let touchStartY = 0;
-window.addEventListener('touchstart', (e) => {
-    touchStartY = e.touches[0].clientY;
-}, { passive: true });
-
-window.addEventListener('touchmove', (e) => {
-    e.preventDefault();
-    const currentY = e.touches[0].clientY;
-    const deltaY = touchStartY - currentY; // positive = scroll down
-    touchStartY = currentY;
-
-    targetScroll += deltaY;
-    targetScroll = Math.max(0, Math.min(
-        targetScroll,
-        textElement.scrollHeight - textElement.clientHeight
-    ));
-    if (!isTicking) {
-        isTicking = true;
-        requestAnimationFrame(animateScroll);
-    }
-}, { passive: false });
