@@ -17,6 +17,14 @@ let favorites = [
                         "link": "./watch-order?s=薬屋のひとりごと"
                     },
                     {
+                        "title": "Steins;Gate",
+                        "link": "./watch-order?s=Steins;Gate"
+                    },
+                    {
+                        "title": "Summer Time Render",
+                        "link": "./watch-order?s=サマータイムレンダ"
+                    },
+                    {
                         "title": "Kimi ni Todoke",
                         "link": "./watch-order?s=君に届け"
                     },
@@ -129,6 +137,15 @@ let favorites = [
                 ]
             },
             {
+                "subCategory": "Supernatural",
+                "rankedList": [
+                    {
+                        "title": "Summer Time Render",
+                        "link": "./watch-order?s=サマータイムレンダ"
+                    }
+                ]
+            },
+            {
                 "subCategory": "Yuri",
                 "rankedList": [
                     {
@@ -184,6 +201,11 @@ let favorites = [
                         "title": "Koito Yuu",
                         "subTitle": "Yagate Kimi ni Naru",
                         "link": "./waifu?s=小糸侑"
+                    },
+                    {
+                        "title": "Hishigata Tokiko",
+                        "subTitle": "Summer Time Render",
+                        "link": "./waifu?s=菱形朱鷺子"
                     },
                     {
                         "title": "Tinasha",
