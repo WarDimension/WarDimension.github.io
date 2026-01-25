@@ -213,6 +213,11 @@ let favorites = [
                         "link": "./waifu?s=ティナーシャ"
                     },
                     {
+                        "title": "Yuzuhara Chika",
+                        "subTitle": "Yesterday wo Utatte",
+                        "link": "./waifu?s=柚原チカ"
+                    },
+                    {
                         "title": "Kitagawa Marin",
                         "subTitle": "Sono Bisque Doll wa Koi wo Suru",
                         "link": "./waifu?s=喜多川海夢"
@@ -460,6 +465,10 @@ let favorites = [
                         "link": "https://anilist.co/manga/86218/Yagate-Kimi-ni-Naru/"
                     },
                     {
+                        "title": "Sayonara Rose Garden",
+                        "link": "https://anilist.co/manga/111970/Sayonara-Rose-Garden/"
+                    },
+                    {
                         "title": "Goukaku no Tame no! Yasashii Sankaku Kankei Nyuumon",
                         "link": "https://anilist.co/manga/114970/Goukaku-no-Tame-no-Yasashii-Sankaku-Kankei-Nyuumon/"
                     },
@@ -514,6 +523,10 @@ let favorites = [
                     {
                         "title": "Yagate Kimi ni Naru",
                         "link": "https://anilist.co/manga/86218/Yagate-Kimi-ni-Naru/"
+                    },
+                    {
+                        "title": "Sayonara Rose Garden",
+                        "link": "https://anilist.co/manga/111970/Sayonara-Rose-Garden/"
                     },
                     {
                         "title": "Goukaku no Tame no! Yasashii Sankaku Kankei Nyuumon",
