@@ -465,12 +465,12 @@ let favorites = [
                         "link": "https://anilist.co/manga/86218/Yagate-Kimi-ni-Naru/"
                     },
                     {
-                        "title": "Sayonara Rose Garden",
-                        "link": "https://anilist.co/manga/111970/Sayonara-Rose-Garden/"
-                    },
-                    {
                         "title": "Goukaku no Tame no! Yasashii Sankaku Kankei Nyuumon",
                         "link": "https://anilist.co/manga/114970/Goukaku-no-Tame-no-Yasashii-Sankaku-Kankei-Nyuumon/"
+                    },
+                    {
+                        "title": "Sayonara Rose Garden",
+                        "link": "https://anilist.co/manga/111970/Sayonara-Rose-Garden/"
                     },
                     {
                         "title": "Kami Eshi JK to OL Fujoshi",
@@ -525,12 +525,12 @@ let favorites = [
                         "link": "https://anilist.co/manga/86218/Yagate-Kimi-ni-Naru/"
                     },
                     {
-                        "title": "Sayonara Rose Garden",
-                        "link": "https://anilist.co/manga/111970/Sayonara-Rose-Garden/"
-                    },
-                    {
                         "title": "Goukaku no Tame no! Yasashii Sankaku Kankei Nyuumon",
                         "link": "https://anilist.co/manga/114970/Goukaku-no-Tame-no-Yasashii-Sankaku-Kankei-Nyuumon/"
+                    },
+                    {
+                        "title": "Sayonara Rose Garden",
+                        "link": "https://anilist.co/manga/111970/Sayonara-Rose-Garden/"
                     },
                     {
                         "title": "Kami Eshi JK to OL Fujoshi",
