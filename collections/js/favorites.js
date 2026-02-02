@@ -208,9 +208,14 @@ let favorites = [
                         "link": "./waifu?s=菱形朱鷺子"
                     },
                     {
+                        "title": "Raeliana McMillan",
+                        "subTitle": "Geunyeoga Gongjakjeoro Gaya Haetdeon Sajeong",
+                        "link": "./waifu?s=Raeliana McMillan"
+                    },
+                    {
                         "title": "Tinasha",
                         "subTitle": "Unnamed Memory",
-                        "link": "./waifu?s=ティナーシャ"
+                        "link": "./waifu?s=Tinasha"
                     },
                     {
                         "title": "Yuzuhara Chika",
@@ -233,9 +238,9 @@ let favorites = [
                         "link": "./waifu?s=黒沼爽子"
                     },
                     {
-                        "title": "Kimberlite Elena",
+                        "title": "Elena Kimberlite",
                         "subTitle": "Kinsou no Vermeil ~Gakeppuchi Majutsushi wa Saikyou no Yakusai to Mahou Sekai wo Tsuki Susumu~",
-                        "link": "./waifu?s=エレナ・キンバーライト"
+                        "link": "./waifu?s=Elena Kimberlite"
                     },
                     {
                         "title": "Kurogane Otoha",
@@ -333,9 +338,9 @@ let favorites = [
                         "link": "./waifu?s=鷹峰高嶺"
                     },
                     {
-                        "title": "Bouquet Mireille",
+                        "title": "Mireille Bouquet",
                         "subTitle": "Noir",
-                        "link": "./waifu?s=Bouquet Mireille"
+                        "link": "./waifu?s=Mireille Bouquet"
                     },
                     {
                         "title": "Yuuka",
@@ -463,6 +468,10 @@ let favorites = [
                     {
                         "title": "Yagate Kimi ni Naru",
                         "link": "https://anilist.co/manga/86218/Yagate-Kimi-ni-Naru/"
+                    },
+                    {
+                        "title": "Tatoe Todokanu Ito da to Shite mo",
+                        "link": "https://anilist.co/manga/99703/Tatoe-Todokanu-Ito-da-to-Shite-mo/"
                     },
                     {
                         "title": "Goukaku no Tame no! Yasashii Sankaku Kankei Nyuumon",
