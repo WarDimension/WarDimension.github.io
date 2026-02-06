@@ -701,6 +701,10 @@ let favorites = [
                         "link": "https://www.twitch.tv/kokohaan"
                     },
                     {
+                        "title": "Aoi ch.",
+                        "link": "https://www.youtube.com/@Aoich"
+                    },
+                    {
                         "title": "emilymyc",
                         "link": "https://www.twitch.tv/emilymyc"
                     },
@@ -807,6 +811,19 @@ let favorites = [
                 ]
             },
             {
+                "subCategory": "YouTube - Crafting",
+                "rankedList": [
+                    {
+                        "title": "Claireくれあ Craft",
+                        "link": "https://www.youtube.com/@clairecraft3348"
+                    },
+                    {
+                        "title": "翠のおうち日和",
+                        "link": "https://www.youtube.com/@mdr.8"
+                    }
+                ]
+            },
+            {
                 "subCategory": "YouTube - Daily Life",
                 "rankedList": [
                     {
@@ -835,8 +852,21 @@ let favorites = [
                         "link": "https://www.youtube.com/@DaveMcKeegan"
                     },
                     {
+                        "title": "PsychoLingo",
+                        "link": "https://www.youtube.com/@PsychoLingo"
+                    },
+                    {
                         "title": "Evildea",
                         "link": "https://www.youtube.com/@Evildea"
+                    }
+                ]
+            },
+            {
+                "subCategory": "YouTube - Farming",
+                "rankedList": [
+                    {
+                        "title": "土くれプリンセス さおりの暮らし",
+                        "link": "http://youtube.com/@tsuchikure-princess"
                     }
                 ]
             },
@@ -844,12 +874,16 @@ let favorites = [
                 "subCategory": "YouTube - Games",
                 "rankedList": [
                     {
-                        "title": "ぴより隊長",
-                        "link": "https://www.youtube.com/@piyoricap"
+                        "title": "Rimo",
+                        "link": "https://www.youtube.com/@Riimoo"
                     },
                     {
                         "title": "ゆきえもんちゃんねる。",
                         "link": "https://www.youtube.com/@yukiemon-channel"
+                    },
+                    {
+                        "title": "ぴより隊長",
+                        "link": "https://www.youtube.com/@piyoricap"
                     },
                     {
                         "title": "Mr. Fruit",
@@ -862,6 +896,27 @@ let favorites = [
                     {
                         "title": "Markiplier",
                         "link": "https://www.youtube.com/@markiplier"
+                    }
+                ]
+            },
+            {
+                "subCategory": "YouTube - Languages",
+                "rankedList": [
+                    {
+                        "title": "Gyaru Nihongo - ギャル日本語 -",
+                        "link": "https://www.youtube.com/@GyaruNihongo"
+                    },
+                    {
+                        "title": "Imari Japan",
+                        "link": "https://www.youtube.com/@imarijapan9831"
+                    },
+                    {
+                        "title": "PsychoLingo",
+                        "link": "https://www.youtube.com/@PsychoLingo"
+                    },
+                    {
+                        "title": "Evildea",
+                        "link": "https://www.youtube.com/@Evildea"
                     }
                 ]
             },
