@@ -121,6 +121,7 @@
             -webkit-user-select: none;
             -ms-user-select: none;
             cursor: text;
+            overflow-x: hidden;
             overflow-y: scroll;
         }
         .typing-container::before,
@@ -155,7 +156,7 @@
             position: absolute;
             left: 0;
             top: 200px;
-            width: 100%;
+            width: calc(100% + 1px);
             padding: 0 30px 0 30px;
             display: inline;
             color: white;
