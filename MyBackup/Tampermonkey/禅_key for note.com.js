@@ -270,7 +270,7 @@
     function updateTypingCheck(){
         let typingTargetSplit = typingTarget.innerText.split("\n");
 
-        typingCheck.innerHTML =　wrapInSpan(typingInput);
+        typingCheck.innerHTML = wrapInSpan(typingInput);
 
         let typingCheckElements = typingCheck.querySelectorAll("p, br");
 
