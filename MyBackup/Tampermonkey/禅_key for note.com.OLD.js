@@ -141,32 +141,29 @@
             bottom: 50px;
             background: linear-gradient(to top, rgba(27, 27, 27, 1), rgba(27, 27, 27, 0));
         }
-        .typing-target{
-            display: inline;
-        }
         .typing-input{
             position: absolute;
             top: 200px;
             left: 0;
-            margin: 0 30px 0 30px;
-            min-width: 1px;
-            max-width: 100%;
-            min-height: 1em;
-            field-sizing: content;
-            color: white;
+            width: 100%;
+            padding: 0 30px 0 30px;
+            color: transparent;
             outline: none;
-            resize: none;
+            caret-color: white;
+            pointer-events: none;
         }
         .typing-check{
-            position: relative;
-            width: fit-content;
+            position: absolute;
+            left: 0;
+            top: 200px;
+            width: calc(100% + 1px);
+            padding: 0 30px 0 30px;
             display: inline;
-            color: transparent;
+            color: white;
             pointer-events: none;
-            z-index: 10;
         }
-        .typing-target p, .typing-check p{
-            display: inline;
+        .typing-check span{
+            background: #1b1b1b;
         }
     `;
 
@@ -202,11 +199,14 @@
     let typingTarget = document.createElement("div");
     typingTarget.className = "typing-target";
 
+    typingContainer.appendChild(typingTarget);
+
     let typingCheck = document.createElement("div");
     typingCheck.className = "typing-check";
 
-    let typingInput = document.createElement("textarea");
+    let typingInput = document.createElement("div");
     typingInput.className = "typing-input";
+    typingInput.contentEditable = true;
 
     typingInput.setAttribute('data-gramm', 'false');
     typingInput.setAttribute('data-gramm_editor', 'false');
@@ -220,10 +220,9 @@
 
         let textBody = document.querySelector(".note-common-styles__textnote-body");
 
-        typingTarget.innerHTML = textBody != null ? wrapInSpan(textBody.innerText) : "にゃにゃめにゃにゃじゅうにゃにゃどのにゃらびでにゃくにゃくいにゃにゃくにゃにゃはんにゃにゃだいにゃんにゃくにゃらべてにゃがにゃがめ";
-        typingContainer.appendChild(typingInput);
+        typingTarget.innerText = textBody != null ? textBody.innerText : "にゃにゃめにゃにゃじゅうにゃにゃどのにゃらびでにゃくにゃくいにゃにゃくにゃにゃはんにゃにゃだいにゃんにゃくにゃらべてにゃがにゃがめ";
         typingContainer.appendChild(typingCheck);
-        typingContainer.appendChild(typingTarget);
+        typingContainer.appendChild(typingInput);
 
         setTimeout(() => { document.body.style.overflow = "hidden"; }, 300);
     });
@@ -237,103 +236,53 @@
     });
 
     background.addEventListener("click", (e) => {
-        //setCaretToEnd(typingInput);
-    });
-
-    typingContainer.addEventListener("click", (e) => {
-        typingInput.focus();
+        setCaretToEnd(typingInput);
     });
 
     typingInput.addEventListener("input", () => {
         updateTypingCheck();
-        //updateTypingTarget();
-        //scrollCaretIntoView();
+        scrollCaretIntoView();
     });
 
     typingInput.addEventListener("keydown", (e) => {
         if(e.key == "ArrowUp" || e.key == "ArrowDown" || e.key == "ArrowLeft" || e.key == "ArrowRight"){
-            //scrollCaretIntoView();
+            scrollCaretIntoView();
         }
     });
 
-    function wrapInSpan(string){
-        let stringSplit = string.split("\n");
+    function wrapInSpan(el){
+        let elSplit = el.innerText.replace(/\n\n/g, "\n").split("\n");
 
-        for(let i = 0; i < stringSplit.length; i++){
-            switch(stringSplit[i]){
+        for(let i = 0; i < elSplit.length; i++){
+            switch(elSplit[i]){
                 case "":
-                    stringSplit[i] = "<br>"
+                    elSplit[i] = "<br>"
                     break;
                 default:
-                    stringSplit[i] = `<p>${stringSplit[i].split("").map(char => { return char === "\n" ? "<br>" : `<span>${char}</span>`; }).join("")}</p><br>`;
+                    elSplit[i] = `<p>${elSplit[i].split("").map(char => { return char === "\n" ? "<br>" : `<span>${char}</span>`; }).join("")}</p>`;
                     break;
             }
         }
 
-        return stringSplit == "<br>" ? "" : stringSplit.join("");
+        return elSplit.join("");
     }
 
     function updateTypingCheck(){
-        typingCheck.innerHTML = wrapInSpan(typingInput.value);
+        let typingTargetSplit = typingTarget.innerText.split("\n");
 
-        let typingTargetElements = typingTarget.querySelectorAll("span, br");
-        let typingCheckElements = typingCheck.querySelectorAll("span, br");
+        typingCheck.innerHTML = wrapInSpan(typingInput);
 
-        let typingCheckLastBR = typingCheck.querySelector("br:last-child");
-
-        if(typingCheckLastBR) typingCheckLastBR.remove();
-
-        let length = typingCheckLastBR ? typingCheckElements.length - 1 : typingCheckElements.length;
-
-        for(let i = 0; i < length; i++){
-            typingTargetElements[i].style.display = "none";
-            if(typingTargetElements[i].innerText != typingCheckElements[i].innerText){
-                typingCheckElements[i].style.textDecoration = "underline";
-                typingCheckElements[i].style.textDecorationColor = "#f20000";
-            }
-        }
-
-        let typingTargetElementsNONE = typingTarget.querySelectorAll("[style*='display: none']");
-
-        for(let i = length; i < typingTargetElementsNONE.length; i++){
-            typingTargetElementsNONE[i].style.display = "";
-        }
-
-        /*let typingTargetElements = typingTarget.querySelectorAll("p, br");
         let typingCheckElements = typingCheck.querySelectorAll("p, br");
 
         for(let i = 0; i < typingCheckElements.length; i++){
-            if(typingTargetElements[i] && typingTargetElements[i] != typingCheckElements[i]){
-                if(typingTargetElements[i].tagName != "BR"){
-                    let typingTargetSpan = typingTargetElements[i].querySelectorAll("span");
-                    let typingCheckSpan = typingCheckElements[i].querySelectorAll("span");
-                    for(let j = 0; j < typingCheckSpan.length; j++){
-                        if(typingTargetSpan[j] && typingTargetSpan[j].innerText != typingCheckSpan[j].innerText){
-                            typingCheckSpan[j].style.textDecoration = "underline";
-                            typingCheckSpan[j].style.textDecorationColor = "#f20000";
-                        }
+            if(typingCheckElements[i].tagName != "br" && typingTargetSplit[i]){
+                let typingCheckSpan = typingCheckElements[i].querySelectorAll("span");
+                for(let j = 0; j < typingCheckSpan.length; j++){
+                    if(typingTargetSplit[i][j] != typingCheckSpan[j].innerText){
+                        typingCheckSpan[j].style.color = "#f20000";
                     }
                 }
-                else{
-                    typingCheckElements[i].style.textDecoration = "underline";
-                    typingCheckElements[i].style.textDecorationColor = "#f20000";
-                }
             }
-        }*/
-    }
-
-    function updateTypingTarget(){
-        let typingTargetElements = typingTarget.querySelectorAll("span, br");
-        let typingCheckElements = typingCheck.querySelectorAll("span, br");
-
-        for(let i = 0; i < typingCheckElements.length; i++){
-            typingTargetElements[i].style.display = "none";
-        }
-
-        let typingTargetElementsNONE = typingTarget.querySelectorAll("[style*='display: none']");
-
-        for(let i = typingCheckElements.length; i < typingTargetElementsNONE.length; i++){
-            typingTargetElementsNONE[i].style.display = "";
         }
     }
 
