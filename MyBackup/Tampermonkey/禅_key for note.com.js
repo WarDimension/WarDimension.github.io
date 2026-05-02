@@ -223,6 +223,7 @@
         background.style.width = "100%";
         background.style.left = "0";
 
+        let textTitle = document.querySelector(".o-noteContentHeader__title");
         let textBody = document.querySelector(".note-common-styles__textnote-body");
 
         if(textBody != textBodyTemp){
@@ -231,7 +232,7 @@
             textBodyTemp = textBody;
         }
 
-        typingTarget.innerHTML = textBody != null ? wrapInSpan(textBody.innerText) : wrapInSpan("にゃにゃめにゃにゃじゅうにゃにゃどのにゃらびでにゃくにゃくいにゃにゃくにゃにゃはんにゃにゃだいにゃんにゃくにゃらべてにゃがにゃがめ");
+        typingTarget.innerHTML = textBody != null ? wrapInSpan(textTitle.innerText + "\n\n" + textBody.innerText) : wrapInSpan("にゃにゃめにゃにゃじゅうにゃにゃどのにゃらびでにゃくにゃくいにゃにゃくにゃにゃはんにゃにゃだいにゃんにゃくにゃらべてにゃがにゃがめ");
         typingContainer.appendChild(typingInput);
         typingContainer.appendChild(typingCheck);
         typingContainer.appendChild(typingTarget);
