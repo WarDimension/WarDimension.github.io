@@ -89,7 +89,7 @@
             font-size: 20px;
             border-radius: 100%;
             border: 2px dashed #adadad;
-            z-index: 1;
+            z-index: 300;
         }
         .close-button:hover{
             color: #f20000;
@@ -123,6 +123,8 @@
             cursor: text;
             overflow-x: hidden;
             overflow-y: scroll;
+            scroll-padding-top: 20px;
+            scroll-padding-bottom: 20px;
         }
         .typing-container::before,
         .typing-container::after{
@@ -132,6 +134,7 @@
             left: 0;
             height: 20px;
             pointer-events: none;
+            z-index: 200;
         }
         .typing-container::before{
             top: 50px;
@@ -142,7 +145,9 @@
             background: linear-gradient(to top, rgba(27, 27, 27, 1), rgba(27, 27, 27, 0));
         }
         .typing-target{
+            position: relative;
             display: inline;
+            z-index: 10;
         }
         .typing-input{
             position: absolute;
@@ -262,6 +267,7 @@
 
     typingInput.addEventListener("input", () => {
         updateTypingCheck();
+        typingInput.focus();
         //scrollCaretIntoView();
     });
 
