@@ -123,8 +123,8 @@
             cursor: text;
             overflow-x: hidden;
             overflow-y: scroll;
-            scroll-padding-top: 20px;
-            scroll-padding-bottom: 20px;
+            scroll-padding-top: 40px;
+            scroll-padding-bottom: 40px;
         }
         .typing-container::before,
         .typing-container::after{
@@ -155,7 +155,7 @@
             left: 0;
             margin: 0 30px 0 30px;
             min-width: 1px;
-            max-width: 100%;
+            max-width: calc(100% - 60px);
             min-height: 1em;
             field-sizing: content;
             color: white;
@@ -285,12 +285,12 @@
             typingTargetElements[i].style.display = typingInput.value[i] ? "none" : "";
 
             if(typingInput.value[i]){
-                switch(typingInput.value[i]){
+                switch(typingInput.value[i].replace("\n", "↵")){
                     case typingTargetElements[i].innerText:
                         typingCheckString += typingInput.value[i] == "\n" ? "<span style='color: #707070; opacity: 0.5'>↵<br></span>" : `<span>${typingInput.value[i]}</span>`;
                         break;
                     default:
-                        typingCheckString += typingInput.value[i] == "\n" ? "<span style='color: #707070; opacity: 0.5; text-decoration: underline; text-decoration-color: #f20000'>↵<br></span>" : `<span style='text-decoration: underline; text-decoration-color: #f20000'>${typingInput.value[i]}</span>`;
+                        typingCheckString += typingInput.value[i] == "\n" ? "<span style='color: #f20000'>↵<br></span>" : `<span style='text-decoration: underline; text-decoration-color: #f20000'>${typingInput.value[i]}</span>`;
                         break;
                 }
             }
