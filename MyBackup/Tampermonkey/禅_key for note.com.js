@@ -225,7 +225,7 @@
 
         let textBody = document.querySelector(".note-common-styles__textnote-body");
 
-        typingTarget.innerHTML = textBody != null ? wrapInSpan(textBody.innerText) : "にゃにゃめにゃにゃじゅうにゃにゃどのにゃらびでにゃくにゃくいにゃにゃくにゃにゃはんにゃにゃだいにゃんにゃくにゃらべてにゃがにゃがめ";
+        typingTarget.innerHTML = textBody != null ? wrapInSpan(textBody.innerText) : wrapInSpan("にゃにゃめにゃにゃじゅうにゃにゃどのにゃらびでにゃくにゃくいにゃにゃくにゃにゃはんにゃにゃだいにゃんにゃくにゃらべてにゃがにゃがめ");
         typingContainer.appendChild(typingInput);
         typingContainer.appendChild(typingCheck);
         typingContainer.appendChild(typingTarget);
