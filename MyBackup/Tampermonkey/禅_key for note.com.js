@@ -123,8 +123,8 @@
             cursor: text;
             overflow-x: hidden;
             overflow-y: scroll;
-            scroll-padding-top: 40px;
-            scroll-padding-bottom: 40px;
+            scroll-padding-top: 80px;
+            scroll-padding-bottom: 80px;
         }
         .typing-container::before,
         .typing-container::after{
@@ -273,19 +273,30 @@
     });
 
     typingInput.addEventListener("keydown", (e) => {
-        if(e.key == "Tab"){
+        if(e.key == "Tab" && typingTarget.innerText[0]){
             e.preventDefault();
             typingInput.value += typingTarget.innerText[0].replace("↵", "\n");
             updateTypingCheck();
-            typingInput.scrollIntoView({ block: "nearest" });
+            scrollToCursor();
         }
     });
+
+    function scrollToCursor(){
+        const start = typingInput.selectionStart;
+        const end = typingInput.selectionEnd;
+
+        // Resetting the selection forces the parent container
+        // to re-evaluate the "active" area of the element.
+        typingInput.setSelectionRange(start, end);
+        typingInput.blur();
+        typingInput.focus();
+    }
 
     function wrapInSpan(string){
         let stringSplit = string.split("\n");
 
         for(let i = 0; i < stringSplit.length; i++){
-            stringSplit[i] = `${stringSplit[i].split("").map(char => { return char === "\n" ? "<br>" : `<span>${char}</span>`; }).join("")}${i < stringSplit.length - 1 ? "<span style='opacity: 0.5'>↵<br></span>" : ""}`;
+            stringSplit[i] = `${stringSplit[i].split("").map(char => `<span>${char}</span>`).join("")}${i < stringSplit.length - 1 ? "<span style='opacity: 0.5'>↵<br></span>" : ""}`;
         }
 
         return stringSplit == "<span><br></span>" ? "" : stringSplit.join("");
@@ -302,7 +313,7 @@
             if(typingInput.value[i]){
                 switch(typingInput.value[i].replace("\n", "↵")){
                     case typingTargetElements[i].innerText:
-                        typingCheckString += typingInput.value[i] == "\n" ? "<span style='color: #707070; opacity: 0.5'>↵<br></span>" : `<span>${typingInput.value[i]}</span>`;
+                        typingCheckString += typingInput.value[i] == "\n" ? "<span style='color: white'>↵<br></span>" : `<span>${typingInput.value[i]}</span>`;
                         break;
                     default:
                         typingCheckString += typingInput.value[i] == "\n" ? "<span style='color: #f20000'>↵<br></span>" : `<span style='text-decoration: underline; text-decoration-color: #f20000'>${typingInput.value[i]}</span>`;
