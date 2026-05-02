@@ -263,7 +263,6 @@
 
     typingInput.addEventListener("input", () => {
         updateTypingCheck();
-        typingInput.focus();
     });
 
     function wrapInSpan(string){
