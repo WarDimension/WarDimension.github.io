@@ -270,32 +270,43 @@
         let stringSplit = string.split("\n");
 
         for(let i = 0; i < stringSplit.length; i++){
-            stringSplit[i] = `${stringSplit[i].split("").map(char => { return char === "\n" ? "<br>" : `<span>${char}</span>`; }).join("")}${i < stringSplit.length - 1 ? "<span style='opacity: 0.5'>↵<br></span>" : ""}`;
-        }
-
-        return stringSplit == "<span><br></span>" ? "" : stringSplit.join("");
-    }
-
-    function updateTypingCheck(){
-        let typingTargetElements = typingTarget.querySelectorAll("span");
-
-        let typingCheckString = "";
-
-        for(let i = 0; i < typingTargetElements.length; i++){
-            typingTargetElements[i].style.display = typingInput.value[i] ? "none" : "";
-
-            if(typingInput.value[i]){
-                switch(typingInput.value[i]){
-                    case typingTargetElements[i].innerText:
-                        typingCheckString += typingInput.value[i] == "\n" ? "<span style='color: #707070; opacity: 0.5'>↵<br></span>" : `<span>${typingInput.value[i]}</span>`;
-                        break;
-                    default:
-                        typingCheckString += typingInput.value[i] == "\n" ? "<span style='color: #707070; opacity: 0.5'>↵<br></span>" : `<span style='text-decoration: underline; text-decoration-color: #f20000'>${typingInput.value[i]}</span>`;
-                        break;
-                }
+            switch(stringSplit[i]){
+                case "":
+                    stringSplit[i] = "<br>"
+                    break;
+                default:
+                    stringSplit[i] = `<p>${stringSplit[i].split("").map(char => { return char === "\n" ? "<br>" : `<span>${char}</span>`; }).join("")}</p><br>`;
+                    break;
             }
         }
 
-        typingCheck.innerHTML = typingCheckString;
+        return stringSplit == "<br>" ? "" : stringSplit.join("");
+    }
+
+    function updateTypingCheck(){
+        typingCheck.innerHTML = wrapInSpan(typingInput.value);
+
+        let typingTargetElements = typingTarget.querySelectorAll("span, br");
+        let typingCheckElements = typingCheck.querySelectorAll("span, br");
+
+        let typingCheckLastBR = typingCheck.querySelector("br:last-child");
+
+        if(typingCheckLastBR) typingCheckLastBR.remove();
+
+        let length = typingCheckLastBR ? typingCheckElements.length - 1 : typingCheckElements.length;
+
+        for(let i = 0; i < length; i++){
+            typingTargetElements[i].style.display = "none";
+            if(typingTargetElements[i].innerText != typingCheckElements[i].innerText){
+                typingCheckElements[i].style.textDecoration = "underline";
+                typingCheckElements[i].style.textDecorationColor = "#f20000";
+            }
+        }
+
+        let typingTargetElementsNONE = typingTarget.querySelectorAll("[style*='display: none']");
+
+        for(let i = length; i < typingTargetElementsNONE.length; i++){
+            typingTargetElementsNONE[i].style.display = "";
+        }
     }
 })();
