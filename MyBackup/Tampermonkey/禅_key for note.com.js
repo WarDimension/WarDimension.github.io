@@ -169,7 +169,7 @@
             color: transparent;
             pointer-events: none;
             z-index: 10;
-            white-space: pre;
+            white-space: pre-wrap;
         }
     `;
 
@@ -269,6 +269,15 @@
 
     typingInput.addEventListener("input", () => {
         updateTypingCheck();
+    });
+
+    typingInput.addEventListener("keydown", (e) => {
+        if(e.key == "Tab"){
+            e.preventDefault();
+            typingInput.value += typingTarget.innerText[0].replace("↵", "\n");
+            updateTypingCheck();
+            typingInput.scrollIntoView({ block: "nearest" });
+        }
     });
 
     function wrapInSpan(string){
