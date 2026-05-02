@@ -290,7 +290,7 @@
                         typingCheckString += typingInput.value[i] == "\n" ? "<span style='color: #707070; opacity: 0.5'>↵<br></span>" : `<span>${typingInput.value[i]}</span>`;
                         break;
                     default:
-                        typingCheckString += typingInput.value[i] == "\n" ? "<span style='color: #707070; opacity: 0.5'>↵<br></span>" : `<span style='text-decoration: underline; text-decoration-color: #f20000'>${typingInput.value[i]}</span>`;
+                        typingCheckString += typingInput.value[i] == "\n" ? "<span style='color: #707070; opacity: 0.5; text-decoration: underline; text-decoration-color: #f20000'>↵<br></span>" : `<span style='text-decoration: underline; text-decoration-color: #f20000'>${typingInput.value[i]}</span>`;
                         break;
                 }
             }
