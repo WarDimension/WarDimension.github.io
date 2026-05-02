@@ -293,7 +293,7 @@
     }
 
     function wrapInSpan(string){
-        let stringSplit = string.split("\n");
+        let stringSplit = string.replaceAll("\t", "").split("\n");
 
         for(let i = 0; i < stringSplit.length; i++){
             stringSplit[i] = `${stringSplit[i].split("").map(char => `<span>${char}</span>`).join("")}${i < stringSplit.length - 1 ? "<span style='opacity: 0.5'>↵<br></span>" : ""}`;
