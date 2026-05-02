@@ -169,6 +169,7 @@
             color: transparent;
             pointer-events: none;
             z-index: 10;
+            white-space: pre;
         }
     `;
 
