@@ -241,10 +241,6 @@
         background.style.left = "";
     });
 
-    background.addEventListener("click", (e) => {
-        //setCaretToEnd(typingInput);
-    });
-
     typingContainer.addEventListener("click", (e) => {
         typingInput.focus();
         const rect = typingInput.getBoundingClientRect();
@@ -268,13 +264,6 @@
     typingInput.addEventListener("input", () => {
         updateTypingCheck();
         typingInput.focus();
-        //scrollCaretIntoView();
-    });
-
-    typingInput.addEventListener("keydown", (e) => {
-        if(e.key == "ArrowUp" || e.key == "ArrowDown" || e.key == "ArrowLeft" || e.key == "ArrowRight"){
-            //scrollCaretIntoView();
-        }
     });
 
     function wrapInSpan(string){
@@ -319,20 +308,5 @@
         for(let i = length; i < typingTargetElementsNONE.length; i++){
             typingTargetElementsNONE[i].style.display = "";
         }
-    }
-
-    function scrollCaretIntoView(){
-        const selection = window.getSelection();
-        if (!selection.rangeCount) return;
-
-        const range = selection.getRangeAt(0);
-        const span = document.createElement("span");
-
-        span.innerHTML = "&#8203;";
-        range.insertNode(span);
-
-        span.scrollIntoView({ block: "center" });
-
-        span.parentNode.removeChild(span);
     }
 })();
