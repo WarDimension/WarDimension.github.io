@@ -242,11 +242,26 @@
 
     typingContainer.addEventListener("click", (e) => {
         typingInput.focus();
+        const rect = typingInput.getBoundingClientRect();
+
+        // Check if the click was outside the textarea
+        if (event.target !== typingInput) {
+
+            // 1. Click was ABOVE the textarea
+            if (event.clientY < rect.top) {
+                typingInput.setSelectionRange(0, 0);
+            }
+
+            // 2. Click was BELOW the textarea
+            else if (event.clientY > rect.top) {
+                const len = typingInput.value.length;
+                typingInput.setSelectionRange(len, len);
+            }
+        }
     });
 
     typingInput.addEventListener("input", () => {
         updateTypingCheck();
-        //updateTypingTarget();
         //scrollCaretIntoView();
     });
 
@@ -298,57 +313,6 @@
         for(let i = length; i < typingTargetElementsNONE.length; i++){
             typingTargetElementsNONE[i].style.display = "";
         }
-
-        /*let typingTargetElements = typingTarget.querySelectorAll("p, br");
-        let typingCheckElements = typingCheck.querySelectorAll("p, br");
-
-        for(let i = 0; i < typingCheckElements.length; i++){
-            if(typingTargetElements[i] && typingTargetElements[i] != typingCheckElements[i]){
-                if(typingTargetElements[i].tagName != "BR"){
-                    let typingTargetSpan = typingTargetElements[i].querySelectorAll("span");
-                    let typingCheckSpan = typingCheckElements[i].querySelectorAll("span");
-                    for(let j = 0; j < typingCheckSpan.length; j++){
-                        if(typingTargetSpan[j] && typingTargetSpan[j].innerText != typingCheckSpan[j].innerText){
-                            typingCheckSpan[j].style.textDecoration = "underline";
-                            typingCheckSpan[j].style.textDecorationColor = "#f20000";
-                        }
-                    }
-                }
-                else{
-                    typingCheckElements[i].style.textDecoration = "underline";
-                    typingCheckElements[i].style.textDecorationColor = "#f20000";
-                }
-            }
-        }*/
-    }
-
-    function updateTypingTarget(){
-        let typingTargetElements = typingTarget.querySelectorAll("span, br");
-        let typingCheckElements = typingCheck.querySelectorAll("span, br");
-
-        for(let i = 0; i < typingCheckElements.length; i++){
-            typingTargetElements[i].style.display = "none";
-        }
-
-        let typingTargetElementsNONE = typingTarget.querySelectorAll("[style*='display: none']");
-
-        for(let i = typingCheckElements.length; i < typingTargetElementsNONE.length; i++){
-            typingTargetElementsNONE[i].style.display = "";
-        }
-    }
-
-    function setCaretToEnd(el){
-        el.focus();
-
-        const range = document.createRange();
-        range.selectNodeContents(el);
-        range.collapse(false);
-
-        const selection = window.getSelection();
-        selection.removeAllRanges();
-        selection.addRange(range);
-
-        scrollCaretIntoView();
     }
 
     function scrollCaretIntoView(){
