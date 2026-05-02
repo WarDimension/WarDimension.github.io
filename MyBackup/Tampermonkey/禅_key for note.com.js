@@ -217,6 +217,8 @@
     typingInput.setAttribute('data-gramm_editor', 'false');
     typingInput.setAttribute('data-enable-grammarly', 'false');
 
+    let textBodyTemp = "";
+
     zenMode.addEventListener("click", () => {
         background.style.zIndex = "100";
         background.style.opacity = "1";
@@ -224,6 +226,12 @@
         background.style.left = "0";
 
         let textBody = document.querySelector(".note-common-styles__textnote-body");
+
+        if(textBody != textBodyTemp){
+            typingInput.value = "";
+            typingCheck.innerHTML = "";
+            textBodyTemp = textBody;
+        }
 
         typingTarget.innerHTML = textBody != null ? wrapInSpan(textBody.innerText) : wrapInSpan("にゃにゃめにゃにゃじゅうにゃにゃどのにゃらびでにゃくにゃくいにゃにゃくにゃにゃはんにゃにゃだいにゃんにゃくにゃらべてにゃがにゃがめ");
         typingContainer.appendChild(typingInput);
