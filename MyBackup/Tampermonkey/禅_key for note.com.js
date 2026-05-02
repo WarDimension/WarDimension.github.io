@@ -170,9 +170,6 @@
             pointer-events: none;
             z-index: 10;
         }
-        .typing-target p, .typing-check p{
-            display: inline;
-        }
     `;
 
     document.getElementsByTagName("head")[0].appendChild(style);
