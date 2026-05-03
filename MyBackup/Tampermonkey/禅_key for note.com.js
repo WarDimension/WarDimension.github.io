@@ -155,7 +155,7 @@
             left: 0;
             margin: 0 30px 0 30px;
             min-width: 1px;
-            max-width: calc(100% - 60px);
+            width: calc(100% - 60px);
             min-height: 1em;
             field-sizing: content;
             color: white;
@@ -170,6 +170,11 @@
             pointer-events: none;
             z-index: 10;
             white-space: pre-wrap;
+        }
+        @media screen and (max-width: 680px){
+            .typing-container{
+                max-width: 100%;
+            }
         }
     `;
 
@@ -270,6 +275,8 @@
 
     typingInput.addEventListener("input", () => {
         updateTypingCheck();
+        typingInput.style.height = "";
+        typingInput.style.height = typingInput.scrollHeight + "px";
     });
 
     typingInput.addEventListener("keydown", (e) => {
