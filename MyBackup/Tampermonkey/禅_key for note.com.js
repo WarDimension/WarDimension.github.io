@@ -290,8 +290,6 @@
 
     typingInput.addEventListener("input", () => {
         updateTypingCheck();
-        typingInput.style.height = "";
-        typingInput.style.height = typingInput.scrollHeight + "px";
     });
 
     typingInput.addEventListener("keydown", (e) => {
@@ -345,5 +343,8 @@
         }
 
         typingCheck.innerHTML = typingCheckString;
+
+        typingInput.style.height = "";
+        typingInput.style.height = typingInput.scrollHeight + "px";
     }
 })();
