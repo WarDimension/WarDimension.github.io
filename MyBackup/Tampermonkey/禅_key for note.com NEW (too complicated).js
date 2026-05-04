@@ -247,7 +247,7 @@
 
         if(textBody != textBodyTemp){
             typingInput.value = "";
-            typingCheck.innerHTML = "";
+            typingCheck.innerHTML = "&#8203;";
             textBodyTemp = textBody;
         }
 
@@ -287,8 +287,15 @@
         }
     });
 
-    typingInput.addEventListener("input", () => {
-        updateTypingCheck();
+    typingInput.addEventListener("input", (e) => {
+        updateTypingCheck(e);
+    });
+
+    let selectionStartBeforeInput = 0;
+    let selectionEndBeforeInput = 0;
+    typingInput.addEventListener("beforeinput", (e) => {
+        selectionStartBeforeInput = typingInput.selectionStart;
+        selectionEndBeforeInput = typingInput.selectionEnd;
     });
 
     typingInput.addEventListener("keydown", (e) => {
@@ -321,14 +328,95 @@
         return stringSplit == "<span><br></span>" ? "" : stringSplit.join("");
     }
 
-    function updateTypingCheck(){
+    function updateTypingCheck(e){
+        let typingTargetElementsNONE = typingTarget.querySelectorAll("[style*='display: none']");
+
+        if(typingTargetElementsNONE.length > typingInput.value.length){
+            let firstIndex = typingInput.value.length;
+            let lastIndex = typingTargetElementsNONE.length;
+
+            for(let i = firstIndex; i < lastIndex; i++){
+                typingTarget.children[i].style.display = "";
+            }
+        }
+        else{
+            let firstIndex = typingTargetElementsNONE.length;
+            let lastIndex = typingInput.value.length;
+
+            for(let i = firstIndex; i < lastIndex; i++){
+                typingTarget.children[i].style.display = "none";
+            }
+        }
+
+        let typingCheckElements = typingCheck.querySelectorAll("span");
+
+        let firstIndexBeforeInput = selectionStartBeforeInput;
+        let lastIndexBeforeInput = selectionStartBeforeInput == selectionEndBeforeInput ? selectionStartBeforeInput : selectionEndBeforeInput - 1;
+
+        let firstInputIndex = selectionStartBeforeInput;
+        let lastInputIndex = typingInput.selectionStart - 1;
+
+        //console.log(`before: s: ${firstIndexBeforeInput} e: ${lastIndexBeforeInput} | after: s: ${firstIndexAfterInput} e: ${lastIndexAfterInput}`);
+
+        //delete later
+        typingCheck.style.color = "white";
+        typingInput.style.color = "transparent";
+        typingInput.style.caretColor = "white";
+
+        console.log(e);
+
+        if(e.inputType == "historyUndo"){
+            typingCheck.innerHTML = "&#8203;";
+        }
+
+        if(selectionStartBeforeInput != selectionEndBeforeInput || e.inputType == "deleteContentBackward" || e.inputType == "deleteContentForward"){
+            let firstIndex = e.inputType == "deleteContentBackward" ? typingInput.selectionStart : selectionStartBeforeInput;
+            let lastIndex = e.inputType == "deleteContentForward" && selectionStartBeforeInput == selectionEndBeforeInput ? selectionEndBeforeInput : selectionEndBeforeInput - 1;
+
+            console.log(firstIndex + " : " + lastIndex);
+
+            for(let i = firstIndex; i <= lastIndex; i++){
+                typingCheck.children[firstIndex].remove();
+            }
+        }
+
+        for(let i = selectionStartBeforeInput; i <= typingInput.selectionStart - 1; i++){
+            let newSpan = document.createElement("span");
+            newSpan.innerText = typingInput.value[i];
+            typingCheck.insertBefore(newSpan, typingCheck.childNodes[selectionStartBeforeInput]);
+        }
+
+        //console.log(`before: s: ${firstIndexBeforeInput} e: ${lastIndexBeforeInput} | after: s: ${firstIndexAfterInput} e: ${lastIndexAfterInput}`);
+
+        //no selection
+        /*if(selectionStartBeforeInput == selectionEndBeforeInput){
+            //console.log(`before: s: ${firstIndexBeforeInput} e: ${lastIndexBeforeInput} | after: s: ${firstIndexAfterInput} e: ${lastIndexAfterInput}`);
+            //console.log(selectionStartBeforeInput + " : " + typingCheckElements.length);
+            //console.log(typingCheck.childNodes.length);
+
+            if(e.inputType == "deleteContentBackward"){
+                for(let i = typingInput.selectionStart; i <= selectionEndBeforeInput - 1; i++){
+                    typingCheck.children[i].remove();
+                }
+            }
+            else{
+                for(let i = firstInputIndex; i <= lastInputIndex; i++){
+                    let newSpan = document.createElement("span");
+                    newSpan.innerText = typingInput.value[i];
+                    typingCheck.insertBefore(newSpan, typingCheck.childNodes[firstIndexBeforeInput]);
+                }
+            }
+        }
+        else{
+            //console.log(selectionStartBeforeInput + " : " + typingCheckElements.length);
+            //console.log(typingCheck.childNodes.length);
+        }*/
+
+        /*let typingCheckString = "";
+
+        //delete later
         let typingTargetElements = typingTarget.querySelectorAll("span");
-
-        let typingCheckString = "";
-
         for(let i = 0; i < typingTargetElements.length; i++){
-            typingTargetElements[i].style.display = typingInput.value[i] ? "none" : "";
-
             if(typingInput.value[i]){
                 switch(typingInput.value[i].replace("\n", "↵")){
                     case typingTargetElements[i].innerText:
@@ -341,10 +429,12 @@
             }
         }
 
-        typingCheck.innerHTML = typingCheckString + "&#8203;";
+        typingCheck.innerHTML = typingCheckString + "&#8203;";*/
 
         typingInput.style.height = "";
         typingInput.style.height = typingInput.scrollHeight + "px";
+
+        //typingCheck.innerHTML = typingInput.value;//delete later
     }
 
     window.addEventListener("resize", () => {
