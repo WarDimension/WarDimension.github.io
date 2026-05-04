@@ -87,7 +87,7 @@
             color: #707070;
             border-color: white;
         }
-        .close-button{
+        .close-button, .auto-complete-button{
             position: absolute;
             top: 30px;
             right: 30px;
@@ -103,10 +103,22 @@
             border-radius: 100%;
             border: 2px dashed #adadad;
             z-index: 300;
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-drag: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
         }
         .close-button:hover{
             color: #f20000;
             border-color: #f20000;
+        }
+        .auto-complete-button{
+            top: 85px;
+        }
+        .auto-complete-button:hover{
+            color: #15ac47;
+            border-color: #15ac47;
         }
         .background{
             position: fixed;
@@ -245,7 +257,12 @@
     closeButton.className = "close-button";
     closeButton.innerHTML = "<p>X</p><div class='text-block'></div>";
 
+    let autoCompleteButton = document.createElement("div");
+    autoCompleteButton.className = "auto-complete-button";
+    autoCompleteButton.innerHTML = "<p>⇒</p><div class='text-block'></div>";
+
     background.appendChild(closeButton);
+    background.appendChild(autoCompleteButton);
 
     let typingContainer = document.createElement("div");
     typingContainer.className = "typing-container";
@@ -267,6 +284,7 @@
     typingInput.setAttribute('data-enable-grammarly', 'false');
 
     let textBodyTemp = "";
+    let typingTargetInnerHTMLTemp = "";
 
     zenMode.addEventListener("click", () => {
         background.style.zIndex = "100";
@@ -277,13 +295,17 @@
         let textTitle = document.querySelector(".o-noteContentHeader__title");
         let textBody = document.querySelector(".note-common-styles__textnote-body");
 
+        typingTarget.innerHTML = textBody != null ? wrapInSpan(textTitle.innerText + "\n\n" + textBody.innerText) : wrapInSpan("にゃにゃめにゃにゃじゅうにゃにゃどのにゃらびでにゃくにゃくいにゃにゃくにゃにゃはんにゃにゃだいにゃんにゃくにゃらべてにゃがにゃがめ");
+
         if(textBody != textBodyTemp){
             typingInput.value = "";
             typingCheck.innerHTML = "&#8203;";
             textBodyTemp = textBody;
         }
+        else{
+            typingTarget.innerHTML = typingTargetInnerHTMLTemp;
+        }
 
-        typingTarget.innerHTML = textBody != null ? wrapInSpan(textTitle.innerText + "\n\n" + textBody.innerText) : wrapInSpan("にゃにゃめにゃにゃじゅうにゃにゃどのにゃらびでにゃくにゃくいにゃにゃくにゃにゃはんにゃにゃだいにゃんにゃくにゃらべてにゃがにゃがめ");
         typingContainer.appendChild(typingInput);
         typingContainer.appendChild(typingCheck);
         typingContainer.appendChild(typingTarget);
@@ -297,7 +319,27 @@
         background.style.opacity = "";
         background.style.width = "";
         background.style.left = "";
+        typingTargetInnerHTMLTemp = typingTarget.innerHTML;
     });
+
+    autoCompleteButton.addEventListener("mousedown", () => {
+        if (timer === null) {
+            timer = setInterval(runWhileDown, 50);
+        }
+    });
+
+    let timer = null;
+    function runWhileDown() {
+        autoComplete({ "key": "Tab" });
+    }
+
+    function mouseDone(){
+        clearInterval(timer);
+        timer = null;
+    }
+
+    autoCompleteButton.addEventListener("mouseup", mouseDone);
+    autoCompleteButton.addEventListener("mouseleave", mouseDone);
 
     typingContainer.addEventListener("click", (e) => {
         typingInput.focus();
@@ -326,14 +368,17 @@
     typingInput.addEventListener("keydown", (e) => {
         if(e.key == "Tab"){
             e.preventDefault();
-
-            if(typingTarget.innerText[0]){
-                typingInput.value += typingTarget.innerText[0];
-                updateTypingCheck(e);
-                scrollToCursor();
-            }
+            autoComplete(e);
         }
     });
+
+    function autoComplete(e){
+        if(typingTarget.innerText[0]){
+            typingInput.value += typingTarget.innerText[0];
+            updateTypingCheck(e);
+            scrollToCursor();
+        }
+    }
 
     function scrollToCursor(){
         const start = typingInput.selectionStart;
