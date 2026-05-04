@@ -226,7 +226,6 @@
 
     let typingCheck = document.createElement("div");
     typingCheck.className = "typing-check";
-    typingCheck.innerHTML = "&#8203;";
 
     let typingInput = document.createElement("textarea");
     typingInput.className = "typing-input";
@@ -248,7 +247,7 @@
 
         if(textBody != textBodyTemp){
             typingInput.value = "";
-            typingCheck.innerHTML = "&#8203;";
+            typingCheck.innerHTML = "";
             textBodyTemp = textBody;
         }
 
@@ -323,7 +322,7 @@
     }
 
     function updateTypingCheck(){
-        /*let typingTargetElements = typingTarget.querySelectorAll("span");
+        let typingTargetElements = typingTarget.querySelectorAll("span");
 
         let typingCheckString = "";
 
@@ -345,92 +344,11 @@
         typingCheck.innerHTML = typingCheckString + "&#8203;";
 
         typingInput.style.height = "";
-        typingInput.style.height = typingInput.scrollHeight + "px";*/
-
-        //console.log(getStringChange(typingCheck.innerText, typingInput.value + "\u200B"));
-        //delete later
-        ///////////////////
-        let typingTargetElementsNONE = typingTarget.querySelectorAll("[style*='display: none']");
-
-        if(typingTargetElementsNONE.length > typingInput.value.length){
-            let firstIndex = typingInput.value.length;
-            let lastIndex = typingTargetElementsNONE.length;
-
-            for(let i = firstIndex; i < lastIndex; i++){
-                typingTarget.children[i].style.display = "";
-            }
-        }
-
-        let stringChange = getStringChange(typingCheck.innerText.replaceAll("↵", ""), typingInput.value + "\u200B");
-
-        if(stringChange.type == "replace" || stringChange.type == "delete"){
-            for(let i = stringChange.index; i < stringChange.index + stringChange.removed.length; i++){
-                typingCheck.children[stringChange.index].remove();
-            }
-        }
-
-        if(stringChange.type == "replace" || stringChange.type == "insert"){
-            for(let i = 0; i < stringChange.added.length; i++){
-                let newSpan = document.createElement("span");
-                newSpan.innerText = stringChange.added[i].replace("\n", "↵\n");
-                newSpan.style.color = stringChange.added[i] == "\n" ? "white" : "";
-                typingCheck.insertBefore(newSpan, typingCheck.childNodes[stringChange.index + i]);
-
-                typingTarget.children[stringChange.index + i].style.display = "none";
-            }
-        }
+        typingInput.style.height = typingInput.scrollHeight + "px";
     }
 
     window.addEventListener("resize", () => {
         typingInput.style.height = "";
         typingInput.style.height = typingInput.scrollHeight + "px";
     });
-
-    function getStringChange(original, updated) {
-        let start = 0;
-
-        // 1. Find common prefix
-        while (
-            start < original.length &&
-            start < updated.length &&
-            original[start] === updated[start]
-        ) {
-            start++;
-        }
-
-        // 2. Find common suffix
-        let endOriginal = original.length - 1;
-        let endUpdated = updated.length - 1;
-
-        while (
-            endOriginal >= start &&
-            endUpdated >= start &&
-            original[endOriginal] === updated[endUpdated]
-        ) {
-            endOriginal--;
-            endUpdated--;
-        }
-
-        const removed = original.slice(start, endOriginal + 1);
-        const added = updated.slice(start, endUpdated + 1);
-
-        // 3. Classify
-        let type;
-        if (removed && added) {
-            type = "replace";
-        } else if (!removed && added) {
-            type = "insert";
-        } else if (removed && !added) {
-            type = "delete";
-        } else {
-            type = "same";
-        }
-
-        return {
-            type,
-            index: start,
-            removed,
-            added
-        };
-    }
 })();
