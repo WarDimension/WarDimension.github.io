@@ -341,7 +341,7 @@
             }
         }
 
-        typingCheck.innerHTML = typingCheckString;
+        typingCheck.innerHTML = typingCheckString + "&#8203;";
 
         typingInput.style.height = "";
         typingInput.style.height = typingInput.scrollHeight + "px";
