@@ -185,20 +185,6 @@
             z-index: 10;
             white-space: pre-wrap;
         }
-        .tab{
-            text-decoration: underline;
-            text-decoration-color: #b8860b;
-        }
-        .tab-enter{
-            color: #b8860b;
-        }
-        .incorrect{
-            text-decoration: underline;
-            text-decoration-color: #f20000;
-        }
-        .incorrect-enter{
-            color: #f20000;
-        }
         @media screen and (max-width: 680px){
             .typing-container{
                 max-width: 100%;
@@ -363,10 +349,20 @@
 
                 if(tab){
                     if(stringChange.added[i] == "\n"){
-                        newSpan.classList.add("tab-enter");
+                        newSpan.style.color = "#b8860b";
                     }
                     else{
-                        newSpan.classList.add("tab");
+                        newSpan.style.textDecoration = "underline";
+                        newSpan.style.textDecorationColor = "#b8860b";
+                    }
+                }
+                else if(typingTarget.children[stringChange.index + i].innerText.replace("↵", "") != stringChange.added[i]){
+                    if(stringChange.added[i] == "\n"){
+                        newSpan.style.color = "#f20000";
+                    }
+                    else{
+                        newSpan.style.textDecoration = "underline";
+                        newSpan.style.textDecorationColor = "#f20000";
                     }
                 }
                 else{
@@ -376,23 +372,6 @@
                 typingCheck.insertBefore(newSpan, typingCheck.childNodes[stringChange.index + i]);
 
                 typingTarget.children[stringChange.index + i].style.display = "none";
-            }
-        }
-
-        for(let i = 0; i < typingCheck.children.length; i++){
-            if(typingCheck.children[i].innerText.replace("\n", "") != typingTarget.children[i].innerText){
-                switch(typingCheck.children[i].innerText){
-                    case "↵\n":
-                        typingCheck.children[i].classList.add("incorrect-enter");
-                        break;
-                    default:
-                        typingCheck.children[i].classList.add("incorrect");
-                        break;
-                }
-            }
-            else{
-                typingCheck.children[i].classList.remove("incorrect-enter");
-                typingCheck.children[i].classList.remove("incorrect");
             }
         }
 
