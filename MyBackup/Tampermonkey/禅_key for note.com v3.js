@@ -323,28 +323,10 @@
 
     function updateTypingCheck(){
         let typingTargetElements = typingTarget.querySelectorAll("span");
-        let typingTargetElementsNONE = typingTarget.querySelectorAll("[style*='display: none']");
-
-        if(typingTargetElementsNONE.length > typingInput.value.length){
-            let firstIndex = typingInput.value.length;
-            let lastIndex = typingTargetElementsNONE.length;
-
-            for(let i = firstIndex; i < lastIndex; i++){
-                typingTargetElements[i].style.display = "";
-            }
-        }
-        else{
-            let firstIndex = typingTargetElementsNONE.length;
-            let lastIndex = typingInput.value.length;
-
-            for(let i = firstIndex; i < lastIndex; i++){
-                typingTargetElements[i].style.display = "none";
-            }
-        }
 
         let typingCheckString = "";
 
-        /*for(let i = 0; i < typingTargetElements.length; i++){
+        for(let i = 0; i < typingTargetElements.length; i++){
             typingTargetElements[i].style.display = typingInput.value[i] ? "none" : "";
 
             if(typingInput.value[i]){
@@ -357,14 +339,12 @@
                         break;
                 }
             }
-        }*/
+        }
 
         typingCheck.innerHTML = typingCheckString + "&#8203;";
 
         typingInput.style.height = "";
         typingInput.style.height = typingInput.scrollHeight + "px";
-
-        typingCheck.innerHTML = typingInput.value;//delete later
     }
 
     window.addEventListener("resize", () => {
