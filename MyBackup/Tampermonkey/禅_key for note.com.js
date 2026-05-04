@@ -185,6 +185,9 @@
             z-index: 10;
             white-space: pre-wrap;
         }
+        .enter{
+            color: white;
+        }
         .tab{
             text-decoration: underline;
             text-decoration-color: #b8860b;
@@ -302,15 +305,15 @@
         }
     });
 
-    typingInput.addEventListener("input", () => {
-        updateTypingCheck();
+    typingInput.addEventListener("input", (e) => {
+        updateTypingCheck(e);
     });
 
     typingInput.addEventListener("keydown", (e) => {
         if(e.key == "Tab" && typingTarget.innerText[0]){
             e.preventDefault();
             typingInput.value += typingTarget.innerText[0].replace("↵", "\n");
-            updateTypingCheck(true);
+            updateTypingCheck(e);
             scrollToCursor();
         }
     });
@@ -336,7 +339,7 @@
         return stringSplit == "<span><br></span>" ? "" : stringSplit.join("");
     }
 
-    function updateTypingCheck(tab = false){
+    function updateTypingCheck(e){
         let typingTargetElementsNONE = typingTarget.querySelectorAll("[style*='display: none']");
 
         if(typingTargetElementsNONE.length > typingInput.value.length){
@@ -361,7 +364,7 @@
                 let newSpan = document.createElement("span");
                 newSpan.innerText = stringChange.added[i].replace("\n", "↵\n");
 
-                if(tab){
+                if(e.key == "Tab" || e.inputType == "insertFromPaste"){
                     if(stringChange.added[i] == "\n"){
                         newSpan.classList.add("tab-enter");
                     }
@@ -370,7 +373,7 @@
                     }
                 }
                 else{
-                    newSpan.style.color = stringChange.added[i] == "\n" ? "white" : "";
+                    if(stringChange.added[i] == "\n") newSpan.classList.add("enter");
                 }
 
                 typingCheck.insertBefore(newSpan, typingCheck.childNodes[stringChange.index + i]);
