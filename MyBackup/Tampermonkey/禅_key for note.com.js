@@ -175,6 +175,7 @@
             color: white;
             outline: none;
             resize: none;
+            overflow: hidden;
         }
         .typing-check{
             position: relative;
@@ -316,6 +317,11 @@
             updateTypingCheck(e);
             scrollToCursor();
         }
+        updateInputHeight();
+    });
+
+    typingInput.addEventListener("keyup", (e) => {
+        updateInputHeight();
     });
 
     function scrollToCursor(){
@@ -399,14 +405,17 @@
             }
         }
 
-        typingInput.style.height = "auto";
-        typingInput.style.height = typingInput.scrollHeight + "px";
+        updateInputHeight();
     }
 
     window.addEventListener("resize", () => {
+        updateInputHeight();
+    });
+
+    function updateInputHeight(){
         typingInput.style.height = "auto";
         typingInput.style.height = typingInput.scrollHeight + "px";
-    });
+    }
 
     function getStringChange(original, updated) {
         let start = 0;
