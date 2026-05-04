@@ -322,7 +322,7 @@
         typingTargetInnerHTMLTemp = typingTarget.innerHTML;
     });
 
-    autoCompleteButton.addEventListener("mousedown", () => {
+    autoCompleteButton.addEventListener("pointerdown", () => {
         if (timer === null) {
             timer = setInterval(runWhileDown, 50);
         }
@@ -338,8 +338,8 @@
         timer = null;
     }
 
-    autoCompleteButton.addEventListener("mouseup", mouseDone);
-    autoCompleteButton.addEventListener("mouseleave", mouseDone);
+    autoCompleteButton.addEventListener("pointerup", mouseDone);
+    autoCompleteButton.addEventListener("pointerleave", mouseDone);
 
     typingContainer.addEventListener("click", (e) => {
         typingInput.focus();
