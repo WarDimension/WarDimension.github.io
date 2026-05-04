@@ -317,11 +317,6 @@
             updateTypingCheck(e);
             scrollToCursor();
         }
-        updateInputHeight();
-    });
-
-    typingInput.addEventListener("keyup", (e) => {
-        updateInputHeight();
     });
 
     function scrollToCursor(){
@@ -384,12 +379,12 @@
 
                 typingCheck.insertBefore(newSpan, typingCheck.childNodes[stringChange.index + i]);
 
-                typingTarget.children[stringChange.index + i].style.display = "none";
+                if(typingTarget.children[stringChange.index + i]) typingTarget.children[stringChange.index + i].style.display = "none";
             }
         }
 
         for(let i = stringChange.index; i < typingCheck.children.length; i++){
-            if(typingCheck.children[i].innerText.replace("\n", "") != typingTarget.children[i].innerText){
+            if((typingTarget.children[i] && typingCheck.children[i].innerText.replace("\n", "") != typingTarget.children[i].innerText) || i > typingTarget.children.length - 1){
                 switch(typingCheck.children[i].innerText){
                     case "↵\n":
                         typingCheck.children[i].classList.add("incorrect-enter");
