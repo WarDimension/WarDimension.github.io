@@ -186,15 +186,28 @@
             z-index: 10;
             white-space: pre-wrap;
         }
-        .enter{
-            color: white;
-        }
         .tab{
             text-decoration: underline;
             text-decoration-color: #b8860b;
         }
+        .enter{
+            position: relative;
+            color: white;
+        }
         .tab-enter{
+            position: relative;
             color: #b8860b;
+        }
+        .target-enter{
+            position: relative;
+            color: #707070;
+            opacity: 0.5;
+        }
+        .enter::after, .tab-enter::after, .target-enter::after{
+            content: "↵";
+            position: absolute;
+            top: -0.2em;
+            left: 0;
         }
         .incorrect{
             text-decoration: underline;
@@ -313,7 +326,7 @@
     typingInput.addEventListener("keydown", (e) => {
         if(e.key == "Tab" && typingTarget.innerText[0]){
             e.preventDefault();
-            typingInput.value += typingTarget.innerText[0].replace("↵", "\n");
+            typingInput.value += typingTarget.innerText[0];
             updateTypingCheck(e);
             scrollToCursor();
         }
@@ -334,7 +347,7 @@
         let stringSplit = string.replaceAll("\t", "").split("\n");
 
         for(let i = 0; i < stringSplit.length; i++){
-            stringSplit[i] = `${stringSplit[i].split("").map(char => `<span>${char}</span>`).join("")}${i < stringSplit.length - 1 ? "<span style='opacity: 0.5'>↵<br></span>" : ""}`;
+            stringSplit[i] = `${stringSplit[i].split("").map(char => `<span>${char}</span>`).join("")}${i < stringSplit.length - 1 ? "<span class='target-enter'><br></span>" : ""}`;
         }
 
         return stringSplit == "<span><br></span>" ? "" : stringSplit.join("");
@@ -352,7 +365,7 @@
             }
         }
 
-        let stringChange = getStringChange(typingCheck.innerText.replaceAll("↵", ""), typingInput.value + "\u200B");
+        let stringChange = getStringChange(typingCheck.innerText, typingInput.value + "\u200B");
 
         if(stringChange.type == "replace" || stringChange.type == "delete"){
             for(let i = stringChange.index; i < stringChange.index + stringChange.removed.length; i++){
@@ -363,7 +376,7 @@
         if(stringChange.type == "replace" || stringChange.type == "insert"){
             for(let i = 0; i < stringChange.added.length; i++){
                 let newSpan = document.createElement("span");
-                newSpan.innerText = stringChange.added[i].replace("\n", "↵\n");
+                newSpan.innerText = stringChange.added[i];
 
                 if(e.key == "Tab" || e.inputType == "insertFromPaste"){
                     if(stringChange.added[i] == "\n"){
@@ -384,9 +397,9 @@
         }
 
         for(let i = stringChange.index; i < typingCheck.children.length; i++){
-            if((typingTarget.children[i] && typingCheck.children[i].innerText.replace("\n", "") != typingTarget.children[i].innerText) || i > typingTarget.children.length - 1){
+            if((typingTarget.children[i] && typingCheck.children[i].innerHTML != typingTarget.children[i].innerHTML) || i > typingTarget.children.length - 1){
                 switch(typingCheck.children[i].innerText){
-                    case "↵\n":
+                    case "\n":
                         typingCheck.children[i].classList.add("incorrect-enter");
                         break;
                     default:
