@@ -324,11 +324,14 @@
     });
 
     typingInput.addEventListener("keydown", (e) => {
-        if(e.key == "Tab" && typingTarget.innerText[0]){
+        if(e.key == "Tab"){
             e.preventDefault();
-            typingInput.value += typingTarget.innerText[0];
-            updateTypingCheck(e);
-            scrollToCursor();
+
+            if(typingTarget.innerText[0]){
+                typingInput.value += typingTarget.innerText[0];
+                updateTypingCheck(e);
+                scrollToCursor();
+            }
         }
     });
 
