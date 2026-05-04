@@ -323,33 +323,6 @@
     }
 
     function updateTypingCheck(){
-        /*let typingTargetElements = typingTarget.querySelectorAll("span");
-
-        let typingCheckString = "";
-
-        for(let i = 0; i < typingTargetElements.length; i++){
-            typingTargetElements[i].style.display = typingInput.value[i] ? "none" : "";
-
-            if(typingInput.value[i]){
-                switch(typingInput.value[i].replace("\n", "↵")){
-                    case typingTargetElements[i].innerText:
-                        typingCheckString += typingInput.value[i] == "\n" ? "<span style='color: white'>↵<br></span>" : `<span>${typingInput.value[i]}</span>`;
-                        break;
-                    default:
-                        typingCheckString += typingInput.value[i] == "\n" ? "<span style='color: #f20000'>↵<br></span>" : `<span style='text-decoration: underline; text-decoration-color: #f20000'>${typingInput.value[i]}</span>`;
-                        break;
-                }
-            }
-        }
-
-        typingCheck.innerHTML = typingCheckString + "&#8203;";
-
-        typingInput.style.height = "";
-        typingInput.style.height = typingInput.scrollHeight + "px";*/
-
-        //console.log(getStringChange(typingCheck.innerText, typingInput.value + "\u200B"));
-        //delete later
-        ///////////////////
         let typingTargetElementsNONE = typingTarget.querySelectorAll("[style*='display: none']");
 
         if(typingTargetElementsNONE.length > typingInput.value.length){
