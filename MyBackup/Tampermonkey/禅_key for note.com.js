@@ -296,7 +296,7 @@
         if(e.key == "Tab" && typingTarget.innerText[0]){
             e.preventDefault();
             typingInput.value += typingTarget.innerText[0].replace("↵", "\n");
-            updateTypingCheck();
+            updateTypingCheck(true);
             scrollToCursor();
         }
     });
@@ -322,7 +322,7 @@
         return stringSplit == "<span><br></span>" ? "" : stringSplit.join("");
     }
 
-    function updateTypingCheck(){
+    function updateTypingCheck(tab = false){
         let typingTargetElementsNONE = typingTarget.querySelectorAll("[style*='display: none']");
 
         if(typingTargetElementsNONE.length > typingInput.value.length){
@@ -347,9 +347,23 @@
                 let newSpan = document.createElement("span");
                 newSpan.innerText = stringChange.added[i].replace("\n", "↵\n");
 
-                if(typingTarget.children[stringChange.index + i].innerText.replace("↵", "") != stringChange.added[i]){
-                    newSpan.style.textDecoration = "underline";
-                    newSpan.style.textDecorationColor = "#f20000";
+                if(tab){
+                    if(stringChange.added[i] == "\n"){
+                        newSpan.style.color = "#b8860b";
+                    }
+                    else{
+                        newSpan.style.textDecoration = "underline";
+                        newSpan.style.textDecorationColor = "#b8860b";
+                    }
+                }
+                else if(typingTarget.children[stringChange.index + i].innerText.replace("↵", "") != stringChange.added[i]){
+                    if(stringChange.added[i] == "\n"){
+                        newSpan.style.color = "#f20000";
+                    }
+                    else{
+                        newSpan.style.textDecoration = "underline";
+                        newSpan.style.textDecorationColor = "#f20000";
+                    }
                 }
                 else{
                     newSpan.style.color = stringChange.added[i] == "\n" ? "white" : "";
