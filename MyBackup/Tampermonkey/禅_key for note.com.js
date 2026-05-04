@@ -169,7 +169,6 @@
             top: 200px;
             left: 0;
             margin: 0 30px 0 30px;
-            min-width: 1px;
             width: calc(100% - 60px);
             min-height: 1em;
             field-sizing: content;
