@@ -396,12 +396,12 @@
             }
         }
 
-        typingInput.style.height = "";
+        typingInput.style.height = "auto";
         typingInput.style.height = typingInput.scrollHeight + "px";
     }
 
     window.addEventListener("resize", () => {
-        typingInput.style.height = "";
+        typingInput.style.height = "auto";
         typingInput.style.height = typingInput.scrollHeight + "px";
     });
 
