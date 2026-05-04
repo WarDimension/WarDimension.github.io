@@ -346,12 +346,23 @@
             for(let i = 0; i < stringChange.added.length; i++){
                 let newSpan = document.createElement("span");
                 newSpan.innerText = stringChange.added[i].replace("\n", "↵\n");
-                newSpan.style.color = stringChange.added[i] == "\n" ? "white" : "";
+
+                if(typingTarget.children[stringChange.index + i].innerText.replace("↵", "") != stringChange.added[i]){
+                    newSpan.style.textDecoration = "underline";
+                    newSpan.style.textDecorationColor = "#f20000";
+                }
+                else{
+                    newSpan.style.color = stringChange.added[i] == "\n" ? "white" : "";
+                }
+
                 typingCheck.insertBefore(newSpan, typingCheck.childNodes[stringChange.index + i]);
 
                 typingTarget.children[stringChange.index + i].style.display = "none";
             }
         }
+
+        typingInput.style.height = "";
+        typingInput.style.height = typingInput.scrollHeight + "px";
     }
 
     window.addEventListener("resize", () => {
