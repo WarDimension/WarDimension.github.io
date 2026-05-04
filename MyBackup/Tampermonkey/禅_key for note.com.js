@@ -379,7 +379,7 @@
             }
         }
 
-        for(let i = 0; i < typingCheck.children.length; i++){
+        for(let i = stringChange.index; i < typingCheck.children.length; i++){
             if(typingCheck.children[i].innerText.replace("\n", "") != typingTarget.children[i].innerText){
                 switch(typingCheck.children[i].innerText){
                     case "↵\n":
