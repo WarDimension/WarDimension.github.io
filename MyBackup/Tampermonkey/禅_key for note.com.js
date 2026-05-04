@@ -346,4 +346,9 @@
         typingInput.style.height = "";
         typingInput.style.height = typingInput.scrollHeight + "px";
     }
+
+    window.addEventListener("resize", () => {
+        typingInput.style.height = "";
+        typingInput.style.height = typingInput.scrollHeight + "px";
+    });
 })();
