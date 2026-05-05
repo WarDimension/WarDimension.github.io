@@ -341,8 +341,7 @@
     autoCompleteButton.addEventListener("pointerup", mouseDone);
     autoCompleteButton.addEventListener("pointerleave", mouseDone);
 
-    typingContainer.addEventListener("click", (e) => {
-        typingInput.focus();
+    background.addEventListener("click", (e) => {
         const rect = typingInput.getBoundingClientRect();
 
         // Check if the click was outside the textarea
@@ -359,6 +358,8 @@
                 typingInput.setSelectionRange(len, len);
             }
         }
+
+        typingInput.focus();
     });
 
     typingInput.addEventListener("input", (e) => {
