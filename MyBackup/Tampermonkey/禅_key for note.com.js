@@ -377,19 +377,9 @@
         if(typingTarget.innerText[0]){
             typingInput.value += typingTarget.innerText[0];
             updateTypingCheck(e);
-            scrollToCursor();
+            typingInput.blur();
+            typingInput.focus();
         }
-    }
-
-    function scrollToCursor(){
-        const start = typingInput.selectionStart;
-        const end = typingInput.selectionEnd;
-
-        // Resetting the selection forces the parent container
-        // to re-evaluate the "active" area of the element.
-        typingInput.setSelectionRange(start, end);
-        typingInput.blur();
-        typingInput.focus();
     }
 
     function wrapInSpan(string){
