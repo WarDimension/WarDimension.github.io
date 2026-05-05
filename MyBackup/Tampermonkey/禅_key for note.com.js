@@ -377,9 +377,15 @@
         if(typingTarget.innerText[0]){
             typingInput.value += typingTarget.innerText[0];
             updateTypingCheck(e);
-            typingInput.blur();
-            typingInput.focus();
+            setCaretToEnd();
         }
+    }
+
+    function setCaretToEnd(){
+        typingInput.blur();
+        typingInput.focus();
+        const len = typingInput.value.length;
+        typingInput.setSelectionRange(len, len);
     }
 
     function wrapInSpan(string){
