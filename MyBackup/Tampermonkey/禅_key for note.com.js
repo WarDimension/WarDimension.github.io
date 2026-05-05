@@ -278,6 +278,7 @@
 
     let typingInput = document.createElement("textarea");
     typingInput.className = "typing-input";
+    typingInput.spellcheck = false;
 
     typingInput.setAttribute('data-gramm', 'false');
     typingInput.setAttribute('data-gramm_editor', 'false');
@@ -382,10 +383,11 @@
     }
 
     function setCaretToEnd(){
-        typingInput.blur();
-        typingInput.focus();
         const len = typingInput.value.length;
+
+        typingInput.blur();
         typingInput.setSelectionRange(len, len);
+        typingInput.focus();
     }
 
     function wrapInSpan(string){
