@@ -109,6 +109,9 @@
         .auto-complete-button{
             top: 85px;
         }
+        .auto-complete-line-button{
+            top: 140px;
+        }
         .auto-complete-button:hover{
             color: #15ac47;
             border-color: #15ac47;
@@ -254,8 +257,13 @@
     autoCompleteButton.className = "auto-complete-button";
     autoCompleteButton.innerHTML = "<p>⇒</p><div class='text-block'></div>";
 
+    const autoCompleteLineButton = document.createElement("div");
+    autoCompleteLineButton.className = "auto-complete-button auto-complete-line-button";
+    autoCompleteLineButton.innerHTML = "<p>⏎</p><div class='text-block'></div>";
+
     background.appendChild(closeButton);
     background.appendChild(autoCompleteButton);
+    background.appendChild(autoCompleteLineButton);
 
     const typingContainer = document.createElement("div");
     typingContainer.className = "typing-container";
@@ -318,15 +326,9 @@
         typingTargetInnerHTMLTemp = typingTarget.innerHTML;
     });
 
-    autoCompleteButton.addEventListener("pointerdown", () => {
-        if (timer === null) {
-            timer = setInterval(runWhileDown, 50);
-        }
-    });
-
     let timer = null;
-    function runWhileDown() {
-        autoComplete({ "key": "Tab" });
+    function runWhileDown(entireLine = false) {
+        autoComplete({ "key": "Tab" }, entireLine);
     }
 
     function mouseDone(){
@@ -334,8 +336,23 @@
         timer = null;
     }
 
+    autoCompleteButton.addEventListener("pointerdown", () => {
+        if (timer === null) {
+            timer = setInterval(runWhileDown, 50);
+        }
+    });
+
     autoCompleteButton.addEventListener("pointerup", mouseDone);
     autoCompleteButton.addEventListener("pointerleave", mouseDone);
+
+    autoCompleteLineButton.addEventListener("pointerdown", () => {
+        if (timer === null) {
+            timer = setInterval(() => runWhileDown(true), 50);
+        }
+    });
+
+    autoCompleteLineButton.addEventListener("pointerup", mouseDone);
+    autoCompleteLineButton.addEventListener("pointerleave", mouseDone);
 
     background.addEventListener("click", (e) => {
         if(e.target.className == "text-block") return;
@@ -364,13 +381,17 @@
     typingInput.addEventListener("keydown", (e) => {
         if(e.key == "Tab"){
             e.preventDefault();
-            autoComplete(e);
+
+            const entireLine = e.shiftKey ? true : false;
+            autoComplete(e, entireLine);
         }
     });
 
-    function autoComplete(e){
+    function autoComplete(e, entireLine = false){
         if(typingTarget.innerText[0]){
-            typingInput.value += typingTarget.innerText[0];
+            const line = typingTarget.innerText.match(/^.*(?:\n|$)/);
+
+            typingInput.value += entireLine ? line : typingTarget.innerText[0];
             updateTypingCheck(e);
             setCaretToEnd();
         }
