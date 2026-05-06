@@ -19,7 +19,7 @@
         return check;
     };
 
-    let style = document.createElement("style");
+    const style = document.createElement("style");
     style.type = "text/css";
     style.innerHTML = `
         ::-webkit-scrollbar{
@@ -230,46 +230,46 @@
 
     document.getElementsByTagName("head")[0].appendChild(style);
 
-    let zenModeContainer = document.createElement("div");
+    const zenModeContainer = document.createElement("div");
     zenModeContainer.className = "zen-mode-container";
 
     document.body.appendChild(zenModeContainer);
 
-    let zenMode = document.createElement("div");
+    const zenMode = document.createElement("div");
     zenMode.className = "zen-mode";
     zenMode.innerHTML = "<p>禅</p><div class='text-block'></div>";
 
     zenModeContainer.appendChild(zenMode);
 
-    let background = document.createElement("div");
+    const background = document.createElement("div");
     background.className = "background";
 
     document.body.appendChild(background);
 
-    let closeButton = document.createElement("div");
+    const closeButton = document.createElement("div");
     closeButton.className = "close-button";
     closeButton.innerHTML = "<p>X</p><div class='text-block'></div>";
 
-    let autoCompleteButton = document.createElement("div");
+    const autoCompleteButton = document.createElement("div");
     autoCompleteButton.className = "auto-complete-button";
     autoCompleteButton.innerHTML = "<p>⇒</p><div class='text-block'></div>";
 
     background.appendChild(closeButton);
     background.appendChild(autoCompleteButton);
 
-    let typingContainer = document.createElement("div");
+    const typingContainer = document.createElement("div");
     typingContainer.className = "typing-container";
 
     background.appendChild(typingContainer);
 
-    let typingTarget = document.createElement("div");
+    const typingTarget = document.createElement("div");
     typingTarget.className = "typing-target";
 
-    let typingCheck = document.createElement("div");
+    const typingCheck = document.createElement("div");
     typingCheck.className = "typing-check";
     typingCheck.innerHTML = "&#8203;";
 
-    let typingInput = document.createElement("textarea");
+    const typingInput = document.createElement("textarea");
     typingInput.className = "typing-input";
     typingInput.spellcheck = false;
 
@@ -287,7 +287,7 @@
         background.style.left = "0";
 
         const textElements = document.querySelectorAll(".o-noteContentHeader__title, .note-common-styles__textnote-body");
-        let text = `${textElements[0].innerText}\n\n${textElements[1].innerText}`;
+        const text = `${textElements[0].innerText}\n\n${textElements[1].innerText}`;
 
         typingTarget.innerHTML = text != "" ? wrapInSpan(text) : wrapInSpan("にゃにゃめにゃにゃじゅうにゃにゃどのにゃらびでにゃくにゃくいにゃにゃくにゃにゃはんにゃにゃだいにゃんにゃくにゃらべてにゃがにゃがめ");
 
@@ -385,7 +385,7 @@
     }
 
     function wrapInSpan(string){
-        let stringSplit = string.replaceAll("\t", "").split("\n");
+        const stringSplit = string.replaceAll("\t", "").split("\n");
 
         for(let i = 0; i < stringSplit.length; i++){
             stringSplit[i] = `${stringSplit[i].split("").map(char => `<span>${char}</span>`).join("")}${i < stringSplit.length - 1 ? "<span class='target-enter'><br></span>" : ""}`;
@@ -395,18 +395,18 @@
     }
 
     function updateTypingCheck(e){
-        let typingTargetElementsNONE = typingTarget.querySelectorAll("[style*='display: none']");
+        const typingTargetElementsNONE = typingTarget.querySelectorAll("[style*='display: none']");
 
         if(typingTargetElementsNONE.length > typingInput.value.length){
-            let firstIndex = typingInput.value.length;
-            let lastIndex = typingTargetElementsNONE.length;
+            const firstIndex = typingInput.value.length;
+            const lastIndex = typingTargetElementsNONE.length;
 
             for(let i = firstIndex; i < lastIndex; i++){
                 typingTarget.children[i].style.display = "";
             }
         }
 
-        let stringChange = getStringChange(typingCheck.innerText, typingInput.value + "\u200B");
+        const stringChange = getStringChange(typingCheck.innerText, typingInput.value + "\u200B");
 
         if(stringChange.type == "replace" || stringChange.type == "delete"){
             for(let i = stringChange.index; i < stringChange.index + stringChange.removed.length; i++){
@@ -416,7 +416,7 @@
 
         if(stringChange.type == "replace" || stringChange.type == "insert"){
             for(let i = 0; i < stringChange.added.length; i++){
-                let newSpan = document.createElement("span");
+                const newSpan = document.createElement("span");
                 newSpan.innerText = stringChange.added[i];
 
                 if(e.key == "Tab" || e.inputType == "insertFromPaste"){
