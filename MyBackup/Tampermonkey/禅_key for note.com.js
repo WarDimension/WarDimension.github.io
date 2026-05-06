@@ -457,7 +457,7 @@
 
                 typingCheck.insertBefore(newSpan, typingCheck.childNodes[stringChange.index + i]);
 
-                if(typingTarget.children[stringChange.index + i]) typingTarget.children[stringChange.index + i].style.display = "none";
+                if(typingTarget.children[typingInput.value.length - i - 1]) typingTarget.children[typingInput.value.length - i - 1].style.display = "none";
             }
         }
 
