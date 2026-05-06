@@ -478,14 +478,15 @@
             }
         }
 
-        updateInputHeight();
+        updateInputSize();
     }
 
     window.addEventListener("resize", () => {
-        updateInputHeight();
+        updateInputSize();
     });
 
-    function updateInputHeight(){
+    function updateInputSize(){
+        typingInput.style.width = typingCheck.offsetWidth + "px";
         typingInput.style.height = "auto";
         typingInput.style.height = typingInput.scrollHeight + "px";
     }
