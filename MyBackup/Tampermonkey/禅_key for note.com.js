@@ -486,7 +486,7 @@
     });
 
     function updateInputSize(){
-        typingInput.style.width = typingCheck.offsetWidth + "px";
+        typingInput.style.width = typingCheck.offsetWidth > 0 ? typingCheck.offsetWidth + "px" : "";
         typingInput.style.height = "auto";
         typingInput.style.height = typingInput.scrollHeight + "px";
     }
