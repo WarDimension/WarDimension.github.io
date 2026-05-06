@@ -21,13 +21,6 @@
         return check;
     };
 
-    let mobileTypingContainer = "";
-    let mobileTypingContainerFade = "";
-    if(window.isMobile()){
-        mobileTypingContainer = "top: 0; height: 100%;";
-        mobileTypingContainerFade = "display: none;";
-    }
-
     let style = document.createElement("style");
     style.type = "text/css";
     style.innerHTML = `
@@ -152,7 +145,7 @@
             overflow-y: scroll;
             scroll-padding-top: 80px;
             scroll-padding-bottom: 80px;
-            ${mobileTypingContainer}
+            ${window.isMobile() ? "top: 0; height: 100%;" : ""}
         }
         .typing-container::before,
         .typing-container::after{
@@ -163,7 +156,7 @@
             height: 20px;
             pointer-events: none;
             z-index: 200;
-            ${mobileTypingContainerFade}
+            ${window.isMobile() ? "display: none;" : ""}
         }
         .typing-container::before{
             top: 50px;
