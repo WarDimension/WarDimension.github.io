@@ -355,7 +355,10 @@
     autoCompleteLineButton.addEventListener("pointerleave", mouseDone);
 
     background.addEventListener("click", (e) => {
-        if(e.target.className == "text-block") return;
+        if(e.target.className == "text-block"){
+            typingInput.focus();
+            return;
+        }
 
         const rect = typingInput.getBoundingClientRect();
 
