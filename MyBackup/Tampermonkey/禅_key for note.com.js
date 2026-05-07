@@ -20,7 +20,7 @@
     const doNOTshowCloseButton = false;
     const doNOTshowAutoCompleteButton = false;
     const doNOTshowAutoCompleteLineButton = false;
-    const autoCompleteOnEnter = false; // autocomplete with Enter without pressing Shift
+    const autoCompleteOnEnter = false; // autocomplete with Enter without pressing Shift (caret has to be at the very end)
 
     // -- SHORTCUTS --
     // Esc = toggle 禅_mode
