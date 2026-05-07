@@ -211,6 +211,15 @@
             resize: none;
             overflow: hidden;
         }
+        .typing-check{
+            position: relative;
+            width: fit-content;
+            display: inline;
+            color: transparent;
+            pointer-events: none;
+            z-index: 10;
+            white-space: pre-wrap;
+        }
         .typing-check::before{
             content: "";
             position: absolute;
@@ -221,15 +230,6 @@
             height: 100%;
             background: #707070;
             opacity: 0.3;
-        }
-        .typing-check{
-            position: relative;
-            width: fit-content;
-            display: inline;
-            color: transparent;
-            pointer-events: none;
-            z-index: 10;
-            white-space: pre-wrap;
         }
         .tab{
             border-bottom: 1.5px solid #b8860b;
