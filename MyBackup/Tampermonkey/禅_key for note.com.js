@@ -20,7 +20,8 @@
     const doNOTshowCloseButton = false;
     const doNOTshowAutoCompleteButton = true;
     const doNOTshowAutoCompleteLineButton = true;
-    const autoCompleteOnEnter = true; // autocomplete with Enter without pressing Shift (caret has to be at the very end)
+    const autoCompleteLineOnEnter = true; // autocomplete with Enter without pressing Shift (caret has to be at the very end)
+    const deleteAutoCompleteLineOnBackspace = true;
 
     // -- SHORTCUTS --
     // Esc = toggle 禅_mode
@@ -252,6 +253,12 @@
         .incorrect-enter{
             color: #f20000;
         }
+        .tab.incorrect{
+            text-decoration-color: #9C3F85;
+        }
+        .tab-enter.incorrect-enter{
+            color: #9C3F85;
+        }
         @media screen and (max-width: 680px){
             .typing-container{
                 max-width: 100%;
@@ -426,10 +433,13 @@
             const entireLine = e.shiftKey ? true : false;
             autoComplete(e, entireLine);
         }
-        else if(e.key == "Enter" && (e.shiftKey || autoCompleteOnEnter) && typingTarget.innerText[0] && typingTarget.innerText[0] != "\n" && typingInput.selectionStart == typingInput.value.length){
+        else if(e.key == "Enter" && (e.shiftKey || autoCompleteLineOnEnter) && typingTarget.innerText[0] && typingTarget.innerText[0] != "\n" && typingInput.selectionStart == typingInput.value.length){
             e.preventDefault();
 
             autoComplete({ "key": "Tab" }, true);
+        }
+        else if(e.key == "Backspace" && deleteAutoCompleteLineOnBackspace){
+            removeAutoComplete(e);
         }
         else if ((e.ctrlKey || e.metaKey) && e.key == "z") {
             e.preventDefault();
@@ -454,6 +464,26 @@
             typingInput.value += entireLine ? line : typingTarget.innerText[0];
             updateTypingCheck(e);
             setCaretToEnd();
+        }
+    }
+
+    function removeAutoComplete(e){
+        if(typingInput.selectionStart == typingInput.selectionEnd && typingCheck.children[typingInput.selectionStart - 1] && typingCheck.children[typingInput.selectionStart - 1].classList.contains("tab")){
+            e.preventDefault();
+
+            let index = typingInput.selectionStart - 1;
+            let input = typingInput.value;
+
+            while(typingCheck.children[index] && typingCheck.children[index].classList.contains("tab")){
+                input = input.slice(0, index) + input.slice(index + 1);
+                index--;
+            }
+
+            typingInput.value = input;
+
+            updateTypingCheck(e);
+
+            typingInput.setSelectionRange(index + 1, index + 1);
         }
     }
 
