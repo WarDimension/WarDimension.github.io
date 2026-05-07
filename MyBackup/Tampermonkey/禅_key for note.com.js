@@ -33,18 +33,6 @@
         return check;
     };
 
-    let autoCompleteButtonTop = 85;
-    let autoCompleteLineButtonTop = 140;
-
-    if(doNOTshowCloseButton){
-        autoCompleteButtonTop -= 55;
-        autoCompleteLineButtonTop -= 55;
-    }
-
-    if(doNOTshowAutoCompleteButton){
-        autoCompleteLineButtonTop -= 55;
-    }
-
     const style = document.createElement("style");
     style.type = "text/css";
     style.innerHTML = `
@@ -107,13 +95,18 @@
             color: #707070;
             border-color: white;
         }
-        .close-button, .auto-complete-button{
+        .side-button-container{
             position: absolute;
             top: 30px;
             right: 30px;
+            z-index: 300;
+        }
+        .close-button, .auto-complete-button{
+            position: relative;
             width: 35px;
             height: 35px;
             display: flex;
+            margin-bottom: 20px;
             align-items: center;
             justify-content: center;
             cursor: pointer;
@@ -122,7 +115,6 @@
             font-size: 20px;
             border-radius: 100%;
             border: 2px dashed #adadad;
-            z-index: 300;
             user-select: none;
             -moz-user-select: none;
             -webkit-user-drag: none;
@@ -134,14 +126,8 @@
             color: #f20000;
             border-color: #f20000;
         }
-        .auto-complete-button{
-            top: ${autoCompleteButtonTop}px;
-            ${doNOTshowAutoCompleteButton ? "display: none;" : ""}
-        }
-        .auto-complete-line-button{
-            top: ${autoCompleteLineButtonTop}px;
-            ${doNOTshowAutoCompleteLineButton ? "display: none;" : "display: flex;"}
-        }
+        ${doNOTshowAutoCompleteButton ? ".auto-complete-button{display: none;}" : ""}
+        ${doNOTshowAutoCompleteLineButton ? ".auto-complete-line-button{display: none;}" : ".auto-complete-line-button{display: flex;}"}
         .auto-complete-button:hover{
             color: #15ac47;
             border-color: #15ac47;
@@ -292,9 +278,14 @@
     autoCompleteLineButton.className = "auto-complete-button auto-complete-line-button";
     autoCompleteLineButton.innerHTML = "<p>⏎</p><div class='text-block'></div>";
 
-    background.appendChild(closeButton);
-    background.appendChild(autoCompleteButton);
-    background.appendChild(autoCompleteLineButton);
+    const sideButtonContainer = document.createElement("div");
+    sideButtonContainer.className = "side-button-container";
+
+    sideButtonContainer.appendChild(closeButton);
+    sideButtonContainer.appendChild(autoCompleteButton);
+    sideButtonContainer.appendChild(autoCompleteLineButton);
+
+    background.appendChild(sideButtonContainer);
 
     const typingContainer = document.createElement("div");
     typingContainer.className = "typing-container";
