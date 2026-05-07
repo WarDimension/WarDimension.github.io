@@ -17,7 +17,6 @@
     // -- CONFIGS --
     const zenModeButtonAlwaysVisible = false;
     const autoCompleteOnEnter = false; // autocomplete with Enter without pressing Shift
-    // -- END CONFIGS --
 
     // -- SHORTCUTS --
     // Tab = autocomplete 1 character
