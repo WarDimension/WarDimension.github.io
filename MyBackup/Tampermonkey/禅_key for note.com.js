@@ -18,9 +18,9 @@
     const zenModeButtonAlwaysVisible = false;
     const doNOTshowZenModeButton = false;
     const doNOTshowCloseButton = false;
-    const doNOTshowAutoCompleteButton = false;
-    const doNOTshowAutoCompleteLineButton = false;
-    const autoCompleteOnEnter = false; // autocomplete with Enter without pressing Shift (caret has to be at the very end)
+    const doNOTshowAutoCompleteButton = true;
+    const doNOTshowAutoCompleteLineButton = true;
+    const autoCompleteOnEnter = true; // autocomplete with Enter without pressing Shift (caret has to be at the very end)
 
     // -- SHORTCUTS --
     // Esc = toggle 禅_mode
@@ -430,6 +430,9 @@
             e.preventDefault();
 
             autoComplete({ "key": "Tab" }, true);
+        }
+        else if ((e.ctrlKey || e.metaKey) && e.key == "z") {
+            e.preventDefault();
         }
     });
 
