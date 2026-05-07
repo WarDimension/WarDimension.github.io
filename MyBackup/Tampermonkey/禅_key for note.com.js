@@ -415,7 +415,7 @@
             const entireLine = e.shiftKey ? true : false;
             autoComplete(e, entireLine);
         }
-        else if(e.key == "Enter" && (e.shiftKey || autoCompleteOnEnter) && typingTarget.innerText[0]){
+        else if(e.key == "Enter" && (e.shiftKey || autoCompleteOnEnter) && typingTarget.innerText[0] && typingTarget.innerText[0] != "\n"){
             e.preventDefault();
 
             autoComplete({ "key": "Tab" }, true);
