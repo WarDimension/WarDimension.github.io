@@ -202,6 +202,17 @@
             resize: none;
             overflow: hidden;
         }
+        .typing-check::before{
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -10px;
+            display: block;
+            width: 3px;
+            height: 100%;
+            background: #707070;
+            opacity: 0.3;
+        }
         .typing-check{
             position: relative;
             width: fit-content;
@@ -415,7 +426,7 @@
             const entireLine = e.shiftKey ? true : false;
             autoComplete(e, entireLine);
         }
-        else if(e.key == "Enter" && (e.shiftKey || autoCompleteOnEnter) && typingTarget.innerText[0] && typingTarget.innerText[0] != "\n"){
+        else if(e.key == "Enter" && (e.shiftKey || autoCompleteOnEnter) && typingTarget.innerText[0] && typingTarget.innerText[0] != "\n" && typingInput.selectionStart == typingInput.value.length){
             e.preventDefault();
 
             autoComplete({ "key": "Tab" }, true);
