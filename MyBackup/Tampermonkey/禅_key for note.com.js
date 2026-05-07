@@ -446,6 +446,7 @@
         }
         else if((e.key == "Backspace" && conf.deleteAutoCompleteLineOnBackspace) || (e.key == "Delete" && conf.deleteAutoCompleteLineOnDelete)){
             removeAutoComplete(e);
+            focusCaret();
         }
         else if ((e.ctrlKey || e.metaKey) && e.key == "z") {
             e.preventDefault();
@@ -503,6 +504,15 @@
 
         typingInput.blur();
         typingInput.setSelectionRange(len, len);
+        typingInput.focus();
+    }
+
+    function focusCaret(){
+        const start = typingInput.selectionStart;
+        const end = typingInput.selectionEnd;
+
+        typingInput.blur();
+        typingInput.setSelectionRange(start, end);
         typingInput.focus();
     }
 
