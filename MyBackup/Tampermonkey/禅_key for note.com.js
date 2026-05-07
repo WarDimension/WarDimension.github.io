@@ -19,6 +19,7 @@
     const autoCompleteOnEnter = false; // autocomplete with Enter without pressing Shift
 
     // -- SHORTCUTS --
+    // Esc = toggle 禅_mode
     // Tab = autocomplete 1 character
     // Shift+Tab or Shift+Enter = autocomplete entire line
 
@@ -189,6 +190,7 @@
             width: calc(100% - 60px);
             min-height: 1em;
             field-sizing: content;
+            background: none;
             color: white;
             outline: none;
             resize: none;
@@ -304,7 +306,10 @@
         background.style.left = "0";
 
         const textElements = document.querySelectorAll(".o-noteContentHeader__title, .note-common-styles__textnote-body");
-        const text = `${textElements[0].innerText}\n\n${textElements[1].innerText}`;
+        let text = ""
+        if(textElements.length > 0){
+            text = `${textElements[0].innerText}\n\n${textElements[1].innerText}`;
+        }
 
         typingTarget.innerHTML = text != "" ? wrapInSpan(text) : wrapInSpan("にゃにゃめにゃにゃじゅうにゃにゃどのにゃらびでにゃくにゃくいにゃにゃくにゃにゃはんにゃにゃだいにゃんにゃくにゃらべてにゃがにゃがめ");
 
@@ -324,6 +329,8 @@
         typingContainer.appendChild(typingTarget);
 
         setTimeout(() => { document.body.style.overflow = "hidden"; }, 300);
+
+        typingInput.focus();
     });
 
     closeButton.addEventListener("click", () => {
@@ -401,6 +408,17 @@
             e.preventDefault();
 
             autoComplete({ "key": "Tab" }, true);
+        }
+    });
+
+    window.addEventListener("keydown", (e) => {
+        if(e.key == "Escape"){
+            if(background.style.zIndex == "100"){
+                closeButton.click();
+            }
+            else{
+                zenMode.click();
+            }
         }
     });
 
