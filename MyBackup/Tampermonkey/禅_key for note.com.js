@@ -15,13 +15,16 @@
     // Your code here...
 
     // -- CONFIGS --
-    const zenModeButtonAlwaysVisible = false;
-    const doNOTshowZenModeButton = false;
-    const doNOTshowCloseButton = false;
-    const doNOTshowAutoCompleteButton = true;
-    const doNOTshowAutoCompleteLineButton = true;
-    const autoCompleteLineOnEnter = true; // autocomplete with Enter without pressing Shift (caret has to be at the very end)
-    const deleteAutoCompleteLineOnBackspace = true;
+    const conf = {
+        "zenModeButtonAlwaysVisible": false,
+        "doNOTshowZenModeButton": false,
+        "doNOTshowCloseButton": false,
+        "doNOTshowAutoCompleteButton": true,
+        "doNOTshowAutoCompleteLineButton": true,
+        "autoCompleteLineOnEnter": true, // autocomplete with Enter without pressing Shift (caret has to be at the very end)
+        "deleteAutoCompleteLineOnBackspace": true,
+        "deleteAutoCompleteLineOnDelete": true
+    }
 
     // -- SHORTCUTS --
     // Esc = toggle 禅_mode
@@ -60,14 +63,14 @@
             left: 50%;
             transform: translateX(-50%);
             bottom: 0;
-            width: ${zenModeButtonAlwaysVisible ? "fit-content" : "300px"};
-            height: ${zenModeButtonAlwaysVisible ? "fit-content" : "160px"};
+            width: ${conf.zenModeButtonAlwaysVisible ? "fit-content" : "300px"};
+            height: ${conf.zenModeButtonAlwaysVisible ? "fit-content" : "160px"};
             z-index: 50;
-            ${doNOTshowZenModeButton ? "display: none;" : ""}
+            ${conf.doNOTshowZenModeButton ? "display: none;" : ""}
         }
         .zen-mode{
             position: fixed;
-            bottom: ${zenModeButtonAlwaysVisible ? "30" : "-100"}px;
+            bottom: ${conf.zenModeButtonAlwaysVisible ? "30" : "-100"}px;
             left: 50%;
             transform: translateX(-50%);
             width: 100px;
@@ -122,13 +125,13 @@
             -webkit-user-select: none;
             -ms-user-select: none;
         }
-        ${doNOTshowCloseButton ? ".close-button{display: none;}" : ""}
+        ${conf.doNOTshowCloseButton ? ".close-button{display: none;}" : ""}
         .close-button:hover{
             color: #f20000;
             border-color: #f20000;
         }
-        ${doNOTshowAutoCompleteButton ? ".auto-complete-button{display: none;}" : ""}
-        ${doNOTshowAutoCompleteLineButton ? ".auto-complete-line-button{display: none;}" : ".auto-complete-line-button{display: flex;}"}
+        ${conf.doNOTshowAutoCompleteButton ? ".auto-complete-button{display: none;}" : ""}
+        ${conf.doNOTshowAutoCompleteLineButton ? ".auto-complete-line-button{display: none;}" : ".auto-complete-line-button{display: flex;}"}
         .auto-complete-button:hover{
             color: #15ac47;
             border-color: #15ac47;
@@ -431,12 +434,12 @@
             const entireLine = e.shiftKey ? true : false;
             autoComplete(e, entireLine);
         }
-        else if(e.key == "Enter" && (e.shiftKey || autoCompleteLineOnEnter) && typingTarget.innerText[0] && typingTarget.innerText[0] != "\n" && typingInput.selectionStart == typingInput.value.length){
+        else if(e.key == "Enter" && (e.shiftKey || conf.autoCompleteLineOnEnter) && typingTarget.innerText[0] && typingTarget.innerText[0] != "\n" && typingInput.selectionStart == typingInput.value.length){
             e.preventDefault();
 
             autoComplete({ "key": "Tab" }, true);
         }
-        else if(e.key == "Backspace" && deleteAutoCompleteLineOnBackspace){
+        else if((e.key == "Backspace" && conf.deleteAutoCompleteLineOnBackspace) || (e.key == "Delete" && conf.deleteAutoCompleteLineOnDelete)){
             removeAutoComplete(e);
         }
         else if ((e.ctrlKey || e.metaKey) && e.key == "z") {
@@ -466,25 +469,27 @@
     }
 
     function removeAutoComplete(e){
-        if(typingInput.selectionStart == typingInput.selectionEnd && typingCheck.children[typingInput.selectionStart - 1] && (typingCheck.children[typingInput.selectionStart - 1].classList.contains("tab") || typingCheck.children[typingInput.selectionStart - 1].classList.contains("tab-enter"))){
+        let index = e.key == "Backspace" ? typingInput.selectionStart - 1 : typingInput.selectionStart;
+        if(typingInput.selectionStart == typingInput.selectionEnd && typingCheck.children[index] && (typingCheck.children[index].classList.contains("tab") || typingCheck.children[index].classList.contains("tab-enter"))){
             e.preventDefault();
 
-            let index = typingInput.selectionStart - 1;
             let input = typingInput.value;
             let stop = false;
 
             while(typingCheck.children[index] && (typingCheck.children[index].classList.contains("tab") || typingCheck.children[index].classList.contains("tab-enter")) && !stop){
-                input = input.slice(0, index) + input.slice(index + 1);
-                index--;
+                input = e.key == "Backspace" ? input.slice(0, index) + input.slice(index + 1) : input.slice(0, typingInput.selectionStart) + input.slice(typingInput.selectionStart + 1);
+                index += e.key == "Backspace" ? -1 : 1;
 
-                if(typingCheck.children[index] && typingCheck.children[index].classList.contains("tab-enter")) stop = true;
+                if(typingCheck.children[e.key == "Backspace" ? index : index - 1] && typingCheck.children[e.key == "Backspace" ? index : index - 1].classList.contains("tab-enter")) stop = true;
             }
+
+            index = e.key == "Backspace" ? index + 1 : typingInput.selectionStart;
 
             typingInput.value = input;
 
             updateTypingCheck(e);
 
-            typingInput.setSelectionRange(index + 1, index + 1);
+            typingInput.setSelectionRange(index, index);
         }
     }
 
