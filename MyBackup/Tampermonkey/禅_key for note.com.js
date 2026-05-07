@@ -224,8 +224,7 @@
             white-space: pre-wrap;
         }
         .tab{
-            text-decoration: underline;
-            text-decoration-color: #b8860b;
+            border-bottom: 1.5px solid #b8860b;
         }
         .enter{
             position: relative;
@@ -247,14 +246,13 @@
             left: 0;
         }
         .incorrect{
-            text-decoration: underline;
-            text-decoration-color: #f20000;
+            border-bottom: 1.5px solid #f20000;
         }
         .incorrect-enter{
             color: #f20000;
         }
         .tab.incorrect{
-            text-decoration-color: #9C3F85;
+            border-color: #9C3F85;
         }
         .tab-enter.incorrect-enter{
             color: #9C3F85;
@@ -468,15 +466,18 @@
     }
 
     function removeAutoComplete(e){
-        if(typingInput.selectionStart == typingInput.selectionEnd && typingCheck.children[typingInput.selectionStart - 1] && typingCheck.children[typingInput.selectionStart - 1].classList.contains("tab")){
+        if(typingInput.selectionStart == typingInput.selectionEnd && typingCheck.children[typingInput.selectionStart - 1] && (typingCheck.children[typingInput.selectionStart - 1].classList.contains("tab") || typingCheck.children[typingInput.selectionStart - 1].classList.contains("tab-enter"))){
             e.preventDefault();
 
             let index = typingInput.selectionStart - 1;
             let input = typingInput.value;
+            let stop = false;
 
-            while(typingCheck.children[index] && typingCheck.children[index].classList.contains("tab")){
+            while(typingCheck.children[index] && (typingCheck.children[index].classList.contains("tab") || typingCheck.children[index].classList.contains("tab-enter")) && !stop){
                 input = input.slice(0, index) + input.slice(index + 1);
                 index--;
+
+                if(typingCheck.children[index] && typingCheck.children[index].classList.contains("tab-enter")) stop = true;
             }
 
             typingInput.value = input;
