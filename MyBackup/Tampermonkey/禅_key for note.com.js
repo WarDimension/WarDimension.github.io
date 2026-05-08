@@ -331,6 +331,10 @@
     typingInput.setAttribute('data-gramm_editor', 'false');
     typingInput.setAttribute('data-enable-grammarly', 'false');
 
+    typingContainer.appendChild(typingInput);
+    typingContainer.appendChild(typingCheck);
+    typingContainer.appendChild(typingTarget);
+
     let hrefTemp = "";
 
     zenMode.addEventListener("click", () => {
@@ -353,10 +357,6 @@
             hrefTemp = currentHref;
             typingTarget.innerHTML = text != "" ? wrapInSpan(text) : wrapInSpan("にゃにゃめにゃにゃじゅうにゃにゃどのにゃらびでにゃくにゃくいにゃにゃくにゃにゃはんにゃにゃだいにゃんにゃくにゃらべてにゃがにゃがめ");
         }
-
-        typingContainer.appendChild(typingInput);
-        typingContainer.appendChild(typingCheck);
-        typingContainer.appendChild(typingTarget);
 
         setTimeout(() => { document.body.style.overflow = "hidden"; }, 300);
 
