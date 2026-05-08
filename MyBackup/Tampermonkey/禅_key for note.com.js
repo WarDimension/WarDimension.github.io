@@ -332,7 +332,6 @@
     typingInput.setAttribute('data-enable-grammarly', 'false');
 
     let hrefTemp = "";
-    let typingTargetInnerHTMLTemp = "";
 
     zenMode.addEventListener("click", () => {
         background.style.zIndex = "100";
@@ -346,17 +345,13 @@
             text = `${textElements[0].innerText}\n\n${textElements[1].innerText}`;
         }
 
-        typingTarget.innerHTML = text != "" ? wrapInSpan(text) : wrapInSpan("にゃにゃめにゃにゃじゅうにゃにゃどのにゃらびでにゃくにゃくいにゃにゃくにゃにゃはんにゃにゃだいにゃんにゃくにゃらべてにゃがにゃがめ");
-
         const currentHref = location.href;
         if(currentHref != hrefTemp){
             typingInput.value = "";
             typingInput.style.height = "auto";
             typingCheck.innerHTML = "&#8203;";
             hrefTemp = currentHref;
-        }
-        else{
-            typingTarget.innerHTML = typingTargetInnerHTMLTemp;
+            typingTarget.innerHTML = text != "" ? wrapInSpan(text) : wrapInSpan("にゃにゃめにゃにゃじゅうにゃにゃどのにゃらびでにゃくにゃくいにゃにゃくにゃにゃはんにゃにゃだいにゃんにゃくにゃらべてにゃがにゃがめ");
         }
 
         typingContainer.appendChild(typingInput);
@@ -374,7 +369,6 @@
         background.style.opacity = "";
         background.style.width = "";
         background.style.left = "";
-        typingTargetInnerHTMLTemp = typingTarget.innerHTML;
     });
 
     let timer = null;
