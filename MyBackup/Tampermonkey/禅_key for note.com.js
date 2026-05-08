@@ -227,7 +227,7 @@
             left: -10px;
             display: block;
             width: 3px;
-            height: 100%;
+            height: var(--pseudo-height, 100%);
             background: #707070;
             opacity: 0.3;
         }
@@ -588,8 +588,9 @@
     });
 
     function updateInputSize(){
-        typingInput.style.height = "auto";
+        typingInput.style.height = "0";
         typingInput.style.height = typingInput.scrollHeight + "px";
+        typingCheck.style.setProperty("--pseudo-height", typingInput.scrollHeight - 6 + "px");
     }
 
     function getStringChange(original, updated) {
