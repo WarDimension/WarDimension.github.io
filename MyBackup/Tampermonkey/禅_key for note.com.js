@@ -231,8 +231,11 @@
             background: #707070;
             opacity: 0.3;
         }
+        .typing-check span{
+            border-bottom: 1.5px solid;
+        }
         .tab{
-            border-bottom: 1.5px solid #b8860b;
+            border-color: #b8860b !important;
         }
         .enter{
             position: relative;
@@ -254,13 +257,13 @@
             left: 0;
         }
         .incorrect{
-            border-bottom: 1.5px solid #f20000;
+            border-color: #f20000 !important;
         }
         .incorrect-enter{
             color: #f20000;
         }
         .tab.incorrect{
-            border-color: #9C3F85;
+            border-color: #9C3F85 !important;
         }
         .tab-enter.incorrect-enter{
             color: #9C3F85;
