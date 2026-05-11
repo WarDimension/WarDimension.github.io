@@ -49,7 +49,7 @@
     // Plum   = incorrect autocomplete / pasted text
 
     // -- UI --
-    // left line = indicates the active typable field
+    // Left line = indicates the active typable field
 
     window.isMobile = function(){
         let check = false;
