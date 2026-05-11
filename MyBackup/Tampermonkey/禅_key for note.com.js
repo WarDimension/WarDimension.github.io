@@ -33,14 +33,14 @@
     // Shift+Enter = same as above (caret must be at end of last line)
     //
     // If autoCompleteLineOnEnter = true:
-    // Enter        = same as Shift+Enter
-    // Shift+Enter  = normal Enter
+    // Enter       = same as Shift+Enter
+    // Shift+Enter = normal Enter
     //
     // Shift+Backspace = remove autocomplete from caret to start of line
     // Shift+Delete    = remove autocomplete from caret to end of line
     //
     // If deleteAutoCompleteLineOnBackspace/Delete = true:
-    // Backspace/Delete = same as Shift+Backspace/Delete
+    // Backspace/Delete       = same as Shift+Backspace/Delete
     // Shift+Backspace/Delete = normal Backspace/Delete
 
     // -- COLORS --
