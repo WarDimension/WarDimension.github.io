@@ -21,20 +21,22 @@
         "doNOTshowCloseButton": false,
         "doNOTshowAutoCompleteButton": true,
         "doNOTshowAutoCompleteLineButton": true,
-        "autoCompleteLineOnEnter": true, // autocomplete with Enter without pressing Shift (caret has to be at the very end)
-        "deleteAutoCompleteLineOnBackspace": true,
-        "deleteAutoCompleteLineOnDelete": true
+        "autoCompleteLineOnEnter": true, // autocomplete entire line with Enter without pressing Shift
+        "deleteAutoCompleteLineOnBackspace": true, //delete entire line of autocomplete before the caret without pressing Shift
+        "deleteAutoCompleteLineOnDelete": true //delete entire line of autocomplete after the caret without pressing Shift
     }
 
     // -- SHORTCUTS --
     // Esc = toggle 禅_mode
     // Tab = autocomplete 1 character
-    // Shift+Tab or Shift+Enter = autocomplete entire line
+    // Shift+Tab or Shift+Enter = autocomplete entire line after the caret (for Shift+Enter caret has to be at the very end... if autoCompleteLineOnEnter = true, Shift+Enter = normal Enter)
+    // Shift+Backspace = delete entire line of autocomplete before the caret (if deleteAutoCompleteLineOnBackspace = true, Shift+Backspace = normal Backspace)
+    // Shift+Delete = delete entire line of autocomplete after the caret (if deleteAutoCompleteLineOnDelete = true, Shift+Delete = normal Delete)
 
     // -- COLORS --
     // Red = incorrect
-    // Yellow = autocomplete
-    // Plum = autocomplete that becomes incorrect
+    // Yellow = autocomplete or paste
+    // Plum = autocomplete that becomes incorrect or incorrect paste
 
     window.isMobile = function(){
         let check = false;
@@ -234,14 +236,14 @@
         .typing-check span{
             border-bottom: 1.5px solid;
         }
-        .tab{
+        .autocomplete{
             border-color: #b8860b !important;
         }
         .enter{
             position: relative;
             color: white;
         }
-        .tab-enter{
+        .autocomplete-enter{
             position: relative;
             color: #b8860b;
         }
@@ -250,7 +252,7 @@
             color: #707070;
             opacity: 0.5;
         }
-        .enter::after, .tab-enter::after, .target-enter::after{
+        .enter::after, .autocomplete-enter::after, .target-enter::after{
             content: "↵";
             position: absolute;
             top: -0.2em;
@@ -262,10 +264,10 @@
         .incorrect-enter{
             color: #f20000;
         }
-        .tab.incorrect{
+        .autocomplete.incorrect{
             border-color: #9C3F85 !important;
         }
-        .tab-enter.incorrect-enter{
+        .autocomplete-enter.incorrect-enter{
             color: #9C3F85;
         }
         @media screen and (max-width: 680px){
@@ -376,7 +378,7 @@
 
     let timer = null;
     function runWhileDown(entireLine = false) {
-        autoComplete({ "key": "Tab" }, entireLine);
+        autoComplete(entireLine);
     }
 
     function mouseDone(){
@@ -426,24 +428,40 @@
     });
 
     typingInput.addEventListener("input", (e) => {
-        updateTypingCheck(e);
+        updateTypingCheck(e.inputType == "insertFromPaste");
     });
 
     typingInput.addEventListener("keydown", (e) => {
         if(e.key == "Tab"){
             e.preventDefault();
 
-            const entireLine = e.shiftKey ? true : false;
-            autoComplete(e, entireLine);
+            autoComplete(e.shiftKey);
         }
-        else if(e.key == "Enter" && (e.shiftKey || conf.autoCompleteLineOnEnter) && typingTarget.innerText[0] && typingTarget.innerText[0] != "\n" && typingInput.selectionStart == typingInput.value.length){
+        else if(e.key == "Enter" && e.shiftKey != conf.autoCompleteLineOnEnter && typingTarget.innerText[0] && typingTarget.innerText[0] != "\n" && typingInput.selectionStart == typingInput.value.length){
             e.preventDefault();
 
-            autoComplete({ "key": "Tab" }, true);
+            autoComplete(true);
         }
-        else if((e.key == "Backspace" && conf.deleteAutoCompleteLineOnBackspace) || (e.key == "Delete" && conf.deleteAutoCompleteLineOnDelete)){
+        else if((e.key == "Backspace" && e.shiftKey != conf.deleteAutoCompleteLineOnBackspace) || (e.key == "Delete" && e.shiftKey != conf.deleteAutoCompleteLineOnDelete) && typingCheck.children[typingInput.selectionStart].classList.contains("autocomplete")){
             removeAutoComplete(e);
             focusCaret();
+        }
+        else if(e.key == "Delete" && e.shiftKey){
+            e.preventDefault();
+
+            const start = typingInput.selectionStart;
+            const end = typingInput.selectionEnd;
+            const value = typingInput.value;
+
+            if (start !== end) {
+                typingInput.value = value.substring(0, start) + value.substring(end);
+                typingInput.setSelectionRange(start, start);
+            } else if (start < value.length) {
+                typingInput.value = value.substring(0, start) + value.substring(start + 1);
+                typingInput.setSelectionRange(start, start);
+            }
+
+            updateTypingCheck();
         }
         else if ((e.ctrlKey || e.metaKey) && e.key == "z") {
             e.preventDefault();
@@ -461,36 +479,36 @@
         }
     });
 
-    function autoComplete(e, entireLine = false){
+    function autoComplete(entireLine = false){
         if(typingTarget.innerText[0]){
             const line = typingTarget.innerText.match(/^.*(?:\n|$)/);
 
             typingInput.value += entireLine ? line : typingTarget.innerText[0];
-            updateTypingCheck(e);
+            updateTypingCheck(true);
             setCaretToEnd();
         }
     }
 
     function removeAutoComplete(e){
         let index = e.key == "Backspace" ? typingInput.selectionStart - 1 : typingInput.selectionStart;
-        if(typingInput.selectionStart == typingInput.selectionEnd && typingCheck.children[index] && (typingCheck.children[index].classList.contains("tab") || typingCheck.children[index].classList.contains("tab-enter"))){
+        if(typingInput.selectionStart == typingInput.selectionEnd && typingCheck.children[index] && (typingCheck.children[index].classList.contains("autocomplete") || typingCheck.children[index].classList.contains("autocomplete-enter"))){
             e.preventDefault();
 
             let input = typingInput.value;
             let stop = false;
 
-            while(typingCheck.children[index] && (typingCheck.children[index].classList.contains("tab") || typingCheck.children[index].classList.contains("tab-enter")) && !stop){
+            while(typingCheck.children[index] && (typingCheck.children[index].classList.contains("autocomplete") || typingCheck.children[index].classList.contains("autocomplete-enter")) && !stop){
                 input = e.key == "Backspace" ? input.slice(0, index) + input.slice(index + 1) : input.slice(0, typingInput.selectionStart) + input.slice(typingInput.selectionStart + 1);
                 index += e.key == "Backspace" ? -1 : 1;
 
-                if(typingCheck.children[e.key == "Backspace" ? index : index - 1] && typingCheck.children[e.key == "Backspace" ? index : index - 1].classList.contains("tab-enter")) stop = true;
+                if(typingCheck.children[e.key == "Backspace" ? index : index - 1] && typingCheck.children[e.key == "Backspace" ? index : index - 1].classList.contains("autocomplete-enter")) stop = true;
             }
 
             index = e.key == "Backspace" ? index + 1 : typingInput.selectionStart;
 
             typingInput.value = input;
 
-            updateTypingCheck(e);
+            updateTypingCheck();
 
             typingInput.setSelectionRange(index, index);
         }
@@ -523,7 +541,7 @@
         return stringSplit == "<span><br></span>" ? "" : stringSplit.join("");
     }
 
-    function updateTypingCheck(e){
+    function updateTypingCheck(autocomplete = false){
         const typingTargetElementsNONE = typingTarget.querySelectorAll("[style*='display: none']");
 
         if(typingTargetElementsNONE.length > typingInput.value.length){
@@ -548,12 +566,12 @@
                 const newSpan = document.createElement("span");
                 newSpan.innerText = stringChange.added[i];
 
-                if(e.key == "Tab" || e.inputType == "insertFromPaste"){
+                if(autocomplete){
                     if(stringChange.added[i] == "\n"){
-                        newSpan.classList.add("tab-enter");
+                        newSpan.classList.add("autocomplete-enter");
                     }
                     else{
-                        newSpan.classList.add("tab");
+                        newSpan.classList.add("autocomplete");
                     }
                 }
                 else{
