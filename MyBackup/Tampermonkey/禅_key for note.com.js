@@ -21,22 +21,32 @@
         "doNOTshowCloseButton": false,
         "doNOTshowAutoCompleteButton": true,
         "doNOTshowAutoCompleteLineButton": true,
-        "autoCompleteLineOnEnter": true, // autocomplete entire line with Enter without pressing Shift
-        "deleteAutoCompleteLineOnBackspace": true, //delete entire line of autocomplete before the caret without pressing Shift
-        "deleteAutoCompleteLineOnDelete": true //delete entire line of autocomplete after the caret without pressing Shift
+        "autoCompleteLineOnEnter": true,
+        "deleteAutoCompleteLineOnBackspace": true,
+        "deleteAutoCompleteLineOnDelete": true
     }
 
     // -- SHORTCUTS --
-    // Esc = toggle 禅_mode
-    // Tab = autocomplete 1 character
-    // Shift+Tab or Shift+Enter = autocomplete entire line after the caret (for Shift+Enter caret has to be at the very end... if autoCompleteLineOnEnter = true, Shift+Enter = normal Enter)
-    // Shift+Backspace = delete entire line of autocomplete before the caret (if deleteAutoCompleteLineOnBackspace = true, Shift+Backspace = normal Backspace)
-    // Shift+Delete = delete entire line of autocomplete after the caret (if deleteAutoCompleteLineOnDelete = true, Shift+Delete = normal Delete)
+    // Esc         = toggle 禅_mode
+    // Tab         = autocomplete 1 character of last line
+    // Shift+Tab   = autocomplete last line
+    // Shift+Enter = same as above (caret must be at end of last line)
+    //
+    // If autoCompleteLineOnEnter = true:
+    // Enter        = same as Shift+Enter
+    // Shift+Enter  = normal Enter
+    //
+    // Shift+Backspace = remove autocomplete from caret to start of line
+    // Shift+Delete    = remove autocomplete from caret to end of line
+    //
+    // If deleteAutoCompleteLineOnBackspace/Delete = true:
+    // Backspace/Delete = same as Shift+Backspace/Delete
+    // Shift+Backspace/Delete = normal Backspace/Delete
 
     // -- COLORS --
-    // Red = incorrect
-    // Yellow = autocomplete or paste
-    // Plum = autocomplete that becomes incorrect or incorrect paste
+    // Red    = incorrect input
+    // Yellow = autocomplete / pasted text
+    // Plum   = incorrect autocomplete / pasted text
 
     window.isMobile = function(){
         let check = false;
