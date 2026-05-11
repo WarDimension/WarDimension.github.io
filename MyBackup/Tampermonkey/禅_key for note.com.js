@@ -606,6 +606,7 @@
             if((typingTarget.children[i] && typingCheck.children[i].innerHTML != typingTarget.children[i].innerHTML) || i > typingTarget.children.length - 1){
                 switch(typingCheck.children[i].innerText){
                     case "\n":
+                        if(i == stringChange.index) typingCheck.children[i].className = "enter";
                         typingCheck.children[i].classList.add("incorrect-enter");
                         break;
                     default:
