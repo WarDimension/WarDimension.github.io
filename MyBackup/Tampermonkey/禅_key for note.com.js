@@ -455,6 +455,11 @@
 
             autoComplete(true);
         }
+        else if(e.key == "Enter" && typingInput.selectionStart == typingInput.selectionEnd && typingInput.selectionStart == typingInput.value.length - 1 && typingInput.value[typingInput.value.length - 1] == "\n"){
+            e.preventDefault();
+
+            setCaretToEnd();
+        }
         else if((e.key == "Backspace" && e.shiftKey != conf.deleteAutoCompleteLineOnBackspace) || (e.key == "Delete" && e.shiftKey != conf.deleteAutoCompleteLineOnDelete) && typingCheck.children[typingInput.selectionStart].classList.contains("autocomplete")){
             removeAutoComplete(e);
             focusCaret();
