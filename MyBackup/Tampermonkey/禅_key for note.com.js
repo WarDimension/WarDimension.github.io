@@ -602,7 +602,7 @@
             }
         }
 
-        if(typingCheck.children[stringChange.index].innerText == "\n") typingCheck.children[stringChange.index].className = "enter";
+        if(typingCheck.children[stringChange.index] && typingCheck.children[stringChange.index].innerText == "\n") typingCheck.children[stringChange.index].className = "enter";
 
         for(let i = stringChange.index; i < typingCheck.children.length; i++){
             if((typingTarget.children[i] && typingCheck.children[i].innerHTML != typingTarget.children[i].innerHTML) || i > typingTarget.children.length - 1){
