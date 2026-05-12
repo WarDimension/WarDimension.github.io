@@ -355,11 +355,18 @@
 
     let hrefTemp = "";
 
+    const viewport = document.querySelector("meta[name='viewport']");
+    let viewportContentTemp = "";
+
     zenMode.addEventListener("click", () => {
         background.style.zIndex = "100";
         background.style.opacity = "1";
         background.style.width = "100%";
         background.style.left = "0";
+
+        const viewportContent = viewport.getAttribute("content");
+        viewportContentTemp = viewportContent;
+        viewport.setAttribute("content", viewportContent + ", interactive-widget=resizes-content");
 
         const textElements = document.querySelectorAll(".o-noteContentHeader__title, .note-common-styles__textnote-body");
         let text = ""
@@ -387,6 +394,7 @@
         background.style.opacity = "";
         background.style.width = "";
         background.style.left = "";
+        viewport.setAttribute("content", viewportContentTemp);
     });
 
     let timer = null;
