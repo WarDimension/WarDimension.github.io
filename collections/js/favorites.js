@@ -874,6 +874,10 @@ let favorites = [
                 "subCategory": "YouTube - Games",
                 "rankedList": [
                     {
+                        "title": "みけね小町",
+                        "link": "https://www.youtube.com/@mikekoma_ch"
+                    },
+                    {
                         "title": "Rimo",
                         "link": "https://www.youtube.com/@Riimoo"
                     },
