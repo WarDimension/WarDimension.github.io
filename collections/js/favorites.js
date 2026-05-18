@@ -218,21 +218,6 @@ let favorites = [
                         "link": "./waifu?s=Tinasha"
                     },
                     {
-                        "title": "Yuzuhara Chika",
-                        "subTitle": "Yesterday wo Utatte",
-                        "link": "./waifu?s=柚原チカ"
-                    },
-                    {
-                        "title": "Kitagawa Marin",
-                        "subTitle": "Sono Bisque Doll wa Koi wo Suru",
-                        "link": "./waifu?s=喜多川海夢"
-                    },
-                    {
-                        "title": "Hori Kyouko",
-                        "subTitle": "Horimiya",
-                        "link": "./waifu?s=堀京子"
-                    },
-                    {
                         "title": "Kuronuma Sawako",
                         "subTitle": "Kimi ni Todoke",
                         "link": "./waifu?s=黒沼爽子"
@@ -246,6 +231,21 @@ let favorites = [
                         "title": "Yukishita Mayuki",
                         "subTitle": "Goukaku no Tame no! Yasashii Sankaku Kankei Nyuumon",
                         "link": "./waifu?s=雪下真幸"
+                    },
+                    {
+                        "title": "Yuzuhara Chika",
+                        "subTitle": "Yesterday wo Utatte",
+                        "link": "./waifu?s=柚原チカ"
+                    },
+                    {
+                        "title": "Kitagawa Marin",
+                        "subTitle": "Sono Bisque Doll wa Koi wo Suru",
+                        "link": "./waifu?s=喜多川海夢"
+                    },
+                    {
+                        "title": "Hori Kyouko",
+                        "subTitle": "Horimiya",
+                        "link": "./waifu?s=堀京子"
                     },
                     {
                         "title": "Elena Kimberlite",
