@@ -238,6 +238,16 @@ let favorites = [
                         "link": "./waifu?s=黒沼爽子"
                     },
                     {
+                        "title": "Jinguuji Naori",
+                        "subTitle": "Koi wa Futago de Warikirenai",
+                        "link": "./waifu?s=神宮寺那織"
+                    },
+                    {
+                        "title": "Yukishita Mayuki",
+                        "subTitle": "Goukaku no Tame no! Yasashii Sankaku Kankei Nyuumon",
+                        "link": "./waifu?s=雪下真幸"
+                    },
+                    {
                         "title": "Elena Kimberlite",
                         "subTitle": "Kinsou no Vermeil ~Gakeppuchi Majutsushi wa Saikyou no Yakusai to Mahou Sekai wo Tsuki Susumu~",
                         "link": "./waifu?s=Elena Kimberlite"
@@ -266,11 +276,6 @@ let favorites = [
                         "title": "Chouno Hina",
                         "subTitle": "Ao no Hako",
                         "link": "./waifu?s=蝶野雛"
-                    },
-                    {
-                        "title": "Yukishita Mayuki",
-                        "subTitle": "Goukaku no Tame no! Yasashii Sankaku Kankei Nyuumon",
-                        "link": "./waifu?s=雪下真幸"
                     },
                     {
                         "title": "Aizawa Kaori",
