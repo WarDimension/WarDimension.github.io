@@ -223,6 +223,16 @@ let favorites = [
                         "link": "./waifu?s=黒沼爽子"
                     },
                     {
+                        "title": "Ichijoin Lili",
+                        "subTitle": "Prism Rondo",
+                        "link": "./waifu?s=一条院りり"
+                    },
+                    {
+                        "title": "Catherine Astor",
+                        "subTitle": "Prism Rondo",
+                        "link": "./waifu?s=Catherine Astor"
+                    },
+                    {
                         "title": "Jinguuji Naori",
                         "subTitle": "Koi wa Futago de Warikirenai",
                         "link": "./waifu?s=神宮寺那織"
