@@ -233,6 +233,11 @@ let favorites = [
                         "link": "./waifu?s=Catherine Astor"
                     },
                     {
+                        "title": "Kageishi Sumire",
+                        "subTitle": "Tomodachi no Imouto ga Ore ni dake Uzai",
+                        "link": "./waifu?s=影石菫"
+                    },
+                    {
                         "title": "Jinguuji Naori",
                         "subTitle": "Koi wa Futago de Warikirenai",
                         "link": "./waifu?s=神宮寺那織"
