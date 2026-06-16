@@ -208,6 +208,11 @@ let favorites = [
                         "link": "./waifu?s=菱形朱鷺子"
                     },
                     {
+                        "title": "Claire François",
+                        "subTitle": "Watashi no Oshi wa Akuyaku Reijou.",
+                        "link": "./waifu?s=Claire François"
+                    },
+                    {
                         "title": "Raeliana McMillan",
                         "subTitle": "Geunyeoga Gongjakjeoro Gaya Haetdeon Sajeong",
                         "link": "./waifu?s=Raeliana McMillan"
@@ -475,6 +480,10 @@ let favorites = [
                     {
                         "title": "Yagate Kimi ni Naru Saeki Sayaka ni Tsuite",
                         "link": "https://anilist.co/manga/105388/Yagate-Kimi-ni-Naru-Saeki-Sayaka-ni-Tsuite/"
+                    },
+                    {
+                        "title": "Watashi no Oshi wa Akuyaku Reijou.",
+                        "link": "https://anilist.co/manga/109206/"
                     }
                 ]
             }
