@@ -208,6 +208,11 @@ let favorites = [
                         "link": "./waifu?s=菱形朱鷺子"
                     },
                     {
+                        "title": "Pride Royal Ivy",
+                        "subTitle": "Higeki no Genkyou to Naru Saikyou Gedou Last Boss Joou wa Tami no Tame ni Tsukushimasu.",
+                        "link": "./waifu?s=Pride Royal Ivy"
+                    },
+                    {
                         "title": "Claire François",
                         "subTitle": "Watashi no Oshi wa Akuyaku Reijou.",
                         "link": "./waifu?s=Claire François"
