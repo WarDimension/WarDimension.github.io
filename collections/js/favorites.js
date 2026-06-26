@@ -33,6 +33,10 @@ let favorites = [
                         "link": "./watch-order?s=魔女の旅々"
                     },
                     {
+                        "title": "Higeki no Genkyou to Naru Saikyou Gedou Last Boss Joou wa Tami no Tame ni Tsukushimasu.",
+                        "link": "./watch-order?s=悲劇の元凶となる最強外道ラスボス女王は民の為に尽くします。"
+                    },
+                    {
                         "title": "Kaoru Hana wa Rin to Saku",
                         "link": "./watch-order?s=薫る花は凛と咲く"
                     },
@@ -142,6 +146,15 @@ let favorites = [
                     {
                         "title": "Summer Time Render",
                         "link": "./watch-order?s=サマータイムレンダ"
+                    }
+                ]
+            },
+            {
+                "subCategory": "Villainess",
+                "rankedList": [
+                    {
+                        "title": "Higeki no Genkyou to Naru Saikyou Gedou Last Boss Joou wa Tami no Tame ni Tsukushimasu.",
+                        "link": "./watch-order?s=悲劇の元凶となる最強外道ラスボス女王は民の為に尽くします。"
                     }
                 ]
             },
