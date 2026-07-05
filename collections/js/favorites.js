@@ -286,6 +286,11 @@ let favorites = [
                         "link": "./waifu?s=堀京子"
                     },
                     {
+                        "title": "Hiya",
+                        "subTitle": "Lv2 Kara Cheat datta Moto Yuusha Kouho no Mattari Isekai Life",
+                        "link": "./waifu?s=Hiya"
+                    },
+                    {
                         "title": "Elena Kimberlite",
                         "subTitle": "Kinsou no Vermeil ~Gakeppuchi Majutsushi wa Saikyou no Yakusai to Mahou Sekai wo Tsuki Susumu~",
                         "link": "./waifu?s=Elena Kimberlite"
