@@ -246,6 +246,21 @@ let favorites = [
                         "link": "./waifu?s=黒沼爽子"
                     },
                     {
+                        "title": "Makise Kurisu",
+                        "subTitle": "Steins;Gate",
+                        "link": "./waifu?s=牧瀬紅莉栖"
+                    },
+                    {
+                        "title": "Kiryuu Moeka",
+                        "subTitle": "Steins;Gate",
+                        "link": "./waifu?s=桐生萌郁"
+                    },
+                    {
+                        "title": "Hiyajou Maho",
+                        "subTitle": "Steins;Gate",
+                        "link": "./waifu?s=比屋定真帆"
+                    },
+                    {
                         "title": "Ichijoin Lili",
                         "subTitle": "Prism Rondo",
                         "link": "./waifu?s=一条院りり"
