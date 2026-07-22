@@ -37,6 +37,10 @@ let favorites = [
                         "link": "./watch-order?s=悲劇の元凶となる最強外道ラスボス女王は民の為に尽くします。"
                     },
                     {
+                        "title": "Kamiina Botan, Yoeru Sugata wa Yuri no Hana",
+                        "link": "./watch-order?s=上伊那ぼたん、酔へる姿は百合の花"
+                    },
+                    {
                         "title": "Kaoru Hana wa Rin to Saku",
                         "link": "./watch-order?s=薫る花は凛と咲く"
                     },
@@ -166,6 +170,10 @@ let favorites = [
                         "link": "./watch-order?s=やがて君になる"
                     },
                     {
+                        "title": "Kamiina Botan, Yoeru Sugata wa Yuri no Hana",
+                        "link": "./watch-order?s=上伊那ぼたん、酔へる姿は百合の花"
+                    },
+                    {
                         "title": "citrus",
                         "link": "./watch-order?s=citrus"
                     }
@@ -244,6 +252,11 @@ let favorites = [
                         "title": "Kuronuma Sawako",
                         "subTitle": "Kimi ni Todoke",
                         "link": "./waifu?s=黒沼爽子"
+                    },
+                    {
+                        "title": "Gujou Kanade",
+                        "subTitle": "Kamiina Botan, Yoeru Sugata wa Yuri no Hana",
+                        "link": "./waifu?s=郡上かなで"
                     },
                     {
                         "title": "Makise Kurisu",
