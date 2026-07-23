@@ -274,6 +274,11 @@ let favorites = [
                         "link": "./waifu?s=比屋定真帆"
                     },
                     {
+                        "title": "Miyoshi Aimi",
+                        "subTitle": "Kirio Fan Club",
+                        "link": "./waifu?s=三好藍美"
+                    },
+                    {
                         "title": "Ichijoin Lili",
                         "subTitle": "Prism Rondo",
                         "link": "./waifu?s=一条院りり"
